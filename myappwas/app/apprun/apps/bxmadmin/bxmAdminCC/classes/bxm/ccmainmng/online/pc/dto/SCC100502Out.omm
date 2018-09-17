@@ -1,0 +1,5 @@
+OMM bxm.ccmainmng.online.pc.dto.SCC100502Out
+<description="  ">
+{
+	String rsvl<length=20 description="결과값">;
+}

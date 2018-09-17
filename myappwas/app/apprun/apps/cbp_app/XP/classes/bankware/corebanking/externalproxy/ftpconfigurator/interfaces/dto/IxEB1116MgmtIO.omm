@@ -1,0 +1,14 @@
+OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.IxEB1116MgmtIO
+<description="">
+{
+	String instCd<length=14 description="Kor)다중 금융기관서비스를 위한 속성으로 동일 시스템을 사용하는 각 금융기관마다 부여된 코드 Eng)Code that distinguishes each financial entity when one system operates multi-entity">;
+	String txDt<length=8 description="Kor)거래가 발생한 영업일자">;
+	BigDecimal seqNbr<length=12 description="Kor)일련번호">;
+	String fnclInstCd<length=3 description="Kor)금융기관코드">;
+	String txNetStlmntDscd<length=1 description="Kor)거래차액구분코드">;
+	BigDecimal txNetStlmntAmt<length=18 decimal=2 description="Kor)거래차액결제금액">;
+	String fundsAdjstmntDscd<length=1 description="Kor)자금조정구분코드">;
+	BigDecimal fundsAdjstmntStlmntAmt<length=18 decimal=2 description="Kor)자금조정결제금액">;
+	String feeDscd<length=1 description="Kor)수수료구분코드">;
+	BigDecimal feeStlmntAmt<length=18 decimal=2 description="Kor)수수료결제금액">;
+}

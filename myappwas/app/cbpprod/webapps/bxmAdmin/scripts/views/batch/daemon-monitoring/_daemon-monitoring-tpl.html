@@ -1,0 +1,151 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'batch.batch-daemon-monitor'}}
+    <p class="desc">{{bxMsg 'batch.batch-daemon-monitor-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap daemon-monitoring-search">
+    <!--INPUT TYPE1 * 분할 없이 INLINE-->
+    <ul class="clr">
+        <li class="input-wrap w-30">
+            <label class="bw-label w-40">{{bxMsg 'batch.work-id'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="jobId"/>
+        </li>
+        <li class="input-wrap w-30">
+            <label class="bw-label w-50">{{bxMsg 'batch.work-nm'}}</label>
+            <input type="text" class="bw-input w-50" data-form-param="jobNm"/>
+        </li>
+    </ul>
+    <ul class="clr">
+        <li class="input-wrap w-30">
+            <label class="bw-label w-40">{{bxMsg 'batch.work-state'}}</label>
+            <select class="bw-input ipt-select w-60" data-form-param="jobStatusCd">
+                <option value="" selected>{{bxMsg 'common.all'}}</option>
+            </select>
+        </li>
+        <li class="input-wrap w-30">
+            <label class="bw-label w-50">{{bxMsg 'batch.execute-node-num'}}</label>
+            <select class="bw-input ipt-select w-50" data-form-param="execNodeNo">
+                <option value="" selected>{{bxMsg 'common.all'}}</option>
+            </select>
+        </li>
+    </ul>
+    <!--/END INPUT TYPE1-->
+</section>
+<!--/END SEARCH AREA-->
+<!--GRID AREA-->
+<section class="daemon-monitoring-grid"></section>
+<!--/END GRID AREA-->
+<!--BW-SUB TITLE * 컨텐츠 서브타이틀-->
+<h3 class="bw-stt add-mg-t">{{bxMsg 'batch.batch-daemon-monitor-detail'}}<p class="desc daemon-monitoring-detail-title"></p></h3>
+<!--/END BW-SUB TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn detail-refresh-btn" title="{{bxMsg 'common.refresh'}}"><i class="bw-icon i-25 i-func-refresh"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--INFO AREA * 상세 영역-->
+<section class="search-wrap clr daemon-monitoring-detail bx-loding-wrap">
+    <ul class="unit w-80 col-2 clr">
+        <li>
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.work-id'}}</label>
+                <input type="text" class="bw-input w-50" data-form-param="jobId" readonly />
+            </div>
+        </li>
+    </ul>
+    <ul class="unit w-80 col-2 clr">
+        <li>
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.execute-node-num'}}</label>
+                <input type="text" class="bw-input w-50" data-form-param="execNodeNo" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.execute-node-nm'}}</label>
+                <input type="text" class="bw-input w-50" data-form-param="execNodeNm" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.work-state'}}</label>
+                <span class="bw-input w-50 is-disabled" data-form-param="jobStatusCd"></span>
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.process-execute-count'}}</label>
+                <input type="text" class="bw-input w-50" data-form-param="procExecCnt" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.restart-count'}}
+                    <button type="button" class="reset-restart-btn"><i class="bw-icon i-20 i-func-reset" title="{{bxMsg 'batch.reset-restart'}}"></i></button>
+                </label>
+                <input type="text" class="bw-input w-50" data-form-param="restartCnt" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.before-process-error-yn'}}</label>
+                <input type="text" class="bw-input w-l w-50" data-form-param="prevProcErrYn" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.job-start-date'}}</label>
+                <input type="text" class="bw-input w-l w-50" data-form-param="jobStartDttm" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.current-process-start-date'}}</label>
+                <input type="text" class="bw-input w-l w-50" data-form-param="currProcStartDttm" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.before-process-start-date'}}</label>
+                <input type="text" class="bw-input w-l w-50" data-form-param="prevProcStartDttm" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.before-process-end-date'}}</label>
+                <input type="text" class="bw-input w-l w-50" data-form-param="prevProcEndDttm" readonly />
+            </div>
+        </li>
+    </ul>
+    <!--STATUS IMAGE AREA-->
+    <div class="bw-status type-l unit w-20">
+        <div class="img-area a-center">
+            <i class="fa fa-cog batch-daemon-running-icon" style="color: #5563b2; font-size: 115px;"></i>
+        </div>
+        <div class="btn-wrap fix-center">
+            <button type="button" class="bw-btn btn-ctr control-daemon-btn" data-code="RESTART" title="{{bxMsg 'common.restart'}}" style="height: 55px;">
+                <i class="fa fa-eject fa-rotate-90"></i>
+            </button>
+            <button type="button" class="bw-btn btn-ctr control-daemon-btn" data-code="START" title="{{bxMsg 'common.start'}}" style="height: 55px;">
+                <i class="fa fa-play"></i>
+            </button>
+            <button type="button" class="bw-btn btn-ctr control-daemon-btn" data-code="STOP" title="{{bxMsg 'common.stop'}}" style="height: 55px;">
+                <i class="fa fa-stop"></i>
+            </button>
+        </div>
+    </div>
+    <!--/END STATUS IMAGE AREA-->
+</section>
+<!--/END MAIN CONTENTS-->

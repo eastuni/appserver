@@ -1,0 +1,7 @@
+OMM bxm.ccmainmng.online.pc.dto.PZF3000OutSub3
+<description="  ">
+{
+	String labl<length=20 description="label">;
+	Integer vl<length=7 description="value">;
+	String lnk<length=20 description="link">;
+}

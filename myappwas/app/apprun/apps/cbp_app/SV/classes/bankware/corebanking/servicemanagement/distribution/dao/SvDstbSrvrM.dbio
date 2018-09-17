@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.distribution.dao.SvDstbSrvrM">
+<!--Generated Thu Jul 26 15:55:00 KST 2018-->
+<select id="select" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbSrvrMIO">
+select 
+	b.DSTB_SRVR_ID as dstbSrvrId    /*배포서버식별자*/,
+	a.DSTB_ENVRNMNT_CD as dstbEnvrnmntCd    /*배포환경구분코드*/,
+	b.DSTB_SRVR_NM as dstbSrvrNm    /*배포서버명*/,
+	b.ACTV_STS_CD as actvStsCd    /*활동상태코드*/,
+	a.LAST_STEP_YN as lastStepYn    /*최종단계여부*/,
+	b.DSTB_TRGT_SRVR_URL as dstbTrgtSrvrUrl    /*배포대상서버URL*/,
+	b.LAST_CHNG_GUID as lastChngGuid    /*최종변경GUID*/,
+	b.LAST_CHNG_ID as lastChngId    /*최종변경식별자*/,
+	b.LAST_CHNG_TMSTMP as lastChngTmstmp    /*최종변경타임스탬프*/
+ from SV_DSTB_ENV_CD_M a inner join SV_DSTB_SRVR_M b
+          on a.DSTB_ENVRNMNT_CD = b.DSTB_ENVRNMNT_CD
+ where b.DSTB_SRVR_ID=#{dstbSrvrId}
+ and b.ACTV_STS_CD='01'
+</select>
+<select id="selectList" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbSrvrMIO" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbSrvrMIO">
+select 
+	b.DSTB_SRVR_ID as dstbSrvrId    /*배포서버식별자*/,
+	a.DSTB_ENVRNMNT_CD as dstbEnvrnmntCd    /*배포환경구분코드*/,
+	b.DSTB_SRVR_NM as dstbSrvrNm    /*배포서버명*/,
+	b.ACTV_STS_CD as actvStsCd    /*활동상태코드*/,
+	a.LAST_STEP_YN as lastStepYn    /*최종단계여부*/,
+	b.DSTB_TRGT_SRVR_URL as dstbTrgtSrvrUrl    /*배포대상서버URL*/,
+	b.LAST_CHNG_GUID as lastChngGuid    /*최종변경GUID*/,
+	b.LAST_CHNG_ID as lastChngId    /*최종변경식별자*/,
+	b.LAST_CHNG_TMSTMP as lastChngTmstmp    /*최종변경타임스탬프*/
+ from SV_DSTB_ENV_CD_M a inner join  SV_DSTB_SRVR_M b
+        on a.DSTB_ENVRNMNT_CD = b.DSTB_ENVRNMNT_CD
+ where 1=1
+ <if test="dstbSrvrId != null and dstbSrvrId != ''">
+   and b.DSTB_SRVR_ID = #{dstbSrvrId}
+</if>
+ <if test="dstbEnvrnmntCd != null and dstbEnvrnmntCd != ''">
+   and b.DSTB_ENVRNMNT_CD = #{dstbEnvrnmntCd}
+</if>
+ <if test="dstbSrvrNm != null and dstbSrvrNm != ''">
+     and b.DSTB_SRVR_NM  LIKE CONCAT(CONCAT('%', #{dstbSrvrNm}), '%')
+</if>
+ <if test="actvStsCd != null and actvStsCd != ''">
+   and b.ACTV_STS_CD = #{actvStsCd}
+</if>
+order by b.DSTB_SRVR_ID
+</select>
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbSrvrMIO">
+insert into SV_DSTB_SRVR_M
+(
+	DSTB_SRVR_ID    /*배포서버식별자*/,
+	DSTB_ENVRNMNT_CD    /*배포환경구분코드*/,
+	DSTB_SRVR_NM    /*배포서버명*/,
+	ACTV_STS_CD    /*활동상태코드*/,
+	DSTB_TRGT_SRVR_URL    /*배포대상서버URL*/,
+	LAST_CHNG_GUID    /*최종변경GUID*/,
+	LAST_CHNG_ID    /*최종변경식별자*/,
+	LAST_CHNG_TMSTMP    /*최종변경타임스탬프*/
+) values (
+	#{dstbSrvrId, jdbcType=VARCHAR}    /*배포서버식별자*/,
+	#{dstbEnvrnmntCd, jdbcType=VARCHAR}    /*배포환경구분코드*/,
+	#{dstbSrvrNm, jdbcType=VARCHAR}    /*배포서버명*/,
+	#{actvStsCd, jdbcType=VARCHAR}    /*활동상태코드*/,
+	#{dstbTrgtSrvrUrl, jdbcType=VARCHAR}    /*배포대상서버URL*/,
+	#{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/,
+	#{lastChngId, jdbcType=VARCHAR}    /*최종변경식별자*/,
+	#{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경타임스탬프*/
+)
+</insert>
+<update id="update" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbSrvrMIO">
+update SV_DSTB_SRVR_M
+set 
+	DSTB_ENVRNMNT_CD = #{dstbEnvrnmntCd, jdbcType=VARCHAR}    /*배포환경구분코드*/,
+	DSTB_SRVR_NM = #{dstbSrvrNm, jdbcType=VARCHAR}    /*배포서버명*/,
+	ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}    /*활동상태코드*/,
+	DSTB_TRGT_SRVR_URL = #{dstbTrgtSrvrUrl, jdbcType=VARCHAR}    /*배포대상서버URL*/,
+	LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/,
+	LAST_CHNG_ID = #{lastChngId, jdbcType=VARCHAR}    /*최종변경식별자*/,
+	LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경타임스탬프*/
+where DSTB_SRVR_ID = #{dstbSrvrId, jdbcType=VARCHAR}    /*배포서버식별자*/
+</update>
+<select id="selectMaxSrvrId" resultType="java.lang.String">
+select 
+LPAD( IFNULL(MAX(DSTB_SRVR_ID),'0') + 1, 3, '0') 
+from SV_DSTB_SRVR_M
+</select>
+<select id="selectMaxSrvrIdForOracle" resultType="java.lang.String">
+select 
+LPAD( NVL(MAX(DSTB_SRVR_ID),'0') + 1, 3, '0') 
+from SV_DSTB_SRVR_M
+</select>
+<delete id="delete" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbSrvrMIO">
+delete from SV_DSTB_SRVR_M
+where DSTB_SRVR_ID = #{dstbSrvrId, jdbcType=VARCHAR}    /*배포서버식별자*/
+</delete>
+<select id="selectSrvrCdList" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbSrvrMIO">
+SELECT /* 배포서버정보기본 */ 
+       DSTB_SRVR_ID   AS dstbSrvrId
+       , DSTB_SRVR_NM AS dstbSrvrNm
+FROM   SV_DSTB_SRVR_M
+</select>
+</mapper>

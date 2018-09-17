@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.asset.evaluation.dao.AsAprslRqstMXtn">
+<!--Generated Tue Mar 13 11:30:32 KST 2018-->
+<select id="selectByDebtorCustId" parameterType="bankware.corebanking.asset.evaluation.dao.dto.AprslRqstIO" resultType="bankware.corebanking.asset.evaluation.interfaces.dto.AprslRqstList">
+select  a.aprsl_rqst_id         as aprslRqstId
+	  , a.aprsl_rqst_cl_cd		  as aprslRqstClCd
+      , b.aprsl_rqst_seq_nbr    as aprslRqstSeqNbr
+      , a.aprsl_rqst_dt         as aprslRqstDt
+      , a.aprsl_rqst_sts_cd     as aprslRqstStsCd
+      , b.asset_knd_cd          as assetKndCd
+      , c.bsic_addr_cntnt || ' ' || c.dtl_addr_cntnt    as stutDongAddrCntnt
+      , a.debtor_cust_id        as debtorCustId
+      , b.ownr_cust_id          as ownrCustId
+  from  as_aprsl_rqst_m        a
+      , as_aprsl_rqst_d        b
+      , as_aprsl_rqst_addr_d   c
+ where  a.inst_cd = #{instCd}
+   and  a.debtor_cust_id = #{debtorCustId}
+   and  (a.aprsl_rqst_dt between #{inqryStartDt} and #{inqryEndDt} or a.aprsl_rqst_dt = '' or a.aprsl_rqst_dt is null)
+   and  a.inst_cd = b.inst_cd
+   and  a.aprsl_rqst_id = b.aprsl_rqst_id
+   and  b.inst_cd = c.inst_cd
+   and  b.aprsl_rqst_id = c.aprsl_rqst_id
+   and  b.aprsl_rqst_seq_nbr = c.aprsl_rqst_seq_nbr
+<if test="aprslRqstStsCd != null and aprslRqstStsCd !=''"> 
+   AND  a.aprsl_rqst_sts_cd = #{aprslRqstStsCd}
+</if>
+<if test="aprslRqstDeptId != null and aprslRqstDeptId !=''"> 
+   AND  a.aprsl_rqst_dept_id = #{aprslRqstDeptId}
+</if>
+</select>
+</mapper>

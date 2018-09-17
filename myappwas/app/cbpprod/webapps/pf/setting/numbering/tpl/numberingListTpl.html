@@ -1,0 +1,50 @@
+<!--채번규칙관리-->
+<div class="pf-panel">
+    <div class="pf-panel-header">
+        <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+        <!-- 채번규칙관리 -->
+        <!--<h2 class="pf-panel-title">{{bxMsg 'MENU06006'}}</h2>-->
+        <h2 class="pf-panel-title">{{bxMsg 'SCRN039'}}</h2>
+    </div>
+    <div class="pf-panel-body bx-info-table-wrap">
+        <div class="pf-numbering-list-form">
+            <table class="numbering-query-table bx-info-table">
+                <tr>
+                    <!-- 기관코드 -->
+                    <th>{{bxMsg 'tntInstId'}}</th>
+                    <td>
+                        <select data-form-param="tntInstId" class="bx-form-item bx-compoenent-small tntInstId">
+                            </select>
+                    </td>
+                    <!-- 구분코드 -->
+                    <th>{{bxMsg 'dscd'}}</th>
+                    <td>
+                        <select data-form-param="dscd" class="bx-form-item bx-compoenent-small dscd">
+                            </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="btn-box">
+                <!--초기화-->
+                <button type="button" class="bw-btn grid-reset-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString6'}}">
+                        <i class="bw-icon i-25 i-func-reset"></i>
+                    </button>
+                <!--조회-->
+                <button type="button" class="bw-btn numbering-list-inquiry-btn" icon-tooltip="{{bxMsg 'ButtonBottomString5'}}">
+                        <i class="bw-icon i-25 i-search"></i>
+                    </button>
+                <!--자리수관리-->
+                <button type="button" class="bw-btn numbering-add-btn write-btn" icon-tooltip="{{bxMsg 'totDigitCntMngr'}}">
+                        <i class="bw-icon i-25 i-number-set"></i>
+                    </button>
+            </div>
+        </div>
+        <div class="numbering-grid"></div>
+
+        <footer class="pf-panel-footer">
+            <button type="button" class="bw-btn numbering-save-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+                    <i class="bw-icon i-30 i-func-save"></i>
+                </button>
+        </footer>
+    </div>
+</div>

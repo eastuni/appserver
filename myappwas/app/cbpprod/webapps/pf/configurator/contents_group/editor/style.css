@@ -1,0 +1,18 @@
+.pf-info {
+	cursor: pointer;
+	border: dotted 1px;
+	border-radius: 3px;
+	padding: 2px;
+}
+
+.i-mng-template {
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	margin: 0 auto;
+	background-image: url('/images/bx-ui/icon-pf.png');
+	background-size: 500%;
+	background-position: 0 -378px;
+}

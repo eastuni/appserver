@@ -1,0 +1,353 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for project
+ * 개발과제 CSS
+ */
+/*액티비티정보탭 버튼처리*/
+.pf-pt-activity-info-tpl .bw-btn {
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-repeat: repeat-x;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    background: -webkit-linear-gradient(top, #FFF 0%, #F2F2F2 100%);
+}
+.pf-pt-activity-info-tpl .bw-btn:hover {
+    background: #eee; }
+.pf-pt-activity-info-tpl .bw-btn:focus {
+    outline: none;
+    /* removes the default orange border when focus */ }
+.pf-pt-activity-info-tpl .bw-btn:active {
+    -webkit-transform: scale(0.97, 0.97);
+    -moz-transform: scale(0.97, 0.97);
+    -ms-transform: scale(0.97, 0.97);
+    -o-transform: scale(0.97, 0.97);
+    transform: scale(0.97, 0.97); }
+
+/*페이징 버튼처리*/
+.pf-pt-task-mgmt-grid .bw-btn {
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-repeat: repeat-x;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    background: -webkit-linear-gradient(top, #FFF 0%, #F2F2F2 100%);
+}
+.pf-pt-task-mgmt-grid .bw-btn:hover {
+    background: #eee; }
+.pf-pt-task-mgmt-grid .bw-btn:focus {
+    outline: none;
+    /* removes the default orange border when focus */ }
+.pf-pt-task-mgmt-grid .bw-btn:active {
+    -webkit-transform: scale(0.97, 0.97);
+    -moz-transform: scale(0.97, 0.97);
+    -ms-transform: scale(0.97, 0.97);
+    -o-transform: scale(0.97, 0.97);
+    transform: scale(0.97, 0.97); }
+.pf-pt-activity-info-tpl button {
+    width: 120px;
+}
+.pf-pt-activity-info-tpl button {
+    width: 120px;
+}
+.pf-pt-activity-info-tpl button {
+    width: 120px;
+}
+
+
+.pf-pt .pf-page-conts {
+    margin: 10px auto; }
+.pf-pt th {
+    width: 100px;
+    text-align: left; }
+/*.pf-pt .ms-options-wrap button {*/
+    /*width: 325px;*/
+    /*font-size:12px;*/
+    /*font-weight:normal;*/
+    /*-webkit-appearance: menulist;*/
+/*}*/
+.pf-pt .ms-options-wrap .ms-options {
+    width: 325px; }
+.pf-pt .task-query-table td select {
+    width: 100%; }
+.pf-pt .task-query-table td .project-name, .pf-pt .task-query-table td .dvlp-task-tag {
+    width: 100%; }
+.pf-pt .task-query-table td .progress-status-checkbox {
+    width: inherit;
+    margin-right: 5px; }
+.pf-pt .task-query-table td .progress-status-label {
+    margin-right: 10px; }
+.pf-pt .task-query-table td .calendar {
+    width: 105.5px; }
+.pf-pt .task-query-table td .select-item {
+    padding: 0 0 0 3px;
+    width: 120px; }
+.pf-pt .task-query-table td .select-list {
+    width: 325px; }
+.pf-pt .task-query-table tr {
+    margin-bottom: 10px;
+    height: 35px; }
+.pf-pt .task-query-table .padding-th {
+    padding-left: 30px; }
+.pf-pt .task-query-table .dev-task-title {
+    width: 100%; }
+.pf-pt .task-query-button-box {
+    margin-top: 5px;
+    text-align: right; }
+.pf-pt .dev-task-idea-grid {
+    height: 200px; }
+.pf-pt .middle-grid {
+    height: 350px; }
+
+.pf-pt-dev-task-popup-tpl .panel {
+    border: none;
+    box-shadow: none; }
+
+.pf-pt-dev-task-detail-tpl {
+    margin-top: 10px; }
+.pf-pt-dev-task-detail-tpl .detail-task-info-table {
+    margin-bottom: 20px; }
+.pf-pt-dev-task-detail-tpl th {
+    width: 100px;
+    text-align: left; }
+.pf-pt-dev-task-detail-tpl .second-th {
+    padding-left: 10px; }
+.pf-pt-dev-task-detail-tpl td {
+    width: 285px;
+}
+.pf-pt-dev-task-detail-tpl td input, .pf-pt-dev-task-detail-tpl td select {
+    width: 250px !important;
+}
+/*태그 width 조절*/
+.pf-pt-dev-task-detail-tpl td input.dvlp-task-tag {
+    width:634px !important;
+}
+/*달력 크기 별도 조절*/
+.pf-pt-dev-task-detail-tpl td input.calendar {
+  width:119px !important;
+}
+.pf-pt-dev-task-detail-tpl td .btn-box {
+  margin-top : 10px;
+  width: 250px;
+  float: left; }
+.pf-pt-dev-task-detail-tpl .bx-info-table > tr > td textarea, .pf-pt-dev-task-detail-tpl .bx-info-table > tbody > tr > td textarea {
+  width: 634px;
+  height: 100px;
+  margin: 4px 0; }
+.pf-pt-dev-task-detail-tpl h3 {
+  margin: 10px 0 5px 0; }
+.pf-pt-dev-task-detail-tpl .grid-btn-box {
+  margin-top: 5px;
+  text-align: right; }
+.pf-pt-dev-task-detail-tpl .dev-proposal-register-table input.calendar {
+  width: 170px; }
+.pf-pt-dev-task-detail-tpl .panel {
+  border: none;
+  box-shadow: none; }
+.pf-pt-dev-task-detail-tpl .product-info-box {
+  margin-top: 10px; }
+/* 관련아이디어*/
+.pf-pt-dev-task-detail-tpl .very-small-grid {
+  margin-top: 30px;
+  width: 250px;
+}
+.pf-pt-product-info-tpl .target-obj-grid {
+  margin-top: 10px;
+  height: 500px;
+}
+.pf-pt-idea-list-popup .middle-grid {
+  margin-top: 10px;
+  height: 250px; }
+
+.pf-pt-activity-info-tpl {
+  margin-top: 10px; }
+.pf-pt-activity-info-tpl button {
+  width: 120px; }
+.pf-pt-activity-info-tpl button, .pf-pt-activity-info-tpl i {
+  margin-bottom: 5px;
+  color: #708090;
+  padding: 0 6px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 12px;
+}
+.pf-pt-activity-info-tpl button.isMandatory {
+  border: solid #52759B 2px;
+  vertical-align: middle; }
+.pf-pt-activity-info-tpl button.isSelected {
+  background: #DDDDDD; }
+.pf-pt-activity-info-tpl button.isSave {
+  color: #000000;
+  font-weight: bold; }
+.pf-pt-activity-info-tpl .activity-info-table {
+  margin-top: 10px; }
+.pf-pt-activity-info-tpl th {
+  width: 95px;
+  text-align: left; }
+.pf-pt-activity-info-tpl .second-th {
+  padding-left: 10px; }
+.pf-pt-activity-info-tpl td input, .pf-pt-activity-info-tpl td select {
+  width: 100% !important;
+  /*display:none;*/
+}
+.pf-pt-activity-info-tpl td .btn-box {
+  height: 100px;
+  float: left; }
+.pf-pt-activity-info-tpl .bx-info-table > tr > td textarea, .pf-pt-activity-info-tpl .bx-info-table > tbody > tr > td textarea {
+  width: 100%;
+  height: 100px;
+  margin: 4px 0; }
+
+/*.big-gird {*/
+/*height: 600px; }*/
+
+/*.small-grid {*/
+/*height: 200px; }*/
+
+.very-small-grid {
+    height: 100px; }
+
+.condition-detail-info-popup input {
+    width: 100%; }
+.condition-detail-info-popup .type-content {
+    margin-top: 10px;
+    height: 100px; }
+
+.condition-group-detail-info-popup .pf-dcg-info-form th {
+    width: 150px; }
+.condition-group-detail-info-popup .pf-dcg-info-form input {
+    width: 300px; }
+.condition-group-detail-info-popup .pf-dcg-cnd-grid {
+    height: 300px; }
+
+.product-template-detail-info-popup .pf-dp-info-form th {
+    width: 150px; }
+.product-template-detail-info-popup .pf-dp-info-form input {
+    width: 300px; }
+.product-template-detail-info-popup .pf-dp-condition-template-grid {
+    height: 260px; }
+
+
+/*Select options 커스토마이징*/
+.ms-options-wrap > button:focus, .ms-options-wrap > button {
+    padding: 1px 20px 5px 5px;
+    height:20px;
+    border-radius:0px;
+}
+
+/*탭간격조절*/
+.nav-tabs .pfui-tab-item-text {
+    margin-right:-1px;
+    width:140px;
+    cursor:pointer;
+    text-align: center;
+}
+
+/*탭간격조절*/
+.nav-tabs-over-six .pfui-tab-item-text {
+    margin-right:-1px;
+    width:120px;
+    cursor:pointer;
+    text-align: center;
+}
+
+.pf-pt-idea-list-popup input.calendar {
+    width:100px !important;
+}
+.pf-pt-idea-list-popup input {
+    width:215px !important;
+}
+
+.activity-info-table .attachment-list-grid{
+    height: 95px;
+}
+
+.activity-info-table .task-file {
+    float: right;
+    margin-bottom: 3px;
+}
+
+/*파일추가버튼 css*/
+.uploadfile-btn {
+    line-height: 24px;
+    display: inline-block;
+    height: 24px;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #bbbbbb;
+    width: 60px;
+    cursor: pointer;
+}
+
+/* 변경이력 그리드 트리  */
+.pd-info-change-grid .x-tree-node-text {
+    margin-top: 24%;
+}
+.pd-info-change-grid .x-tree-icon-parent {
+	width:0px;
+	background-image: none;
+}
+.pd-info-change-grid .x-tree-panel .x-grid-row .x-grid-cell-inner img {
+    float: left;
+    /* margin-top:13px; */
+    margin-top:8px;
+}
+
+/* .pd-info-change-grid .x-tree-elbow-end-plus,  */
+.pd-info-change-grid .x-tree-elbow-plus {
+    cursor: pointer !important;
+    height: 18px !important;
+  		width: 16px !important;
+  		margin-top: 10px;
+}
+  .pd-info-change-grid .x-tree-expander {
+	margin-left:0px;
+	/* background-image: url(images/tree/arrows.gif) !important; */
+}
+.pd-info-change-grid .x-tree-elbow-line, .pd-info-change-grid .x-tree-elbow-empty {
+	margin-left:17px;
+}
+
+.pd-info-change-grid .x-grid-td {
+    border-bottom-width: 1px !important;
+}
+.pd-info-change-grid .x-tree-icon-leaf {
+	background-image : none;
+}
+
+.pd-info-change-grid .x-grid-cell-inner {
+	padding:3px 6px 4px 6px !important;
+}
+
+.pd-info-change-grid .x-tree-icon, .x-tree-elbow-img, .x-tree-checkbox {
+	margin-top: 0px;
+  		margin-bottom: -10px;
+}
+
+.x-grid-row-alt .x-grid-td {
+    background-color: #fafafa;
+}
+.pd-info-change-grid .x-tree-icon-leaf {
+	display:none;
+}
+
+.pd-info-change-grid .x-grid-row-before-focused .x-grid-td {
+    border-bottom-style: dotted;
+    border-bottom-color: #464646;
+    border-bottom-width: 1px;
+}
+.pd-info-change-grid .x-grid-with-row-lines .x-grid-td {
+    border-bottom-width: 1px;
+}
+/* OHS 2017.09.08 추가 화살표 css 수정 */
+.fa-chevron-right {
+	font-family: FontAwesome !important;
+}

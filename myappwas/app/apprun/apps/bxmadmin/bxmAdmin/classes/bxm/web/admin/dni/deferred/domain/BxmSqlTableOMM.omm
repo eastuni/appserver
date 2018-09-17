@@ -1,0 +1,6 @@
+OMM bxm.web.admin.dni.deferred.domain.BxmSqlTableOMM
+<description="">
+{
+	String tableNm<length=20 description="테이블명">;
+	String columnNm<length=20 description="컬럼명">;
+}

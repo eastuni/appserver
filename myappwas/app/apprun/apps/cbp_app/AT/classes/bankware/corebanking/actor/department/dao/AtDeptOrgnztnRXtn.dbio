@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.actor.department.dao.AtDeptOrgnztnRXtn">
+<!--Generated Thu Jul 13 11:14:52 KST 2017-->
+<select id="selectForStaffList" resultType="bankware.corebanking.actor.department.dao.dto.AtDeptMXtnIO">
+SELECT dept_id AS deptId 
+
+  FROM at_dept_orgnztn_r 
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND dept_id = #{deptId,jdbcType=VARCHAR}
+
+   AND up_dept_id = #{upDeptId,jdbcType=VARCHAR}
+
+   AND dtog_rel_cd = #{deptOrgnztnRelCd,jdbcType=VARCHAR}
+
+   AND rel_start_dt &lt;= #{relStartDt,jdbcType=VARCHAR}
+
+   AND rel_end_dt &gt;= #{relEndDt,jdbcType=VARCHAR}
+
+   AND dtog_rel_sts_cd = #{deptOrgnztnRelStsCd,jdbcType=VARCHAR}
+</select>
+</mapper>

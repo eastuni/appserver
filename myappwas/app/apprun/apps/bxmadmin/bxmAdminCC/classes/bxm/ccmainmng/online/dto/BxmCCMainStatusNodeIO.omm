@@ -1,0 +1,12 @@
+OMM bxm.ccmainmng.online.dto.BxmCCMainStatusNodeIO
+<description="">
+{
+	String domainId<length=14 description="도메인ID">;
+	String ccId<length=9 description="센터컷ID">;
+	String pcsnDt<length=8 description="처리일자">;
+	Integer acptNo<length=3 description="접수번호">;
+	Integer tnNo<length=2 description="회차번호">;
+	Integer nodeNo<length=3 description="노드번호">;
+	String nodeType<length=1 description="노드타입">;
+	Integer nodePrcsCnt<length=3 description="노드프로세스수">;
+}

@@ -1,0 +1,9 @@
+OMM bankware.corebanking.loan.financialtransaction.batch.dto.RvlvngLnPrncplAmStlmntCcutTrgtIO
+<description="회전대출 원가결산 센터컷 대상 IO">
+{
+	String arrId<length=40 description="계약식별자">;
+	String baseDt<length=8 description="기준일자">;
+	String cntrCtTrgtYn<length=1 description="센터컷대상여부">;
+	BigDecimal plnSeqNbr<length=7 description="계획일련번호">;
+	String rmkCntnt<length=200 description="비고 ">;
+}

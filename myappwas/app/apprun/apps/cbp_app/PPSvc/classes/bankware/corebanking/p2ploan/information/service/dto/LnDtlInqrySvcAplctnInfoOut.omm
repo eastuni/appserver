@@ -1,0 +1,33 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.LnDtlInqrySvcAplctnInfoOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String aplctnDt<length=10 description="신청년월일">;
+	String aplctnNbr<length=10 description="신청번호">;
+	BigDecimal lnAplctnAmt<length=10 decimal=4 description="대출신청금액">;
+	BigDecimal lnAplctnIntRt<length=10 decimal=4 description="대출신청금리">;
+	String lnPurposeCd<length=10 description="대출목적코드">;
+	String lnPurposeNm<length=40 description="대출목적명">;
+	String lnRsnCntnt<length=100 description="대출사유내용">;
+	String lonAplctnTrmCnt<length=10 description="대출신청기간">;
+	BigDecimal lnAplctnFeeRt<length=10 decimal=4 description="대출신청수수료비율">;
+	BigDecimal lnAplctnFeeAmt<length=10 decimal=4 description="대출신청수수료">;
+	BigDecimal lnDesiredMaxAmt<length=10 decimal=4 description="대출희망최대금액">;
+	String prtlBidAcceptYn<length=10 description="부분낙찰수용여부">;
+	String desiredAmtExcsBidAcceptYn<length=10 description="희망금액초과낙찰수용여부">;
+	String biddingMthdCdVal<length=10 description="경매방식">;
+	String biddingMthdCd<length=2 description="경매방식 코드">;
+	String rpymntMthdCd<length=10 description="상환방식코드">;
+	String rpymntWayNm<length=15 description="상환방법">;
+	String aprvDt<length=8 description="승인일자">;
+	String efctvEndDt<length=8 description="승인유효일">;
+	BigDecimal aprvlAmt<length=10 decimal=4 description="승인금액">;
+	BigDecimal aprvlAplctnIntRt<length=10 decimal=4 description="승인신청이율">;
+	String undrExmntnRsltCd<length=2 description="심사결과코드">;
+	String exmntnCmntCntnt<length=1000 description="심사의견">;
+	String p2pInvstmntRatingCd<length=2 description="투자등급">;
+	String p2pInvstmntRatingNm<length=40 description="투자등급명">;
+	String lnDocExmntnYn<length=1 description="대출서류심사여부">;
+	String authExmntnYn<length=1 description="증빙서류심사여부">;
+	String arrStsChngDt<length=8 description="계약상태변경일">;
+	String crncyCd<length=3 description="통화코드">;
+}

@@ -1,0 +1,18 @@
+OMM bxm.web.admin.batch.domain.BatchDaemonMonOMM
+<description="BatchDaemonMonOMM">
+{
+	String jobId<length=100 description="배치작업ID">;
+	Integer execNodeNo<length=2 description="실행노드번호">;
+	String jobStatusCd<length=12 description="배치작업상태코드">;
+	String jobCtrlCd<length=12 description="배치작업제어코드">;
+	Integer restartCnt<length=2 description="재기동 수">;
+	String currProcStartDttm<length=14 description="현재처리시작일시">;
+	BigDecimal procExecCnt<length=18 description="처리실행수">;
+	String execNodeNm<length=128 description="실행노드명">;
+	String execPid<length=42 description="실행PID">;
+	String prevProcStartDttm<length=14 description="직전처리시작일시">;
+	String prevProcEndDttm<length=14 description="직전처리종료일시">;
+	String prevProcErrYn<length=1 description="직전처리에러여부">;
+	String jobStartDttm<length=14 description="배치작업기동일시">;
+	String domainId<length=14 description="도메인 ID">;
+}

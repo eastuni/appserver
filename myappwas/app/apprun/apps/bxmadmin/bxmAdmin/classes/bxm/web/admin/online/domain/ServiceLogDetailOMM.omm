@@ -1,0 +1,11 @@
+OMM bxm.web.admin.online.domain.ServiceLogDetailOMM
+<description="">
+{
+	String guid<length=40 description="GUID">;
+	Integer linkSeq<length=3 description="연동일련번호">;
+	Integer logSeq<length=9 description="로그일련번호">;
+	String logLvNm<length=10 description="로그레벨명">;
+	String logOccurDttm<length=23 description="로그 발생 일시">;
+	BLOB logData<length=4000 description="로그데이터">;
+	String logMessage<length=20 description="로그 메세지">;
+}

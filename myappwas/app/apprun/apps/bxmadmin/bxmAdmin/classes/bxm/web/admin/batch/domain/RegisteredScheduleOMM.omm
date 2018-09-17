@@ -1,0 +1,8 @@
+OMM bxm.web.admin.batch.domain.RegisteredScheduleOMM
+<description="">
+{
+	String sysId<length=100 description="시스템ID">;
+	String scheduleId<length=100 description="스케줄ID">;
+	String scheduleNm<length=200 description="스케줄명">;
+	String scheduleGrpId<length=100 description="스케줄그룹ID">;
+}

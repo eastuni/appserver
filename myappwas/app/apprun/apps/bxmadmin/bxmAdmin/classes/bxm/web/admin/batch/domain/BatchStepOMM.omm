@@ -1,0 +1,25 @@
+OMM bxm.web.admin.batch.domain.BatchStepOMM
+<description="BatchStepOMM">
+{
+	BigDecimal stepExecutionId<length=19 description="배치스텝 아이디">;
+	BigDecimal version<length=19 description="배치스텝 실행버전">;
+	String stepName<length=100 description="배치스텝 이름">;
+	BigDecimal jobExecutionId<length=19 description="배치작업 아이디">;
+	String startTime<length=30 description="배치스텝 시작시각">;
+	String endTime<length=30 description="배치스텝 종료시각">;
+	String status<length=10 description="배치스텝 상태">;
+	BigDecimal commitCount<length=19 description="배치스텝 커밋카운트">;
+	BigDecimal readCount<length=19 description="배치스텝 READ 카운트">;
+	BigDecimal filterCount<length=19 description="배치스텝 FILTER 카운트">;
+	BigDecimal writeCount<length=19 description="배치스텝 WRITE 카운트">;
+	BigDecimal readSkipCount<length=19 description="배치스텝 READSKIP 카운트">;
+	BigDecimal writeSkipCount<length=19 description="배치스텝 WRITESKIP 카운트">;
+	BigDecimal processSkipCount<length=19 description="배치스텝 PROCESSSKIP 카운트">;
+	BigDecimal rollbackCount<length=19 description="배치스텝 ROLLBACK 카운트">;
+	String exitCode<length=100 description="배치스텝 종료 구분">;
+	String exitMessage<length=2500 description="배치스텝 종료 메시지">;
+	String lastUpdated<length=30 description="배치스텝 상태 업테이트 시각">;
+	String elapsedTime<length=20 description="배치스텝 수행시간">;
+	BigDecimal cpuUseTime<length=15 description="CPU사용시간">;
+	String domainId<length=20 description="도메인ID">;
+}

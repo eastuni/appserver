@@ -1,0 +1,1048 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.arrangement.arrangement.dao.ArArrMByCustXtn">
+<!--Generated Tue Jan 16 11:28:49 KST 2018-->
+<select id="selectInitOrAppliedArrByPdCdOnPeriod" parameterType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMByCustIO" resultType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMIO">
+SELECT
+	a.INST_CD AS instCd,     /*기관코드*/
+	a.ARR_ID AS arrId,     /*계약식별자*/
+	a.BIZ_DSCD AS bizDscd,     /*업무코드*/
+	a.PD_TP_CD AS pdTpCd,     /*상품유형코드*/
+	a.PD_TMPLT_CD AS pdTmpltCd,     /*상품템플릿코드*/
+	a.PD_CD AS pdCd,     /*상품코드*/
+	a.ARR_KND_CD AS arrKndCd,     /*계약종류코드*/
+	a.ARR_STS_CD AS arrStsCd,     /*계약상태코드*/
+	a.ARR_STS_DT AS arrStsDt,     /*계약상태년월일*/
+	a.ARR_STS_HMS AS arrStsHms,     /*계약상태시각*/
+	a.ARR_STS_CHNG_RSN_CD AS arrStsChngRsnCd,     /*계약상태변경사유코드*/
+	a.ARR_OPN_DT AS arrOpnDt,     /*계약개설년월일*/
+	a.ARR_OPN_HMS AS arrOpnHms,     /*계약개설시각*/
+	a.ARR_LAST_AGRMNT_HMS AS arrLastAgrmntHms,     /*계약최종약정시각*/
+	a.ARR_LAST_AGRMNT_DT AS arrLastAgrmntDt,     /*계약최종약정년월일*/
+	a.ARR_MTRTY_DT AS arrMtrtyDt,     /*계약만기년월일*/
+	a.ARR_AGRMNT_CHNL_DSCD AS arrAgrmntChnlDscd,     /*계약약정채널구분코드*/
+	a.ACCT_NBR_DSTP_CD AS acctNbrDstpCd,     /*계좌번호식별유형코드*/
+	a.ACCT_NBR AS acctNbr,     /*계좌번호*/
+	a.NTH_NBR AS nthNbr,     /*회차번호*/
+	a.CRNCY_CD AS crncyCd,     /*통화코드*/
+	a.MTHR_ARR_ID AS mthrArrId,     /*모계약식별자*/
+	a.VRTN_SRC_ARR_ID AS vrtnSrcArrId,     /*변형원계약식별자*/
+	a.MAIN_ARR_CUST_ID AS mainArrCustId,     /*주계약고객식별자*/
+	a.ACCTG_DEPT_ID AS acctgDeptId,     /*회계부서식별자*/
+	a.ARR_XTN_ATRBT_VAL_JSON AS arrXtnAtrbtValJson,     /*계약확장속성값제이슨*/
+	a.ARR_XTN_ATRBT_VAL_JSON2 AS arrXtnAtrbtValJson2,     /*계약확장속성값제이슨2*/
+	a.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+	a.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+FROM (
+
+	SELECT 
+ 		a.INST_CD,
+        a.ARR_ID,
+        a.BIZ_DSCD,
+        a.PD_TP_CD,
+        a.PD_TMPLT_CD,
+        a.PD_CD,
+        a.ARR_KND_CD,
+        a.ARR_STS_CD,
+        a.ARR_STS_DT,
+        a.ARR_STS_HMS,
+        a.ARR_STS_CHNG_RSN_CD,
+        a.ARR_OPN_DT,
+        a.ARR_OPN_HMS,
+        a.ARR_LAST_AGRMNT_HMS,
+        a.ARR_LAST_AGRMNT_DT,
+        a.ARR_MTRTY_DT,
+        a.ARR_AGRMNT_CHNL_DSCD,
+        a.ACCT_NBR_DSTP_CD,
+        a.ACCT_NBR,
+        a.NTH_NBR,
+        a.CRNCY_CD,
+        a.MTHR_ARR_ID,
+        a.VRTN_SRC_ARR_ID,
+        a.MAIN_ARR_CUST_ID,
+        a.ACCTG_DEPT_ID,
+        a.ARR_XTN_ATRBT_VAL_JSON,
+        a.ARR_XTN_ATRBT_VAL_JSON2,
+        a.LAST_CHNG_TMSTMP,
+        a.LAST_CHNG_GUID      	
+	from  ar_arr_m a,ar_arr_cust_r b,ar_arr_sts_h c 
+	where a.INST_CD = b.INST_CD
+	  and a.ARR_ID = b.ARR_ID
+	  and b.INST_CD = c.INST_CD
+	  and b.ARR_ID = c.ARR_ID
+	  and c.ARR_STS_CD in ('I','L')   
+	  and c.cncl_yn = 'N'
+	  and b.INST_CD = #{instCd}
+	  and b.CUST_ID =  #{custId}
+	  and b.ARR_CUST_REL_CD in ( #{arrCustRelCd, jdbcType=VARCHAR}, #{indvBizRelCd, jdbcType=VARCHAR} )
+	  and b.ARR_CUST_REL_STS_CD in ('1','2')
+	<if test="qryStartDt != null and qryStartDt != '' ">
+	  and c.STS_START_DT &gt;= #{qryStartDt}
+	</if>
+	<if test="qryEndDt != null and qryEndDt != '' ">
+	  and c.STS_START_DT &lt;= #{qryEndDt}
+	</if>
+	<if test="bizDscd != null and bizDscd != '' ">
+	  AND a.biz_dscd = #{bizDscd}
+	</if>
+	<if test="pdTpCd != null and pdTpCd != '' ">
+	  AND a.pd_tp_cd = #{pdTpCd}
+	</if>
+	<if test="pdTmpltCd != null and pdTmpltCd != '' ">
+	  AND a.pd_tmplt_cd = #{pdTmpltCd}
+	</if>
+	<if test="pdCd != null and pdCd != '' ">
+	  and a.PD_CD = #{pdCd}
+	</if>
+) a
+ GROUP BY a.INST_CD, 
+        a.ARR_ID, 
+        a.BIZ_DSCD,
+        a.PD_TP_CD,
+        a.PD_TMPLT_CD,
+        a.PD_CD,
+        a.ARR_KND_CD,
+        a.ARR_STS_CD,
+        a.ARR_STS_DT,
+        a.ARR_STS_HMS,
+        a.ARR_STS_CHNG_RSN_CD,
+        a.ARR_OPN_DT,
+        a.ARR_OPN_HMS,
+        a.ARR_LAST_AGRMNT_HMS,
+        a.ARR_LAST_AGRMNT_DT,
+        a.ARR_MTRTY_DT,
+        a.ARR_AGRMNT_CHNL_DSCD,
+        a.ACCT_NBR_DSTP_CD,
+        a.ACCT_NBR,
+        a.NTH_NBR,
+        a.CRNCY_CD,
+        a.MTHR_ARR_ID,
+        a.VRTN_SRC_ARR_ID,
+        a.MAIN_ARR_CUST_ID,
+        a.ACCTG_DEPT_ID,
+        a.ARR_XTN_ATRBT_VAL_JSON,
+        a.ARR_XTN_ATRBT_VAL_JSON2,
+        a.LAST_CHNG_TMSTMP,
+        a.LAST_CHNG_GUID
+</select>
+<select id="selectListByArrStsOnArrStsChngPeriod" parameterType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMByCustIO" resultType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMIO">
+SELECT
+        a.INST_CD AS instCd,     /*기관코드*/
+        a.ARR_ID AS arrId,     /*계약식별자*/
+        a.BIZ_DSCD AS bizDscd,     /*업무코드*/
+        a.PD_TP_CD AS pdTpCd,     /*상품유형코드*/
+        a.PD_TMPLT_CD AS pdTmpltCd,     /*상품템플릿코드*/
+        a.PD_CD AS pdCd,     /*상품코드*/
+        a.ARR_KND_CD AS arrKndCd,     /*계약종류코드*/
+        a.ARR_STS_CD AS arrStsCd,     /*계약상태코드*/
+        a.ARR_STS_DT AS arrStsDt,     /*계약상태년월일*/
+        a.ARR_STS_HMS AS arrStsHms,     /*계약상태시각*/
+        a.ARR_STS_CHNG_RSN_CD AS arrStsChngRsnCd,     /*계약상태변경사유코드*/
+        a.ARR_OPN_DT AS arrOpnDt,     /*계약개설년월일*/
+        a.ARR_OPN_HMS AS arrOpnHms,     /*계약개설시각*/
+        a.ARR_LAST_AGRMNT_HMS AS arrLastAgrmntHms,     /*계약최종약정시각*/
+        a.ARR_LAST_AGRMNT_DT AS arrLastAgrmntDt,     /*계약최종약정년월일*/
+        a.ARR_MTRTY_DT AS arrMtrtyDt,     /*계약만기년월일*/
+        a.ARR_AGRMNT_CHNL_DSCD AS arrAgrmntChnlDscd,     /*계약약정채널구분코드*/
+        a.ACCT_NBR_DSTP_CD AS acctNbrDstpCd,     /*계좌번호식별유형코드*/
+        a.ACCT_NBR AS acctNbr,     /*계좌번호*/
+        a.NTH_NBR AS nthNbr,     /*회차번호*/
+        a.CRNCY_CD AS crncyCd,     /*통화코드*/
+        a.MTHR_ARR_ID AS mthrArrId,     /*모계약식별자*/
+        a.VRTN_SRC_ARR_ID AS vrtnSrcArrId,     /*변형원계약식별자*/
+        a.MAIN_ARR_CUST_ID AS mainArrCustId,     /*주계약고객식별자*/
+        a.ACCTG_DEPT_ID AS acctgDeptId,     /*회계부서식별자*/
+        a.ARR_XTN_ATRBT_VAL_JSON AS arrXtnAtrbtValJson,     /*계약확장속성값제이슨*/
+        a.ARR_XTN_ATRBT_VAL_JSON2 AS arrXtnAtrbtValJson2,     /*계약확장속성값제이슨2*/
+        a.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        a.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+from  ar_arr_m a
+join ar_arr_cust_r b
+  on a.ARR_ID = b.ARR_ID
+ and a.INST_CD = b.INST_CD
+<if test="currentArrStsCd != null and currentArrStsCd != '' ">
+ and a.ARR_STS_CD = #{currentArrStsCd}
+</if>
+ and a.ARR_STS_CD &lt;&gt; 'C' /*Calcnel*/
+<if test="bizDscd != null and bizDscd != '' ">
+  AND a.biz_dscd = #{bizDscd}
+</if>
+<if test="pdTpCd != null and pdTpCd != '' ">
+  AND  a.pd_tp_cd = #{pdTpCd}
+ </if>
+ <if test="pdTmpltCd != null and pdTmpltCd != '' ">
+  AND  a.pd_tmplt_cd = #{pdTmpltCd}
+ </if>
+ <if test="pdCd != null and pdCd != '' ">
+  AND  a.pd_cd = #{pdCd}
+ </if>
+ and b.INST_CD = #{instCd}
+ and b.CUST_ID =  #{custId}
+ and b.ARR_CUST_REL_CD =  #{arrCustRelCd}
+ and b.ARR_CUST_REL_STS_CD in ('1','2')
+ AND b.rel_end_dt  &gt;  #{qryStartDt}
+ AND b.rel_start_dt &lt;= #{qryEndDt}
+ JOIN ar_arr_sts_h d
+  ON a.INST_CD    = d.inst_cd
+ and a.arr_id     = d.arr_id
+ and d.arr_sts_CD = #{arrStsCd}
+ and d.cncl_yn = 'N'
+ and d.STS_START_DT BETWEEN #{qryStartDt} AND #{qryEndDt}
+ GROUP BY a.INST_CD, 
+        a.ARR_ID, 
+        a.BIZ_DSCD,
+        a.PD_TP_CD,
+        a.PD_TMPLT_CD,
+        a.PD_CD,
+        a.ARR_KND_CD,
+        a.ARR_STS_CD,
+        a.ARR_STS_DT,
+        a.ARR_STS_HMS,
+        a.ARR_STS_CHNG_RSN_CD,
+        a.ARR_OPN_DT,
+        a.ARR_OPN_HMS,
+        a.ARR_LAST_AGRMNT_HMS,
+        a.ARR_LAST_AGRMNT_DT,
+        a.ARR_MTRTY_DT,
+        a.ARR_AGRMNT_CHNL_DSCD,
+        a.ACCT_NBR_DSTP_CD,
+        a.ACCT_NBR,
+        a.NTH_NBR,
+        a.CRNCY_CD,
+        a.MTHR_ARR_ID,
+        a.VRTN_SRC_ARR_ID,
+        a.MAIN_ARR_CUST_ID,
+        a.ACCTG_DEPT_ID,
+        a.ARR_XTN_ATRBT_VAL_JSON,
+        a.ARR_XTN_ATRBT_VAL_JSON2,
+        a.LAST_CHNG_TMSTMP,
+        a.LAST_CHNG_GUID
+</select>
+<select id="selectListByArrStsList" parameterType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrCustRSelectListByArrStsListIO" resultType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMIO">
+SELECT
+	c.INST_CD AS instCd,     /*기관코드*/
+	c.ARR_ID AS arrId,     /*계약식별자*/
+	c.BIZ_DSCD AS bizDscd,     /*업무코드*/
+	c.PD_TP_CD AS pdTpCd,     /*상품유형코드*/
+	c.PD_TMPLT_CD AS pdTmpltCd,     /*상품템플릿코드*/
+	c.PD_CD AS pdCd,     /*상품코드*/
+	c.ARR_KND_CD AS arrKndCd,     /*계약종류코드*/
+	c.ARR_STS_CD AS arrStsCd,     /*계약상태코드*/
+	c.ARR_STS_DT AS arrStsDt,     /*계약상태년월일*/
+	c.ARR_STS_HMS AS arrStsHms,     /*계약상태시각*/
+	c.ARR_STS_CHNG_RSN_CD AS arrStsChngRsnCd,     /*계약상태변경사유코드*/
+	c.ARR_OPN_DT AS arrOpnDt,     /*계약개설년월일*/
+	c.ARR_OPN_HMS AS arrOpnHms,     /*계약개설시각*/
+	c.ARR_LAST_AGRMNT_HMS AS arrLastAgrmntHms,     /*계약최종약정시각*/
+	c.ARR_LAST_AGRMNT_DT AS arrLastAgrmntDt,     /*계약최종약정년월일*/
+	c.ARR_MTRTY_DT AS arrMtrtyDt,     /*계약만기년월일*/
+	c.ARR_AGRMNT_CHNL_DSCD AS arrAgrmntChnlDscd,     /*계약약정채널구분코드*/
+	c.ACCT_NBR_DSTP_CD AS acctNbrDstpCd,     /*계좌번호식별유형코드*/
+	c.ACCT_NBR AS acctNbr,     /*계좌번호*/
+	c.NTH_NBR AS nthNbr,     /*회차번호*/
+	c.CRNCY_CD AS crncyCd,     /*통화코드*/
+	c.MTHR_ARR_ID AS mthrArrId,     /*모계약식별자*/
+	c.VRTN_SRC_ARR_ID AS vrtnSrcArrId,     /*변형원계약식별자*/
+	c.MAIN_ARR_CUST_ID AS mainArrCustId,     /*주계약고객식별자*/
+	c.ACCTG_DEPT_ID AS acctgDeptId,     /*회계부서식별자*/
+	c.ARR_XTN_ATRBT_VAL_JSON AS arrXtnAtrbtValJson,     /*계약확장속성값제이슨*/
+	c.ARR_XTN_ATRBT_VAL_JSON2 AS arrXtnAtrbtValJson2,     /*계약확장속성값제이슨2*/
+	c.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+	c.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+FROM (
+	SELECT 
+ 		c.INST_CD,
+        c.ARR_ID,
+        c.BIZ_DSCD,
+        c.PD_TP_CD,
+        c.PD_TMPLT_CD,
+        c.PD_CD,
+        c.ARR_KND_CD,
+        c.ARR_STS_CD,
+        c.ARR_STS_DT,
+        c.ARR_STS_HMS,
+        c.ARR_STS_CHNG_RSN_CD,
+        c.ARR_OPN_DT,
+        c.ARR_OPN_HMS,
+        c.ARR_LAST_AGRMNT_HMS,
+        c.ARR_LAST_AGRMNT_DT,
+        c.ARR_MTRTY_DT,
+        c.ARR_AGRMNT_CHNL_DSCD,
+        c.ACCT_NBR_DSTP_CD,
+        c.ACCT_NBR,
+        c.NTH_NBR,
+        c.CRNCY_CD,
+        c.MTHR_ARR_ID,
+        c.VRTN_SRC_ARR_ID,
+        c.MAIN_ARR_CUST_ID,
+        c.ACCTG_DEPT_ID,
+        c.ARR_XTN_ATRBT_VAL_JSON,
+        c.ARR_XTN_ATRBT_VAL_JSON2,
+        c.LAST_CHNG_TMSTMP,
+        c.LAST_CHNG_GUID      	
+	from  ar_arr_cust_r b, ar_arr_m c
+	where b.INST_CD = c.INST_CD
+	  and b.ARR_ID = c.ARR_ID
+	  and b.INST_CD = #{instCd}
+	  and b.CUST_ID =  #{custId}
+	  and c.ARR_STS_CD in (#{arrStsCd1, jdbcType=VARCHAR},#{arrStsCd2, jdbcType=VARCHAR},
+	  #{arrStsCd3, jdbcType=VARCHAR},#{arrStsCd4, jdbcType=VARCHAR},#{arrStsCd5, jdbcType=VARCHAR},
+	  #{arrStsCd6, jdbcType=VARCHAR},#{arrStsCd7, jdbcType=VARCHAR},#{arrStsCd8, jdbcType=VARCHAR},
+	  #{arrStsCd9, jdbcType=VARCHAR},#{arrStsCd10,jdbcType=VARCHAR},#{arrStsCd11,jdbcType=VARCHAR},
+	  #{arrStsCd12, jdbcType=VARCHAR},#{arrStsCd13, jdbcType=VARCHAR},#{arrStsCd14, jdbcType=VARCHAR},
+	  #{arrStsCd15, jdbcType=VARCHAR})
+	  and b.ARR_CUST_REL_STS_CD in ('1','2')
+	  and b.REL_START_DT &lt;= #{baseDt}
+	  and b.REL_END_DT  &gt; #{baseDt}
+	<if test="arrCustRelCd != null and arrCustRelCd != '' ">
+	  and b.ARR_CUST_REL_CD in ( #{arrCustRelCd}, #{indvBizRelCd, jdbcType=VARCHAR} )
+	</if>
+	<if test="bizDscd != null and bizDscd != '' ">
+	  AND c.biz_dscd = #{bizDscd}
+	 </if>
+	<if test="pdTpCd != null and pdTpCd != '' ">
+	  AND  c.pd_tp_cd = #{pdTpCd}
+	 </if>
+	 <if test="pdTmpltCd != null and pdTmpltCd != '' ">
+	  AND  c.pd_tmplt_cd = #{pdTmpltCd}
+	 </if>
+	 <if test="pdCd != null and pdCd != '' ">
+	  AND  c.pd_cd = #{pdCd}
+	 </if>
+	 <if test="arrStsChngRsnCd != null and arrStsChngRsnCd != '' ">
+	  AND  c.arr_sts_chng_rsn_cd = #{arrStsChngRsnCd}
+	 </if> 
+<if test="vrtnArrYn != null and vrtnArrYn == 'Y'">
+
+  union
+	SELECT 
+ 		c.INST_CD,
+        c.ARR_ID,
+        c.BIZ_DSCD,
+        c.PD_TP_CD,
+        c.PD_TMPLT_CD,
+        c.PD_CD,
+        c.ARR_KND_CD,
+        c.ARR_STS_CD,
+        c.ARR_STS_DT,
+        c.ARR_STS_HMS,
+        c.ARR_STS_CHNG_RSN_CD,
+        c.ARR_OPN_DT,
+        c.ARR_OPN_HMS,
+        c.ARR_LAST_AGRMNT_HMS,
+        c.ARR_LAST_AGRMNT_DT,
+        c.ARR_MTRTY_DT,
+        c.ARR_AGRMNT_CHNL_DSCD,
+        c.ACCT_NBR_DSTP_CD,
+        c.ACCT_NBR,
+        c.NTH_NBR,
+        c.CRNCY_CD,
+        c.MTHR_ARR_ID,
+        c.VRTN_SRC_ARR_ID,
+        c.MAIN_ARR_CUST_ID,
+        c.ACCTG_DEPT_ID,
+        c.ARR_XTN_ATRBT_VAL_JSON,
+        c.ARR_XTN_ATRBT_VAL_JSON2,
+        c.LAST_CHNG_TMSTMP,
+        c.LAST_CHNG_GUID      	
+	from  ar_arr_cust_r b, ar_arr_m c
+	where b.INST_CD = c.INST_CD
+	  and b.ARR_ID = c.ARR_ID
+	  and b.INST_CD = #{instCd}
+	  and b.CUST_ID =  #{custId}
+	  and c.ARR_STS_CD in (#{arrStsCd1},#{arrStsCd2},
+	  #{arrStsCd3},#{arrStsCd4},#{arrStsCd5},
+	  #{arrStsCd6},#{arrStsCd7},#{arrStsCd8},
+	  #{arrStsCd9},#{arrStsCd10},#{arrStsCd11},
+	  #{arrStsCd12},#{arrStsCd13},#{arrStsCd14},
+	  #{arrStsCd15})
+	  and b.ARR_CUST_REL_STS_CD in ('1','2')
+	  and b.REL_START_DT &lt;= #{baseDt}
+	  and b.REL_END_DT  &gt; #{baseDt}
+	<if test="arrCustRelCd != null and arrCustRelCd != '' ">
+	  and b.ARR_CUST_REL_CD in ( #{arrCustRelCd}, #{indvBizRelCd, jdbcType=VARCHAR} )
+	</if>
+	<if test="bizDscd != null and bizDscd != '' ">
+	  AND c.biz_dscd = #{bizDscd}
+	 </if>
+	<if test="pdTpCd != null and pdTpCd != '' ">
+	  AND  c.pd_tp_cd = #{pdTpCd}
+	 </if>
+	 <if test="pdTmpltCd != null and pdTmpltCd != '' ">
+	  AND  c.pd_tmplt_cd = #{pdTmpltCd}
+	 </if>
+	 <if test="pdCd != null and pdCd != '' ">
+	  AND  c.pd_cd = #{pdCd}
+	 </if>
+	 <if test="arrStsChngRsnCd != null and arrStsChngRsnCd != '' ">
+	  AND  c.arr_sts_chng_rsn_cd = #{arrStsChngRsnCd}
+	 </if> 
+</if>
+ ) c
+
+  GROUP BY c.INST_CD, 
+        c.ARR_ID, 
+        c.BIZ_DSCD,
+        c.PD_TP_CD,
+        c.PD_TMPLT_CD,
+        c.PD_CD,
+        c.ARR_KND_CD,
+        c.ARR_STS_CD,
+        c.ARR_STS_DT,
+        c.ARR_STS_HMS,
+        c.ARR_STS_CHNG_RSN_CD,
+        c.ARR_OPN_DT,
+        c.ARR_OPN_HMS,
+        c.ARR_LAST_AGRMNT_HMS,
+        c.ARR_LAST_AGRMNT_DT,
+        c.ARR_MTRTY_DT,
+        c.ARR_AGRMNT_CHNL_DSCD,
+        c.ACCT_NBR_DSTP_CD,
+        c.ACCT_NBR,
+        c.NTH_NBR,
+        c.CRNCY_CD,
+        c.MTHR_ARR_ID,
+        c.VRTN_SRC_ARR_ID,
+        c.MAIN_ARR_CUST_ID,
+        c.ACCTG_DEPT_ID,
+        c.ARR_XTN_ATRBT_VAL_JSON,
+        c.ARR_XTN_ATRBT_VAL_JSON2,
+        c.LAST_CHNG_TMSTMP,
+        c.LAST_CHNG_GUID
+</select>
+<select id="selectVrtnListBasedOnBasic" parameterType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMByCustIO" resultType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMIO">
+SELECT
+	c.INST_CD AS instCd,     /*기관코드*/
+	c.ARR_ID AS arrId,     /*계약식별자*/
+	c.BIZ_DSCD AS bizDscd,     /*업무코드*/
+	c.PD_TP_CD AS pdTpCd,     /*상품유형코드*/
+	c.PD_TMPLT_CD AS pdTmpltCd,     /*상품템플릿코드*/
+	c.PD_CD AS pdCd,     /*상품코드*/
+	c.ARR_KND_CD AS arrKndCd,     /*계약종류코드*/
+	c.ARR_STS_CD AS arrStsCd,     /*계약상태코드*/
+	c.ARR_STS_DT AS arrStsDt,     /*계약상태년월일*/
+	c.ARR_STS_HMS AS arrStsHms,     /*계약상태시각*/
+	c.ARR_STS_CHNG_RSN_CD AS arrStsChngRsnCd,     /*계약상태변경사유코드*/
+	c.ARR_OPN_DT AS arrOpnDt,     /*계약개설년월일*/
+	c.ARR_OPN_HMS AS arrOpnHms,     /*계약개설시각*/
+	c.ARR_LAST_AGRMNT_HMS AS arrLastAgrmntHms,     /*계약최종약정시각*/
+	c.ARR_LAST_AGRMNT_DT AS arrLastAgrmntDt,     /*계약최종약정년월일*/
+	c.ARR_MTRTY_DT AS arrMtrtyDt,     /*계약만기년월일*/
+	c.ARR_AGRMNT_CHNL_DSCD AS arrAgrmntChnlDscd,     /*계약약정채널구분코드*/
+	c.ACCT_NBR_DSTP_CD AS acctNbrDstpCd,     /*계좌번호식별유형코드*/
+	c.ACCT_NBR AS acctNbr,     /*계좌번호*/
+	c.NTH_NBR AS nthNbr,     /*회차번호*/
+	c.CRNCY_CD AS crncyCd,     /*통화코드*/
+	c.MTHR_ARR_ID AS mthrArrId,     /*모계약식별자*/
+	c.VRTN_SRC_ARR_ID AS vrtnSrcArrId,     /*변형원계약식별자*/
+	c.MAIN_ARR_CUST_ID AS mainArrCustId,     /*주계약고객식별자*/
+	c.ACCTG_DEPT_ID AS acctgDeptId,     /*회계부서식별자*/
+	c.ARR_XTN_ATRBT_VAL_JSON AS arrXtnAtrbtValJson,     /*계약확장속성값제이슨*/
+	c.ARR_XTN_ATRBT_VAL_JSON2 AS arrXtnAtrbtValJson2,     /*계약확장속성값제이슨2*/
+	c.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+	c.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+FROM (
+
+	SELECT 
+ 		c.INST_CD,
+        c.ARR_ID,
+        c.BIZ_DSCD,
+        c.PD_TP_CD,
+        c.PD_TMPLT_CD,
+        c.PD_CD,
+        c.ARR_KND_CD,
+        c.ARR_STS_CD,
+        c.ARR_STS_DT,
+        c.ARR_STS_HMS,
+        c.ARR_STS_CHNG_RSN_CD,
+        c.ARR_OPN_DT,
+        c.ARR_OPN_HMS,
+        c.ARR_LAST_AGRMNT_HMS,
+        c.ARR_LAST_AGRMNT_DT,
+        c.ARR_MTRTY_DT,
+        c.ARR_AGRMNT_CHNL_DSCD,
+        c.ACCT_NBR_DSTP_CD,
+        c.ACCT_NBR,
+        c.NTH_NBR,
+        c.CRNCY_CD,
+        c.MTHR_ARR_ID,
+        c.VRTN_SRC_ARR_ID,
+        c.MAIN_ARR_CUST_ID,
+        c.ACCTG_DEPT_ID,
+        c.ARR_XTN_ATRBT_VAL_JSON,
+        c.ARR_XTN_ATRBT_VAL_JSON2,
+        c.LAST_CHNG_TMSTMP,
+        c.LAST_CHNG_GUID      	
+	from  ar_arr_cust_r b, ar_arr_m a, ar_arr_m c
+	where b.INST_CD = a.INST_CD
+	  and b.ARR_ID = a.ARR_ID
+	  and a.INST_CD = c.INST_CD
+	  and a.arr_id = c.VRTN_SRC_ARR_ID
+	  and b.INST_CD = #{instCd}
+	  and b.CUST_ID =  #{custId}
+	<if test="arrStsCd != null and arrStsCd != '' ">
+	  and c.ARR_STS_CD = #{arrStsCd}
+	</if>
+	<if test="arrCustRelCd != null and arrCustRelCd != '' ">
+	  and b.ARR_CUST_REL_CD in ( #{arrCustRelCd}, #{indvBizRelCd, jdbcType=VARCHAR} )
+	</if>
+	  and b.ARR_CUST_REL_STS_CD in ('1','2')
+	  and b.REL_START_DT &lt;= #{baseDt}
+	  and b.REL_END_DT  &gt; #{baseDt}
+	<if test="bizDscd != null and bizDscd != '' ">
+	  AND c.biz_dscd = #{bizDscd}
+	 </if>
+	<if test="pdTpCd != null and pdTpCd != '' ">
+	  AND  c.pd_tp_cd = #{pdTpCd}
+	 </if>
+	 <if test="pdTmpltCd != null and pdTmpltCd != '' ">
+	  AND  c.pd_tmplt_cd = #{pdTmpltCd}
+	 </if>
+	 <if test="pdCd != null and pdCd != '' ">
+	  AND  c.pd_cd = #{pdCd}
+	 </if> 
+
+ ) c
+  GROUP BY c.INST_CD, 
+        c.ARR_ID, 
+        c.BIZ_DSCD,
+        c.PD_TP_CD,
+        c.PD_TMPLT_CD,
+        c.PD_CD,
+        c.ARR_KND_CD,
+        c.ARR_STS_CD,
+        c.ARR_STS_DT,
+        c.ARR_STS_HMS,
+        c.ARR_STS_CHNG_RSN_CD,
+        c.ARR_OPN_DT,
+        c.ARR_OPN_HMS,
+        c.ARR_LAST_AGRMNT_HMS,
+        c.ARR_LAST_AGRMNT_DT,
+        c.ARR_MTRTY_DT,
+        c.ARR_AGRMNT_CHNL_DSCD,
+        c.ACCT_NBR_DSTP_CD,
+        c.ACCT_NBR,
+        c.NTH_NBR,
+        c.CRNCY_CD,
+        c.MTHR_ARR_ID,
+        c.VRTN_SRC_ARR_ID,
+        c.MAIN_ARR_CUST_ID,
+        c.ACCTG_DEPT_ID,
+        c.ARR_XTN_ATRBT_VAL_JSON,
+        c.ARR_XTN_ATRBT_VAL_JSON2,
+        c.LAST_CHNG_TMSTMP,
+        c.LAST_CHNG_GUID
+</select>
+<select id="selectListArrBasicByMthrArr" parameterType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMByCustIO" resultType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMIO">
+SELECT
+        a.INST_CD AS instCd,     /*기관코드*/
+        a.ARR_ID AS arrId,     /*계약식별자*/
+        a.BIZ_DSCD AS bizDscd,     /*업무코드*/
+        a.PD_TP_CD AS pdTpCd,     /*상품유형코드*/
+        a.PD_TMPLT_CD AS pdTmpltCd,     /*상품템플릿코드*/
+        a.PD_CD AS pdCd,     /*상품코드*/
+        a.ARR_KND_CD AS arrKndCd,     /*계약종류코드*/
+        a.ARR_STS_CD AS arrStsCd,     /*계약상태코드*/
+        a.ARR_STS_DT AS arrStsDt,     /*계약상태년월일*/
+        a.ARR_STS_HMS AS arrStsHms,     /*계약상태시각*/
+        a.ARR_STS_CHNG_RSN_CD AS arrStsChngRsnCd,     /*계약상태변경사유코드*/
+        a.ARR_OPN_DT AS arrOpnDt,     /*계약개설년월일*/
+        a.ARR_OPN_HMS AS arrOpnHms,     /*계약개설시각*/
+        a.ARR_LAST_AGRMNT_HMS AS arrLastAgrmntHms,     /*계약최종약정시각*/
+        a.ARR_LAST_AGRMNT_DT AS arrLastAgrmntDt,     /*계약최종약정년월일*/
+        a.ARR_MTRTY_DT AS arrMtrtyDt,     /*계약만기년월일*/
+        a.ARR_AGRMNT_CHNL_DSCD AS arrAgrmntChnlDscd,     /*계약약정채널구분코드*/
+        a.ACCT_NBR_DSTP_CD AS acctNbrDstpCd,     /*계좌번호식별유형코드*/
+        a.ACCT_NBR AS acctNbr,     /*계좌번호*/
+        a.NTH_NBR AS nthNbr,     /*회차번호*/
+        a.CRNCY_CD AS crncyCd,     /*통화코드*/
+        a.MTHR_ARR_ID AS mthrArrId,     /*모계약식별자*/
+        a.VRTN_SRC_ARR_ID AS vrtnSrcArrId,     /*변형원계약식별자*/
+        a.MAIN_ARR_CUST_ID AS mainArrCustId,     /*주계약고객식별자*/
+        a.ACCTG_DEPT_ID AS acctgDeptId,     /*회계부서식별자*/
+        a.ARR_XTN_ATRBT_VAL_JSON AS arrXtnAtrbtValJson,     /*계약확장속성값제이슨*/
+        a.ARR_XTN_ATRBT_VAL_JSON2 AS arrXtnAtrbtValJson2,     /*계약확장속성값제이슨2*/
+        a.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        a.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+from  ar_arr_m a,ar_arr_cust_r b, ar_arr_m d
+where a.INST_CD = b.INST_CD
+  and a.ARR_ID  = b.ARR_ID
+  and a.INST_CD = d.INST_CD
+  and a.MTHR_ARR_ID = d.ARR_ID
+  and b.INST_CD = #{instCd}
+  and b.CUST_ID = #{custId}
+<if test="arrCustRelCd != null and arrCustRelCd != '' ">
+  and b.arr_cust_rel_cd = #{arrCustRelCd}
+</if>
+<if test="childArrStsCd != null and childArrStsCd != '' ">
+  and a.ARR_STS_CD = #{childArrStsCd}
+</if>
+<if test="mthrArrStsCd != null and mthrArrStsCd != '' ">
+  and d.ARR_STS_CD = #{mthrArrStsCd}
+</if>
+  and b.ARR_CUST_REL_STS_CD in ('1','2')
+  and b.REL_START_DT BETWEEN #{qryStartDt} AND #{qryEndDt}
+<if test="bizDscd != null and bizDscd != '' ">
+  AND a.biz_dscd = #{bizDscd}
+</if>
+<if test="pdTpCd != null and pdTpCd != '' ">
+  AND  a.pd_tp_cd = #{pdTpCd}
+ </if>
+ <if test="pdTmpltCd != null and pdTmpltCd != '' ">
+  AND  a.pd_tmplt_cd = #{pdTmpltCd}
+ </if>
+ <if test="pdCd != null and pdCd != '' ">
+  AND  a.pd_cd = #{pdCd}
+ </if>
+ GROUP BY a.INST_CD, 
+        a.ARR_ID, 
+        a.BIZ_DSCD,
+        a.PD_TP_CD,
+        a.PD_TMPLT_CD,
+        a.PD_CD,
+        a.ARR_KND_CD,
+        a.ARR_STS_CD,
+        a.ARR_STS_DT,
+        a.ARR_STS_HMS,
+        a.ARR_STS_CHNG_RSN_CD,
+        a.ARR_OPN_DT,
+        a.ARR_OPN_HMS,
+        a.ARR_LAST_AGRMNT_HMS,
+        a.ARR_LAST_AGRMNT_DT,
+        a.ARR_MTRTY_DT,
+        a.ARR_AGRMNT_CHNL_DSCD,
+        a.ACCT_NBR_DSTP_CD,
+        a.ACCT_NBR,
+        a.NTH_NBR,
+        a.CRNCY_CD,
+        a.MTHR_ARR_ID,
+        a.VRTN_SRC_ARR_ID,
+        a.MAIN_ARR_CUST_ID,
+        a.ACCTG_DEPT_ID,
+        a.ARR_XTN_ATRBT_VAL_JSON,
+        a.ARR_XTN_ATRBT_VAL_JSON2,
+        a.LAST_CHNG_TMSTMP,
+        a.LAST_CHNG_GUID
+</select>
+<select id="selectListArrBasicByExtrnlIdNbrTpCd" parameterType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMByCustIO" resultType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMIO">
+SELECT
+        t1.INST_CD AS instCd,     /*기관코드*/
+        t1.ARR_ID AS arrId,     /*계약식별자*/
+        t1.BIZ_DSCD AS bizDscd,     /*업무코드*/
+        t1.PD_TP_CD AS pdTpCd,     /*상품유형코드*/
+        t1.PD_TMPLT_CD AS pdTmpltCd,     /*상품템플릿코드*/
+        t1.PD_CD AS pdCd,     /*상품코드*/
+        t1.ARR_KND_CD AS arrKndCd,     /*계약종류코드*/
+        t1.ARR_STS_CD AS arrStsCd,     /*계약상태코드*/
+        t1.ARR_STS_DT AS arrStsDt,     /*계약상태년월일*/
+        t1.ARR_STS_HMS AS arrStsHms,     /*계약상태시각*/
+        t1.ARR_STS_CHNG_RSN_CD AS arrStsChngRsnCd,     /*계약상태변경사유코드*/
+        t1.ARR_OPN_DT AS arrOpnDt,     /*계약개설년월일*/
+        t1.ARR_OPN_HMS AS arrOpnHms,     /*계약개설시각*/
+        t1.ARR_LAST_AGRMNT_HMS AS arrLastAgrmntHms,     /*계약최종약정시각*/
+        t1.ARR_LAST_AGRMNT_DT AS arrLastAgrmntDt,     /*계약최종약정년월일*/
+        t1.ARR_MTRTY_DT AS arrMtrtyDt,     /*계약만기년월일*/
+        t1.ARR_AGRMNT_CHNL_DSCD AS arrAgrmntChnlDscd,     /*계약약정채널구분코드*/
+        t1.ACCT_NBR_DSTP_CD AS acctNbrDstpCd,     /*계좌번호식별유형코드*/
+        t1.ACCT_NBR AS acctNbr,     /*계좌번호*/
+        t1.NTH_NBR AS nthNbr,     /*회차번호*/
+        t1.CRNCY_CD AS crncyCd,     /*통화코드*/
+        t1.MTHR_ARR_ID AS mthrArrId,     /*모계약식별자*/
+        t1.VRTN_SRC_ARR_ID AS vrtnSrcArrId,     /*변형원계약식별자*/
+        t1.MAIN_ARR_CUST_ID AS mainArrCustId,     /*주계약고객식별자*/
+        t1.ACCTG_DEPT_ID AS acctgDeptId,     /*회계부서식별자*/
+        t1.ARR_XTN_ATRBT_VAL_JSON AS arrXtnAtrbtValJson,     /*계약확장속성값제이슨*/
+        t1.ARR_XTN_ATRBT_VAL_JSON2 AS arrXtnAtrbtValJson2,     /*계약확장속성값제이슨2*/
+        t1.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        t1.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+
+FROM (
+	SELECT
+	        t1.INST_CD, 
+	        t1.ARR_ID, 
+	        t1.BIZ_DSCD, 
+	        t1.PD_TP_CD ,
+	        t1.PD_TMPLT_CD,
+	        t1.PD_CD ,
+	        t1.ARR_KND_CD,
+	        t1.ARR_STS_CD,
+	        t1.ARR_STS_DT,
+	        t1.ARR_STS_HMS,
+	        t1.ARR_STS_CHNG_RSN_CD,
+	        t1.ARR_OPN_DT,
+	        t1.ARR_OPN_HMS,
+	        t1.ARR_LAST_AGRMNT_HMS,
+	        t1.ARR_LAST_AGRMNT_DT,
+	        t1.ARR_MTRTY_DT,
+	        t1.ARR_AGRMNT_CHNL_DSCD,
+	        t1.ACCT_NBR_DSTP_CD,
+	        t1.ACCT_NBR,
+	        t1.NTH_NBR,
+	        t1.CRNCY_CD,
+	        t1.MTHR_ARR_ID,
+	        t1.VRTN_SRC_ARR_ID,
+	        t1.MAIN_ARR_CUST_ID,
+	        t1.ACCTG_DEPT_ID,
+	        t1.ARR_XTN_ATRBT_VAL_JSON,
+	        t1.ARR_XTN_ATRBT_VAL_JSON2,
+	        t1.LAST_CHNG_TMSTMP,
+	        t1.LAST_CHNG_GUID
+	FROM ar_arr_m t1 
+	JOIN ar_arr_cust_r t2 
+	ON t1.INST_CD = t2.INST_CD 
+	AND t1.ARR_ID = t2.ARR_ID 
+	JOIN ar_arr_extrnl_id_nbr_m t3 
+	ON t2.INST_CD = t3.INST_CD 
+	AND t2.ARR_ID = t3.ARR_ID 
+	WHERE t1.INST_CD = #{instCd} 
+	<if test="arrStsCd != null and arrStsCd != '' "> 
+		AND t1.ARR_STS_CD = #{arrStsCd}
+	</if>
+	<if test="bizDscd != null and bizDscd != '' "> 
+		AND t1.BIZ_DSCD = #{bizDscd} 
+	</if> 
+	<if test="pdTpCd != null and pdTpCd != '' "> 
+		AND t1.PD_TP_CD = #{pdTpCd} 
+	</if> 
+	<if test="pdTmpltCd != null and pdTmpltCd != '' "> 
+		AND t1.PD_TMPLT_CD = #{pdTmpltCd} 
+	</if> 
+	<if test="pdCd != null and pdCd != '' "> 
+		AND t1.PD_CD = #{pdCd} 
+	</if> 
+	AND t2.CUST_ID = #{custId} 
+	AND t2.ARR_CUST_REL_CD = #{arrCustRelCd} 
+	AND T2.REL_START_DT &lt;= #{baseDt}
+	AND T2.REL_END_DT &gt; #{baseDt}
+	AND t3.ARR_EXTRNL_ID_NBR_STS_CD = '1'
+	AND t3.ARR_EXTRNL_ID_NBR_TP_CD = #{arrExtrnlIdNbrTpCd}
+
+UNION
+
+	SELECT
+	        t1.INST_CD, 
+	        t1.ARR_ID, 
+	        t1.BIZ_DSCD, 
+	        t1.PD_TP_CD ,
+	        t1.PD_TMPLT_CD,
+	        t1.PD_CD ,
+	        t1.ARR_KND_CD,
+	        t1.ARR_STS_CD,
+	        t1.ARR_STS_DT,
+	        t1.ARR_STS_HMS,
+	        t1.ARR_STS_CHNG_RSN_CD,
+	        t1.ARR_OPN_DT,
+	        t1.ARR_OPN_HMS,
+	        t1.ARR_LAST_AGRMNT_HMS,
+	        t1.ARR_LAST_AGRMNT_DT,
+	        t1.ARR_MTRTY_DT,
+	        t1.ARR_AGRMNT_CHNL_DSCD,
+	        NULL ACCT_NBR_DSTP_CD,
+	        t1.ACCT_NBR,
+	        0 NTH_NBR,
+	        t1.CRNCY_CD,
+	        t1.MTHR_ARR_ID,
+	        NULL VRTN_SRC_ARR_ID,
+	        t1.MAIN_ARR_CUST_ID,
+	        t1.ACCTG_DEPT_ID,
+	        t1.ARR_XTN_ATRBT_VAL_JSON,
+	        t1.ARR_XTN_ATRBT_VAL_JSON2,
+	        t1.LAST_CHNG_TMSTMP,
+	        t1.LAST_CHNG_GUID
+	FROM ar_tx_arr_m t1
+	JOIN AR_ARR_M T2
+	ON T1.INST_CD = T2.INST_CD
+	AND T1.MTHR_ARR_ID = T2.ARR_ID
+	JOIN ar_arr_cust_r t3
+	ON t2.INST_CD = t3.INST_CD
+	AND t2.ARR_ID = t3.ARR_ID
+	AND T3.REL_START_DT &lt;= #{baseDt}
+	AND T3.REL_END_DT &gt; #{baseDt}
+	JOIN ar_arr_extrnl_id_nbr_m t4
+	ON t1.INST_CD = t4.INST_CD
+	AND t1.ARR_ID = t4.ARR_ID
+	WHERE t1.INST_CD = #{instCd} 
+	<if test="arrStsCd != null and arrStsCd != '' "> 
+		AND t1.ARR_STS_CD = #{arrStsCd}
+	</if>
+	<if test="bizDscd != null and bizDscd != '' "> 
+		AND t1.BIZ_DSCD = #{bizDscd} 
+	</if> 
+	<if test="pdTpCd != null and pdTpCd != '' "> 
+		AND t1.PD_TP_CD = #{pdTpCd} 
+	</if> 
+	<if test="pdTmpltCd != null and pdTmpltCd != '' "> 
+		AND t1.PD_TMPLT_CD = #{pdTmpltCd} 
+	</if> 
+	<if test="pdCd != null and pdCd != '' "> 
+		AND t1.PD_CD = #{pdCd} 
+	</if> 
+	AND t3.CUST_ID = #{custId} 
+	AND t3.ARR_CUST_REL_CD = #{arrCustRelCd} 
+	AND t4.ARR_EXTRNL_ID_NBR_STS_CD = '1'
+	AND t4.ARR_EXTRNL_ID_NBR_TP_CD = #{arrExtrnlIdNbrTpCd}
+) T1
+ GROUP BY T1.INST_CD, 
+        T1.ARR_ID, 
+        T1.BIZ_DSCD,
+        T1.PD_TP_CD,
+        T1.PD_TMPLT_CD,
+        T1.PD_CD,
+        T1.ARR_KND_CD,
+        T1.ARR_STS_CD,
+        T1.ARR_STS_DT,
+        T1.ARR_STS_HMS,
+        T1.ARR_STS_CHNG_RSN_CD,
+        T1.ARR_OPN_DT,
+        T1.ARR_OPN_HMS,
+        T1.ARR_LAST_AGRMNT_HMS,
+        T1.ARR_LAST_AGRMNT_DT,
+        T1.ARR_MTRTY_DT,
+        T1.ARR_AGRMNT_CHNL_DSCD,
+        T1.ACCT_NBR_DSTP_CD,
+        T1.ACCT_NBR,
+        T1.NTH_NBR,
+        T1.CRNCY_CD,
+        T1.MTHR_ARR_ID,
+        T1.VRTN_SRC_ARR_ID,
+        T1.MAIN_ARR_CUST_ID,
+        T1.ACCTG_DEPT_ID,
+        T1.ARR_XTN_ATRBT_VAL_JSON,
+        T1.ARR_XTN_ATRBT_VAL_JSON2,
+        T1.LAST_CHNG_TMSTMP,
+        T1.LAST_CHNG_GUID
+</select>
+<select id="selectCustOwnJointlyArrRealListBasedOnArrBasic" parameterType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMByCustIO" resultType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMIO">
+SELECT
+	c.INST_CD AS instCd,     /*기관코드*/
+	c.ARR_ID AS arrId,     /*계약식별자*/
+	c.BIZ_DSCD AS bizDscd,     /*업무코드*/
+	c.PD_TP_CD AS pdTpCd,     /*상품유형코드*/
+	c.PD_TMPLT_CD AS pdTmpltCd,     /*상품템플릿코드*/
+	c.PD_CD AS pdCd,     /*상품코드*/
+	c.ARR_KND_CD AS arrKndCd,     /*계약종류코드*/
+	c.ARR_STS_CD AS arrStsCd,     /*계약상태코드*/
+	c.ARR_STS_DT AS arrStsDt,     /*계약상태년월일*/
+	c.ARR_STS_HMS AS arrStsHms,     /*계약상태시각*/
+	c.ARR_STS_CHNG_RSN_CD AS arrStsChngRsnCd,     /*계약상태변경사유코드*/
+	c.ARR_OPN_DT AS arrOpnDt,     /*계약개설년월일*/
+	c.ARR_OPN_HMS AS arrOpnHms,     /*계약개설시각*/
+	c.ARR_LAST_AGRMNT_HMS AS arrLastAgrmntHms,     /*계약최종약정시각*/
+	c.ARR_LAST_AGRMNT_DT AS arrLastAgrmntDt,     /*계약최종약정년월일*/
+	c.ARR_MTRTY_DT AS arrMtrtyDt,     /*계약만기년월일*/
+	c.ARR_AGRMNT_CHNL_DSCD AS arrAgrmntChnlDscd,     /*계약약정채널구분코드*/
+	c.ACCT_NBR_DSTP_CD AS acctNbrDstpCd,     /*계좌번호식별유형코드*/
+	c.ACCT_NBR AS acctNbr,     /*계좌번호*/
+	c.NTH_NBR AS nthNbr,     /*회차번호*/
+	c.CRNCY_CD AS crncyCd,     /*통화코드*/
+	c.MTHR_ARR_ID AS mthrArrId,     /*모계약식별자*/
+	c.VRTN_SRC_ARR_ID AS vrtnSrcArrId,     /*변형원계약식별자*/
+	c.MAIN_ARR_CUST_ID AS mainArrCustId,     /*주계약고객식별자*/
+	c.ACCTG_DEPT_ID AS acctgDeptId,     /*회계부서식별자*/
+	c.ARR_XTN_ATRBT_VAL_JSON AS arrXtnAtrbtValJson,     /*계약확장속성값제이슨*/
+	c.ARR_XTN_ATRBT_VAL_JSON2 AS arrXtnAtrbtValJson2,     /*계약확장속성값제이슨2*/
+	c.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+	c.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+FROM (
+	SELECT 
+ 		c.INST_CD,
+        c.ARR_ID,
+        c.BIZ_DSCD,
+        c.PD_TP_CD,
+        c.PD_TMPLT_CD,
+        c.PD_CD,
+        c.ARR_KND_CD,
+        c.ARR_STS_CD,
+        c.ARR_STS_DT,
+        c.ARR_STS_HMS,
+        c.ARR_STS_CHNG_RSN_CD,
+        c.ARR_OPN_DT,
+        c.ARR_OPN_HMS,
+        c.ARR_LAST_AGRMNT_HMS,
+        c.ARR_LAST_AGRMNT_DT,
+        c.ARR_MTRTY_DT,
+        c.ARR_AGRMNT_CHNL_DSCD,
+        c.ACCT_NBR_DSTP_CD,
+        c.ACCT_NBR,
+        c.NTH_NBR,
+        c.CRNCY_CD,
+        c.MTHR_ARR_ID,
+        c.VRTN_SRC_ARR_ID,
+        c.MAIN_ARR_CUST_ID,
+        c.ACCTG_DEPT_ID,
+        c.ARR_XTN_ATRBT_VAL_JSON,
+        c.ARR_XTN_ATRBT_VAL_JSON2,
+        c.LAST_CHNG_TMSTMP,
+        c.LAST_CHNG_GUID      	
+	from  ar_arr_cust_r b, ar_arr_m c
+	where b.INST_CD = c.INST_CD
+	  and b.ARR_ID = c.ARR_ID
+	  and b.INST_CD = #{instCd}
+	  and b.CUST_ID =  #{custId}
+	<if test="arrStsCd != null and arrStsCd != '' ">
+	  and c.ARR_STS_CD = #{arrStsCd}
+	</if>
+	<if test="arrCustRelCd != null and arrCustRelCd != '' ">
+	  and b.ARR_CUST_REL_CD in ('01','02','03')
+	</if>
+	  and b.ARR_CUST_REL_STS_CD in ('1','2')
+	  and b.REL_START_DT &lt;= #{baseDt}
+	  and b.REL_END_DT  &gt; #{baseDt}
+	<if test="bizDscd != null and bizDscd != '' ">
+	  AND c.biz_dscd = #{bizDscd}
+	 </if>
+	<if test="pdTpCd != null and pdTpCd != '' ">
+	  AND  c.pd_tp_cd = #{pdTpCd}
+	 </if>
+	 <if test="pdTmpltCd != null and pdTmpltCd != '' ">
+	  AND  c.pd_tmplt_cd = #{pdTmpltCd}
+	 </if>
+	 <if test="pdCd != null and pdCd != '' ">
+	  AND  c.pd_cd = #{pdCd}
+	 </if> 
+ ) c
+  GROUP BY c.INST_CD, 
+        c.ARR_ID, 
+        c.BIZ_DSCD,
+        c.PD_TP_CD,
+        c.PD_TMPLT_CD,
+        c.PD_CD,
+        c.ARR_KND_CD,
+        c.ARR_STS_CD,
+        c.ARR_STS_DT,
+        c.ARR_STS_HMS,
+        c.ARR_STS_CHNG_RSN_CD,
+        c.ARR_OPN_DT,
+        c.ARR_OPN_HMS,
+        c.ARR_LAST_AGRMNT_HMS,
+        c.ARR_LAST_AGRMNT_DT,
+        c.ARR_MTRTY_DT,
+        c.ARR_AGRMNT_CHNL_DSCD,
+        c.ACCT_NBR_DSTP_CD,
+        c.ACCT_NBR,
+        c.NTH_NBR,
+        c.CRNCY_CD,
+        c.MTHR_ARR_ID,
+        c.VRTN_SRC_ARR_ID,
+        c.MAIN_ARR_CUST_ID,
+        c.ACCTG_DEPT_ID,
+        c.ARR_XTN_ATRBT_VAL_JSON,
+        c.ARR_XTN_ATRBT_VAL_JSON2,
+        c.LAST_CHNG_TMSTMP,
+        c.LAST_CHNG_GUID
+</select>
+<select id="selectListArrBasicByArrCnd" parameterType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMByCustSelectListArrBasicByArrCndIO" resultType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMIO">
+SELECT    /* 계약기본 */
+        a.INST_CD AS instCd,     /*기관코드*/
+        a.ARR_ID AS arrId,     /*계약식별자*/
+        a.BIZ_DSCD AS bizDscd,     /*업무코드*/
+        a.PD_TP_CD AS pdTpCd,     /*상품유형코드*/
+        a.PD_TMPLT_CD AS pdTmpltCd,     /*상품템플릿코드*/
+        a.PD_CD AS pdCd,     /*상품코드*/
+        a.ARR_KND_CD AS arrKndCd,     /*계약종류코드*/
+        a.ARR_STS_CD AS arrStsCd,     /*계약상태코드*/
+        a.ARR_STS_DT AS arrStsDt,     /*계약상태년월일*/
+        a.ARR_STS_HMS AS arrStsHms,     /*계약상태시분초*/
+        a.ARR_STS_CHNG_RSN_CD AS arrStsChngRsnCd,     /*계약상태변경사유코드*/
+        a.ARR_OPN_DT AS arrOpnDt,     /*계약개설년월일*/
+        a.ARR_OPN_HMS AS arrOpnHms,     /*계약개설시분초*/
+        a.ARR_LAST_AGRMNT_DT AS arrLastAgrmntDt,     /*계약최종약정년월일*/
+        a.ARR_LAST_AGRMNT_HMS AS arrLastAgrmntHms,     /*계약최종약정시분초*/
+        a.ARR_MTRTY_DT AS arrMtrtyDt,     /*계약만기년월일*/
+        a.ARR_AGRMNT_CHNL_DSCD AS arrAgrmntChnlDscd,     /*계약약정채널구분코드*/
+        a.ACCT_NBR_DSTP_CD AS acctNbrDstpCd,     /*계좌번호식별유형코드*/
+        a.ACCT_NBR AS acctNbr,     /*계좌번호*/
+        a.NTH_NBR AS nthNbr,     /*회차번호*/
+        a.CRNCY_CD AS crncyCd,     /*통화코드*/
+        a.MTHR_ARR_ID AS mthrArrId,     /*모계약식별자*/
+        a.VRTN_SRC_ARR_ID AS vrtnSrcArrId,     /*변형원계약식별자*/
+        a.MAIN_ARR_CUST_ID AS mainArrCustId,     /*주계약고객식별자*/
+        a.ACCTG_DEPT_ID AS acctgDeptId,     /*회계부서식별자*/
+        a.ARR_XTN_ATRBT_VAL_JSON AS arrXtnAtrbtValJson,     /*계약확장속성값제이슨*/
+        a.ARR_XTN_ATRBT_VAL_JSON2 AS arrXtnAtrbtValJson2,     /*계약확장속성값제이슨2*/
+        a.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        a.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ar_arr_m a
+  jOIN  ar_arr_cust_r b
+    ON  a.INST_CD = b.INST_CD
+   AND a.ARR_ID = b.ARR_ID
+  JOIN  ar_arr_cnd_d c
+    ON  a.INST_CD = c.INST_CD
+   AND a.ARR_ID = c.ARR_ID   
+ WHERE b.INST_CD = #{instCd}
+   AND b.CUST_ID = #{custId}
+   AND b.ARR_CUST_REL_CD = #{arrCustRelCd}
+<if test="cndCd != null and cndCd != '' ">
+   AND c.CND_CD = #{cndCd}
+</if>
+<if test="listCd != null and listCd != '' ">
+   AND c.LIST_CD = #{listCd}
+</if>
+<if test="rngVal != null and rngVal != '' ">
+   AND c.RNG_VAL = #{rngVal}
+</if>
+<if test="aplyRt != null and aplyRt != '' ">
+   AND c.APLY_RT = #{aplyRt}
+</if>
+<if test="feeVal != null and feeVal != '' ">
+   AND c.FEE_VAL = #{feeVal}
+</if>
+</select>
+<select id="selectListArrBasicByPdCdList" resultType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMIO">
+SELECT
+      a.INST_CD AS instCd,     /*기관코드*/
+        a.ARR_ID AS arrId,     /*계약식별자*/
+        a.BIZ_DSCD AS bizDscd,     /*업무코드*/
+        a.PD_TP_CD AS pdTpCd,     /*상품유형코드*/
+        a.PD_TMPLT_CD AS pdTmpltCd,     /*상품템플릿코드*/
+        a.PD_CD AS pdCd,     /*상품코드*/
+        a.ARR_KND_CD AS arrKndCd,     /*계약종류코드*/
+        a.ARR_STS_CD AS arrStsCd,     /*계약상태코드*/
+        a.ARR_STS_DT AS arrStsDt,     /*계약상태년월일*/
+        a.ARR_STS_HMS AS arrStsHms,     /*계약상태시각*/
+        a.ARR_STS_CHNG_RSN_CD AS arrStsChngRsnCd,     /*계약상태변경사유코드*/
+        a.ARR_OPN_DT AS arrOpnDt,     /*계약개설년월일*/
+        a.ARR_OPN_HMS AS arrOpnHms,     /*계약개설시각*/
+        a.ARR_LAST_AGRMNT_HMS AS arrLastAgrmntHms,     /*계약최종약정시각*/
+        a.ARR_LAST_AGRMNT_DT AS arrLastAgrmntDt,     /*계약최종약정년월일*/
+        a.ARR_MTRTY_DT AS arrMtrtyDt,     /*계약만기년월일*/
+        a.ARR_AGRMNT_CHNL_DSCD AS arrAgrmntChnlDscd,     /*계약약정채널구분코드*/
+        a.ACCT_NBR_DSTP_CD AS acctNbrDstpCd,     /*계좌번호식별유형코드*/
+        a.ACCT_NBR AS acctNbr,     /*계좌번호*/
+        a.NTH_NBR AS nthNbr,     /*회차번호*/
+        a.CRNCY_CD AS crncyCd,     /*통화코드*/
+        a.MTHR_ARR_ID AS mthrArrId,     /*모계약식별자*/
+        a.VRTN_SRC_ARR_ID AS vrtnSrcArrId,     /*변형원계약식별자*/
+        a.MAIN_ARR_CUST_ID AS mainArrCustId,     /*주계약고객식별자*/
+        a.ACCTG_DEPT_ID AS acctgDeptId,     /*회계부서식별자*/
+        a.ARR_XTN_ATRBT_VAL_JSON AS arrXtnAtrbtValJson,     /*계약확장속성값제이슨*/
+        a.ARR_XTN_ATRBT_VAL_JSON2 AS arrXtnAtrbtValJson2,     /*계약확장속성값제이슨2*/
+        a.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        a.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+	from  ar_arr_m a,ar_arr_cust_r b
+
+	where a.INST_CD = b.INST_CD
+
+	  and a.ARR_ID = b.ARR_ID
+
+	  and b.INST_CD = #{arArrMByCustIO.instCd}
+
+	  and b.CUST_ID =  #{arArrMByCustIO.custId}
+
+  	<if test="arrCustRelCd != null and arrCustRelCd != '' ">
+
+	  and b.ARR_CUST_REL_CD in ( #{arArrMByCustIO.arrCustRelCd}, #{arArrMByCustIO.indvBizRelCd})
+
+	</if>
+
+	  and b.ARR_CUST_REL_STS_CD ='1'
+	  and b.REL_START_DT &lt;= #{arArrMByCustIO.baseDt}
+
+	  and b.REL_END_DT  &gt; #{arArrMByCustIO.baseDt}
+	  and a.pd_cd IN
+     <foreach close=")" collection="pdCdList" item="item" open="(" separator=",">
+       #{item}
+     </foreach>
+	  and a.ARR_STS_CD ='A'
+</select>
+</mapper>

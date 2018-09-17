@@ -1,0 +1,12 @@
+OMM bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.ExternalFileSndRcvLoggingIO
+<description="대외파일송수신OMM">
+{
+	String endDt<length=8 description="송수신완료일(계정계호출필수)">;
+	String endHms<length=6 description="송수신완료시간(계정계호출필수)">;
+	String fileNm<length=200 description="송수신파일명(계정계호출필수)">;
+	String fileCd<length=20 description="송수신파일코드(계정계호출필수)">;
+	String rspnsCd<length=3 description="송수신응답코드">;
+	String sndRcvDscd<length=1 description="송수신구분코드(송신:S 수신:R 계정계호출필수)">;
+	String prprtnFldCntnt<length=62 description="예비필드">;
+	String rspnsMsgCntnt<length=100 description="송수신응답메세지">;
+}

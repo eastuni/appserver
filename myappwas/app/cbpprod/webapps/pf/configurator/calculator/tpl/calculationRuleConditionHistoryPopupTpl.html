@@ -1,0 +1,40 @@
+<div class="calculation-rule-condition-history-popup context-popup">
+	<div class="calculation-rule-condition-history-grid"></div>
+	<div class="calculation-rule-condition-detail-container">
+		<div
+			class="calculation-rule-list-condition-grid condition-type-selective-input condition-type-01"></div>
+		<div
+			class="calculation-rule-range-condition-form condition-type-selective-input condition-type-02">
+			<table
+				class="bx-info-table calculation-rule-range-condition-form-table">
+				<tr>
+					<th>{{bxMsg 'basicValue'}}</th>
+					<td><input type="text"
+						class="bx-form-item bx-compoenent-small basic-value"
+						data-form-param="basicValue" value="{{basicValue}}" /></td>
+					<th>{{bxMsg 'rangeType'}}</th>
+					<td><select
+						class="bx-form-item bx-compoenent-small range-type-code"
+						data-form-param="rangeTypeCode" disabled>
+					</select></td>
+				</tr>
+				<tr class="range-type-selective-input range-type-01">
+					<th>{{bxMsg 'currencyCode'}}</th>
+					<td><select
+						class="bx-form-item bx-compoenent-small currency-code"
+						data-form-param="currencyCode">
+					</select></td>
+				</tr>
+				<tr
+					class="range-type-selective-input range-type-02 range-type-03 range-type-04 range-type-05">
+					<th>{{bxMsg 'measureUnitCode'}}</th>
+					<td><select
+						class="bx-form-item bx-compoenent-small measurement-unit-code"
+						data-form-param="measurementUnitCode">
+					</select></td>
+				</tr>
+			</table>
+		</div>
+		<div class="calculation-rule-complex-condition-grid complex-selective-input"></div>
+	</div>
+</div>

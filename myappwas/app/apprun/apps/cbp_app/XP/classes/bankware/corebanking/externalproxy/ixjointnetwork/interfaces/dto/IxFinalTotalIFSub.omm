@@ -1,0 +1,7 @@
+OMM bankware.corebanking.externalproxy.ixjointnetwork.interfaces.dto.IxFinalTotalIFSub
+<description="">
+{
+	String smtnItmCd<length=2 description="집계항목코드">;
+	BigDecimal othrInstValCntnt<length=17 decimal=2 description="상대기관값">;
+	BigDecimal selfVal<length=17 decimal=2 description="KBANK값">;
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpIgGr1512">
+<!--Generated Wed Apr 26 16:57:14 KST 2017-->
+<select id="selectGR1512InqryList" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIgGr1512IO">
+SELECT 		instCd,     /*기관코드*/
+		    	txDt,     /*거래일자*/
+		    	seqNbr,     /*일련번호*/
+		    	trnsmsnDt,     /*전송일자*/
+		        trnsfrDt,     /*이체일자*/
+		        fnclInstBizBrnchCd,     /*금융기관영업은행지점코드*/
+		        acctNbr,     /*계좌번호*/
+		        txAmt,     /*거래금액*/
+		        appendFeeAmt,     /*추가수수료금액1*/
+		        fundDscd,     /*자금구분코드*/
+		        acctOwnrNm1,     /*예금주명*/
+		        pureStlmntAmt     /*결제금액*/
+FROM 
+    ( 
+    	SELECT ROWNUM AS ROW__NUM, 
+    					A.instCd,     /*기관코드*/
+				    	A.txDt,     /*거래일자*/
+				    	A.seqNbr,     /*일련번호*/
+				    	A.trnsmsnDt,     /*전송일자*/
+				        A.trnsfrDt,     /*이체일자*/
+				        A.fnclInstBizBrnchCd,     /*금융기관영업은행지점코드*/
+				        A.acctNbr,     /*계좌번호*/
+				        A.txAmt,     /*거래금액*/
+				        A.appendFeeAmt,     /*추가수수료금액1*/
+				        A.fundDscd,     /*자금구분코드*/
+				        A.acctOwnrNm1,     /*예금주명*/
+				        A.pureStlmntAmt     /*결제금액*/
+    	FROM 
+        (
+
+				/* #### Original SQL [[ ################# */
+				SELECT    /* 인터넷지로_입금지시취소 */
+				        INST_CD AS instCd,     /*기관코드*/
+				        TX_DT AS txDt,     /*거래일자*/
+				        SEQ_NBR AS seqNbr,     /*일련번호*/
+				        SND_DT AS trnsmsnDt,     /*전송일자*/
+				        TRNS_DT AS trnsfrDt,     /*이체일자*/
+				        FNCL_INST_BSOP_BNK_BRH_CD AS fnclInstBizBrnchCd,     /*금융기관영업은행지점코드*/
+				        ACCT_NBR AS acctNbr,     /*계좌번호*/
+				        TX_AMT AS txAmt,     /*거래금액*/
+				        SUPPL_FEE_AMT1 AS appendFeeAmt,     /*추가수수료금액1*/
+				        FUND_DS_CD AS fundDscd,     /*자금구분코드*/
+				        ACCT_OWNR_NM AS acctOwnrNm1,     /*예금주명*/
+				        STLM_AMT AS pureStlmntAmt     /*결제금액*/
+				  FROM  XP_IG_GR1512
+				 WHERE INST_CD = #{instCd}
+				   AND TX_DT &gt;= #{txStartDt}
+				   AND TX_DT &lt;= #{txEndDt}
+				   order by INST_CD, TX_DT desc, SEQ_NBR desc
+				/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectGR1512InqryTotalCnt" resultType="java.lang.Integer">
+SELECT    /* 인터넷지로_입금지시취소 */
+        COUNT(INST_CD)
+  FROM  XP_IG_GR1512
+ WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+</select>
+</mapper>

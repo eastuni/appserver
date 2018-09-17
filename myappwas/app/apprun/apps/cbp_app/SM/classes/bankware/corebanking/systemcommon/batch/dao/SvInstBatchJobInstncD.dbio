@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.systemcommon.batch.dao.SvInstBatchJobInstncD">
+<!--Generated Thu Jul 13 15:24:15 KST 2017-->
+<delete id="deleteInstBatchJobInstance">
+DELETE FROM sv_inst_batch_job_instnc_d    /* 기관별배치작업인스턴스명세 */
+ WHERE inst_cd = #{instCd, jdbcType=VARCHAR}
+   AND batch_job_instnc_id = #{batchJobInstncId, jdbcType=VARCHAR}
+</delete>
+<insert id="insertInstBatchJobInstance" parameterType="bankware.corebanking.systemcommon.batch.dao.dto.SvInstBatchJobInstncDIO">
+INSERT INTO sv_inst_batch_job_instnc_d    /* 기관별배치작업인스턴스명세 */
+(
+       inst_cd    /*기관코드*/
+     , batch_job_instnc_id    /*배치작업인스턴스식별자*/
+     , batch_job_id    /*배치작업식별자*/
+     , batch_job_cycl_cd    /*배치작업주기코드*/
+     , lgcl_exctn_sys_id    /*논리실행시스템식별자*/
+     , re_exctn_abl_yn    /*재실행가능여부*/
+     , log_lvl_cd    /*로그레벨코드*/
+     , last_chng_tmstmp    /*최종변경일시*/
+     , last_chng_guid    /*최종변경GUID*/
+)
+VALUES
+(
+       #{instCd, jdbcType=VARCHAR}    /*기관코드*/
+     , #{batchJobInstncId, jdbcType=VARCHAR}    /*배치작업인스턴스식별자*/
+     , #{batchJobId, jdbcType=VARCHAR}    /*배치작업식별자*/
+     , #{batchJobCyclCd, jdbcType=VARCHAR}    /*배치작업주기코드*/
+     , #{lgclExctnSysId, jdbcType=VARCHAR}    /*논리실행시스템식별자*/
+     , #{reExctnAblYn, jdbcType=VARCHAR}    /*재실행가능여부*/
+     , #{logLvlCd, jdbcType=VARCHAR}    /*로그레벨코드*/
+     , #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경일시*/
+     , #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectInstBatchJobInstance" resultType="bankware.corebanking.systemcommon.batch.dao.dto.SvInstBatchJobInstncDIO">
+SELECT    /* 기관별배치작업인스턴스명세 */
+       inst_cd AS instCd    /*기관코드*/
+     , batch_job_instnc_id AS batchJobInstncId    /*배치작업인스턴스식별자*/
+     , batch_job_id AS batchJobId    /*배치작업식별자*/
+     , batch_job_cycl_cd AS batchJobCyclCd    /*배치작업주기코드*/
+     , lgcl_exctn_sys_id AS lgclExctnSysId    /*논리실행시스템식별자*/
+     , re_exctn_abl_yn AS reExctnAblYn    /*재실행가능여부*/
+     , log_lvl_cd AS logLvlCd    /*로그레벨코드*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM sv_inst_batch_job_instnc_d
+ WHERE inst_cd = #{instCd}
+   AND batch_job_instnc_id = #{batchJobInstncId}
+</select>
+<update id="updateInstBatchJobInstance" parameterType="bankware.corebanking.systemcommon.batch.dao.dto.SvInstBatchJobInstncDIO">
+UPDATE sv_inst_batch_job_instnc_d    /* 기관별배치작업인스턴스명세 */
+   SET batch_job_id = #{batchJobId, jdbcType=VARCHAR}    /* 배치작업식별자 */
+     , batch_job_cycl_cd = #{batchJobCyclCd, jdbcType=VARCHAR}    /* 배치작업주기코드 */
+     , lgcl_exctn_sys_id = #{lgclExctnSysId, jdbcType=VARCHAR}    /* 논리실행시스템식별자 */
+     , re_exctn_abl_yn = #{reExctnAblYn, jdbcType=VARCHAR}    /* 재실행가능여부 */
+     , log_lvl_cd = #{logLvlCd, jdbcType=VARCHAR}    /* 로그레벨코드 */
+     , last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE inst_cd = #{instCd, jdbcType=VARCHAR}
+   AND batch_job_instnc_id = #{batchJobInstncId, jdbcType=VARCHAR}
+</update>
+<select id="selectInstBatchJobExecutionListOracle" resultType="bankware.corebanking.systemcommon.batch.dao.dto.SvInstBatchJobInstncDIO">
+SELECT    /* 기관별배치작업인스턴스명세 */
+       t1.inst_cd AS instCd    /*기관코드*/
+     , t1.batch_job_instnc_id AS batchJobInstncId    /*배치작업인스턴스식별자*/
+     , t1.batch_job_id AS batchJobId    /*배치작업식별자*/
+     , t2.batch_job_nm AS batchJobNm    /*배치작업명*/
+     , t2.batch_job_tp_cd AS batchJobTpCd    /*배치작업유형코드*/
+     , t2.batch_aplctn_nm AS batchAplctnNm    /*배치어플리케이션명*/
+     , t1.batch_job_cycl_cd AS batchJobCyclCd    /*배치작업주기코드*/
+     , t1.lgcl_exctn_sys_id AS lgclExctnSysId    /*논리실행시스템식별자*/
+     , t1.re_exctn_abl_yn AS reExctnAblYn    /*재실행가능여부*/
+     , t1.log_lvl_cd AS logLvlCd    /*로그레벨코드*/
+  FROM sv_inst_batch_job_instnc_d t1, sv_batch_job_m t2
+ WHERE t1.inst_cd = #{instCd}
+   AND t1.batch_job_id = t2.batch_job_id
+<if test="batchJobId != null and batchJobId != ''">
+   and t1.batch_job_id = #{batchJobId}
+</if>
+<if test="batchJobNm != null and batchJobNm != ''">
+   and EXISTS (
+       SELECT 1
+         FROM cm_mlt_lng_trnsltn_d t3
+        WHERE t3.trnsfr_knd_cd = 'BATCH_JOB_NAME'
+          AND t3.trnsfr_origin_key_val = t1.batch_job_id
+          AND t3.lng_cd = #{lngCd}
+          AND t3.trnsfr_rslt_val LIKE '%'||#{batchJobNm}||'%')
+</if>
+<if test="batchJobInstncId != null and batchJobInstncId != ''">
+   and t1.batch_job_instnc_id = #{batchJobInstncId}
+</if>
+<if test="batchAplctnNm != null and batchAplctnNm != ''">
+   and t2.batch_aplctn_nm = #{batchAplctnNm}
+</if>
+order by t1.batch_job_instnc_id
+</select>
+<select id="selectInstBatchJobExecutionListMySQL" resultType="bankware.corebanking.systemcommon.batch.dao.dto.SvInstBatchJobInstncDIO">
+SELECT    /* 기관별배치작업인스턴스명세 */
+       t1.inst_cd AS instCd    /*기관코드*/
+     , t1.batch_job_instnc_id AS batchJobInstncId    /*배치작업인스턴스식별자*/
+     , t1.batch_job_id AS batchJobId    /*배치작업식별자*/
+     , t2.batch_job_nm AS batchJobNm    /*배치작업명*/
+     , t2.batch_job_tp_cd AS batchJobTpCd    /*배치작업유형코드*/
+     , t2.batch_aplctn_nm AS batchAplctnNm    /*배치어플리케이션명*/
+     , t1.batch_job_cycl_cd AS batchJobCyclCd    /*배치작업주기코드*/
+     , t1.lgcl_exctn_sys_id AS lgclExctnSysId    /*논리실행시스템식별자*/
+     , t1.re_exctn_abl_yn AS reExctnAblYn    /*재실행가능여부*/
+     , t1.log_lvl_cd AS logLvlCd    /*로그레벨코드*/
+  FROM sv_inst_batch_job_instnc_d t1, sv_batch_job_m t2
+ WHERE t1.inst_cd = #{instCd}
+   AND t1.batch_job_id = t2.batch_job_id
+<if test="batchJobId != null and batchJobId != ''">
+   and t1.batch_job_id = #{batchJobId}
+</if>
+<if test="batchJobNm != null and batchJobNm != ''">
+   and EXISTS (
+       SELECT 1
+         FROM cm_mlt_lng_trnsltn_d t3
+        WHERE t3.trnsfr_knd_cd = 'BATCH_JOB_NAME'
+          AND t3.trnsfr_origin_key_val = t1.batch_job_id
+          AND t3.lng_cd = #{lngCd}
+          AND t3.trnsfr_rslt_val LIKE CONCAT('%', #{batchJobNm}, '%' ))
+</if>
+<if test="batchJobInstncId != null and batchJobInstncId != ''">
+   and t1.batch_job_instnc_id = #{batchJobInstncId}
+</if>
+<if test="batchAplctnNm != null and batchAplctnNm != ''">
+   and t2.batch_aplctn_nm = #{batchAplctnNm}
+</if>
+order by t1.batch_job_instnc_id
+</select>
+<select id="selectInstBatchJobInstanceListOracle" resultType="bankware.corebanking.systemcommon.batch.dao.dto.SvInstBatchJobInstncDIO">
+SELECT    /* 기관별배치작업인스턴스명세 */
+       t1.inst_cd AS instCd    /*기관코드*/
+     , t1.batch_job_instnc_id AS batchJobInstncId    /*배치작업인스턴스식별자*/
+     , t1.batch_job_id AS batchJobId    /*배치작업식별자*/
+     , t2.batch_job_nm AS batchJobNm    /*배치작업명*/
+     , t2.batch_job_tp_cd AS batchJobTpCd    /*배치작업유형코드*/
+     , t2.batch_aplctn_nm AS batchAplctnNm    /*배치어플리케이션명*/
+     , t1.batch_job_cycl_cd AS batchJobCyclCd    /*배치작업주기코드*/
+     , t1.lgcl_exctn_sys_id AS lgclExctnSysId    /*논리실행시스템식별자*/
+     , t1.re_exctn_abl_yn AS reExctnAblYn    /*재실행가능여부*/
+     , t1.log_lvl_cd AS logLvlCd    /*로그레벨코드*/
+  FROM sv_inst_batch_job_instnc_d t1, sv_batch_job_m t2
+ WHERE t1.inst_cd = #{a.instCd}
+   AND t1.batch_job_id = t2.batch_job_id
+<if test="a.batchJobId != null and a.batchJobId != ''">
+   and t1.batch_job_id LIKE '%'||#{a.batchJobId}||'%'
+</if>
+<if test="a.batchJobNm != null and a.batchJobNm != ''">
+   and EXISTS (
+       SELECT 1
+         FROM cm_mlt_lng_trnsltn_d t3
+        WHERE t3.trnsfr_knd_cd = 'BATCH_JOB_NAME'
+          AND t3.trnsfr_origin_key_val = t1.batch_job_id
+          AND t3.lng_cd = #{lngCd}
+          AND t3.trnsfr_rslt_val LIKE '%'||#{a.batchJobNm}||'%')
+</if>
+<if test="a.batchJobInstncId != null and a.batchJobInstncId != ''">
+   and t1.batch_job_instnc_id LIKE '%'||#{a.batchJobInstncId}||'%'
+</if>
+<if test="a.batchAplctnNm != null and a.batchAplctnNm != ''">
+   and t2.batch_aplctn_nm = #{a.batchAplctnNm}
+</if>
+<if test="a.batchJobCyclCd != null and a.batchJobCyclCd != ''">
+   and t1.batch_job_cycl_cd = #{a.batchJobCyclCd}
+</if>
+order by t1.batch_job_instnc_id
+</select>
+<select id="selectInstBatchJobInstanceListMySQL" resultType="bankware.corebanking.systemcommon.batch.dao.dto.SvInstBatchJobInstncDIO">
+SELECT    /* 기관별배치작업인스턴스명세 */
+       t1.inst_cd AS instCd    /*기관코드*/
+     , t1.batch_job_instnc_id AS batchJobInstncId    /*배치작업인스턴스식별자*/
+     , t1.batch_job_id AS batchJobId    /*배치작업식별자*/
+     , t2.batch_job_nm AS batchJobNm    /*배치작업명*/
+     , t2.batch_job_tp_cd AS batchJobTpCd    /*배치작업유형코드*/
+     , t2.batch_aplctn_nm AS batchAplctnNm    /*배치어플리케이션명*/
+     , t1.batch_job_cycl_cd AS batchJobCyclCd    /*배치작업주기코드*/
+     , t1.lgcl_exctn_sys_id AS lgclExctnSysId    /*논리실행시스템식별자*/
+     , t1.re_exctn_abl_yn AS reExctnAblYn    /*재실행가능여부*/
+     , t1.log_lvl_cd AS logLvlCd    /*로그레벨코드*/
+  FROM sv_inst_batch_job_instnc_d t1, sv_batch_job_m t2
+ WHERE t1.inst_cd = #{a.instCd}
+   AND t1.batch_job_id = t2.batch_job_id
+<if test="a.batchJobId != null and a.batchJobId != ''">
+   and t1.batch_job_id LIKE CONCAT('%', #{a.batchJobId}, '%' )
+</if>
+<if test="a.batchJobNm != null and a.batchJobNm != ''">
+   and EXISTS (
+       SELECT 1
+         FROM cm_mlt_lng_trnsltn_d t3
+        WHERE t3.trnsfr_knd_cd = 'BATCH_JOB_NAME'
+          AND t3.trnsfr_origin_key_val = t1.batch_job_id
+          AND t3.lng_cd = #{lngCd}
+          AND t3.trnsfr_rslt_val LIKE CONCAT('%', #{a.batchJobNm}, '%' ))
+</if>
+<if test="a.batchJobInstncId != null and a.batchJobInstncId != ''">
+   and t1.batch_job_instnc_id LIKE CONCAT('%', #{a.batchJobInstncId}, '%' )
+</if>
+<if test="a.batchAplctnNm != null and a.batchAplctnNm != ''">
+   and t2.batch_aplctn_nm = #{a.batchAplctnNm}
+</if>
+<if test="a.batchJobCyclCd != null and a.batchJobCyclCd != ''">
+   and t1.batch_job_cycl_cd = #{a.batchJobCyclCd}
+</if>
+order by t1.batch_job_instnc_id
+</select>
+</mapper>

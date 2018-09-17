@@ -1,0 +1,6 @@
+OMM bxm.web.admin.main.domain.ComCdListOMM
+<description="">
+{
+	bxm.web.admin.main.domain.ComCdGroupOMM cdGrpList<length=0 arrayReference="1">;
+	Boolean localeNoUse<length=20>;
+}

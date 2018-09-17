@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.systemcommon.deferred.dao.BxmDeferredStatus">
+<!--Generated Mon Nov 14 16:54:03 KST 2016-->
+<select id="selectListWithWorksMysql" resultType="bankware.corebanking.systemcommon.deferred.dao.dto.BxmDeferredStatusWorkIO">
+select bds.deferred_id as deferredId
+     , bdm.deferred_nm as deferredNm
+     , bds.node_no as nodeNo
+     , bds.biz_dt as bizDt
+     , bds.deferred_main_status_cd as deferredMainStatusCd
+     , bds.modify_dttm as modifyDttm
+     , bdw.start_seq as startSeq
+     , bdw.end_seq as endSeq
+     , bdw.last_seq as lastSeq
+     , bdw.incmpl_numbering_cnt as incmplNumberingCnt
+     , bdw.incmpl_data_cnt as incmplDataCnt
+     , bdw.end_yn as endYn
+  from bxm_deferred_status bds
+  left outer join
+       bxm_deferred_work bdw
+    on bds.deferred_id = bdw.deferred_id
+   and bds.biz_dt = bdw.biz_dt
+ inner join
+       bxm_deferred_main bdm
+    on bds.deferred_id = bdm.deferred_id
+<where>
+  <if test="deferredId != null and deferredId != ''">
+       upper(bds.deferred_id) like upper(concat(#{deferredId, jdbcType=VARCHAR},'%'))
+  </if>
+</where>
+ order by bds.deferred_id
+</select>
+<select id="selectListWithWorksOracle" resultType="bankware.corebanking.systemcommon.deferred.dao.dto.BxmDeferredStatusWorkIO">
+select bds.deferred_id as deferredId
+     , bdm.deferred_nm as deferredNm
+     , bds.node_no as nodeNo
+     , bds.biz_dt as bizDt
+     , bds.deferred_main_status_cd as deferredMainStatusCd
+     , bds.modify_dttm as modifyDttm
+     , bdw.start_seq as startSeq
+     , bdw.end_seq as endSeq
+     , bdw.last_seq as lastSeq
+     , bdw.incmpl_numbering_cnt as incmplNumberingCnt
+     , bdw.incmpl_data_cnt as incmplDataCnt
+     , bdw.end_yn as endYn
+  from bxm_deferred_status bds
+  left outer join
+       bxm_deferred_work bdw
+    on bds.deferred_id = bdw.deferred_id
+   and bds.biz_dt = bdw.biz_dt
+ inner join
+       bxm_deferred_main bdm
+    on bds.deferred_id = bdm.deferred_id
+<where>
+  <if test="deferredId != null and deferredId != ''">
+       upper(bds.deferred_id) like upper(#{deferredId})||'%'
+  </if>
+</where>
+ order by bds.deferred_id
+</select>
+<update id="updateDeferredMainStatus">
+update bxm_deferred_status
+   set deferred_main_status_cd = #{deferredMainStatusCd, jdbcType=VARCHAR}
+ where deferred_id = #{deferredId, jdbcType=VARCHAR}
+</update>
+<select id="selectListWithWorksCount" resultType="java.lang.Integer">
+select count(bds.deferred_id) as totalCount
+  from bxm_deferred_status bds
+  left outer join
+       bxm_deferred_work bdw
+    on bds.deferred_id = bdw.deferred_id
+   and bds.biz_dt = bdw.biz_dt
+ inner join
+       bxm_deferred_main bdm
+    on bds.deferred_id = bdm.deferred_id
+<where>
+  <if test="deferredId != null and deferredId != ''">
+       upper(bds.deferred_id) like upper(concat(#{deferredId},'%'))
+  </if>
+</where>
+</select>
+</mapper>

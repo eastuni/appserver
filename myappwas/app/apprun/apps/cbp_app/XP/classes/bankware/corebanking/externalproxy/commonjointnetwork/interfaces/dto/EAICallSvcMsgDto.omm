@@ -1,0 +1,10 @@
+OMM bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.EAICallSvcMsgDto
+<description=" ">
+{
+	String msgTpDscd<length=2 description="메시지 유형">;
+	String dataLen<length=5 description="데이터 길이">;
+	String msgCntntCd<length=10 description="주메시지 코드">;
+	String msgCntnt<length=200 description="주메시지">;
+	Integer subMsgCnt<length=2 description="부가메시지 반복횟수">;
+	bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.EAICallSvcSubMsgDto subMsgDto<length=0 arrayReference="subMsgCnt" description="부가메시지 dto">;
+}

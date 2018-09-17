@@ -1,0 +1,11 @@
+OMM bxm.web.admin.addition.link.flow.domain.LinkFlowMainOutOMM
+<description="">
+{
+	Integer linkTrxCnt<length=9 description="연동거래 수">;
+	String linkMainCd<length=14 description="연동대표코드">;
+	String linkStartTrxCd<length=12 description="연동기동 거래코드">;
+	String useYn<length=1 description="사용 여부">;
+	String linkOutputMappingType<length=1 description="연동출력 맵핑구분">;
+	String linkOutputCheckYn<length=1 description="연동출력확인여부">;
+	String linkTrxCds<length=2000 description="연동거래코드">;
+}

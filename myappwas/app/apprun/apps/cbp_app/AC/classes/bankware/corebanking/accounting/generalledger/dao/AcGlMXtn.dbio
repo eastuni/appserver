@@ -1,0 +1,1362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.accounting.generalledger.dao.AcGlMXtn">
+<!--Generated Thu May 17 18:12:33 KST 2018-->
+<select id="select" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT
+   inst_cd   AS instCd   /*기관코드*/,
+   base_dt   AS baseDt   /*기준년월일*/,
+   dept_id   AS deptId   /*부서식별자*/,
+   acctg_dscd   AS acctgDscd   /*회계구분코드*/,
+   acctg_itm_cd   AS acctgItmCd   /*계정과목코드*/,
+   crncy_cd   AS crncyCd   /*통화코드*/,
+   log_seq_nbr   AS logSeqNbr   /*로그일련번호*/,
+   debit_crdt_dscd   AS debitCrdtDscd   /*차대변구분코드*/,
+   acctg_bal   AS acctgBal   /*계리잔액*/,
+   ex_bal	AS exBal	/*환산잔액*/,
+   blk_mny_rcvd_amt   AS blkMnyRcvdAmt   /*흑서입금금액*/,
+   blk_whdrwl_amt   AS blkWhdrwlAmt   /*흑서출금금액*/,
+   red_mny_rcvd_amt   AS redMnyRcvdAmt   /*주서입금금액*/,
+   red_whdrwl_amt   AS redWhdrwlAmt   /*주서출금금액*/,
+   dmnth_mny_rcvd_acmltd_amt   AS dmnthMnyRcvdAcmltdAmt   /*월중입금적수*/,
+   dmnth_whdrwl_acmltd_amt   AS dmnthWhdrwlAcmltdAmt   /*월중출금적수*/,
+   dtrm_mny_rcvd_acmltd_amt   AS dtrmMnyRcvdAcmltdAmt   /*기중입금적수*/,
+   dtrm_whdrwl_acmltd_amt   AS dtrmWhdrwlAcmltdAmt   /*기중출금적수*/,
+   acctg_dmnth_acmltd_amt   AS acctgDmnthAcmltdAmt   /*계리월중적수*/,
+   acctg_dtrm_acmltd_amt   AS acctgDtrmAcmltdAmt   /*계리기중적수*/,
+   last_chng_tmstmp   AS lastChngTmstmp   /*최종변경일시*/,
+   last_chng_guid   AS lastChngGuid   /*최종변경GUID*/ 
+ FROM  ac_gl_m
+ WHERE  INST_CD = #{acGlMIO.instCd}   /*기관코드*/
+      AND  BASE_DT = #{acGlMIO.baseDt}   /*기준년월일*/
+      AND  DEPT_ID = #{acGlMIO.deptId}   /*부서식별자*/
+      AND  ACCTG_DSCD = #{acGlMIO.acctgDscd}   /*회계구분코드*/
+      AND  ACCTG_ITM_CD = #{acGlMIO.acctgItmCd}   /*계정과목코드*/
+<if test="logSeqNbr != null and logSeqNbr != ''">   
+      AND log_seq_nbr = #{logSeqNbr}
+</if>	  
+      AND  CRNCY_CD = #{acGlMIO.crncyCd}   /*통화코드*/
+</select>
+<select id="selectAcctgBrnchList" parameterType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT
+
+   inst_cd   AS instCd   /*기관코드*/,
+
+   base_dt   AS baseDt   /*기준년월일*/,
+
+   dept_id   AS deptId   /*부서식별자*/,
+
+   acctg_dscd   AS acctgDscd   /*회계구분코드*/,
+
+   acctg_itm_cd   AS acctgItmCd   /*계정과목코드*/,
+
+   crncy_cd   AS crncyCd   /*통화코드*/,
+
+   log_seq_nbr   AS logSeqNbr   /*로그일련번호*/,
+
+   debit_crdt_dscd   AS debitCrdtDscd   /*차대변구분코드*/,
+   acctg_bal   AS acctgBal   /*계리잔액*/,
+
+   blk_mny_rcvd_amt   AS blkMnyRcvdAmt   /*흑서입금금액*/,
+
+   blk_whdrwl_amt   AS blkWhdrwlAmt   /*흑서출금금액*/,
+   red_mny_rcvd_amt   AS redMnyRcvdAmt   /*주서입금금액*/,
+
+   red_whdrwl_amt   AS redWhdrwlAmt   /*주서출금금액*/,
+   dmnth_mny_rcvd_acmltd_amt   AS dmnthMnyRcvdAcmltdAmt   /*월중입금적수*/,
+
+   dmnth_whdrwl_acmltd_amt   AS dmnthWhdrwlAcmltdAmt   /*월중출금적수*/,
+   dtrm_mny_rcvd_acmltd_amt   AS dtrmMnyRcvdAcmltdAmt   /*기중입금적수*/,
+   dtrm_whdrwl_acmltd_amt   AS dtrmWhdrwlAcmltdAmt   /*기중출금적수*/,
+   acctg_dmnth_acmltd_amt   AS acctgDmnthAcmltdAmt   /*계리월중적수*/,
+
+   acctg_dtrm_acmltd_amt   AS acctgDtrmAcmltdAmt   /*계리기중적수*/,
+
+   last_chng_tmstmp   AS lastChngTmstmp   /*최종변경일시*/,
+
+   last_chng_guid   AS lastChngGuid   /*최종변경GUID*/ 
+
+  FROM ac_gl_m            
+
+ WHERE inst_cd = #{instCd}  
+
+   and base_dt = #{baseDt}  
+
+   and acctg_dscd = #{acctgDscd}
+
+   and acctg_itm_cd = #{acctgItmCd}
+
+   and crncy_cd = #{crncyCd}
+
+ <if test="deptId != null and deptId != ''">     
+
+   and dept_id &lt;&gt; #{deptId}
+
+   </if>
+</select>
+<select id="selectAcctgDateList" parameterType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMselectAcctgDateIn" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT
+
+   inst_cd   AS instCd   /*기관코드*/,
+
+   base_dt   AS baseDt   /*기준년월일*/,
+
+   dept_id   AS deptId   /*부서식별자*/,
+
+   acctg_dscd   AS acctgDscd   /*회계구분코드*/,
+
+   acctg_itm_cd   AS acctgItmCd   /*계정과목코드*/,
+
+   crncy_cd   AS crncyCd   /*통화코드*/,
+
+   log_seq_nbr   AS logSeqNbr   /*로그일련번호*/,
+
+   debit_crdt_dscd   AS debitCrdtDscd   /*차대변구분코드*/,
+   acctg_bal   AS acctgBal   /*계리잔액*/,
+
+   blk_mny_rcvd_amt   AS blkMnyRcvdAmt   /*흑서입금금액*/,
+
+   blk_whdrwl_amt   AS blkWhdrwlAmt   /*흑서출금금액*/,
+   red_mny_rcvd_amt   AS redMnyRcvdAmt   /*주서입금금액*/,
+
+   red_whdrwl_amt   AS redWhdrwlAmt   /*주서출금금액*/,
+   dmnth_mny_rcvd_acmltd_amt   AS dmnthMnyRcvdAcmltdAmt   /*월중입금적수*/,
+
+   dmnth_whdrwl_acmltd_amt   AS dmnthWhdrwlAcmltdAmt   /*월중출금적수*/,
+   dtrm_mny_rcvd_acmltd_amt   AS dtrmMnyRcvdAcmltdAmt   /*기중입금적수*/,
+   dtrm_whdrwl_acmltd_amt   AS dtrmWhdrwlAcmltdAmt   /*기중출금적수*/,
+   acctg_dmnth_acmltd_amt   AS acctgDmnthAcmltdAmt   /*계리월중적수*/,
+
+   acctg_dtrm_acmltd_amt   AS acctgDtrmAcmltdAmt   /*계리기중적수*/,
+
+   last_chng_tmstmp   AS lastChngTmstmp   /*최종변경일시*/,
+
+   last_chng_guid   AS lastChngGuid   /*최종변경GUID*/ 
+
+  FROM ac_gl_m            
+
+ WHERE inst_cd = #{instCd}  
+
+   AND dept_id = #{deptId}
+
+   and base_dt BETWEEN #{inqryStartDt} AND #{inqryEndDt}
+
+   and acctg_dscd = #{acctgDscd}
+
+   and acctg_itm_cd = #{acctgItmCd}
+
+   and crncy_cd = #{crncyCd}
+</select>
+<select id="selectListDailyGl" parameterType="bankware.corebanking.accounting.generalledger.interfaces.dto.GlMgmtBsSrchKeyIn" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT GL.BASE_DT as baseDt
+      ,GL.ACCTG_DSCD as acctgDscd
+      ,GL.ACCTG_ITM_CD as acctgItmCd
+      ,SUM(GL.ACCTG_BAL) as acctgBal
+      ,SUM(BLK_MNY_RCVD_AMT)            as blkMnyRcvdAmt
+      ,SUM(BLK_WHDRWL_AMT)            as blkWhdrwlAmt
+      ,SUM(RED_MNY_RCVD_AMT)            as redMnyRcvdAmt
+      ,SUM(RED_WHDRWL_AMT)            as redWhdrwlAmt
+      ,SUM(DMNTH_MNY_RCVD_ACMLTD_AMT)     as dmnthMnyRcvdAcmltdAmt
+      ,SUM(DMNTH_WHDRWL_ACMLTD_AMT)     as dmnthWhdrwlAcmltdAmt
+      ,SUM(DTRM_MNY_RCVD_ACMLTD_AMT)    as dtrmMnyRcvdAcmltdAmt
+      ,SUM(DTRM_WHDRWL_ACMLTD_AMT)    as dtrmWhdrwlAcmltdAmt
+      ,SUM(ACCTG_DMNTH_ACMLTD_AMT)        as acctgDmnthAcmltdAmt
+      ,SUM(ACCTG_DTRM_ACMLTD_AMT)         as acctgDtrmAcmltdAmt      
+  FROM AC_GL_M GL
+ WHERE 
+       GL.INST_CD = #{instCd}
+<if test="deptIdList != null and deptIdList != ''">
+    AND GL.DEPT_ID IN
+	<foreach close=")" collection="deptIdList" item="item" open="(" separator=",">
+		#{item}
+	</foreach>
+</if>
+   AND GL.BASE_DT = #{baseDt}
+   AND GL.ACCTG_DSCD = #{acctgDscd}
+   AND GL.CRNCY_CD = #{crncyCd}
+GROUP BY GL.BASE_DT, GL.ACCTG_DSCD, GL.ACCTG_ITM_CD
+</select>
+<select id="selectGLDataExistYnMysql" parameterType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMSelectGlDataExistYnOut">
+select 'Y' AS dataExstncYn
+
+  FROM DUAL
+
+ WHERE EXISTS(SELECT 
+
+                                      INST_CD 
+
+                           FROM AC_GL_M 
+
+                          WHERE INST_CD = #{instCd}
+
+                              AND BASE_DT = #{baseDt}
+
+                             LIMIT 1)
+
+UNION ALL 
+
+select 'N'
+
+  FROM DUAL
+
+ WHERE NOT EXISTS(SELECT 
+
+                                      INST_CD 
+
+                           FROM AC_GL_M 
+
+                          WHERE INST_CD = #{instCd}
+
+                              AND BASE_DT = #{baseDt}
+
+                             LIMIT 1)
+</select>
+<select id="selectGLDataExistYnOracle" parameterType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMSelectGlDataExistYnOut">
+select 'Y' AS dataExstncYn
+
+  FROM DUAL
+
+ WHERE EXISTS(SELECT 
+
+                                      INST_CD 
+
+                           FROM AC_GL_M 
+
+                          WHERE INST_CD = #{instCd}
+
+                              AND BASE_DT = #{baseDt}
+
+                              AND rownum=1)
+
+UNION ALL 
+
+select 'N'
+
+  FROM DUAL
+
+ WHERE NOT EXISTS(SELECT 
+
+                                      INST_CD 
+
+                           FROM AC_GL_M 
+
+                          WHERE INST_CD = #{instCd}
+
+                              AND BASE_DT = #{baseDt}
+
+                              AND rownum=1)
+</select>
+<select id="selectTotalCount" parameterType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMselectAcctgDpstWhdrwlIn" resultType="java.lang.Integer">
+SELECT 
+
+       COUNT(glm.acctgItmCd) as totCnt
+FROM (
+
+	SELECT 
+
+	          coa.ACCTG_ITM_CD as acctgItmCd
+
+	  FROM AC_GL_M gl,
+
+	            AC_COA_M coa
+
+	  WHERE gl.INST_CD = coa.INST_CD    
+
+	    AND gl.ACCTG_ITM_CD = coa.ACCTG_ITM_CD
+
+	    AND gl.ACCTG_DSCD   = coa.ACCTG_DSCD
+
+	    AND gl.INST_CD = #{instCd}  
+
+	    AND gl.BASE_DT BETWEEN #{inqryStartDt} AND #{inqryEndDt}    /*기준년월일*/
+
+	    AND gl.ACCTG_DSCD = #{acctgDscd} /*회계구분코드*/
+
+	    AND gl.DEPT_ID    = #{deptId}    /*부서식별자*/
+
+	     AND gl.ACCTG_ITM_CD = #{acctgItmCd}
+
+	    AND gl.CRNCY_CD = #{crncyCd}
+
+) glm
+</select>
+<select id="selectAcctgDpstWhdrwlListMysql" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT 
+
+     gl.base_dt as baseDt
+
+    ,coa.ACCTG_ITM_CD as acctgItmCd
+
+    ,coa.ACCTG_ITM_NM as acctgItmNm
+
+    ,ifnull(gl.BLK_MNY_RCVD_AMT-gl.red_whdrwl_amt,0) as mnyRcvdAmt
+    ,ifnull(gl.BLK_WHDRWL_AMT-gl.RED_MNY_RCVD_AMT,0) as whdrwlAmt
+    ,ifnull(gl.ACCTG_BAL,0) as acctgBal
+
+  FROM AC_GL_M gl,
+
+       AC_COA_M coa
+
+  WHERE gl.INST_CD = coa.INST_CD    
+
+    AND gl.ACCTG_ITM_CD = coa.ACCTG_ITM_CD
+
+    AND gl.ACCTG_DSCD   = coa.ACCTG_DSCD
+
+    AND gl.INST_CD = #{a.instCd}  
+
+    AND gl.BASE_DT BETWEEN #{a.inqryStartDt} AND #{a.inqryEndDt}    /*기준년월일*/
+
+    AND gl.ACCTG_DSCD = #{a.acctgDscd} /*회계구분코드*/
+
+    AND gl.DEPT_ID    = #{a.deptId}    /*부서식별자*/
+
+    AND gl.ACCTG_ITM_CD = #{a.acctgItmCd}
+
+    AND gl.CRNCY_CD = #{a.crncyCd}
+
+ORDER BY gl.base_dt, coa.ACCTG_ITM_OUTP_SEQ_NBR
+
+ LIMIT #{pgOffset}, #{pgCnt}
+</select>
+<select id="selectAcctgDpstWhdrwlListOracle" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT * FROM 
+
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+
+        (
+
+SELECT 
+
+     coa.ACCTG_ITM_CD as acctgItmCd
+
+    ,coa.ACCTG_ITM_NM as acctgItmNm
+
+    ,nvl(gl.BLK_MNY_RCVD_AMT-gl.red_whdrwl_amt,0) as mnyRcvdAmt
+    ,nvl(gl.BLK_DRWG_OUT_AMT-gl.RED_MNY_RCVD_AMT,0) as whdrwlAmt
+    ,nvl(gl.ACCTG_BAL,0) as acctgBal
+
+  FROM AC_GL_M gl,
+
+       AC_COA_M coa
+
+  WHERE gl.INST_CD = coa.INST_CD    
+
+    AND gl.ACCTG_ITM_CD = coa.ACCTG_ITM_CD
+
+    AND gl.ACCTG_DSCD   = coa.ACCTG_DSCD
+
+    AND gl.INST_CD = #{a.instCd}  
+
+    AND gl.BASE_DT BETWEEN #{a.inqryStartDt} AND #{a.inqryEndDt}    /*기준년월일*/
+
+    AND gl.ACCTG_DSCD = #{a.acctgDscd} /*회계구분코드*/
+
+    AND gl.DEPT_ID    = #{a.deptId}    /*부서식별자*/
+
+    AND gl.ACCTG_ITM_CD = #{a.acctgItmCd}
+
+    AND gl.CRNCY_CD = #{a.crncyCd}
+
+GROUP BY coa.ACCTG_ITM_CD, coa.ACCTG_ITM_NM
+
+  ) A 
+
+    WHERE ROWNUM &lt;= #{pgOffset} + #{pgCnt}
+    ) 
+
+WHERE ROW__NUM &gt; #{pgOffset}
+</select>
+<select id="selectMaxTxSeqNbr" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMAcctgCrctnIO">
+SELECT
+
+          IFNULL(MAX(tx_seq_nbr),0) AS txSeqNbr  
+
+FROM  ac_manual_entry_tx_d
+
+WHERE  INST_CD = #{instCd}  /*기관코드*/ 
+
+    AND  TX_DT    = #{txDt}     /*거래년월일*/
+
+    AND  DEPT_ID = #{deptId}  /*부서식별자*/
+</select>
+<select id="selectAmtSum" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT  /* 총계정원장기본 */
+       INST_CD                    as instCd
+      ,DEPT_ID                   as deptId
+      ,BASE_DT                    as baseDt
+      ,ACCTG_DSCD                 as acctgDscd
+      ,ACCTG_ITM_CD               as acctgItmCd
+      ,debit_crdt_dscd               as debitCrdtDscd
+      ,CRNCY_CD                   as crncyCd
+      ,SUM(ACCTG_BAL)                  as acctgBal
+      ,SUM(EX_BAL)				as exBal
+      ,SUM(BLK_MNY_RCVD_AMT)           as blkMnyRcvdAmt
+      ,SUM(BLK_WHDRWL_AMT)           as blkWhdrwlAmt
+      ,SUM(RED_MNY_RCVD_AMT)           as redMnyRcvdAmt
+      ,SUM(RED_WHDRWL_AMT)           as redWhdrwlAmt
+      ,SUM(DMNTH_MNY_RCVD_ACMLTD_AMT)  as dmnthMnyRcvdAcmltdAmt
+      ,SUM(DMNTH_WHDRWL_ACMLTD_AMT)  as dmnthWhdrwlAcmltdAmt
+      ,SUM(DTRM_MNY_RCVD_ACMLTD_AMT)   as dtrmMnyRcvdAcmltdAmt
+      ,SUM(DTRM_WHDRWL_ACMLTD_AMT)   as dtrmWhdrwlAcmltdAmt
+      ,SUM(ACCTG_DMNTH_ACMLTD_AMT)     as acctgDmnthAcmltdAmt
+      ,SUM(ACCTG_DTRM_ACMLTD_AMT)      as acctgDtrmAcmltdAmt
+  FROM ac_gl_m            
+ WHERE INST_CD = #{instCd}  /*기관코드*/
+   AND BASE_DT = #{baseDt}   /*기준년월일*/
+   AND DEPT_ID = #{deptId}  /*부서식별자*/
+   and acctg_dscd = #{acctgDscd}
+   and acctg_itm_cd = #{acctgItmCd}
+   and crncy_cd = #{crncyCd}
+</select>
+<select id="selectByUpAcctgItmCd" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT /* "bankware.corebanking.accounting.generalledger.daobatch.AcGlMBat.select" */   /* 총계정원장기본 */
+
+       gl.INST_CD                    as instCd
+
+      ,gl.DEPT_ID                   as deptId
+
+      ,gl.BASE_DT                    as baseDt
+
+      ,gl.ACCTG_DSCD                 as acctgDscd
+
+      ,gl.ACCTG_ITM_CD               as acctgItmCd
+
+      ,coa.UP_ACCTG_ITM_CD				as upAcctgItmCd
+
+      ,gl.debit_crdt_dscd               as debitCrdtDscd
+      ,gl.CRNCY_CD                   as crncyCd
+
+      ,gl.ACCTG_BAL                  as acctgBal
+
+      ,gl.ex_bal                               as exBal
+      ,gl.BLK_MNY_RCVD_AMT           as blkMnyRcvdAmt
+
+      ,gl.blk_whdrwl_amt           as blkWhdrwlAmt
+      ,gl.RED_MNY_RCVD_AMT           as redMnyRcvdAmt
+
+      ,gl.red_whdrwl_amt           as redWhdrwlAmt
+      ,gl.DMNTH_MNY_RCVD_ACMLTD_AMT  as dmnthMnyRcvdAcmltdAmt
+
+      ,gl.dmnth_whdrwl_acmltd_amt  as dmnthWhdrwlAcmltdAmt
+      ,gl.DTRM_MNY_RCVD_ACMLTD_AMT   as dtrmMnyRcvdAcmltdAmt
+      ,gl.dtrm_whdrwl_acmltd_amt   as dtrmWhdrwlAcmltdAmt
+      ,gl.ACCTG_DMNTH_ACMLTD_AMT     as acctgDmnthAcmltdAmt
+
+      ,gl.ACCTG_DTRM_ACMLTD_AMT      as acctgDtrmAcmltdAmt
+
+  FROM ac_gl_m gl, ac_coa_m coa
+
+ WHERE gl.inst_cd = #{instCd} 
+
+<if test="deptId != null and deptId != ''">   
+
+   AND gl.dept_id = #{deptId}
+
+</if>
+
+   and gl.base_dt = #{baseDt}
+
+   and gl.acctg_dscd =#{acctgDscd}
+
+   and gl.acctg_itm_cd = #{upAcctgItmCd}
+
+   and gl.crncy_cd = #{crncyCd}
+
+   and gl.ACCTG_ITM_CD=coa.ACCTG_ITM_CD
+
+group by gl.crncy_cd, coa.UP_ACCTG_ITM_CD
+</select>
+<select id="selectListByAcctgItmCd" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT 
+  A.instCd
+  , A.baseDt
+  , A.deptId
+  , A.acctgDscd
+  , A.debitCrdtDscd
+  , A.crncyCd
+  , A.acctgItmCd
+  , A.acctgBal
+  , A.exBal
+  , A.blkMnyRcvdAmt
+  , A.blkWhdrwlAmt
+  , A.redMnyRcvdAmt
+  , A.redWhdrwlAmt
+  , A.dmnthMnyRcvdAcmltdAmt
+  , A.dmnthWhdrwlAcmltdAmt
+  , A.dtrmMnyRcvdAcmltdAmt
+  , A.dtrmWhdrwlAcmltdAmt
+  , A.acctgDmnthAcmltdAmt
+  , A.acctgDtrmAcmltdAmt
+  , B.ACCTG_ITM_OUTP_SEQ_NBR as acctgItmOutpSeqNbr
+FROM (
+SELECT    /* 총계정원장기본 */
+		gl.inst_cd		as instCd,     /*기관코드*/
+		gl.base_dt		as baseDt,    /*기준년월일*/
+		gl.dept_id		as deptId,     /*부서식별자*/
+		gl.acctg_dscd	as acctgDscd,     /*회계구분코드*/
+		gl.debit_crdt_dscd	as debitCrdtDscd,	/*차대변구분코드*/
+		gl.crncy_cd		as crncyCd,     /*통화코드*/
+		gl.acctg_itm_cd as acctgItmCd,	/*계정과목코드*/
+		sum(gl.ACCTG_BAL)		as acctgBal,     /*계리잔액합*/
+     	SUM(gl.ex_bal)		as exBal,	/*환산잔액*/
+		SUM(BLK_MNY_RCVD_AMT)            as blkMnyRcvdAmt,	/*흑서입금금액*/
+     	SUM(blk_whdrwl_amt)            as blkWhdrwlAmt,	/*흑서출금금액*/
+     	SUM(RED_MNY_RCVD_AMT)            as redMnyRcvdAmt,	/*주서입금금액*/
+     	SUM(red_whdrwl_amt)            as redWhdrwlAmt,	/*주서출금금액*/
+     	SUM(DMNTH_MNY_RCVD_ACMLTD_AMT)     as dmnthMnyRcvdAcmltdAmt,	/*월중입금적수*/
+     	SUM(dmnth_whdrwl_acmltd_amt)     as dmnthWhdrwlAcmltdAmt,	/*월중출금적수*/
+     	SUM(DTRM_MNY_RCVD_ACMLTD_AMT)    as dtrmMnyRcvdAcmltdAmt,	/*기중입금적수*/
+     	SUM(dtrm_whdrwl_acmltd_amt)    as dtrmWhdrwlAcmltdAmt,	/*기중출금적수*/
+     	SUM(ACCTG_DMNTH_ACMLTD_AMT)        as acctgDmnthAcmltdAmt,	/*계리월중적수*/
+     	SUM(ACCTG_DTRM_ACMLTD_AMT)         as acctgDtrmAcmltdAmt	/*계리기중적수*/
+from ac_gl_m gl,
+		(select
+		acctg_itm_cd,
+		up_acctg_itm_cd,
+		real_titl_acctg_yn
+		from ac_coa_m
+		where inst_cd=#{instCd}
+		and (
+		real_titl_acctg_yn = #{realTitlAcctgYn}
+<if test="acctgItmCdList != null and acctgItmCdList != ''">
+    or acctg_itm_cd IN
+	<foreach close=")" collection="acctgItmCdList" item="item" open="(" separator=",">
+		#{item}
+	</foreach>
+</if>
+)
+		) coa
+where gl.inst_cd=#{instCd}
+<if test="deptId != null and deptId != ''">   
+and gl.dept_id=#{deptId}
+</if>
+and gl.base_dt=#{baseDt}
+<if test="acctgItmCd != null and acctgItmCd != ''">   
+and gl.acctg_itm_cd=#{acctgItmCd}
+</if>
+and coa.ACCTG_ITM_CD=gl.ACCTG_ITM_Cd
+group by gl.inst_cd, gl.base_dt, gl.dept_id, gl.acctg_dscd, gl.crncy_cd, gl.acctg_itm_cd
+) A
+, ac_coa_m B
+where A.acctgDscd = B.ACCTG_DSCD
+and A.acctgItmCd = B.ACCTG_ITM_CD
+and A.instCd = B.INST_CD
+order by B.ACCTG_ITM_OUTP_SEQ_NBR
+</select>
+<select id="selectListByUpAcctgItmCd" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT    /* 총계정원장기본 */
+
+		gl.inst_cd		as instCd,     /*기관코드*/
+
+		gl.base_dt		as baseDt,    /*기준년월일*/
+
+		gl.dept_id		as deptId,     /*부서식별자*/
+
+		gl.acctg_dscd	as acctgDscd,     /*회계구분코드*/
+
+		gl.crncy_cd		as crncyCd,     /*통화코드*/
+
+		gl.acctg_itm_cd 		as acctgItmCd, 	/*계정과목코드*/
+
+		UP_ACCTG_ITM_CD		as upAcctgItmCd,     /*상위계정과목코드*/
+
+		SUM(gl.ACCTG_BAL)		as acctgBal ,     /*계리잔액합*/
+     	SUM(gl.ex_bal)		as exBal,	/*환산잔액*/
+     	SUM(gl.BLK_MNY_RCVD_AMT)            as blkMnyRcvdAmt,	/*흑서입금금액*/
+      	SUM(blk_whdrwl_amt)            as blkWhdrwlAmt,	/*흑서출금금액*/
+      	SUM(RED_MNY_RCVD_AMT)            as redMnyRcvdAmt,	/*주서입금금액*/
+      	SUM(red_whdrwl_amt)            as redWhdrwlAmt,	/*주서출금금액*/
+      	SUM(DMNTH_MNY_RCVD_ACMLTD_AMT)     as dmnthMnyRcvdAcmltdAmt,	/*월중입금적수*/
+      	SUM(dmnth_whdrwl_acmltd_amt)     as dmnthWhdrwlAcmltdAmt,	/*월중출금적수*/
+      	SUM(DTRM_MNY_RCVD_ACMLTD_AMT)    as dtrmMnyRcvdAcmltdAmt,	/*기중입금적수*/
+      	SUM(dtrm_whdrwl_acmltd_amt)    as dtrmWhdrwlAcmltdAmt,	/*기중출금적수*/
+      	SUM(ACCTG_DMNTH_ACMLTD_AMT)        as acctgDmnthAcmltdAmt,	/*계리월중적수*/
+      	SUM(ACCTG_DTRM_ACMLTD_AMT)         as acctgDtrmAcmltdAmt	/*계리기중적수*/
+from ac_gl_m gl,
+
+		(select
+
+		acctg_itm_cd,
+
+		up_acctg_itm_cd,
+
+		real_titl_acctg_yn
+
+		from ac_coa_m
+
+		where inst_cd=#{instCd}
+
+		and (
+
+		real_titl_acctg_yn = 'Y'
+
+<if test="acctgItmCdList != null and acctgItmCdList != ''">
+
+    or acctg_itm_cd IN
+
+	<foreach close=")" collection="acctgItmCdList" item="item" open="(" separator=",">
+
+		#{item}
+
+	</foreach>
+
+</if>
+
+)
+
+		) coa
+
+where gl.inst_cd=#{instCd}
+
+<if test="deptId != null and deptId != ''">   
+
+and gl.dept_id=#{deptId}
+
+</if>
+
+and gl.base_dt=#{baseDt}
+
+and coa.ACCTG_ITM_CD=gl.ACCTG_ITM_Cd
+
+group by gl.inst_cd, gl.base_dt, gl.dept_id, gl.acctg_dscd, gl.crncy_cd, gl.acctg_itm_cd, coa.UP_ACCTG_ITM_CD
+</select>
+<select id="selectUpAcctgItmCd" resultType="java.lang.String">
+select 
+
+distinct UP_ACCTG_ITM_CD	as upAcctgItmCd
+
+from ac_coa_m
+
+where inst_cd=#{instCd} 
+
+and acctg_itm_cd=#{acctgItmCd}
+</select>
+<select id="selectMaxBaseDt" resultType="java.lang.String">
+SELECT
+
+   max(base_dt)   AS baseDt   /*기준년월일*/
+
+ FROM  ac_gl_m
+
+ WHERE  INST_CD = #{instCd}   /*기관코드*/
+
+ AND  DEPT_ID = #{deptId}  /*부서식별자*/
+</select>
+<select id="selectListByAcctgItmCrncyCd" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT 
+
+  A.instCd
+
+  , A.baseDt
+
+  , A.deptId
+
+  , A.acctgDscd
+
+  , A.debitCrdtDscd
+  , A.crncyCd
+
+  , A.acctgItmCd
+
+  , A.acctgBal
+
+  , A.exBal
+  , A.blkMnyRcvdAmt
+
+  , A.blkWhdrwlAmt
+  , A.redMnyRcvdAmt
+
+  , A.redWhdrwlAmt
+  , A.dmnthMnyRcvdAcmltdAmt
+
+  , A.dmnthWhdrwlAcmltdAmt
+  , A.dtrmMnyRcvdAcmltdAmt
+  , A.dtrmWhdrwlAcmltdAmt
+  , A.acctgDmnthAcmltdAmt
+
+  , A.acctgDtrmAcmltdAmt
+
+  , B.ACCTG_ITM_OUTP_SEQ_NBR as acctgItmOutpSeqNbr
+
+FROM (
+
+SELECT    /* 총계정원장기본 */
+
+		gl.inst_cd		as instCd,     /*기관코드*/
+
+		gl.base_dt		as baseDt,    /*기준년월일*/
+
+		gl.dept_id		as deptId,     /*부서식별자*/
+
+		gl.acctg_dscd	as acctgDscd,     /*회계구분코드*/
+
+		gl.DEBIT_CRDT_DSCD	as debitCrdtDscd,	/*차대변구분코드*/
+		gl.crncy_cd		as crncyCd,     /*통화코드*/
+
+		gl.acctg_itm_cd as acctgItmCd,	/*계정과목코드*/
+
+		sum(gl.ACCTG_BAL)		as acctgBal,     /*계리잔액합*/
+     	SUM(gl.ex_bal)		as exBal,	/*환산잔액*/
+		SUM(BLK_MNY_RCVD_AMT)            as blkMnyRcvdAmt,	/*흑서입금금액*/
+      	SUM(blk_whdrwl_amt)            as blkWhdrwlAmt,	/*흑서출금금액*/
+      	SUM(RED_MNY_RCVD_AMT)            as redMnyRcvdAmt,	/*주서입금금액*/
+      	SUM(red_whdrwl_amt)            as redWhdrwlAmt,	/*주서출금금액*/
+      	SUM(DMNTH_MNY_RCVD_ACMLTD_AMT)     as dmnthMnyRcvdAcmltdAmt,	/*월중입금적수*/
+      	SUM(dmnth_whdrwl_acmltd_amt)     as dmnthWhdrwlAcmltdAmt,	/*월중출금적수*/
+      	SUM(DTRM_MNY_RCVD_ACMLTD_AMT)    as dtrmMnyRcvdAcmltdAmt,	/*기중입금적수*/
+      	SUM(dtrm_whdrwl_acmltd_amt)    as dtrmWhdrwlAcmltdAmt,	/*기중출금적수*/
+      	SUM(ACCTG_DMNTH_ACMLTD_AMT)        as acctgDmnthAcmltdAmt,	/*계리월중적수*/
+      	SUM(ACCTG_DTRM_ACMLTD_AMT)         as acctgDtrmAcmltdAmt	/*계리기중적수*/
+from ac_gl_m gl,
+
+		(select
+
+		acctg_itm_cd,
+
+		up_acctg_itm_cd,
+
+		real_titl_acctg_yn
+
+		from ac_coa_m
+
+		where inst_cd=#{instCd}
+
+		and (
+
+		real_titl_acctg_yn = #{realTitlAcctgYn}
+
+
+
+<if test="acctgItmCdList != null and acctgItmCdList != ''">
+
+    or acctg_itm_cd IN
+
+	<foreach close=")" collection="acctgItmCdList" item="item" open="(" separator=",">
+
+		#{item}
+
+	</foreach>
+
+</if>
+
+)
+
+		) coa
+
+where gl.inst_cd=#{instCd}
+
+<if test="deptId != null and deptId != ''">   
+
+and gl.dept_id=#{deptId}
+
+</if>
+
+and gl.base_dt=#{baseDt}
+
+and gl.crncy_cd=#{crncyCd}
+
+and coa.ACCTG_ITM_CD=gl.ACCTG_ITM_Cd
+
+group by gl.inst_cd, gl.base_dt, gl.dept_id, gl.acctg_dscd, gl.debit_crdt_dscd, gl.crncy_cd, gl.acctg_itm_cd
+
+) A
+
+, ac_coa_m B
+
+where A.acctgDscd = B.ACCTG_DSCD
+
+and A.acctgItmCd = B.ACCTG_ITM_CD
+
+and A.instCd = B.INST_CD
+
+
+
+order by B.ACCTG_ITM_OUTP_SEQ_NBR
+</select>
+<select id="selectAmtSumByTitlAcctgClCd" parameterType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMselectAmtSumByTitlAcctgClCdIn" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMselectAmtSumByTitlAcctgClCdOut">
+select 
+gl.BASE_DT as baseDt
+, gl.CRNCY_CD as crncyCd
+, gl.ACCTG_ITM_CD as acctgItmCd
+, coa.ACCTG_TITL_ACCTG_ABRVTN_NM as acctgTitlAcctgAbrvtnNm
+, gl.ACCTG_BAL as acctgBal
+from ac_gl_m gl, ac_coa_m coa
+where 
+gl.inst_cd = #{instCd}
+and gl.BASE_DT = #{baseDt}
+and gl.DEPT_ID = #{deptId}
+<if test="acctgItmCd != null and acctgItmCd != ''">
+and gl.ACCTG_ITM_CD = #{acctgItmCd}
+</if>
+and coa.TITL_ACCTG_CL_CD = #{titlAcctgClCd}
+and gl.INST_CD = coa.INST_CD
+and gl.ACCTG_DSCD = coa.ACCTG_DSCD
+and gl.ACCTG_ITM_CD = coa.ACCTG_ITM_CD
+group by gl.BASE_DT, gl.CRNCY_CD, gl.ACCTG_ITM_CD, coa.ACCTG_TITL_ACCTG_ABRVTN_NM
+</select>
+<select id="selectListByAcctgItmCrncyCdDistr" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT    /* 총계정원장기본 */
+		gl.inst_cd		as instCd,     /*기관코드*/
+		gl.base_dt		as baseDt,    /*기준년월일*/
+		gl.dept_id		as deptId,     /*부서식별자*/
+		gl.acctg_dscd	as acctgDscd,     /*회계구분코드*/
+		gl.DEBIT_CRDT_DSCD	as debitCrdtDscd,	/*차대변구분코드*/
+		gl.crncy_cd		as crncyCd,     /*통화코드*/
+		gl.acctg_itm_cd as acctgItmCd,	/*계정과목코드*/
+		sum(gl.ACCTG_BAL)		as acctgBal,     /*계리잔액합*/
+     	SUM(gl.ex_bal)		as exBal,	/*환산잔액*/
+		SUM(gl.BLK_MNY_RCVD_AMT)            as blkMnyRcvdAmt,	/*흑서입금금액*/
+      	SUM(gl.blk_whdrwl_amt)            as blkWhdrwlAmt,	/*흑서출금금액*/
+      	SUM(gl.RED_MNY_RCVD_AMT)            as redMnyRcvdAmt,	/*주서입금금액*/
+      	SUM(gl.red_whdrwl_amt)            as redWhdrwlAmt,	/*주서출금금액*/
+      	SUM(gl.DMNTH_MNY_RCVD_ACMLTD_AMT)     as dmnthMnyRcvdAcmltdAmt,	/*월중입금적수*/
+      	SUM(gl.dmnth_whdrwl_acmltd_amt)     as dmnthWhdrwlAcmltdAmt,	/*월중출금적수*/
+      	SUM(gl.DTRM_MNY_RCVD_ACMLTD_AMT)    as dtrmMnyRcvdAcmltdAmt,	/*기중입금적수*/
+      	SUM(gl.dtrm_whdrwl_acmltd_amt)    as dtrmWhdrwlAcmltdAmt,	/*기중출금적수*/
+      	SUM(gl.ACCTG_DMNTH_ACMLTD_AMT)        as acctgDmnthAcmltdAmt,	/*계리월중적수*/
+      	SUM(gl.ACCTG_DTRM_ACMLTD_AMT)         as acctgDtrmAcmltdAmt,	/*계리기중적수*/
+      	#{acctgItmOutpSeqNbr} as acctgItmOutpSeqNbr
+from ac_gl_m gl
+where gl.inst_cd=#{instCd}
+<if test="deptId != null and deptId != ''">   
+and gl.dept_id=#{deptId}
+</if>
+and gl.base_dt=#{baseDt}
+and gl.crncy_cd=#{crncyCd}
+and gl.ACCTG_ITM_Cd = #{acctgItmCd}
+group by gl.inst_cd, gl.base_dt, gl.dept_id, gl.acctg_dscd, gl.DEBIT_CRDT_DSCD, gl.crncy_cd, gl.acctg_itm_cd
+</select>
+<select id="selectListByAcctgItmCrncyCdCoaDistr" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcCoaMIO">
+SELECT    /* 계정과목코드기본 */
+        INST_CD AS instCd,     /*기관코드*/
+        ACCTG_DSCD AS acctgDscd,     /*회계구분코드*/
+        ACCTG_ITM_CD AS acctgItmCd,     /*계정과목코드*/
+        DEBIT_CRDT_DSCD AS debitCrdtDscd,     /*차대변구분코드*/
+        BSIS_DSCD AS bsisDscd,     /*BSIS구분코드*/
+        TITL_ACCTG_CL_CD AS titlAcctgClCd,     /*계정과목분류코드*/
+        REAL_TITL_ACCTG_YN AS realTitlAcctgYn,     /*실계정과목여부*/
+        MINUS_BAL_ALLWNC_YN AS minusBalAllwncYn,     /*마이너스잔액허용여부*/
+        HQ_ACCTG_ITM_YN AS hqAcctgItmYn,     /*본부계정여부*/
+        PRCS_ABL_BRNCH_RGSTRN_YN AS prcsAblBrnchRgstrnYn,     /*처리가능부점등록여부*/
+        FRGN_TX_AMT_OCR_YN AS frgnTxAmtOcrYn,     /*외화거래발생여부*/
+        ACCTG_ITM_OUTP_SEQ_NBR AS acctgItmOutpSeqNbr,     /*계정출력순서번호*/
+        GL_OUTP_LVL_DSCD AS glOutpLvlDscd,     /*GL출력레벨구분코드*/
+        ACCTG_TITL_ACCTG_ABRVTN_NM AS acctgTitlAcctgAbrvtnNm,     /*계리계정과목약어명*/
+        ACCTG_ITM_NM AS acctgItmNm,     /*계정과목명*/
+        UP_ACCTG_ITM_CD AS upAcctgItmCd,     /*상위계정과목코드*/
+        BTSD_ACCTG_ITM_YN AS btsdAcctgItmYn,     /*양변계정여부*/
+        RLTD_ACCTG_ITM_CD AS rltdAcctgItmCd,     /*상대계정과목코드*/
+        MANUAL_ENTRY_PRMSN_DSCD AS manualEntryPrmsnDscd,     /*비온라인처리허용구분코드*/
+        ACCTG_DSTNCTN_NM AS acctgDstnctnNm,     /*계정구분명*/
+        APLY_START_DT AS aplyStartDt,     /*적용시작년월일*/
+        APLY_END_DT AS aplyEndDt     /*적용종료년월일*/
+  FROM ac_coa_m
+where inst_cd=#{instCd}
+		and (
+		real_titl_acctg_yn = #{realTitlAcctgYn}
+		<if test="acctgItmCdList != null and acctgItmCdList != ''">
+		    or acctg_itm_cd IN
+			<foreach close=")" collection="acctgItmCdList" item="item" open="(" separator=",">
+				#{item}
+			</foreach>
+		</if>
+)
+order by ACCTG_ITM_OUTP_SEQ_NBR
+</select>
+<select id="selectListDistr" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT    /* 총계정원장기본 */
+        INST_CD AS instCd,     /*기관코드*/
+        BASE_DT AS baseDt,     /*기준년월일*/
+        DEPT_ID AS deptId,     /*부서식별자*/
+        ACCTG_DSCD AS acctgDscd,     /*회계구분코드*/
+        ACCTG_ITM_CD AS acctgItmCd,     /*계정과목코드*/
+        CRNCY_CD AS crncyCd,     /*통화코드*/
+        LOG_SEQ_NBR AS logSeqNbr,     /*로그일련번호*/
+        DEBIT_CRDT_DSCD AS debitCrdtDscd,     /*차대변구분코드*/
+        ACCTG_BAL AS acctgBal,     /*계리잔액*/
+        EX_BAL AS exBal,     /*환산잔액*/
+        BLK_MNY_RCVD_AMT AS blkMnyRcvdAmt,     /*흑서입금금액*/
+        BLK_WHDRWL_AMT AS blkWhdrwlAmt,     /*흑서출금금액*/
+        RED_MNY_RCVD_AMT AS redMnyRcvdAmt,     /*주서입금금액*/
+        RED_WHDRWL_AMT AS redWhdrwlAmt,     /*주서출금금액*/
+        DMNTH_MNY_RCVD_ACMLTD_AMT AS dmnthMnyRcvdAcmltdAmt,     /*월중입금적수*/
+        DMNTH_WHDRWL_ACMLTD_AMT AS dmnthWhdrwlAcmltdAmt,     /*월중출금적수*/
+        DTRM_MNY_RCVD_ACMLTD_AMT AS dtrmMnyRcvdAcmltdAmt,     /*기중입금적수*/
+        DTRM_WHDRWL_ACMLTD_AMT AS dtrmWhdrwlAcmltdAmt,     /*기중출금적수*/
+        ACCTG_DMNTH_ACMLTD_AMT AS acctgDmnthAcmltdAmt,     /*계리월중적수*/
+        ACCTG_DTRM_ACMLTD_AMT AS acctgDtrmAcmltdAmt,     /*계리기중적수*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ac_gl_m
+ WHERE INST_CD = #{instCd}
+   AND BASE_DT = #{baseDt}
+   <if test="deptId != null and deptId != ''">   
+   AND DEPT_ID = #{deptId}
+	</if>
+   <if test="acctgDscd != null and acctgDscd != ''">   
+   AND ACCTG_DSCD = #{acctgDscd}
+   </if>
+   <if test="acctgItmCd != null and acctgItmCd != ''">   
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+   </if>
+	<if test="crncyCd != null and crncyCd != ''">   
+   AND CRNCY_CD = #{crncyCd}
+   </if>
+</select>
+<select id="selectAcctgDpstWhdrwlListDistr" parameterType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMselectAcctgDpstWhdrwlIn" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT 
+    MAX(INST_CD) AS instCd		/*기관코드*/
+    ,BASE_DT AS baseDt		/*기준년월일*/
+    , MAX(ACCTG_DSCD) AS acctgDscd		/*회계구분코드*/
+    ,ACCTG_ITM_CD AS acctgItmCd		/*계정과목코드*/
+    , MAX(BLK_MNY_RCVD_AMT) - MAX(RED_WHDRWL_AMT) AS mnyRcvdAmt	/*입금금액*/
+    , MAX(BLK_WHDRWL_AMT) - MAX(RED_MNY_RCVD_AMT) AS whdrwlAmt		/*출금금액*/
+    , MAX(ACCTG_BAL) AS acctgBal		/*계리잔액*/
+  FROM AC_GL_M
+  WHERE 
+    INST_CD = #{instCd}	/*기관코드*/
+    AND BASE_DT BETWEEN #{inqryStartDt} AND #{inqryEndDt}    /*기준년월일*/
+    AND ACCTG_DSCD = #{acctgDscd} 	/*회계구분코드*/
+    AND DEPT_ID = #{deptId}    /*부서식별자*/
+    AND ACCTG_ITM_CD = #{acctgItmCd}	/*계정과목코드*/
+    AND CRNCY_CD = #{crncyCd}	/*통화코드*/
+GROUP BY BASE_DT, ACCTG_ITM_CD
+ORDER BY BASE_DT
+</select>
+<select id="selectAcctgMnthListMysql" parameterType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMselectAcctgMnthIn" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMselectAcctgMnthOut">
+SELECT INST_CD                             AS instCd
+
+     , dept_id                                   AS deptId
+
+     , BASE_DT                                 AS baseDt
+
+     , ACCTG_DSCD                          AS acctgDscd
+
+     , ACCTG_ITM_CD                       AS acctgItmCd
+
+     , debit_crdt_dscd                       AS debitCrdtDscd
+     , CRNCY_CD                              AS crncyCd
+
+     , ACCTG_BAL                             AS acctgBal
+
+     , ACCTG_DMNTH_ACMLTD_AMT  AS acctgDmnthAcmltdAmt
+
+     , ACCTG_DTRM_ACMLTD_AMT     AS acctgDtrmAcmltdAmt
+
+     , DATE_FORMAT(LAST_DAY(BASE_DT), '%d') AS mnthEndDt
+
+  FROM AC_GL_M GL
+
+ WHERE INST_CD = #{instCd}
+
+   AND DEPT_ID = #{deptId}
+
+   AND ACCTG_DSCD = #{acctgDscd}
+
+   AND CRNCY_CD = #{crncyCd}
+
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+
+   AND GL.BASE_DT IN (
+
+       SELECT MAX(BASE_DT) AS BASE_DT
+
+         FROM AC_GL_M
+
+        WHERE INST_CD = #{instCd}
+
+          AND dept_id = #{deptId}
+
+          AND ACCTG_DSCD = #{acctgDscd}
+
+          AND CRNCY_CD = #{crncyCd}
+
+          AND ACCTG_ITM_CD = #{acctgItmCd}
+
+          AND SUBSTR(BASE_DT, 1, 6) BETWEEN #{inqryStartYm} AND #{inqryEndYm}
+        GROUP BY SUBSTR(BASE_DT,1,6)
+
+      )
+</select>
+<select id="selectAcctgMnthListOracle" parameterType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMselectAcctgMnthIn" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMselectAcctgMnthOut">
+SELECT INST_CD                             AS instCd
+
+     , dept_id                                   AS deptId
+
+     , BASE_DT                                 AS baseDt
+
+     , ACCTG_DSCD                          AS acctgDscd
+
+     , ACCTG_ITM_CD                       AS acctgItmCd
+
+     , debit_crdt_dscd                       AS debitCrdtDscd
+     , CRNCY_CD                              AS crncyCd
+
+     , ACCTG_BAL                             AS acctgBal
+
+     , ACCTG_DMNTH_ACMLTD_AMT  AS acctgDmnthAcmltdAmt
+
+     , ACCTG_DTRM_ACMLTD_AMT     AS acctgDtrmAcmltdAmt
+
+     , TO_CHAR(LAST_DAY(BASE_DT), 'dd') AS mnthEndDt
+
+  FROM AC_GL_M GL
+
+ WHERE INST_CD = #{instCd}
+
+   AND DEPT_ID = #{deptId}
+
+   AND ACCTG_DSCD = #{acctgDscd}
+
+   AND CRNCY_CD = #{crncyCd}
+
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+
+   AND GL.BASE_DT IN (
+
+       SELECT MAX(BASE_DT) AS BASE_DT
+
+         FROM AC_GL_M
+
+        WHERE INST_CD = #{instCd}
+
+          AND dept_id = #{deptId}
+
+          AND ACCTG_DSCD = #{acctgDscd}
+
+          AND CRNCY_CD = #{crncyCd}
+
+          AND ACCTG_ITM_CD = #{acctgItmCd}
+
+          AND SUBSTR(BASE_DT, 1, 6) BETWEEN #{inqryStartYm} AND #{inqryEndYm}
+        GROUP BY SUBSTR(BASE_DT,1,6)
+
+      )
+</select>
+<select id="selectBeforeLastMonthOracle" parameterType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT INST_CD                    as instCd
+
+     , dept_id                   as deptId
+
+     , BASE_DT                    as baseDt
+
+     , ACCTG_DSCD                 as acctgDscd
+
+     , ACCTG_ITM_CD               as acctgItmCd
+
+     , debit_crdt_dscd               as debitCrdtDscd
+     , CRNCY_CD                   as crncyCd
+
+     , ACCTG_BAL                  as acctgBal
+
+     , BLK_MNY_RCVD_AMT           as blkMnyRcvdAmt
+
+     , blk_whdrwl_amt           as blkWhdrwlAmt
+     , RED_MNY_RCVD_AMT           as redMnyRcvdAmt
+
+     , red_whdrwl_amt           as redWhdrwlAmt
+     , DMNTH_MNY_RCVD_ACMLTD_AMT  as dmnthMnyRcvdAcmltdAmt
+
+     , dmnth_whdrwl_acmltd_amt  as dmnthWhdrwlAcmltdAmt
+     , DTRM_MNY_RCVD_ACMLTD_AMT   as dtrmMnyRcvdAcmltdAmt
+     , dtrm_whdrwl_acmltd_amt   as dtrmWhdrwlAcmltdAmt
+     , ACCTG_DMNTH_ACMLTD_AMT     as acctgDmnthAcmltdAmt
+
+     , ACCTG_DTRM_ACMLTD_AMT      as acctgDtrmAcmltdAmt
+
+  FROM AC_GL_M
+
+ WHERE (INST_CD, DEPT_ID, BASE_DT, ACCTG_DSCD, ACCTG_ITM_CD, CRNCY_CD) =  
+
+ (
+
+    SELECT MAX(INST_CD) AS INST_CD
+
+         , MAX(DEPT_ID) AS DEPT_ID
+
+         , MAX(BASE_DT) BASE_DT
+
+         , MAX(ACCTG_DSCD) AS ACCTG_DSCD
+
+         , MAX(ACCTG_ITM_CD) AS ACCTG_ITM_CD
+
+         , MAX(CRNCY_CD) AS CRNCY_CD
+
+      FROM AC_GL_M     
+
+     WHERE INST_CD = #{instCd}
+
+       AND DEPT_ID = #{deptId}
+
+       AND SUBSTR(BASE_DT, 1, 6) = to_char(add_months(#{baseDt},-1),'yyyymm')
+
+       AND ACCTG_DSCD = #{acctgDscd}
+
+       AND ACCTG_ITM_CD = #{acctgItmCd}
+
+       AND CRNCY_CD = #{crncyCd}
+
+     GROUP BY SUBSTR(BASE_DT,1,6)   
+
+ )
+</select>
+<select id="selectBeforeLastMonthMysql" parameterType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT INST_CD                    as instCd
+
+     , dept_id                   as deptId
+
+     , BASE_DT                    as baseDt
+
+     , ACCTG_DSCD                 as acctgDscd
+
+     , ACCTG_ITM_CD               as acctgItmCd
+
+     , debit_crdt_dscd               as debitCrdtDscd
+     , CRNCY_CD                   as crncyCd
+
+     , ACCTG_BAL                  as acctgBal
+
+     , BLK_MNY_RCVD_AMT           as blkMnyRcvdAmt
+
+     , blk_whdrwl_amt           as blkWhdrwlAmt
+     , RED_MNY_RCVD_AMT           as redMnyRcvdAmt
+
+     , red_whdrwl_amt           as redWhdrwlAmt
+     , DMNTH_MNY_RCVD_ACMLTD_AMT  as dmnthMnyRcvdAcmltdAmt
+
+     , dmnth_whdrwl_acmltd_amt  as dmnthWhdrwlAcmltdAmt
+     , DTRM_MNY_RCVD_ACMLTD_AMT   as dtrmMnyRcvdAcmltdAmt
+     , dtrm_whdrwl_acmltd_amt   as dtrmWhdrwlAcmltdAmt
+     , ACCTG_DMNTH_ACMLTD_AMT     as acctgDmnthAcmltdAmt
+
+     , ACCTG_DTRM_ACMLTD_AMT      as acctgDtrmAcmltdAmt
+
+  FROM AC_GL_M
+
+ WHERE (INST_CD, DEPT_ID, BASE_DT, ACCTG_DSCD, ACCTG_ITM_CD, CRNCY_CD) =  
+
+ (
+
+    SELECT MAX(INST_CD) AS INST_CD
+
+         , MAX(DEPT_ID) AS DEPT_ID
+
+         , MAX(BASE_DT) BASE_DT
+
+         , MAX(ACCTG_DSCD) AS ACCTG_DSCD
+
+         , MAX(ACCTG_ITM_CD) AS ACCTG_ITM_CD
+
+         , MAX(CRNCY_CD) AS CRNCY_CD
+
+      FROM AC_GL_M     
+
+     WHERE INST_CD = #{instCd}
+
+       AND DEPT_ID = #{deptId}
+
+       AND SUBSTR(BASE_DT, 1, 6) = DATE_FORMAT(DATE_SUB(#{baseDt}, INTERVAL 1 month), '%Y%m')
+
+       AND ACCTG_DSCD = #{acctgDscd}
+
+       AND ACCTG_ITM_CD = #{acctgItmCd}
+
+       AND CRNCY_CD = #{crncyCd}
+
+     GROUP BY SUBSTR(BASE_DT,1,6)   
+
+ )
+</select>
+<select id="selectBeforeLastYearMysql" parameterType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT INST_CD                    as instCd
+
+     , DEPT_ID                   as deptId
+
+     , BASE_DT                    as baseDt
+
+     , ACCTG_DSCD                 as acctgDscd
+
+     , ACCTG_ITM_CD               as acctgItmCd
+
+     , debit_crdt_dscd               as debitCrdtDscd
+     , CRNCY_CD                   as crncyCd
+
+     , ACCTG_BAL                  as acctgBal
+
+     , BLK_MNY_RCVD_AMT           as blkMnyRcvdAmt
+
+     , blk_whdrwl_amt           as blkWhdrwlAmt
+     , RED_MNY_RCVD_AMT           as redMnyRcvdAmt
+
+     , red_whdrwl_amt           as redWhdrwlAmt
+     , DMNTH_MNY_RCVD_ACMLTD_AMT  as dmnthMnyRcvdAcmltdAmt
+
+     , dmnth_whdrwl_acmltd_amt  as dmnthWhdrwlAcmltdAmt
+     , DTRM_MNY_RCVD_ACMLTD_AMT   as dtrmMnyRcvdAcmltdAmt
+     , dtrm_whdrwl_acmltd_amt   as dtrmWhdrwlAcmltdAmt
+     , ACCTG_DMNTH_ACMLTD_AMT     as acctgDmnthAcmltdAmt
+
+     , ACCTG_DTRM_ACMLTD_AMT      as acctgDtrmAcmltdAmt
+
+  FROM AC_GL_M
+
+ WHERE (INST_CD, DEPT_ID, BASE_DT, ACCTG_DSCD, ACCTG_ITM_CD, CRNCY_CD) =  
+
+ (
+
+    SELECT MAX(INST_CD) AS INST_CD
+
+         , MAX(DEPT_ID) AS DEPT_ID
+
+         , MAX(BASE_DT) BASE_DT
+
+         , MAX(ACCTG_DSCD) AS ACCTG_DSCD
+
+         , MAX(ACCTG_ITM_CD) AS ACCTG_ITM_CD
+
+         , MAX(CRNCY_CD) AS CRNCY_CD
+
+      FROM AC_GL_M     
+
+     WHERE INST_CD = #{instCd}
+
+       AND DEPT_ID = #{deptId}
+
+       AND SUBSTR(BASE_DT, 1, 4) = DATE_FORMAT(DATE_SUB(#{baseDt}, INTERVAL 1 year), '%Y')
+
+       AND ACCTG_DSCD = #{acctgDscd}
+
+       AND ACCTG_ITM_CD = #{acctgItmCd}
+
+       AND CRNCY_CD = #{crncyCd}
+
+     GROUP BY SUBSTR(BASE_DT,1,4)
+
+ )
+</select>
+<select id="selectBeforeLastYearOracle" parameterType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMIO">
+SELECT INST_CD                    as instCd
+
+     , DEPT_ID                   as deptId
+
+     , BASE_DT                    as baseDt
+
+     , ACCTG_DSCD                 as acctgDscd
+
+     , ACCTG_ITM_CD               as acctgItmCd
+
+     , debit_crdt_dscd               as debitCrdtDscd
+     , CRNCY_CD                   as crncyCd
+
+     , ACCTG_BAL                  as acctgBal
+
+     , BLK_MNY_RCVD_AMT           as blkMnyRcvdAmt
+
+     , blk_whdrwl_amt           as blkWhdrwlAmt
+     , RED_MNY_RCVD_AMT           as redMnyRcvdAmt
+
+     , red_whdrwl_amt           as redWhdrwlAmt
+     , DMNTH_MNY_RCVD_ACMLTD_AMT  as dmnthMnyRcvdAcmltdAmt
+
+     , dmnth_whdrwl_acmltd_amt  as dmnthWhdrwlAcmltdAmt
+     , DTRM_MNY_RCVD_ACMLTD_AMT   as dtrmMnyRcvdAcmltdAmt
+     , dtrm_whdrwl_acmltd_amt   as dtrmWhdrwlAcmltdAmt
+     , ACCTG_DMNTH_ACMLTD_AMT     as acctgDmnthAcmltdAmt
+
+     , ACCTG_DTRM_ACMLTD_AMT      as acctgDtrmAcmltdAmt
+
+  FROM AC_GL_M
+
+ WHERE (INST_CD, DEPT_ID, BASE_DT, ACCTG_DSCD, ACCTG_ITM_CD, CRNCY_CD) =  
+
+ (
+
+    SELECT MAX(INST_CD) AS INST_CD
+
+         , MAX(DEPT_ID) AS DEPT_ID
+
+         , MAX(BASE_DT) BASE_DT
+
+         , MAX(ACCTG_DSCD) AS ACCTG_DSCD
+
+         , MAX(ACCTG_ITM_CD) AS ACCTG_ITM_CD
+
+         , MAX(CRNCY_CD) AS CRNCY_CD
+
+      FROM AC_GL_M     
+
+     WHERE INST_CD = #{instCd}
+
+       AND DEPT_ID = #{deptId}
+
+       AND SUBSTR(BASE_DT, 1, 4) = to_char(add_months(#{baseDt},-12),'yyyy')
+
+       AND ACCTG_DSCD = #{acctgDscd}
+
+       AND ACCTG_ITM_CD = #{acctgItmCd}
+
+       AND CRNCY_CD = #{crncyCd}
+
+     GROUP BY SUBSTR(BASE_DT,1,4)
+
+ )
+</select>
+<select id="selectTotalCount_old" parameterType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMselectAcctgDpstWhdrwlIn" resultType="java.lang.Integer">
+SELECT 
+
+       COUNT(glm.acctgItmCd) as totCnt
+FROM (
+
+	SELECT 
+
+	          coa.ACCTG_ITM_CD as acctgItmCd
+
+	  FROM AC_GL_M gl,
+
+	            AC_COA_M coa
+
+	  WHERE gl.INST_CD = coa.INST_CD    
+
+	    AND gl.ACCTG_ITM_CD = coa.ACCTG_ITM_CD
+
+	    AND gl.ACCTG_DSCD   = coa.ACCTG_DSCD
+
+	    AND gl.INST_CD = #{instCd}  
+
+	    AND gl.BASE_DT BETWEEN #{inqryStartDt} AND #{inqryEndDt}    /*기준년월일*/
+
+	    AND gl.ACCTG_DSCD = #{acctgDscd} /*회계구분코드*/
+
+	    AND gl.DEPT_ID    = #{deptId}    /*부서식별자*/
+
+	     AND gl.ACCTG_ITM_CD = #{acctgItmCd}
+
+	    AND gl.CRNCY_CD = #{crncyCd}
+	GROUP BY coa.ACCTG_ITM_CD
+
+) glm
+</select>
+<select id="selectProfitLossSum" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcGlMProfitLossSumIO">
+select
+       GL.INST_CD                    as instCd
+      ,GL.DEPT_ID                    as deptId
+      ,GL.BASE_DT                    as baseDt
+      ,GL.ACCTG_DSCD                 as acctgDscd
+      ,GL.CRNCY_CD                   as crncyCd
+      ,SUM(CASE COA.TITL_ACCTG_CL_CD WHEN '05' THEN GL.ACCTG_BAL ELSE 0 END) AS prftAmt
+      ,SUM(CASE COA.TITL_ACCTG_CL_CD WHEN '06' THEN GL.ACCTG_BAL ELSE 0 END) AS lossAmt
+from ac_gl_m  gl
+    ,ac_coa_m coa       
+ WHERE GL.inst_cd = #{instCd, jdbcType=VARCHAR}
+      and GL.base_dt = #{baseDt, jdbcType=VARCHAR}
+<if test="deptId != null and deptId != ''">   
+	  and gl.dept_id = #{deptId, jdbcType=VARCHAR}
+</if>
+      and coa.titl_acctg_cl_cd in ('05','06')
+      and GL.inst_cd = coa.inst_cd
+      and GL.ACCTG_DSCD = coa.ACCTG_DSCD
+      and GL.ACCTG_ITM_CD = coa.ACCTG_ITM_CD
+group by GL.inst_cd, GL.dept_id, GL.base_dt, GL.acctg_dscd, GL.crncy_cd
+</select>
+</mapper>

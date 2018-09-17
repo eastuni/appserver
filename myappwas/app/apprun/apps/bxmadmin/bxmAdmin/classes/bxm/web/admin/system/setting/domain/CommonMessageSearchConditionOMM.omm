@@ -1,0 +1,9 @@
+OMM bxm.web.admin.system.setting.domain.CommonMessageSearchConditionOMM
+<description="CommonMessageSearchConditionOMM">
+{
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+	String msgId<length=9 description="메시지ID">;
+	String basicMsgCtt<length=4000 description="기본메시지내용">;
+	String langCd<length=20 description="언어코드">;
+}

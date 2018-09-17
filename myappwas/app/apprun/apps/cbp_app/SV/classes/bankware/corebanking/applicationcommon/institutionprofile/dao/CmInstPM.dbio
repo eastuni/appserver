@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.institutionprofile.dao.CmInstPM">
+<!--Generated Mon Jul 23 17:58:03 KST 2018-->
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstPMIO">
+INSERT  INTO  cm_inst_p_m    /* 기관파라메터기본 */
+(
+  inst_cd    /*기관코드*/, 
+  parm_atrbt_nm    /*파라메터속성명*/, 
+  parm_val    /*파라메터값*/, 
+  SITE_LBRTRY_DSCD /* 사이트연구소구분코드 */,
+  ACTV_STS_CD /* 활동상태코드 */,
+  last_chng_tmstmp    /*최종변경일시*/, 
+  last_chng_guid    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR}    /*기관코드*/, 
+  #{parmAtrbtNm, jdbcType=VARCHAR}    /*파라메터속성명*/, 
+  #{parmVal, jdbcType=VARCHAR}    /*파라메터값*/, 
+  #{siteLbrtryDscd, jdbcType=VARCHAR}    /*사이트연구소구분코드*/, 
+  #{actvStsCd, jdbcType=VARCHAR}    /*활동상태코드*/, 
+  #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경일시*/, 
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<delete id="delete" parameterType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstPMIO">
+DELETE  FROM  cm_inst_p_m    /* 기관파라메터기본 */
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  parm_atrbt_nm = #{parmAtrbtNm}
+</delete>
+<select id="select" parameterType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstPMIO" resultType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstPMIO">
+SELECT  /* 기관파라메터기본 */
+        inst_cd AS instCd    /*기관코드*/, 
+        parm_atrbt_nm AS parmAtrbtNm    /*파라메터속성명*/, 
+        parm_val AS parmVal    /*파라메터값*/, 
+        site_lbrtry_dscd AS siteLbrtryDscd /*사이트연구소구분코드*/,
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM  cm_inst_p_m
+ WHERE  inst_cd = #{instCd}
+   AND  parm_atrbt_nm = #{parmAtrbtNm}
+</select>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstPMIO">
+UPDATE cm_inst_p_m    /* 기관파라메터기본 */
+ SET
+  parm_val = #{parmVal ,jdbcType=VARCHAR}  
+ ,ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/
+ ,site_lbrtry_dscd = #{siteLbrtryDscd, jdbcType=VARCHAR}  /*사이트연구소구분코드*/
+ ,last_chng_tmstmp =   #{lastChngTmstmp ,jdbcType=TIMESTAMP} 
+ ,last_chng_guid  = #{lastChngGuid ,  jdbcType=VARCHAR}    /*최종변경GUID*/
+  WHERE inst_cd = #{instCd}
+  AND parm_atrbt_nm = #{parmAtrbtNm}
+</update>
+<select id="selectListParmAtrbtInfoForScreen" resultType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstPMSelectListParmAtrbtInfoForScreenIO">
+SELECT T1.PARM_ATRBT_NM AS parmAtrbtNm
+     , T1.INST_PARM_TP_CD AS instParmTpCd
+	  , CASE WHEN T2.PARM_VAL IS NOT NULL THEN 'Configured'
+	         WHEN T2.PARM_VAL IS NULL AND ( T2_1.PARM_VAL = '' OR T2_1.PARM_VAL IS NOT NULL )THEN 'Standard'
+	         WHEN T2.PARM_VAL IS NULL THEN 'Not Assigned'
+	    END AS instParmAplyStsNm
+     , T5.TRNSFR_RSLT_VAL AS parmNm
+     , CASE WHEN T2.PARM_VAL IS NULL THEN T2_1.PARM_VAL ELSE T2.PARM_VAL END parmVal
+     , T1.PARM_EXPLNTN_CNTNT AS parmExplntnCntnt
+     , T1.PARM_KOR_EXPLNTN_CNTNT AS parmKorExplntnCntnt
+     , CASE WHEN (T3.ATRBT_TP_CD IS NULL OR T3.ATRBT_TP_CD = '' ) AND T3.PARNT_ATRBT_NM IS NOT NULL THEN T4.ATRBT_TP_CD ELSE T3.ATRBT_TP_CD END AtrbtTpCd
+     , CASE WHEN (T3.ATRBT_TP_CD IS NULL OR T3.ATRBT_TP_CD = '' ) AND T3.ATRBT_LEN IS NOT NULL THEN T4.ATRBT_LEN ELSE T3.ATRBT_LEN END atrbtLen
+     , CASE WHEN (T3.ATRBT_TP_CD IS NULL OR T3.ATRBT_TP_CD = '' ) AND T3.ATRBT_VLDTN_WAY_CD IS NOT NULL THEN T4.ATRBT_VLDTN_WAY_CD ELSE T3.ATRBT_VLDTN_WAY_CD END atrbtVldtnWayCd
+     , CASE WHEN (T3.ATRBT_TP_CD IS NULL OR T3.ATRBT_TP_CD = '' ) AND T3.ATRBT_VLDTN_RULE_CNTNT IS NOT NULL THEN T4.ATRBT_VLDTN_RULE_CNTNT ELSE T3.ATRBT_VLDTN_RULE_CNTNT END atrbtVldtnRuleCntnt
+FROM CM_INST_P_ATR_M T1
+LEFT JOIN CM_INST_P_M T2
+ON T1.PARM_ATRBT_NM = T2.PARM_ATRBT_NM
+AND T2.INST_CD = #{instCd}
+LEFT JOIN CM_INST_P_M T2_1 
+ON T1.PARM_ATRBT_NM = T2_1.PARM_ATRBT_NM
+AND T2_1.INST_CD = 'STDA'
+LEFT JOIN CM_STD_ATR_M T3
+ON T1.PARM_ATRBT_NM = T3.ATRBT_NM
+LEFT JOIN CM_STD_ATR_M T4
+ON T3.PARNT_ATRBT_NM = T4.ATRBT_NM
+LEFT JOIN CM_MLT_LNG_TRNSLTN_D T5
+ON 'AT_NAME' = T5.TRNSFR_KND_CD 
+AND T1.PARM_ATRBT_NM = T5.TRNSFR_ORIGIN_KEY_VAL
+AND T5.LNG_CD = #{lngCd}
+   <if test="instParmTpCd != null and instParmTpCd != '' ">
+WHERE T1.INST_PARM_TP_CD = #{instParmTpCd}
+    </if>
+</select>
+<select id="selectListAll" resultType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstPMIO">
+SELECT  /* 기관파라메터기본 */
+        inst_cd AS instCd    /*기관코드*/, 
+        parm_atrbt_nm AS parmAtrbtNm    /*파라메터속성명*/, 
+        parm_val AS parmVal    /*파라메터값*/, 
+		SITE_LBRTRY_DSCD as  siteLbrtryDscd  /*사이트연구소구분*/, 
+		actv_sts_cd AS actvStsCd /*활동상태코드*/,
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM  cm_inst_p_m
+ WHERE  inst_cd = #{instCd}
+   <if test="parmAtrbtNm != null and parmAtrbtNm != '' ">
+	and parm_atrbt_nm = #{parmAtrbtNm}
+    </if>
+</select>
+<select id="selectActive" parameterType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstPMIO" resultType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstPMIO">
+SELECT  /* 기관파라메터기본 */
+        inst_cd AS instCd    /*기관코드*/, 
+        parm_atrbt_nm AS parmAtrbtNm    /*파라메터속성명*/, 
+        parm_val AS parmVal    /*파라메터값*/, 
+        site_lbrtry_dscd AS siteLbrtryDscd /*사이트연구소구분코드*/,
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM  cm_inst_p_m
+ WHERE  inst_cd = #{instCd}
+   AND  parm_atrbt_nm = #{parmAtrbtNm}
+   AND ACTV_STS_CD = '01' /* 활동상태코드 01 활동 */
+</select>
+<select id="selectListActive" resultType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstPMIO">
+SELECT  /* 기관파라메터기본 */
+        inst_cd AS instCd    /*기관코드*/, 
+        parm_atrbt_nm AS parmAtrbtNm    /*파라메터속성명*/, 
+        parm_val AS parmVal    /*파라메터값*/, 
+        site_lbrtry_dscd AS siteLbrtryDscd /*사이트연구소구분코드*/,
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM  cm_inst_p_m
+ WHERE  inst_cd = #{instCd}
+ AND ACTV_STS_CD = '01' /* 활동상태코드 01 활동 */
+</select>
+</mapper>

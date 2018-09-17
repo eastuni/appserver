@@ -1,0 +1,14 @@
+OMM bxm.web.admin.setting.domain.UserRoleRelationOMM
+<description="Role, Permission, Menu Relation OMM">
+{
+	String domainId<length=14 description="도메인 ID">;
+	String roleId<length=40 description="역할ID">;
+	String menuId<length=40 description="메뉴ID">;
+	String authId<length=40 description="권한ID">;
+	String menuNm<length=128 description="메뉴명">;
+	String menuDesc<length=512 description="메뉴설명">;
+	String authNm<length=128 description="권한명">;
+	String authDesc<length=512 description="권한설명">;
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+}

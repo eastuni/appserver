@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.codelibrary.dao.CmCdM">
+<!--Generated Thu Aug 10 02:00:03 KST 2017-->
+<select id="selectByCondition" parameterType="bankware.corebanking.applicationcommon.codelibrary.dao.dto.CmCdMIO" resultType="bankware.corebanking.applicationcommon.codelibrary.dao.dto.CmCdMIO">
+SELECT    
+
+        CD_NBR AS cdNbr,     /*코드번호*/
+
+        CD_NBR_NM AS cdNbrNm,     /*코드번호명*/
+
+        CMPNT_CD AS cmpntCd,     /*컴포넌트코드*/
+
+        UP_CD_NBR AS upCdNbr,     /*상위코드번호*/
+
+        cd_desc_cntnt AS cdDescCntnt,     /*코드설명*/
+        CD_NBR_TP_CD AS cdNbrTpCd,     /*코드번호유형코드*/
+
+        XTN_CD_TBL_NM AS xtnCdTblNm,     /*확장코드테이블명*/
+        XTN_CD_CLASS_NM AS xtnCdClassNm,     /*확장코드클래스명*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_cd_m
+
+  WHERE 1 = 1
+
+  AND ACTV_STS_CD = '01'
+
+	    <if test="cdNbr != null and cdNbr !=''">
+
+ 			AND cd_nbr = #{cdNbr}
+
+ 		</if>
+
+ 		<if test="cdNbrNm != null and cdNbrNm !=''">
+
+ 			AND cd_nbr_nm like CONCAT(CONCAT('%', #{cdNbrNm}), '%')
+
+ 		</if>
+
+ 		<if test="upCdNbr != null and upCdNbr !=''">
+
+ 			AND up_cd_nbr = #{upCdNbr}
+
+ 		</if>
+
+ 		<if test="cdDescCntnt != null and cdDescCntnt !=''">
+ 			AND cd_desc_cntnt like CONCAT(CONCAT('%', #{cdDescCntnt}), '%')
+ 		</if>
+
+ 		<if test="cdNbrTpCd != null and cdNbrTpCd !=''">
+
+ 			AND cd_nbr_tp_cd = #{cdNbrTpCd}
+
+ 		</if>
+</select>
+<select id="selectCodeNumberTypeCode" resultType="java.lang.String">
+SELECT	MAX(cd_nbr_tp_cd )	AS cdNbrTpCd
+
+  		  FROM
+
+  			(
+
+			SELECT	cd_nbr_tp_cd
+
+			  FROM	cm_cd_m
+
+			WHERE 	cd_nbr = #{cdNbr}
+
+			AND ACTV_STS_CD = '01'
+
+			UNION ALL
+
+			SELECT	'05' cd_nbr_tp_cd
+
+			  FROM	cm_cd_m a
+
+			WHERE	cd_nbr = #{cdNbr}
+
+			AND a.ACTV_STS_CD = '01'
+
+			AND EXISTS
+
+			(
+
+					SELECT	1
+
+					  FROM	cm_inst_sbst_cd_d b
+
+					WHERE	b.cd_nbr = a.cd_nbr
+
+					   AND	b.inst_cd = #{instCd}
+
+                       AND b.ACTV_STS_CD = '01'
+
+			)
+
+		) x
+</select>
+<delete id="delete">
+DELETE  FROM  cm_cd_m
+
+ WHERE  CD_NBR = #{cdNbr}
+</delete>
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.codelibrary.dao.dto.CmCdMIO">
+INSERT  
+
+  INTO  cm_cd_m
+
+(
+
+  CD_NBR,     /*코드번호*/
+
+  CD_NBR_NM,     /*코드번호명*/
+
+  CMPNT_CD,     /*컴포넌트코드*/
+
+  UP_CD_NBR,     /*상위코드번호*/
+
+  cd_desc_cntnt,     /*코드설명*/
+  CD_NBR_TP_CD,     /*코드번호유형코드*/
+
+  XTN_CD_TBL_NM,     /*확장코드테이블명*/
+  XTN_CD_CLASS_NM,     /*확장코드클래스명*/
+  ACTV_STS_CD,     /*활동상태코드*/
+
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+
+  LAST_CHNG_ID,     /*최종변경식별자*/
+
+  LAST_CHNG_GUID    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+  #{cdNbr, jdbcType=VARCHAR},     /*코드번호*/
+
+  #{cdNbrNm, jdbcType=VARCHAR},     /*코드번호명*/
+
+  #{cmpntCd, jdbcType=VARCHAR},     /*컴포넌트코드*/
+
+  #{upCdNbr, jdbcType=VARCHAR},     /*상위코드번호*/
+
+  #{cdDescCntnt, jdbcType=VARCHAR},     /*코드설명*/
+  #{cdNbrTpCd, jdbcType=VARCHAR},     /*코드번호유형코드*/
+
+  #{xtnCdTblNm, jdbcType=VARCHAR},     /*확장코드테이블명*/
+  #{xtnCdClassNm, jdbcType=VARCHAR},     /*확장코드클래스명*/
+  #{actvStsCd, jdbcType=VARCHAR},     /*활동상태코드*/
+
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+
+  #{lastChngId, jdbcType=VARCHAR},     /*최종변경식별자*/
+
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+
+)
+</insert>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.codelibrary.dao.dto.CmCdMIO">
+UPDATE  
+
+        cm_cd_m
+
+   SET  CD_NBR_NM = #{cdNbrNm, jdbcType=VARCHAR}    /* 코드번호명 */
+
+     , CMPNT_CD = #{cmpntCd, jdbcType=VARCHAR}    /* 컴포넌트코드 */
+
+     , UP_CD_NBR = #{upCdNbr, jdbcType=VARCHAR}    /* 상위코드번호 */
+
+     , cd_desc_cntnt = #{cdDescCntnt, jdbcType=VARCHAR}    /* 코드설명 */
+     , CD_NBR_TP_CD = #{cdNbrTpCd, jdbcType=VARCHAR}    /* 코드번호유형코드 */
+
+     , XTN_CD_TBL_NM = #{xtnCdTblNm, jdbcType=VARCHAR}    /* 확장코드테이블명 */
+     , XTN_CD_CLASS_NM = #{xtnCdClassNm, jdbcType=VARCHAR}    /* 확장코드클래스명 */
+     , ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}    /* 활동상태코드 */
+
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+
+     , LAST_CHNG_ID = #{lastChngId, jdbcType=VARCHAR}    /* 최종변경식별자 */
+
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+
+ WHERE CD_NBR = #{cdNbr}
+</update>
+<select id="selectListByCondition" parameterType="bankware.corebanking.applicationcommon.codelibrary.dao.dto.CmCdMIO" resultType="bankware.corebanking.applicationcommon.codelibrary.dao.dto.CmCdMIO">
+SELECT    
+        CD_NBR AS cdNbr,     /*코드번호*/
+        CD_NBR_NM AS cdNbrNm,     /*코드번호명*/
+        CMPNT_CD AS cmpntCd,     /*컴포넌트코드*/
+        UP_CD_NBR AS upCdNbr,     /*상위코드번호*/
+        cd_desc_cntnt AS cdDescCntnt,     /*코드설명*/
+        CD_NBR_TP_CD AS cdNbrTpCd,     /*코드번호유형코드*/
+        XTN_CD_TBL_NM AS xtnCdTblNm,     /*확장코드테이블명*/
+        XTN_CD_CLASS_NM AS xtnCdClassNm,     /*확장코드클래스명*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  cm_cd_m
+where  ACTV_STS_CD = '01' /* 활동상태코드 01 활동 */
+	    <if test="cdNbr != null and cdNbr !=''">
+ 			AND cd_nbr like CONCAT(CONCAT('%', #{cdNbr}), '%')
+ 		</if>
+
+ 		<if test="cdNbrNm != null and cdNbrNm !=''">
+ 			AND cd_nbr_nm like CONCAT(CONCAT('%', #{cdNbrNm}), '%')
+ 		</if>
+
+ 		<if test="upCdNbr != null and upCdNbr !=''">
+ 			AND up_cd_nbr like  CONCAT(CONCAT('%', #{upCdNbr}), '%')
+ 		</if>
+
+ 		<if test="cdDescCntnt != null and cdDescCntnt !=''">
+ 			AND cd_desc_cntnt like CONCAT(CONCAT('%', #{cdDescCntnt}), '%')
+ 		</if>
+
+ 		<if test="cdNbrTpCd != null and cdNbrTpCd !=''">
+ 			AND cd_nbr_tp_cd = #{cdNbrTpCd}
+ 		</if>
+</select>
+<update id="updateActvStsCd" parameterType="bankware.corebanking.applicationcommon.codelibrary.dao.dto.CmCdMIO">
+UPDATE  
+
+        cm_cd_m
+
+   SET ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/
+
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+
+     , LAST_CHNG_ID = #{lastChngId}
+
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+
+ WHERE CD_NBR = #{cdNbr}
+</update>
+<select id="selectListUnionAllCodeNumberTypeCode" parameterType="bankware.corebanking.applicationcommon.codelibrary.dao.dto.CmCdMIO" resultType="bankware.corebanking.applicationcommon.codelibrary.dao.dto.CmCdMIO">
+-- Standard code
+SELECT
+			a.cd_nbr				AS	cdNbr
+		,	a.cd_nbr_tp_cd			AS	cdNbrTpCd
+		,	a.cd_nbr_nm				AS	cdNbrNm
+		,	null					AS	instCd
+		,	null			 		AS	upCdNbr
+		,	a.cd_desc_cntnt 				AS cdDescCntnt
+		,	a.cmpnt_cd				AS cmpntCd
+		,	a.xtn_cd_tbl_nm			AS xtnCdTblNm
+		,	a.xtn_cd_class_nm 		AS xtnCdClassNm
+FROM 		cm_cd_m a
+WHERE 	a.cd_nbr_tp_cd = '01'
+    AND a.ACTV_STS_CD = '01'
+<if test="cdNbrTpCd != null and cdNbrTpCd !=''">
+AND 		a.cd_nbr_tp_cd = #{cdNbrTpCd}
+</if>
+<if test="dmnDscd != null and dmnDscd !=''">
+AND 		a.cmpnt_cd = #{dmnDscd}
+</if>
+<if test="cdNbr != null and cdNbr !=''">
+AND 		a.cd_nbr = #{cdNbr}
+</if>
+<if test="cdNbrNm != null and cdNbrNm !=''">
+AND EXISTS (
+SELECT 1
+  FROM cm_mlt_lng_trnsltn_d c
+ WHERE c.trnsfr_rslt_val LIKE #{cdNbrNm}
+   AND c.trnsfr_knd_cd = 'CD_NAME'
+   AND c.trnsfr_origin_key_val = a.cd_nbr
+   AND c.lng_cd = #{lngCd}
+)  
+</if>
+<if test="upCdNbr != null and upCdNbr !=''">
+AND 		a.up_cd_nbr like #{upCdNbr}
+</if>
+<if test="cdDescCntnt != null and cdDescCntnt !=''">
+AND 		a.cd_desc_cntnt like #{cdDescCntnt}
+</if>
+<if test="cdNm!= null and cdNm !=''">
+  AND EXISTS (
+SELECT 1
+  FROM cm_cd_d b
+     , cm_mlt_lng_trnsltn_d c
+ WHERE c.trnsfr_rslt_val LIKE #{cdNm}
+   AND c.trnsfr_knd_cd = 'CDVAL_NAME'
+   AND c.trnsfr_origin_key_val = CONCAT(a.cd_nbr, b.cd)
+   AND c.lng_cd = #{lngCd}
+   AND a.cd_nbr = b.cd_nbr
+   AND b.ACTV_STS_CD = '01'
+)  
+</if>
+
+UNION ALL
+
+-- Extend code		
+SELECT
+			a.cd_nbr				AS cdNbr
+		,	a.cd_nbr_tp_cd			AS cdNbrTpCd
+		,	a.cd_nbr_nm				AS cdNbrNm
+		,	null					AS instCd
+		,	null		 			AS upCdNbr
+		,	a.cd_desc_cntnt 				AS cdDescCntnt
+		,	a.cmpnt_cd				AS cmpntCd
+		,	a.xtn_cd_tbl_nm			AS xtnCdTblNm
+		,	a.xtn_cd_class_nm 		AS xtnCdClassNm
+FROM 		cm_cd_m a
+WHERE 	a.cd_nbr_tp_cd = '02'
+AND a.ACTV_STS_CD = '01'
+<if test="cdNbrTpCd != null and cdNbrTpCd !=''">
+AND 		a.cd_nbr_tp_cd = #{cdNbrTpCd}
+</if>
+<if test="dmnDscd != null and dmnDscd !=''">
+AND 		a.cmpnt_cd = #{dmnDscd}
+</if>
+<if test="cdNbr != null and cdNbr !=''">
+AND 		a.cd_nbr = #{cdNbr}
+</if>
+<if test="cdNbrNm != null and cdNbrNm !=''">
+AND EXISTS (
+SELECT 1
+  FROM cm_mlt_lng_trnsltn_d c
+ WHERE c.trnsfr_rslt_val LIKE  #{cdNbrNm}
+   AND c.trnsfr_knd_cd = 'CD_NAME'
+   AND c.trnsfr_origin_key_val = a.cd_nbr
+   AND c.lng_cd = #{lngCd}
+)  
+</if>
+<if test="upCdNbr != null and upCdNbr !=''">
+AND 		a.up_cd_nbr like #{upCdNbr}
+</if>
+<if test="cdDescCntnt != null and cdDescCntnt !=''">
+AND 		a.cd_desc_cntnt like #{cdDescCntnt}
+</if>
+<if test="cdNm!= null and cdNm !=''">
+  AND EXISTS (
+SELECT 1
+  FROM cm_cd_d b
+     , cm_mlt_lng_trnsltn_d c
+ WHERE c.trnsfr_rslt_val LIKE  #{cdNm}
+   AND c.trnsfr_knd_cd = 'CDVAL_NAME'
+   AND c.trnsfr_origin_key_val = CONCAT(a.cd_nbr, b.cd)
+   AND c.lng_cd = #{lngCd}
+   AND a.cd_nbr = b.cd_nbr
+   AND b.ACTV_STS_CD = '01'
+)  
+</if>
+GROUP		BY a.cd_nbr
+, a.cd_nbr_tp_cd
+, a.cd_nbr_nm
+, a.cd_desc_cntnt
+, a.cmpnt_cd
+, a.xtn_cd_tbl_nm
+, a.xtn_cd_class_nm
+
+UNION ALL
+
+
+-- External code		
+
+SELECT
+			a.cd_nbr				AS cdNbr
+		,	a.cd_nbr_tp_cd			AS cdNbrTpCd
+		,	a.cd_nbr_nm				AS cdNbrNm
+		,	b.inst_cd				AS instCd
+		,	null					AS upCdNbr
+		,	a.cd_desc_cntnt 				AS cdDescCntnt
+		,	a.cmpnt_cd				AS cmpntCd
+		,	a.xtn_cd_tbl_nm			AS xtnCdTblNm
+		,	a.xtn_cd_class_nm	 	AS xtnCdClassNm
+FROM 		cm_cd_m a
+		,	cm_cd_inst_d b
+WHERE 	a.cd_nbr = b.cd_nbr
+AND		a.cd_nbr_tp_cd = '03'
+AND a.ACTV_STS_CD = '01'
+<if test="cdNbrTpCd != null and cdNbrTpCd !=''">
+AND 		a.cd_nbr_tp_cd = #{cdNbrTpCd}
+</if>
+<if test="dmnDscd != null and dmnDscd !=''">
+AND 		a.cmpnt_cd = #{dmnDscd}
+</if>
+<if test="cdNbr != null and cdNbr !=''">
+AND 		a.cd_nbr = #{cdNbr}
+</if>
+<if test="cdNbrNm != null and cdNbrNm !=''">
+AND 		a.cd_nbr_nm like #{cdNbrNm}
+</if>
+<if test="upCdNbr != null and upCdNbr !=''">
+AND 		a.up_cd_nbr like #{upCdNbr}
+</if>
+<if test="cdDescCntnt != null and cdDescCntnt !=''">
+AND 		a.cd_desc_cntnt like  #{cdDescCntnt}
+</if>
+<if test="cdNm!= null and cdNm !=''">
+AND 		b.cd_nm like #{cdNm}
+</if>
+<if test="instCd != null and instCd !=''">
+AND 		b.inst_cd = #{instCd}
+</if>
+GROUP		BY a.cd_nbr
+, a.cd_nbr_tp_cd
+, a.cd_nbr_nm
+, b.inst_cd
+, a.cd_desc_cntnt
+, a.cmpnt_cd
+, a.xtn_cd_tbl_nm
+, a.xtn_cd_class_nm
+
+UNION ALL
+
+-- Standard subset code		
+
+SELECT
+			a.cd_nbr					AS	cdNbr
+		,	a.cd_nbr_tp_cd				AS	cdNbrTpCd
+		,	a.cd_nbr_nm					AS	cdNbrNm
+		,	null						AS	instCd
+		,	up_cd_nbr			 		AS	upCdNbr
+		,	a.cd_desc_cntnt 					AS cdDescCntnt
+		,	a.cmpnt_cd					AS cmpntCd
+		,	a.xtn_cd_tbl_nm				AS xtnCdTblNm
+		,	a.xtn_cd_class_nm 			AS xtnCdClassNm
+FROM 		cm_cd_m a
+WHERE 	a.cd_nbr_tp_cd = '04'
+AND a.ACTV_STS_CD = '01'
+<if test="cdNbrTpCd != null and cdNbrTpCd !=''">
+AND 		a.cd_nbr_tp_cd = #{cdNbrTpCd}
+</if>
+<if test="dmnDscd != null and dmnDscd !=''">
+AND 		a.cmpnt_cd = #{dmnDscd}
+</if>
+<if test="cdNbr != null and cdNbr !=''">
+AND 		a.cd_nbr = #{cdNbr}
+</if>
+<if test="cdNbrNm != null and cdNbrNm !=''">
+AND EXISTS (
+SELECT 1
+  FROM cm_mlt_lng_trnsltn_d c
+ WHERE c.trnsfr_rslt_val LIKE #{cdNbrNm}
+   AND c.trnsfr_knd_cd = 'CD_NAME'
+   AND c.trnsfr_origin_key_val = a.cd_nbr
+   AND c.lng_cd = #{lngCd}
+)  
+</if>
+<if test="upCdNbr != null and upCdNbr !=''">
+AND 		a.up_cd_nbr like #{upCdNbr}
+</if>
+<if test="cdDescCntnt != null and cdDescCntnt !=''">
+AND 		a.cd_desc_cntnt like #{cdDescCntnt}
+</if>
+<if test="cdNm!= null and cdNm !=''">
+  AND EXISTS (
+SELECT 1
+  FROM cm_cd_d b
+     , cm_mlt_lng_trnsltn_d c
+ WHERE c.trnsfr_rslt_val LIKE #{cdNm}
+   AND c.trnsfr_knd_cd = 'CDVAL_NAME'
+   AND c.trnsfr_origin_key_val = CONCAT(a.cd_nbr, b.cd)
+   AND c.lng_cd = #{lngCd}
+   AND a.cd_nbr = b.cd_nbr
+   AND b.ACTV_STS_CD = '01'
+)  
+</if>
+
+UNION ALL
+
+-- Institution subset code
+SELECT cdNbr
+    , cdNbrTpCd
+    , cdNbrNm
+    , instCd
+    , upCdNbr
+    , cdDescCntnt
+    , cmpntCd
+    , xtnCdTblNm
+    , xtnCdClassNm
+FROM
+(
+SELECT
+			a.cd_nbr					AS	cdNbr
+		,	'05'						AS	cdNbrTpCd
+		,	a.cd_nbr_nm					AS	cdNbrNm
+		,	b.inst_cd					AS	instCd
+		,	a.cd_nbr			 		AS	upCdNbr
+		,	a.cd_desc_cntnt 					AS cdDescCntnt
+		,	a.cmpnt_cd					AS cmpntCd
+		,	a.xtn_cd_tbl_nm				AS xtnCdTblNm
+		,	a.xtn_cd_class_nm 			AS xtnCdClassNm
+FROM 		cm_cd_m a
+		,	cm_inst_sbst_cd_d b
+WHERE 	a.cd_nbr = b.cd_nbr
+AND a.ACTV_STS_CD = '01'
+AND b.ACTV_STS_CD = '01'
+<if test="dmnDscd != null and dmnDscd !=''">
+AND 		a.cmpnt_cd = #{dmnDscd}
+</if>
+<if test="cdNbr != null and cdNbr !=''">
+AND 		a.cd_nbr = #{cdNbr}
+</if>
+<if test="cdNbrNm != null and cdNbrNm !=''">
+AND EXISTS (
+SELECT 1
+  FROM cm_mlt_lng_trnsltn_d c
+ WHERE c.trnsfr_rslt_val LIKE #{cdNbrNm}
+   AND c.trnsfr_knd_cd = 'CD_NAME'
+   AND c.trnsfr_origin_key_val = a.cd_nbr
+   AND c.lng_cd = #{lngCd}
+)  
+</if>
+<if test="upCdNbr != null and upCdNbr !=''">
+AND 		a.up_cd_nbr like #{upCdNbr}
+</if>
+<if test="cdDescCntnt != null and cdDescCntnt !=''">
+AND 		a.cd_desc_cntnt like #{cdDescCntnt}
+</if>
+<if test="instCd != null and instCd !=''">
+AND 		b.inst_cd = #{instCd}
+</if>
+
+<if test="cdNm!= null and cdNm !=''">
+  AND EXISTS (
+SELECT 1
+  FROM cm_cd_d d
+     , cm_mlt_lng_trnsltn_d c
+ WHERE c.trnsfr_rslt_val LIKE CONCAT(CONCAT('%', #{cdNm}), '%')
+   AND c.trnsfr_knd_cd = 'CDVAL_NAME'
+   AND c.trnsfr_origin_key_val = CONCAT(a.cd_nbr, d.cd)
+   AND c.lng_cd = #{lngCd}
+   AND a.cd_nbr = d.cd_nbr
+   AND d.ACTV_STS_CD = '01'
+)  
+</if>
+) aa
+<where>
+<if test="cdNbrTpCd != null and cdNbrTpCd !=''">
+AND 		aa.cdNbrTpCd = #{cdNbrTpCd}
+</if>
+</where>
+GROUP BY aa.cdNbr
+		,	aa.cdNbrTpCd
+		,	aa.cdNbrNm
+		,	aa.instCd
+		,	aa.upCdNbr
+		,	aa.cdDescCntnt
+		,	aa.cmpntCd
+		,	aa.xtnCdTblNm
+		,	aa.xtnCdClassNm
+ORDER BY 1
+</select>
+</mapper>

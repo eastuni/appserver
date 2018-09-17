@@ -1,0 +1,6 @@
+OMM bxm.cconexec.bc.dto.BCCExecutionOnline01Out
+<description="">
+{
+	Integer pcsnStat<length=2 description="처리상태">;
+	BigDecimal srtSqno<length=15 description="시작일련번호">;
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.arrangement.arrangementrelationship.dao.ArArrDeptRXtn">
+<!--Generated Tue Jul 18 12:27:08 KST 2017-->
+<select id="selectListByDeptRelAndRelSts" parameterType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrDeptRIO" resultType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrDeptRIO">
+SELECT    /* 계약부서관계 */
+
+       inst_cd AS instCd    /*기관코드*/
+
+     , arr_id AS arrId    /*계약식별자*/
+
+     , dept_id AS deptId    /*부서식별자*/
+
+     , arr_dept_rel_cd AS arrDeptRelCd    /*계약부서관계코드*/
+
+     , arr_dept_rel_seq_nbr AS arrDeptRelSeqNbr    /*계약부서관계일련번호*/
+
+     , arr_dept_rel_sts_cd AS arrDeptRelStsCd    /*계약부서관계상태코드*/
+     , rel_start_dt AS relStartDt    /*관계시작년월일*/
+
+     , rel_end_dt AS relEndDt    /*관계종료년월일*/
+
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM ar_arr_dept_r
+
+ WHERE inst_cd = #{instCd}
+
+   AND arr_id = #{arrId}
+
+<if test="arrDeptRelCd != null and arrDeptRelCd != '' ">
+
+   AND arr_dept_rel_cd = #{arrDeptRelCd}
+
+</if>
+   AND arr_dept_rel_sts_cd not in ('3','Y')
+<if test="arrDeptRelStsCd != null and arrDeptRelStsCd != '' ">
+   AND arr_dept_rel_sts_cd = #{arrDeptRelStsCd}
+</if>
+</select>
+<update id="updateArrRltdDeptTrmntnAll" parameterType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrDeptRIO">
+UPDATE  
+
+        ar_arr_dept_r    /* 계약부서관계 */
+
+   SET  arr_dept_rel_sts_cd = #{arrDeptRelStsCd}    /* 계약부서관계상태코드 */, 
+        rel_end_dt = #{relEndDt}    /* 관계종료년월일 */, 
+
+        last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */, 
+
+        last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  arr_id = #{arrId}
+
+   AND  arr_dept_rel_sts_cd = '1'
+</update>
+</mapper>

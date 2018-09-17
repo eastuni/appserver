@@ -1,0 +1,7 @@
+OMM bankware.corebanking.loan.financialtransaction.batch.dto.LnAccrualCcIO
+<description="여신 Accrual 데모센타 IO">
+{
+	String arrId<length=40 description="계약식별자">;
+	String deptId<length=14 description="부서식별자">;
+	String baseDt<length=8 description="기준일자">;
+}

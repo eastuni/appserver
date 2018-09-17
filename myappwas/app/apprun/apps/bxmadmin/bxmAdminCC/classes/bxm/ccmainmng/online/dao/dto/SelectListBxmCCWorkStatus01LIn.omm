@@ -1,0 +1,12 @@
+OMM bxm.ccmainmng.online.dao.dto.SelectListBxmCCWorkStatus01LIn
+<description="  ">
+{
+	String domainId<length=20 description="도메인ID">;
+	String appLv2Cd<length=2 description="어플리케이션레벨2코드">;
+	String appLv3Cd<length=3 description="어플리케이션레벨3코드">;
+	String ccId<length=9 description="CCID">;
+	String pcsnDt<length=8 description="처리일자">;
+	Integer pcsnStat<length=2 description="처리상태">;
+	Integer pageNum<length=9 description="페이지숫자">;
+	Integer pageCount<length=9 description="페이지카운트">;
+}

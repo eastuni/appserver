@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.arrangement.arrangementrelationship.dao.ArArrIssmdaPsbkMsgRXtn">
+<!--Generated Mon Apr 02 21:32:25 KST 2018-->
+<select id="selectListByIssmdaTmpltIdOnBaseDt" resultType="bankware.corebanking.core.arrangement.arrangementcontrol.business.configuration.dao.dto.ArArrPsbkMsgRDtl">
+SELECT    /* 계약발급매체통장메시지관계 */
+        b.INST_CD AS instCd,     /*기관코드*/
+        b.ARR_ISSMDA_TMPLT_ID AS arrIssmdaTmpltId,     /*계약발급매체템플릿식별자*/
+        b.PSBK_SRVC_TP_CD AS psbkSrvcTpCd,     /*통장서비스유형코드*/
+        b.PSBK_MSG_ID AS psbkMsgId,     /*통장메시지식별자*/
+        b.ARR_ISSMDA_PSBK_MSG_SEQ_NBR AS arrIssmdaPsbkMsgSeqNbr,     /*계약발급매체통장메시지일련번호*/
+        a.PSBK_MSG_NM AS psbkMsgNm,    /* 통장메시지명 */
+        a.PSBK_MSG_TP_CD AS psbkMsgTpCd,    /* 통장메시지유형코드 */
+        a.PSBK_MSG_DTL_TP_CD AS psbkMsgDtpTpCd,    /* 통장메시지상세유형코드 */
+        a.PSBK_BKG_YN_CLASS_NM AS psbkBkgYnClassNm,    /* 통장기장여부클래스명 */
+        a.PSBK_MSG_EDIT_CLASS_NM AS psbkMsgEditClassNm,    /* 통장메시지편집클래스명 */
+        b.PSBK_BKG_SEQ AS psbkBkgSeq,     /*통장기장순서*/
+        b.PSBK_BKG_ROW_CNT AS psbkBkgRowCnt,     /*통장기장행수*/
+        b.PSBK_BKG_COLUMN_CNT AS psbkBkgColumnCnt,     /*통장기장열수*/
+        b.PSBK_BKG_EDIT_ATRBT_VAL_JSON AS psbkBkgEditAtrbtValJson,     /*통장기장편집속성값JSON*/
+        b.EFCTV_START_DT AS efctvStartDt,     /*유효시작년월일*/
+        b.EFCTV_END_DT AS efctvEndDt,     /*유효종료년월일*/
+        b.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        b.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ar_arr_psbk_msg_m a
+  JOIN  ar_arr_issmda_psbk_msg_r b
+    ON a.INST_CD = b.INST_CD
+   AND a.PSBK_MSG_ID = b.PSBK_MSG_ID
+ WHERE b.INST_CD = #{instCd}
+   AND b.ARR_ISSMDA_TMPLT_ID = #{arrIssmdaTmpltId}
+<if test="psbkMsgTpCd != null and psbkMsgTpCd != '' ">
+   AND a.PSBK_MSG_TP_CD = #{psbkMsgTpCd}
+</if>
+   AND b.EFCTV_START_DT &lt;= #{baseDt}
+   AND b.EFCTV_END_DT &gt; #{baseDt}
+   AND b.ACTV_STS_CD = '01'
+</select>
+<select id="select" parameterType="bankware.corebanking.core.arrangement.arrangementcontrol.business.configuration.dao.dto.ArArrPsbkMsgRIO" resultType="bankware.corebanking.core.arrangement.arrangementcontrol.business.configuration.dao.dto.ArArrPsbkMsgRIO">
+SELECT    /* 계약발급매체통장메시지관계 */
+        INST_CD AS instCd,     /*기관코드*/
+        ARR_ISSMDA_TMPLT_ID AS arrIssmdaTmpltId,     /*계약발급매체템플릿식별자*/
+        PSBK_SRVC_TP_CD AS psbkSrvcTpCd,     /*통장서비스유형코드*/
+        PSBK_MSG_ID AS psbkMsgId,     /*통장메시지식별자*/
+        ARR_ISSMDA_PSBK_MSG_SEQ_NBR AS arrIssmdaPsbkMsgSeqNbr,     /*계약발급매체통장메시지일련번호*/
+        EFCTV_START_DT AS efctvStartDt,     /*유효시작년월일*/
+        EFCTV_END_DT AS efctvEndDt,     /*유효종료년월일*/
+        ACTV_STS_CD AS actvStsCd,     /*활동상태코드*/
+        PSBK_BKG_SEQ AS psbkBkgSeq,     /*통장기장순서*/
+        PSBK_BKG_ROW_CNT AS psbkBkgRowCnt,     /*통장기장행수*/
+        PSBK_BKG_COLUMN_CNT AS psbkBkgColumnCnt,     /*통장기장열수*/
+        PSBK_BKG_EDIT_ATRBT_VAL_JSON AS psbkBkgEditAtrbtValJson,     /*통장기장편집속성값JSON*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ar_arr_issmda_psbk_msg_r
+ WHERE INST_CD = #{instCd}
+   AND ARR_ISSMDA_TMPLT_ID = #{arrIssmdaTmpltId}
+   AND PSBK_SRVC_TP_CD = #{psbkSrvcTpCd}
+   AND PSBK_MSG_ID = #{psbkMsgId}
+   AND ARR_ISSMDA_PSBK_MSG_SEQ_NBR = #{arrIssmdaPsbkMsgSeqNbr}
+</select>
+<update id="update" parameterType="bankware.corebanking.core.arrangement.arrangementcontrol.business.configuration.dao.dto.ArArrPsbkMsgRIO">
+UPDATE  
+        ar_arr_issmda_psbk_msg_r    /* 계약발급매체통장메시지관계 */
+   SET  EFCTV_START_DT = #{efctvStartDt}    /* 유효시작년월일 */
+     , EFCTV_END_DT = #{efctvEndDt}    /* 유효종료년월일 */
+     , ACTV_STS_CD = #{actvStsCd}    /* 활동상태코드 */
+     , PSBK_BKG_SEQ = #{psbkBkgSeq}    /* 통장기장순서 */
+     , PSBK_BKG_ROW_CNT = #{psbkBkgRowCnt}    /* 통장기장행수 */
+     , PSBK_BKG_COLUMN_CNT = #{psbkBkgColumnCnt}    /* 통장기장열수 */
+     , PSBK_BKG_EDIT_ATRBT_VAL_JSON = #{psbkBkgEditAtrbtValJson}    /* 통장기장편집속성값JSON */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경타임스탬프 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND ARR_ISSMDA_TMPLT_ID = #{arrIssmdaTmpltId}
+   AND PSBK_SRVC_TP_CD = #{psbkSrvcTpCd}
+   AND PSBK_MSG_ID = #{psbkMsgId}
+   AND ARR_ISSMDA_PSBK_MSG_SEQ_NBR = #{arrIssmdaPsbkMsgSeqNbr}
+</update>
+</mapper>

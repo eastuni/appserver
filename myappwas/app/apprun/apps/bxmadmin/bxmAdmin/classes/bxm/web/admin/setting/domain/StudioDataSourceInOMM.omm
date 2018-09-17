@@ -1,0 +1,5 @@
+OMM bxm.web.admin.setting.domain.StudioDataSourceInOMM
+<description="">
+{
+	String connectionName<length=50 description="커넥션 명">;
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bxm-application xmlns="http://www.es-code.com/schema/application" xmlns:ns2="http://www.es-code.com/schema/common" name="ST" loglevel="Default" shared="true" reference-applications="AC,AR,AT,CM,CR,CORE-intrfc,PD,SM,SV,DC" type="online">
+    <description>ST application is the default config.</description>
+    <datasource>
+        <jndi-datasource name="CBB" jndi-datasource="CBBNXA" jndi-xadatasource="CBBXA"/>
+    </datasource>
+</bxm-application>

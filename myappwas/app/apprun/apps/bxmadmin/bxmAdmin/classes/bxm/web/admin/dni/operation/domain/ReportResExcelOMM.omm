@@ -1,0 +1,11 @@
+OMM bxm.web.admin.dni.operation.domain.ReportResExcelOMM
+<description="">
+{
+	String methodName<length=512 description="메소드 명">;
+	String sqlTypeCd<length=1 description="SQL 타입 코드">;
+	String bxmApplicationId<length=100 description="어플리케이션 ID">;
+	String packageName<length=512 description="패키지 명">;
+	String className<length=512 description="클래스 명">;
+	String inputType<length=512 description="입력 타입">;
+	String outputType<length=512 description="출력 타입">;
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.actor.staff.dao.AtStaffLoinHstDXtn">
+<!--Generated Thu May 10 15:57:51 KST 2018-->
+<select id="selectLastLoinDateHistoryList" resultType="bankware.corebanking.actor.staff.dao.dto.AtStaffLoinHstDXtnIO">
+SELECT inst_cd as instCd
+     , loin_id_nbr as loinIdNbr
+     , hst_seq_nbr as hstSeqNbr
+     , loin_dt as loinDt
+     , loin_hms as loinHms
+     , dept_id as deptId
+     , loin_rslt_yn as loinRsltYn
+     , loin_rslt_cd as loinRsltCd
+     , loin_tp_cd as loinTpCd
+     , fnl_loin_chnl_dscd as fnlLoinChnlDscd
+     , staff_id as staffId
+     , loin_ip as loinIp
+     , last_chng_tmstmp as lastChngTmstmp
+     , last_chng_guid as lastChngGuid 
+  FROM at_staff_loin_h
+  WHERE inst_cd = #{instCd}
+
+  AND loin_rslt_yn = #{loinRsltYn}
+  
+<if test="staffId != null &amp;&amp; staffId != ''">
+  AND staff_id = #{staffId}
+  AND loin_dt = (select max(loin_dt) from at_staff_loin_h where inst_cd = '999' and staff_id = 'SFINI001')
+</if>  
+
+<if test="loinIdNbr != null &amp;&amp; loinIdNbr != ''">
+  AND loin_id_nbr = #{loinIdNbr}
+</if> 
+
+<if test="deptId != null &amp;&amp; deptId != ''">
+  AND dept_id = #{deptId}
+</if> 
+
+
+<if test="loinTpCd != null &amp;&amp; loinTpCd != ''">
+  AND loin_tp_cd = #{loinTpCd}
+</if>     
+
+<if test="fnlLoinChnlDscd != null &amp;&amp; fnlLoinChnlDscd != ''">
+  AND fnl_loin_chnl_dscd = #{fnlLoinChnlDscd}
+</if>
+
+order by last_chng_tmstmp
+</select>
+</mapper>

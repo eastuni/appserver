@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ixjointnetwork.dao.XpIxIntrmdryMsgNbrD">
+<!--Generated Tue Nov 22 15:13:05 KST 2016-->
+<insert id="insertXpIxIntrmdryMsgNbr">
+INSERT  
+  INTO  xp_ix_intrmdry_msg_nbr_d    /* 타행환중개기관결번명세 */
+(
+  INST_CD,     /*기관코드*/
+  TX_DT,     /*거래년월일*/
+  INTRMDRY_MSG_MGMT_NBR,     /*중개기관전문관리번호*/
+  MSNG_NBR_PRCS_Dscd,     /*결번처리구분코드*/
+  MSNG_NBR_RGSTRN_HMS,     /*결번등록시각*/
+  MSNG_NBR_SND_HMS,     /*결번전송시각*/
+  MSNG_NBR_RSPNS_RCV_HMS,     /*결번응답수신시각*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{txDt},     /*거래년월일*/
+  #{intrmdryMsgMgmtNbr},     /*중개기관전문관리번호*/
+  #{msngNbrPrcsDscd},     /*결번처리구분코드*/
+  #{msngNbrRgstrnHms},     /*결번등록시각*/
+  #{msngNbrSndHms, jdbcType=VARCHAR},     /*결번전송시각*/
+  #{msngNbrRspnsRcvHms, jdbcType=VARCHAR},     /*결번응답수신시각*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectXpIxIntrmdryMsgNbrList" resultType="bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxIntrmdryMsgNbrDIO">
+SELECT 
+instCd,     /*기관코드*/
+txDt,     /*거래년월일*/
+intrmdryMsgMgmtNbr,     /*중개기관전문관리번호*/
+msngNbrPrcsDscd,     /*결번처리구분코드*/
+msngNbrRgstrnHms,     /*결번등록시각*/
+msngNbrSndHms,     /*결번전송시각*/
+msngNbrRspnsRcvHms,     /*결번응답수신시각*/
+lastChngTmstmp,     /*최종변경일시*/
+lastChngGuid    /*최종변경GUID*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+A.instCd,     /*기관코드*/
+A.txDt,     /*거래년월일*/
+A.intrmdryMsgMgmtNbr,     /*중개기관전문관리번호*/
+A.msngNbrPrcsDscd,     /*결번처리구분코드*/
+A.msngNbrRgstrnHms,     /*결번등록시각*/
+A.msngNbrSndHms,     /*결번전송시각*/
+A.msngNbrRspnsRcvHms,     /*결번응답수신시각*/
+A.lastChngTmstmp,     /*최종변경일시*/
+A.lastChngGuid    /*최종변경GUID*/
+ FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* 타행환중개기관결번명세 */
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        INTRMDRY_MSG_MGMT_NBR AS intrmdryMsgMgmtNbr,     /*중개기관전문관리번호*/
+        MSNG_NBR_PRCS_Dscd AS msngNbrPrcsDscd,     /*결번처리구분코드*/
+        MSNG_NBR_RGSTRN_HMS AS msngNbrRgstrnHms,     /*결번등록시각*/
+        MSNG_NBR_SND_HMS AS msngNbrSndHms,     /*결번전송시각*/
+        MSNG_NBR_RSPNS_RCV_HMS AS msngNbrRspnsRcvHms,     /*결번응답수신시각*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  xp_ix_intrmdry_msg_nbr_d
+ WHERE TX_DT = #{txDt}
+      and MSNG_NBR_PRCS_Dscd = '0'
+ ORDER BY TX_DT, INTRMDRY_MSG_MGMT_NBR
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<update id="updateXpIxIntrmdryMsgNbr">
+UPDATE  
+        xp_ix_intrmdry_msg_nbr_d    /* 타행환중개기관결번명세 */
+   SET  MSNG_NBR_PRCS_Dscd = #{msngNbrPrcsDscd}    /* 결번처리구분코드 */
+     , MSNG_NBR_SND_HMS = #{msngNbrSndHms}    /* 결번전송시각 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND INTRMDRY_MSG_MGMT_NBR = #{intrmdryMsgMgmtNbr}
+</update>
+<select id="selectXpIxIntrmdryMsgNbrListCount" resultType="java.lang.Integer">
+SELECT    /* 타행환중개기관결번명세 */
+        count(INST_CD)
+  FROM  xp_ix_intrmdry_msg_nbr_d
+ WHERE TX_DT = #{txDt}
+</select>
+<update id="updateXpIxIntrmdryMsgNbrEnd">
+UPDATE  
+        xp_ix_intrmdry_msg_nbr_d    /* 타행환중개기관결번명세 */
+   SET  MSNG_NBR_PRCS_Dscd = #{msngNbrPrcsDscd}    /* 결번처리구분코드 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND INTRMDRY_MSG_MGMT_NBR = #{intrmdryMsgMgmtNbr}
+</update>
+</mapper>

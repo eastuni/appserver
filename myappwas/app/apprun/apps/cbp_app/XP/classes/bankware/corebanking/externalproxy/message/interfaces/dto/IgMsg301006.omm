@@ -1,0 +1,33 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IgMsg301006 extends bankware.corebanking.externalproxy.message.interfaces.dto.IgComm
+<description="4대징수기관 사회보험징수통합,연금 고지내역상세조회 표준전문">
+{
+	String inqryDscd<length=1 description="조회구분코드">;
+	String elctrncPymntNbr<length=17 description="전자납부번호">;
+	String maskRvctnIdNbr<length=13 description="마스킹해제주민등록번호" encrypt="AES256">;
+	String custInqryCustNbr<length=20 align=right fill="0" description="고객조회고객번호">;
+	String impstnYm<length=6 description="부과년월">;
+	String giroIssueFormCd<length=1 description="발행형태코드">;
+	String etcCd<length=2 align=right fill="0" description="기타">;
+	String ntfctnFormCd<length=1 description="고지형태코드">;
+	String localAndBizDscd<length=1 description="지역및사업장구분코드">;
+	String prdDscd<length=1 description="납기내후구분">;
+	String prdDt1<length=8 description="납기일자(1차)">;
+	String bfPrdAmt<length=12 description="납기내금액">;
+	String prdDt2<length=8 description="납기일자(2차)">;
+	String afPrdAmt<length=12 description="납기후금액">;
+	String bfDlnPensionHealthPremiumAmt<length=12 description="납기내연금건강보험료">;
+	String bfDlnNtnlAnnuityArrearsAmt<length=12 description="납기내국민연금연체금 ">;
+	String afDlnPensionEmplymntPremiumAmt<length=12 description="납기후연금고용보험료">;
+	String afDlnInsrncArrearsAmt<length=12 description="납기후산재보험연체금">;
+	String vldtnNbr<length=4 description="검증번호">;
+	String payerFullNm<length=30 description="납부자성명" encrypt="KSC5601">;
+	String brnchNm<length=16 description="지사명" encrypt="KSC5601">;
+	String dfltStartMnth<length=6 description="체납시작월">;
+	String dfltEndMnth<length=6 description="체납종료월">;
+	String dfltMnthCnt<length=3 description="체납개월수">;
+	String rcvngBnkBrnchCd<length=7 description="수납은행점별코드">;
+	String pymntDt<length=14 description="납부일자">;
+	String ntfctnDt<length=8 description="고지일자">;
+	String insrncDscd<length=1 description="보험구분코드">;
+	String fillerCntnt10<length=10 description="fillerCntnt10">;
+}

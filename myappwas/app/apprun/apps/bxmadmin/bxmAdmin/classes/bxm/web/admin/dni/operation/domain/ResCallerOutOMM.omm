@@ -1,0 +1,18 @@
+OMM bxm.web.admin.dni.operation.domain.ResCallerOutOMM
+<description="">
+{
+	String methodExecTypeCd<length=1 description="메소드 실행 타입 코드">;
+	String methodNm<length=256 description="메소드 명">;
+	String classNm<length=512 description="클래스 명">;
+	String callerMethodLine<length=9 description="Caller 메소드 라인">;
+	String inputType<length=512 description="입력 타입">;
+	String outputType<length=512 description="출력 타입">;
+	String bxmAppId<length=40 description="bxm 어플리케이션 ID">;
+	String pkgNm<length=512 description="패키지 명">;
+	String methodId<length=40 description="메소드 ID">;
+	String methodSign<length=2048 description="메소드 시그니처">;
+	String opNm<length=20 description="오퍼레이션 명">;
+	Boolean existChildren<length=20 description="자식 리스트 존재 여부">;
+	Integer childrenSize<length=9>;
+	bxm.web.admin.dni.operation.domain.ResCallerOutOMM children<length=50 arrayReference="childrenSize" description="자식 리스트">;
+}

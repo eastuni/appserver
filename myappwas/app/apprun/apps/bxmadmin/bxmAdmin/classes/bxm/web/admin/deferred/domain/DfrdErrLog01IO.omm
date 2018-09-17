@@ -1,0 +1,25 @@
+OMM bxm.web.admin.deferred.domain.DfrdErrLog01IO
+<description=" ">
+{
+	String domainId<length=10 description="도메인아이디">;
+	String deferredId<length=20 description="후행ID">;
+	String deferredNm<length=100 description="후행명">;
+	Integer nodeNo<length=2 description="노드번호">;
+	String bizDt<length=8 description="영업일자">;
+	BigDecimal errSeq<length=22 description="에러일련번호">;
+	String errGuid<length=40 description="에러GUID">;
+	String errProcStatusCd<length=1 description="에러처리상태코드">;
+	String errProcTypeCd<length=1 description="에러처리유형코드">;
+	BigDecimal startSeq<length=22 description="시작일련번호">;
+	BigDecimal endSeq<length=22 description="종료일련번호">;
+	String errRegDttm<length=14 description="에러등록일시">;
+	String procEndDttm<length=14 description="처리종료일시">;
+	String errCd<length=9 description="에러코드">;
+	String errMsgCtt<length=4000 description="에러메시지내용">;
+	BigDecimal currErrReprocCnt<length=22 description="현재에러재처리수">;
+	BigDecimal parllProcSeq<length=22 description="병렬처리일련번호">;
+	Integer pageNum<length=9 description="페이지숫자">;
+	Integer pageCount<length=9 description="페이지카운트">;
+	Integer subListRowCount<length=9 description="에러처리상태리스트갯수">;
+	bxm.web.admin.deferred.domain.DfrdErrLog02IO subList<length=0 arrayReference="subListRowCount" description="에러처리상태리스트">;
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bxm-instance xmlns="http://www.es-code.com/schema/instance"
+	xmlns:cn="http://www.es-code.com/schema/common" name="cp-instance">
+    <description>CP Configuration</description>
+    <environment>
+        <system-properties>
+            beantype.usemetadata=true
+            accrue.data.accesstime=true
+            accrue.beanfactory.accesstime=true
+            bxm.dbio.write.history.only.for.before.image.logging=true
+            bxm.mybatis.setting.callSettersOnNulls=true
+            operationTimeout.Interval=1000
+            asyncTaskExecutor.workerpool=10
+            asyncTaskExecutor.taskqueue=10
+            <!-- Development-->
+            spring.alternative.classloading.parentfirst=true
+            executor.nosync=false
+            bxm.dbio.max.resultset.size=20971
+            bxm.dbio.connected.batch.max.resultset.size=30000
+						cbb.jndi=java:/comp/env/APPNXA
+        </system-properties>
+        <system-mode>D</system-mode>
+        <datasource>
+            <jndi-datasource jndi-name="java:/comp/env/BXMNXA">
+            </jndi-datasource>
+        </datasource>
+        <loader mode="hot" autodeploy="true" interval-millis="8000" registry="off"
+							  lazy-init="true" deferred-init="true" deferred-init-interval="1000" sessionfactory-lazyinit="true" 
+							  use-lastmodified-cache="true">
+            <application-home>/app/apprun/apps/cbp_app</application-home>
+            <instrument>
+           		<cn:transformer classname="bankware.corebanking.servicemanagement.transform.DistributionTransformer" order="1">
+              	<cn:typefilter rule="include" type="regex" expression=".+Dso"/>
+          		</cn:transformer>
+						</instrument>
+        </loader>
+    </environment>
+
+    <management>
+        <!--connector serviceurl="service:jmx:rmi:///jndi/bxm-instance"-->
+		<connector serviceurl="service:jmx:rmi:///jndi/rmi://${}/jmxrmi">
+            <environment>
+            </environment>
+        </connector>
+        <objectname domain="JRF">
+            <properties>
+                Name=bxm-management
+            </properties>
+        </objectname>
+    </management>
+ 		<context forced-timeout="180000">
+        <preprocessor classname="bankware.corebanking.service.processor.CbbSystemPreProcessor" order="1"/>
+				<!--preprocessor classname="bxm.validation.processor.SimpleValidatePreProcessor" order="2"/-->
+        <postprocessor classname="bankware.corebanking.service.processor.CbbSystemPostProcessor" order="1"/>
+        <!--control-parameter classname="bankware.corebanking.context.control.CbbControlParametersImpl"/-->
+        <control-parameter classname="bankware.corebanking.context.control.CbbTestControlParametersImpl"/>
+        <transaction-rollbackfors>bankware.corebanking.frm.app.BizApplicationException</transaction-rollbackfors>
+        <request header-classname="bankware.corebanking.context.impl.CbbMasterAdminServiceHeaderImpl" imagelogging="false"
+                request-resolver-classname="bankware.corebanking.request.CbbRequestResolver"
+                response-resolver-classname="bankware.corebanking.request.CbbResponseResolver"
+                request-trace-classname="bxm.dft.request.DefaultRequestTrace"
+								interceptor-classname="bankware.corebanking.service.endpoint.CbbRequestInterceptor"
+								service-executor-interceptor-classname="bankware.corebanking.service.CbbServiceExecutorInterceptor"
+                />
+    </context>
+    <data-access trace-inject="false" monitor-inject="false" identify-inject="true"
+                identifier-prefix="map_id(" identifier-suffix=")"
+                oracle-setmodule="false" oracle-clearmodule="false"
+                max-resultset="10000" fetch-size="10" min-fetch-size="10"
+                limit-exceeded-action="Error" forced-logging="false">
+        <jndi-datasource-aliases> <!-- name : J2EE Application Service dataSource jndiName for applications -->
+            <!-- alias : jndi-datasource, jndi-xadatasource value in application configuration file( bxm-application.xml) -->
+            <alias name="java:/comp/env/APPNXA" alias="CBBNXA"/>
+            <alias name="java:/comp/env/APPXA" alias="CBBXA"/>
+        </jndi-datasource-aliases>
+    </data-access>
+    <message message-source-classname="bankware.corebanking.frm.app.CbbDataBaseMessageSource"/>
+
+</bxm-instance>

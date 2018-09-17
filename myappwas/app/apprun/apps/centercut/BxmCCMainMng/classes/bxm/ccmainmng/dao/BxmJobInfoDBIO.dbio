@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.ccmainmng.dao.BxmJobInfoDBIO">
+<!--Generated Thu Nov 30 13:19:28 KST 2017-->
+<select id="selectJobInfo" resultType="bxm.ccmainmng.dao.dto.BxmJobInfoOMM">
+SELECT /* BXM 배치 작업 정보 */ 
+	   DOMAIN_ID AS domainId,
+       JOB_ID AS jobId /*배치작업ID*/,
+       JOB_NM AS jobNm /*배치작업명*/,
+       JOB_TYPE_CD AS jobTypeCd /*배치작업유형코드*/,
+       BXM_APP_ID AS bxmAppId /*BXM어플리케이션ID*/,
+       USE_YN AS useYn /*사용여부*/,
+       LOG_LV_NM AS logLvNm /*로그레벨명*/,
+       COMMIT_CFG_LIST AS commitCfgList /*커밋설정목록*/,
+       DUP_EXEC_USE_YN AS dupExecUseYn /*중복실행가능여부*/,
+       JOB_USE_START_DT AS jobUseStartDt /*배치작업허용시작일자*/,
+       JOB_USE_END_DT AS jobUseEndDt /*배치작업허용종료일자*/,
+       REG_USER_ID AS regUserId /*등록 사용자 ID*/,
+       REG_OCCUR_DTTM AS regOccurDttm /*등록 발생 일시*/,
+       MODIFY_USER_ID AS modifyUserId /*변경 사용자 ID*/,
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경 발생 일시*/
+  FROM BXM_JOB_INFO
+ WHERE DOMAIN_ID = #{domainId} AND JOB_ID = #{jobId}
+</select>
+</mapper>

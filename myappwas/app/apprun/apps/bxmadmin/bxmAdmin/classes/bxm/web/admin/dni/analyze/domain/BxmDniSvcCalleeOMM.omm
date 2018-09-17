@@ -1,0 +1,10 @@
+OMM bxm.web.admin.dni.analyze.domain.BxmDniSvcCalleeOMM
+<description="">
+{
+	String methodId<length=40 description="메소드 ID">;
+	Integer calleeMethodLine<length=9 description="Caller 라인">;
+	String calleeBxmAppId<length=40 description="Callee BXM 어플리케이션 ID">;
+	String calleeSvcNm<length=512 description="Callee 서비스 명">;
+	String calleeOpNm<length=512 description="Callee 오퍼레이션 명">;
+	String modifyDttm<length=14 description="변경 일시">;
+}

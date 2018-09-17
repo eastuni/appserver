@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.XpSysIntrfcIntrmdryL">
+<!--Generated Thu Jul 21 14:41:43 KST 2016-->
+<delete id="deleteByPK" parameterType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpSysIntrfcIntrmdryLIO">
+DELETE  FROM  XP_SYS_INTRFC_INTRMDRY_L    /* 시스템인터페이스중계로그 */
+ WHERE  INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND GUID = #{guid}
+   AND RQST_RSPNS_Dscd = #{rqstRspnsDscd}
+</delete>
+<insert id="insert" parameterType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpSysIntrfcIntrmdryLIO">
+INSERT  
+  INTO  XP_SYS_INTRFC_INTRMDRY_L    /* 시스템인터페이스중계로그 */
+(
+  INST_CD,     /*기관코드*/
+  TX_DT,     /*거래년월일*/
+  GUID,     /*GUID*/
+  RQST_RSPNS_Dscd,     /*요청응답구분코드*/
+  TX_HMS,     /*거래시각*/
+  SYS_INTRFC_ID,     /*ORIGINAL NAME:SYS_INTRFC_ID , 시스템인터페이스식별자*/
+  INP_CNTNT,     /*입력내용*/
+  SYS_INTRFC_BIZ_KEY_CNTNT,     /*ORIGINAL NAME:SYS_INTRFC_BIZ_KEY_CNTNT , 시스템인터페이스업무키*/
+  ORGNL_TX_DT,     /*원거래년월일*/
+  ORGNL_TX_GUID,     /*원거래GUID*/
+  TIMEOUT_YN,     /*타임아웃여부*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR},     /*기관코드*/
+  #{txDt, jdbcType=VARCHAR},     /*거래년월일*/
+  #{guid, jdbcType=VARCHAR},     /*GUID*/
+  #{rqstRspnsDscd, jdbcType=VARCHAR},     /*요청응답구분코드*/
+  #{txHms, jdbcType=VARCHAR},     /*거래시각*/
+  #{sysIntrfcId, jdbcType=VARCHAR},     /*ORIGINAL NAME:SYS_INTRFC_ID , 시스템인터페이스식별자*/
+  #{inpCntnt, jdbcType=VARCHAR},     /*입력내용*/
+  #{sysIntrfcBizKeyCntnt, jdbcType=VARCHAR},     /*ORIGINAL NAME:SYS_INTRFC_BIZ_KEY_CNTNT , 시스템인터페이스업무키*/
+  #{orgnlTxDt, jdbcType=VARCHAR},     /*원거래년월일*/
+  #{orgnlTxGuid, jdbcType=VARCHAR},     /*원거래GUID*/
+  #{timeoutYn, jdbcType=VARCHAR},     /*타임아웃여부*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<insert id="insertBatch" parameterType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpSysIntrfcIntrmdryLIO">
+INSERT  
+  INTO  XP_SYS_INTRFC_INTRMDRY_L    /* 시스템인터페이스중계로그 */
+(
+  INST_CD,     /*기관코드*/
+  TX_DT,     /*거래년월일*/
+  GUID,     /*GUID*/
+  RQST_RSPNS_Dscd,     /*요청응답구분코드*/
+  TX_HMS,     /*거래시각*/
+  SYS_INTRFC_ID,     /*ORIGINAL NAME:SYS_INTRFC_ID , 시스템인터페이스식별자*/
+  INP_CNTNT,     /*입력내용*/
+  SYS_INTRFC_BIZ_KEY_CNTNT,     /*ORIGINAL NAME:SYS_INTRFC_BIZ_KEY_CNTNT , 시스템인터페이스업무키*/
+  ORGNL_TX_DT,     /*원거래년월일*/
+  ORGNL_TX_GUID,     /*원거래GUID*/
+  TIMEOUT_YN,     /*타임아웃여부*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR},     /*기관코드*/
+  #{txDt, jdbcType=VARCHAR},     /*거래년월일*/
+  #{guid, jdbcType=VARCHAR},     /*GUID*/
+  #{rqstRspnsDscd, jdbcType=VARCHAR},     /*요청응답구분코드*/
+  #{txHms, jdbcType=VARCHAR},     /*거래시각*/
+  #{sysIntrfcId, jdbcType=VARCHAR},     /*ORIGINAL NAME:SYS_INTRFC_ID , 시스템인터페이스식별자*/
+  #{inpCntnt, jdbcType=VARCHAR},     /*입력내용*/
+  #{sysIntrfcBizKeyCntnt, jdbcType=VARCHAR},     /*ORIGINAL NAME:SYS_INTRFC_BIZ_KEY_CNTNT , 시스템인터페이스업무키*/
+  #{orgnlTxDt, jdbcType=VARCHAR},     /*원거래년월일*/
+  #{orgnlTxGuid, jdbcType=VARCHAR},     /*원거래GUID*/
+  #{timeoutYn, jdbcType=VARCHAR},     /*타임아웃여부*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectByPK" parameterType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpSysIntrfcIntrmdryLIO" resultType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpSysIntrfcIntrmdryLIO">
+SELECT    /* 시스템인터페이스중계로그 */
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        GUID AS guid,     /*GUID*/
+        RQST_RSPNS_Dscd AS rqstRspnsDscd,     /*요청응답구분코드*/
+        TX_HMS AS txHms,     /*거래시각*/
+        SYS_INTRFC_ID AS sysIntrfcId,     /*ORIGINAL NAME:SYS_INTRFC_ID , 시스템인터페이스식별자*/
+        INP_CNTNT AS inpCntnt,     /*입력내용*/
+        SYS_INTRFC_BIZ_KEY_CNTNT AS sysIntrfcBizKeyCntnt,     /*ORIGINAL NAME:SYS_INTRFC_BIZ_KEY_CNTNT , 시스템인터페이스업무키*/
+        ORGNL_TX_DT AS orgnlTxDt,     /*원거래년월일*/
+        ORGNL_TX_GUID AS orgnlTxGuid,     /*원거래GUID*/
+        TIMEOUT_YN AS timeoutYn,     /*타임아웃여부*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_SYS_INTRFC_INTRMDRY_L
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND GUID = #{guid}
+   AND RQST_RSPNS_Dscd = #{rqstRspnsDscd}
+</select>
+<update id="updateByPK" parameterType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpSysIntrfcIntrmdryLIO">
+UPDATE  
+        XP_SYS_INTRFC_INTRMDRY_L    /* 시스템인터페이스중계로그 */
+   SET  TX_HMS = #{txHms, jdbcType=VARCHAR}    /* 거래시각 */
+     , SYS_INTRFC_ID = #{sysIntrfcId, jdbcType=VARCHAR}    /* ORIGINAL NAME:SYS_INTRFC_ID , 시스템인터페이스식별자 */
+     , INP_CNTNT = #{inpCntnt, jdbcType=BLOB}    /* 입력내용 */
+     , SYS_INTRFC_BIZ_KEY_CNTNT = #{sysIntrfcBizKeyCntnt, jdbcType=VARCHAR}    /* ORIGINAL NAME:SYS_INTRFC_BIZ_KEY_CNTNT , 시스템인터페이스업무키 */
+     , ORGNL_TX_DT = #{orgnlTxDt, jdbcType=VARCHAR}    /* 원거래년월일 */
+     , ORGNL_TX_GUID = #{orgnlTxGuid, jdbcType=VARCHAR}    /* 원거래GUID */
+     , TIMEOUT_YN = #{timeoutYn, jdbcType=VARCHAR}    /* 타임아웃여부 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND GUID = #{guid}
+   AND RQST_RSPNS_Dscd = #{rqstRspnsDscd}
+</update>
+</mapper>

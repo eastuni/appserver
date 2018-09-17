@@ -1,0 +1,7 @@
+OMM bxm.web.admin.addition.link.flow.domain.LinkFlowDetailInOMM
+<description="">
+{
+	String linkMainCd<length=14 description="연동대표코드">;
+	Integer linkSeq<length=3 description="연동순번">;
+	String domainId<length=14 description="도메인 ID">;
+}

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.deferred.dbio.DfrdExecDBIO">
+<!--Generated Mon Nov 27 13:29:54 KST 2017-->
+<select id="selectExecListUsingPaging01" resultType="bxm.web.admin.deferred.domain.DfrdExec01IO">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+select 
+	AA.deferred_id as deferredId,
+	BB.deferred_nm as deferredNm,
+	AA.biz_dt as bizDt,
+	AA.node_no as nodeNo,
+	AA.parll_proc_seq as parllProcSeq,
+	AA.deferred_proc_cd as deferredProcCd,
+	AA.deferred_status_cd as deferredStatusCd,
+	AA.start_seq as startSeq,
+	AA.end_seq as endSeq,
+	AA.curr_seq as currSeq,
+	AA.err_seq as errSeq,
+	AA.start_dttm as startDttm,
+	AA.err_cd as errCd,
+	AA.err_msg_ctt as errMsgCtt
+from BXM_DEFERRED_EXEC AA INNER JOIN BXM_DEFERRED_MAIN BB ON
+(AA.DEFERRED_ID = BB.DEFERRED_ID AND AA.DOMAIN_ID = BB.DOMAIN_ID)
+where 	
+          AA.deferred_ID = #{AA.deferredId}
+ 	and AA.node_no = #{AA.nodeNo}
+ 	and AA.biz_dt = #{AA.bizDt}
+ 	and AA.domain_id = #{AA.domainId}
+ 	and AA.domain_id = BB.domain_id
+order by AA.start_dttm desc
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="oracle" id="selectExecListUsingPaging01" resultType="bxm.web.admin.deferred.domain.DfrdExec01IO">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+select 
+	AA.deferred_id as deferredId,
+	BB.deferred_nm as deferredNm,
+	AA.biz_dt as bizDt,
+	AA.node_no as nodeNo,
+	AA.parll_proc_seq as parllProcSeq,
+	AA.deferred_proc_cd as deferredProcCd,
+	AA.deferred_status_cd as deferredStatusCd,
+	AA.start_seq as startSeq,
+	AA.end_seq as endSeq,
+	AA.curr_seq as currSeq,
+	AA.err_seq as errSeq,
+	AA.start_dttm as startDttm,
+	AA.err_cd as errCd,
+	AA.err_msg_ctt as errMsgCtt
+from BXM_DEFERRED_EXEC AA INNER JOIN BXM_DEFERRED_MAIN BB ON
+(AA.DEFERRED_ID = BB.DEFERRED_ID AND AA.DOMAIN_ID = BB.DOMAIN_ID)
+where 	
+          AA.deferred_ID = #{AA.deferredId}
+ 	and AA.node_no = #{AA.nodeNo}
+ 	and AA.biz_dt = #{AA.bizDt}
+ 	and AA.domain_id = #{AA.domainId}
+ 	and AA.domain_id = BB.domain_id
+order by AA.start_dttm desc
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectExecListUsingPaging01" resultType="bxm.web.admin.deferred.domain.DfrdExec01IO">
+/* #### Original SQL [[ ################# */
+select 
+	AA.deferred_id as deferredId,
+	BB.deferred_nm as deferredNm,
+	AA.biz_dt as bizDt,
+	AA.node_no as nodeNo,
+	AA.parll_proc_seq as parllProcSeq,
+	AA.deferred_proc_cd as deferredProcCd,
+	AA.deferred_status_cd as deferredStatusCd,
+	AA.start_seq as startSeq,
+	AA.end_seq as endSeq,
+	AA.curr_seq as currSeq,
+	AA.err_seq as errSeq,
+	AA.start_dttm as startDttm,
+	AA.err_cd as errCd,
+	AA.err_msg_ctt as errMsgCtt
+from BXM_DEFERRED_EXEC AA INNER JOIN BXM_DEFERRED_MAIN BB ON
+(AA.DEFERRED_ID = BB.DEFERRED_ID AND AA.DOMAIN_ID = BB.DOMAIN_ID)
+where 	
+	AA.DEFERRED_ID = #{AA.deferredId}
+ 	and AA.NODE_NO = #{AA.nodeNo}
+ 	and AA.BIZ_DT = #{AA.bizDt}
+ 	and AA.DOMAIN_ID = #{AA.domainId}
+order by AA.START_DTTM desc
+/* #### Original SQL ]] ################# */
+LIMIT #{pageNum}, #{pageCount}
+</select>
+<select id="countDfrdExec01" resultType="java.lang.Integer">
+select count(*)
+from BXM_DEFERRED_EXEC AA
+where 
+	1=1
+	and AA.domain_id = #{AA.domainId}
+	<if test="AA.deferredId != null and AA.deferredId != ''">
+ 		and AA.deferred_ID = #{AA.deferredId}
+	</if>
+	<if test="AA.nodeNo != null and AA.nodeNo != ''">
+ 		and AA.node_no = #{AA.nodeNo}
+	</if>
+</select>
+<update id="updateDfrdExec01" parameterType="bxm.web.admin.deferred.domain.DfrdExec01IO">
+UPDATE BXM_DEFERRED_EXEC
+SET DEFERRED_STATUS_CD = '4'
+WHERE DEFERRED_STATUS_CD = '1'
+AND DEFERRED_ID = #{deferredId}
+AND BIZ_DT = #{bizDt}
+AND NODE_NO = #{nodeNo}
+and DOMAIN_ID = #{domainId}
+</update>
+<delete id="deleteErrorExecInfo01" parameterType="bxm.web.admin.deferred.domain.DfrdExec01IO">
+DELETE FROM bxm_deferred_exec /* BXM 후행 실행 */
+      WHERE DEFERRED_ID = #{deferredId}
+        AND BIZ_DT = #{bizDt}
+        AND NODE_NO = #{nodeNo}
+        AND PARLL_PROC_SEQ = #{parllProcSeq}
+        AND ERR_SEQ = #{errSeq}
+</delete>
+<update id="updateExecErrorInfoPerSeq01" parameterType="bxm.web.admin.deferred.domain.DfrdExec01IO">
+UPDATE BXM_DEFERRED_EXEC /* BXM 후행 실행 */
+   SET CURR_SEQ = #{currSeq} /* 현재일련번호 */,
+       ERR_SEQ = #{errSeq} /* 에러일련번호 */
+ WHERE DEFERRED_ID = #{deferredId}
+   AND BIZ_DT = #{bizDt}
+   AND NODE_NO = #{nodeNo}
+   AND START_SEQ = #{startSeq}
+   AND END_SEQ = #{endSeq}
+   AND DOMAIN_ID = #{domainId}
+</update>
+<delete id="deleteCompltedExecErrorInfo01" parameterType="bxm.web.admin.deferred.domain.DfrdExec01IO">
+DELETE FROM BXM_DEFERRED_EXEC /* BXM 후행 실행 */
+      WHERE DEFERRED_ID = #{deferredId}
+        AND BIZ_DT = #{bizDt}
+        AND NODE_NO = #{nodeNo}
+		AND START_SEQ = #{startSeq}
+		AND END_SEQ = #{endSeq}
+		AND DOMAIN_ID = #{domainId}
+</delete>
+<select id="selectCountErrorInfo01" parameterType="bxm.web.admin.deferred.domain.DfrdExec01IO" resultType="java.lang.Integer">
+SELECT count(*) 
+from BXM_DEFERRED_EXEC
+WHERE 
+DEFERRED_ID = #{deferredId}
+AND BIZ_DT = #{bizDt}
+AND NODE_NO = #{nodeNo}
+and DOMAIN_ID = #{domainId}
+</select>
+</mapper>

@@ -1,0 +1,7 @@
+OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.PG1113InqryIFOut
+<description="">
+{
+	Integer listCnt<length=8 description="목록건수">;
+	bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.PG1113InqryIFSub list<length=20 arrayReference="listCnt" description="PG입출금목록">;
+	Integer totCnt<length=8 description="전체건수">;
+}

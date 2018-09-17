@@ -1,0 +1,237 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'scheduler.system-group-management'}}
+    <p class="desc">{{bxMsg 'scheduler.system-group-management-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--TAB MENU-->
+<section class="tab-title add-bd2-b">
+    <ul>
+        <li rel="first-tab" class="first-tab on-tab">
+            <a>{{bxMsg 'scheduler.system-node-management'}}
+                <span class="tab-bg"></span>
+                <span class="tab-bg-before"></span>
+            </a>
+        </li>
+        <li rel="last-tab" class="last-tab">
+            <a>{{bxMsg 'scheduler.schedule-group-management'}}
+                <span class="tab-bg"></span>
+                <span class="tab-bg-before"></span>
+            </a>
+        </li>
+    </ul>
+</section>
+<!--/END TAB MENU-->
+
+<div id="system-group-management-first-tab" class="module-wrap clr-bg inner-tab tabs">
+    <div class="module w-30">
+        <div class="module-inner add-bd add-bd2-t h-65">
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <div class="bw-tool clr-bd-rl">
+                <div class="f-l">
+                    <h3 class="bw-desc d-block">{{bxMsg 'scheduler.system-list'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn refresh-btn"><i class="bw-icon i-25 i-func-refresh" title="{{bxMsg 'common.refresh'}}"></i></button>
+                    <button type="button" class="bw-btn system-add-btn"><i class="bw-icon i-25 i-func-add" title="{{bxMsg 'common.add'}}"></i></button>
+                </div>
+            </div>
+            <!--/END BW-TOOL-->
+            <section class="bw-grid no-tree-icon grid-body-no-border system-list-tree-grid-wrap"></section>
+        </div>
+
+        <div class="module-inner add-bd add-bd2-t add-mg-t10 h-35">
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <div class="bw-tool clr-bd-rl">
+                <div class="f-l">
+                    <h3 class="bw-desc d-block system-detail-title">{{bxMsg 'scheduler.system-detail'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn system-edit-btn"><i class="bw-icon i-25 i-func-edit" title="{{bxMsg 'common.edit'}}"></i></button>
+                </div>
+            </div>
+            <!--/END BW-TOOL-->
+            <!--BW-SEARCH-WRAP-->
+            <div class="search-wrap clr-bd-b system-detail-wrap">
+                <div class="input-wrap w-100">
+                    <label class="bw-label w-40">{{bxMsg 'scheduler.system-id'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="sysId" readonly/>
+                    <input type="hidden" data-form-param="parentSysId"/>
+                </div>
+                <div class="input-wrap w-100">
+                    <label class="bw-label w-40">{{bxMsg 'scheduler.system-nm'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="sysNm" readonly/>
+                </div>
+                <div class="input-wrap w-100">
+                    <label class="bw-label w-40">{{bxMsg 'scheduler.system-desc'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="sysDesc" readonly/>
+                </div>
+                <input type="hidden" data-form-param="parentSysId"/>
+            </div>
+            <!--/END BW-SEARCH-WRAP-->
+        </div>
+    </div>
+    <div class="module w-20">
+        <div class="module-inner add-bd add-bd2-t clr-mg-l h-100">
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <div class="bw-tool clr-bd-rl">
+                <div class="f-l">
+                    <h3 class="bw-desc d-block">{{bxMsg 'scheduler.system-node-list'}}</h3>
+                </div>
+            </div>
+            <!--/END BW-TOOL-->
+            <section class="bw-grid grid-body-no-border system-node-list-grid-wrap"></section>
+        </div>
+    </div>
+
+    <div class="module w-10">
+        <div class="module-inner h-100 clr-bg">
+            <div class="btn-wrap btn-trans">
+                <button type="button" class="bw-btn-txt right-btn"><i class="fa fa-chevron-right"></i></button>
+                <button type="button" class="bw-btn-txt left-btn"><i class="fa fa-chevron-left"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="module w-40">
+        <div class="module-inner add-bd add-bd2-t h-65">
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <div class="bw-tool clr-bd-rl">
+                <div class="f-l">
+                    <h3 class="bw-desc d-block">{{bxMsg 'scheduler.node-list'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn node-add-btn"><i class="bw-icon i-25 i-func-add" title="{{bxMsg 'common.add'}}"></i></button>
+                </div>
+            </div>
+            <!--/END BW-TOOL-->
+            <section class="bw-grid grid-body-no-border node-list-grid-wrap"></section>
+        </div>
+
+        <div class="module-inner add-bd add-bd2-t add-mg-t10 h-35">
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <div class="bw-tool clr-bd-rl">
+                <div class="f-l">
+                    <h3 class="bw-desc d-block node-detail-title">{{bxMsg 'scheduler.node-detail'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn node-edit-btn"><i class="bw-icon i-25 i-func-edit" title="{{bxMsg 'common.edit'}}"></i></button>
+                </div>
+            </div>
+            <!--/END BW-TOOL-->
+            <!--BW-SEARCH-WRAP-->
+            <div class="search-wrap clr-bd-b node-detail-wrap bx-loding-wrap">
+                <div class="input-wrap w-100">
+                    <label class="bw-label w-40">{{bxMsg 'scheduler.node-nm'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="nodeNm" readonly/>
+                </div>
+                <div class="input-wrap w-100">
+                    <label class="bw-label w-40">{{bxMsg 'scheduler.max-execution-count'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="maxExecCnt" readonly/>
+                </div>
+<!--                 <div class="input-wrap fix-txtarea h-half p-rel clr-mg-b w-100"> -->
+<!--                     <label class="bw-label w-40">{{bxMsg 'scheduler.registration-system'}}</label> -->
+<!--                     <div class="txt-wrap2 fix-size w-60 f-r"> -->
+<!--                         <textarea class="bw-textarea" data-form-param="sysId" disabled></textarea> -->
+<!--                     </div> -->
+<!--                 </div> -->
+            </div>
+            <!--/END BW-SEARCH-WRAP-->
+        </div>
+    </div>
+</div>
+
+<section id="system-group-management-last-tab" class="layout-wrap under-tab tabs" style="display: none;">
+    <div class="bw-tree-wrap layout col1">
+        <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+        <div class="bw-tool h-auto tree-search-wrap">
+            <div class="clr">
+                <h3 class="bw-desc d-block">{{bxMsg 'scheduler.system'}}</h3>
+            </div>
+            <div class="bw-wrap clr">
+                <div class="input-wrap add-btn w-83 clr-mg-t clr">
+                    <input type="text" class="bw-input w-100" placeholder="{{bxMsg 'dni.keyword'}}" data-form-param="sysId" />
+                    <button type="button" class="bw-btn fix-r search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-20 i-search"></i></button>
+                </div>
+                <button type="button" class="bw-btn fix-r btn-single reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-20 i-func-reset"></i></button>
+            </div>
+        </div>
+        <!--/END BW-TOOL-->
+        <!--BW-TREE * 트리메뉴-->
+        <section class="bw-grid no-tree-icon bxm-side-tree-grid-wrap system-grid-wrap"></section>
+        <!--/END BW-TREE * 트리메뉴-->
+    </div>
+    <section class="bw-inner-contents layout col2">
+        <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+        <section class="bw-tool">
+            <div class="f-l">
+                <h3 class="bw-desc d-block schedule-group-list-title"></h3>
+            </div>
+            <div class="btn-wrap fix-r">
+                <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+                <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+            </div>
+        </section>
+        <!--/END BW-TOOL-->
+        <!--SEARCH AREA * 검색 영역-->
+        <section class="search-wrap bxm-search-wrap">
+            <!--INPUT TYPE1 * 분할 없이 INLINE-->
+            <ul class="clr">
+                <li class="w-50">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'scheduler.schedule-group-id'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="scheduleGrpId"/>
+                    </div>
+                </li>
+                <li class="w-50">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'scheduler.schedule-group-nm'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="scheduleGrpNm"/>
+                    </div>
+                </li>
+            </ul>
+            <!--/END INPUT TYPE1-->
+        </section>
+        <!--/END SEARCH AREA-->
+        <!--BW-GRID * 그리드 영역-->
+        <section class="bw-grid no-tree-icon bxm-grid-wrap"></section>
+        <!--/END BW-GRID-->
+        <!--BW-SUB TITLE * 컨텐츠 서브타이틀-->
+        <h3 class="bw-stt add-mg-t">{{bxMsg 'scheduler.schedule-group-detail'}}
+            <p class="desc bxm-detail-title"></p>
+        </h3>
+        <!--/END BW-SUB TITLE-->
+        <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+        <div class="bw-tool add-bd2-t">
+            <div class="btn-wrap fix-r">
+                <button type="button" class="bw-btn edit edit-btn" title="{{bxMsg 'common.edit'}}"><i class="bw-icon i-25 i-func-edit"></i></button>
+            </div>
+        </div>
+        <!--/END BW-TOOL-->
+        <section class="search-wrap clr bx-loding-wrap bxm-detail-wrap">
+            <ul class="clr">
+                <li class="w-50">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'scheduler.schedule-group-id'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="scheduleGrpId" readonly />
+                    </div>
+                </li>
+                <li class="w-50">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'scheduler.schedule-group-nm'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="scheduleGrpNm" readonly />
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <li class="w-100">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-20">{{bxMsg 'scheduler.schedule-group-desc'}}</label>
+                        <input type="text" class="bw-input w-80" data-form-param="scheduleGrpDesc" readonly />
+                    </div>
+                </li>
+            </ul>
+            <input type="hidden" data-form-param="parentScheduleGrpId"/>
+        </section>
+    </section>
+</section>

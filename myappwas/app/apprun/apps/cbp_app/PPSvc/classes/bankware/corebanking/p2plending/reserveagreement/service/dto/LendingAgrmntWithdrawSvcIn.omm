@@ -1,0 +1,7 @@
+OMM bankware.corebanking.p2plending.reserveagreement.service.dto.LendingAgrmntWithdrawSvcIn
+<description="Lending Agreement Withdraw Service Input">
+{
+	String arrId<length=20 description="계약식별자">;
+	String biddingMthdCd<length=10 description="Bidding Method">;
+	String lnAplctnIntRt<length=3 description="Loan Application Rate">;
+}

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonjointnetwork.dao.XpErrorL">
+<!--Generated Mon Sep 25 18:00:06 KST 2017-->
+<insert id="insertErrorLog" parameterType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpErrorLIO">
+INSERT  
+  INTO  XP_ERROR_L    /* 대외에러로그 */
+(
+  INST_CD,     /*기관코드*/
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드*/
+  TX_DT,     /*거래년월일*/
+  ERR_TMSTMP,     /*에러일시*/
+  GUID,     /*GUID*/
+  SYS_INTRFC_ID,     /*ORIGINAL NAME:SYS_INTRFC_ID , 시스템인터페이스식별자*/
+  EXTRNL_TX_CD,     /*대외거래코드*/
+  JOINT_NETWORK_CL_CD,     /*공동망종별코드*/
+  JOINT_NETWORK_TX_Dscd,     /*공동망거래구분코드*/
+  HNDLNG_OPN_Dscd,     /*취급개설구분코드*/
+  MSG_CD,     /*메시지코드*/
+  ERR_MSG_CNTNT,     /*에러메시지*/
+  MSG_CNTNT,     /*입력내용*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{extrnlInstCd},     /*대외기관코드*/
+  #{extrnlBizDscd},     /*대외업무구분코드*/
+  #{txDt},     /*거래년월일*/
+  str_to_date(#{errTmstmp}, '%Y%m%d%H%i%s'),     /*에러일시*/
+  #{guid},     /*GUID*/
+  #{sysIntrfcId},     /*ORIGINAL NAME:SYS_INTRFC_ID , 시스템인터페이스식별자*/
+  #{extrnlTxCd},     /*대외거래코드*/
+  #{jointNetworkClCd},     /*공동망종별코드*/
+  #{jointNetworkTxDscd},     /*공동망거래구분코드*/
+  #{hndlngOpnDscd},     /*취급개설구분코드*/
+  #{msgCd},     /*메시지코드*/
+  #{errMsgCntnt},     /*에러메시지*/
+  #{msgCntnt},     /*입력내용*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectErrorLog" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpErrorLIO">
+SELECT    /* 대외에러로그 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        DATE_FORMAT(ERR_TMSTMP, '%Y%m%d%H%i%s') AS errTmstmp,
+        GUID AS guid,     /*GUID*/
+        SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        EXTRNL_TX_CD AS extrnlTxCd,     /*대외거래코드*/
+        JOINT_NETWORK_CL_CD AS jointNetworkClCd,     /*공동망종별코드*/
+        JOINT_NETWORK_TX_Dscd AS jointNetworkTxDscd,     /*공동망거래구분코드*/
+        HNDLNG_OPN_Dscd AS hndlngOpnDscd,     /*취급개설구분코드*/
+        MSG_CD AS msgCd,     /*메시지코드*/
+        ERR_MSG_CNTNT AS errMsgCntnt,     /*에러메시지*/
+        MSG_CNTNT AS msgCntnt,     /*입력내용1*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  xp_error_l
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND ERR_TMSTMP = STR_TO_DATE(#{errTmstmp}, '%Y%m%d%H%i%s') 
+   AND GUID = #{guid}
+</select>
+<select id="selectListErrorLog" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpErrorLIO">
+SELECT 
+instCd,     /*기관코드*/
+extrnlInstCd,     /*대외기관코드*/
+extrnlBizDscd,     /*대외업무구분코드*/
+txDt,     /*거래년월일*/
+errTmstmp,     /*에러일시*/
+guid,     /*GUID*/
+sysIntrfcId,     /*시스템인터페이스식별자*/
+sysIntrfcNm,
+extrnlTxCd,     /*대외거래코드*/
+jointNetworkClCd,     /*공동망종별코드*/
+jointNetworkTxDscd,     /*공동망거래구분코드*/
+hndlngOpnDscd,     /*취급개설구분코드*/
+msgCd,     /*메시지코드*/
+errMsgCntnt,     /*에러메시지*/
+msgCntnt,     /*입력내용1*/
+lastChngTmstmp,     /*최종변경일시*/
+lastChngGuid    /*최종변경GUID*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+    	A.instCd,     /*기관코드*/
+		A.extrnlInstCd,     /*대외기관코드*/
+		A.extrnlBizDscd,     /*대외업무구분코드*/
+		A.txDt,     /*거래년월일*/
+		A.errTmstmp,     /*에러일시*/
+		A.guid,     /*GUID*/
+		A.sysIntrfcId,     /*시스템인터페이스식별자*/
+		A.sysIntrfcNm,
+		A.extrnlTxCd,     /*대외거래코드*/
+		A.jointNetworkClCd,     /*공동망종별코드*/
+		A.jointNetworkTxDscd,     /*공동망거래구분코드*/
+		A.hndlngOpnDscd,     /*취급개설구분코드*/
+		A.msgCd,     /*메시지코드*/
+		A.errMsgCntnt,     /*에러메시지*/
+		A.msgCntnt,     /*입력내용1*/
+		A.lastChngTmstmp,     /*최종변경일시*/
+		A.lastChngGuid    /*최종변경GUID*/
+     FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* 대외에러로그 */
+        L.INST_CD AS instCd,     /*기관코드*/
+        L.EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        L.EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        L.TX_DT AS txDt,     /*거래년월일*/
+        DATE_FORMAT(L.ERR_TMSTMP, '%Y%m%d%H%i%s') AS errTmstmp,     /*에러일시*/
+        L.GUID AS guid,     /*GUID*/
+        L.SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        M.SYS_INTRFC_NM AS sysIntrfcNm,
+        L.EXTRNL_TX_CD AS extrnlTxCd,     /*대외거래코드*/
+        L.JOINT_NETWORK_CL_CD AS jointNetworkClCd,     /*공동망종별코드*/
+        L.JOINT_NETWORK_TX_Dscd AS jointNetworkTxDscd,     /*공동망거래구분코드*/
+        L.HNDLNG_OPN_Dscd AS hndlngOpnDscd,     /*취급개설구분코드*/
+        L.MSG_CD AS msgCd,     /*메시지코드*/
+        L.ERR_MSG_CNTNT AS errMsgCntnt,     /*에러메시지*/
+        L.MSG_CNTNT AS msgCntnt,     /*입력내용1*/
+        L.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        L.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  xp_error_l L, XP_SYS_INTRFC_M M
+ WHERE L.INST_CD = #{instCd}
+   AND L.EXTRNL_INST_CD = #{extrnlInstCd}
+   AND L.EXTRNL_BIZ_Dscd = #{extrnlBizDscd}   
+   AND L.TX_DT = #{txDt}
+   AND L.ERR_TMSTMP  BETWEEN  STR_TO_DATE(CONCAT(#{txDt},#{startTmstmp},'0000'), '%Y%m%d%H%i%s') AND STR_TO_DATE(CONCAT(#{txDt},#{endTmstmp},'5959'), '%Y%m%d%H%i%s')
+   AND L.GUID = IFNULL(#{guid},L.GUID)
+   AND L.SYS_INTRFC_ID = M.SYS_INTRFC_ID
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) AA
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<update id="updateErrorLog" parameterType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpErrorLIO">
+UPDATE  
+        XP_ERROR_L    /* 대외에러로그 */
+   SET  SYS_INTRFC_ID = #{sysIntrfcId}    /* ORIGINAL NAME:SYS_INTRFC_ID , 시스템인터페이스식별자 */
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND ERR_TMSTMP = str_to_date(#{errTmstmp}, '%Y%m%d%H%i%s')
+   AND GUID = #{guid}
+</update>
+<select id="selectListErrorLogCount" resultType="java.lang.Integer">
+SELECT    /* 대외에러로그 */
+       count(INST_CD)
+  FROM  xp_error_l L, XP_SYS_INTRFC_M M
+ WHERE L.INST_CD = #{instCd}
+   AND L.EXTRNL_INST_CD = #{extrnlInstCd}
+   AND L.EXTRNL_BIZ_Dscd = #{extrnlBizDscd}   
+   AND L.TX_DT = #{txDt}
+   AND L.ERR_TMSTMP  BETWEEN  STR_TO_DATE(CONCAT(#{txDt},#{startTmstmp},'0000'), '%Y%m%d%H%i%s') AND STR_TO_DATE(CONCAT(#{txDt},#{endTmstmp},'5959'), '%Y%m%d%H%i%s')
+   AND L.GUID = NULLIF(#{guid},L.GUID)
+   AND L.SYS_INTRFC_ID = M.SYS_INTRFC_ID
+</select>
+</mapper>

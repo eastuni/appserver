@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.systemcommon.batch.dao.FrmInstanceInfo">
+<!--Generated Thu Nov 26 16:30:50 KST 2015-->
+<select id="selectFrmInstanceInfo" resultType="bankware.corebanking.systemcommon.batch.dao.dto.FrmInstanceInfoIO">
+SELECT    /* VIEW */
+       uuid AS uuid
+     , name AS name
+     , description AS description
+     , pid AS pid
+     , env AS env
+     , mgmt_serviceurl AS mgmtServiceurl
+     , mgmt_env_props AS mgmtEnvProps
+     , mgmt_obj_domain AS mgmtObjDomain
+     , mgmt_obj_name_props AS mgmtObjNameProps
+     , auto_deploy AS autoDeploy
+     , loading_mode AS loadingMode
+  FROM frm_instance_info
+  WHERE name = 'bxm-batch-daemon'
+</select>
+<select id="selectFrmInstanceInfoByUid" resultType="bankware.corebanking.systemcommon.batch.dao.dto.FrmInstanceInfoIO">
+SELECT    /* VIEW */
+       uuid AS uuid
+     , name AS name
+     , description AS description
+     , pid AS pid
+     , env AS env
+     , mgmt_serviceurl AS mgmtServiceurl
+     , mgmt_env_props AS mgmtEnvProps
+     , mgmt_obj_domain AS mgmtObjDomain
+     , mgmt_obj_name_props AS mgmtObjNameProps
+     , auto_deploy AS autoDeploy
+     , loading_mode AS loadingMode
+  FROM frm_instance_info
+  WHERE uuid = #{uuid}
+</select>
+</mapper>

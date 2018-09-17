@@ -1,0 +1,14 @@
+OMM bxm.ccmainmng.share.dao.dto.SelectAutoErrorProcTarget
+<description="">
+{
+	String domainId<length=20>;
+	String ccId<length=20>;
+	String pcsnDt<length=20>;
+	Integer acptNo<length=9>;
+	Integer tnNo<length=9>;
+	Integer execNo<length=9>;
+	String msgCd<length=20>;
+	String modifyOccurDttm<length=20>;
+	Integer rePcsnWaitEltm<length=9>;
+	String rePcsnErrCd<length=20>;
+}

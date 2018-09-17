@@ -1,0 +1,258 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'deferred.deferredJobManagement'}}
+    <p class="desc">{{bxMsg 'deferred.deferredJobManagementMsg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i
+                class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i
+                class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap bxm-search-wrap">
+    <ul class="clr">
+        <li class="input-wrap w-32">
+            <label class="bw-label w-40">{{bxMsg 'deferred.deferredId'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="deferredId"/>
+        </li>
+        <li class="input-wrap w-32">
+            <label class="bw-label w-40">{{bxMsg 'deferred.deferredName'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="deferredNm"/>
+        </li>
+    </ul>
+</section>
+<!--/END SEARCH AREA-->
+<!--GRID AREA-->
+<section class="bxm-grid-wrap"></section>
+<!--/END GRID AREA-->
+
+<!-- DETAIL AREA -->
+<h3 class="bw-stt add-mg-t">
+    {{bxMsg 'deferred.deferredJobDetails'}}
+    <p class="desc bxm-detail-title"></p>
+</h3>
+<section class="bw-tool add-bd2-t bx-grid-header detail-search-wrap">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn edit-btn" title="{{bxMsg 'common.edit'}}"><i
+                class="bw-icon i-25 i-func-edit"></i></button>
+    </div>
+</section>
+<div class="bxm-detail-wrap bx-loding-wrap">
+    <section class="search-wrap clr fix-h">
+        <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'batch.base-info'}}</h4>
+            <ul class="col-3 clr">
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.deferredId'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="deferredId" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.deferredName'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="deferredNm" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.useYn'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="useYn" readonly/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'deferred.executionInfo'}}</h4>
+            <ul class="col-3 clr">
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.transactionCode'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="trxCd" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.applicationId'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="bxmAppId" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.serviceName'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="svcNm" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.operationName'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="opNm" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.deferredStartType'}}</label>
+                        <input type="text" class="bw-input ipt-select w-60" data-form-param="startTypeCd"
+                               data-code="BXMDF0001" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.serviceProcessType'}}</label>
+                        <input type="text" class="bw-input ipt-select w-60" data-form-param="svcProcCd"
+                               data-code="BXMDF0002" readonly/>
+                    </div>
+                </li>
+                <!-- 17-09-28 -->
+<!--                 <li> -->
+<!--                     <div class="input-wrap clr"> -->
+<!--                         <label class="bw-label w-40">{{bxMsg 'deferred.executionCycleSec'}}</label> -->
+<!--                         <input type="text" class="bw-input w-60" data-form-param="execIntervalSec" readonly/> -->
+<!--                     </div> -->
+<!--                 </li> -->
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.transactionType'}}</label>
+                        <input type="text" class="bw-input ipt-select w-60" data-form-param="deferredTranCd"
+                               data-code="BXMDF0003" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.targetTableName'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="targetTableNm" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.targetColumnName'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="targetColumnNm" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.targetStdDtNm'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="targetStdDtNm" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.dailyTableYn'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="dayTableYn" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.tableReaderBeanNm'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="tableReaderBeanNm" readonly/>
+                    </div>
+                </li>
+                <!-- 17-09-28 -->
+<!--                 <li> -->
+<!--                     <div class="input-wrap clr"> -->
+<!--                         <label class="bw-label w-40">{{bxMsg 'deferred.delayCycleSec'}}</label> -->
+<!--                         <input type="text" class="bw-input w-60" data-form-param="delayIntervalSec" readonly/> -->
+<!--                     </div> -->
+<!--                 </li> -->
+            </ul>
+        </div>
+
+		<div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'deferred.numberingConfig'}}</h4>
+            <ul class="col-3 clr">
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.tableNumberingYn'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="tableNumberingUseYn" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.tableNumberingBxmAppId'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="tableNumberingBxmAppId" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.tableNumberingBeanName'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="tableNumberingBeanNm" readonly/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'deferred.errorReprocessSetting'}}</h4>
+            <ul class="clr">
+                <li class="w-33">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.errorTerminateYn'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="errStopYn" readonly/>
+                    </div>
+                </li>
+                <li class="w-33">
+                    <div class="input-wrap clr ">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.errorSkipYn'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="errSkipYn" readonly/>
+                    </div>
+                </li>
+                <li class="w-33">
+                    <div class="input-wrap clr ">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.errorReprocessCount'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="errReprocCnt" readonly/>
+                    </div>
+                </li>
+                <li class="w-66">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-20">{{bxMsg 'deferred.reprocessErrCode'}}</label>
+                        <input type="text" class="bw-input w-80" data-form-param="reprocAbleErrCd" readonly/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'deferred.infoPerNode'}}</h4>
+            <ul class="col-3 clr">
+				<li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.parallelExecutionCount'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="parllExecCnt" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.executionPerNodeType'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="nodeExecYn" data-code="BXMDF0010" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.fetchCount'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="fetchCnt" readonly/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'deferred.managerInfo'}}</h4>
+            <ul class="col-3 clr">
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'deferred.managerId'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="modifyUserId" readonly/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+<!-- END DETAIL AREA -->

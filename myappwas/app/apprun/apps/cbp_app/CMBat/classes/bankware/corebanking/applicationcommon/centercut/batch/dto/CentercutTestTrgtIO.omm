@@ -1,0 +1,5 @@
+OMM bankware.corebanking.applicationcommon.centercut.batch.dto.CentercutTestTrgtIO
+<description="  ">
+{
+	Integer seqNbr<length=3 description="일련번호">;
+}

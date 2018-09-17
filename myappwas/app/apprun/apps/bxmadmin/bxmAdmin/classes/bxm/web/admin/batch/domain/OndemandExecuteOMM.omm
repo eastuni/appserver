@@ -1,0 +1,14 @@
+OMM bxm.web.admin.batch.domain.OndemandExecuteOMM
+<description="">
+{
+	String applicationName<length=512 description="어플리케이션명">;
+	String jobName<length=512 description="배치작업명(JOB_ID)">;
+	String frmInstanceId<length=40 description="프레임워크 인스턴스 아이디">;
+	String jobDefinitionSource<length=4000 description="JOB 정의 SOURCE">;
+	Date createTime<length=30 description="생성일시">;
+	String command<length=20 description="옵션(START, RESTART)">;
+	String parameter<length=512 description="파라미터">;
+	String batchUrlList<length=0 arrayReference="10" description="UrlList(UseYn_Y)">;
+	String stepExecuteType<length=9 description="스텝별 실행타입">;
+	String stepId<length=20 description="스텝ID">;
+}

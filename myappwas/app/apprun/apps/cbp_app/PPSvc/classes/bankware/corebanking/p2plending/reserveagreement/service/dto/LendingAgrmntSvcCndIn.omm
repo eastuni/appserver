@@ -1,0 +1,7 @@
+OMM bankware.corebanking.p2plending.reserveagreement.service.dto.LendingAgrmntSvcCndIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String cndCd<length=5 description="조건코드">;
+	String txtCndVal<length=12 description="텍스트조건값">;
+	String msurUnitCd<length=12 description="측정단위코드">;
+}

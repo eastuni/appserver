@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpIxEB1116">
+<!--Generated Tue Sep 20 17:19:13 GMT+09:00 2016-->
+<select id="selectListXpIxEB1116" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIxEB1116IO">
+SELECT
+        INST_CD AS instCd,     /*Kor)다중 금융기관서비스를 위한 속성으로 동일 시스템을 사용하는 각 금융기관마다 부여된 코드 Eng)Code that distinguishes each financial entity when one system operates multi-entity*/
+        TX_DT AS txDt,     /*Kor)거래가 발생한 영업일자*/
+        SEQ_NBR AS seqNbr,     /*Kor)일련번호*/
+        FNCL_INST_CD AS fnclInstCd,     /*Kor)금융기관코드*/
+        TX_NET_STLMNT_Dscd AS txNetStlmntDscd,     /*Kor)거래차액구분코드*/
+        TX_NET_STLMNT_AMT AS txNetStlmntAmt,     /*Kor)거래차액결제금액*/
+        FUNDS_ADJSTMNT_Dscd AS fundsAdjstmntDscd,     /*Kor)자금조정구분코드*/
+        FUNDS_ADJSTMNT_STLMNT_AMT AS fundsAdjstmntStlmntAmt,     /*Kor)자금조정결제금액*/
+        FEE_Dscd AS feeDscd,     /*Kor)수수료구분코드*/
+        FEE_STLMNT_AMT AS feeStlmntAmt,     /*Kor)수수료결제금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+        LAST_CHNG_GUID AS lastChngGuid    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+FROM 
+    ( SELECT  ROWNUM AS ROW__NUM, 
+			        A.INST_CD,
+			        A.TX_DT,
+			        A.SEQ_NBR,
+			        A.FNCL_INST_CD,
+			        A.TX_NET_STLMNT_Dscd,
+			        A.TX_NET_STLMNT_AMT,
+			        A.FUNDS_ADJSTMNT_Dscd,
+			        A.FUNDS_ADJSTMNT_STLMNT_AMT,
+			        A.FEE_Dscd,
+			        A.FEE_STLMNT_AMT,
+			        A.LAST_CHNG_TMSTMP,
+			        A.LAST_CHNG_GUID
+        FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* Kor)타행환공동망 일괄전송 데이터 중 '타행환거래결제지시서(EB1116)' 데이터 Eng) */
+        T1.INST_CD,
+        T1.TX_DT,
+        T1.SEQ_NBR,
+        T1.FNCL_INST_CD,
+        T1.TX_NET_STLMNT_Dscd,
+        T1.TX_NET_STLMNT_AMT,
+        T1.FUNDS_ADJSTMNT_Dscd,
+        T1.FUNDS_ADJSTMNT_STLMNT_AMT,
+        T1.FEE_Dscd,
+        T1.FEE_STLMNT_AMT,
+        T1.LAST_CHNG_TMSTMP,
+        T1.LAST_CHNG_GUID
+  FROM  XP_IX_EB1116_H T1
+  LEFT  OUTER JOIN CM_BIZ_DAY_M T2
+    ON  T2.INST_CD = T1.INST_CD
+   AND  T2.BASE_DT = #{txDt}
+ WHERE
+        T1.INST_CD = #{instCd}
+   AND  T1.TX_DT &gt;= T2.BF_BIZ_DT
+   AND  T1.TX_DT &lt; T2.BIZ_DT
+ORDER BY T1.INST_CD, T1.TX_DT, T1.SEQ_NBR
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectListXpIxEB1116Count" resultType="java.lang.Integer">
+SELECT    /* Kor)타행환공동망 일괄전송 데이터 중 '타행환거래결제지시서(EB1116)' 데이터 Eng) */
+        count(1)
+  FROM  XP_IX_EB1116_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+</select>
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.asset.evaluation.dao.AsAprslAptMarketPriceRXtn">
+<!--Generated Tue Mar 13 14:03:06 KST 2018-->
+<select id="selectAptInfo" parameterType="bankware.corebanking.core.asset.evaluation.dao.dto.AsAprslAptMarketPriceRIO" resultType="bankware.corebanking.asset.evaluation.interfaces.dto.AptMarketPriceOut">
+SELECT /* 아파트시세명세 */
+        A.CITY_PRVNC_ADDR 				AS cityPrvncAddr     	/*시도주소*/
+      , A.CITY_GUN_GU_ADDR 				AS cityGunGuAddr     	/*시군구주소*/
+      , A.EMDONG_ADDR 					AS emdongAddr     		/*읍면동주소*/
+      , A.ADRI_ADDR 					AS adriAddr     		/*리주소*/
+      , A.MAIN_NBR_ADDR 				AS mainNbrAddr     		/*주번지*/
+      , A.ETC_NBR_ADDR 					AS etcNbrAddr     		/*기타번지주소*/
+      , A.CNSTRCTN_CMPNY_NM				AS cnstrctnCmpnyNm		/*시공사명*/
+      , A.APT_NM 						AS aptNm     			/*아파트명*/
+      , A.BLDG_CMPLTN_YM				AS bldgCmpltnYm			/*준공년월*/
+      , A.MOVE_YM						AS moveYm				/*입주년월*/
+      , A.TOT_DONG_CNT 					AS totDongCnt			/*총동수*/
+      , A.TOT_HOUSEHLD_CNT				AS totHousehldCnt		/*총세대수*/
+      , A.HEATING_SYS_DESC_CNTNT		AS heatingSysDescCntnt	/*난방방식설명*/
+      , A.EDCTN_ENVRNMNT_DESC_CNTNT		AS edctnEnvrnmntCntnt	/*교육환경설명*/
+      , A.TRFC_ENVRNMNT_DESC_CNTNT		AS trfcEnvrnmntCntnt	/*교통환경설명*/
+      , A.RSDNT_ENVRNMNT_DESC_CNTNT		AS rsdntEnvrnmntDescCntnt /*주거환경설명*/
+      , B.DRCTN_DESC_CNTNT				AS drctnDescCntnt		/*방향설명*/
+      , B.AREA_TP_CNTNT					AS areaTpCntnt			/*면적유형내용*/
+      , B.AREA_CNTNT 					AS areaCntnt     		/*면적내용*/
+      , B.FRONT_DOOR_STRCTR_DESC_CNTNT	AS frontDoorStrctrDescCntnt	/*현관구조설명*/
+      , B.TOT_ROOM_CNT					AS totRoomCnt			/*총방수*/
+      , B.SPLY_AREA_VAL 				AS splyAreaVal     		/*공급면적*/
+      , B.EXCLSV_RSDNTL_AREA_VAL		AS exclsvRsdntlAreaVal  /*전용면적*/        
+      , C.TRADE_MAX_AMT * 10000 		AS tradeMaxAmt     		/*매매상한가금액*/
+      , C.TRADE_MIN_AMT * 10000 		AS tradeMinAmt     		/*매매하한가금액*/
+      , C.TRADE_GNRL_TX_AMT * 10000 	AS tradeGnrlTxAmt     	/*매매일반거래가금액*/
+      , C.LEASE_MAX_AMT * 10000 		AS leaseMaxAmt     		/*임대상한가금액*/
+      , C.LEASE_MIN_AMT * 10000 		AS leaseMinAmt     		/*임대하한가금액*/
+      , C.LEASE_GNRL_TX_AMT * 10000 	AS leaseGnrlTxAmt     	/*임대일반거래가금액*/
+      , C.PRICE_BASE_DT 				AS priceBaseDt     		/*시세기준년월일*/
+      , C.APT_PRICE_SRC_CL_CD 			AS aptPriceSrcClCd     	/*아파트시세원천구분코드*/
+      , C.APT_ID 						AS aptId     			/*아파트식별자*/
+      , C.APT_AREA_ID 					AS aptAreaId     		/*아파트면적식별자*/
+      , A.CITY_PRVNC_CD 				AS cityPrvncCd     		/*시도코드*/
+      , A.CITY_GUN_GU_CD 				AS cityGunGuCd     		/*시군구코드*/
+      , A.EMDONG_CD 					AS emdongCd     		/*읍면동코드*/
+      , A.ADRI_CD 						AS adriCd     			/*리코드*/        
+  FROM  as_aprsl_apt_market_price_r D
+      , as_apt_cmpx_m A			/* 아파트단지기본 */
+      , as_apt_area_tp_d B      /* 아파트평형명세 */
+      , as_apt_market_price_d C /* 아파트시세명세 */
+ WHERE  D.INST_CD = #{instCd}
+   AND  D.APRSL_ID = #{aprslId}
+   AND  A.INST_CD = D.INST_CD
+   AND  A.APT_PRICE_SRC_CL_CD = D.APT_PRICE_SRC_CL_CD
+   AND  A.APT_ID = D.APT_ID
+   AND  B.INST_CD = D.INST_CD
+   AND  B.APT_PRICE_SRC_CL_CD = D.APT_PRICE_SRC_CL_CD
+   AND  B.APT_ID = D.APT_ID
+   AND  B.APT_AREA_ID = D.APT_AREA_ID
+   AND  C.INST_CD = D.INST_CD
+   AND  C.APT_PRICE_SRC_CL_CD = D.APT_PRICE_SRC_CL_CD
+   AND  C.APT_ID = D.APT_ID
+   AND  C.APT_AREA_ID = D.APT_AREA_ID
+   AND  C.PRICE_BASE_DT = D.PRICE_BASE_DT
+</select>
+</mapper>

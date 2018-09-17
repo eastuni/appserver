@@ -1,0 +1,5 @@
+OMM bankware.corebanking.p2ploan.open.service.dto.LnExctnSvcLnOpnOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+
+}

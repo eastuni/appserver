@@ -1,0 +1,6 @@
+OMM bxm.web.admin.common.domain.PageCountOMM
+<description="">
+{
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+}

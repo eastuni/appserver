@@ -1,0 +1,34 @@
+<div class="modal-wrap fix-h">
+    <h2 class="bw-tt a-center">{{bxMsg 'batch.batch-user-log-detail'}}</h2>
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t fix-h bx-no-draggable">
+        <ul class="col-3 clr">
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'batch.work-id'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="jobId" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'batch.work-nm'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="jobNm" readonly/>
+                </div>
+            </li>
+            <li style="display: none;">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'common.execution-no'}}</label>
+                    <select class="bw-input ipt-select w-65" data-form-param="execNo"></select>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!--/END SEARCH AREA-->
+    <!--GRID AREA-->
+    <section class="bxm-popup-grid-wrap bx-no-draggable"></section>
+    <!--/END GRID AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.ok'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

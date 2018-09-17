@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.actor.security.dao.AtSelfAuthD">
+<!--Generated Thu Jan 19 14:04:38 KST 2017-->
+<insert id="insert" parameterType="bankware.corebanking.actor.security.dao.dto.AtSelfAuthDIO">
+INSERT 
+
+  INTO at_self_auth_d
+
+     ( inst_cd
+
+     , self_auth_id
+
+     , auth_trgt_tp_cd
+
+     , auth_trgt_id
+
+     , auth_cd
+
+     , notice_id
+
+     , auth_demand_tmstmp
+
+     , efctv_end_tmstmp
+
+     , auth_err_allwnc_cnt
+     , auth_err_atmpt_cnt
+     , auth_sts_cd
+
+     , last_chng_tmstmp
+
+     , last_chng_guid
+
+     )
+
+VALUES
+
+     ( #{instCd,jdbcType=VARCHAR}
+
+     , #{selfAuthId,jdbcType=VARCHAR}
+
+     , #{authTrgtTpCd,jdbcType=VARCHAR}
+
+     , #{authTrgtId,jdbcType=VARCHAR}
+
+     , #{authCd,jdbcType=VARCHAR}
+
+     , #{noticeId,jdbcType=VARCHAR}
+
+     , #{authDemandTmstmp}
+
+     , #{efctvEndTmstmp}
+
+     , #{authErrAllwncCnt,jdbcType=VARCHAR}
+     , #{authErrAtmptCnt,jdbcType=VARCHAR}
+     , #{authStsCd,jdbcType=VARCHAR}
+
+     , #{lastChngTmstmp}
+
+     , #{lastChngGuid}
+
+     )
+</insert>
+<update id="updateStsCd" parameterType="bankware.corebanking.actor.security.dao.dto.AtSelfAuthDIO">
+UPDATE at_self_auth_d
+
+   SET auth_sts_cd = #{authStsCd,jdbcType=VARCHAR}
+
+<if test="authErrAtmptCnt != null">      
+     , auth_err_atmpt_cnt = #{authErrAtmptCnt}
+</if>   
+
+     , last_chng_tmstmp = #{lastChngTmstmp}
+
+     , last_chng_guid = #{lastChngGuid}
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND self_auth_id = #{selfAuthId,jdbcType=VARCHAR}
+</update>
+<select id="select" resultType="bankware.corebanking.actor.security.dao.dto.AtSelfAuthDIO">
+SELECT inst_cd as instCd
+
+     , self_auth_id as selfAuthId
+
+     , auth_trgt_tp_cd as authTrgtTpCd
+
+     , auth_trgt_id as authTrgtId
+
+     , auth_cd as authCd
+
+     , notice_id as noticeId
+
+     , auth_demand_tmstmp as authDemandTmstmp
+
+     , efctv_end_tmstmp as efctvEndTmstmp
+
+     , auth_err_allwnc_cnt as authErrAllwncCnt
+     , auth_err_atmpt_cnt as authErrAtmptCnt    
+     , auth_sts_cd as authStsCd
+
+     , last_chng_tmstmp as lastChngTmstmp
+
+     , last_chng_guid as lastChngGuid
+
+  FROM at_self_auth_d
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND self_auth_id = #{selfAuthId,jdbcType=VARCHAR}
+</select>
+<update id="updateNoticeId" parameterType="bankware.corebanking.actor.security.dao.dto.AtSelfAuthDIO">
+UPDATE at_self_auth_d
+
+   SET notice_id = #{noticeId,jdbcType=VARCHAR}
+
+     , last_chng_tmstmp = #{lastChngTmstmp}
+
+     , last_chng_guid = #{lastChngGuid}
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND self_auth_id = #{selfAuthId,jdbcType=VARCHAR}
+</update>
+</mapper>

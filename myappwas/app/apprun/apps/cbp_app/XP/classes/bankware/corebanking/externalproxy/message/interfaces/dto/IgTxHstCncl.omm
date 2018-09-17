@@ -1,0 +1,10 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IgTxHstCncl
+<description="거래내역일괄취소">
+{
+	String orgnlTxCntrMsgMgmtNbr<length=12 description="원거래거래고유번호">;
+	BigDecimal orgnlTxPymntAmt<length=15 description="원거래납부금액">;
+	String fillerCntnt<length=15 description="예비정보">;
+	String prcsRspnsCd<length=3 description="처리응답코드">;
+	String msgPrcsRsltCd<length=10 description="메시지처리결과코드">;
+	String guid<length=40 description="GUID식별자">;
+}

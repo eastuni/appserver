@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.distribution.dao.SvDstbTgtM">
+<!--Generated Wed Apr 18 15:24:24 KST 2018-->
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTgtMIO">
+insert into SV_DSTB_TGT_M
+	(
+	DSTB_SRVR_ID    /*배포서버식별자*/,
+	DSTB_RQST_ID    /*배포요청식별자*/,
+	DSTB_TASK_ID    /*배포과제식별자*/,
+	DSTB_ENVRNMNT_CD    /*배포환경구분코드*/,
+	DSTB_STS_CD    /*배포상태코드*/,
+	DSTB_WAY_CD    /*배포방식코드*/,
+	DSTB_EXECUTE_TMSTMP    /*배포실행일시*/,
+	DSTB_SCHDL_TMSTMP    /*배포예약일시*/,
+	SND_FIN_YN    /*송신완료여부*/,
+	DSTB_RSLT_ERR_CD    /*배포결과에러코드*/,
+	DSTB_RSLT_ERR_CNTNT    /*배포결과에러내용*/,
+	DSTB_RQST_DSCD    /*배포요청유형구분코드*/,
+	LAST_CHNG_GUID    /*최종변경GUID*/,
+	LAST_CHNG_ID    /*최종변경식별자*/,
+	LAST_CHNG_TMSTMP    /*최종변경타임스탬프*/
+) values (
+	#{dstbSrvrId, jdbcType=VARCHAR}    /*배포서버식별자*/,
+	#{dstbRqstId, jdbcType=VARCHAR}    /*배포요청식별자*/,
+	#{dstbTaskId, jdbcType=VARCHAR}    /*배포과제식별자*/,
+	#{dstbEnvrnmntCd, jdbcType=VARCHAR}    /*배포환경구분코드*/,
+	#{dstbStsCd, jdbcType=VARCHAR}    /*배포상태코드*/,
+	#{dstbWayCd, jdbcType=VARCHAR}    /*배포방식코드*/,
+	#{dstbExecuteTmstmp, jdbcType=TIMESTAMP}    /*배포실행일시*/,
+	#{dstbSchdlTmstmp, jdbcType=TIMESTAMP}    /*배포예약일시*/,
+	#{sndFinYn, jdbcType=VARCHAR}    /*송신완료여부*/,
+	#{dstbRsltErrCd, jdbcType=VARCHAR}    /*배포결과에러코드*/,
+	#{dstbRsltErrCntnt, jdbcType=VARCHAR}    /*배포결과에러내용*/,
+	#{dstbRqstDscd, jdbcType=VARCHAR}    /*배포요청유형구분코드*/,
+	#{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/,
+	#{lastChngId, jdbcType=VARCHAR}    /*최종변경식별자*/,
+	#{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경타임스탬프*/
+)
+</insert>
+<select id="selectList" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTgtMIO" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTgtMIO">
+select 
+	DSTB_SRVR_ID as dstbSrvrId    /*배포서버식별자*/,
+	DSTB_RQST_ID as dstbRqstId    /*배포요청식별자*/,
+	DSTB_TASK_ID as dstbTaskId    /*배포과제식별자*/,
+	DSTB_ENVRNMNT_CD as dstbEnvrnmntCd    /*배포환경코드*/,
+	DSTB_STS_CD as dstbStsCd    /*배포상태코드*/,
+	DSTB_WAY_CD as dstbWayCd    /*배포방식코드*/,
+	DSTB_EXECUTE_TMSTMP as dstbExecuteTmstmp    /*배포실행일시*/,
+	DSTB_SCHDL_TMSTMP as dstbSchdlTmstmp    /*배포예약일시*/,
+	SND_FIN_YN as sndFinYn    /*송신완료여부*/,
+	DSTB_RSLT_ERR_CD as dstbRsltErrCd    /*배포결과에러코드*/,
+	DSTB_RSLT_ERR_CNTNT as dstbRsltErrCntnt    /*배포결과에러내용*/,
+	DSTB_RQST_DSCD as dstbRqstDscd    /*배포요청유형구분코드*/,
+	LAST_CHNG_GUID as lastChngGuid    /*최종변경GUID*/,
+	LAST_CHNG_ID as lastChngId    /*최종변경식별자*/,
+	LAST_CHNG_TMSTMP as lastChngTmstmp    /*최종변경타임스탬프*/
+from SV_DSTB_TGT_M
+where 1=1
+<if test="dstbSrvrId != null and dstbSrvrId != ''">
+   and DSTB_SRVR_ID = #{dstbSrvrId}
+</if>
+<if test="dstbRqstId != null and dstbRqstId != ''">
+   and DSTB_RQST_ID = #{dstbRqstId}
+</if>
+<if test="dstbTaskId != null and dstbTaskId != ''">
+   and DSTB_TASK_ID = #{dstbTaskId}
+</if>
+</select>
+<update id="updateApplyResult" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTgtMIO">
+update SV_DSTB_TGT_M set
+DSTB_STS_CD = #{dstbStsCd, jdbcType=VARCHAR}    /*배포상태코드*/,
+DSTB_EXECUTE_TMSTMP = #{dstbExecuteTmstmp, jdbcType=TIMESTAMP}    /*배포실행일시*/,
+LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/,
+LAST_CHNG_ID = #{lastChngId, jdbcType=VARCHAR}    /*최종변경식별자*/,
+LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경타임스탬프*/
+where  DSTB_SRVR_ID = #{dstbSrvrId, jdbcType=VARCHAR}
+and DSTB_RQST_ID = #{dstbRqstId, jdbcType=VARCHAR}    /*배포요청식별자*/
+and DSTB_TASK_ID = #{dstbTaskId, jdbcType=VARCHAR}    /*배포과제식별자*/
+</update>
+<update id="updateSendResult" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTgtMIO">
+update SV_DSTB_TGT_M set
+DSTB_STS_CD = #{dstbStsCd, jdbcType=VARCHAR}    /*배포상태코드*/,
+ <if test="sndFinYn != null and sndFinYn != ''">
+  SND_FIN_YN = #{sndFinYn, jdbcType=VARCHAR}    /*송신완료여부*/,
+</if>
+ <if test="dstbRsltErrCd != null and dstbRsltErrCd != ''">
+  DSTB_RSLT_ERR_CD = #{dstbRsltErrCd, jdbcType=VARCHAR}    /*에러코드*/,
+</if>
+ <if test="dstbRsltErrCntnt != null and dstbRsltErrCntnt != ''">
+  DSTB_RSLT_ERR_CNTNT = #{dstbRsltErrCntnt, jdbcType=VARCHAR}    /*에러메세지*/,
+</if>
+LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/,
+LAST_CHNG_ID = #{lastChngId, jdbcType=VARCHAR}    /*최종변경식별자*/,
+LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경타임스탬프*/
+where DSTB_SRVR_ID = #{dstbSrvrId, jdbcType=VARCHAR}
+and DSTB_RQST_ID = #{dstbRqstId, jdbcType=VARCHAR}    /*배포요청식별자*/
+</update>
+<select id="selectListForTgt" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTgtMIO" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTgtMIO">
+select 
+	DSTB_SRVR_ID as dstbSrvrId    /*배포서버식별자*/,
+	DSTB_RQST_ID as dstbRqstId    /*배포요청식별자*/,
+	DSTB_TASK_ID as dstbTaskId    /*배포과제식별자*/,
+	DSTB_ENVRNMNT_CD as dstbEnvrnmntCd    /*배포환경코드*/,
+	DSTB_STS_CD as dstbStsCd    /*배포상태코드*/,
+	DSTB_WAY_CD as dstbWayCd    /*배포방식코드*/,
+	DSTB_EXECUTE_TMSTMP as dstbExecuteTmstmp    /*배포실행일시*/,
+	DSTB_SCHDL_TMSTMP as dstbSchdlTmstmp    /*배포예약일시*/,
+	SND_FIN_YN as sndFinYn    /*송신완료여부*/,
+	DSTB_RSLT_ERR_CD as dstbRsltErrCd    /*배포결과에러코드*/,
+	DSTB_RSLT_ERR_CNTNT as dstbRsltErrCntnt    /*배포결과에러내용*/,
+	DSTB_RQST_DSCD as dstbRqstDscd    /*배포요청유형구분코드*/,
+	LAST_CHNG_GUID as lastChngGuid    /*최종변경GUID*/,
+	LAST_CHNG_ID as lastChngId    /*최종변경식별자*/,
+	LAST_CHNG_TMSTMP as lastChngTmstmp    /*최종변경타임스탬프*/
+from SV_DSTB_TGT_M
+where 1=1
+<if test="dstbSrvrId != null and dstbSrvrId != ''">
+   and DSTB_SRVR_ID = #{dstbSrvrId, jdbcType=VARCHAR}
+</if>
+ and DSTB_SCHDL_TMSTMP &lt;=  #{dstbSchdlTmstmp, jdbcType=TIMESTAMP}
+ and DSTB_WAY_CD = #{dstbWayCd, jdbcType=VARCHAR}
+ and DSTB_STS_CD = '01'  /*배포요청*/
+</select>
+<update id="updateStatusDstbTgtMByTaskIdOracle" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTgtMIO">
+update sv_dstb_tgt_m set 
+DSTB_STS_CD = #{dstbStsCd, jdbcType=VARCHAR}    /*배포상태코드*/
+where DSTB_SRVR_ID = #{dstbSrvrId, jdbcType=VARCHAR}   /*배포서버식별자*/
+and DSTB_TASK_ID = #{dstbTaskId, jdbcType=VARCHAR}    /*배포과제식별자*/
+and DSTB_WAY_CD = #{dstbWayCd, jdbcType=VARCHAR}    /*배포방식코드*/
+and DSTB_SCHDL_TMSTMP &gt;= SYSDATE    /*배포예약일시*/
+</update>
+<update id="updateStatusDstbTgtMByTaskIdMysql" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTgtMIO">
+update sv_dstb_tgt_m set 
+DSTB_STS_CD = #{dstbStsCd, jdbcType=VARCHAR}    /*배포상태코드*/
+where DSTB_SRVR_ID = #{dstbSrvrId, jdbcType=VARCHAR}   /*배포서버식별자*/
+and DSTB_TASK_ID = #{dstbTaskId, jdbcType=VARCHAR}    /*배포과제식별자*/
+and DSTB_WAY_CD = #{dstbWayCd, jdbcType=VARCHAR}    /*배포방식코드*/
+and DSTB_SCHDL_TMSTMP &gt;= now()    /*배포예약일시*/
+</update>
+</mapper>

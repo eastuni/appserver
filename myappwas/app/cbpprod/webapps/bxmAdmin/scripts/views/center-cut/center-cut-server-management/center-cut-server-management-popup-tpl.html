@@ -1,0 +1,74 @@
+<div class="modal-wrap">
+    {{#if nodeNum}}<h2 class="bw-tt a-center">{{bxMsg 'centerCut.editCenterCutServer'}}({{nodeNum}})</h2>{{/if}}
+    {{#unless nodeNum}}<h2 class="bw-tt a-center">{{bxMsg 'centerCut.addCenterCutServer'}}</h2>{{/unless}}
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t bx-no-draggable bxm-form-wrap">
+        <ul class="clr">
+	        <li class="w-33">
+	            <div class="input-wrap clr">
+	                <label class="bw-label w-40">{{bxMsg 'centerCut.serverType'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="svrType"></select>
+	            </div>
+	        </li>
+            <li class="w-33">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-40">{{bxMsg 'centerCut.nodeNo'}}</label>
+                    {{#if nodeNum}}
+                    <input type="text" class="bw-input w-60" data-form-param="nodeNum" readonly />
+                    {{/if}}
+                    {{#unless nodeNum}}
+                    <input type="text" class="bw-input w-60 validate-number" data-form-param="nodeNum" />
+                    {{/unless}}
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-40">{{bxMsg 'centerCut.serverName'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="svrNm"/>
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-40">{{bxMsg 'centerCut.serverIp'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="svrIp"/>
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-40">{{bxMsg 'centerCut.serverPort'}}</label>
+                    <input type="text" class="bw-input w-60 validate-number" data-form-param="svrPort"/>
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'centerCut.useYn'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="useYn">
+                        <option value="Y">Y</option>
+                        <option value="N">N</option>
+                    </select>
+                </div>
+            </li>
+            <li class="w-66">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-20">{{bxMsg 'centerCut.requestAddress'}}</label>
+                    <input type="text" class="bw-input w-80" data-form-param="requestUri"/>
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'centerCut.autoSvrYn'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="autoSvrYn">
+                        <option value="Y">Y</option>
+                        <option value="N" selected>N</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on save-btn">{{bxMsg 'common.save'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

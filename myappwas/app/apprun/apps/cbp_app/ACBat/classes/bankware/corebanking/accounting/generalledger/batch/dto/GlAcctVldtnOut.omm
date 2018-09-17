@@ -1,0 +1,12 @@
+OMM bankware.corebanking.accounting.generalledger.batch.dto.GlAcctVldtnOut
+<description="총계정원장 계리대사 내역 출력 OMM">
+{
+	String dstnctnNbr<length=15 description="구분번호">;
+	String instCd<length=14 description="기관코드">;
+	String brnchCd<length=14 description="부점코드">;
+	String baseDt<length=8 description="기준년월일">;
+	String crncyCd<length=3 description="통화코드">;
+	BigDecimal dbtAmt<length=22 decimal=2 description="차변금액">;
+	BigDecimal cdtAmt<length=22 decimal=2 description="대변금액">;
+	BigDecimal errAmt<length=22 decimal=2 description="오류금액">;
+}

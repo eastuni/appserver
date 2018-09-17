@@ -1,0 +1,44 @@
+<!-- 액티비티 관리 팝업 -->
+<div class="pf-pa-activity-master-form">
+    <table class="bx-info-table activity-info-table">
+        <tr>
+            <th>{{bxMsg 'ActivityId'}}</th>     <!-- 액티비티ID -->
+            <td colspan="3">
+                <input type="text" class="bx-form-item bx-compoenent-small activity-id"
+                       disabled value="{{activityId}}" data-form-param="activityId">
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'ActivityName'}}</th>     <!-- 액티비티명 -->
+            <td colspan="3">
+                <input type="text" class="bx-form-item bx-compoenent-small activity-name"
+                       value="{{activityName}}" data-form-param="activityName">
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'FileNeedYn'}}</th>     <!-- 첨부파일필요여부  -->
+            <td colspan="3">
+                <select class="bx-form-item bx-compoenent-small file-need-yn-select"
+                        value="{{fileNeedYn}}" data-form-param="fileNeedYn">
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'ContentNeedYn'}}</th>     <!-- 내용 text box 필요여부  -->
+            <td colspan="3">
+                <select class="bx-form-item bx-compoenent-small content-need-yn-select"
+                        value="{{contentNeedYn}}" data-form-param="contentNeedYn">
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'lastModifiedDate'}}</th>     <!-- 최종변경일자 -->
+            <td><input type="text" class="bx-form-item bx-compoenent-small regist-date" disabled value="{{gmtLastModify}}"></td>
+            <th class="second-th">{{bxMsg 'PAS0200String7'}}</th>       <!-- 등록사원 -->
+            <td>
+                <input type="text" class="bx-form-item bx-compoenent-small regist-user-name" value="{{registUserName}}" disabled>
+                <input type="hidden" class="bx-form-item bx-compoenent-small regist-user-name" value="{{lastModifier}}" disabled data-form-param="lastModifier">
+            </td>
+        </tr>
+    </table>
+</div>

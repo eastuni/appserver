@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.error.mgmt.dbio.ErrEventCndtDBIO">
+<!--Generated Wed Nov 29 11:25:27 KST 2017-->
+<insert id="insert" parameterType="bxm.web.admin.error.mgmt.domain.ErrEventCndtOMM">
+INSERT INTO BXM_ERR_EVENT_CNDT
+(
+	DOMAIN_ID /* 도메인 ID */,
+     CNDT_UID /*조건UID*/,
+    CNDT_NM /*조건명*/,
+    TRX_TARGET_CD /*거래대상*/,
+    TRX_CD /*거래코드*/,
+    ERR_TARGET_CD /*에러대상*/,
+    ERR_CD /*에러코드*/,
+    STD_PERD_CD /*기준기간코드*/,
+    STD_CNT /*기준횟수*/,
+    CTRL_CD /*제어방식코드*/,
+    USE_YN /*사용여부*/,
+    REG_OCCUR_DTTM /*등록발생일시*/,
+    REG_USER_ID /*등록자ID*/,
+    MODIFY_OCCUR_DTTM /*변경발생일시*/,
+    MODIFY_USER_ID /*최종변경자ID*/,
+    SQL_ERR_CD /*SQL에러코드*/ 
+)
+VALUES
+(
+	#{domainId} /* 도메인 ID */,
+    #{cndtUid, jdbcType=VARCHAR} /*조건UID*/,
+    #{cndtNm, jdbcType=VARCHAR} /*조건명*/,
+    #{trxTargetCd, jdbcType=VARCHAR} /*거래대상*/,
+    #{trxCd, jdbcType=VARCHAR} /*거래코드*/,
+    #{errTargetCd, jdbcType=VARCHAR} /*에러대상*/,
+    #{errCd, jdbcType=VARCHAR} /*에러코드*/,
+    #{stdPerdCd, jdbcType=VARCHAR} /*기준기간코드*/,
+    #{stdCnt, jdbcType=NUMERIC} /*기준횟수*/,
+    #{ctrlCd, jdbcType=VARCHAR} /*제어방식코드*/,
+    #{useYn, jdbcType=VARCHAR} /*사용여부*/,
+    #{regOccurDttm, jdbcType=VARCHAR} /*등록발생일시*/,
+    #{regUserId, jdbcType=VARCHAR} /*등록자ID*/,
+    #{modifyOccurDttm, jdbcType=VARCHAR} /*변경발생일시*/,
+    #{modifyUserId, jdbcType=VARCHAR} /*최종변경자ID*/,
+    #{sqlErrCd, jdbcType=VARCHAR} /*SQL에러코드*/ 
+)
+</insert>
+<update id="update" parameterType="bxm.web.admin.error.mgmt.domain.ErrEventCndtOMM">
+UPDATE BXM_ERR_EVENT_CNDT
+   SET CNDT_NM = #{cndtNm, jdbcType=VARCHAR} /* 조건명 */,
+       TRX_TARGET_CD = #{trxTargetCd, jdbcType=VARCHAR} /* 거래대상 */,
+       TRX_CD = #{trxCd, jdbcType=VARCHAR} /* 거래코드 */,
+       ERR_TARGET_CD = #{errTargetCd, jdbcType=VARCHAR} /* 에러대상 */,
+       ERR_CD = #{errCd, jdbcType=VARCHAR} /* 에러코드 */,
+       STD_PERD_CD = #{stdPerdCd, jdbcType=VARCHAR} /* 기준기간코드 */,
+       STD_CNT = #{stdCnt, jdbcType=NUMERIC} /* 기준횟수 */,
+       CTRL_CD = #{ctrlCd, jdbcType=VARCHAR} /* 제어방식코드 */,
+       USE_YN = #{useYn, jdbcType=VARCHAR} /* 사용여부 */,
+       MODIFY_OCCUR_DTTM = #{modifyOccurDttm, jdbcType=VARCHAR} /* 변경발생일시 */,
+       MODIFY_USER_ID = #{modifyUserId, jdbcType=VARCHAR} /* 최종변경자ID */,
+       SQL_ERR_CD = #{sqlErrCd, jdbcType=VARCHAR} /* SQL에러코드 */
+ WHERE CNDT_UID = #{cndtUid, jdbcType=VARCHAR}
+ 	AND DOMAIN_ID = #{domainId}
+</update>
+<delete id="delete" parameterType="bxm.web.admin.error.mgmt.domain.SearchBaseOMM">
+DELETE FROM BXM_ERR_EVENT_CNDT
+      WHERE CNDT_UID = #{cndtUid, jdbcType=VARCHAR}
+        AND DOMAIN_ID = #{domainId}
+</delete>
+<select id="count" parameterType="bxm.web.admin.error.mgmt.domain.ErrEventCndtOMM" resultType="java.lang.Integer">
+SELECT
+	COUNT(*) as totalRowCnt
+FROM bxm_err_event_cndt
+WHERE DOMAIN_ID = #{domainId}
+	<if test="cndtNm != null and cndtNm != ''">
+ 		and cndt_nm like '%' || #{cndtNm, jdbcType=VARCHAR} || '%'
+ 	</if>
+ 	<if test="trxTargetCd != null and trxTargetCd != ''">
+ 		and trx_target_cd like '%' || #{trxTargetCd, jdbcType=VARCHAR} || '%'
+ 	</if>
+ 	<if test="trxCd != null and trxCd != ''">
+ 		and trx_cd like '%' || #{trxCd, jdbcType=VARCHAR} || '%'
+ 	</if>
+ 	<if test="errTargetCd != null and errTargetCd != ''">
+ 		and err_target_cd like '%' || #{errTargetCd, jdbcType=VARCHAR} || '%'
+ 	</if>
+ 	<if test="errCd != null and errCd != ''">
+ 		and err_cd like '%' || #{errCd, jdbcType=VARCHAR} || '%'
+ 	</if>
+ 	<if test="stdPerdCd != null and stdPerdCd != ''">
+ 		and std_perd_cd like '%' || #{stdPerdCd, jdbcType=VARCHAR} || '%'
+ 	</if>
+ 	<if test="ctrlCd != null and ctrlCd != ''">
+ 		and ctrl_cd like '%' || #{ctrlCd, jdbcType=VARCHAR} || '%'
+ 	</if>
+ 	<if test="useYn != null and useYn != ''">
+ 		and use_yn like '%' || #{useYn, jdbcType=VARCHAR} || '%'
+ 	</if>
+</select>
+<select databaseId="mysql" id="count" parameterType="bxm.web.admin.error.mgmt.domain.ErrEventCndtOMM" resultType="java.lang.Integer">
+SELECT 
+       COUNT(*) as totalRowCnt
+  FROM BXM_ERR_EVENT_CNDT
+ WHERE DOMAIN_ID = #{domainId}
+  	<if test="cndtNm != null and cndtNm != ''">
+ 		and CNDT_NM like CONCAT('%', #{cndtNm}, '%')
+ 	</if>
+ 	<if test="trxTargetCd != null and trxTargetCd != ''">
+ 		and TRX_TARGET_CD like CONCAT('%', #{trxTargetCd}, '%')
+ 	</if>
+ 	<if test="trxCd != null and trxCd != ''">
+ 		and TRX_CD like CONCAT('%', #{trxCd}, '%')
+ 	</if>
+ 	<if test="errTargetCd != null and errTargetCd != ''">
+ 		and ERR_TARGET_CD like CONCAT('%', #{errTargetCd}, '%')
+ 	</if>
+ 	<if test="errCd != null and errCd != ''">
+ 		and ERR_CD like CONCAT('%', #{errCd}, '%')
+ 	</if>
+ 	<if test="stdPerdCd != null and stdPerdCd != ''">
+ 		and STD_PERD_CD like CONCAT('%', #{stdPerdCd}, '%')
+ 	</if>
+ 	<if test="ctrlCd != null and ctrlCd != ''">
+ 		and CTRL_CD like CONCAT('%', #{ctrlCd}, '%')
+ 	</if>
+ 	<if test="useYn != null and useYn != ''">
+ 		and USE_YN like CONCAT('%', #{useYn}, '%')
+ 	</if>
+</select>
+<select id="select" parameterType="bxm.web.admin.error.mgmt.domain.SearchBaseOMM" resultType="bxm.web.admin.error.mgmt.domain.ErrEventCndtOMM">
+SELECT 
+       CNDT_UID AS cndtUid /*조건UID*/,
+       CNDT_NM AS cndtNm /*조건명*/,
+       TRX_TARGET_CD AS trxTargetCd /*거래대상*/,
+       TRX_CD AS trxCd /*거래코드*/,
+       ERR_TARGET_CD AS errTargetCd /*에러대상*/,
+       ERR_CD AS errCd /*에러코드*/,
+       STD_PERD_CD AS stdPerdCd /*기준기간코드*/,
+       STD_CNT AS stdCnt /*기준횟수*/,
+       CTRL_CD AS ctrlCd /*제어방식코드*/,
+       USE_YN AS useYn /*사용여부*/,
+       REG_OCCUR_DTTM AS regOccurDttm /*등록발생일시*/,
+       REG_USER_ID AS regUserId /*등록자ID*/,
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경발생일시*/,
+       MODIFY_USER_ID AS modifyUserId /*최종변경자ID*/,
+       SQL_ERR_CD AS sqlErrCd /*SQL에러코드*/
+  FROM BXM_ERR_EVENT_CNDT
+ WHERE CNDT_UID = #{cndtUid, jdbcType=VARCHAR}
+ AND DOMAIN_ID = #{domainId}
+</select>
+<select id="selectListPage" resultType="bxm.web.admin.error.mgmt.domain.ErrEventCndtOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT 
+       CNDT_UID AS cndtUid /*조건UID*/,
+       CNDT_NM AS cndtNm /*조건명*/,
+       TRX_TARGET_CD AS trxTargetCd /*거래대상*/,
+       TRX_CD AS trxCd /*거래코드*/,
+       ERR_TARGET_CD AS errTargetCd /*에러대상*/,
+       ERR_CD AS errCd /*에러코드*/,
+       STD_PERD_CD AS stdPerdCd /*기준기간코드*/,
+       STD_CNT AS stdCnt /*기준횟수*/,
+       CTRL_CD AS ctrlCd /*제어방식코드*/,
+       USE_YN AS useYn /*사용여부*/,
+       REG_OCCUR_DTTM AS regOccurDttm /*등록발생일시*/,
+       REG_USER_ID AS regUserId /*등록자ID*/,
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경발생일시*/,
+       MODIFY_USER_ID AS modifyUserId /*최종변경자ID*/,
+       SQL_ERR_CD AS sqlErrCd /*SQL에러코드*/
+  FROM bxm_err_event_cndt
+ WHERE DOMAIN_ID = #{AA.domainId}
+  	<if test="AA.cndtNm != null and AA.cndtNm != ''">
+ 		and cndt_nm like '%' || #{AA.cndtNm} || '%'
+ 	</if>
+ 	<if test="AA.trxTargetCd != null and AA.trxTargetCd != ''">
+ 		and trx_target_cd like '%' || #{AA.trxTargetCd} || '%'
+ 	</if>
+ 	<if test="AA.trxCd != null and AA.trxCd != ''">
+ 		and trx_cd like '%' || #{AA.trxCd} || '%'
+ 	</if>
+ 	<if test="AA.errTargetCd != null and AA.errTargetCd != ''">
+ 		and err_target_cd like '%' || #{AA.errTargetCd} || '%'
+ 	</if>
+ 	<if test="AA.errCd != null and AA.errCd != ''">
+ 		and err_cd like '%' || #{AA.errCd} || '%'
+ 	</if>
+ 	<if test="AA.stdPerdCd != null and AA.stdPerdCd != ''">
+ 		and std_perd_cd like '%' || #{AA.stdPerdCd} || '%'
+ 	</if>
+ 	<if test="AA.ctrlCd != null and AA.ctrlCd != ''">
+ 		and ctrl_cd like '%' || #{AA.ctrlCd} || '%'
+ 	</if>
+ 	<if test="AA.useYn != null and AA.useYn != ''">
+ 		and use_yn like '%' || #{AA.useYn} || '%'
+ 	</if>
+ 	ORDER BY CNDT_NM ASC
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectListPage" resultType="bxm.web.admin.error.mgmt.domain.ErrEventCndtOMM">
+SELECT 
+       CNDT_UID AS cndtUid /*조건UID*/,
+       CNDT_NM AS cndtNm /*조건명*/,
+       TRX_TARGET_CD AS trxTargetCd /*거래대상*/,
+       TRX_CD AS trxCd /*거래코드*/,
+       ERR_TARGET_CD AS errTargetCd /*에러대상*/,
+       ERR_CD AS errCd /*에러코드*/,
+       STD_PERD_CD AS stdPerdCd /*기준기간코드*/,
+       STD_CNT AS stdCnt /*기준횟수*/,
+       CTRL_CD AS ctrlCd /*제어방식코드*/,
+       USE_YN AS useYn /*사용여부*/,
+       REG_OCCUR_DTTM AS regOccurDttm /*등록발생일시*/,
+       REG_USER_ID AS regUserId /*등록자ID*/,
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경발생일시*/,
+       MODIFY_USER_ID AS modifyUserId /*최종변경자ID*/,
+       SQL_ERR_CD AS sqlErrCd /*SQL에러코드*/
+  FROM BXM_ERR_EVENT_CNDT
+ WHERE DOMAIN_ID = #{AA.domainId}
+  	<if test="AA.cndtNm != null and AA.cndtNm != ''">
+ 		and CNDT_NM like CONCAT('%', #{AA.cndtNm}, '%')
+ 	</if>
+ 	<if test="AA.trxTargetCd != null and AA.trxTargetCd != ''">
+ 		and TRX_TARGET_CD like CONCAT('%', #{AA.trxTargetCd}, '%')
+ 	</if>
+ 	<if test="AA.trxCd != null and AA.trxCd != ''">
+ 		and TRX_CD like CONCAT('%', #{AA.trxCd}, '%')
+ 	</if>
+ 	<if test="AA.errTargetCd != null and AA.errTargetCd != ''">
+ 		and ERR_TARGET_CD like CONCAT('%', #{AA.errTargetCd}, '%')
+ 	</if>
+ 	<if test="AA.errCd != null and AA.errCd != ''">
+ 		and ERR_CD like CONCAT('%', #{AA.errCd}, '%')
+ 	</if>
+ 	<if test="AA.stdPerdCd != null and AA.stdPerdCd != ''">
+ 		and STD_PERD_CD like CONCAT('%', #{AA.stdPerdCd}, '%')
+ 	</if>
+ 	<if test="AA.ctrlCd != null and AA.ctrlCd != ''">
+ 		and CTRL_CD like CONCAT('%', #{AA.ctrlCd}, '%')
+ 	</if>
+ 	<if test="AA.useYn != null and AA.useYn != ''">
+ 		and USE_YN like CONCAT('%', #{AA.useYn}, '%')
+ 	</if>
+ 	ORDER BY CNDT_NM ASC
+ 	LIMIT #{pageNum}, #{pageCount}
+</select>
+</mapper>

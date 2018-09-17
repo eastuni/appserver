@@ -1,0 +1,7 @@
+OMM bxm.web.admin.batch.domain.RegisteredScheduleInOMM
+<description="">
+{
+	String jobId<length=100>;
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+}

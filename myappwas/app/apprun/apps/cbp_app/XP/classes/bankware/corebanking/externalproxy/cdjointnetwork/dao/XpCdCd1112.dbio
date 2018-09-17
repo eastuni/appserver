@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.cdjointnetwork.dao.XpCdCd1112">
+<!--Generated Wed Jan 11 12:55:28 KST 2017-->
+<insert id="insertXpCdCd1112" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd1112IO">
+INSERT  
+  INTO  XP_CD_CD1112_H
+(
+  INST_CD,     /*기관코드*/
+  TX_DT,     /*거래년월일*/
+  SEQ_NBR,     /*일련번호*/
+  CNTNT_Dscd,     /*내용구분코드*/
+  FNCL_INST_CD,     /*금융기관코드*/
+  TX_Dscd,     /*거래구분코드*/
+  OPN_TX_CNT,     /*개설건수*/
+  OPN_NET_STLMNT_AMT,     /*개설차액*/
+  OPN_FEE_AMT,     /*개설수수료*/
+  HNDLNG_TX_CNT,     /*취급건수*/
+  HNDLNG_NET_STLMNT_AMT,     /*취급차액*/
+  HNDLNG_FEE_AMT,     /*취급수수료*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR},     /*기관코드*/
+  #{txDt, jdbcType=VARCHAR},     /*거래년월일*/
+  #{seqNbr, jdbcType=NUMERIC},     /*일련번호*/
+  #{cntntDscd, jdbcType=VARCHAR},     /*내용구분코드*/
+  #{fnclInstCd, jdbcType=VARCHAR},     /*금융기관코드*/
+  #{txDscd, jdbcType=VARCHAR},     /*거래구분코드*/
+  #{opnTxCnt, jdbcType=NUMERIC},     /*개설건수*/
+  #{opnNetStlmntAmt, jdbcType=NUMERIC},     /*개설차액*/
+  #{opnFeeAmt, jdbcType=NUMERIC},     /*개설수수료*/
+  #{hndlngTxCnt, jdbcType=NUMERIC},     /*취급건수*/
+  #{hndlngNetStlmntAmt, jdbcType=NUMERIC},     /*취급차액*/
+  #{hndlngFeeAmt, jdbcType=NUMERIC},     /*취급수수료*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectXpCdCd1112List" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd1112IO">
+SELECT    
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        CNTNT_Dscd AS cntntDscd,     /*내용구분코드*/
+        FNCL_INST_CD AS fnclInstCd,     /*금융기관코드*/
+        TX_Dscd AS txDscd,     /*거래구분코드*/
+        OPN_TX_CNT AS opnTxCnt,     /*개설건수*/
+        OPN_NET_STLMNT_AMT AS opnNetStlmntAmt,     /*개설차액*/
+        OPN_FEE_AMT AS opnFeeAmt,     /*개설수수료*/
+        HNDLNG_TX_CNT AS hndlngTxCnt,     /*취급건수*/
+        HNDLNG_NET_STLMNT_AMT AS hndlngNetStlmntAmt,     /*취급차액*/
+        HNDLNG_FEE_AMT AS hndlngFeeAmt,     /*취급수수료*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_CD_CD1112_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT between #{txStartDt} and #{txEndDt}
+ORDER BY TX_DT desc, CNTNT_Dscd, FNCL_INST_CD, TX_Dscd
+</select>
+<update id="updateXpCdCd1112" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd1112IO">
+UPDATE  
+        XP_CD_CD1112_H
+   SET  CNTNT_Dscd = #{cntntDscd, jdbcType=VARCHAR}    /* 내용구분코드 */
+     , FNCL_INST_CD = #{fnclInstCd, jdbcType=VARCHAR}    /* 금융기관코드 */
+     , TX_Dscd = #{txDscd, jdbcType=VARCHAR}    /* 거래구분코드 */
+     , OPN_TX_CNT = #{opnTxCnt, jdbcType=NUMERIC}    /* 개설건수 */
+     , OPN_NET_STLMNT_AMT = #{opnNetStlmntAmt, jdbcType=NUMERIC}    /* 개설차액 */
+     , OPN_FEE_AMT = #{opnFeeAmt, jdbcType=NUMERIC}    /* 개설수수료 */
+     , HNDLNG_TX_CNT = #{hndlngTxCnt, jdbcType=NUMERIC}    /* 취급건수 */
+     , HNDLNG_NET_STLMNT_AMT = #{hndlngNetStlmntAmt, jdbcType=NUMERIC}    /* 취급차액 */
+     , HNDLNG_FEE_AMT = #{hndlngFeeAmt, jdbcType=NUMERIC}    /* 취급수수료 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND SEQ_NBR = #{seqNbr}
+</update>
+</mapper>

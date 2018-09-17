@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.systemcommon.batch.dao.FBatchJobParams">
+<!--Generated Thu Nov 26 17:34:39 KST 2015-->
+<select id="selectBatchJobParameter" resultType="bankware.corebanking.systemcommon.batch.dao.dto.FBatchJobParamsIO">
+SELECT    /* VIEW */
+       job_instance_id AS jobInstanceId    /*배치작업 인스턴스 아이디*/
+     , type_cd AS typeCd    /*실행파라미터 타입코드*/
+     , key_name AS keyName    /*실행파라미터 KEY*/
+     , string_val AS stringVal    /*실행파라미터 String 값*/
+     , date_val AS dateVal    /*실행파라미터 Date 값*/
+     , long_val AS longVal    /*실행파라미터 Long 값*/
+     , double_val AS doubleVal    /*실행파라미터 Double 값*/
+  FROM f_batch_job_params
+  WHERE job_instance_id = #{jobInstanceId}
+</select>
+</mapper>

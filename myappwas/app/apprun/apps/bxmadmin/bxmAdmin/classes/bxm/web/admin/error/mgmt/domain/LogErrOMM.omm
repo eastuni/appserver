@@ -1,0 +1,13 @@
+OMM bxm.web.admin.error.mgmt.domain.LogErrOMM
+<description="">
+{
+	String tableName<length=20>;
+	String guid<length=40 description="GUID">;
+	String trxCd<length=12 description="거래코드">;
+	String logOccurDttm<length=23 description="로그발생일시">;
+	String errCd<length=9 description="에러코드">;
+	String sqlErrCd<length=20 description="SQL에러코드">;
+	Integer pageNum<length=9 description="페이지숫자">;
+	String domainId<length=14 description="도메인 ID">;
+	Integer pageCount<length=9 description="페이지카운트">;
+}

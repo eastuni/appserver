@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpIxEB1111">
+<!--Generated Fri Dec 02 18:23:25 KST 2016-->
+<select id="selectListXpIxEB1111" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIxEB1111IO">
+SELECT 
+instCd,     /*기관코드*/
+txDt,     /*거래년월일*/
+seqNbr,     /*일련번호*/
+fnclInstCd,     /*금융기관코드*/
+jointNetworkClCd,     /*공동망종별코드*/
+jointNetworkTxDscd,     /*공동망거래구분코드*/
+totBal,     /*총금액*/
+chequeAmt,     /*수표금액*/
+cashAmt,     /*현금금액*/
+rqstFnclInstBrnchCd,     /*의뢰금융기관의뢰부점코드*/
+dsbrsmntFnclInstBrnchCd,     /*지급금융기관지급부점코드*/
+rqstFnclInstMsgMgmtNbr,     /*의뢰금융기관전문관리번호*/
+intrmdryMsgMgmtNbr,     /*중개기관전문관리번호*/
+acctNbr,     /*계좌번호*/
+rqerNm,     /*의뢰인성명*/
+batchPrcsngDscd,     /*일괄처리구분코드*/
+batchPrcsngIncpbltyCd,     /*일괄처리불능코드*/
+batchPrcsngIncpbltyProgramNm,     /*일괄처리불능프로그램*/
+batchPrcsngIncpbltyMsgCntnt,     /*일괄처리불능메시지*/
+cntrCtPrcsngRsltCd,		/*센터컷처리결과코드*/
+lastChngTmstmp,     /*최종변경일시*/
+lastChngGuid    /*최종변경GUID*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+A.instCd,     /*기관코드*/
+A.txDt,     /*거래년월일*/
+A.seqNbr,     /*일련번호*/
+A.fnclInstCd,     /*금융기관코드*/
+A.jointNetworkClCd,     /*공동망종별코드*/
+A.jointNetworkTxDscd,     /*공동망거래구분코드*/
+A.totBal,     /*총금액*/
+A.chequeAmt,     /*수표금액*/
+A.cashAmt,     /*현금금액*/
+A.rqstFnclInstBrnchCd,     /*의뢰금융기관의뢰부점코드*/
+A.dsbrsmntFnclInstBrnchCd,     /*지급금융기관지급부점코드*/
+A.rqstFnclInstMsgMgmtNbr,     /*의뢰금융기관전문관리번호*/
+A.intrmdryMsgMgmtNbr,     /*중개기관전문관리번호*/
+A.acctNbr,     /*계좌번호*/
+A.rqerNm,     /*의뢰인성명*/
+A.batchPrcsngDscd,     /*일괄처리구분코드*/
+A.batchPrcsngIncpbltyCd,     /*일괄처리불능코드*/
+A.batchPrcsngIncpbltyProgramNm,     /*일괄처리불능프로그램*/
+A.batchPrcsngIncpbltyMsgCntnt,     /*일괄처리불능메시지*/
+A.cntrCtPrcsngRsltCd,		/*센터컷처리결과코드*/
+A.lastChngTmstmp,     /*최종변경일시*/
+A.lastChngGuid    /*최종변경GUID*/
+     FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        FNCL_INST_CD AS fnclInstCd,     /*금융기관코드*/
+        JOINT_NETWORK_CL_CD AS jointNetworkClCd,     /*공동망종별코드*/
+        JOINT_NETWORK_TX_Dscd AS jointNetworkTxDscd,     /*공동망거래구분코드*/
+        TOT_AMT AS totBal,     /*총금액*/
+        CHEQUE_AMT AS chequeAmt,     /*수표금액*/
+        CASH_AMT AS cashAmt,     /*현금금액*/
+        RQST_FNCL_INST_BRNCH_CD AS rqstFnclInstBrnchCd,     /*의뢰금융기관의뢰부점코드*/
+        DSBRSMNT_FNCL_INST_BRNCH_CD AS dsbrsmntFnclInstBrnchCd,     /*지급금융기관지급부점코드*/
+        RQST_FNCL_INST_MSG_MGMT_NBR AS rqstFnclInstMsgMgmtNbr,     /*의뢰금융기관전문관리번호*/
+        INTRMDRY_MSG_MGMT_NBR AS intrmdryMsgMgmtNbr,     /*중개기관전문관리번호*/
+        ACCT_NBR AS acctNbr,     /*계좌번호*/
+        RQER_NM AS rqerNm,     /*의뢰인성명*/
+        BATCH_PRCSNG_Dscd AS batchPrcsngDscd,     /*일괄처리구분코드*/
+        BATCH_PRCSNG_INCPBLTY_CD AS batchPrcsngIncpbltyCd,     /*일괄처리불능코드*/
+        BATCH_PRCSNG_INCPBLTY_PROGRAM_NM AS batchPrcsngIncpbltyProgramNm,     /*일괄처리불능프로그램*/
+        BATCH_PRCSNG_INCPBLTY_MSG_CNTNT AS batchPrcsngIncpbltyMsgCntnt,     /*일괄처리불능메시지*/
+        CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,			/*센터컷처리결과코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_IX_EB1111_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+order by INST_CD, TX_DT, SEQ_NBR
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectListXpIxEB1111Count" resultType="java.lang.Integer">
+SELECT    
+        count(1)
+  FROM  XP_IX_EB1111_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+</select>
+</mapper>

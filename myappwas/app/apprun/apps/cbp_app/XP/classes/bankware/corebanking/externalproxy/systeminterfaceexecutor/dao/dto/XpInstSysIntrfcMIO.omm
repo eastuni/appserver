@@ -1,0 +1,12 @@
+OMM bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpInstSysIntrfcMIO
+<description=" ">
+{
+	String instCd<length=14 description="기관코드">;
+	String sysIntrfcId<length=40 description="시스템인터페이스식별자">;
+	String aplyStartDt<length=8 description="적용시작년월일">;
+	String sysIntrfcNm<length=100 description="시스템인터페이스명">;
+	String cmpntCd<length=3 description="컴포넌트코드">;
+	String useYn<length=1 description="사용여부">;
+	Date lastChngTmstmp<length=20 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

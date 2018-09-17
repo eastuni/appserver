@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.distribution.dao.svDstbReqSrvrChngD">
+<!--Generated Wed Jul 04 16:42:11 KST 2018-->
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbReqDIO">
+insert into SV_DSTB_REQ_SRVR_CHNG_D
+	(
+	DSTB_RQST_ID    /*배포요청식별자*/,
+	DSTB_SRVR_ID    /*배포서버식별자*/,
+	DSTB_TASK_ID    /*배포과제식별자*/,
+	DSTB_TASK_CHNG_SEQ_NBR    /*배포과제변경일련번호*/,
+	DSTB_TASK_CHNG_HST_SEQ_NBR    /*배포과제변경이력일련번호*/,
+	DSTB_SAVE_DSCD    /*배포저장구분코드*/,
+	LAST_CHNG_GUID    /*최종변경GUID*/,
+	LAST_CHNG_ID    /*최종변경식별자*/,
+	LAST_CHNG_TMSTMP    /*최종변경타임스탬프*/
+) values (
+	#{dstbRqstId, jdbcType=VARCHAR}    /*배포요청식별자*/,
+	#{dstbSrvrId, jdbcType=VARCHAR}    /*배포서버식별자*/,
+	#{dstbTaskId, jdbcType=VARCHAR}    /*배포과제식별자*/,
+	#{dstbTaskChngSeqNbr, jdbcType=NUMERIC}    /*배포과제변경일련번호*/,
+	#{dstbTaskChngHstSeqNbr, jdbcType=NUMERIC}    /*배포과제변경이력일련번호*/,
+	#{dstbSaveDscd, jdbcType=VARCHAR}    /*배포저장구분코드*/,
+	#{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/,
+	#{lastChngId, jdbcType=VARCHAR}    /*최종변경식별자*/,
+	#{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경타임스탬프*/
+)
+</insert>
+<select id="selectMaxSeq" resultType="java.math.BigDecimal">
+select 
+	max(DSTB_TASK_CHNG_SEQ_NBR) + 1 as dstbTaskChngSeqNbr  
+from SV_DSTB_REQ_SRVR_CHNG_D
+where DSTB_TASK_ID = #{dstbTaskId}
+</select>
+<select id="selectList" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbReqDIO" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbReqDIO">
+select 
+	DSTB_RQST_ID as dstbRqstId    /*배포요청식별자*/,
+	DSTB_SRVR_ID as dstbSrvrId    /*배포서버식별자*/,
+	DSTB_TASK_ID as dstbTaskId    /*배포과제식별자*/,
+	DSTB_TASK_CHNG_SEQ_NBR as dstbTaskChngSeqNbr    /*배포과제변경일련번호*/,
+	DSTB_TASK_CHNG_HST_SEQ_NBR as dstbTaskChngHstSeqNbr    /*배포과제변경이력일련번호*/,
+	DSTB_SAVE_DSCD as dstbSaveDscd    /*배포저장구분코드*/,
+	LAST_CHNG_GUID as lastChngGuid    /*최종변경GUID*/,
+	LAST_CHNG_ID as lastChngId    /*최종변경식별자*/,
+	LAST_CHNG_TMSTMP as lastChngTmstmp    /*최종변경타임스탬프*/
+from SV_DSTB_REQ_SRVR_CHNG_D
+where 1=1
+<if test="dstbRqstId != null and dstbRqstId != ''">
+and DSTB_RQST_ID = #{dstbRqstId}
+</if>
+<if test="dstbTaskId != null and dstbTaskId != ''">
+   and DSTB_TASK_ID = #{dstbTaskId}
+</if>
+<if test="dstbTaskChngSeqNbr != null and dstbTaskChngSeqNbr != ''">
+   and DSTB_TASK_CHNG_SEQ_NBR = #{dstbTaskChngSeqNbr}
+</if>
+<if test="dstbSrvrId != null and dstbSrvrId != ''">
+   and DSTB_SRVR_ID = #{dstbSrvrId}
+</if>
+order by DSTB_TASK_CHNG_SEQ_NBR
+</select>
+<select id="selectDistinctSrvrListByTaskId" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbReqDIO">
+select distinct
+	DSTB_TASK_CHNG_SEQ_NBR as dstbTaskChngSeqNbr    /*배포과제변경일련번호*/,
+	DSTB_SRVR_ID as dstbSrvrId    /*배포서버식별자*/
+from SV_DSTB_REQ_SRVR_CHNG_D
+where DSTB_TASK_ID = #{dstbTaskId}
+order by DSTB_TASK_CHNG_SEQ_NBR
+</select>
+<select id="selectDstbSaveDscdForLastOne" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbReqDIO" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbReqDIO">
+select reqM.DSTB_TASK_ID               as dstbTaskId, 
+       reqM.DSTB_ENVRNMNT_CD           as dstbEnvrnmntCd, 
+       reqH.DSTB_TASK_CHNG_SEQ_NBR     as dstbTaskChngSeqNbr, 
+       reqH.DSTB_TASK_CHNG_HST_SEQ_NBR as dstbTaskChngHstSeqNbr, 
+       reqH.DSTB_SAVE_DSCD             as dstbSaveDscd
+  from SV_DSTB_REQ_M            reqM,
+       SV_DSTB_REQ_SRVR_D       reqD,
+       SV_DSTB_REQ_SRVR_CHNG_D  reqH
+ where reqM.DSTB_TASK_ID           = reqD.DSTB_TASK_ID
+   and reqM.DSTB_RQST_ID           = reqD.DSTB_RQST_ID
+   and reqD.DSTB_TASK_ID           = reqH.DSTB_TASK_ID
+   and reqD.DSTB_RQST_ID           = reqH.DSTB_RQST_ID
+   and reqM.DSTB_STS_CD            = '05'
+   and reqM.DSTB_TASK_ID           = #{dstbTaskId}
+   and reqM.DSTB_ENVRNMNT_CD       = #{dstbEnvrnmntCd}
+   and reqH.DSTB_TASK_CHNG_SEQ_NBR = #{dstbTaskChngSeqNbr}
+ order by reqM.DSTB_TASK_ID, 
+          reqM.DSTB_ENVRNMNT_CD, 
+          reqH.DSTB_TASK_CHNG_SEQ_NBR,
+          reqH.DSTB_TASK_CHNG_HST_SEQ_NBR DESC
+</select>
+</mapper>

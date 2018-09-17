@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.cdjointnetwork.dao.XpPyGiroDpwglRsltM">
+<!--Generated Wed Apr 05 10:55:43 KST 2017-->
+<insert id="insertData" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.PyGiroDpwglRsltMIO">
+INSERT  
+  INTO  PY_GIRO_DPWGL_RSLT_M    /* 자동이체입출금결과기본 */
+(
+  PRCSNG_DT,     /*처리일자*/
+  INOT_DS_CD,     /*입출구분코드*/
+  CUST_ID,     /*고객식별자*/
+  ARR_ID,     /*계약식별자*/
+  UTL_INST_DSTG_NBR,     /*이용기관식별번호*/
+  TRNS_BIZ_KND_CD,     /*이체업무종류코드*/
+  TRNS_BIZ_KND_DTL_CD,     /*이체업무종류상세코드*/
+  TRNS_DT,     /*이체일자*/
+  PAYER_NBR,     /*납부자번호*/
+  ACCT_OWNR_NM,     /*예금주명*/
+  PAYER_ACCT_OPN_BNK_BRH_CD,     /*납부자계좌개설은행지점코드*/
+  DPWDL_ACCT_NBR,     /*입출금계좌번호*/
+  INOT_AMT,     /*입출금액*/
+  RCPT_CHRG_KND_CD,     /*수납요금종류코드*/
+  FNCL_INST_CD,     /*금융기관코드*/
+  FEE_AMT,     /*수수료금액*/
+  FUND_KND_CD,     /*자금종류코드*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{prcsngDt, jdbcType=VARCHAR},     /*처리일자*/
+  #{dpstWhdrwlDscd, jdbcType=VARCHAR},     /*입출구분코드*/
+  #{custId, jdbcType=VARCHAR},     /*고객식별자*/
+  #{arrId, jdbcType=VARCHAR},     /*계약식별자*/
+  #{useInstIdNbr, jdbcType=VARCHAR},     /*이용기관식별번호*/
+  #{trnsfrBizKndCd, jdbcType=VARCHAR},     /*이체업무종류코드*/
+  #{rmtncBizKndDtlCd, jdbcType=VARCHAR},     /*이체업무종류상세코드*/
+  #{rmtncDt, jdbcType=VARCHAR},     /*이체일자*/
+  #{payerNbr, jdbcType=VARCHAR},     /*납부자번호*/
+  #{acctOwnrNm, jdbcType=VARCHAR},     /*예금주명*/
+  #{payerAcctOpnBnkBrnchCd, jdbcType=VARCHAR},     /*납부자계좌개설은행지점코드*/
+  #{dpstWhdrwlAcctNbr, jdbcType=VARCHAR},     /*입출금계좌번호*/
+  #{dpstWhdrwlAmt, jdbcType=NUMERIC},     /*입출금액*/
+  #{rcptKndCd, jdbcType=VARCHAR},     /*수납요금종류코드*/
+  #{fnclInstCd, jdbcType=VARCHAR},     /*금융기관코드*/
+  #{feeAmt, jdbcType=NUMERIC},     /*수수료금액*/
+  #{fundsKndCd, jdbcType=VARCHAR},     /*자금종류코드*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<update id="updateData" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.PyGiroDpwglRsltMIO">
+UPDATE  
+        PY_GIRO_DPWGL_RSLT_M   T /* 자동이체입출금결과기본 */
+   SET  TRNS_DT = #{rmtncDt, jdbcType=VARCHAR}    /* 이체일자 */
+     , PAYER_NBR = #{payerNbr, jdbcType=VARCHAR}    /* 납부자번호 */
+     , ACCT_OWNR_NM = #{acctOwnrNm, jdbcType=VARCHAR}    /* 예금주명 */
+     , PAYER_ACCT_OPN_BNK_BRH_CD = #{payerAcctOpnBnkBrnchCd, jdbcType=VARCHAR}    /* 납부자계좌개설은행지점코드 */
+     , DPWDL_ACCT_NBR = #{dpstWhdrwlAcctNbr, jdbcType=VARCHAR}    /* 입출금계좌번호 */
+     , INOT_AMT =  T.INOT_AMT+#{dpstWhdrwlAmt, jdbcType=NUMERIC}    /* 입출금액 */
+     , RCPT_CHRG_KND_CD = #{rcptKndCd, jdbcType=VARCHAR}    /* 수납요금종류코드 */
+     , FNCL_INST_CD = #{fnclInstCd, jdbcType=VARCHAR}    /* 금융기관코드 */
+     , FUND_KND_CD = #{fundsKndCd, jdbcType=VARCHAR}    /* 자금종류코드 */
+     , FEE_AMT = #{feeAmt, jdbcType=NUMERIC}    /* 수수료금액 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE PRCSNG_DT = #{prcsngDt, jdbcType=VARCHAR}
+   AND INOT_DS_CD = #{dpstWhdrwlDscd, jdbcType=VARCHAR}
+   AND CUST_ID = #{custId, jdbcType=VARCHAR}
+   AND ARR_ID = #{arrId, jdbcType=VARCHAR}
+   AND UTL_INST_DSTG_NBR = #{useInstIdNbr, jdbcType=VARCHAR}
+   AND TRNS_BIZ_KND_CD = #{trnsfrBizKndCd, jdbcType=VARCHAR}
+   AND TRNS_BIZ_KND_DTL_CD = #{rmtncBizKndDtlCd, jdbcType=VARCHAR}
+</update>
+<select id="selectDataByPk" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.PyGiroDpwglRsltMIO" resultType="java.lang.Integer">
+SELECT    count(1)
+  FROM  PY_GIRO_DPWGL_RSLT_M
+ WHERE PRCSNG_DT = #{prcsngDt}
+   AND INOT_DS_CD = #{dpstWhdrwlDscd}
+   AND CUST_ID = #{custId}
+   AND ARR_ID = #{arrId}
+   AND UTL_INST_DSTG_NBR = #{useInstIdNbr}
+   AND TRNS_BIZ_KND_CD = #{trnsfrBizKndCd}
+   AND TRNS_BIZ_KND_DTL_CD = #{rmtncBizKndDtlCd}
+</select>
+</mapper>

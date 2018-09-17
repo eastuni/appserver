@@ -1,0 +1,6 @@
+OMM bxm.web.admin.deploy.domain.RepositoryInfoOMM
+<description="">
+{
+	String svnUrl<length=20>;
+	String serverPath<length=20>;
+}

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.asset.evaluation.dao.AsAprslMXtn">
+<!--Generated Mon Mar 12 10:33:34 KST 2018-->
+<select id="selectByCustId" resultType="bankware.corebanking.asset.evaluation.interfaces.dto.AprslList">
+select  a.aprsl_id      as aprslId
+      , a.aprsl_dt      as aprslDt
+      , a.aprsl_sts_cd  as aprslStsCd
+      , a.asset_knd_cd  as assetKndCd
+      , d.bsic_addr_cntnt || ' ' || d.dtl_addr_cntnt    as stutDongAddrCntnt
+      , f.cust_id       as debtorCustId
+      , e.cust_id       as ownrCustId
+      , a.aprsl_rqst_id as aprslRqstId
+  from  as_aprsl_m          a  
+  left outer join as_aprsl_cust_r e on e.inst_cd = a.inst_cd
+                                   and e.aprsl_id = a.aprsl_id
+                                   and e.aprsl_cust_rel_cd = '01'
+                                   and e.aprsl_cust_rel_sts_cd = (case when a.aprsl_sts_cd in ('1', '2') then '1'
+                                                                       else '3'
+                                                                   end)
+                                   and e.cust_id = (select cust_id
+                                                      from as_aprsl_cust_xtn_info_d x
+                                                     where x.inst_cd = e.inst_cd
+                                                       and x.aprsl_id = e.aprsl_id
+                                                       and x.xtn_atrbt_nm = 'mainOwnrYn'
+                                                       and x.xtn_atrbt_cntnt = 'Y')
+  left outer join as_aprsl_cust_r f on f.inst_cd = a.inst_cd
+                                   and f.aprsl_id = a.aprsl_id
+                                   and f.aprsl_cust_rel_cd = '02'
+                                   and f.aprsl_cust_rel_sts_cd = (case when a.aprsl_sts_cd in ('1', '2') then '1'
+                                                                       else '3'
+                                                                   end)
+      , as_aprsl_cust_r     c
+      , as_aprsl_addr_d     d
+ where  a.inst_Cd = #{instCd}
+   and  a.inst_cd = c.inst_cd
+   and  a.aprsl_id = c.aprsl_id
+   and  c.aprsl_cust_rel_cd = #{aprslCustRelCd}
+   and  c.cust_id = #{custId}
+   and  c.aprsl_cust_rel_sts_cd = (case when a.aprsl_sts_cd in ('1', '2') then '1'
+                                        else '3'
+                                    end)
+   and  a.inst_cd = d.inst_cd
+   and  a.aprsl_id = d.aprsl_id   
+   and  d.asset_addr_tp_cd = '01'
+   and  d.addr_hrarcy_cd = 'KS'
+<if test="aprslStsCd != null and aprslStsCd !=''"> 
+   AND  a.aprsl_sts_Cd = #{aprslStsCd}
+</if>
+</select>
+<select id="selectByAprslRqstIdOracle" parameterType="bankware.corebanking.core.asset.evaluation.dao.dto.AsAprslMIO" resultType="bankware.corebanking.core.asset.evaluation.dao.dto.AsAprslMIO">
+select *
+  from (
+SELECT    /* 감정기본 */
+        INST_CD AS instCd,     /*기관코드*/
+        APRSL_ID AS aprslId,     /*감정식별자*/
+        APRSL_STS_CD AS aprslStsCd,     /*감정상태코드*/
+        APRSL_STS_DT AS aprslStsDt,     /*감정상태년월일*/
+        APRSL_MTHD_CD AS aprslMthdCd,     /*감정방법코드*/
+        APRSL_PURPOSE_CD AS aprslPurposeCd,     /*감정목적코드*/
+        ASSET_KND_CD AS assetKndCd,     /*자산종류코드*/
+        APRSL_REPORT_NBR AS aprslReportNbr,     /*감정서번호*/
+        APRSL_DT AS aprslDt,     /*감정년월일*/
+        APRSR_NM AS aprsrNm,     /*감정인명*/
+        APRSR_CNTNT AS aprsrCntnt,     /*감정인의견*/
+        APRSL_RQST_ID AS aprslRqstId,     /*감정의뢰식별자*/
+        APRSL_RQST_SEQ_NBR AS aprslRqstSeqNbr,     /*감정의뢰일련번호*/
+        RGSTRN_DT AS rgstrnDt,     /*등록년월일*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  as_aprsl_m
+ WHERE INST_CD = #{instCd}
+   AND APRSL_RQST_ID = #{aprslRqstId}
+   AND APRSL_RQST_SEQ_NBR = #{aprslRqstSeqNbr}
+ ORDER BY APRSL_STS_CD ASC
+)
+where rownum = 1
+</select>
+<select id="selectByAprslRqstIdMySql" parameterType="bankware.corebanking.core.asset.evaluation.dao.dto.AsAprslMIO" resultType="bankware.corebanking.core.asset.evaluation.dao.dto.AsAprslMIO">
+SELECT    /* 감정기본 */
+        INST_CD AS instCd,     /*기관코드*/
+        APRSL_ID AS aprslId,     /*감정식별자*/
+        APRSL_STS_CD AS aprslStsCd,     /*감정상태코드*/
+        APRSL_STS_DT AS aprslStsDt,     /*감정상태년월일*/
+        APRSL_MTHD_CD AS aprslMthdCd,     /*감정방법코드*/
+        APRSL_PURPOSE_CD AS aprslPurposeCd,     /*감정목적코드*/
+        ASSET_KND_CD AS assetKndCd,     /*자산종류코드*/
+        APRSL_REPORT_NBR AS aprslReportNbr,     /*감정서번호*/
+        APRSL_DT AS aprslDt,     /*감정년월일*/
+        APRSR_NM AS aprsrNm,     /*감정인명*/
+        APRSR_CNTNT AS aprsrCntnt,     /*감정인의견*/
+        APRSL_RQST_ID AS aprslRqstId,     /*감정의뢰식별자*/
+        APRSL_RQST_SEQ_NBR AS aprslRqstSeqNbr,     /*감정의뢰일련번호*/
+        RGSTRN_DT AS rgstrnDt,     /*등록년월일*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  as_aprsl_m
+ WHERE INST_CD = #{instCd}
+   AND APRSL_RQST_ID = #{aprslRqstId}
+   AND APRSL_RQST_SEQ_NBR = #{aprslRqstSeqNbr}
+ ORDER BY APRSL_STS_CD ASC
+ LIMIT 1
+</select>
+</mapper>

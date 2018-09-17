@@ -1,0 +1,7 @@
+OMM bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.ExternalMsgVerificationIO
+<description="">
+{
+	String jointNetworkClCd<length=4 description="공동망종별코드(CD사용)">;
+	String errItmNbr<length=3 description="에러항목번호">;
+	String msgChkClassNm<length=200 description="메시지검증클래스명">;
+}

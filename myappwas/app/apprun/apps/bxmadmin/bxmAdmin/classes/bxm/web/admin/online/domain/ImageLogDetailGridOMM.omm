@@ -1,0 +1,6 @@
+OMM bxm.web.admin.online.domain.ImageLogDetailGridOMM
+<description="">
+{
+	bxm.web.admin.online.domain.MessageGridOMM systemHeader<length=0 arrayReference="1">;
+	bxm.web.admin.online.domain.MessageGridOMM data<length=0 arrayReference="1">;
+}

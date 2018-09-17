@@ -1,0 +1,24 @@
+OMM bxm.web.admin.main.domain.BizDateOMM
+<description="BizDateOMM">
+{
+	String trxDt<length=8 description="거래일자">;
+	String bizDt<length=8 description="영업일자">;
+	String dtchgYn<length=1 description="일자변경여부">;
+	String befImgYn<length=1 description="비포이미지로깅여부">;
+	String daywTypeCd<length=1 description="요일구분코드">;
+	String bef1BizDt<length=8 description="전1영업일자">;
+	String bef2BizDt<length=8 description="전2영업일자">;
+	String bef3BizDt<length=8 description="전3영업일자">;
+	String bef4BizDt<length=8 description="전4영업일자">;
+	String bef5BizDt<length=8 description="전5영업일자">;
+	String aft1BizDt<length=8 description="익1영업일자">;
+	String aft2BizDt<length=8 description="익2영업일자">;
+	Integer yearTotalDayCnt<length=3 description="년총일수">;
+	Integer monthTotalDayCnt<length=3 description="월총일수">;
+	String monthFirstBizDt<length=8 description="월최초영업일자">;
+	String monthLastBizDt<length=8 description="월최종영업일자">;
+	String monthLastTrxDt<length=8 description="월최종거래일자">;
+	String hdayYn<length=1 description="휴일여부">;
+	String wendYn<length=1 description="주말여부">;
+	String mendYn<length=1 description="월말여부">;
+}

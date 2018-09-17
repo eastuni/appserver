@@ -1,0 +1,24 @@
+OMM bxm.web.admin.deferred.domain.DfrdInput01IO
+<description="">
+{
+	String deferredId<length=20 description="후행ID">;
+	String deferredNm<length=100 description="후행명">;
+	String guid<length=40 description="GUID">;
+	Integer linkSeq<length=3 description="연동일련번호">;
+	BigDecimal logSeq<length=19 description="로그일련번호">;
+	String bizDt<length=8 description="영업일자">;
+	String trxDt<length=8 description="거래일자">;
+	String sysDt<length=8 description="시스템일자">;
+	String sysTime<length=6 description="시스템시간">;
+	String nodeNm<length=128 description="노드명">;
+	Integer nodeNo<length=2 description="노드번호">;
+	String inputProcCd<length=1 description="입력처리코드">;
+	BigDecimal loggingMills<length=18 description="로깅밀리초">;
+	String input1Data<length=4000 description="입력1데이터">;
+	String input2Data<length=4000 description="입력2데이터">;
+	String input3Data<length=4000 description="입력3데이터">;
+	String regDttm<length=14 description="등록일시">;
+	String modifDttm<length=14 description="수정일시">;
+	Integer pageNum<length=9 description="페이지숫자">;
+	Integer pageCount<length=9 description="페이지카운트">;
+}

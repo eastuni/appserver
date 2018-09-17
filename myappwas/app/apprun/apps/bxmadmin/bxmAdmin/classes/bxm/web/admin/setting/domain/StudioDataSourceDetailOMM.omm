@@ -1,0 +1,8 @@
+OMM bxm.web.admin.setting.domain.StudioDataSourceDetailOMM
+<description="">
+{
+	String connectionName<length=20 description="커넥션 명">;
+	String dataSourceName<length=20 description="데이터소스 명">;
+	String useYn<length=20 description="사용 여부">;
+	bxm.web.admin.setting.domain.StudioDataSourceOMM dataSourceList<length=0 arrayReference="1" description="데이터소스 값">;
+}

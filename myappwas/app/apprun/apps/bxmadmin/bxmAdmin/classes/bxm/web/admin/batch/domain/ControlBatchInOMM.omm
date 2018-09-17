@@ -1,0 +1,6 @@
+OMM bxm.web.admin.batch.domain.ControlBatchInOMM
+<description="">
+{
+	String jobGrpId<length=40 description="배치작업그룹ID">;
+	String command<length=20 description="control 종류">;
+}

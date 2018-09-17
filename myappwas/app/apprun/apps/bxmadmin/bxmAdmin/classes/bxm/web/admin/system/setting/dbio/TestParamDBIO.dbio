@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.system.setting.dbio.TestParamDBIO">
+<!--Generated Thu Nov 30 14:41:36 KST 2017-->
+<select id="selectTestParamInfo" parameterType="bxm.web.admin.system.setting.domain.TestParamOMM" resultType="bxm.web.admin.system.setting.domain.TestParamOMM">
+SELECT /* BXM 테스트 파라미터 */ 
+       TEST_KEY_TYPE_CD AS testKeyTypeCd,/*테스트키타입코드*/ 
+       TEST_KEY_ID AS testKeyId,/*테스트키ID*/ 
+       TEST_DT AS testDt,/*테스트 일자*/ 
+       TEST_EAI_ID AS testEaiId /*테스트EAIID*/
+  FROM BXM_TEST_PARAM
+ WHERE TEST_KEY_TYPE_CD = #{testKeyTypeCd, jdbcType=VARCHAR}
+   AND TEST_KEY_ID = #{testKeyId, jdbcType=VARCHAR}
+   AND DOMAIN_ID = #{domainId}
+</select>
+<select id="selectTestParamList" resultType="bxm.web.admin.system.setting.domain.TestParamOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* BXM 테스트 파라미터 */ 
+       TEST_KEY_TYPE_CD AS testKeyTypeCd,/*테스트키타입코드*/ 
+       TEST_KEY_ID AS testKeyId,/*테스트키ID*/ 
+       TEST_DT AS testDt,/*테스트 일자*/ 
+       TEST_EAI_ID AS testEaiId /*테스트EAIID*/
+  FROM BXM_TEST_PARAM
+  WHERE DOMAIN_ID = #{testParam.domainId}
+	  	<if test="testParam.testKeyTypeCd != null and testParam.testKeyTypeCd !=''">
+	  		and upper(TEST_KEY_TYPE_CD) like upper(#{testParam.testKeyTypeCd, jdbcType=VARCHAR})||'%'
+	  	</if>
+	  	<if test="testParam.testKeyId != null and testParam.testKeyId !=''">
+	  		and upper(TEST_KEY_ID) like upper(#{testParam.testKeyId, jdbcType=VARCHAR})||'%'
+	  	</if>
+  ORDER BY TEST_KEY_TYPE_CD, TEST_KEY_ID
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectTestParamList" resultType="bxm.web.admin.system.setting.domain.TestParamOMM">
+SELECT /* BXM 테스트 파라미터 */ 
+       TEST_KEY_TYPE_CD AS testKeyTypeCd,/*테스트키타입코드*/ 
+       TEST_KEY_ID AS testKeyId,/*테스트키ID*/ 
+       TEST_DT AS testDt,/*테스트 일자*/ 
+       TEST_EAI_ID AS testEaiId /*테스트EAIID*/
+  FROM BXM_TEST_PARAM
+  WHERE DOMAIN_ID = #{testParam.domainId}
+	  	<if test="testParam.testKeyTypeCd != null and testParam.testKeyTypeCd !=''">
+	  		and upper(TEST_KEY_TYPE_CD) like CONCAT( upper(#{testParam.testKeyTypeCd}) , '%')
+	  	</if>
+	  	<if test="testParam.testKeyId != null and testParam.testKeyId !=''">
+	  		and upper(TEST_KEY_ID) like CONCAT( upper(#{testParam.testKeyId}) , '%')
+	  	</if>
+  ORDER BY TEST_KEY_TYPE_CD, TEST_KEY_ID
+LIMIT #{pageNum}, #{pageCount}
+</select>
+<insert id="insertTestParam" parameterType="bxm.web.admin.system.setting.domain.TestParamOMM">
+INSERT INTO BXM_TEST_PARAM /* BXM 테스트 파라미터 */
+(
+	DOMAIN_ID, /* 도메인 ID */
+    TEST_KEY_TYPE_CD,/*테스트키타입코드*/ 
+    TEST_KEY_ID,/*테스트키ID*/ 
+    TEST_DT,/*테스트 일자*/
+    TEST_EAI_ID /*테스트EAIID*/ 
+)
+VALUES
+(
+	#{domainId}, /* 도메인 ID */
+    #{testKeyTypeCd},/*테스트키타입코드*/ 
+    #{testKeyId},/*테스트키ID*/ 
+    #{testDt},/*테스트 일자*/
+    #{testEaiId} /*테스트EAIID*/ 
+)
+</insert>
+<delete id="deleteTestParam" parameterType="bxm.web.admin.system.setting.domain.TestParamOMM">
+DELETE FROM BXM_TEST_PARAM /* BXM 테스트 파라미터 */
+      WHERE TEST_KEY_TYPE_CD = #{testKeyTypeCd}
+        AND TEST_KEY_ID = #{testKeyId}
+        AND DOMAIN_ID = #{domainId}
+</delete>
+<update id="updateTestParam" parameterType="bxm.web.admin.system.setting.domain.TestParamOMM">
+UPDATE BXM_TEST_PARAM /* BXM 테스트 파라미터 */
+   SET TEST_DT = #{testDt, jdbcType=VARCHAR} /* 테스트 일자 */,
+       TEST_EAI_ID = #{testEaiId, jdbcType=VARCHAR} /* 테스트EAIID */
+ WHERE TEST_KEY_TYPE_CD = #{testKeyTypeCd}
+   AND TEST_KEY_ID = #{testKeyId}
+   AND DOMAIN_ID = #{domainId}
+</update>
+<select id="countTotalPage" parameterType="bxm.web.admin.system.setting.domain.TestParamSearchConditionOMM" resultType="java.lang.Integer">
+SELECT COUNT(*) FROM bxm_test_param
+WHERE DOMAIN_ID = #{domainId}
+	<if test="testKeyTypeCd != null and testKeyTypeCd != ''">
+		and upper(TEST_KEY_TYPE_CD) like upper(#{testKeyTypeCd})||'%'
+	</if>
+		<if test="testKeyId != null and testKeyId != ''">
+		and upper(TEST_KEY_ID) like upper(#{testKeyId})||'%'
+	</if>
+</select>
+<select databaseId="mysql" id="countTotalPage" parameterType="bxm.web.admin.system.setting.domain.TestParamSearchConditionOMM" resultType="java.lang.Integer">
+SELECT COUNT(*) FROM BXM_TEST_PARAM
+WHERE DOMAIN_ID = #{domainId}
+	<if test="testKeyTypeCd != null and testKeyTypeCd != ''">
+		and upper(TEST_KEY_TYPE_CD) like CONCAT( upper(#{testKeyTypeCd}) , '%')
+	</if>
+		<if test="testKeyId != null and testKeyId != ''">
+		and upper(TEST_KEY_ID) like CONCAT( upper(#{testKeyId}) , '%')
+	</if>
+</select>
+</mapper>

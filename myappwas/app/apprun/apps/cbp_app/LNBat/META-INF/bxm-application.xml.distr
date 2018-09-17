@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bxm-application xmlns="http://www.es-code.com/schema/application" xmlns:ns2="http://www.es-code.com/schema/common" name="LNBat" loglevel="Debug" shared="false" reference-applications="AC,AR,AT,CM,CORE-intrfc,PD,SM,ST,SV,LNSvc,DC,CbbCC" type="batch">
+    <description>LNBat</description>
+    <datasource>
+        <jndi-datasource name="BXM" jndi-datasource="java:/comp/env/BXMNXA" jndi-xadatasource="java:/comp/env/BXMXA"/>
+    </datasource>
+    <datasource>
+        <jdbc-datasource name="BXM" driver-classname="${driver-classname}" uri="${uri}" username="${username}" enc-password="${password}" maxActive="10" maxIdle="10" validationQuery="select 1 from dual" validationQueryTimeout="60"/>
+    </datasource>
+    <datasource>
+        <jdbc-datasource name="CBB" driver-classname="${driver-classname}" uri="${uri}" username="${username}" enc-password="${password}" maxActive="10" maxIdle="10" validationQuery="select 1 from dual" validationQueryTimeout="60"/>
+    </datasource>
+</bxm-application>

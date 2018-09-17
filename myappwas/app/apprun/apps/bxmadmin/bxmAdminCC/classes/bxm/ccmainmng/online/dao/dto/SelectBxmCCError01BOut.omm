@@ -1,0 +1,7 @@
+OMM bxm.ccmainmng.online.dao.dto.SelectBxmCCError01BOut
+<description=" ">
+{
+	BigDecimal srtSqno<length=15 description="시작일련번호">;
+	BigDecimal endSqno<length=15 description="종료일련번호">;
+	Integer iqryCnt<length=7 description="조회건수">;
+}

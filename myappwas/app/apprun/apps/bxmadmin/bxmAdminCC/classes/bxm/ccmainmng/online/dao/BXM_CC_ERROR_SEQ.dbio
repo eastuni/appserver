@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.ccmainmng.online.dao.BXM_CC_ERROR_SEQ">
+<!--Generated Wed Sep 13 10:39:49 KST 2017-->
+<select id="selectBxmCCErrorSeq01B" parameterType="bxm.ccmainmng.online.dto.BxmCCErrorSeqIO" resultType="bxm.ccmainmng.online.dto.BxmCCErrorSeqIO">
+SELECT  /* 센터컷 순차오류 */
+		domain_id AS domainId,
+        cc_id AS ccId    /*CCID*/, 
+        pcsn_dt AS pcsnDt    /*처리일자*/, 
+        acpt_no AS acptNo    /*접수번호*/, 
+        tn_no AS tnNo    /*회차번호*/, 
+        cc_trx_sqno AS ccTrxSqno    /*CC처리일련번호*/ 
+  FROM  BXM_CC_ERROR_SEQ
+ WHERE  domain_id = #{domainId} 
+   AND cc_id = #{ccId}
+   AND  pcsn_dt = #{pcsnDt}
+   AND  acpt_no = #{acptNo}
+   AND  tn_no = #{tnNo}
+   AND  seri_pcsn_key =#{seriPcsnKey}
+</select>
+</mapper>

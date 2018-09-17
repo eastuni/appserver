@@ -1,0 +1,15 @@
+OMM bxm.web.admin.error.mgmt.domain.SearchBaseOMM
+<description="">
+{
+	String domainId<length=14 description="도메인 ID">;
+	String cndtUid<length=10 description="조건UID">;
+	String occurDt<length=10 description="발생일자">;
+	String bizDt<length=10 description="영업일자">;
+	String occurDtStart<length=10 description="발생시작일자">;
+	String occurDtEnd<length=10 description="발생종료일자">;
+	String bizDtStart<length=10 description="영업시작일자">;
+	String bizDtEnd<length=10 description="영업종료일자">;
+	Integer pageNum<length=9 description="페이지숫자">;
+	Integer pageCount<length=9 description="페이지카운트">;
+	String trxCd<length=12 description="거래코드">;
+}

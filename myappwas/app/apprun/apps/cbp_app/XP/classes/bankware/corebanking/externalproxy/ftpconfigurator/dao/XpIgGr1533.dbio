@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpIgGr1533">
+<!--Generated Wed Apr 26 17:37:41 KST 2017-->
+<select id="selectGR1533InqryList" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIgGr1533IO">
+SELECT 		A.instCd,     /*기관코드*/
+		        A.txDt,     /*거래일자*/
+		        A.seqNbr,     /*일련번호*/
+		        A.rmtncDt,     /*이체일자*/
+		        A.fnclInstBizBrnchCd,     /*금융기관영업은행지점코드*/
+		        A.realRcptAmt,     /*실수납금액*/
+		        A.rcptProxyCostCnt,     /*수납대행비용건수*/
+		        A.rcptProxyCostAmt,     /*수납대행비용금액*/
+		        A.rcptCnt,     /*수납건수*/
+		        A.rcptAmt,     /*수납금액*/
+		        A.dsbrsmntCnt,     /*지급건수*/
+		        A.dsbrsmntAmt,     /*지급금액*/
+		        A.appendFeeCnt,     /*추가수수료건수*/
+		        A.appendFeeAmt,     /*추가수수료금액*/
+		        A.actualPymntCnt,     /*실지급건수*/
+		        A.actualPymntAmt,     /*실지급금액*/
+		        A.hndlngFeeAmt     /*CDATM취급수수료*/ 
+FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+    			A.instCd,     /*기관코드*/
+		        A.txDt,     /*거래일자*/
+		        A.seqNbr,     /*일련번호*/
+		        A.rmtncDt,     /*이체일자*/
+		        A.fnclInstBizBrnchCd,     /*금융기관영업은행지점코드*/
+		        A.realRcptAmt,     /*실수납금액*/
+		        A.rcptProxyCostCnt,     /*수납대행비용건수*/
+		        A.rcptProxyCostAmt,     /*수납대행비용금액*/
+		        A.rcptCnt,     /*수납건수*/
+		        A.rcptAmt,     /*수납금액*/
+		        A.dsbrsmntCnt,     /*지급건수*/
+		        A.dsbrsmntAmt,     /*지급금액*/
+		        A.appendFeeCnt,     /*추가수수료건수*/
+		        A.appendFeeAmt,     /*추가수수료금액*/
+		        A.actualPymntCnt,     /*실지급건수*/
+		        A.actualPymntAmt,     /*실지급금액*/
+		        A.hndlngFeeAmt     /*CDATM취급수수료*/ 
+    FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* 인터넷지로_수납및지급집계내역 */
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래일자*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        TRNS_DT AS rmtncDt,     /*이체일자*/
+        FNCL_INST_BSOP_BNK_BRH_CD AS fnclInstBizBrnchCd,     /*금융기관영업은행지점코드*/
+        REAL_RCPT_AMT AS realRcptAmt,     /*실수납금액*/
+        RCPT_PROXY_COST_CNT AS rcptProxyCostCnt,     /*수납대행비용건수*/
+        RCPT_PROXY_COST_AMT AS rcptProxyCostAmt,     /*수납대행비용금액*/
+        RCPT_CNT AS rcptCnt,     /*수납건수*/
+        RCPT_AMT AS rcptAmt,     /*수납금액*/
+        DSBRS_CNT AS dsbrsmntCnt,     /*지급건수*/
+        DSBRS_AMT AS dsbrsmntAmt,     /*지급금액*/
+        SUPPL_FEE_CNT AS appendFeeCnt,     /*추가수수료건수*/
+        SUPPL_FEE_AMT AS appendFeeAmt,     /*추가수수료금액*/
+        REAL_DSBRS_CNT AS actualPymntCnt,     /*실지급건수*/
+        REAL_DSBRS_AMT AS actualPymntAmt,     /*실지급금액*/
+        CDATM_HNDN_FEE AS hndlngFeeAmt     /*CDATM취급수수료*/
+  FROM  XP_IG_GR1533
+  WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+   order by INST_CD, TX_DT desc, SEQ_NBR desc
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) A
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectGR1533InqryTotalCnt" resultType="java.lang.Integer">
+SELECT    /* 인터넷지로_수납및지급집계내역 */
+        COUNT(INST_CD)
+  FROM  XP_IG_GR1533
+  WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+</select>
+</mapper>

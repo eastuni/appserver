@@ -1,0 +1,10 @@
+OMM bankware.corebanking.externalproxy.eljointnetwork.batch.dto.EL0022BatchTrailerIO
+<description="">
+{
+	String bizDscd<length=6 description="업무구분">;
+	String dataDscd<length=2 description="데이터구분">;
+	String seqNbr<length=7 description="일련번호">;
+	String bnkCd<length=3 description="은행코드">;
+	String totDataCnt<length=7 description="총DATA수">;
+	String fillerCntnt<length=275 description="FILLER">;
+}

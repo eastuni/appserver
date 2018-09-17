@@ -1,0 +1,9 @@
+OMM bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.IgCityGiroNbrIFOutSub
+<description="지자체 행정구역 조회 Sub">
+{
+	String issueInstDscd<length=2 description="발행기관분류코드">;
+	String giroNbr<length=7 description="지로번호">;
+	String localGvrnmntNm<length=30 description="지방자치명">;
+	String useInstNm1<length=30 description="이용기관명">;
+	BigDecimal sortSeqNbr<length=10 description="정렬순서">;
+}

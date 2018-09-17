@@ -1,0 +1,11 @@
+OMM bxm.web.admin.authority.domain.LoginOMM
+<description="">
+{
+	String userId<length=32 description="사용자ID">;
+	String userNm<length=20 description="사용자 명">;
+	String userPwd<length=64 description="사용자비밀번호">;
+	String lang<length=20 description="언어">;
+	String roleId<length=20 description="사용자 역할">;
+	String authId<length=20 description="권한 ID">;
+	String domainId<length=20 description="도메인 ID">;
+}

@@ -1,0 +1,980 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.cdjointnetwork.dao.XpCdTxH">
+<!--Generated Thu Apr 20 14:20:07 KST 2017-->
+<insert id="insertCdTransHistory" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdTxHIO">
+INSERT  INTO  xp_cd_tx_h
+(
+  INST_CD,     /*기관코드*/
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드*/
+  TX_DT,     /*거래년월일*/
+  TX_UNQ_NBR,     /*거래고유번호*/
+  TX_HMS,     /*취소거래시각*/
+  CNCL_Dscd,     /*취소구분코드*/
+  GUID,     /*GUID*/
+  MSG_CD,     /*메시지코드*/
+  EXTRNL_RSPNS_CD,     /*대외응답코드*/
+  MSG_TRACE_NBR,     /*전문추적번호*/
+  OWN_OR_OTHR_BNK_WHDRWL_ACCT_NBR,     /*출금계좌번호*/
+  OWN_OR_OTHR_BNK_DPST_ACCT_NBR,     /*입금계좌번호*/
+  HNDLNG_FNCL_INST_CD,     /*취급금융기관코드*/
+  HNDLNG_FNCL_INST_BRNCH_CD,     /*취급금융기관부점코드*/
+  WHDRWL_FNCL_INST_CD,     /*출금금융기관코드*/
+  WHDRWL_FNCL_INST_BRNCH_CD,     /*출금금융기관부점코드*/
+  DPST_FNCL_INST_CD,     /*입금금융기관코드*/
+  DPST_FNCL_INST_BRNCH_CD,     /*입금금융기관부점코드*/
+  CRNCY_CD,     /*통화코드*/
+  TX_AMT,     /*거래금액*/
+  CASH_AMT,     /*현금금액*/
+  TRNSFR_AMT,     /*대체금액*/
+  CHEQUE_AMT,     /*수표금액*/
+  BAL_SIGN_CD,     /*잔액부호코드*/
+  BAL_AMT,     /*잔액*/
+  UNSTLD_CHEQUE_AMT,     /*미결제타점권*/
+  FEE_AMT,     /*수수료*/
+  WHDRWL_NM,     /*출금인명*/
+  BNFCRY_NM,     /*수취인명*/
+  HNDLNG_PRMSRY_EX_CD,     /*취급어음교환소코드*/
+  OPN_PRMSRY_EX_CD,     /*출금어음교환소코드*/
+  RCPNT_PRMSRY_EX_CD,     /*입금어음교환소코드*/
+  CARD_EFCTV_YM,     /*카드유효기간*/
+  CARD_BIN_NBR,     /*카드빈번호*/
+  CD_MACHINE_PRCS_NBR,     /*CD기처리번호*/
+  CD_MACHINE_Dscd,     /*CD기구분코드*/
+  TRACK_TWO_CNTNT,     /*TRACK II 데이터*/
+  ISSUE_INST_Dscd,     /*발행기관분류코드*/
+  GIRO_NBR,     /*지로번호*/
+  ELCTRNC_PYMNT_NBR,     /*전자납부번호*/
+  IC_CARD_SEQ_NBR,     /*IC카드일련번호*/
+  IC_CARD_INFO_CNTNT,     /*IC카드정보*/
+  CNCL_TX_HMS,     /*취소거래시각*/
+  CNCL_TX_MSG_TRACE_NBR,     /*취소거래전문추적번호*/
+  CNCL_TX_GUID,     /*취소거래GUID*/
+  FNCL_FRAUD_DOUBT_ATNTN_INFO_CD,     /*금융사기의심유의정보코드*/
+  ALNC_CMPNY_TX_UNQ_NBR, /*제휴사거래고유번호*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID,    /*최종변경GUID*/
+  JOINT_NETWORK_CL_CD,     /*전문종별*/
+  JOINT_NETWORK_TX_Dscd,    /*거래구분코드*/
+  CASH_CARD_SEQ_NBR, /*현금카드일련번호*/
+  CDATM_TMNLU_NBR, /*CDATM단말기번호*/
+  BRNCH_INSIDE_OUTSIDE_Dscd, /*점내외구분코드*/
+  CDATM_Dscd, /*CDATM구분코드*/
+  BIZ_TM_INSIDE_AND_OUTSIDE_Dscd /*영업시간내외구분코드*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR},     /*기관코드*/
+  #{extrnlInstCd, jdbcType=VARCHAR},     /*대외기관코드*/
+  #{extrnlBizDscd, jdbcType=VARCHAR},     /*대외업무구분코드*/
+  #{txDt, jdbcType=VARCHAR},     /*거래년월일*/
+  #{txUnqNbr, jdbcType=VARCHAR},     /*거래고유번호*/
+  #{txHms, jdbcType=VARCHAR},     /*취소거래시각*/
+  #{cnclDscd, jdbcType=VARCHAR},     /*취소구분코드*/
+  #{guid, jdbcType=VARCHAR},     /*GUID*/
+  #{msgCd, jdbcType=VARCHAR},     /*메시지코드*/
+  #{extrnlRspnsCd, jdbcType=VARCHAR},     /*대외응답코드*/
+  #{msgTraceNbr, jdbcType=VARCHAR},     /*전문추적번호*/
+  #{whdrwlAcctNbr, jdbcType=VARCHAR},     /*출금계좌번호*/
+  #{dpstAcctNbr, jdbcType=VARCHAR},     /*입금계좌번호*/
+  #{hndlngFnclInstCd, jdbcType=VARCHAR},     /*취급금융기관코드*/
+  #{hndlngFnclInstBrnchCd, jdbcType=VARCHAR},     /*취급금융기관부점코드*/
+  #{whdrwlFnclInstCd, jdbcType=VARCHAR},     /*출금금융기관코드*/
+  #{whdrwlFnclInstBrnchCd, jdbcType=VARCHAR},     /*출금금융기관부점코드*/
+  #{dpstFnclInstCd, jdbcType=VARCHAR},     /*입금금융기관코드*/
+  #{dpstFnclInstBrnchCd, jdbcType=VARCHAR},     /*입금금융기관부점코드*/
+  #{crncyCd, jdbcType=VARCHAR},     /*거래금액*/
+  #{txAmt, jdbcType=NUMERIC},     /*거래금액*/
+  #{cashAmt, jdbcType=NUMERIC},     /*현금금액*/
+  #{trnsfrAmt, jdbcType=NUMERIC},     /*대체금액*/
+  #{chequeAmt, jdbcType=NUMERIC},     /*수표금액*/
+  #{balSignCd, jdbcType=VARCHAR},     /*잔액부호코드*/
+  #{balAmt, jdbcType=NUMERIC},     /*잔액*/
+  #{unstldChequeAmt, jdbcType=NUMERIC},     /*미결제타점권*/
+  #{feeAmt, jdbcType=NUMERIC},     /*수수료*/
+  #{whdrwlNm, jdbcType=VARCHAR},     /*출금인명*/
+  #{bnfcryNm, jdbcType=VARCHAR},     /*수취인명*/
+  #{hndlngPrmsryExCd, jdbcType=VARCHAR},     /*취급어음교환소코드*/
+  #{opnPrmsryExCd, jdbcType=VARCHAR},     /*출금어음교환소코드*/
+  #{rcpntPrmsryExCd, jdbcType=VARCHAR},     /*입금어음교환소코드*/
+  #{cardEfctvYm, jdbcType=VARCHAR},     /*카드유효기간*/
+  #{cardBinNbr, jdbcType=VARCHAR},     /*카드빈번호*/
+  #{cdMachinePrcsNbr, jdbcType=VARCHAR},     /*CD기처리번호*/
+  #{cdMachineDscd, jdbcType=VARCHAR},     /*CD기구분코드*/
+  #{trackCntnt, jdbcType=VARCHAR},     /*TRACK II 데이터*/
+  #{issueInstDscd, jdbcType=VARCHAR},     /*발행기관분류코드*/
+  #{giroNbr, jdbcType=VARCHAR},     /*카드빈번호*/
+  #{elctrncPymntNbr, jdbcType=VARCHAR},     /*카드빈번호*/
+  #{icCardSeqNbr, jdbcType=VARCHAR},     /*IC카드일련번호*/
+  #{icCardInfoCntnt, jdbcType=VARCHAR},     /*IC카드정보*/
+  #{cnclTxHms, jdbcType=VARCHAR},     /*취소거래시각*/
+  #{cnclTxMsgTraceNbr, jdbcType=VARCHAR},     /*취소거래전문추적번호*/
+  #{cnclTxGuid, jdbcType=VARCHAR},     /*취소거래GUID*/
+  #{fnclFraudDoubtAtntnInfoCd, jdbcType=VARCHAR},     /*금융사기의심유의정보코드*/
+  #{alncCmpnyTxUnqNbr, jdbcType=VARCHAR},     /*제휴사거래고유번호*/  
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR},    /*최종변경GUID*/
+  #{jointNetworkClCd, jdbcType=VARCHAR},    /*종별코드*/
+  #{jointNetworkTxDscd, jdbcType=VARCHAR},  /*거래구분코드*/
+  #{cashCardSeqNbr, jdbcType=VARCHAR},  /*현금카드일련번호*/
+  #{cdAutoTlrMachineTrmnlNbr, jdbcType=VARCHAR},   /*CDATM단말기번호*/
+  #{brnchInsideOutsideDscd, jdbcType=VARCHAR},   /*점내외구분코드*/
+  #{cdatmDscd, jdbcType=VARCHAR},   /*CDATM구분코드*/
+  #{bizTmInsideAndOutsideDscd, jdbcType=VARCHAR}   /*영업시간내외구분코드*/
+)
+</insert>
+<select id="selectCdTransHistory" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdTxHIO">
+SELECT    /* CD공동망거래의거래내역을관리함 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        TX_HMS AS txHms,     /*취소거래시각*/
+        CNCL_Dscd AS cnclDscd,     /*취소구분코드*/
+        GUID AS guid,     /*GUID*/
+        MSG_CD AS msgCd,     /*메시지코드*/
+        EXTRNL_RSPNS_CD AS extrnlRspnsCd,     /*대외응답코드*/
+        MSG_TRACE_NBR AS msgTraceNbr,     /*전문추적번호*/
+        OWN_OR_OTHR_BNK_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,     /*출금계좌번호*/
+        OWN_OR_OTHR_BNK_DPST_ACCT_NBR AS dpstAcctNbr,     /*입금계좌번호*/
+        HNDLNG_FNCL_INST_CD AS hndlngFnclInstCd,     /*취급금융기관코드*/
+        HNDLNG_FNCL_INST_BRNCH_CD AS hndlngFnclInstBrnchCd,     /*취급금융기관부점코드*/
+        WHDRWL_FNCL_INST_CD AS whdrwlFnclInstCd,     /*출금금융기관코드*/
+        WHDRWL_FNCL_INST_BRNCH_CD AS whdrwlFnclInstBrnchCd,     /*출금금융기관부점코드*/
+        DPST_FNCL_INST_CD AS dpstFnclInstCd,     /*입금금융기관코드*/
+        DPST_FNCL_INST_BRNCH_CD AS dpstFnclInstBrnchCd,     /*입금금융기관부점코드*/
+        CRNCY_CD AS crncyCd,     /*거래금액*/
+        TX_AMT AS txAmt,     /*거래금액*/
+        CASH_AMT AS cashAmt,     /*현금금액*/
+        TRNSFR_AMT AS trnsfrAmt,     /*대체금액*/
+        CHEQUE_AMT AS chequeAmt,     /*수표금액*/
+        BAL_SIGN_CD AS balSignCd,     /*잔액부호코드*/
+        BAL_AMT AS balAmt,     /*잔액*/
+        UNSTLD_CHEQUE_AMT AS unstldChequeAmt,     /*미결제타점권*/
+        FEE_AMT AS feeAmt,     /*수수료*/
+        WHDRWL_NM AS whdrwlNm,     /*출금인명*/
+        BNFCRY_NM AS bnfcryNm,     /*수취인명*/
+        HNDLNG_PRMSRY_EX_CD AS hndlngPrmsryExCd,     /*취급어음교환소코드*/
+        OPN_PRMSRY_EX_CD AS opnPrmsryExCd,     /*출금어음교환소코드*/
+        RCPNT_PRMSRY_EX_CD AS rcpntPrmsryExCd,     /*입금어음교환소코드*/
+        CARD_NBR AS cardNbr,     /*카드번호*/
+        CARD_EFCTV_YM AS cardEfctvYm,     /*카드유효기간*/
+        CARD_BIN_NBR AS cardBinNbr,     /*카드빈번호*/
+        CD_MACHINE_PRCS_NBR AS cdMachinePrcsNbr,     /*카드빈번호*/
+        CD_MACHINE_Dscd AS cdMachineDscd,     /*카드빈번호*/
+        TRACK_TWO_CNTNT AS trackCntnt,     /*카드빈번호*/
+        ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+        GIRO_NBR AS giroNbr,     /*카드빈번호*/
+        ELCTRNC_PYMNT_NBR AS elctrncPymntNbr,     /*카드빈번호*/
+        IC_CARD_SEQ_NBR AS icCardSeqNbr,     /*IC카드일련번호*/
+        IC_CARD_INFO_CNTNT AS icCardInfoCntnt,     /*IC카드정보*/
+        CNCL_TX_HMS AS cnclTxHms,     /*취소거래시각*/
+        CNCL_TX_MSG_TRACE_NBR AS cnclTxMsgTraceNbr,     /*취소거래전문추적번호*/
+        CNCL_TX_GUID AS cnclTxGuid,     /*취소거래GUID*/
+        FNCL_FRAUD_DOUBT_ATNTN_INFO_CD AS fnclFraudDoubtAtntnInfoCd,     /*금융사기의심유의정보코드*/
+        ALNC_CMPNY_TX_UNQ_NBR AS alncCmpnyTxUnqNbr, /*제휴사거래고유번호*/
+        JOINT_NETWORK_CL_CD as jointNetworkClCd, /*전문종별코드*/
+        JOINT_NETWORK_TX_Dscd as jointNetworkTxDscd, /*거래구분코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_CD_TX_H
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND TX_UNQ_NBR = #{txUnqNbr}
+   AND JOINT_NETWORK_CL_CD = #{jointNetworkClCd}
+  <if test="jointNetworkTxDscd != '910000'">
+	AND JOINT_NETWORK_TX_Dscd = #{jointNetworkTxDscd}
+   </if>
+</select>
+<select id="selectCdTransHistoryForCancel" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdTxHIO">
+SELECT    /* CD거래내역 */
+       tx_unq_nbr AS txUnqNbr    /*거래고유번호*/
+     , cncl_Dscd AS cnclDscd    /*취소구분코드*/
+     , tx_amt AS txAmt    /*거래금액*/
+     , feeAmt AS feeAmt    /*수수료*/
+     , own_or_othr_bnk_whdrwl_acct_nbr AS whdrwlAcctNbr    /*출금계좌번호*/
+     , whdrwl_fncl_inst_cd AS whdrwlFnclInstCd    /*출금금융기관코드*/
+     , own_or_othr_bnk_dpst_acct_nbr AS dpstAcctNbr    /*입금계좌번호*/
+  FROM xp_cd_tx_h
+ WHERE inst_cd = #{instCd}
+   AND tx_dt = #{txDt}
+   AND tx_unq_nbr = #{txUnqNbr}
+</select>
+<update id="updateCdTransHistoryForCancelInfo">
+UPDATE xp_cd_tx_h    /* CD거래내역 */
+   SET cncl_Dscd = #{cnclDscd, jdbcType=VARCHAR}    /* 취소구분코드 */
+     , cncl_tx_hms = #{txHms, jdbcType=VARCHAR}    /*취소거래시각*/
+     , cncl_tx_msg_trace_nbr = #{cnclTxMsgTraceNbr, jdbcType=VARCHAR}    /* 취소거래전문추적번호 */
+     , cncl_tx_guid = #{cnclTxGuid}    /* 취소거래GUID */
+     , last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE inst_cd = #{instCd}
+   AND tx_dt = #{txDt}
+   AND tx_unq_nbr = #{txUnqNbr}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+   AND extrnl_biz_Dscd = #{extrnlBizDscd}
+   AND joint_network_cl_cd = #{jointNetworkClCd}
+   AND joint_network_tx_Dscd = #{jointNetworkTxDscd}
+</update>
+<update id="updateCdTransHistoryForResult" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdTxHIO">
+UPDATE xp_cd_tx_h    /* CD거래내역 */
+   SET tx_hms = #{txHms, jdbcType=VARCHAR}    /* 거래시각 */
+     , cncl_Dscd = #{cnclDscd, jdbcType=VARCHAR}    /* 취소구분코드 */
+     , msg_cd = #{msgCd, jdbcType=VARCHAR}    /* 메시지코드 */
+     , extrnl_rspns_cd = #{extrnlRspnsCd, jdbcType=VARCHAR}    /* 대외응답코드 */
+     , msg_trace_nbr = #{msgTraceNbr, jdbcType=VARCHAR}    /* 전문추적번호 */
+     , own_or_othr_bnk_whdrwl_acct_nbr = #{whdrwlAcctNbr, jdbcType=VARCHAR}    /* 출금계좌번호 */
+     , own_or_othr_bnk_dpst_acct_nbr = #{dpstAcctNbr, jdbcType=VARCHAR}    /* 입금계좌번호 */
+     , hndlng_fncl_inst_cd = #{hndlngFnclInstCd, jdbcType=VARCHAR}    /* 취급금융기관코드 */
+     , hndlng_fncl_inst_brnch_cd = #{hndlngFnclInstBrnchCd, jdbcType=VARCHAR}    /* 취급금융기관부점코드 */
+     , whdrwl_fncl_inst_cd = #{whdrwlFnclInstCd, jdbcType=VARCHAR}    /* 출금금융기관코드 */
+     , whdrwl_fncl_inst_brnch_cd = #{whdrwlFnclInstBrnchCd, jdbcType=VARCHAR}    /* 출금금융기관부점코드 */
+     , dpst_fncl_inst_cd = #{dpstFnclInstCd, jdbcType=VARCHAR}    /* 입금금융기관코드 */
+     , dpst_fncl_inst_brnch_cd = #{dpstFnclInstBrnchCd, jdbcType=VARCHAR}    /* 입금금융기관부점코드 */
+     , crncy_cd = #{crncyCd, jdbcType=VARCHAR}    /* 통화코드 */
+     , tx_amt = #{txAmt, jdbcType=NUMERIC}    /* 거래금액 */
+     , cash_amt = #{cashAmt, jdbcType=NUMERIC}    /* 현금금액 */
+     , trnsfr_amt = #{trnsfrAmt, jdbcType=NUMERIC}    /* 대체금액 */
+     , cheque_amt = #{chequeAmt, jdbcType=NUMERIC}    /* 수표금액 */
+     , bal_sign_cd = #{balSignCd, jdbcType=VARCHAR}    /* 잔액부호코드 */
+     , bal_amt = #{balAmt, jdbcType=NUMERIC}    /* 잔액 */
+     , unstld_cheque_amt = #{unstldChequeAmt, jdbcType=NUMERIC}    /* 미결제타점권 */
+     , feeAmt = #{feeAmt, jdbcType=NUMERIC}    /* 수수료 */
+     , whdrwl_nm = #{whdrwlNm, jdbcType=VARCHAR}    /* 출금인명 */
+     , bnfcry_nm = #{bnfcryNm, jdbcType=VARCHAR}    /* 수취인명 */
+     , hndlng_prmsry_ex_cd = #{hndlngPrmsryExCd, jdbcType=VARCHAR}    /* 취급어음교환소코드 */
+     , opn_prmsry_ex_cd = #{opnPrmsryExCd, jdbcType=VARCHAR}    /* 개설어음교환소코드 */
+     , rcpnt_prmsry_ex_cd = #{rcpntPrmsryExCd, jdbcType=VARCHAR}    /* 수취어음교환소코드 */
+     , card_nbr = #{cardNbr, jdbcType=VARCHAR}    /* 카드번호 */
+     , card_efctv_ym = #{cardEfctvYm, jdbcType=VARCHAR}    /* 카드유효기간 */
+     , card_bin_nbr = #{cardBinNbr, jdbcType=VARCHAR}    /* 카드빈번호 */
+     , cd_machine_prcs_nbr = #{cdMachinePrcsNbr, jdbcType=VARCHAR}    /* CD기처리번호 */
+     , cd_machine_Dscd = #{cdMachineDscd, jdbcType=VARCHAR}    /* CD기구분코드 */
+     , track_two_cntnt = #{trackCntnt, jdbcType=VARCHAR}    /* TRACK II 데이터 */
+     , issue_inst_Dscd = #{issueInstDscd, jdbcType=VARCHAR}    /* 발행기관분류코드 */
+     , giro_nbr = #{giroNbr, jdbcType=VARCHAR}    /* 지로번호 */
+     , elctrnc_pymnt_nbr = #{elctrncPymntNbr, jdbcType=VARCHAR}    /* 전자납부번호 */
+     , ic_card_seq_nbr = #{icCardSeqNbr, jdbcType=VARCHAR}    /* IC카드일련번호 */
+     , ic_card_info_cntnt = #{icCardInfoCntnt, jdbcType=VARCHAR}    /* IC신용카드정보 */
+     , alnc_cmpny_tx_unq_nbr = #{alncCmpnyTxUnqNbr, jdbcType=VARCHAR}
+     , last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE inst_cd = #{instCd}
+   AND tx_dt = #{txDt}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+   AND extrnl_biz_Dscd = #{extrnlBizDscd}
+   AND tx_unq_nbr = #{alncCmpnyTxUnqNbr}
+</update>
+<select id="selectCdTransHistoryForTxCode" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdTxHIO">
+SELECT    /* CD거래내역 */
+       t1.inst_cd AS instCd    /*기관코드*/
+     , t1.tx_dt AS txDt    /*거래년월일*/
+     , t1.tx_unq_nbr AS txUnqNbr    /*거래고유번호*/
+     , t1.tx_hms AS txHms    /*거래시각*/
+     , t1.cncl_Dscd AS cnclDscd    /*취소구분코드*/
+     , t1.guid AS guid    /*GUID*/
+     , t1.msg_cd AS msgCd    /*메시지코드*/
+     , t1.extrnl_rspns_cd AS extrnlRspnsCd    /*대외응답코드*/
+     , t1.msg_trace_nbr AS msgTraceNbr    /*전문추적번호*/
+     , t1.own_or_othr_bnk_whdrwl_acct_nbr AS whdrwlAcctNbr    /*출금계좌번호*/
+     , t1.own_or_othr_bnk_dpst_acct_nbr AS dpstAcctNbr    /*입금계좌번호*/
+     , t1.hndlng_fncl_inst_cd AS hndlngFnclInstCd    /*취급금융기관코드*/
+     , t1.hndlng_fncl_inst_brnch_cd AS hndlngFnclInstBrnchCd    /*취급금융기관부점코드*/
+     , t1.whdrwl_fncl_inst_cd AS whdrwlFnclInstCd    /*출금금융기관코드*/
+     , t1.whdrwl_fncl_inst_brnch_cd AS whdrwlFnclInstBrnchCd    /*출금금융기관부점코드*/
+     , t1.dpst_fncl_inst_cd AS dpstFnclInstCd    /*입금금융기관코드*/
+     , t1.dpst_fncl_inst_brnch_cd AS dpstFnclInstBrnchCd    /*입금금융기관부점코드*/
+     , t1.crncy_cd AS crncyCd    /*통화코드*/
+     , t1.tx_amt AS txAmt    /*거래금액*/
+     , t1.cash_amt AS cashAmt    /*현금금액*/
+     , t1.trnsfr_amt AS trnsfrAmt    /*대체금액*/
+     , t1.cheque_amt AS chequeAmt    /*수표금액*/
+     , t1.bal_sign_cd AS balSignCd    /*잔액부호코드*/
+     , t1.bal_amt AS balAmt    /*잔액*/
+     , t1.unstld_cheque_amt AS unstldChequeAmt    /*미결제타점권*/
+     , t1.feeAmt AS feeAmt    /*수수료*/
+     , t1.whdrwl_nm AS whdrwlNm    /*출금인명*/
+     , t1.bnfcry_nm AS bnfcryNm    /*수취인명*/
+     , t1.hndlng_prmsry_ex_cd AS hndlngPrmsryExCd    /*취급어음교환소코드*/
+     , t1.opn_prmsry_ex_cd AS opnPrmsryExCd    /*개설어음교환소코드*/
+     , t1.rcpnt_prmsry_ex_cd AS rcpntPrmsryExCd    /*수취어음교환소코드*/
+     , t1.card_nbr AS cardNbr    /*카드번호*/
+     , t1.card_efctv_ym AS cardEfctvYm    /*카드유효기간*/
+     , t1.card_bin_nbr AS cardBinNbr    /*카드빈번호*/
+     , t1.cd_machine_prcs_nbr AS cdMachinePrcsNbr    /*CD기처리번호*/
+     , t1.cd_machine_Dscd AS cdMachineDscd    /*CD기구분코드*/
+     , t1.track_two_cntnt AS trackCntnt    /*TRACK II 데이터*/
+     , t1.issue_inst_Dscd AS issueInstDscd    /*발행기관분류코드*/
+     , t1.giro_nbr AS giroNbr    /*지로번호*/
+     , t1.elctrnc_pymnt_nbr AS elctrncPymntNbr    /*전자납부번호*/
+     , t1.ic_card_seq_nbr AS icCardSeqNbr    /*IC카드일련번호*/
+     , t1.ic_card_info_cntnt AS icCardInfoCntnt    /*IC신용카드정보*/
+     , t1.cncl_tx_hms AS cnclTxHms    /*취소거래거래시각*/
+     , t1.cncl_tx_msg_trace_nbr AS cnclTxMsgTraceNbr    /*취소거래전문추적번호*/
+     , t1.cncl_tx_guid AS cnclTxGuid    /*취소거래GUID*/
+     , t2.extrnl_tx_cd AS extrnlTxCd    /*대외거래코드*/
+     , t1.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , t1.last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_cd_tx_h t1, xp_extrnl_tx_h t2
+ WHERE t1.inst_cd = #{instCd}
+   AND t1.tx_dt = #{txDt}
+   AND t1.tx_unq_nbr = #{txUnqNbr}
+   AND t1.inst_cd = t2.inst_cd
+   AND t1.tx_dt = t2.tx_dt
+   AND t1.guid = t2.guid
+</select>
+<select id="selectCdTransHistoryList" resultType="bankware.corebanking.externalproxy.cdjointnetwork.interfaces.dto.ExternalCdTxHOut">
+SELECT
+				instCd,     /*기관코드*/
+        		extrnlInstCd,     /*대외기관코드*/
+        		extrnlBizDscd,     /*대외업무구분코드*/
+				txDt,     /*거래년월일*/
+        		txUnqNbr,     /*거래고유번호*/
+        		txHms,     /*취소거래시각*/
+        		cnclDscd,     /*취소구분코드*/
+        		guid,     /*GUID*/
+        		msgCd,     /*메시지코드*/
+        		extrnlRspnsCd,     /*대외응답코드*/
+        		msgTraceNbr,     /*전문추적번호*/
+        		whdrwlAcctNbr,     /*출금계좌번호*/
+        		dpstAcctNbr,     /*입금계좌번호*/
+        		hndlngFnclInstCd,     /*취급금융기관코드*/
+        		hndlngFnclInstNm,
+        		hndlngFnclInstBrnchCd,     /*취급금융기관부점코드*/
+        		whdrwlFnclInstCd,     /*출금금융기관코드*/
+        		whdrwlFnclInstNm,
+       	 		whdrwlFnclInstBrnchCd,     /*출금금융기관부점코드*/
+        		dpstFnclInstCd,     /*입금금융기관코드*/
+        		dpstFnclInstNm,
+        		dpstFnclInstBrnchCd,     /*입금금융기관부점코드*/
+        		crncyCd,     /*거래금액*/
+        		txAmt,     /*거래금액*/
+        		cashAmt,     /*현금금액*/
+        		trnsfrAmt,     /*대체금액*/
+        		chequeAmt,     /*수표금액*/
+        		balSignCd,     /*잔액부호코드*/
+        		balAmt,     /*잔액*/
+        		unstldChequeAmt,     /*미결제타점권*/
+        		feeAmt,     /*수수료*/
+        		whdrwlNm,     /*출금인명*/
+        		bnfcryNm,     /*수취인명*/
+        		dpstPersonFullNm,
+        		hndlngPrmsryExCd,     /*취급어음교환소코드*/
+        		opnPrmsryExCd,     /*출금어음교환소코드*/
+        		rcpntPrmsryExCd,     /*입금어음교환소코드*/
+				cashCardSeqNbr,     /*현금카드일련번호*/
+        		cdMachinePrcsNbr,     /*카드빈번호*/
+        		cdMachineDscd,     /*카드빈번호*/
+        		trackCntnt,     /*카드빈번호*/
+        		issueInstDscd,     /*발행기관분류코드*/
+        		giroNbr,     /*카드빈번호*/
+        		elctrncPymntNbr,     /*카드빈번호*/
+        		icCardSeqNbr,     /*IC카드일련번호*/
+        		icCardInfoCntnt,     /*IC카드정보*/
+        		cdAutoTlrMachineTrmnlNbr,
+				brnchInsideOutsideDscd,
+				cdatmDscd,
+				bizTmInsideAndOutsideDscd,
+        		cnclTxHms,     /*취소거래시각*/
+        		cnclTxMsgTraceNbr,     /*취소거래전문추적번호*/
+        		cnclTxGuid,     /*취소거래GUID*/
+        		fnclFraudDoubtAtntnInfoCd,     /*금융사기의심유의정보코드*/
+        		alncCmpnyTxUnqNbr, /*제휴사거래고유번호*/
+        		msgSndTmstmp,     /*최종변경일시*/
+		        lastChngGuid,    /*최종변경GUID*/
+            	jointNetworkClCd,
+            	jointNetworkTxDscd        		
+FROM 
+    ( SELECT ROWNUM AS ROW__NUM,
+		       	instCd,     /*기관코드*/
+        		extrnlInstCd,     /*대외기관코드*/
+        		extrnlBizDscd,     /*대외업무구분코드*/
+				txDt,     /*거래년월일*/
+        		txUnqNbr,     /*거래고유번호*/
+        		txHms,     /*취소거래시각*/
+        		cnclDscd,     /*취소구분코드*/
+        		guid,     /*GUID*/
+        		msgCd,     /*메시지코드*/
+        		extrnlRspnsCd,     /*대외응답코드*/
+        		msgTraceNbr,     /*전문추적번호*/
+        		whdrwlAcctNbr,     /*출금계좌번호*/
+        		dpstAcctNbr,     /*입금계좌번호*/
+        		hndlngFnclInstCd,     /*취급금융기관코드*/
+        		hndlngFnclInstNm,
+        		hndlngFnclInstBrnchCd,     /*취급금융기관부점코드*/
+        		whdrwlFnclInstCd,     /*출금금융기관코드*/
+        		whdrwlFnclInstNm,
+       	 		whdrwlFnclInstBrnchCd,     /*출금금융기관부점코드*/
+        		dpstFnclInstCd,     /*입금금융기관코드*/
+        		dpstFnclInstNm,
+        		dpstFnclInstBrnchCd,     /*입금금융기관부점코드*/
+        		crncyCd,     /*거래금액*/
+        		txAmt,     /*거래금액*/
+        		cashAmt,     /*현금금액*/
+        		trnsfrAmt,     /*대체금액*/
+        		chequeAmt,     /*수표금액*/
+        		balSignCd,     /*잔액부호코드*/
+        		balAmt,     /*잔액*/
+        		unstldChequeAmt,     /*미결제타점권*/
+        		feeAmt,     /*수수료*/
+        		whdrwlNm,     /*출금인명*/
+        		bnfcryNm,     /*수취인명*/
+        		dpstPersonFullNm,
+        		hndlngPrmsryExCd,     /*취급어음교환소코드*/
+        		opnPrmsryExCd,     /*출금어음교환소코드*/
+        		rcpntPrmsryExCd,     /*입금어음교환소코드*/
+				cashCardSeqNbr,     /*현금카드일련번호*/
+        		cdMachinePrcsNbr,     /*카드빈번호*/
+        		cdMachineDscd,     /*카드빈번호*/
+        		trackCntnt,     /*카드빈번호*/
+        		issueInstDscd,     /*발행기관분류코드*/
+        		giroNbr,     /*카드빈번호*/
+        		elctrncPymntNbr,     /*카드빈번호*/
+        		icCardSeqNbr,     /*IC카드일련번호*/
+        		icCardInfoCntnt,     /*IC카드정보*/
+        		cdAutoTlrMachineTrmnlNbr,
+				brnchInsideOutsideDscd,
+				cdatmDscd,
+				bizTmInsideAndOutsideDscd,
+        		cnclTxHms,     /*취소거래시각*/
+        		cnclTxMsgTraceNbr,     /*취소거래전문추적번호*/
+        		cnclTxGuid,     /*취소거래GUID*/
+        		fnclFraudDoubtAtntnInfoCd,     /*금융사기의심유의정보코드*/
+        		alncCmpnyTxUnqNbr, /*제휴사거래고유번호*/
+        		msgSndTmstmp,     /*최종변경일시*/
+		        lastChngGuid,    /*최종변경GUID*/
+                jointNetworkClCd,
+            	jointNetworkTxDscd  		
+        FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* CD공동망거래의거래내역을관리함 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        TX_HMS AS txHms,     /*취소거래시각*/
+        CNCL_Dscd AS cnclDscd,     /*취소구분코드*/
+        GUID AS guid,     /*GUID*/
+        MSG_CD AS msgCd,     /*메시지코드*/
+        EXTRNL_RSPNS_CD AS extrnlRspnsCd,     /*대외응답코드*/
+        MSG_TRACE_NBR AS msgTraceNbr,     /*전문추적번호*/
+        OWN_OR_OTHR_BNK_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,     /*출금계좌번호*/
+        OWN_OR_OTHR_BNK_DPST_ACCT_NBR AS dpstAcctNbr,     /*입금계좌번호*/
+        HNDLNG_FNCL_INST_CD AS hndlngFnclInstCd,     /*취급금융기관코드*/
+        HNDLNG_FNCL_INST_CD AS hndlngFnclInstNm,     /*취급금융기관코드*/
+        HNDLNG_FNCL_INST_BRNCH_CD AS hndlngFnclInstBrnchCd,     /*취급금융기관부점코드*/
+        WHDRWL_FNCL_INST_CD AS whdrwlFnclInstCd,     /*출금금융기관코드*/
+        WHDRWL_FNCL_INST_CD AS whdrwlFnclInstNm,     /*출금금융기관코드*/
+        WHDRWL_FNCL_INST_BRNCH_CD AS whdrwlFnclInstBrnchCd,     /*출금금융기관부점코드*/
+        DPST_FNCL_INST_CD AS dpstFnclInstCd,     /*입금금융기관코드*/
+        DPST_FNCL_INST_CD AS dpstFnclInstNm,     /*입금금융기관코드*/
+        DPST_FNCL_INST_BRNCH_CD AS dpstFnclInstBrnchCd,     /*입금금융기관부점코드*/
+        CRNCY_CD AS crncyCd,     /*거래금액*/
+        TX_AMT AS txAmt,     /*거래금액*/
+        CASH_AMT AS cashAmt,     /*현금금액*/
+        TRNSFR_AMT AS trnsfrAmt,     /*대체금액*/
+        CHEQUE_AMT AS chequeAmt,     /*수표금액*/
+        BAL_SIGN_CD AS balSignCd,     /*잔액부호코드*/
+        BAL_AMT AS balAmt,     /*잔액*/
+        UNSTLD_CHEQUE_AMT AS unstldChequeAmt,     /*미결제타점권*/
+        FEE_AMT AS feeAmt,     /*수수료*/
+        WHDRWL_NM AS whdrwlNm,     /*출금인명*/
+        BNFCRY_NM AS bnfcryNm,     /*수취인명*/
+        DPST_PERSON_FULL_NM AS dpstPersonFullNm,
+        HNDLNG_PRMSRY_EX_CD AS hndlngPrmsryExCd,     /*취급어음교환소코드*/
+        OPN_PRMSRY_EX_CD AS opnPrmsryExCd,     /*출금어음교환소코드*/
+        RCPNT_PRMSRY_EX_CD AS rcpntPrmsryExCd,     /*입금어음교환소코드*/
+        CASH_CARD_SEQ_NBR AS cashCardSeqNbr,     /*현금카드일련번호*/
+        CD_MACHINE_PRCS_NBR AS cdMachinePrcsNbr,     /*카드빈번호*/
+        CD_MACHINE_Dscd AS cdMachineDscd,     /*카드빈번호*/
+        TRACK_TWO_CNTNT AS trackCntnt,     /*카드빈번호*/
+        ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+        GIRO_NBR AS giroNbr,     /*카드빈번호*/
+        ELCTRNC_PYMNT_NBR AS elctrncPymntNbr,     /*카드빈번호*/
+        IC_CARD_SEQ_NBR AS icCardSeqNbr,     /*IC카드일련번호*/
+        IC_CARD_INFO_CNTNT AS icCardInfoCntnt,     /*IC카드정보*/
+        CDATM_TMNLU_NBR AS cdAutoTlrMachineTrmnlNbr,
+        BRNCH_INSIDE_OUTSIDE_Dscd AS brnchInsideOutsideDscd,
+        CDATM_Dscd AS cdatmDscd,
+        BIZ_TM_INSIDE_AND_OUTSIDE_Dscd AS bizTmInsideAndOutsideDscd,
+        CNCL_TX_HMS AS cnclTxHms,     /*취소거래시각*/
+        CNCL_TX_MSG_TRACE_NBR AS cnclTxMsgTraceNbr,     /*취소거래전문추적번호*/
+        CNCL_TX_GUID AS cnclTxGuid,     /*취소거래GUID*/
+        FNCL_FRAUD_DOUBT_ATNTN_INFO_CD AS fnclFraudDoubtAtntnInfoCd,     /*금융사기의심유의정보코드*/
+        ALNC_CMPNY_TX_UNQ_NBR AS alncCmpnyTxUnqNbr, /*제휴사거래고유번호*/
+        TO_CHAR(LAST_CHNG_TMSTMP, 'YYYYMMDDHH24MI') AS msgSndTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid,    /*최종변경GUID*/
+        JOINT_NETWORK_CL_CD AS jointNetworkClCd,
+        JOINT_NETWORK_TX_Dscd AS jointNetworkTxDscd        
+  FROM  XP_CD_TX_H
+ WHERE inst_cd = #{instCd}
+   AND tx_dt between  #{txStartDt} and #{txEndDt}
+   <if test="extrnlInstCd != null and extrnlInstCd != ''">
+   		AND extrnl_inst_cd = #{extrnlInstCd}
+   </if>
+   <if test="txUnqNbr != null and txUnqNbr != ''">
+   		AND tx_unq_nbr = #{txUnqNbr}
+   </if>
+   <if test="dpstAcctNbr != null and dpstAcctNbr != ''">
+   		AND OWN_OR_OTHR_BNK_DPST_ACCT_NBR = #{dpstAcctNbr}
+   </if>
+   <if test="whdrwlAcctNbr != null and whdrwlAcctNbr != ''">
+   		AND OWN_OR_OTHR_BNK_WHDRWL_ACCT_NBR = #{whdrwlAcctNbr}
+   </if>
+	<choose>
+		<when test="inqryDscd == 'D'.toString()">
+		AND JOINT_NETWORK_TX_Dscd IN ('010100','010020','012201','012301','500100','490100')
+		</when>
+		<when test="inqryDscd == 'S'.toString()">
+		AND JOINT_NETWORK_TX_Dscd IN ('310100','312401','315120','315221','315321','310190','310060','310170','312060','312170')
+		</when>		
+		<when test="inqryDscd == 'T'.toString()">
+		AND JOINT_NETWORK_TX_Dscd IN ('400100','400120','402100','404100')
+		</when>
+		<when test="inqryDscd == 'R'.toString()">
+		AND JOINT_NETWORK_TX_Dscd IN ('310120','310126','310128','310140','310150')
+		</when>
+		<when test="inqryDscd == 'G'.toString()">
+		AND JOINT_NETWORK_TX_Dscd IN ('460000','462000','470100','472100')
+		</when>
+		<otherwise>
+		AND JOINT_NETWORK_TX_Dscd IN ('010100','010020','012201','012301','500100','490100','310100','312401','315120','315221','315321','310190','310060','310170','312060','312170','400100','400120','402100','404100','310120','310126','310128','310140','310150','460000','462000','470100','472100')
+		</otherwise>
+	</choose>
+/* #### Original SQL ]] ################# */
+		ORDER BY TX_DT desc, TX_HMS desc
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectCdTransHistoryForRefd" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdTxHIO">
+SELECT    /* CD공동망거래의거래내역을관리함 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        TX_HMS AS txHms,     /*취소거래시각*/
+        CNCL_Dscd AS cnclDscd,     /*취소구분코드*/
+        GUID AS guid,     /*GUID*/
+        MSG_CD AS msgCd,     /*메시지코드*/
+        EXTRNL_RSPNS_CD AS extrnlRspnsCd,     /*대외응답코드*/
+        MSG_TRACE_NBR AS msgTraceNbr,     /*전문추적번호*/
+        OWN_OR_OTHR_BNK_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,     /*출금계좌번호*/
+        OWN_OR_OTHR_BNK_DPST_ACCT_NBR AS dpstAcctNbr,     /*입금계좌번호*/
+        HNDLNG_FNCL_INST_CD AS hndlngFnclInstCd,     /*취급금융기관코드*/
+        HNDLNG_FNCL_INST_BRNCH_CD AS hndlngFnclInstBrnchCd,     /*취급금융기관부점코드*/
+        WHDRWL_FNCL_INST_CD AS whdrwlFnclInstCd,     /*출금금융기관코드*/
+        WHDRWL_FNCL_INST_BRNCH_CD AS whdrwlFnclInstBrnchCd,     /*출금금융기관부점코드*/
+        DPST_FNCL_INST_CD AS dpstFnclInstCd,     /*입금금융기관코드*/
+        DPST_FNCL_INST_BRNCH_CD AS dpstFnclInstBrnchCd,     /*입금금융기관부점코드*/
+        CRNCY_CD AS crncyCd,     /*거래금액*/
+        TX_AMT AS txAmt,     /*거래금액*/
+        CASH_AMT AS cashAmt,     /*현금금액*/
+        TRNSFR_AMT AS trnsfrAmt,     /*대체금액*/
+        CHEQUE_AMT AS chequeAmt,     /*수표금액*/
+        BAL_SIGN_CD AS balSignCd,     /*잔액부호코드*/
+        BAL_AMT AS balAmt,     /*잔액*/
+        UNSTLD_CHEQUE_AMT AS unstldChequeAmt,     /*미결제타점권*/
+        FEE_AMT AS feeAmt,     /*수수료*/
+        WHDRWL_NM AS whdrwlNm,     /*출금인명*/
+        BNFCRY_NM AS bnfcryNm,     /*수취인명*/
+        HNDLNG_PRMSRY_EX_CD AS hndlngPrmsryExCd,     /*취급어음교환소코드*/
+        OPN_PRMSRY_EX_CD AS opnPrmsryExCd,     /*출금어음교환소코드*/
+        RCPNT_PRMSRY_EX_CD AS rcpntPrmsryExCd,     /*입금어음교환소코드*/
+        CARD_NBR AS cardNbr,     /*카드번호*/
+        CARD_EFCTV_YM AS cardEfctvYm,     /*카드유효기간*/
+        CARD_BIN_NBR AS cardBinNbr,     /*카드빈번호*/
+        CD_MACHINE_PRCS_NBR AS cdMachinePrcsNbr,     /*카드빈번호*/
+        CD_MACHINE_Dscd AS cdMachineDscd,     /*카드빈번호*/
+        TRACK_TWO_CNTNT AS trackCntnt,     /*트랙2내용*/
+        ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+        GIRO_NBR AS giroNbr,     /*카드빈번호*/
+        ELCTRNC_PYMNT_NBR AS elctrncPymntNbr,     /*카드빈번호*/
+        IC_CARD_SEQ_NBR AS icCardSeqNbr,     /*IC카드일련번호*/
+        IC_CARD_INFO_CNTNT AS icCardInfoCntnt,     /*IC카드정보*/
+        CNCL_TX_HMS AS cnclTxHms,     /*취소거래시각*/
+        CNCL_TX_MSG_TRACE_NBR AS cnclTxMsgTraceNbr,     /*취소거래전문추적번호*/
+        CNCL_TX_GUID AS cnclTxGuid,     /*취소거래GUID*/
+        FNCL_FRAUD_DOUBT_ATNTN_INFO_CD AS fnclFraudDoubtAtntnInfoCd,     /*금융사기의심유의정보코드*/
+        ALNC_CMPNY_TX_UNQ_NBR AS alncCmpnyTxUnqNbr, /*제휴사거래고유번호*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_CD_TX_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND TX_UNQ_NBR = #{txUnqNbr}
+</select>
+<select id="selectAlcoTransHistory" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdTxHIO">
+SELECT    /* CD공동망거래의거래내역을관리함 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        TX_HMS AS txHms,     /*취소거래시각*/
+        CNCL_Dscd AS cnclDscd,     /*취소구분코드*/
+        GUID AS guid,     /*GUID*/
+        MSG_CD AS msgCd,     /*메시지코드*/
+        EXTRNL_RSPNS_CD AS extrnlRspnsCd,     /*대외응답코드*/
+        MSG_TRACE_NBR AS msgTraceNbr,     /*전문추적번호*/
+        OWN_OR_OTHR_BNK_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,     /*출금계좌번호*/
+        OWN_OR_OTHR_BNK_DPST_ACCT_NBR AS dpstAcctNbr,     /*입금계좌번호*/
+        HNDLNG_FNCL_INST_CD AS hndlngFnclInstCd,     /*취급금융기관코드*/
+        HNDLNG_FNCL_INST_BRNCH_CD AS hndlngFnclInstBrnchCd,     /*취급금융기관부점코드*/
+        WHDRWL_FNCL_INST_CD AS whdrwlFnclInstCd,     /*출금금융기관코드*/
+        WHDRWL_FNCL_INST_BRNCH_CD AS whdrwlFnclInstBrnchCd,     /*출금금융기관부점코드*/
+        DPST_FNCL_INST_CD AS dpstFnclInstCd,     /*입금금융기관코드*/
+        DPST_FNCL_INST_BRNCH_CD AS dpstFnclInstBrnchCd,     /*입금금융기관부점코드*/
+        CRNCY_CD AS crncyCd,     /*거래금액*/
+        TX_AMT AS txAmt,     /*거래금액*/
+        CASH_AMT AS cashAmt,     /*현금금액*/
+        TRNSFR_AMT AS trnsfrAmt,     /*대체금액*/
+        CHEQUE_AMT AS chequeAmt,     /*수표금액*/
+        BAL_SIGN_CD AS balSignCd,     /*잔액부호코드*/
+        BAL_AMT AS balAmt,     /*잔액*/
+        UNSTLD_CHEQUE_AMT AS unstldChequeAmt,     /*미결제타점권*/
+        FEE_AMT AS feeAmt,     /*수수료*/
+        WHDRWL_NM AS whdrwlNm,     /*출금인명*/
+        BNFCRY_NM AS bnfcryNm,     /*수취인명*/
+        HNDLNG_PRMSRY_EX_CD AS hndlngPrmsryExCd,     /*취급어음교환소코드*/
+        OPN_PRMSRY_EX_CD AS opnPrmsryExCd,     /*출금어음교환소코드*/
+        RCPNT_PRMSRY_EX_CD AS rcpntPrmsryExCd,     /*입금어음교환소코드*/
+        CARD_NBR AS cardNbr,     /*카드번호*/
+        CARD_EFCTV_YM AS cardEfctvYm,     /*카드유효기간*/
+        CARD_BIN_NBR AS cardBinNbr,     /*카드빈번호*/
+        CD_MACHINE_PRCS_NBR AS cdMachinePrcsNbr,     /*카드빈번호*/
+        CD_MACHINE_Dscd AS cdMachineDscd,     /*카드빈번호*/
+        TRACK_TWO_CNTNT AS trackCntnt,     /*트랙2내용*/
+        ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+        GIRO_NBR AS giroNbr,     /*카드빈번호*/
+        ELCTRNC_PYMNT_NBR AS elctrncPymntNbr,     /*카드빈번호*/
+        IC_CARD_SEQ_NBR AS icCardSeqNbr,     /*IC카드일련번호*/
+        IC_CARD_INFO_CNTNT AS icCardInfoCntnt,     /*IC카드정보*/
+        CNCL_TX_HMS AS cnclTxHms,     /*취소거래시각*/
+        CNCL_TX_MSG_TRACE_NBR AS cnclTxMsgTraceNbr,     /*취소거래전문추적번호*/
+        CNCL_TX_GUID AS cnclTxGuid,     /*취소거래GUID*/
+        FNCL_FRAUD_DOUBT_ATNTN_INFO_CD AS fnclFraudDoubtAtntnInfoCd,     /*금융사기의심유의정보코드*/
+        ALNC_CMPNY_TX_UNQ_NBR AS alncCmpnyTxUnqNbr,     /*제휴사거래고유번호*/
+        JOINT_NETWORK_CL_CD as jointNetworkClCd, /*전문종별코드*/
+        JOINT_NETWORK_TX_Dscd as jointNetworkTxDscd, /*거래구분코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_CD_TX_H
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND MSG_TRACE_NBR = #{msgTraceNbr}
+   AND TX_UNQ_NBR = #{txUnqNbr}
+</select>
+<select id="selectAlcoTransResult" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdTxHIO">
+SELECT    /* CD공동망거래의거래내역을관리함 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        TX_HMS AS txHms,     /*취소거래시각*/
+        CNCL_Dscd AS cnclDscd,     /*취소구분코드*/
+        GUID AS guid,     /*GUID*/
+        MSG_CD AS msgCd,     /*메시지코드*/
+        EXTRNL_RSPNS_CD AS extrnlRspnsCd,     /*대외응답코드*/
+        MSG_TRACE_NBR AS msgTraceNbr,     /*전문추적번호*/
+        OWN_OR_OTHR_BNK_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,     /*출금계좌번호*/
+        OWN_OR_OTHR_BNK_DPST_ACCT_NBR AS dpstAcctNbr,     /*입금계좌번호*/
+        HNDLNG_FNCL_INST_CD AS hndlngFnclInstCd,     /*취급금융기관코드*/
+        HNDLNG_FNCL_INST_BRNCH_CD AS hndlngFnclInstBrnchCd,     /*취급금융기관부점코드*/
+        WHDRWL_FNCL_INST_CD AS whdrwlFnclInstCd,     /*출금금융기관코드*/
+        WHDRWL_FNCL_INST_BRNCH_CD AS whdrwlFnclInstBrnchCd,     /*출금금융기관부점코드*/
+        DPST_FNCL_INST_CD AS dpstFnclInstCd,     /*입금금융기관코드*/
+        DPST_FNCL_INST_BRNCH_CD AS dpstFnclInstBrnchCd,     /*입금금융기관부점코드*/
+        CRNCY_CD AS crncyCd,     /*거래금액*/
+        TX_AMT AS txAmt,     /*거래금액*/
+        CASH_AMT AS cashAmt,     /*현금금액*/
+        TRNSFR_AMT AS trnsfrAmt,     /*대체금액*/
+        CHEQUE_AMT AS chequeAmt,     /*수표금액*/
+        BAL_SIGN_CD AS balSignCd,     /*잔액부호코드*/
+        BAL_AMT AS balAmt,     /*잔액*/
+        UNSTLD_CHEQUE_AMT AS unstldChequeAmt,     /*미결제타점권*/
+        FEE_AMT AS feeAmt,     /*수수료*/
+        WHDRWL_NM AS whdrwlNm,     /*출금인명*/
+        BNFCRY_NM AS bnfcryNm,     /*수취인명*/
+        HNDLNG_PRMSRY_EX_CD AS hndlngPrmsryExCd,     /*취급어음교환소코드*/
+        OPN_PRMSRY_EX_CD AS opnPrmsryExCd,     /*출금어음교환소코드*/
+        RCPNT_PRMSRY_EX_CD AS rcpntPrmsryExCd,     /*입금어음교환소코드*/
+        CARD_NBR AS cardNbr,     /*카드번호*/
+        CARD_EFCTV_YM AS cardEfctvYm,     /*카드유효기간*/
+        CARD_BIN_NBR AS cardBinNbr,     /*카드빈번호*/
+        CD_MACHINE_PRCS_NBR AS cdMachinePrcsNbr,     /*카드빈번호*/
+        CD_MACHINE_Dscd AS cdMachineDscd,     /*카드빈번호*/
+        TRACK_TWO_CNTNT AS trackCntnt,     /*트랙2내용*/
+        ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+        GIRO_NBR AS giroNbr,     /*카드빈번호*/
+        ELCTRNC_PYMNT_NBR AS elctrncPymntNbr,     /*카드빈번호*/
+        IC_CARD_SEQ_NBR AS icCardSeqNbr,     /*IC카드일련번호*/
+        IC_CARD_INFO_CNTNT AS icCardInfoCntnt,     /*IC카드정보*/
+        CNCL_TX_HMS AS cnclTxHms,     /*취소거래시각*/
+        CNCL_TX_MSG_TRACE_NBR AS cnclTxMsgTraceNbr,     /*취소거래전문추적번호*/
+        CNCL_TX_GUID AS cnclTxGuid,     /*취소거래GUID*/
+        FNCL_FRAUD_DOUBT_ATNTN_INFO_CD AS fnclFraudDoubtAtntnInfoCd,     /*금융사기의심유의정보코드*/
+        ALNC_CMPNY_TX_UNQ_NBR AS alncCmpnyTxUnqNbr,     /*제휴사거래고유번호*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_CD_TX_H
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND ALNC_CMPNY_TX_UNQ_NBR = #{alncCmpnyTxUnqNbr}
+</select>
+<update id="updateCdTransHistoryPrcsResultCode" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdTxHIO">
+UPDATE  
+        XP_CD_TX_H    /* CD공동망거래의거래내역을관리함 */
+   SET  MSG_CD = #{msgCd,  jdbcType=VARCHAR}    /* 메시지코드 */    
+     , EXTRNL_RSPNS_CD = #{extrnlRspnsCd}    /* 대외응답코드 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */     
+     , WHDRWL_NM = #{whdrwlNm, jdbcType=VARCHAR} /* 출금인명 */
+     , BNFCRY_NM = #{bnfcryNm, jdbcType=VARCHAR} /* 수취인명 */
+     , HNDLNG_FNCL_INST_CD = #{hndlngFnclInstCd, jdbcType=VARCHAR}    /* 취급금융기관코드 */
+     , HNDLNG_FNCL_INST_BRNCH_CD = #{hndlngFnclInstBrnchCd, jdbcType=VARCHAR}    /* 취급금융기관부점코드 */
+     , WHDRWL_FNCL_INST_CD = #{whdrwlFnclInstCd, jdbcType=VARCHAR}    /* 출금금융기관코드 */
+     , WHDRWL_FNCL_INST_BRNCH_CD = #{whdrwlFnclInstBrnchCd, jdbcType=VARCHAR}    /* 출금금융기관부점코드 */
+     , DPST_FNCL_INST_CD = #{dpstFnclInstCd, jdbcType=VARCHAR}    /* 입금금융기관코드 */
+     , DPST_FNCL_INST_BRNCH_CD = #{dpstFnclInstBrnchCd, jdbcType=VARCHAR} /* 입금금융기관부점코드 */
+     , TX_AMT = #{txAmt, jdbcType=NUMERIC}    /* 거래금액 */
+     , CASH_AMT = #{cashAmt, jdbcType=NUMERIC}    /* 현금금액 */
+     , CHEQUE_AMT = #{chequeAmt, jdbcType=NUMERIC}    /* 수표금액 */
+     , BAL_SIGN_CD = #{balSignCd, jdbcType=VARCHAR}    /* 잔액부호코드 */
+     , BAL_AMT = #{balAmt, jdbcType=NUMERIC} /* 잔액 */
+     , UNSTLD_CHEQUE_AMT = #{unstldChequeAmt, jdbcType=NUMERIC}    /* 미결제타점권 */
+     , FEE_AMT = #{feeAmt, jdbcType=NUMERIC}    /* 수수료 */
+     , HNDLNG_PRMSRY_EX_CD = #{hndlngPrmsryExCd, jdbcType=VARCHAR}    /* 취급어음교환소코드 */
+     , OPN_PRMSRY_EX_CD = #{opnPrmsryExCd, jdbcType=VARCHAR}    /* 개설어음교환소코드 */
+     , RCPNT_PRMSRY_EX_CD = #{rcpntPrmsryExCd, jdbcType=VARCHAR}    /* 수취어음교환소코드 */
+     , DPST_PERSON_FULL_NM = #{dpstPersonFullNm, jdbcType=VARCHAR} /* 무매체입금인명 */     
+     , BRNCH_INSIDE_OUTSIDE_Dscd = #{brnchInsideOutsideDscd,  jdbcType=VARCHAR}    /* 점내외구분코드 */
+     , CDATM_Dscd = #{cdatmDscd,  jdbcType=VARCHAR}    /* CDATM구분코드 */
+     , BIZ_TM_INSIDE_AND_OUTSIDE_Dscd = #{bizTmInsideAndOutsideDscd,  jdbcType=VARCHAR }    /* 영업시간내외구분코드 */     
+     , ATMTD_MACHINE_TX_Dscd = #{atmtdMachineTxDscd,  jdbcType=VARCHAR}    /* 자동화기기거래구분코드 */
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND TX_UNQ_NBR = #{txUnqNbr}
+   AND MSG_TRACE_NBR = #{msgTraceNbr}
+</update>
+<select id="selectCdTransHistoryTotCnt" resultType="bankware.corebanking.externalproxy.cdjointnetwork.interfaces.dto.ExternalCdTxHOut">
+SELECT   COUNT(1) as totCnt
+  FROM  XP_CD_TX_H
+ WHERE inst_cd = #{instCd}
+   AND tx_dt between  #{txStartDt} and #{txEndDt}
+   <if test="extrnlInstCd != null and extrnlInstCd != ''">
+   		AND extrnl_inst_cd = #{extrnlInstCd}
+   </if>
+   <if test="txUnqNbr != null and txUnqNbr != ''">
+   		AND tx_unq_nbr = #{txUnqNbr}
+   </if>
+   <if test="dpstAcctNbr != null and dpstAcctNbr != ''">
+   		AND OWN_OR_OTHR_BNK_DPST_ACCT_NBR = #{dpstAcctNbr}
+   </if>
+   <if test="whdrwlAcctNbr != null and whdrwlAcctNbr != ''">
+   		AND OWN_OR_OTHR_BNK_WHDRWL_ACCT_NBR = #{whdrwlAcctNbr}
+   </if>
+	<choose>
+		<when test="inqryDscd == 'D'.toString()">
+		AND JOINT_NETWORK_TX_Dscd IN ('010100','010020','012201','012301','500100','490100')
+		</when>
+		<when test="inqryDscd == 'S'.toString()">
+		AND JOINT_NETWORK_TX_Dscd IN ('310100','312401','315120','315221','315321','310190','310060','310170','312060','312170')
+		</when>		
+		<when test="inqryDscd == 'T'.toString()">
+		AND JOINT_NETWORK_TX_Dscd IN ('400100','400120','402100','404100')
+		</when>
+		<when test="inqryDscd == 'R'.toString()">
+		AND JOINT_NETWORK_TX_Dscd IN ('310120','310126','310128','310140','310150')
+		</when>
+		<when test="inqryDscd == 'G'.toString()">
+		AND JOINT_NETWORK_TX_Dscd IN ('460000','462000','470100','472100')
+		</when>
+	</choose>
+</select>
+<select id="selectCdTransHistoryInfoDupCheck" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdTxHIO">
+SELECT    /* CD공동망거래의거래내역을관리함 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        TX_HMS AS txHms,     /*취소거래시각*/
+        CNCL_Dscd AS cnclDscd,     /*취소구분코드*/
+        GUID AS guid,     /*GUID*/
+        MSG_CD AS msgCd,     /*메시지코드*/
+        EXTRNL_RSPNS_CD AS extrnlRspnsCd,     /*대외응답코드*/
+        MSG_TRACE_NBR AS msgTraceNbr,     /*전문추적번호*/
+        OWN_OR_OTHR_BNK_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,     /*출금계좌번호*/
+        OWN_OR_OTHR_BNK_DPST_ACCT_NBR AS dpstAcctNbr,     /*입금계좌번호*/
+        HNDLNG_FNCL_INST_CD AS hndlngFnclInstCd,     /*취급금융기관코드*/
+        HNDLNG_FNCL_INST_BRNCH_CD AS hndlngFnclInstBrnchCd,     /*취급금융기관부점코드*/
+        WHDRWL_FNCL_INST_CD AS whdrwlFnclInstCd,     /*출금금융기관코드*/
+        WHDRWL_FNCL_INST_BRNCH_CD AS whdrwlFnclInstBrnchCd,     /*출금금융기관부점코드*/
+        DPST_FNCL_INST_CD AS dpstFnclInstCd,     /*입금금융기관코드*/
+        DPST_FNCL_INST_BRNCH_CD AS dpstFnclInstBrnchCd,     /*입금금융기관부점코드*/
+        CRNCY_CD AS crncyCd,     /*거래금액*/
+        TX_AMT AS txAmt,     /*거래금액*/
+        CASH_AMT AS cashAmt,     /*현금금액*/
+        TRNSFR_AMT AS trnsfrAmt,     /*대체금액*/
+        CHEQUE_AMT AS chequeAmt,     /*수표금액*/
+        BAL_SIGN_CD AS balSignCd,     /*잔액부호코드*/
+        BAL_AMT AS balAmt,     /*잔액*/
+        UNSTLD_CHEQUE_AMT AS unstldChequeAmt,     /*미결제타점권*/
+        FEE_AMT AS feeAmt,     /*수수료*/
+        WHDRWL_NM AS whdrwlNm,     /*출금인명*/
+        BNFCRY_NM AS bnfcryNm,     /*수취인명*/
+        HNDLNG_PRMSRY_EX_CD AS hndlngPrmsryExCd,     /*취급어음교환소코드*/
+        OPN_PRMSRY_EX_CD AS opnPrmsryExCd,     /*출금어음교환소코드*/
+        RCPNT_PRMSRY_EX_CD AS rcpntPrmsryExCd,     /*입금어음교환소코드*/
+        CARD_NBR AS cardNbr,     /*카드번호*/
+        CARD_EFCTV_YM AS cardEfctvYm,     /*카드유효기간*/
+        CARD_BIN_NBR AS cardBinNbr,     /*카드빈번호*/
+        CD_MACHINE_PRCS_NBR AS cdMachinePrcsNbr,     /*카드빈번호*/
+        CD_MACHINE_Dscd AS cdMachineDscd,     /*카드빈번호*/
+        TRACK_TWO_CNTNT AS trackCntnt,     /*카드빈번호*/
+        ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+        GIRO_NBR AS giroNbr,     /*카드빈번호*/
+        ELCTRNC_PYMNT_NBR AS elctrncPymntNbr,     /*카드빈번호*/
+        IC_CARD_SEQ_NBR AS icCardSeqNbr,     /*IC카드일련번호*/
+        IC_CARD_INFO_CNTNT AS icCardInfoCntnt,     /*IC카드정보*/
+        CNCL_TX_HMS AS cnclTxHms,     /*취소거래시각*/
+        CNCL_TX_MSG_TRACE_NBR AS cnclTxMsgTraceNbr,     /*취소거래전문추적번호*/
+        CNCL_TX_GUID AS cnclTxGuid,     /*취소거래GUID*/
+        FNCL_FRAUD_DOUBT_ATNTN_INFO_CD AS fnclFraudDoubtAtntnInfoCd,     /*금융사기의심유의정보코드*/
+        ALNC_CMPNY_TX_UNQ_NBR AS alncCmpnyTxUnqNbr, /*제휴사거래고유번호*/
+        JOINT_NETWORK_CL_CD as jointNetworkClCd, /*전문종별코드*/
+        JOINT_NETWORK_TX_Dscd as jointNetworkTxDscd, /*거래구분코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_CD_TX_H
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND TX_UNQ_NBR = #{txUnqNbr}
+   AND JOINT_NETWORK_CL_CD = #{jointNetworkClCd}
+   AND JOINT_NETWORK_TX_Dscd = #{jointNetworkTxDscd}
+</select>
+<select id="selectCdTransHistoryAgrgt" resultType="bankware.corebanking.externalproxy.cdjointnetwork.interfaces.dto.CdAlcoAggregateIO">
+SELECT 
+    JOINT_NETWORK_TX_Dscd AS jointNetworkTxDscd /* 거래구분코드 */
+    ,COUNT(CASE 
+      WHEN JOINT_NETWORK_CL_CD in('0200','0201') AND EXTRNL_RSPNS_CD in ('00','N0','N1','N2','NU','17') AND DPST_FNCL_INST_CD ='089' THEN  1
+      END)AS crdtTxCnt /* 대변거래건수 */
+    ,SUM(CASE 
+      WHEN JOINT_NETWORK_CL_CD in('0200','0201') AND EXTRNL_RSPNS_CD in ('00','N0','N1','N2','NU','17') AND DPST_FNCL_INST_CD ='089' THEN  TX_AMT
+      ELSE 0
+      END )AS crdtTxAmt /* 대변거래금액 */
+    ,COUNT(CASE 
+      WHEN JOINT_NETWORK_CL_CD in('0200','0201') AND EXTRNL_RSPNS_CD= '17' AND DPST_FNCL_INST_CD ='089'  THEN  1
+      END)AS crdtTxCnclCnt /* 대변거래취소건수 */      
+    ,SUM(CASE 
+      WHEN JOINT_NETWORK_CL_CD in('0200','0201') AND EXTRNL_RSPNS_CD= '17' AND DPST_FNCL_INST_CD ='089' THEN  TX_AMT
+      ELSE 0
+      END )AS crdtTxCnclAmt /* 대변거래취소금액 */
+    ,COUNT(CASE 
+      WHEN JOINT_NETWORK_CL_CD in('0200','0201') AND EXTRNL_RSPNS_CD in ('00','N0','N1','N2','NU','17') AND WHDRWL_FNCL_INST_CD ='089' THEN  1
+      END)AS debitTxCnt /* 차변거래건수 */
+    ,SUM(CASE 
+      WHEN JOINT_NETWORK_CL_CD in('0200','0201') AND EXTRNL_RSPNS_CD in ('00','N0','N1','N2','NU','17') AND WHDRWL_FNCL_INST_CD ='089' THEN  TX_AMT
+      ELSE 0
+      END )AS debitTxAmt /* 차변거래금액 */
+    ,COUNT(CASE 
+      WHEN JOINT_NETWORK_CL_CD in('0200','0201') AND EXTRNL_RSPNS_CD= '17' AND WHDRWL_FNCL_INST_CD ='089' THEN  1
+      END)AS debitTxCnclCnt /* 차변거래취소건수 */
+    ,SUM(CASE 
+      WHEN JOINT_NETWORK_CL_CD in('0200','0201') AND EXTRNL_RSPNS_CD= '17' AND WHDRWL_FNCL_INST_CD ='089' THEN  TX_AMT
+      ELSE 0
+      END )AS debitTxCnclAmt /* 차변거래취소금액 */
+    FROM XP_CD_TX_H
+ WHERE INST_CD = #{instCd}
+    AND TX_DT = #{txDt}
+    AND EXTRNL_INST_CD = #{extrnlInstCd}
+    AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+    AND JOINT_NETWORK_TX_Dscd = #{jointNetworkTxDscd}
+ GROUP BY 
+    JOINT_NETWORK_TX_Dscd
+</select>
+<select id="selectCdTransHistoryDtl" resultType="bankware.corebanking.externalproxy.cdjointnetwork.interfaces.dto.ExternalCdTxHOut">
+SELECT    /* CD공동망거래의거래내역의 상세조회 */
+        h.INST_CD AS instCd,     /*기관코드*/
+        h.EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        h.EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        h.TX_DT AS txDt,     /*거래년월일*/
+        h.TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        h.TX_HMS AS txHms,     /*취소거래시각*/
+        h.CNCL_Dscd AS cnclDscd,     /*취소구분코드*/
+        h.GUID AS guid,     /*GUID*/
+        h.MSG_CD AS msgCd,     /*메시지코드*/
+        h.EXTRNL_RSPNS_CD AS extrnlRspnsCd,     /*대외응답코드*/
+        h.MSG_TRACE_NBR AS msgTraceNbr,     /*전문추적번호*/
+        h.OWN_OR_OTHR_BNK_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,     /*출금계좌번호*/
+        h.OWN_OR_OTHR_BNK_DPST_ACCT_NBR AS dpstAcctNbr,     /*입금계좌번호*/
+        h.HNDLNG_FNCL_INST_CD AS hndlngFnclInstCd,     /*취급금융기관코드*/
+        h.HNDLNG_FNCL_INST_BRNCH_CD AS hndlngFnclInstBrnchCd,     /*취급금융기관부점코드*/
+        h.WHDRWL_FNCL_INST_CD AS whdrwlFnclInstCd,     /*출금금융기관코드*/
+        h.WHDRWL_FNCL_INST_BRNCH_CD AS whdrwlFnclInstBrnchCd,     /*출금금융기관부점코드*/
+        h.DPST_FNCL_INST_CD AS dpstFnclInstCd,     /*입금금융기관코드*/
+        h.DPST_FNCL_INST_BRNCH_CD AS dpstFnclInstBrnchCd,     /*입금금융기관부점코드*/
+        h.CRNCY_CD AS crncyCd,     /*거래금액*/
+        h.TX_AMT AS txAmt,     /*거래금액*/
+        h.CASH_AMT AS cashAmt,     /*현금금액*/
+        h.TRNSFR_AMT AS trnsfrAmt,     /*대체금액*/
+        h.CHEQUE_AMT AS chequeAmt,     /*수표금액*/
+        h.BAL_SIGN_CD AS balSignCd,     /*잔액부호코드*/
+        h.BAL_AMT AS balAmt,     /*잔액*/
+        h.UNSTLD_CHEQUE_AMT AS unstldChequeAmt,     /*미결제타점권*/
+        h.FEE_AMT AS feeAmt,     /*수수료*/
+        h.WHDRWL_NM AS whdrwlNm,     /*출금인명*/
+        h.BNFCRY_NM AS bnfcryNm,     /*수취인명*/
+        h.HNDLNG_PRMSRY_EX_CD AS hndlngPrmsryExCd,     /*취급어음교환소코드*/
+        h.OPN_PRMSRY_EX_CD AS opnPrmsryExCd,     /*출금어음교환소코드*/
+        h.RCPNT_PRMSRY_EX_CD AS rcpntPrmsryExCd,     /*입금어음교환소코드*/
+        h.CARD_NBR AS cardNbr,     /*카드번호*/
+        h.CARD_EFCTV_YM AS cardEfctvYm,     /*카드유효기간*/
+        h.CARD_BIN_NBR AS cardBinNbr,     /*카드빈번호*/
+        h.CD_MACHINE_PRCS_NBR AS cdMachinePrcsNbr,     /*카드빈번호*/
+        h.CD_MACHINE_Dscd AS cdMachineDscd,     /*카드빈번호*/
+        h.TRACK_TWO_CNTNT AS trackCntnt,     /*카드빈번호*/
+        h.ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+        h.GIRO_NBR AS giroNbr,     /*카드빈번호*/
+        h.ELCTRNC_PYMNT_NBR AS elctrncPymntNbr,     /*카드빈번호*/
+        h.IC_CARD_SEQ_NBR AS icCardSeqNbr,     /*IC카드일련번호*/
+        h.IC_CARD_INFO_CNTNT AS icCardInfoCntnt,     /*IC카드정보*/
+        h.CNCL_TX_HMS AS cnclTxHms,     /*취소거래시각*/
+        h.CNCL_TX_MSG_TRACE_NBR AS cnclTxMsgTraceNbr,     /*취소거래전문추적번호*/
+        h.CNCL_TX_GUID AS cnclTxGuid,     /*취소거래GUID*/
+        h.FNCL_FRAUD_DOUBT_ATNTN_INFO_CD AS fnclFraudDoubtAtntnInfoCd,     /*금융사기의심유의정보코드*/
+        h.ALNC_CMPNY_TX_UNQ_NBR AS alncCmpnyTxUnqNbr, /*제휴사거래고유번호*/
+        h.JOINT_NETWORK_CL_CD as jointNetworkClCd, /*전문종별코드*/
+        h.JOINT_NETWORK_TX_Dscd as jointNetworkTxDscd, /*거래구분코드*/
+        h.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        h.LAST_CHNG_GUID AS lastChngGuid,    /*최종변경GUID*/
+        m.MSG_CNTNT AS msgCntnt
+ FROM  XP_CD_TX_H h, CM_MSG_M m
+ WHERE h.INST_CD = #{instCd}
+   AND h.EXTRNL_INST_CD = #{extrnlInstCd}
+   AND h.TX_DT = #{txDt}
+   AND h.TX_UNQ_NBR = #{txUnqNbr}
+   AND h.MSG_TRACE_NBR = #{msgTraceNbr}
+   AND h.MSG_CD = m.MSG_CD
+   AND ROWNUM =1
+</select>
+</mapper>

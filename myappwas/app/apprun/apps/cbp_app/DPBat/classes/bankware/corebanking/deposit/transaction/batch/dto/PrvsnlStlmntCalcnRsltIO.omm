@@ -1,0 +1,18 @@
+OMM bankware.corebanking.deposit.transaction.batch.dto.PrvsnlStlmntCalcnRsltIO
+<description="">
+{
+	String arrId<length=15 description="계약식별자">;
+	String acctNbr<length=20 description="계좌번호">;
+	String crncyCd<length=3 description="통화코드">;
+	String pdCd<length=12 description="상품코드">;
+	String arrOpnDt<length=8 description="계약신규일">;
+	String arrMtrtyDt<length=8 description="계약만기일">;
+	String intCalcnStartDt<length=8 description="이자계산시작일">;
+	String intCalcnEndDt<length=8 description="이자계산종료일">;
+	BigDecimal intAmt<length=15 decimal=2 description="이자금액">;
+	BigDecimal taxAmt<length=15 decimal=2 description="세금금액">;
+	String nrmlPrcsYn<length=1 description="정상처리여부">;
+	String rcvdErrCd<length=6 description="수신오류코드">;
+	String errorCntnt<length=1000 description="오류내용">;
+	String errorDtlCntnt<length=1000 description="오류상세내용">;
+}

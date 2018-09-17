@@ -1,0 +1,15 @@
+OMM bxm.ccmainmng.online.pc.dto.SCC1005OutSub1
+<description="  ">
+{
+	String ccId<length=20 description="센터컷 ID">;
+	String pcsnDt<length=20 description="처리 일자">;
+	Integer acptNo<length=3 description="접수번호">;
+	Integer execNo<length=6 description="실행번호">;
+	Integer tnNo<length=2 description="회차번호">;
+	String ccTrxSqno<length=15 description="CC거래일련번호">;
+	String pcsnEltm<length=6 description="처리시간">;
+	String reRegCd<length=2 description="재등록코드">;
+	String msgCd<length=8 description="메시지코드">;
+	String errPrgmId<length=12 description="오류프로그램ID">;
+	String oputMsg<length=4000 description="출력메시지">;
+}

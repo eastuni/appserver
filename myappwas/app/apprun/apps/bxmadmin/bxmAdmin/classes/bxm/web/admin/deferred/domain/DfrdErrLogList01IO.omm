@@ -1,0 +1,7 @@
+OMM bxm.web.admin.deferred.domain.DfrdErrLogList01IO
+<description="">
+{
+	Integer listSize<length=9>;
+	bxm.web.admin.deferred.domain.DfrdErrLog01IO dfrdErrLog<length=0 arrayReference="listSize">;
+	Integer totalPage<length=9>;
+}

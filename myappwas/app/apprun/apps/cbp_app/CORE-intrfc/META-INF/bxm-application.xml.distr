@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bxm-application xmlns="http://www.es-code.com/schema/application" xmlns:ns2="http://www.es-code.com/schema/common" type="online" reference-applications="" shared="true" loglevel="Default" name="CORE-intrfc">
+    <description>CORE-intrfc application is the default config.</description>
+    <datasource>
+        <jndi-datasource name="CBB" jndi-datasource="CBBNXA" jndi-xadatasource="CBBXA"/>
+    </datasource>
+    <lightweight-context resource="classpath:applicationContext.xml"/> 
+</bxm-application>

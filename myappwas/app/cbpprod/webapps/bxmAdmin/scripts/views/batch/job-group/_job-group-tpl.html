@@ -1,0 +1,123 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'batch.batch-work-group-manage'}}
+    <p class="desc">{{bxMsg 'batch.batch-work-group-manage-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+
+<div class="module-wrap add-bd2-t add-bd">
+    <section class="module add-mg w-40">
+        <!--************* 배치 작업 그룹 리스트  *************-->
+        <div class="sub-section module w-100 job-group-list-wrap">
+            <h4>{{bxMsg 'batch.batch-work-group-list'}}</h4>
+            <section class="bw-tool add-bd2-t">
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+                </div>
+            </section>
+            <section class="search-wrap job-group-search">
+                <ul class="clr">
+                    <li class="input-wrap w-100">
+                        <label class="bw-label w-40">{{bxMsg 'batch.work-group-id'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="jobGrpId"/>
+                    </li>
+                    <li class="input-wrap w-100">
+                        <label class="bw-label w-40">{{bxMsg 'batch.work-group-nm'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="jobGrpNm"/>
+                    </li>
+                </ul>
+            </section>
+            <!--GRID AREA-->
+            <section class="job-group-grid"></section>
+            <!--/END GRID AREA-->
+        </div>
+        <!--************* END 배치 작업 그룹 리스트  *************-->
+
+        <!--************* 배치 작업 그룹 상세  *************-->
+        <div class="sub-section module">
+            <h4>{{bxMsg 'batch.batch-work-group-detail'}}<span class="job-group-title"></span></h4>
+
+            <div class="bw-grid add-mg-zero">
+                <section class="bw-tool add-bd2-t">
+                
+                    <div class="btn-wrap fix-r">
+                        <button type="button" class="bw-btn edit edit-job-group-btn" title="{{bxMsg 'common.edit'}}"><i class="bw-icon i-25 i-func-edit"></i></button>
+                    </div>
+                </section>
+                <section class="search-wrap clr bx-loding-wrap job-group-detail">
+                    <ul class="clr">
+                        <li class="w-100">
+                            <div class="input-wrap asterisk clr">
+                                <label class="bw-label w-55">{{bxMsg 'batch.work-group-id'}}</label>
+                                <input type="text" class="bw-input w-45" data-form-param="jobGrpId" readonly>
+                            </div>
+                        </li>
+                        <li class="w-100">
+                            <div class="input-wrap clr">
+                                <label class="bw-label w-55">{{bxMsg 'batch.work-group-nm'}}</label>
+                                <input type="text" class="bw-input w-45" data-form-param="jobGrpNm" readonly>
+                            </div>
+                        </li>
+                        <li class="w-100">
+                            <div class="input-wrap clr">
+                                <label class="bw-label w-55">{{bxMsg 'batch.use-yn'}}</label>
+                                <input type="text" class="bw-input w-45" data-form-param="useYn" readonly>
+                            </div>
+                        </li>
+                        <li class="w-100">
+                            <div class="input-wrap clr">
+                                <label class="bw-label w-55">{{bxMsg 'batch.system-max-execute-yn'}}</label>
+                                <input type="text" class="bw-input w-45" data-form-param="sysMaxExecValidYn" readonly>
+                            </div>
+                        </li>
+                        <li class="w-100">
+                            <div class="input-wrap asterisk help clr">
+                                <label class="bw-label w-55">{{bxMsg 'batch.system-max-execute-count'}}<i class="fa fa-question-circle chr-c-yellow2" title="{{bxMsg 'batch.type-num-msg'}}"></i></label>
+                                <input type="text" class="bw-input w-45" data-form-param="sysMaxExecCnt" readonly>
+                            </div>
+                        </li>
+                        <li class="w-100">
+                            <div class="input-wrap clr">
+                                <label class="bw-label w-55">{{bxMsg 'batch.node-max-execute-yn'}}</label>
+                                <input type="text" class="bw-input w-45" data-form-param="nodeMaxExecValidYn" readonly>
+                            </div>
+                        </li>
+                        <li class="w-100">
+                            <div class="input-wrap asterisk help clr">
+                                <label class="bw-label w-55">{{bxMsg 'batch.node-max-execute-count'}}<i class="fa fa-question-circle chr-c-yellow2" title="{{bxMsg 'batch.type-num-msg'}}"></i></label>
+                                <input type="text" class="bw-input w-45" data-form-param="nodeMaxExecCnt" readonly>
+                            </div>
+                        </li>
+                        <li class="w-100">
+                        	<div class="btn-wrap a-center w-100 add-mg-t-half add-mg-b-half control-batch">
+                                <button type="button" class="bw-btn" value="suspend" title="{{bxMsg 'common.suspend'}}">
+                                    <i class="svg-icon i-40 i-suspend-1"></i>
+                                </button>
+                                <button type="button" class="bw-btn" value="resume" title="{{bxMsg 'common.resume'}}">
+                                    <i class="svg-icon i-40 i-resume-1"></i>
+                                </button>
+                                <button type="button" class="bw-btn" value="forcedstop" title="{{bxMsg 'common.forced-stop'}}">
+                                    <i class="svg-icon i-40 i-forced-stop"></i>
+                                </button>
+                    		</div>
+                    	</li>
+                        
+                    </ul>
+                </section>
+            </div>
+        </div>
+        <!--************* END 배치 작업 그룹 상세  *************-->
+    </section>
+
+    <!--************* 배치 작업 리스트  *************-->
+    <section class="sub-section module add-mg-t w-53">
+        <h4>
+            <span class="job-title">{{bxMsg 'batch.batch-work-list'}}</span>
+        </h4>
+        <!--GRID AREA-->
+        <section class="job-grid"></section>
+        <!--/END GRID AREA-->
+    </section>
+    <!--************* END 배치 작업 리스트  *************-->
+</div>

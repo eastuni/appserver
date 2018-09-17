@@ -1,0 +1,17 @@
+OMM bxm.web.admin.setting.domain.CommonCodeOMM
+<description="CommonCodeOMM">
+{
+	String cdId<length=9 description="코드ID">;
+	String cdVal<length=32 description="코드값">;
+	String cdValNm<length=128 description="코드값명">;
+	String cdValDesc<length=512 description="코드값설명">;
+	BigDecimal seq<length=22 description="일련번호">;
+	String langCd<length=2 description="언어코드">;
+	String useYn<length=1 description="사용여부">;
+	String regUserId<length=32 description="등록 사용자 ID">;
+	String regOccurDttm<length=23 description="등록 발생 일시">;
+	String modifyUserId<length=32 description="변경 사용자 ID">;
+	String modifyOccurDttm<length=23 description="변경 발생 일시">;
+	String cdNm<length=128 description="코드명">;
+	String parentCdId<length=9 description="상위코드ID">;
+}

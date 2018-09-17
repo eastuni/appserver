@@ -1,0 +1,13 @@
+OMM bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxIntrmdryMsgNbrDIO
+<description="">
+{
+	String instCd<length=14 description="기관코드">;
+	String txDt<length=8 description="거래년월일">;
+	String intrmdryMsgMgmtNbr<length=12 description="중개기관전문관리번호">;
+	String msngNbrPrcsDscd<length=1 description="결번처리구분코드">;
+	String msngNbrRgstrnHms<length=6 description="결번등록시각">;
+	String msngNbrSndHms<length=6 description="결번전송시각">;
+	String msngNbrRspnsRcvHms<length=6 description="결번응답수신시각">;
+	Date lastChngTmstmp<length=20 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID ">;
+}

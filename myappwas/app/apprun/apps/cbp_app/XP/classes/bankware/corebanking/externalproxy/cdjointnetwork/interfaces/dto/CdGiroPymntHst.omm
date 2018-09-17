@@ -1,0 +1,10 @@
+OMM bankware.corebanking.externalproxy.cdjointnetwork.interfaces.dto.CdGiroPymntHst
+<description="지로납부내역">
+{
+	String pymntMonthlyNth<length=4 description="납부월회차">;
+	String prdDscd<length=1 description="납기전후구분">;
+	String giroPymntAmt<length=12 description="납부금액">;
+	String pymntDscd1<length=1 description="납기구분_장표발행형태">;
+	String pymntDscd2<length=2 description="납기구분_기타">;
+	String pymntYn<length=1 description="납부여부구분">;
+}

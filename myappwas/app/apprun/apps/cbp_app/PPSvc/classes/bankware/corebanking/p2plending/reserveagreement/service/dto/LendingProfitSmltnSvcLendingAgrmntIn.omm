@@ -1,0 +1,13 @@
+OMM bankware.corebanking.p2plending.reserveagreement.service.dto.LendingProfitSmltnSvcLendingAgrmntIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String cupldPymntYn<length=1 description="연동출금여부">;
+	String pymntAcctNbr<length=20 description="지급계좌번호">;
+	String arrIntRtTpCd<length=5 description="계약이자유형코드">;
+	String arrOpnDt<length=8 description="계약개설년월일">;
+	String prcsDt<length=8 description="조회기준일">;
+	String lnAplctnCustId<length=15 description="대출신청고객식별자">;
+	bankware.corebanking.p2plending.reserveagreement.service.dto.LendingProfitSmltnSvcLendingAgrmntAplctnIn aplctnInfoCntnt<length=0 description="신청입력정보">;
+	String arrId<length=15 description="Arrangement Identification">;
+	String pdCd<length=20 description="Product Code">;
+}

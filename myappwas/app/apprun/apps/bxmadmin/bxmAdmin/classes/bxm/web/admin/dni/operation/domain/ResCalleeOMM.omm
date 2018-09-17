@@ -1,0 +1,14 @@
+OMM bxm.web.admin.dni.operation.domain.ResCalleeOMM
+<description="">
+{
+	String methodId<length=40 description="메소드 ID">;
+	String methodNm<length=256 description="메소드 명">;
+	String inputType<length=512 description="입력 타입">;
+	String outputType<length=512 description="출력 타입">;
+	String classNm<length=512 description="클래스명">;
+	String methodExecTypeCd<length=1 description="메소드 실행타입">;
+	Boolean isUsedOtherApp<length=20 description="타 어플리케이션 사용 여부">;
+	Boolean isUsedSvcToSvc<length=20 description="서비스 Call 사용 여부">;
+	String bxmAppId<length=20 description="어플리케이션 명">;
+	String notSelectExecType<length=1 description="조회하지 않을 ExecTypeCd">;
+}

@@ -1,0 +1,29 @@
+OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.ElEL0027MgmtIO
+<description="거액타행이체및반대거래미완료내역조회">
+{
+	String instCd<length=3 description="기관코드">;
+	String txDt<length=8 description="거래일자">;
+	String seqNbr<length=7 description="일련번호">;
+	String txUnqNbr<length=13 description="거래고유번호">;
+	String elctrncFnclTxDscd<length=6 description="전자금융거래구분코드">;
+	String hndlngInstCd<length=3 description="취급기관코드">;
+	String hndlngInstBrnchCd<length=7 description="취급기관점별코드">;
+	String opnInstCd<length=3 description="개설기관코드">;
+	String opnInstBrnchCd<length=7 description="개설기관점별코드">;
+	String rcpntAcctNbr<length=44 description="수취계좌번호">;
+	String txAmt<length=17 description="거래금액">;
+	String whdrwlNm<length=30 description="출금인명">;
+	String bnfcryNm<length=30 description="수취인명">;
+	String elctrncFnclMediaDscd<length=2 description="전자금융매체구분코드">;
+	String fundChrCd<length=2 description="자금성격코드">;
+	String rqerInfoCntnt<length=100 description="의뢰인정보내용">;
+	String whdrwlAcctNbr<length=24 description="출금계좌번호">;
+	String rmtrRealNm<length=30 description="송금인실명">;
+	String korBnkFundTrnsfrSeqNbr<length=5 description="한국은행자금이체일련번호">;
+	String korBnkAplctnHms<length=6 description="한국은행신청시간">;
+	String korBnkStlmntHms<length=6 description="한국은행결제시간">;
+	String korBnkStlmntMthdCd<length=1 description="한국은행결제방법코드">;
+	String orgnlTxUnqMgmtNbr<length=13 description="원거래고유관리번호">;
+	String orgnlTxFundTrnsfrSeqNbr<length=5 description="원거래자금이체일련번호">;
+	String cntrCtPrcsngRsltCd<length=2 description="센터컷처리결과코드">;
+}

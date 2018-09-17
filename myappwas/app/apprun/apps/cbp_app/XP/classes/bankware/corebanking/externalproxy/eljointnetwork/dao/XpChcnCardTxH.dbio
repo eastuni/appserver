@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.eljointnetwork.dao.XpChcnCardTxH">
+<!--Generated Fri Feb 10 09:26:57 KST 2017-->
+<insert id="insertXpChcnCardTxH" parameterType="bankware.corebanking.externalproxy.eljointnetwork.interfaces.dto.XpChcnCardTxHIO">
+INSERT  
+  INTO  XP_CHCN_CARD_TX_H    /* 체크카드거래내역 */
+(
+  CUST_ID,     /*고객식별자*/
+  TX_DT,     /*거래일자*/
+  GUID,     /*GUID*/
+  RCV_TM,     /*수신시간*/
+  ACCT_NBR,     /*계좌번호*/
+  INOT_DS_CD,     /*입출구분코드*/
+  NRML_CNCL_CRCTN_DS_CD,     /*정상취소정정구분코드*/
+  TX_AMT,     /*거래금액*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{custId, jdbcType=VARCHAR},     /*고객식별자*/
+  #{txDt, jdbcType=VARCHAR},     /*거래일자*/
+  #{guid, jdbcType=VARCHAR},     /*GUID*/
+  #{rcvTmstmp, jdbcType=VARCHAR},     /*수신시간*/
+  #{acctNbr, jdbcType=VARCHAR},     /*계좌번호*/
+  #{dpstWhdrwlDscd, jdbcType=VARCHAR},     /*입출구분코드*/
+  #{nrmlCnclCrctnDscd, jdbcType=VARCHAR},     /*정상취소정정구분코드*/
+  #{txAmt, jdbcType=NUMERIC},     /*거래금액*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectXpChcnCardTxH" parameterType="bankware.corebanking.externalproxy.eljointnetwork.interfaces.dto.XpChcnCardTxHIO" resultType="bankware.corebanking.externalproxy.eljointnetwork.interfaces.dto.XpChcnCardTxHIO">
+SELECT    /* 체크카드거래내역 */
+        CUST_ID AS custId,     /*고객식별자*/
+        TX_DT AS txDt,     /*거래일자*/
+        GUID AS guid,     /*GUID*/
+        RCV_TM AS rcvTmstmp,     /*수신시간*/
+        ACCT_NBR AS acctNbr,     /*계좌번호*/
+        INOT_DS_CD AS dpstWhdrwlDscd,     /*입출구분코드*/
+        NRML_CNCL_CRCTN_DS_CD AS nrmlCnclCrctnDscd,     /*정상취소정정구분코드*/
+        TX_AMT AS txAmt,     /*거래금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_CHCN_CARD_TX_H
+ WHERE CUST_ID = #{custId}
+   AND TX_DT = #{txDt}
+   AND GUID = #{guid}
+</select>
+<select id="selectXpChcnCardTxHSum" resultType="bankware.corebanking.externalproxy.eljointnetwork.interfaces.dto.XpChcnCardTxHIO">
+SELECT a.custId as custId
+     , a.txDt   as txDt
+     , nvl(sum(a.nrmlTxAmt),0) - nvl(sum(a.cnclTxAmt),0) as lmtAmt
+FROM (
+SELECT    /* 체크카드거래내역 */
+        CUST_ID AS custId,     /*고객식별자*/
+        TX_DT AS txDt,     /*거래일자*/
+        CASE WHEN NRML_CNCL_CRCTN_DS_CD = '1' THEN TX_AMT END AS nrmlTxAmt, /* 정상거래금액 */
+        CASE WHEN NRML_CNCL_CRCTN_DS_CD = '2' THEN TX_AMT END AS cnclTxAmt /* 취소거래금액 */
+  FROM  XP_CHCN_CARD_TX_H
+ WHERE CUST_ID = #{custId}
+   AND TX_DT = #{txDt}
+   AND INOT_DS_CD = '2' /* 출금 */ 
+   AND NRML_CNCL_CRCTN_DS_CD IN ('1','2') /* 정상 */
+   ) a
+group by    a.custId, a.txDt
+</select>
+</mapper>

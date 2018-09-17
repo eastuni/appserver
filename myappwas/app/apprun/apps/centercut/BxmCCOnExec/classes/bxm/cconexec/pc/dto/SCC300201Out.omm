@@ -1,0 +1,5 @@
+OMM bxm.cconexec.pc.dto.SCC300201Out
+<description="">
+{
+	Integer  pcsnStat<length=2 description="처리상태">;
+}

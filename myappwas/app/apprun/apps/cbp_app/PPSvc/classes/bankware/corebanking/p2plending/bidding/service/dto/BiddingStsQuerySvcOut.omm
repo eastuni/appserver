@@ -1,0 +1,6 @@
+OMM bankware.corebanking.p2plending.bidding.service.dto.BiddingStsQuerySvcOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String arrStsCd<length=1 description="Arrangement Status Code">;
+	String arrId<length=15 description="Arrangement Identification">;
+}

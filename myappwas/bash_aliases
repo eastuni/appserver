@@ -1,0 +1,39 @@
+
+export LANG=ko_KR.UTF-8 LC_ALL=ko_KR.UTF-8
+export CBPMNGR=cbprun
+export SW_HOME=/app/product
+export PRJ_HOME=/app/cbpprod
+export RUN_HOME=/app/apprun
+export LOG_HOME=/applogs
+
+export JAVA_HOME=$SW_HOME/jdk/jdk
+export CATALINA_HOME=$SW_HOME/was/tomcat8
+export BXM_HOME=$SW_HOME/lib
+export BAT_HOME=$PRJ_HOME/batch
+export WAS_HOME=$PRJ_HOME/was_instance
+export BAT_DATA_HOME=$RUN_HOME/data
+export WAS_LOG_HOME=$LOG_HOME/was
+export APP_LOG_HOME=$LOG_HOME/app
+export BAT_LOG_HOME=$APP_LOG_HOME/batch
+
+export PATH=$JAVA_HOME/bin:$PATH
+export EXINIT='set noai ts=4 sw=4'
+
+export PATH
+
+alias vi=vim
+alias log='cd $APP_LOG_HOME/online'
+alias prod='cd $PRJ_HOME'
+alias slog='cd $APP_LOG_HOME/online/service'
+alias rlog='tail -f $APP_LOG_HOME/online/on_`date "+%Y%m%d"`.log'
+alias clog='cd $APP_LOG_HOME/cc-main/service'
+alias ps_online='$WAS_HOME/online/ps.sh'
+alias online_start='$WAS_HOME/online/startup.sh'
+alias ps_admin='$WAS_HOME/admin/ps.sh'
+alias admin_start='$WAS_HOME/admin/startup.sh'
+alias ps_cc='$WAS_HOME/cc-main/ps.sh'
+alias cc_start='$WAS_HOME/cc-main/startup.sh'
+
+alias clog='cd $APP_LOG_HOME/cc-main/service'
+alias bat_log='cd $BAT_LOG_HOME'
+alias bat_data='cd $BAT_DATA_HOME'

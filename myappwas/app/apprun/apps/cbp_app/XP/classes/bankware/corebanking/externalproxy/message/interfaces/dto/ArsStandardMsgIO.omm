@@ -1,0 +1,46 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.ArsStandardMsgIO
+<description="ARS 표준전문 ">
+{
+	String bizDscd<length=3 description="업무구분">;
+	String extrnlInstCd<length=3 description="기관대표코드">;
+	String extrnlBizDscd<length=3 description="대외업무구분코드">;
+	String jointNetworkClCd<length=4 description="전문종별코드">;
+	String jointNetworkTxDscd<length=6 description="거래구분코드">;
+	String sndRcvFlagCntnt<length=1 description="송수신FLAG">;
+	String rspnsCd<length=3 description="응답코드">;
+	String txDt<length=8 description="거래년월일">;
+	String txHms<length=6 description="거래시각">;
+	String msgSndTmstmp<length=12 description="전문전송일시">;
+	String cntrMsgMgmtNbr<length=12 description="센터전문관리번호">;
+	String instMsgMgmtNbr<length=8 description="기관전문관리번호">;
+	String fillerCntnt<length=2 description="FILLER">;
+	String acctNbr<length=24 description="계좌번호" encrypt="AES256">;
+	String pswd<length=24 description="비밀번호" encrypt="AES256">;
+	String idNbrFrontSixFgrsChkDscd<length=1 description="주민등록번호앞6자리(사업자번호)체크구분">;
+	String idNbrFrontSixFgrsNbr<length=13 description="주민등록번호앞6자리(사업자번호)">;
+	String ldgrBal<length=12 description="원장잔액">;
+	String actualBal1<length=12 description="실잔액">;
+	String randomNbr1<length=32 description="난수1">;
+	String randomNbr2<length=32 description="난수2">;
+	String encrptnPswd1<length=32 description="암호화된비밀번호">;
+	String mstKeyVersionCntnt<length=2 description="마스터키버전">;
+	String fillerCntnt63<length=2 description="예비필드(공란)">;
+	String txHstAssignNbr<length=2 description="거래내역지정번호">;
+	Integer inpOutpCnt<length=2 description="입출력 건수">;
+	String acctDscd<length=2 description="계좌구분">;
+	String actualBal<length=12 description="실잔액">;
+	String dpstRcvdAmt<length=12 description="예수금">;
+	String whdrwlAblAmt<length=12 description="출금가능금액">;
+	String orderAblAmt<length=12 description="주문가능금액">;
+	String otstndngAmt<length=12 description="미수금">;
+	String bnkDpstRcvdAmt<length=12 description="은행예수금">;
+	String txUnqNbr<length=13 description="거래고유번호">;
+	String opnRprsntvInstCd<length=3 description="개설기관대표코드">;
+	String idNbr<length=24 description="주민등록번호" encrypt="AES256">;
+	String acctOwnrNm1<length=78 description="예금주명" encrypt="KSC5601">;
+	String hndlngRprsntnInstCd<length=3 description="취급기관대표코드">;
+	String rcpntAcctNbr<length=24 description="수취계좌번호" encrypt="AES256">;
+	String fillerCntnt2<length=22 description="FILLER">;
+	String msgCd<length=10 description="메시지코드">;
+	bankware.corebanking.externalproxy.message.interfaces.dto.ArsTxHst txHst<length=0 arrayReference="inpOutpCnt" description="거래내역">;
+}

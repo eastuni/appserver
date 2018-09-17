@@ -1,0 +1,12 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.CmsMsg0800
+<description="0800 : CMS실시간 통신망 요청">
+{
+	String startChrCntnt1<length=3 description="TEXT 개시 문자">;
+	String msgHdrCntnt<length=9 description="전문 HEADER">;
+	String msgPerTpCd<length=4 description="전문 TYPE">;
+	String prmryBitmapCntnt<length=16 description="PRIMARY BITMAP">;
+	String scndryBitmapCntnt<length=16 description="SECONDARY BITMAP">;
+	String msgTrnsmsnTmstmp<length=10 description="전문전송일시">;
+	String msgTraceNbr<length=6 description="전문추적번호">;
+	String networkMgmtInfoCntnt<length=3 description="통신망관리정보">;
+}

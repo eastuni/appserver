@@ -1,0 +1,9 @@
+OMM bxm.web.admin.deploy.domain.DeployHistAppDetailOMM
+<description="">
+{
+	String bxmAppId<length=20>;
+	String bxmAppDesc<length=20>;
+	String deploySuccessYn<length=20>;
+	String regOccurDttm<length=20>;
+	String deployErrStacktrace<length=20>;
+}

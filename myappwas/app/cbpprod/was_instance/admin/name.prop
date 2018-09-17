@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+INSTANCE_NAME=admin
+SERVER_NAME=admin-instance
+CONTAINER_NAME=admin_container1
+

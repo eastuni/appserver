@@ -1,0 +1,17 @@
+OMM bxm.web.admin.dni.analyze.domain.BxmDniMethodOMM
+<description="">
+{
+	String methodId<length=40 description="메소드 ID">;
+	String bxmAppId<length=40 description="BXM어플리케이션ID">;
+	String pkgNm<length=512 description="패키지 명">;
+	String classNm<length=512 description="클래스 명">;
+	String methodSign<length=2048 description="메소드 시그니쳐">;
+	String methodNm<length=256 description="메소드 명">;
+	String methodExecTypeCd<length=1 description="메소드 실행 타입 코드">;
+	Integer startLineCnt<length=9 description="시작 라인 수">;
+	Integer endLineCnt<length=9 description="종료 라인 수">;
+	String opNm<length=512 description="오퍼레이션 명">;
+	String tranYn<length=1 description="트랜잭션 여부">;
+	String methodModifierList<length=1024 description="메소드 접근자 목록">;
+	String modifyDttm<length=14 description="변경 일시">;
+}

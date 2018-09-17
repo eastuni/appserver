@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.loan.financialtransaction.batch.dao.LnAccrualBat">
+<!--Generated Mon Apr 23 14:53:58 KST 2018-->
+<select id="selectListLnArrPageMysql" parameterType="bankware.corebanking.loan.financialtransaction.batch.dao.dto.LnAccrualBatIO" resultType="bankware.corebanking.loan.financialtransaction.batch.dao.dto.LnAccrualBatIO">
+SELECT    /* 계약기본 */
+       ARR_ID AS arrId    /*계약식별자*/
+  FROM AR_ARR_M
+ WHERE INST_CD = #{instCd}
+   AND ARR_STS_CD = #{arrStsCd}
+   AND BIZ_DSCD = #{bizDscd}
+   AND PD_CD = #{pdCd}
+ ORDER BY INST_CD, ARR_ID
+</select>
+</mapper>

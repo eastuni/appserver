@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.PG1115Inqry">
+<!--Generated Mon Feb 06 15:42:40 KST 2017-->
+<select id="selectPG1115InqryList" parameterType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.PG1115InqryIFIn" resultType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.PG1115InqryIFOutSub">
+SELECT 
+A.txDt,     /*거래일자*/
+        A.seqNbr,     /*일련번호*/
+        A.dpstWhdrwlDt,     /*입출금일자*/
+        A.netStlmntDt,     /*차액결제일자*/
+        A.whdrwlCnt,     /*출금건수*/
+        A.whdrwlAmt,     /*출금금액*/
+        A.feeAmt,     /*수수료*/
+        A.debitDpstBnkFeeAmt,     /*차변입금은행수수료*/
+        A.realSbmtAmt,     /*실제출금액*/
+        A.mnyRcvdCnt,     /*입금건수*/
+        A.mnyRcvdAmt,     /*입금금액*/
+        A.crdtDpstBnkFeeAmt,     /*대변입금은행수수료*/
+        A.dpstSumAmt,     /*입금금액합계*/
+        A.fundAdjstmntStlmntTxNetAmt,     /*자금조정정산거래차액금액*/
+        A.fundAdjstmntBaseIntRt,     /*자금조정기준금리*/
+        A.fundAdjstmntStlmntTrgtAmt     /*자금조정정산대상금액*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM,
+		A.txDt,     /*거래일자*/
+        A.seqNbr,     /*일련번호*/
+        A.dpstWhdrwlDt,     /*입출금일자*/
+        A.netStlmntDt,     /*차액결제일자*/
+        A.whdrwlCnt,     /*출금건수*/
+        A.whdrwlAmt,     /*출금금액*/
+        A.feeAmt,     /*수수료*/
+        A.debitDpstBnkFeeAmt,     /*차변입금은행수수료*/
+        A.realSbmtAmt,     /*실제출금액*/
+        A.mnyRcvdCnt,     /*입금건수*/
+        A.mnyRcvdAmt,     /*입금금액*/
+        A.crdtDpstBnkFeeAmt,     /*대변입금은행수수료*/
+        A.dpstSumAmt,     /*입금금액합계*/
+        A.fundAdjstmntStlmntTxNetAmt,     /*자금조정정산거래차액금액*/
+        A.fundAdjstmntBaseIntRt,     /*자금조정기준금리*/
+        A.fundAdjstmntStlmntTrgtAmt     /*자금조정정산대상금액*/
+     FROM 
+        (
+        
+
+SELECT    /* 실시간출금및입금내역 */
+        TX_DT AS txDt,     /*거래일자*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        DPST_WHDRWL_DT AS dpstWhdrwlDt,     /*입출금일자*/
+        NET_STLMNT_DT AS netStlmntDt,     /*차액결제일자*/
+        WHDRWL_CNT AS whdrwlCnt,     /*출금건수*/
+        WHDRWL_AMT AS whdrwlAmt,     /*출금금액*/
+        FEE_AMT AS feeAmt,     /*수수료*/
+        DEBIT_DPST_BNK_FEE_AMT AS debitDpstBnkFeeAmt,     /*차변입금은행수수료*/
+        REAL_SBMT_AMT AS realSbmtAmt,     /*실제출금액*/
+        MNY_RCVD_CNT AS mnyRcvdCnt,     /*입금건수*/
+        MNY_RCVD_AMT AS mnyRcvdAmt,     /*입금금액*/
+        CRDT_DPST_BNK_FEE_AMT AS crdtDpstBnkFeeAmt,     /*대변입금은행수수료*/
+        DPST_SUM_AMT AS dpstSumAmt,     /*입금금액합계*/
+        FUND_ADJSTMNT_STLMNT_TX_NET_AMT AS fundAdjstmntStlmntTxNetAmt,     /*자금조정정산거래차액금액*/
+        FUND_ADJSTMNT_BASE_INT_RT AS fundAdjstmntBaseIntRt,     /*자금조정기준금리*/
+        FUND_ADJSTMNT_STLMNT_TRGT_AMT AS fundAdjstmntStlmntTrgtAmt     /*자금조정정산대상금액*/
+  FROM  XP_PG_PG1115_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+   order by TX_DT desc, SEQ_NBR desc
+   
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) A
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectPG1115InqryTotalCnt" parameterType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.PG1115InqryIFIn" resultType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.PG1115InqryIFOut">
+SELECT count(1) as totalCount
+  FROM  XP_PG_PG1115_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+</select>
+</mapper>

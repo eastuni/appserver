@@ -1,0 +1,23 @@
+OMM bankware.corebanking.externalproxy.cdjointnetwork.interfaces.dto.GiroDpwglRsltMIn
+<description="자동이체입출금결과기본in">
+{
+	String prcsngDt<length=8 description="처리일자">;
+	String dpstWhdrwlDscd<length=1 description="입출구분코드">;
+	String custId<length=15 description="고객식별자">;
+	String arrId<length=40 description="계약식별자">;
+	String useInstIdNbr<length=20 description="이용기관식별번호">;
+	String trnsfrBizKndCd<length=2 description="이체업무종류코드">;
+	String rmtncDt<length=8 description="이체일자">;
+	String payerNbr<length=20 description="납부자번호">;
+	String acctOwnrNm<length=100 description="예금주명">;
+	String payerAcctOpnBnkBrnchCd<length=7 description="납부자계좌개설은행지점코드">;
+	String dpstWhdrwlAcctNbr<length=44 description="입출금계좌번호">;
+	BigDecimal dpstWhdrwlAmt<length=22 decimal=2 description="입출금액">;
+	String rcptKndCd<length=2 description="수납요금종류코드">;
+	String fundsKndCd<length=2 description="자금종류코드">;
+	String fnclInstCd<length=3 description="금융기관코드">;
+	Date lastChngTmstmp<length=30 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+	BigDecimal feeAmt<length=22 decimal=2 description="수수료금액">;
+	String rmtncBizKndDtlCd<length=8 description="이체업무종류상세코드">;
+}

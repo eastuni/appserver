@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.batch.staff.dao.StaffCloseBatchDbio">
+<!--Generated Thu Jun 30 13:25:59 KST 2016-->
+<select id="select" resultType="bxm.batch.staff.dao.dto.StaffCloseIO">
+select	 asxid.inst_cd as instCd,
+		 asxid.staff_id as staffId
+ from AT_STAFF_XTN_INFO_D asxid, AT_STAFF_STS_D assd
+where asxid.inst_cd = #{instCd}
+   and asxid.xtn_atrbt_nm = #{xtnAtrbtNm}
+   and asxid.xtn_atrbt_cntnt = #{txDt}
+   and asxid.inst_cd = assd.inst_cd
+   and asxid.staff_id = assd.staff_id
+   and assd.staff_sts_cd = '02'
+   and assd.efctv_start_dt &lt;=#{txDt}
+   and assd.efctv_end_dt &gt;=#{txDt}
+</select>
+</mapper>

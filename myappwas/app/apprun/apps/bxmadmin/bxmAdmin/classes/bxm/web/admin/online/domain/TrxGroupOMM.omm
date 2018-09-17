@@ -1,0 +1,10 @@
+OMM bxm.web.admin.online.domain.TrxGroupOMM
+<description="">
+{
+	String domainId<length=14 description="도메인ID">;
+	String trxGrpId<length=40 description="거래그룹ID">;
+	String trxGrpNm<length=128 description="거래그룹명">;
+	String useYn<length=1 description="사용여부">;
+	String trxCtrlCd<length=1 description="거래제어코드 ">;
+	BigDecimal frcdTimeoutMills<length=22 description="강제타임아웃밀리초 ">;
+}

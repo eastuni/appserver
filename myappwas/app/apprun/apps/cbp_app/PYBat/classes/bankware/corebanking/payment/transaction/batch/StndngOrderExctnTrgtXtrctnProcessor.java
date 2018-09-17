@@ -1,0 +1,98 @@
+package bankware.corebanking.payment.transaction.batch;
+ 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.batch.core.ExitStatus;
+import org.springframework.batch.core.StepExecution;
+import org.springframework.batch.core.annotation.AfterStep;
+import org.springframework.batch.core.annotation.BeforeStep;
+import org.springframework.batch.item.ItemProcessor;
+import org.springframework.context.annotation.Scope;
+
+import bankware.corebanking.arrangement.arrangement.interfaces.Arr;
+import bankware.corebanking.arrangement.arrangement.interfaces.ArrMngr;
+import bankware.corebanking.arrangement.arrangement.interfaces.ArrReal;
+import bankware.corebanking.classinfo.annotation.CbbClassInfo;
+import bankware.corebanking.frm.app.BizApplicationException;
+import bankware.corebanking.context.CbbApplicationContext;
+import bankware.corebanking.payment.transaction.batch.dto.StndngOrderExctnTrgtIO;
+import bxm.common.annotaion.BxmCategory;
+import bxm.container.annotation.BxmBean;
+ 
+/**
+ * This abstraction class implements ItemProcessor.
+ * This class is used for processing target accounts which were extracted from the previous step.
+ * The output data from this class will be used to center cut service.
+ *
+ * Author	Heejung Park
+ * History
+ *  2015.10.12	initial version for 2.3
+ */
+@CbbClassInfo(classType={"ITEM_PROCESSOR"})
+@BxmBean("StndngOrderExctnTrgtXtrctnProcessor")
+@Scope("step")
+@BxmCategory(logicalName = "Standing Order Execution Target Extraction Processor")
+public class StndngOrderExctnTrgtXtrctnProcessor implements ItemProcessor<StndngOrderExctnTrgtIO, StndngOrderExctnTrgtIO> {
+	final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	private	ArrMngr arrMngr;
+	
+	/* (non-Javadoc)
+	 * @see org.springframework.batch.item.ItemProcessor#process(java.lang.Object)
+	 */
+	@Override
+	public StndngOrderExctnTrgtIO process(StndngOrderExctnTrgtIO in) throws BizApplicationException {
+
+		/*
+		 * Set the other necessary information for center cut service
+		 */
+		ArrReal arr = _getArrMngr().getArrReal(in.getArrId());
+		in.setTxDeptId(arr.getMgmtDeptId());
+		
+		return in;
+	}
+ 
+	@BeforeStep
+	public void beforeStep(StepExecution stepExecution) {
+		// Set the Job Parameter
+		if(logger.isDebugEnabled()) {
+			logger.debug("@BeforeStep");
+		}
+	}
+	
+	@AfterStep
+	public ExitStatus afterStep(StepExecution stepExecution) {
+		if(ExitStatus.COMPLETED.equals(stepExecution.getExitStatus())) {
+			_debug("@AfterStep step COMPLETED");
+		}
+		
+		if(ExitStatus.FAILED.equals(stepExecution.getExitStatus())) {
+			_debug("@AfterStep step FAILED");
+		}
+		
+		return stepExecution.getExitStatus();
+	}
+	
+	private void _debug(String msg) {
+		
+		_debug(msg, "");
+	}
+
+	private void _debug(String msg, Object obj) {
+		
+		if(logger.isDebugEnabled()) {
+			logger.debug(msg, obj);
+		}
+	}
+
+	/**
+	 * @return the arrMngr
+	 */
+	private ArrMngr _getArrMngr() {
+		if (arrMngr == null) {
+			arrMngr = (ArrMngr) CbbApplicationContext.getBean(ArrMngr.class, arrMngr);
+		}
+		return arrMngr;
+	}
+}
+

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonconfigurator.dao.XpMsgTrnsfrmD">
+<!--Generated Mon Sep 26 19:27:27 KST 2016-->
+<delete id="deleteMessageTransformDetail">
+DELETE FROM xp_msg_trnsfrm_d    /* 메시지변환명세 */
+ WHERE MSG_TRNSFRM_ID = #{msgTrnsfrmId}
+</delete>
+<select id="selectMessageTransformDetail" resultType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpMsgTrnsfrmDIO">
+SELECT    /* 메시지변환명세 */
+       MSG_TRNSFRM_ID AS msgTrnsfrmId    /*메시지변환식별자*/
+     , seq_nbr AS seqNbr    /*일련번호*/
+     , msg_trnsfrm_inp_way_Dscd AS msgTrnsfrmInpWayDscd    /*메시지변환입력방식코드*/
+     , inp_atrbt_nm AS inpAtrbtNm    /*입력속성명*/
+     , outp_atrbt_nm AS outpAtrbtNm    /*출력속성명*/
+     , atrbt_len AS atrbtLen    /*속성길이*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+     , INP_ATRBT_VAL AS inpAtrbtVal
+     , OUTP_ATRBT_VAL AS outpAtrbtVal
+     , RMK_CNTNT AS rmkCntnt
+  FROM xp_msg_trnsfrm_d
+ WHERE MSG_TRNSFRM_ID = #{msgTrnsfrmId}
+ ORDER BY MSG_TRNSFRM_ID, seq_nbr
+</select>
+<insert id="insertMessageTransformDetail" parameterType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpMsgTrnsfrmDIO">
+INSERT  
+  INTO  XP_MSG_TRNSFRM_D    /* 메시지변환명세 */
+(
+  MSG_TRNSFRM_ID,     /*메시지변환식별자*/
+  SEQ_NBR,     /*일련번호*/
+  MSG_TRNSFRM_INP_WAY_Dscd,     /*메시지변환입력방식코드*/
+  INP_ATRBT_NM,     /*입력속성명*/
+  OUTP_ATRBT_NM,     /*출력속성명*/
+  ATRBT_LEN,     /*속성길이*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID,    /*최종변경GUID*/
+  INP_ATRBT_VAL,
+  OUTP_ATRBT_VAL,
+  RMK_CNTNT
+)
+VALUES 
+(
+  #{msgTrnsfrmId},     /*메시지변환식별자*/
+  #{seqNbr},     /*일련번호*/
+  #{msgTrnsfrmInpWayDscd},     /*메시지변환입력방식코드*/
+  #{inpAtrbtNm, jdbcType=VARCHAR},     /*입력속성명*/
+  #{outpAtrbtNm},     /*출력속성명*/
+  #{atrbtLen},     /*속성길이*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid},    /*최종변경GUID*/
+  #{inpAtrbtVal, jdbcType=VARCHAR},
+  #{outpAtrbtVal},
+  #{rmkCntnt, jdbcType=VARCHAR}
+)
+</insert>
+<update id="updateMessageTransformDetail" parameterType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpMsgTrnsfrmDIO">
+UPDATE xp_msg_trnsfrm_d    /* 메시지변환명세 */
+   SET msg_trnsfrm_inp_way_Dscd = #{msgTrnsfrmInpWayDscd}    /* 메시지변환입력방식코드 */
+     , inp_atrbt_nm = #{inpAtrbtNm, jdbcType=VARCHAR}    /* 입력속성명 */
+     , outp_atrbt_nm = #{outpAtrbtNm}    /* 출력속성명 */
+     , atrbt_len = #{atrbtLen}    /* 속성길이 */
+     , last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+     , INP_ATRBT_VAL = #{inpAtrbtVal, jdbcType=VARCHAR}
+     , OUTP_ATRBT_VAL = #{outpAtrbtVal}
+     , RMK_CNTNT = #{rmkCntnt, jdbcType=VARCHAR}
+ WHERE MSG_TRNSFRM_ID = #{msgTrnsfrmId}
+   AND seq_nbr = #{seqNbr}
+</update>
+<select id="selectMessageTransformDetailForTrans" resultType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpMsgTrnsfrmDIO">
+SELECT    /* 메시지변환명세 */
+       MSG_TRNSFRM_ID AS msgTrnsfrmId    /*메시지변환식별자*/
+     , seq_nbr AS seqNbr    /*일련번호*/
+     , msg_trnsfrm_inp_way_Dscd AS msgTrnsfrmInpWayDscd    /*메시지변환입력방식코드*/
+     , inp_atrbt_nm AS inpAtrbtNm    /*입력속성명*/
+     , outp_atrbt_nm AS outpAtrbtNm    /*출력속성명*/
+     , atrbt_len AS atrbtLen    /*속성길이*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+     , INP_ATRBT_VAL AS inpAtrbtVal
+     , OUTP_ATRBT_VAL AS outpAtrbtVal
+     , RMK_CNTNT AS rmkCntnt
+  FROM xp_msg_trnsfrm_d
+ WHERE MSG_TRNSFRM_ID = #{msgTrnsfrmId}
+    AND msg_trnsfrm_inp_way_Dscd in ('01', '02', '03' , '04')
+ ORDER BY MSG_TRNSFRM_ID, seq_nbr
+</select>
+</mapper>

@@ -1,0 +1,17 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IgComm
+<description="인터넷지로공통부">
+{
+	String extrnlBizDscd<length=3 description="대외업무구분코드">;
+	String extrnlInstCd<length=3 description="기관대표코드">;
+	String jointNetworkClCd<length=4 description="전문종별코드">;
+	String jointNetworkTxDscd<length=6 description="거래구분코드">;
+	String stsCntnt<length=3 description="상태코드">;
+	String sndRcvFlagCntnt<length=1 description="송수신FLAG">;
+	String extrnlRspnsCd<length=3 description="응답코드">;
+	String msgSndTmstmp<length=12 description="전문전송일시">;
+	String cntrMsgMgmtNbr<length=12 description="센터전문관리번호">;
+	String instMsgMgmtNbr<length=12 description="기관전문관리번호">;
+	String issueInstDscd<length=2 description="발행기관분류코드">;
+	String giroNbr<length=7 description="지로번호">;
+	String fillerCntnt<length=2 description="FILLER" defaultValue="00">;
+}

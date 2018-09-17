@@ -1,0 +1,18 @@
+OMM bxm.ccmainmng.online.dto.BxmCCEnvIO
+<description=" ">
+{
+	String domainId<length=20 description="도메인ID">;
+	String trxKnCd<length=2 description="거래종류코드">;
+	String userDefnClseNm1<length=100 description="사용자정의항목명1">;
+	String userDefnClseNm2<length=100 description="사용자정의항목명2">;
+	String userDefnClseNm3<length=100 description="사용자정의항목명3">;
+	String userDefnClseNm4<length=100 description="사용자정의항목명4">;
+	String userDefnClseNm5<length=100 description="사용자정의항목명5">;
+	String userDefnClseNm6<length=100 description="사용자정의항목명6">;
+	String userDefnClseNm7<length=100 description="사용자정의항목명7">;
+	String userDefnClseNm8<length=100 description="사용자정의항목명8">;
+	String userDefnClseNm9<length=100 description="사용자정의항목명9">;
+	String userDefnClseNm10<length=100 description="사용자정의항목명10">;
+	String chngDttm<length=30 description="변경일시">;
+	String chngUserId<length=20 description="변경사용자id">;
+}

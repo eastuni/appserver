@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.resourcelibrary.dao.CmClassM">
+<!--Generated Tue Nov 07 15:24:31 KST 2017-->
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmClassMIO">
+INSERT  
+
+  INTO  cm_class_m    /* 클래스기본 */
+(
+
+  class_nm    /*클래스명*/, 
+  bean_nm    /*빈명*/, 
+
+  parnt_class_nm    /*부모클래스명*/, 
+  pckg_nm    /*패키지명*/, 
+
+  cmpnt_cd    /*컴포넌트코드*/, 
+
+  last_chng_tmstmp    /*최종변경일시*/, 
+
+  last_chng_guid    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+  #{classNm}    /*클래스명*/, 
+  #{beanNm}    /*빈명*/, 
+
+  #{parntClassNm}    /*부모클래스명*/, 
+  #{pckgNm}    /*패키지명*/, 
+
+  #{cmpntCd}    /*컴포넌트코드*/, 
+
+  #{lastChngTmstmp}    /*최종변경일시*/, 
+
+  #{lastChngGuid}    /*최종변경GUID*/
+
+)
+</insert>
+<delete id="delete" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmClassMIO">
+DELETE  FROM  cm_class_m    /* 클래스기본 */
+ WHERE  class_nm = #{classNm}
+</delete>
+<update id="merge" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmClassMIO">
+MERGE  INTO CM_CLASS_M    /*클래스기본*/
+USING DUAL
+
+ON(
+
+    class_nm = #{classNm}
+)
+
+WHEN MATCHED THEN
+
+    UPDATE  SET
+
+      bean_nm = #{beanNm}    /* 빈명 */, 
+
+      parnt_class_nm = #{parntClassNm}    /* 부모클래스명 */, 
+      pckg_nm = #{pckgNm}    /* 패키지명 */, 
+
+      cmpnt_cd = #{cmpntCd}    /* 컴포넌트코드 */, 
+
+      last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */, 
+
+      last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+
+
+
+WHEN NOT MATCHED THEN
+
+    INSERT      
+
+    (    
+
+      class_nm    /*클래스명*/, 
+      bean_nm    /*빈명*/, 
+
+      parnt_class_nm    /*부모클래스명*/, 
+      pckg_nm    /*패키지명*/, 
+
+      cmpnt_cd    /*컴포넌트코드*/, 
+
+      last_chng_tmstmp    /*최종변경일시*/, 
+
+      last_chng_guid    /*최종변경GUID*/
+
+    )    
+
+    VALUES     
+
+    (    
+
+      #{classNm}    /*클래스명*/, 
+      #{beanNm}    /*빈명*/, 
+
+      #{parntClassNm}    /*부모클래스명*/,  
+      #{pckgNm}    /*패키지명*/, 
+
+      #{cmpntCd}    /*컴포넌트코드*/, 
+
+      #{lastChngTmstmp}    /*최종변경일시*/, 
+
+      #{lastChngGuid}    /*최종변경GUID*/
+
+    )
+</update>
+<select id="selectAll" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmClassMIO">
+SELECT  /* 클래스기본 */
+
+        class_nm AS classNm    /*클래스명*/, 
+        bean_nm AS beanNm    /*빈명*/, 
+
+        parnt_class_nm AS parntClassNm    /*부모클래스명*/, 
+        pckg_nm AS pckgNm    /*패키지명*/, 
+
+        cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_class_m
+</select>
+<select id="select" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmClassMIO" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmClassMIO">
+SELECT  /* 클래스기본 */
+
+        class_nm AS classNm    /*클래스명*/, 
+        bean_nm AS beanNm    /*빈명*/, 
+
+        parnt_class_nm AS parntClassNm    /*부모클래스명*/, 
+        pckg_nm AS pckgNm    /*패키지명*/, 
+
+        cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_class_m
+ WHERE  class_nm = #{classNm}
+</select>
+<select id="selectListSuperClassNmLike" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmClassMIO" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmClassMIO">
+SELECT  /* 클래스기본 */
+
+        class_nm AS classNm    /*클래스명*/, 
+        bean_nm AS beanNm    /*빈명*/, 
+
+        parnt_class_nm AS parntClassNm    /*부모클래스명*/, 
+        pckg_nm AS pckgNm    /*패키지명*/, 
+
+        cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_class_m
+ WHERE  parnt_class_nm='@' 
+  AND class_layer_tp_cd IN ('01','05')
+  AND cmpnt_cd != '@'
+
+    <if test="classNm != null and classNm != ''">
+ 	AND  class_nm like CONCAT(CONCAT('%', #{classNm}), '%')
+	</if>
+
+	ORDER BY class_nm ASC
+</select>
+<select id="selectStdToSubClass" parameterType="java.lang.String" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmClassUseClassIO">
+SELECT  
+
+        class_nm AS classNm,
+        parnt_class_nm AS parntClassNm
+  FROM  cm_class_m
+  where class_nm = #{classNm}
+</select>
+<select id="selectListByCnd" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmClassMIO">
+SELECT
+
+        ccm.class_nm AS classNm
+     ,  ccm.bean_nm AS beanNm
+
+     ,  ccm.parnt_class_nm AS parntClassNm
+     ,  ccm.pckg_nm AS pckgNm
+
+     ,  ccm.cmpnt_cd AS cmpntCd
+
+     ,  ccm.last_chng_tmstmp AS lastChngTmstmp
+
+     ,  ccm.last_chng_guid AS lastChngGuid
+
+  FROM  cm_class_m ccm
+ WHERE 1 = 1
+
+<if test="classLayerTpCd != null and classLayerTpCd != ''">
+   AND EXISTS (SELECT 1
+
+                 FROM cm_class_tp_d cctd
+                WHERE ccm.class_nm = cctd.class_nm
+                  AND cctd.class_layer_tp_cd = #{classLayerTpCd})
+</if>
+
+<if test="classNm != null and clasNm !=''">
+   AND class_nm LIKE CONCAT(CONCAT('%', #{classNm}), '%')
+</if>
+
+<if test="parntClassNm != null and parntClassNm !=''">
+   AND parnt_class_nm LIKE CONCAT(CONCAT('%', #{parntClassNm}), '%')
+</if>
+
+<if test="cmpntCd != null and cmpntCd !=''">
+
+   AND cmpnt_cd = #{cmpntCd}
+
+</if>
+</select>
+<select id="selectClassForClassTreeNode" resultType="bankware.corebanking.applicationcommon.resourcelibrary.business.ClassTreeNodeImpl">
+SELECT  /* 클래스기본 */
+
+        class_nm AS classNm    /*클래스명*/, 
+        bean_nm AS beanNm    /*빈명*/, 
+
+        parnt_class_nm AS parntClassNm    /*부모클래스명*/, 
+        pckg_nm AS pckgNm    /*패키지명*/, 
+
+        cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_class_m
+ WHERE  class_nm = #{classNm}
+</select>
+<select id="selectSubClassMysql" resultType="bankware.corebanking.applicationcommon.resourcelibrary.business.ClassTreeNodeImpl">
+SELECT  /* 클래스기본 */
+
+        m.class_nm AS classNm    /*클래스명*/, 
+        m.bean_nm AS beanNm    /*빈명*/, 
+
+        m.parnt_class_nm AS parntClassNm    /*부모클래스명*/, 
+        m.pckg_nm AS pckgNm    /*패키지명*/, 
+
+        m.cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        m.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        m.last_chng_guid AS lastChngGuid    /*최종변경GUID*/,
+
+        IF(m2.aply_class_nm,'Y','N') as aplyYn,
+        m2.aply_start_dt as aplyStartDt
+
+  FROM  cm_class_m m
+  LEFT JOIN cm_inst_apld_class_d m2 
+         ON m2.aply_class_nm = m.class_nm 
+         AND INST_CD = #{instCd} AND MOST_UP_PARNT_CLASS_NM = #{classNm}
+  where m.parnt_class_nm = #{classNm}
+  order by class_nm ASC
+</select>
+<select id="selectSubClassOracle" resultType="bankware.corebanking.applicationcommon.resourcelibrary.business.ClassTreeNodeImpl">
+SELECT  /* 클래스기본 */
+
+        m.class_nm AS classNm    /*클래스명*/, 
+        m.bean_nm AS beanNm    /*빈명*/, 
+
+        m.parnt_class_nm AS parntClassNm    /*부모클래스명*/, 
+        m.pckg_nm AS pckgNm    /*패키지명*/, 
+
+        m.cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        m.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        m.last_chng_guid AS lastChngGuid    /*최종변경GUID*/,
+
+        DECODE(m2.aply_class_nm,'Y','N') as aplyYn,
+        m2.aply_start_dt as aplyStartDt
+
+  FROM  cm_class_m m
+  LEFT JOIN cm_inst_apld_class_d m2 
+         ON m2.aply_class_nm = m.class_nm 
+         AND INST_CD = #{instCd} AND MOST_UP_PARNT_CLASS_NM = #{classNm}
+  where m.parnt_class_nm = #{classNm}
+  order by class_nm ASC
+</select>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmClassMIO">
+UPDATE  
+        cm_class_m    /* 클래스기본 */
+   SET  BEAN_NM = #{beanNm, jdbcType=VARCHAR}    /* 빈명 */
+     , PARNT_CLASS_NM = #{parntClassNm, jdbcType=VARCHAR}    /* 부모클래스명 */
+     , PCKG_NM = #{pckgNm, jdbcType=VARCHAR}    /* 패키지명 */
+     , CMPNT_CD = #{cmpntCd, jdbcType=VARCHAR}
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE CLASS_NM = #{classNm, jdbcType=VARCHAR}
+</update>
+</mapper>

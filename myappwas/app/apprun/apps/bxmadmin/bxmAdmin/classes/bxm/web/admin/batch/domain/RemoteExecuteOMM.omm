@@ -1,0 +1,12 @@
+OMM bxm.web.admin.batch.domain.RemoteExecuteOMM
+<description="">
+{
+	String jobId<length=100 description="배치작업ID">;
+	String bxmAppId<length=32 description="BXM어플리케이션ID">;
+	String bxmInstanceId<length=40 description="BXM인스턴스ID">;
+	String parameter<length=20 description="파라미터">;
+	String executeResult<length=40 description="호출 결과">;
+	Integer responseCode<length=9 description="응답 코드">;
+	String stepExecuteType<length=9 description="스텝별 실행 타입">;
+	String stepId<length=20 description="스텝ID">;
+}

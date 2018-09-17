@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.CC0013Inqry">
+<!--Generated Wed Dec 28 15:19:41 KST 2016-->
+<select id="selectCC0013InqryList" parameterType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CC0013InqryIFIn" resultType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CC0013InqryIFOutSub">
+SELECT 
+		A.instCd,			/*기관코드*/
+        A.instNm,     /*기관명*/
+        A.brnchCd,     /*지점코드*/
+        A.jointCdDscd,     /*공동코드구분코드*/
+        A.zipCd,     /*우편번호*/
+        A.brnchAddr,     /*주소*/
+        A.regionCd,     /*지역코드*/
+        A.brnchOfcNm,     /*지점명*/
+        A.rgnlCd,     /*광역코드*/
+        A.aplyDt,     /*적용일자*/
+        A.trmntnDscd,     /*해지마크코드*/
+        A.txShopCd,     /*자점코드*/
+        A.rcptRegionCd,     /*수납지역코드*/
+        A.telNbr,     /*전화번호*/
+        A.faxNbr,     /*팩스전화번호*/
+        A.frgnCntryShopCd,     /*외국점포코드*/
+        A.clsrBrnchMgmtBrnchCd,     /*폐쇄지점관리지점코드*/
+        A.emailAddr,     /*이메일주소*/
+        A.addrDscd,     /*주소구분코드*/
+        A.msgSndTmstmp     /*최종변경일시*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM,
+        A.instCd,			/*기관코드*/
+        A.instNm,     /*기관명*/
+        A.brnchCd,     /*지점코드*/
+        A.jointCdDscd,     /*공동코드구분코드*/
+        A.zipCd,     /*우편번호*/
+        A.brnchAddr,     /*주소*/
+        A.regionCd,     /*지역코드*/
+        A.brnchOfcNm,     /*지점명*/
+        A.rgnlCd,     /*광역코드*/
+        A.aplyDt,     /*적용일자*/
+        A.trmntnDscd,     /*해지마크코드*/
+        A.txShopCd,     /*자점코드*/
+        A.rcptRegionCd,     /*수납지역코드*/
+        A.telNbr,     /*전화번호*/
+        A.faxNbr,     /*팩스전화번호*/
+        A.frgnCntryShopCd,     /*외국점포코드*/
+        A.clsrBrnchMgmtBrnchCd,     /*폐쇄지점관리지점코드*/
+        A.emailAddr,     /*이메일주소*/
+        A.addrDscd,     /*주소구분코드*/
+        A.msgSndTmstmp     /*최종변경일시*/
+      FROM 
+        (
+        
+SELECT    /* 공동코드원장 */
+		SUBSTR(BRNCH_CD, 0,3) AS instCd,	/*기관코드*/
+        INST_NM AS instNm,     /*기관명*/
+        BRNCH_CD AS brnchCd,     /*지점코드*/
+        JOINT_CD_Dscd AS jointCdDscd,     /*공동코드구분코드*/
+        ZIP_CD AS zipCd,     /*우편번호*/
+        ADDR AS brnchAddr,     /*주소*/
+        REGION_CD AS regionCd,     /*지역코드*/
+        BRNCH_OFC_NM AS brnchOfcNm,     /*지점명*/
+        RGNL_CD AS rgnlCd,     /*광역코드*/
+        APLY_DT AS aplyDt,     /*적용일자*/
+        TRMNTN_MARK_CD AS trmntnDscd,     /*해지마크코드*/
+        OWN_BRNCH_CD AS txShopCd,     /*자점코드*/
+        RCPT_REGION_CD AS rcptRegionCd,     /*수납지역코드*/
+        TEL_NBR AS telNbr,     /*전화번호*/
+        FAX_TEL_NBR AS faxNbr,     /*팩스전화번호*/
+        FRGN_CNTRY_SHOP_CD AS frgnCntryShopCd,     /*외국점포코드*/
+        CLSR_BRNCH_MGMT_BRNCH_CD AS clsrBrnchMgmtBrnchCd,     /*폐쇄지점관리지점코드*/
+        EMAIL_ADDR AS emailAddr,     /*이메일주소*/
+        ADDR_Dscd AS addrDscd,     /*주소구분코드*/
+        TO_CHAR(LAST_CHNG_TMSTMP, 'YYYYMMDDHH24MI') AS msgSndTmstmp     /*최종변경일시*/
+  FROM  XP_JOINT_CD_M
+ WHERE 1=1 
+		<if test="bnkCd != null and bnkCd != ''">and SUBSTR(BRNCH_CD, 0,3) = #{bnkCd}</if>
+		<if test="brnchCd != null and brnchCd != ''">and BRNCH_CD = #{brnchCd}</if>
+	order by to_number(brnchCd) asc
+
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) A
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectCC0013InqryTotalCnt" parameterType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CC0013InqryIFIn" resultType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CC0013InqryIFOut">
+SELECT count(1) as totalCount
+  FROM  XP_JOINT_CD_M
+ WHERE 1=1 
+		<if test="bnkCd != null and bnkCd != ''">and SUBSTR(BRNCH_CD, 0,3) = #{bnkCd}</if>
+		<if test="brnchCd != null and brnchCd != ''">and BRNCH_CD = #{brnchCd}</if>
+</select>
+</mapper>

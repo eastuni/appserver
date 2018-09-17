@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+
+    <display-name> bxmAdmin </display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+    <session-config>
+	<session-timeout>60</session-timeout>
+    </session-config>
+
+    <context-param>
+          <param-name>config-location</param-name>
+          <param-value>bxm-management-instance.xml</param-value>
+    </context-param>
+    <context-param>
+	  <param-name>endpoint-interceptor</param-name>
+	  <param-value>bxm.web.admin.endpoint.interceptor.WebAdminLoginInterceptor</param-value>
+    </context-param>
+
+    <listener>
+	 <listener-class>bxm.service.endpoint.http.HttpServiceEndpointContextListener</listener-class>
+    </listener>
+	
+	<servlet>
+   		<servlet-name>bxmHttpAdditionalServlet</servlet-name>
+   		<servlet-class>bxm.servlet.service.http.HttpDomainBaseAdditionalServlet</servlet-class>
+   		<init-param>
+      			<param-name>fld-encoding</param-name>
+      			<param-value>UTF-8</param-value>
+   		</init-param>
+   		<init-param>
+      			<param-name>jndi-name</param-name>
+      			<param-value>java:/comp/env/BXMNXA</param-value>
+   		</init-param>
+	</servlet>
+
+    <servlet>
+        <servlet-name>bxmHttpJsonServiceEndpoint</servlet-name>
+        <servlet-class>bxm.web.admin.endpoint.WebAdminJsonHttpServiceEndpoint</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>	
+
+	<servlet>
+		<servlet-name>bxmWebAdminFileEndpoint</servlet-name>
+		<servlet-class>bxm.web.admin.service.FileEndpoint</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>bxmHttpAdditionalServlet</servlet-name>
+		<url-pattern>/addition/*</url-pattern>
+	</servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>bxmHttpJsonServiceEndpoint</servlet-name>
+        <url-pattern>/json/*</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>bxmWebAdminFileEndpoint</servlet-name>
+		<url-pattern>/fileEndpoint/*</url-pattern>
+	</servlet-mapping>
+</web-app>

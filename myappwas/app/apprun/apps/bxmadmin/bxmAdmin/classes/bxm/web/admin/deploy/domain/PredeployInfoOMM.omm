@@ -1,0 +1,8 @@
+OMM bxm.web.admin.deploy.domain.PredeployInfoOMM
+<description="">
+{
+	Integer insListSize<length=9 description="인스턴스 목록 사이즈">;
+	bxm.web.admin.deploy.domain.InstanceMonOMM instanceList<length=0 arrayReference="insListSize" description="사전 배포 인스턴스 목록">;
+	Integer appListSize<length=9 description="어플리케이션 목록 사이즈">;
+	bxm.web.admin.deploy.domain.PredeployAppOMM appList<length=0 arrayReference="appListSize" description="사전 배포 어플리케이션 목록">;
+}

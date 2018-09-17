@@ -1,0 +1,9 @@
+OMM bankware.corebanking.systemcommon.batch.dao.dto.SvBatchJobPAtrDIO
+<description="">
+{
+	String batchJobId<length=200 description="배치작업식별자">;
+	String parmAtrbtNm<length=30 description="파라미터속성명">;
+	String parmDesc<length=1000 description="파라미터설명">;
+	Date lastChngTmstmp<length=20 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

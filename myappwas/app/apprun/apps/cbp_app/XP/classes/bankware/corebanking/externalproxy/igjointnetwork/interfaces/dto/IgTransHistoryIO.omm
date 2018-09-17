@@ -1,0 +1,56 @@
+OMM bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.IgTransHistoryIO
+<description="재정자금전자수납">
+{
+	String extrnlBizDscd<length=3 description="대외업무구분코드">;
+	String extrnlInstCd<length=3 description="기관대표코드">;
+	String jointNetworkClCd<length=4 description="전문종별코드">;
+	String jointNetworkTxDscd<length=6 description="거래구분코드">;
+	String sndRcvFlagCntnt<length=1 description="송수신FLAG">;
+	String extrnlRspnsCd<length=3 description="응답코드">;
+	String txDt<length=8 description="거래일자">;
+	String txHms<length=6 description="거래시각">;
+	String msgSndTmstmp<length=12 description="전문전송일시">;
+	String cntrMsgMgmtNbr<length=12 description="센터전문관리번호">;
+	String instMsgMgmtNbr<length=8 description="기관전문관리번호">;
+	String cnclDscd<length=1 description="취소구분코드">;
+	String flagCntnt<length=3 description="stsCntnt flagCntnt">;
+	String giroNbr<length=7 description="지로번호">;
+	String msgLen<length=4 description="전문길이">;
+	String issueInstDscd<length=2 description="발행기관분류코드">;
+	String elctrncPymntNbr<length=19 description="전자납부번호">;
+	String custInqryCustNbr<length=20 description="고객조회고객번호">;
+	String impstnYm<length=6 description="부과년월">;
+	String ntfctnFormCd<length=1 description="고지형태코드">;
+	String giroIssueFormCd<length=1 description="발행형태코드">;
+	String etcCd<length=2 description="기타">;
+	BigDecimal giroPymntAmt<length=22 decimal=2 description="지로납부금액">;
+	String pymntDt<length=8 description="납부일자">;
+	String whdrwlFnclInstCd<length=3 description="출금금융기관코드">;
+	String whdrwlFnclInstBrnchCd<length=4 description="출금금융기관부점코드">;
+	String whdrwlAcctNbr<length=24 description="출금계좌번호">;
+	String cntctTelNbr<length=20 description="연락전화번호">;
+	String maskRvctnIdNbr<length=24 description="마스킹해제주민등록번호">;
+	String giroPayerNm<length=20 description="납부자성명">;
+	String acctOwnrNm<length=200 description="예금주명">;
+	String payerCnfrmInfoCntnt<length=40 description="납부자확인정보">;
+	String pymntUseSysDscd1<length=1 description="납부이용시스템코드">;
+	String pymntFormDscd<length=1 description="납부형태구분코드">;
+	BigDecimal demandCnt<length=2 description="요청건수">;
+	String useInstNm<length=34 description="이용기관명">;
+	BigDecimal amtVldtnNbr<length=1 description="금액검증일련번호">;
+	String taxPayerNbr<length=40 description="납세자번호">;
+	String chkContainYn<length=1 description="수표포함여부">;
+	String guid<length=40 description="GUID식별자">;
+	String stsCd<length=3 description="상태코드">;
+	String orgnlTxDt<length=8 description="원거래일자">;
+	String orgnlTxCntrMsgMgmtNbr<length=20 description="원거래센터전문관리번호">;
+	String orgnlTxCntrMsgSndDt<length=12 description="원거래센터전문전송일시">;
+	String orgnlTxWhdrwlAcctNbr<length=24 description="원거래출금계좌번호">;
+	BigDecimal orgnlTxPymntAmt<length=22 decimal=2 description="원거래납부금액">;
+	String orgnlTxPymntFormDscd<length=1 description="원거래납부형태구분코드">;
+	String dfltStartMnth<length=6 description="체납시작월">;
+	String dfltEndMnth<length=6 description="체납종료월">;
+	String dfltMnthCnt<length=3 description="체납개월수">;
+	String txCnclRsnCd<length=1 description="취소사유코드">;
+	String orgnlTxGuid<length=40 description="원거래GUID">;
+}

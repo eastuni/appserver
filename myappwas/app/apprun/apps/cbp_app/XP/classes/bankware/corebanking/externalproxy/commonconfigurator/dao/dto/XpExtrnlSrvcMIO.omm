@@ -1,0 +1,10 @@
+OMM bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpExtrnlSrvcMIO
+<description="">
+{
+	String sysIntrfcId<length=40 description="시스템인터페이스식별자">;
+	String extrnlSrvcCd<length=20 description="대외서비스코드">;
+	String extrnlRcvdSrvcCd<length=20 description="대외수신서비스코드">;
+	String extrnlTxCd<length=10 description="대외거래코드">;
+	Date lastChngTmstmp<length=20 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

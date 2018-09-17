@@ -1,0 +1,11 @@
+OMM bankware.corebanking.p2ploan.repayment.service.dto.LnRpymntLendingDstrbtIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="Loan Repayment And Lending Distribute Input">
+{
+	String txPswd<length=6 description="거래비밀번호">;
+	String rpymntTpDscd<length=2 description="상환유형구분코드">;
+	String whdrwlAcctNbr<length=15 description="출금계좌번호">;
+	String whdrwlAcctPswd<length=6 description="출금계좌비밀번호">;
+	String rpymntDt<length=8 description="상환년월일">;
+	BigDecimal totRpymntAmt<length=18 decimal=2 description="총상환금액">;
+	bankware.corebanking.p2ploan.repayment.service.dto.LnRpymntTx lnRpymntTxList<length=0 arrayReference="100" description="상환거래목록">;
+}

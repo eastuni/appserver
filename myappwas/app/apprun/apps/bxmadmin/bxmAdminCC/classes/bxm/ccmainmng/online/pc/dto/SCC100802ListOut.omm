@@ -1,0 +1,6 @@
+OMM bxm.ccmainmng.online.pc.dto.SCC100802ListOut
+<description="">
+{
+	Integer size<length=9>;
+	bxm.ccmainmng.online.pc.dto.SCC100802Out svrList<length=0 arrayReference="size">;
+}

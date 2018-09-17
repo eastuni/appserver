@@ -1,0 +1,5 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.P2pLnAplctnInfoInqrySvcChkLnAplctnAblIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String arrId<length=15 description="Arrangement Identification">;
+}

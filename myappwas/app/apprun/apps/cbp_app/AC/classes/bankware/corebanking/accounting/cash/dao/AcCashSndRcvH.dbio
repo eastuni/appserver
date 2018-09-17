@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.accounting.cash.dao.AcCashSndRcvH">
+<!--Generated Thu Mar 15 17:01:44 KST 2018-->
+<select id="select" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcCashSndRcvHIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcCashSndRcvHIO">
+SELECT
+
+   inst_cd   AS instCd   /*기관코드*/,
+
+   base_dt   AS baseDt   /*기준년월일*/,
+
+   dept_id   AS deptId   /*부서식별자*/,
+
+   staff_id   AS staffId   /*스태프식별자*/,
+
+   seq_nbr   AS seqNbr   /*일련번호*/,
+
+   tx_hms   AS txHms   /*거래시각*/,
+
+   clsg_bfaf_dscd   AS clsgBfafDscd   /*마감전후구분코드*/,
+
+   crncy_cd   AS crncyCd   /*통화코드*/,
+
+   snd_rcv_trgt_dscd   AS sndRcvTrgtDscd   /*인도인수대상구분코드*/,
+
+   snd_rcv_dscd   AS sndRcvDscd   /*인도인수구분코드*/,
+
+   snd_rcv_chk_cnt   AS sndRcvChkCnt   /*인도인수타점권매수*/,
+
+   snd_rcv_amt   AS sndRcvAmt   /*인도인수금액*/,
+
+   snd_rcv_frgn_amt   AS sndRcvFrgnAmt   /*인도인수외화금액*/,
+   rltd_staff_id   AS rltdStaffId   /*상대스태프식별자*/,
+   rltd_seq_nbr   AS rltdSeqNbr   /*상대일련번호*/,
+   snd_rcv_rmk_cntnt   AS rmkCntnt   /*인도인수비고내용*/,
+   last_chng_tmstmp   AS lastChngTmstmp   /*최종변경일시*/,
+
+   last_chng_guid   AS lastChngGuid   /*최종변경GUID*/ 
+
+ FROM  ac_cash_snd_rcv_h
+
+ WHERE  INST_CD = #{instCd}   /*기관코드*/
+
+      AND  BASE_DT = #{baseDt}   /*기준년월일*/
+
+      AND  DEPT_ID = #{deptId}   /*부서식별자*/
+
+      AND  STAFF_ID = #{staffId}   /*스태프식별자*/
+
+      AND  SEQ_NBR = #{seqNbr}   /*일련번호*/
+</select>
+<insert id="insert" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcCashSndRcvHIO">
+INSERT
+
+   INTO  ac_cash_snd_rcv_h
+
+(
+
+   inst_cd       /*기관코드*/,
+
+   base_dt       /*기준년월일*/,
+
+   dept_id       /*부서식별자*/,
+
+   staff_id       /*스태프식별자*/,
+
+   seq_nbr       /*일련번호*/,
+
+   tx_hms       /*거래시각*/,
+
+   clsg_bfaf_dscd       /*마감전후구분코드*/,
+
+   crncy_cd       /*통화코드*/,
+
+   snd_rcv_trgt_dscd       /*인도인수대상구분코드*/,
+
+   snd_rcv_dscd       /*인도인수구분코드*/,
+
+   snd_rcv_chk_cnt       /*인도인수타점권매수*/,
+
+   snd_rcv_amt       /*인도인수금액*/,
+
+   snd_rcv_frgn_amt       /*인도인수외화금액*/,
+   rltd_staff_id       /*상대스태프식별자*/,
+   rltd_seq_nbr       /*상대일련번호*/,
+   snd_rcv_rmk_cntnt       /*인도인수비고내용*/,
+   last_chng_tmstmp       /*최종변경일시*/,
+
+   last_chng_guid       /*최종변경GUID*/
+
+)
+
+VALUES
+
+(
+
+   #{instCd, jdbcType=VARCHAR}   /*기관코드*/,
+
+   #{baseDt, jdbcType=VARCHAR}   /*기준년월일*/,
+
+   #{deptId, jdbcType=VARCHAR}   /*부서식별자*/,
+
+   #{staffId, jdbcType=VARCHAR}   /*스태프식별자*/,
+
+   #{seqNbr, jdbcType=NUMERIC}   /*일련번호*/,
+
+   #{txHms, jdbcType=VARCHAR}   /*거래시각*/,
+
+   #{clsgBfafDscd, jdbcType=VARCHAR}   /*마감전후구분코드*/,
+
+   #{crncyCd, jdbcType=VARCHAR}   /*통화코드*/,
+
+   #{sndRcvTrgtDscd, jdbcType=VARCHAR}   /*인도인수대상구분코드*/,
+
+   #{sndRcvDscd, jdbcType=VARCHAR}   /*인도인수구분코드*/,
+
+   #{sndRcvChkCnt, jdbcType=NUMERIC}   /*인도인수타점권매수*/,
+
+   #{sndRcvAmt, jdbcType=NUMERIC}   /*인도인수금액*/,
+
+   #{sndRcvFrgnAmt, jdbcType=NUMERIC}   /*인도인수외화금액*/,
+   #{rltdStaffId, jdbcType=VARCHAR}   /*상대스태프식별자*/,
+   #{rltdSeqNbr, jdbcType=NUMERIC}   /*상대일련번호*/,
+   #{rmkCntnt, jdbcType=VARCHAR}   /*비고내용*/,
+   #{lastChngTmstmp, jdbcType=TIMESTAMP}   /*최종변경일시*/,
+
+   #{lastChngGuid, jdbcType=VARCHAR}   /*최종변경GUID*/ 
+
+)
+</insert>
+<update id="update" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcCashSndRcvHIO">
+UPDATE AC_CASH_SND_RCV_H
+
+   SET CLSG_BFAF_DSCD = #{clsgBfafDscd}
+
+     , TX_HMS = #{txHms}
+
+     , CRNCY_CD = #{crncyCd}
+
+     , SND_RCV_TRGT_DSCD = #{sndRcvTrgtDscd}
+
+     , SND_RCV_DSCD = #{sndRcvDscd}
+
+     ,  SND_RCV_CHK_CNT = #{sndRcvChkCnt}   /*인도인수타점권매수*/
+
+     ,  SND_RCV_AMT = #{sndRcvAmt}   /*인도인수금액*/
+
+     ,  snd_rcv_frgn_amt = #{sndRcvFrgnAmt}   /*인도인수외화금액*/
+     , rltd_staff_id = #{rltdStaffId}
+     , rltd_seq_nbr = #{rltdSeqNbr}
+     , SND_RCV_RMK_CNTNT = #{rmkCntnt, jdbcType=VARCHAR}
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}
+
+     , LAST_CHNG_GUID = #{lastChngGuid}
+
+ WHERE INST_CD = #{instCd}
+
+   AND BASE_DT = #{baseDt}
+
+   AND DEPT_ID = #{deptId}
+
+   AND STAFF_ID = #{staffId}
+
+   AND SEQ_NBR = #{seqNbr}
+</update>
+<select id="selectList" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcCashSndRcvHIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcCashSndRcvHIO">
+SELECT
+
+   inst_cd   AS instCd   /*기관코드*/,
+
+   base_dt   AS baseDt   /*기준년월일*/,
+
+   dept_id   AS deptId   /*부서식별자*/,
+
+   staff_id   AS staffId   /*스태프식별자*/,
+
+   seq_nbr   AS seqNbr   /*일련번호*/,
+
+   tx_hms   AS txHms   /*거래시각*/,
+
+   clsg_bfaf_dscd   AS clsgBfafDscd   /*마감전후구분코드*/,
+
+   crncy_cd   AS crncyCd   /*통화코드*/,
+
+   snd_rcv_trgt_dscd   AS sndRcvTrgtDscd   /*인도인수대상구분코드*/,
+
+   snd_rcv_dscd   AS sndRcvDscd   /*인도인수구분코드*/,
+
+   snd_rcv_chk_cnt   AS sndRcvChkCnt   /*인도인수타점권매수*/,
+
+   snd_rcv_amt   AS sndRcvAmt   /*인도인수금액*/,
+
+   snd_rcv_frgn_amt   AS sndRcvFrgnAmt   /*인도인수외화금액*/,
+   rltd_staff_id   AS rltdStaffId   /*상대스태프식별자*/,
+   rltd_seq_nbr   AS rltdSeqNbr   /*상대일련번호*/,
+   snd_rcv_rmk_cntnt   AS rmkCntnt   /*인도인수비고내용*/,
+   last_chng_tmstmp   AS lastChngTmstmp   /*최종변경일시*/,
+
+   last_chng_guid   AS lastChngGuid   /*최종변경GUID*/ 
+
+  FROM AC_CASH_SND_RCV_H
+
+ WHERE INST_CD = #{instCd}
+
+<if test="deptId != null and deptId != ''">   
+
+   AND DEPT_ID = #{deptId}
+
+</if>
+
+<if test="staffId != null and staffId != ''">   
+
+   AND STAFF_ID = #{staffId}
+</if>
+
+<if test="baseDt != null and baseDt != ''">   
+
+   AND BASE_DT = #{baseDt}
+
+</if>
+
+<if test="rltdStaffId != null and rltdStaffId != ''">   
+   AND rltd_staff_id = #{rltdStaffId}
+</if>
+
+<if test="sndRcvTrgtDscd != null and sndRcvTrgtDscd != ''">   
+
+   AND SND_RCV_TRGT_DSCD = #{sndRcvTrgtDscd}
+
+</if>
+</select>
+<delete id="delete" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcCashSndRcvHIO">
+DELETE FROM AC_CASH_SND_RCV_H
+
+ WHERE INST_CD = #{instCd}
+
+   AND BASE_DT = #{baseDt}
+
+   AND DEPT_ID = #{deptId}
+
+   AND STAFF_ID = #{staffId}
+
+   AND SEQ_NBR = #{seqNbr}
+</delete>
+<select id="selectSeqNbrMysql" resultType="java.lang.Integer">
+SELECT IFNULL(MAX(SEQ_NBR), 0) AS seqNbr
+
+FROM AC_CASH_SND_RCV_H
+
+WHERE INST_CD = #{instCd}
+
+  AND BASE_DT = #{baseDt}
+
+  AND DEPT_ID = #{deptId} 
+
+  AND STAFF_ID = #{staffId}
+</select>
+<select id="selectSeqNbrOracle" resultType="java.lang.Integer">
+SELECT NVL(MAX(SEQ_NBR), 0) AS seqNbr
+
+FROM AC_CASH_SND_RCV_H
+
+WHERE INST_CD = #{instCd}
+
+  AND BASE_DT = #{baseDt}
+
+  AND DEPT_ID = #{deptId} 
+
+  AND STAFF_ID = #{staffId}
+</select>
+<select id="selectPrdList" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcCashSndRcvPrdHIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcCashSndRcvPrdHIO">
+SELECT
+
+   inst_cd   AS instCd   /*기관코드*/,
+
+   base_dt   AS baseDt   /*기준년월일*/,
+
+   dept_id   AS deptId   /*부서식별자*/,
+
+   staff_id   AS staffId   /*스태프식별자*/,
+
+   seq_nbr   AS seqNbr   /*일련번호*/,
+
+   tx_hms   AS txHms   /*거래시각*/,
+
+   clsg_bfaf_dscd   AS clsgBfafDscd   /*마감전후구분코드*/,
+
+   crncy_cd   AS crncyCd   /*통화코드*/,
+
+   snd_rcv_trgt_dscd   AS sndRcvTrgtDscd   /*인도인수대상구분코드*/,
+
+   snd_rcv_dscd   AS sndRcvDscd   /*인도인수구분코드*/,
+
+   snd_rcv_chk_cnt   AS sndRcvChkCnt   /*인도인수타점권매수*/,
+
+   snd_rcv_amt   AS sndRcvAmt   /*인도인수금액*/,
+
+   snd_rcv_frgn_amt   AS sndRcvFrgnAmt   /*인도인수외화금액*/,
+   rltd_staff_id   AS rltdStaffId   /*상대스태프식별자*/,
+   rltd_seq_nbr   AS rltdSeqNbr   /*상대일련번호*/,
+   snd_rcv_rmk_cntnt   AS rmkCntnt   /*인도인수비고내용*/,
+   last_chng_tmstmp   AS lastChngTmstmp   /*최종변경일시*/,
+
+   last_chng_guid   AS lastChngGuid   /*최종변경GUID*/ 
+
+  FROM AC_CASH_SND_RCV_H
+
+ WHERE INST_CD = #{instCd}
+
+<if test="deptId != null and deptId != ''">   
+
+   AND DEPT_ID = #{deptId}
+
+</if>
+
+<if test="staffId != null and staffId != ''">   
+
+   AND (STAFF_ID = #{staffId} OR rltd_staff_id = #{staffId})
+</if>
+
+   AND BASE_DT BETWEEN #{inqryStartDt} AND #{inqryEndDt}
+
+<if test="rltdStaffId != null and rltdStaffId != ''">   
+   AND rltd_staff_id = #{rltdStaffId}
+</if>
+
+<if test="sndRcvTrgtDscd != null and sndRcvTrgtDscd != ''">   
+
+   AND SND_RCV_TRGT_DSCD = #{sndRcvTrgtDscd}
+
+</if>
+</select>
+</mapper>

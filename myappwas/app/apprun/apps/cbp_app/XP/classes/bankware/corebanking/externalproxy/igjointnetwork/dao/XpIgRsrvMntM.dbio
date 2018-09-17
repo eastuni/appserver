@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.igjointnetwork.dao.XpIgRsrvMntM">
+<!--Generated Mon Jun 12 16:38:13 KST 2017-->
+<select id="selectIgRsrvPymntHst" parameterType="bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.RsvtnPymntHdIFIn" resultType="bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.RsvtnPymntHdIFOutSub">
+SELECT
+		issueInstDscd,     /*발행기관분류코드*/
+        giroNbr,     /*지로번호*/
+        levyInstNm,     /*납부기관명*/
+        rsrvtnAplctnDt,     /*예약신청년월일*/
+		rsrvtnNbr,			        /*예약번호*/
+        rsrvtnDt,     /*예약년월일*/
+        ymNth,     /*년월회차*/
+        pymntAmt,     /*납부금액*/
+        rsrvtnStsCd, /*예약상태코드*/
+		elctrncPymntNbr,     /*전자납부번호*/
+        ntfctnFormCd,     /*고지형태코드*/
+        giroIssueFormCd,     /*발행형태코드*/
+        custInqryCustNbr,     /*고객조회고객번호*/
+		payerUnqIdNbr,     /*납부의무자주민등록번호*/
+		pymntOblgtrNm, /*납부자의무자명*/
+        intrntGiroPymntHstMgmtCd, /*인터넷지로납부내역관리코드*/
+        whdrwlFnclInstCd,		/*출금금융기관코드*/
+		whdrwlFnclInstBrnchCd,	/*출금금융기관부점코드*/
+		maskRvctnIdNbr,	/*마스킹해제주민등록번호*/
+		orgnlTxCntrMsgMgmtNbr,	/*원거래센터전문관리번호*/
+		orgnlTxCntrMsgSndDt,	/*원거래센터전문전송일시*/
+		orgnlTxWhdrwlAcctNbr,	/*원거래출금계좌번호*/
+		orgnlTxPymntAmt,	/*원거래납부금액*/
+		orgnlTxPymntFormDscd,	/*원거래납부형태코드*/
+		orgnlTxDt,	/*원거래일자*/
+		orgnlTxGuid, 	/*원거래guid*/
+		memoCntnt,			/*메모*/
+		txUnqNbr, /*거래 고유번호*/
+		elctrncRcptTxDscd, /*거래구분코드*/
+		giroNbrRgstrnYn  /*지로번호등록여부 */
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM,
+					issueInstDscd,     /*발행기관분류코드*/
+			        giroNbr,     /*지로번호*/
+			        levyInstNm,     /*업체명*/
+			        rsrvtnAplctnDt,     /*예약신청년월일*/
+					rsrvtnNbr,			        /*예약번호*/
+			        rsrvtnDt,     /*예약년월일*/
+			        ymNth,     /*년월회차*/
+			        pymntAmt,     /*납부금액*/
+			        rsrvtnStsCd, /*예약상태코드*/
+					elctrncPymntNbr,     /*전자납부번호*/
+			        ntfctnFormCd,     /*고지형태코드*/
+			        giroIssueFormCd,     /*발행형태코드*/
+			        custInqryCustNbr,     /*고객조회고객번호*/
+					payerUnqIdNbr,     /*납부의무자주민등록번호*/
+					pymntOblgtrNm, /*납부자의무자명*/
+			        intrntGiroPymntHstMgmtCd, /*인터넷지로납부내역관리코드*/
+			        whdrwlFnclInstCd,		/*출금금융기관코드*/
+					whdrwlFnclInstBrnchCd,	/*출금금융기관부점코드*/
+					maskRvctnIdNbr,	/*마스킹해제주민등록번호*/
+					orgnlTxCntrMsgMgmtNbr,	/*원거래센터전문관리번호*/
+					orgnlTxCntrMsgSndDt,	/*원거래센터전문전송일시*/
+					orgnlTxWhdrwlAcctNbr,	/*원거래출금계좌번호*/
+					orgnlTxPymntAmt,	/*원거래납부금액*/
+					orgnlTxPymntFormDscd,	/*원거래납부형태코드*/
+					orgnlTxDt,	/*원거래일자*/
+					orgnlTxGuid, 	/*원거래guid*/
+					memoCntnt,			/*메모*/
+					txUnqNbr, /*거래 고유번호*/
+					elctrncRcptTxDscd, /*거래구분코드*/
+					insrncDscd, /*보험구분코드*/
+					giroNbrRgstrnYn  /*지로번호등록여부 */
+     FROM 
+        (
+        
+			SELECT    /* 인터넷지로납부원장조회 */
+			        A.ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+			        B.GIRO_NBR AS giroNbr,	/*지로번호*/
+			        A.ENTP_NM AS levyInstNm,     /*업체명*/
+			        A.TX_DT AS rsrvtnAplctnDt,     /*예약신청년월일*/
+					A.RSRV_APLCT_NBR AS rsrvtnNbr,			        /*예약번호*/
+			        A.PYMNT_DT AS rsrvtnDt,     /*예약년월일*/
+			        A.IMPT_YM1 AS ymNth,     /*년월회차*/
+			        A.GIRO_PYMNT_AMT AS pymntAmt,     /*납부금액*/
+			        A.RSRV_STS_CD AS rsrvtnStsCd, /*예약상태코드*/
+					A.ELCTRNC_PYMNT_NBR AS elctrncPymntNbr,     /*전자납부번호*/
+			        A.NTFCTN_FORM_CD AS ntfctnFormCd,     /*고지형태코드*/
+			        A.ISSUE_FORM_CD AS giroIssueFormCd,     /*발행형태코드*/
+			        A.CUST_INQRY_CUST_NBR AS custInqryCustNbr,     /*고객조회고객번호*/
+					A.PYMNT_OBLGR_SS_NBR AS payerUnqIdNbr,     /*납부의무자주민등록번호*/
+					A.PYMNT_OBLGR_FUNM AS pymntOblgtrNm, /*납부자의무자명*/
+			        A.INRN_GIRO_PYMNT_BKDW_MGMT_CD AS intrntGiroPymntHstMgmtCd, /*인터넷지로납부내역관리코드*/
+			        B.WHDRWL_FNCL_INST_CD AS whdrwlFnclInstCd,		/*출금금융기관코드*/
+					B.WHDRWL_FNCL_INST_BRNCH_CD AS whdrwlFnclInstBrnchCd,	/*출금금융기관부점코드*/
+					B.MASK_RVCTN_ID_NBR AS maskRvctnIdNbr,	/*마스킹해제주민등록번호*/
+					B.CNTR_TLGR_MGMT_NBR AS orgnlTxCntrMsgMgmtNbr,	/*원거래센터전문관리번호*/
+					B.ELTRN_RCPT_TLGR_SND_DTTM AS orgnlTxCntrMsgSndDt,	/*원거래센터전문전송일시*/
+					B.WHDRWL_ACCT_NBR AS orgnlTxWhdrwlAcctNbr,	/*원거래출금계좌번호*/
+					B.GIRO_PYMNT_AMT AS orgnlTxPymntAmt,	/*원거래납부금액*/
+					B.PYMNT_FORM_DS_CD AS orgnlTxPymntFormDscd,	/*원거래납부형태코드*/
+					B.TX_DT AS orgnlTxDt,	/*원거래일자*/
+					B.GUID AS orgnlTxGuid, 	/*원거래guid*/
+					A.SMR_NM AS memoCntnt,			/*메모*/
+					A.TX_UNQ_NBR AS txUnqNbr, /*거래 고유번호*/
+					B.ELTRN_RCPT_TX_DS_CD AS elctrncRcptTxDscd, /*거래구분코드*/
+					A.INSR_DS_CD AS insrncDscd, /*보험구분코드*/
+					NVL((SELECT 'Y' FROM XP_IG_MY_GIRO_MGMT 
+					       WHERE CUST_ID=A.CUST_ID AND GIRO_NBR=B.GIRO_NBR)
+					       ,'N') AS  giroNbrRgstrnYn  /*지로번호등록여부*/
+			 FROM  XP_IG_TX_MNT_H A, XP_IG_TX_M B
+			 WHERE A.TX_DT = B.TX_DT
+				AND A.EXTRNL_BIZ_Dscd = B.EXTRNL_BIZ_Dscd
+				AND A.CNTR_TLGR_MGMT_NBR = B.CNTR_TLGR_MGMT_NBR
+				AND A.CUST_ID = #{custId}
+			   AND A.TX_DT BETWEEN #{inqryStartDt} AND #{inqryEndDt}
+			   AND A.EXTRNL_BIZ_Dscd = '054'
+			   AND  A.STS_DS_CD &gt;=3  
+			   AND  A.PYMNT_FORM_DS_CD = 'R'
+				<if test="acctNbr != null and acctNbr != ''">   
+				   AND  A.WHDRWL_ACCT_NBR = #{acctNbr}
+				</if>
+			order by A.PYMNT_DT DESC, A.TX_DT DESC, A.TX_TMS DESC
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) A
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectIgRsrvPymntHstTotalCnt" parameterType="bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.RsvtnPymntHdIFIn" resultType="java.lang.Integer">
+SELECT    count(1)
+FROM  XP_IG_TX_MNT_H A, XP_IG_TX_M B
+WHERE A.TX_DT = B.TX_DT
+			AND A.EXTRNL_BIZ_Dscd = B.EXTRNL_BIZ_Dscd
+			AND A.CNTR_TLGR_MGMT_NBR = B.CNTR_TLGR_MGMT_NBR
+			AND A.CUST_ID = #{custId}
+		   AND A.TX_DT BETWEEN #{inqryStartDt} AND #{inqryEndDt}
+		   AND A.EXTRNL_BIZ_Dscd = '054'
+		   AND  A.STS_DS_CD &gt;=3  
+		   AND  A.PYMNT_FORM_DS_CD = 'R'
+			<if test="acctNbr != null and acctNbr != ''">   
+			   AND  A.WHDRWL_ACCT_NBR = #{acctNbr}
+			</if>
+</select>
+</mapper>

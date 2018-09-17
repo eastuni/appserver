@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.template.dao.CmTmpltM">
+<!--Generated Thu Apr 26 13:10:43 KST 2018-->
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.template.dao.dto.CmTmpltMIO">
+INSERT INTO cm_tmplt_m
+
+(
+
+       inst_cd
+
+     , cmn_cd
+
+     , cmn_nm
+
+     , cmn_clndr1
+     , cmn_clndr2
+     , cmn_chk_val
+     , cmn_radio_val
+     , cmn_amt
+
+     , last_chng_tmstmp
+
+     , last_chng_guid
+
+)
+
+VALUES 
+
+(
+
+       #{instCd, jdbcType=VARCHAR}  
+
+     , #{cmnCd, jdbcType=VARCHAR}
+
+     , #{cmnNm, jdbcType=VARCHAR}
+
+     , #{cmnClndrVal1, jdbcType=VARCHAR}
+     , #{cmnClndrVal2, jdbcType=VARCHAR}
+     , #{cmnChkVal, jdbcType=VARCHAR}
+     , #{cmnRadioVal, jdbcType=VARCHAR}
+     , #{cmnAmt, jdbcType=NUMERIC}
+
+     , #{lastChngTmstmp, jdbcType=TIMESTAMP}
+
+     , #{lastChngGuid, jdbcType=VARCHAR}
+
+)
+</insert>
+<select id="select" resultType="bankware.corebanking.servicemanagement.template.dao.dto.CmTmpltMIO">
+SELECT    
+
+       seq_nbr AS seqNbr
+
+     , inst_cd AS instCd  
+
+     , cmn_cd AS cmnCd
+
+     , cmn_nm AS cmnNm
+
+     , cmn_clndr1 AS cmnClndrVal
+     , cmn_chk_val AS cmnChkVal
+     , cmn_radio_val AS cmnRadioVal
+     , cmn_amt AS cmnAmt
+
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM cm_tmplt_m
+
+ WHERE seq_nbr = #{seqNbr}
+</select>
+<update id="update" parameterType="bankware.corebanking.servicemanagement.template.dao.dto.CmTmpltMIO">
+UPDATE cm_tmplt_m
+
+   SET inst_cd = #{instCd}
+
+     , cmn_cd = #{cmnCd}
+
+     , cmn_nm = #{cmnNm}
+
+     , cmn_clndr1 = #{cmnClndrVal1}
+     , cmn_clndr2 = #{cmnClndrVal2}
+     , cmn_chk_val = #{cmnChkVal}
+     , cmn_radio_val = #{cmnRadioVal}
+     , cmn_amt = #{cmnAmt}
+
+     , last_chng_tmstmp = #{lastChngTmstmp}
+
+     , last_chng_guid = #{lastChngGuid}
+
+ WHERE seq_nbr = #{seqNbr}
+</update>
+<delete id="delete">
+DELETE 
+
+  FROM cm_tmplt_m
+
+ WHERE seq_nbr = #{seqNbr}
+</delete>
+<select id="selectListMysql" resultType="bankware.corebanking.servicemanagement.template.dao.dto.CmTmpltMIO">
+SELECT    
+
+       seq_nbr AS seqNbr
+
+     , inst_cd AS instCd  
+
+     , cmn_cd AS cmnCd
+
+     , cmn_nm AS cmnNm
+
+     , cmn_clndr1 AS cmnClndr1
+     , cmn_clndr2 AS cmnClndr2
+     , cmn_chk_val AS cmnChkVal
+     , cmn_radio_val AS cmnRadioVal
+     , cmn_amt AS cmnAmt
+
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM cm_tmplt_m
+
+ WHERE 1=1
+
+<if test="a.seqNbr != null and a.seqNbr != ''">   
+
+   and seq_nbr = #{a.seqNbr}
+
+</if> 
+
+<if test="a.cmnCd != null and a.cmnCd != ''">   
+
+   and cmn_cd = #{a.cmnCd, jdbcType=VARCHAR}
+
+</if>
+
+<if test="a.cmnNm != null and a.cmnNm != ''">   
+
+   and cmn_nm = #{a.cmnNm, jdbcType=VARCHAR}
+
+</if>
+
+<if test="a.cmnClndrVal1 != null and a.cmnClndrVal1 != ''">   
+   and cmn_clndr1 = #{a.cmnClndrVal1, jdbcType=VARCHAR}
+</if>
+
+<if test="a.cmnClndrVal2 != null and a.cmnClndrVal2 != ''">   
+   and cmn_clndr2 = #{a.cmnClndrVal2, jdbcType=VARCHAR}
+</if>
+
+<if test="a.cmnChkVal != null and a.cmnChkVal != ''">   
+   and cmn_chk_val = #{a.cmnChkVal, jdbcType=VARCHAR}
+</if>
+
+<if test="a.cmnRadioVal != null and a.cmnRadioVal != ''">   
+   and cmn_radio_val = #{a.cmnRadioVal, jdbcType=VARCHAR}
+</if>
+
+<if test="a.cmnAmt != null and a.cmnAmt != ''">   
+
+   and cmn_amt = #{a.cmnAmt, jdbcType=DECIMAL}
+
+</if>
+
+order by seq_nbr desc limit #{pgNbr}, #{pgCnt}
+</select>
+<select id="selectListOracle" resultType="bankware.corebanking.servicemanagement.template.dao.dto.CmTmpltMIO">
+SELECT * FROM 
+
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+
+        (
+
+
+
+/* #### Original SQL [[ ################# */
+
+SELECT    
+
+       seq_nbr AS seqNbr
+
+     , inst_cd AS instCd  
+
+     , cmn_cd AS cmnCd
+
+     , cmn_nm AS cmnNm
+
+     , cmn_clndr1 AS cmnClndr1
+     , cmn_clndr2 AS cmnClndr2
+     , cmn_chk_val AS cmnChkVal
+     , cmn_radio_val AS cmnRadioVal
+     , cmn_amt AS cmnAmt
+
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM cm_tmplt_m
+
+ WHERE 1=1
+
+<if test="a.seqNbr != null and a.seqNbr != ''">   
+
+   and seq_nbr = #{a.seqNbr}
+
+</if> 
+
+<if test="a.cmnCd != null and a.cmnCd != ''">   
+
+   and cmn_cd = #{a.cmnCd}
+
+</if>
+
+<if test="a.cmnNm != null and a.cmnNm != ''">   
+
+   and cmn_nm = #{a.cmnNm}
+
+</if>
+
+<if test="a.cmnClndrVal1 != null and a.cmnClndrVal1 != ''">   
+   and cmn_clndr1 = #{a.cmnClndrVal1}
+</if>
+
+<if test="a.cmnClndrVal2 != null and a.cmnClndrVal2 != ''">   
+   and cmn_clndr2 = #{a.cmnClndrVal2}
+</if>
+
+<if test="a.cmnChkVal != null and a.cmnChkVal != ''">   
+   and cmn_chk_val = #{a.cmnChkVal}
+</if>
+
+<if test="a.cmnRadioVal != null and a.cmnRadioVal != ''">   
+   and cmn_radio_val = #{a.cmnRadioVal}
+</if>
+
+<if test="a.cmnAmt != null and a.cmnAmt != ''">   
+
+   and cmn_amt = #{a.cmnAmt}
+
+</if>
+
+order by seq_nbr desc
+
+/* #### Original SQL ]] ################# */
+
+
+
+        ) A 
+
+    WHERE ROWNUM &lt;= #{pgNbr} + #{pgCnt}
+
+    ) 
+
+WHERE ROW__NUM &gt; #{pgNbr}
+</select>
+</mapper>

@@ -1,0 +1,10 @@
+OMM bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.EAIFileCallIn
+<description=" ">
+{
+	String srcSysFilePathNm<length=60 description="소스시스템 파일경로">;
+	String srcSysFileNm<length=200 description="소스시스템 파일명">;
+	Integer sndFileCnt<length=1 description="전송대상 파일건수">;
+	String trgtSysFileNm<length=200 description="타겟시스템 파일명">;
+	String sndAfPrcsngTpCntnt<length=1 description="전송 후 처리유형">;
+	String sndAfBackupPathCntnt<length=60 description="전송 후 백업경로">;
+}

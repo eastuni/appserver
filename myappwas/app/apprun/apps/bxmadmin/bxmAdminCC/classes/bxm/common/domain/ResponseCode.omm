@@ -1,0 +1,6 @@
+OMM bxm.common.domain.ResponseCode
+<description=" ">
+{
+	Integer code<length=9>;
+	String desc<length=20>;
+}

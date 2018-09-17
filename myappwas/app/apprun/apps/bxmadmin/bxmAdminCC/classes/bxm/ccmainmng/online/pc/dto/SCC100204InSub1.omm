@@ -1,0 +1,6 @@
+OMM bxm.ccmainmng.online.pc.dto.SCC100204InSub1
+<description="">
+{
+	Integer pcsnNodeNo<length=9 description="처리노드번호">;
+	Integer setPrcsCnt<length=9 description="설정프로세스개수">;
+}

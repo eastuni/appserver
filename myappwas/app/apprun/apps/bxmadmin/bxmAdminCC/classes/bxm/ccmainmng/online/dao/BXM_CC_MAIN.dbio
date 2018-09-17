@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.ccmainmng.online.dao.BXM_CC_MAIN">
+<!--Generated Thu Nov 23 15:55:55 KST 2017-->
+<insert id="insertBxmCCMain01A" parameterType="bxm.ccmainmng.online.dto.BxmCCMainIO">
+INSERT INTO BXM_CC_MAIN /* 센터컷 메인 */
+(
+     DOMAIN_ID /*도메인ID*/,
+    CC_ID /*센터컷ID*/,
+    USE_YN /*사용여부*/,
+    CC_NM /*센터컷명*/,
+    CC_DESC /*센터컷설명*/,
+    LV_2_APP_CD /*레벨2어플리케이션코드*/,
+    LV_3_APP_CD /*레벨3어플리케이션코드*/,
+    ONLINE_TRX_CD /*온라인거래코드*/,
+    ONLINE_INPUT_DTO /*온라인입력DTO*/,
+    TT_EXEC_TN /*총실행회차*/,
+    PARA_PRCS_CNT /*병렬프로세스수*/,
+    PROC_TYPE_CD /*처리유형코드*/,
+    AUTO_EXEC_CD /*자동실행코드*/,
+    ATMT_EXEC_SRT_TIME /*자동실행시작시각*/,
+    ATMT_EXEC_END_TIME /*자동실행종료시각*/,
+    DATA_CNT /*데이터건수*/,
+    ERR_STOP_YN /*오류중지여부*/,
+    ERR_PROC_CD /*오류처리코드*/,
+    RE_PCSN_ERR_CD /*재처리에러코드*/,
+    RE_PCSN_WAIT_ELTM /*재처리대기시간*/,
+    FLWN_WRK_KN_CD /*후속작업코드*/,
+    BTCH_EXEC_ID /*배치실행ID*/,
+    INPT_PARM_CN /*입력파라미터내용*/,
+    NODE_ASGN_METH_CD /*노드지정코드*/,
+    CC_EXEC_PARAM /*센터컷실행파라미터*/,
+    PROC_TRX_CD /*처리서비스거래코드*/,
+    REG_USER_ID /*등록사용자ID*/,
+    REG_OCCUR_DTTM /*등록발생일시*/,
+    MODIFY_USER_ID /*변경사용자ID*/,
+    MODIFY_OCCUR_DTTM /*변경발생일시*/ 
+)
+VALUES
+(
+    #{domainId, jdbcType=VARCHAR} /*도메인ID*/,
+    #{ccId, jdbcType=VARCHAR} /*센터컷ID*/,
+    #{ccIdUseYn, jdbcType=VARCHAR} /*사용여부*/,
+    #{ccIdNm, jdbcType=VARCHAR} /*센터컷명*/,
+    #{ccIdExpl, jdbcType=VARCHAR} /*센터컷설명*/,
+    #{appLv2Cd, jdbcType=VARCHAR} /*레벨2어플리케이션코드*/,
+    #{appLv3Cd, jdbcType=VARCHAR} /*레벨3어플리케이션코드*/,
+    #{onSvcTrxCd, jdbcType=VARCHAR} /*온라인거래코드*/,
+    #{onSvcInptDto, jdbcType=VARCHAR} /*온라인입력DTO*/,
+    #{ttExecTn, jdbcType=NUMERIC} /*총실행회차*/,
+    #{paraPrcsCnt, jdbcType=NUMERIC} /*병렬프로세스수*/,
+    #{schdTpCd, jdbcType=VARCHAR} /*처리유형코드*/,
+    #{atmtExecClsfCd, jdbcType=VARCHAR} /*자동실행코드*/,
+    #{atmtExecSrtTime, jdbcType=VARCHAR} /*자동실행시작시각*/,
+    #{atmtExecEndTime, jdbcType=VARCHAR} /*자동실행종료시각*/,
+    #{schdCnt, jdbcType=NUMERIC} /*데이터건수*/,
+    #{errStopYn, jdbcType=VARCHAR} /*오류중지여부*/,
+    #{errPcsnMethCd, jdbcType=VARCHAR} /*오류처리코드*/,
+    #{rePcsnErrCd, jdbcType=VARCHAR} /*재처리에러코드*/,
+    #{rePcsnWaitEltm, jdbcType=NUMERIC} /*재처리대기시간*/,
+    #{flwnWrkKnCd, jdbcType=VARCHAR} /*후속작업코드*/,
+    #{btchExecId, jdbcType=VARCHAR} /*배치실행ID*/,
+    #{inptParmCn, jdbcType=VARCHAR} /*입력파라미터내용*/,
+    #{nodeAsgnMethCd, jdbcType=VARCHAR} /*노드지정코드*/,
+    #{ccExecParam, jdbcType=VARCHAR} /*센터컷실행파라미터*/,
+    #{procTrxCd, jdbcType=VARCHAR} /*처리서비스거래코드*/,
+    #{regUserId, jdbcType=VARCHAR} /*등록사용자ID*/,
+    #{regDttm, jdbcType=VARCHAR} /*등록발생일시*/,
+    #{chngUserId, jdbcType=VARCHAR} /*변경사용자ID*/,
+    #{chngDttm, jdbcType=VARCHAR} /*변경발생일시*/ 
+)
+</insert>
+<select id="selectBxmCCMain01A" resultType="bxm.ccmainmng.online.dto.BxmCCMainIO">
+SELECT /* 센터컷 메인 */ 
+       DOMAIN_ID AS domainId /*도메인ID*/,
+       CC_ID AS ccId /*센터컷ID*/,
+       USE_YN AS ccIdUseYn /*사용여부*/,
+       CC_NM AS ccIdNm /*센터컷명*/,
+       CC_DESC AS ccIdExpl /*센터컷설명*/,
+       LV_2_APP_CD AS appLv2Cd /*레벨2어플리케이션코드*/,
+       LV_3_APP_CD AS appLv3Cd /*레벨3어플리케이션코드*/,
+       ONLINE_TRX_CD AS onSvcTrxCd /*온라인거래코드*/,
+       ONLINE_INPUT_DTO AS onSvcInptDto /*온라인입력DTO*/,
+       TT_EXEC_TN AS ttExecTn /*총실행회차*/,
+       PARA_PRCS_CNT AS paraPrcsCnt /*병렬프로세스수*/,
+       PROC_TYPE_CD AS schdTpCd /*처리유형코드*/,
+       AUTO_EXEC_CD AS atmtExecClsfCd /*자동실행코드*/,
+       ATMT_EXEC_SRT_TIME AS atmtExecSrtTime /*자동실행시작시각*/,
+       ATMT_EXEC_END_TIME AS atmtExecEndTime /*자동실행종료시각*/,
+       DATA_CNT AS schdCnt /*데이터건수*/,
+       ERR_STOP_YN AS errStopYn /*오류중지여부*/,
+       ERR_PROC_CD AS errPcsnMethCd /*오류처리코드*/,
+       RE_PCSN_ERR_CD AS rePcsnErrCd /*재처리에러코드*/,
+       RE_PCSN_WAIT_ELTM AS rePcsnWaitEltm /*재처리대기시간*/,
+       FLWN_WRK_KN_CD AS flwnWrkKnCd /*후속작업코드*/,
+       BTCH_EXEC_ID AS btchExecId /*배치실행ID*/,
+       INPT_PARM_CN AS inptParmCn /*입력파라미터내용*/,
+       NODE_ASGN_METH_CD AS nodeAsgnMethCd /*노드지정코드*/,
+       CC_EXEC_PARAM AS ccExecParam /*센터컷실행파라미터*/,
+       PROC_TRX_CD AS procTrxCd /*처리서비스거래코드*/,
+       REG_USER_ID AS regUserId /*등록사용자ID*/,
+       REG_OCCUR_DTTM AS regDttm /*등록발생일시*/,
+       MODIFY_USER_ID AS chngUserId /*변경사용자ID*/,
+       MODIFY_OCCUR_DTTM AS chngDttm /*변경발생일시*/
+  FROM BXM_CC_MAIN
+ WHERE DOMAIN_ID = #{domainId}
+   AND CC_ID = #{ccId}
+</select>
+<update id="updateBxmCCMain01B" parameterType="bxm.ccmainmng.online.dto.BxmCCMainIO">
+UPDATE BXM_CC_MAIN /* 센터컷 메인 */
+   SET USE_YN = #{ccIdUseYn, jdbcType=VARCHAR} /* 센터컷ID사용여부 */,
+       CC_NM = #{ccIdNm, jdbcType=VARCHAR} /* 센터컷ID명 */,
+       CC_DESC = #{ccIdExpl, jdbcType=VARCHAR} /* 센터컷ID설명 */,
+       LV_2_APP_CD = #{appLv2Cd, jdbcType=VARCHAR} /* 어플리케이션레벨2코드 */,
+       LV_3_APP_CD = #{appLv3Cd, jdbcType=VARCHAR} /* 어플리케이션레벨3코드 */,
+       ONLINE_TRX_CD = #{onSvcTrxCd, jdbcType=VARCHAR} /* 온라인서비스거래코드 */,
+       ONLINE_INPUT_DTO = #{onSvcInptDto, jdbcType=VARCHAR} /* 온라인서비스입력DTO */,
+       TT_EXEC_TN = #{ttExecTn, jdbcType=NUMERIC} /* 총실행회차 */,
+       PARA_PRCS_CNT = #{paraPrcsCnt, jdbcType=NUMERIC} /* 병렬프로세스수 */,
+       PROC_TYPE_CD = #{schdTpCd, jdbcType=VARCHAR} /* 스케줄유형코드 */,
+       DATA_CNT = #{schdCnt, jdbcType=NUMERIC} /* 스케줄건수 */,
+       AUTO_EXEC_CD = #{atmtExecClsfCd, jdbcType=VARCHAR} /* 자동실행구분코드 */,
+       ATMT_EXEC_SRT_TIME = #{atmtExecSrtTime, jdbcType=VARCHAR} /* 자동실행시작시각 */,
+       ATMT_EXEC_END_TIME = #{atmtExecEndTime, jdbcType=VARCHAR} /* 자동실행종료시각 */,
+       ERR_STOP_YN = #{errStopYn, jdbcType=VARCHAR} /* 오류중지여부 */,
+       ERR_PROC_CD = #{errPcsnMethCd, jdbcType=VARCHAR} /* 오류처리방법코드 */,
+       RE_PCSN_WAIT_ELTM = #{rePcsnWaitEltm, jdbcType=NUMERIC} /* 재처리대기시간 */,
+       FLWN_WRK_KN_CD = #{flwnWrkKnCd, jdbcType=VARCHAR} /* 후속작업분류코드 */,
+       BTCH_EXEC_ID = #{btchExecId, jdbcType=VARCHAR} /* 배치실행ID */,
+       INPT_PARM_CN = #{inptParmCn, jdbcType=VARCHAR} /* 입력파라미터내용 */,
+       NODE_ASGN_METH_CD = #{nodeAsgnMethCd, jdbcType=VARCHAR} /* 노드지정방법코드 */,
+       MODIFY_OCCUR_DTTM = #{chngDttm, jdbcType=VARCHAR} /* 변경일시 */,
+       MODIFY_USER_ID = #{chngUserId, jdbcType=VARCHAR} /* 변경사용자ID */,
+       CC_EXEC_PARAM = #{ccExecParam, jdbcType=VARCHAR} /* 센터컷실행파라미터 */,
+       PROC_TRX_CD = #{procTrxCd, jdbcType=VARCHAR} /* 처리서비스거래코드 */,
+       RE_PCSN_ERR_CD = #{rePcsnErrCd, jdbcType=VARCHAR} /* 재처리에러코드 */
+ WHERE domain_id = #{domainId} AND CC_ID = #{ccId, jdbcType=VARCHAR}
+</update>
+<select id="selectBxmCCMainList01A" resultType="bxm.ccmainmng.online.pc.dto.SCC100101Out">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* 센터컷 메인 */ 
+       DOMAIN_ID AS domainId /*도메인ID*/,
+       CC_ID AS ccId /*센터컷ID*/,
+       USE_YN AS ccIdUseYn /*사용여부*/,
+       CC_NM AS ccIdNm /*센터컷명*/,
+       CC_DESC AS ccIdExpl /*센터컷설명*/,
+       LV_2_APP_CD AS appLv2Cd /*레벨2어플리케이션코드*/,
+       LV_3_APP_CD AS appLv3Cd /*레벨3어플리케이션코드*/,
+       ONLINE_TRX_CD AS onSvcTrxCd /*온라인거래코드*/,
+       ONLINE_INPUT_DTO AS onSvcInptDto /*온라인입력DTO*/,
+       TT_EXEC_TN AS ttExecTn /*총실행회차*/,
+       PARA_PRCS_CNT AS paraPrcsCnt /*병렬프로세스수*/,
+       PROC_TYPE_CD AS schdTpCd /*처리유형코드*/,
+       AUTO_EXEC_CD AS atmtExecClsfCd /*자동실행코드*/,
+       ATMT_EXEC_SRT_TIME AS atmtExecSrtTime /*자동실행시작시각*/,
+       ATMT_EXEC_END_TIME AS atmtExecEndTime /*자동실행종료시각*/,
+       DATA_CNT AS schdCnt /*데이터건수*/,
+       ERR_STOP_YN AS errStopYn /*오류중지여부*/,
+       ERR_PROC_CD AS errPcsnMethCd /*오류처리코드*/,
+       RE_PCSN_ERR_CD AS rePcsnErrCd /*재처리에러코드*/,
+       RE_PCSN_WAIT_ELTM AS rePcsnWaitEltm /*재처리대기시간*/,
+       FLWN_WRK_KN_CD AS flwnWrkKnCd /*후속작업코드*/,
+       BTCH_EXEC_ID AS btchExecId /*배치실행ID*/,
+       INPT_PARM_CN AS inptParmCn /*입력파라미터내용*/,
+       NODE_ASGN_METH_CD AS nodeAsgnMethCd /*노드지정코드*/,
+       CC_EXEC_PARAM AS ccExecParam /*센터컷실행파라미터*/,
+       PROC_TRX_CD AS procTrxCd /*처리서비스거래코드*/,
+       REG_USER_ID AS regUserId /*등록사용자ID*/,
+       REG_OCCUR_DTTM AS regDttm /*등록발생일시*/,
+       MODIFY_USER_ID AS chngUserId /*변경사용자ID*/,
+       MODIFY_OCCUR_DTTM AS chngDttm /*변경발생일시*/
+  FROM BXM_CC_MAIN
+where domain_id = #{domainId}
+ <if test="ccId != null and ccId != ''">
+	AND cc_id = #{ccId} 
+ </if>
+  <if test="ccIdNm != null and ccIdNm != ''">
+   and cc_nm = #{ccIdNm}
+   </if>
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="oracle" id="selectBxmCCMainList01A" resultType="bxm.ccmainmng.online.pc.dto.SCC100101Out">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* 센터컷 메인 */ 
+       DOMAIN_ID AS domainId /*도메인ID*/,
+       CC_ID AS ccId /*센터컷ID*/,
+       USE_YN AS ccIdUseYn /*사용여부*/,
+       CC_NM AS ccIdNm /*센터컷명*/,
+       CC_DESC AS ccIdExpl /*센터컷설명*/,
+       LV_2_APP_CD AS appLv2Cd /*레벨2어플리케이션코드*/,
+       LV_3_APP_CD AS appLv3Cd /*레벨3어플리케이션코드*/,
+       ONLINE_TRX_CD AS onSvcTrxCd /*온라인거래코드*/,
+       ONLINE_INPUT_DTO AS onSvcInptDto /*온라인입력DTO*/,
+       TT_EXEC_TN AS ttExecTn /*총실행회차*/,
+       PARA_PRCS_CNT AS paraPrcsCnt /*병렬프로세스수*/,
+       PROC_TYPE_CD AS schdTpCd /*처리유형코드*/,
+       AUTO_EXEC_CD AS atmtExecClsfCd /*자동실행코드*/,
+       ATMT_EXEC_SRT_TIME AS atmtExecSrtTime /*자동실행시작시각*/,
+       ATMT_EXEC_END_TIME AS atmtExecEndTime /*자동실행종료시각*/,
+       DATA_CNT AS schdCnt /*데이터건수*/,
+       ERR_STOP_YN AS errStopYn /*오류중지여부*/,
+       ERR_PROC_CD AS errPcsnMethCd /*오류처리코드*/,
+       RE_PCSN_ERR_CD AS rePcsnErrCd /*재처리에러코드*/,
+       RE_PCSN_WAIT_ELTM AS rePcsnWaitEltm /*재처리대기시간*/,
+       FLWN_WRK_KN_CD AS flwnWrkKnCd /*후속작업코드*/,
+       BTCH_EXEC_ID AS btchExecId /*배치실행ID*/,
+       INPT_PARM_CN AS inptParmCn /*입력파라미터내용*/,
+       NODE_ASGN_METH_CD AS nodeAsgnMethCd /*노드지정코드*/,
+       CC_EXEC_PARAM AS ccExecParam /*센터컷실행파라미터*/,
+       PROC_TRX_CD AS procTrxCd /*처리서비스거래코드*/,
+       REG_USER_ID AS regUserId /*등록사용자ID*/,
+       REG_OCCUR_DTTM AS regDttm /*등록발생일시*/,
+       MODIFY_USER_ID AS chngUserId /*변경사용자ID*/,
+       MODIFY_OCCUR_DTTM AS chngDttm /*변경발생일시*/
+  FROM BXM_CC_MAIN
+where domain_id = #{domainId}
+ <if test="ccId != null and ccId != ''">
+	AND cc_id = #{ccId} 
+ </if>
+  <if test="ccIdNm != null and ccIdNm != ''">
+   and cc_nm = #{ccIdNm}
+   </if>
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectBxmCCMainList01A" resultType="bxm.ccmainmng.online.pc.dto.SCC100101Out">
+SELECT /* 센터컷 메인 */ 
+       DOMAIN_ID AS domainId /*도메인ID*/,
+       CC_ID AS ccId /*센터컷ID*/,
+       USE_YN AS ccIdUseYn /*사용여부*/,
+       CC_NM AS ccIdNm /*센터컷명*/,
+       CC_DESC AS ccIdExpl /*센터컷설명*/,
+       LV_2_APP_CD AS appLv2Cd /*레벨2어플리케이션코드*/,
+       LV_3_APP_CD AS appLv3Cd /*레벨3어플리케이션코드*/,
+       ONLINE_TRX_CD AS onSvcTrxCd /*온라인거래코드*/,
+       ONLINE_INPUT_DTO AS onSvcInptDto /*온라인입력DTO*/,
+       TT_EXEC_TN AS ttExecTn /*총실행회차*/,
+       PARA_PRCS_CNT AS paraPrcsCnt /*병렬프로세스수*/,
+       PROC_TYPE_CD AS schdTpCd /*처리유형코드*/,
+       AUTO_EXEC_CD AS atmtExecClsfCd /*자동실행코드*/,
+       ATMT_EXEC_SRT_TIME AS atmtExecSrtTime /*자동실행시작시각*/,
+       ATMT_EXEC_END_TIME AS atmtExecEndTime /*자동실행종료시각*/,
+       DATA_CNT AS schdCnt /*데이터건수*/,
+       ERR_STOP_YN AS errStopYn /*오류중지여부*/,
+       ERR_PROC_CD AS errPcsnMethCd /*오류처리코드*/,
+       RE_PCSN_ERR_CD AS rePcsnErrCd /*재처리에러코드*/,
+       RE_PCSN_WAIT_ELTM AS rePcsnWaitEltm /*재처리대기시간*/,
+       FLWN_WRK_KN_CD AS flwnWrkKnCd /*후속작업코드*/,
+       BTCH_EXEC_ID AS btchExecId /*배치실행ID*/,
+       INPT_PARM_CN AS inptParmCn /*입력파라미터내용*/,
+       NODE_ASGN_METH_CD AS nodeAsgnMethCd /*노드지정코드*/,
+       CC_EXEC_PARAM AS ccExecParam /*센터컷실행파라미터*/,
+       PROC_TRX_CD AS procTrxCd /*처리서비스거래코드*/,
+       REG_USER_ID AS regUserId /*등록사용자ID*/,
+       REG_OCCUR_DTTM AS regDttm /*등록발생일시*/,
+       MODIFY_USER_ID AS chngUserId /*변경사용자ID*/,
+       MODIFY_OCCUR_DTTM AS chngDttm /*변경발생일시*/
+  FROM BXM_CC_MAIN
+  where domain_id = #{domainId}
+ <if test="ccId != null and ccId != ''">
+	AND cc_id = #{ccId} 
+ </if>
+ <if test="ccIdNm != null and ccIdNm != ''">
+   and cc_nm = #{ccIdNm}
+ </if>
+ORDER BY DOMAIN_ID, CC_ID
+LIMIT #{pageNum}, #{pageCount}
+</select>
+<select id="countCCMain01A" resultType="java.lang.Integer">
+SELECT count(*) 
+FROM BXM_CC_MAIN
+where
+	domain_id = #{domainId}
+	<if test="ccId != null and ccId != ''">
+		and cc_id = #{ccId}
+	</if>
+	<if test="ccIdNm != null and ccIdNm != ''">
+		and cc_id_nm = #{ccIdNm}
+	</if>
+</select>
+<delete id="deleteBxmCCMain01A">
+DELETE  FROM  BXM_CC_MAIN
+WHERE  domain_id = #{domainId} AND cc_id = #{ccId}
+</delete>
+<select id="selectAvailNodeList" resultType="bxm.ccmainmng.online.dto.BxmCCNodeIO">
+SELECT /* 센터컷 노드 */ 
+	   DOMAIN_ID AS domainId,
+       NODE_NO AS nodeNo /*노드번호*/,
+       NODE_TYPE AS nodeType /*노드타입*/,
+       NODE_NM AS nodeNm /*노드명*/,
+       USE_YN AS useYn /*사용여부*/,
+       NODE_IP AS nodeIp /*노드IP*/,
+       NODE_PORT AS nodePort /*노드포트*/,
+       NODE_CONTEXT AS nodeContext /*노드컨텍스트*/,
+       REG_USER_ID AS regUserId /*등록 사용자 ID*/,
+       REG_OCCUR_DTTM AS regOccurDttm /*등록 발생 일시*/,
+       MODIFY_USER_ID AS modifyUserId /*변경 사용자 ID*/,
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경 발생 일시*/
+  FROM BXM_CC_NODE
+WHERE domain_id = #{domainId} AND NODE_TYPE = 'P'
+  AND USE_YN = 'Y'
+ORDER BY NODE_NO ASC
+</select>
+<select id="selectMainNodeList" resultType="bxm.ccmainmng.online.dto.BxmCCMainNodeInfoIO">
+SELECT /* 센터컷 메인 노드 관리 */ 
+	   A.DOMAIN_ID AS domainId,
+       A.CC_ID AS ccId /*센터컷ID*/,
+       A.NODE_NO AS nodeNo /*노드번호*/,
+       A.NODE_TYPE AS nodeType /*노드타입*/,
+       B.NODE_NM AS nodeNm,
+       A.NODE_PRCS_CNT AS nodePrcsCnt /*노드프로세스수*/
+FROM BXM_CC_MAIN_NODE A
+INNER JOIN BXM_CC_NODE B
+ON A.DOMAIN_ID = B.DOMAIN_ID AND A.NODE_NO = B.NODE_NO AND A.NODE_TYPE = B.NODE_TYPE
+ WHERE A.domain_id = #{domainId} AND A.CC_ID = #{ccId}
+</select>
+<insert id="insertMainNodeList" parameterType="bxm.ccmainmng.online.dto.BxmCCMainNodeIO">
+INSERT INTO BXM_CC_MAIN_NODE /* 센터컷 메인 노드 관리 */
+(
+	DOMAIN_ID,
+    CC_ID /*센터컷ID*/,
+    NODE_NO /*노드번호*/,
+    NODE_TYPE /*노드타입*/,
+    NODE_PRCS_CNT /*노드프로세스수*/ 
+)
+VALUES
+(
+	#{domainId},
+    #{ccId, jdbcType=VARCHAR} /*센터컷ID*/,
+    #{nodeNo, jdbcType=NUMERIC} /*노드번호*/,
+    #{nodeType, jdbcType=VARCHAR} /*노드타입*/,
+    #{nodePrcsCnt, jdbcType=NUMERIC} /*노드프로세스수*/ 
+)
+</insert>
+<delete id="deleteMainNodeList">
+DELETE FROM BXM_CC_MAIN_NODE /* 센터컷 메인 노드 관리 */
+WHERE domain_id = #{domainId} AND CC_ID = #{ccId}
+</delete>
+<update id="updateMainNodeList" parameterType="bxm.ccmainmng.online.dto.BxmCCMainNodeIO">
+UPDATE BXM_CC_MAIN_NODE /* 센터컷 메인 노드 관리 */
+   SET NODE_PRCS_CNT = #{nodePrcsCnt, jdbcType=NUMERIC} /* 노드프로세스수 */
+ WHERE domain_id = #{domainId} 
+   AND CC_ID = #{ccId, jdbcType=VARCHAR}
+   AND NODE_NO = #{nodeNo, jdbcType=NUMERIC}
+   AND NODE_TYPE = #{nodeType, jdbcType=VARCHAR}
+</update>
+<update id="updateMainNodeToAuto">
+UPDATE BXM_CC_MAIN_NODE /* 센터컷 메인 노드 관리 */
+   SET NODE_PRCS_CNT = 0 /* 노드프로세스수 */
+ WHERE domain_id = #{domainId} AND CC_ID = #{ccId}
+</update>
+</mapper>

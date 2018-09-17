@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.XpIntrmdrySysCallClassD">
+<!--Generated Thu Jul 21 14:41:48 KST 2016-->
+<insert id="insert" parameterType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpIntrmdrySysCallClassDIO">
+INSERT  
+  INTO  XP_INTRMDRY_SYS_CALL_CLASS_D    /* 중계시스템호출클래스상세 */
+(
+  INTRMDRY_SYS_ID,     /*중계시스템식별자*/
+  CALL_CLASS_NM,     /*호출클래스명*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{intrmdrySysId, jdbcType=VARCHAR},     /*중계시스템식별자*/
+  #{callClassNm, jdbcType=VARCHAR},     /*호출클래스명*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<insert id="insertBatch" parameterType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpIntrmdrySysCallClassDIO">
+INSERT  
+  INTO  XP_INTRMDRY_SYS_CALL_CLASS_D    /* 중계시스템호출클래스상세 */
+(
+  INTRMDRY_SYS_ID,     /*중계시스템식별자*/
+  CALL_CLASS_NM,     /*호출클래스명*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{intrmdrySysId, jdbcType=VARCHAR},     /*중계시스템식별자*/
+  #{callClassNm, jdbcType=VARCHAR},     /*호출클래스명*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<update id="updateByPk" parameterType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpIntrmdrySysCallClassDIO">
+UPDATE  
+        XP_INTRMDRY_SYS_CALL_CLASS_D    /* 중계시스템호출클래스상세 */
+   SET  CALL_CLASS_NM = #{callClassNm, jdbcType=VARCHAR}    /* 호출클래스명 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE INTRMDRY_SYS_ID = #{intrmdrySysId}
+</update>
+<delete id="deleteByPk" parameterType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpIntrmdrySysCallClassDIO">
+DELETE  FROM  XP_INTRMDRY_SYS_CALL_CLASS_D    /* 중계시스템호출클래스상세 */
+ WHERE  INTRMDRY_SYS_ID = #{intrmdrySysId}
+</delete>
+<select id="selectByPk" resultType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpIntrmdrySysCallClassDIO">
+SELECT    /* 중계시스템호출클래스상세 */
+        INTRMDRY_SYS_ID AS intrmdrySysId,     /*중계시스템식별자*/
+        CALL_CLASS_NM AS callClassNm,     /*호출클래스명*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_INTRMDRY_SYS_CALL_CLASS_D
+ WHERE INTRMDRY_SYS_ID = #{intrmdrySysId}
+</select>
+</mapper>

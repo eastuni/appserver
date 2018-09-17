@@ -1,0 +1,10 @@
+OMM bxm.web.admin.batch.domain.BatchJobUserLogListOMM
+<description="">
+{
+	Integer totalPage<length=9>;
+	String jobId<length=100 description="배치작업ID">;
+	String jobName<length=100 description="배치작업명">;
+	Integer size<length=9>;
+	bxm.web.admin.batch.domain.BatchJobUserLogOMM jobUserLogList<length=0 arrayReference="size">;
+	Integer responseCode<length=9 description="응답 코드">;
+}

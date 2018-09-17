@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.ccmainmng.share.dao.BXM_CC_LOG">
+<!--Generated Tue Nov 21 10:28:53 KST 2017-->
+<insert id="insertBxmCCLog01A" parameterType="bxm.ccmainmng.share.dto.BxmCCLogIO">
+INSERT INTO BXM_CC_LOG /* 센터컷 로그 */
+(
+     DOMAIN_ID /*도메인ID*/,
+    CC_ID /*센터컷ID*/,
+    PCSN_DT /*처리일자*/,
+    ACPT_NO /*접수번호*/,
+    TN_NO /*회차번호*/,
+    LOG_OCCUR_DTTM /*로그발생일시*/,
+    LOG_LV_CD /*로그레벨코드*/,
+    LOG_CLSF_NO /*로그구분번호*/,
+    CC_ALRM_NO /*센터컷알람번호*/,
+    LOG_CN /*로그내용*/,
+    MODIFY_USER_ID /*변경사용자ID*/,
+    MODIFY_OCCUR_DTTM /*변경발생일시*/ 
+)
+VALUES
+(
+    #{domainId, jdbcType=VARCHAR} /*도메인ID*/,
+    #{ccId, jdbcType=VARCHAR} /*센터컷ID*/,
+    #{pcsnDt, jdbcType=VARCHAR} /*처리일자*/,
+    #{acptNo, jdbcType=NUMERIC} /*접수번호*/,
+    #{tnNo, jdbcType=NUMERIC} /*회차번호*/,
+    #{logOccurDttm, jdbcType=VARCHAR} /*로그발생일시*/,
+    #{logLvCd, jdbcType=VARCHAR} /*로그레벨코드*/,
+    #{logClsfNo, jdbcType=NUMERIC} /*로그구분번호*/,
+    #{ccAlrmNo, jdbcType=NUMERIC} /*센터컷알람번호*/,
+    #{logCn, jdbcType=VARCHAR} /*로그내용*/,
+    #{modifyUserId, jdbcType=VARCHAR} /*변경사용자ID*/,
+    #{modifyOccurDttm, jdbcType=VARCHAR} /*변경발생일시*/ 
+)
+</insert>
+</mapper>

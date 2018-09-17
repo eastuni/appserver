@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.dictionary.dao.CmStdAtrVrtnM">
+<!--Generated Wed Aug 23 12:40:40 KST 2017-->
+<select id="select" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmStdAtrVrtnMIO" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmStdAtrVrtnMIO">
+SELECT  /* 표준속성검증변형기본 */
+
+        inst_cd AS instCd    /*기관코드*/, 
+
+        atrbt_nm AS atrbtNm    /*속성명*/, 
+
+        atrbt_vldtn_way_cd AS atrbtVldtnWayCd    /*속성검증방법코드*/, 
+
+        atrbt_vldtn_rule_cntnt AS atrbtVldtnRuleCntnt    /*속성검증규칙*/, 
+        atrbt_vldtn_xtn_rule_cntnt AS atrbtVldtnXtnRuleCntnt    /*속성검증확장규칙*/, 
+        srvc_inp_vldtn_mndtry_yn AS srvcInpVldtnMndtryYn    /*서비스입력검증필수여부*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_std_atr_vld_vrtn_m
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  atrbt_nm = #{atrbtNm}
+</select>
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmStdAtrVrtnMIO">
+INSERT  
+
+  INTO  cm_std_atr_vld_vrtn_m    /* 표준속성검증변형기본 */
+
+(
+
+  inst_cd    /*기관코드*/, 
+
+  atrbt_nm    /*속성명*/, 
+
+  atrbt_vldtn_way_cd    /*속성검증방법코드*/, 
+
+  atrbt_vldtn_rule_cntnt    /*속성검증규칙*/, 
+  atrbt_vldtn_xtn_rule_cntnt    /*속성검증확장규칙*/, 
+  srvc_inp_vldtn_mndtry_yn    /*서비스입력검증필수여부*/, 
+
+  last_chng_tmstmp    /*최종변경일시*/, 
+
+  last_chng_guid    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+  #{instCd, jdbcType=VARCHAR}    /*기관코드*/, 
+
+  #{atrbtNm, jdbcType=VARCHAR}    /*속성명*/, 
+
+  #{atrbtVldtnWayCd, jdbcType=VARCHAR}    /*속성검증방법코드*/, 
+
+  #{atrbtVldtnRuleCntnt, jdbcType=VARCHAR}    /*속성검증규칙*/, 
+  #{atrbtVldtnXtnRuleCntnt, jdbcType=VARCHAR}    /*속성검증확장규칙*/, 
+  #{srvcInpVldtnMndtryYn, jdbcType=VARCHAR}    /*서비스입력검증필수여부*/, 
+
+  #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경일시*/, 
+
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+
+)
+</insert>
+<delete id="delete" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmStdAtrVrtnMIO">
+DELETE  FROM  cm_std_atr_vld_vrtn_m    /* 표준속성검증변형기본 */
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  atrbt_nm = #{atrbtNm}
+</delete>
+<select id="selectList" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmStdAtrVrtnMIO">
+SELECT  /* 표준속성검증변형기본 */
+
+        inst_cd AS instCd    /*기관코드*/, 
+
+        atrbt_nm AS atrbtNm    /*속성명*/, 
+
+        atrbt_vldtn_way_cd AS atrbtVldtnWayCd    /*속성검증방법코드*/, 
+
+        atrbt_vldtn_rule_cntnt AS atrbtVldtnRuleCntnt    /*속성검증규칙*/, 
+        atrbt_vldtn_xtn_rule_cntnt AS atrbtVldtnXtnRuleCntnt    /*속성검증확장규칙*/, 
+        srvc_inp_vldtn_mndtry_yn AS srvcInpVldtnMndtryYn    /*서비스입력검증필수여부*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_std_atr_vld_vrtn_m
+
+ WHERE  inst_cd = #{instCd}
+</select>
+</mapper>

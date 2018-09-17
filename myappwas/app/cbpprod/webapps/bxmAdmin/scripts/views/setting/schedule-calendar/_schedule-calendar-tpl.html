@@ -1,0 +1,61 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'scheduler.calendar-management'}}
+    <p class="desc">{{bxMsg 'scheduler.calendar-management-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--************* 그룹 목록  *************-->
+<div class="sub-section module-wrap add-bd2-t add-bd">
+    <section class="module add-mg-r w-47">
+        <div class="module w-100 calendar-wrap">
+            <section class="bw-tool add-bd2-t">
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+            <!--SEARCH AREA * 검색 영역-->
+            <section class="search-wrap bxm-search-wrap">
+                <!--INPUT TYPE1 * 분할 없이 INLINE-->
+                <ul class="clr">
+                    <li class="input-wrap w-47">
+                        <label class="bw-label w-50">{{bxMsg 'scheduler.calendar-year2'}}</label>
+                        <select class="bw-input ipt-select w-50" data-form-param="stdYear">
+                            <option value="2016">2016</option>
+                        </select>
+                    </li>
+                    <li class="input-wrap w-47">
+                        <label class="bw-label w-50">{{bxMsg 'common.month'}}</label>
+                        <select class="bw-input ipt-select w-50" data-form-param="stdMonth"></select>
+                    </li>
+                </ul>
+                <!--/END INPUT TYPE1-->
+            </section>
+            <!--/END SEARCH AREA-->
+            <!--GRID AREA-->
+            <section class="bxm-grid-wrap"></section>
+            <!--/END GRID AREA-->
+        </div>
+    </section>
+
+    <section class="module add-mg-l w-47">
+        <!-- 우측 상단 그리드  -->
+        <div class="module w-100 bx-loding-wrap">
+            <section class="bw-tool add-bd2-t"></section>
+            <section class="search-wrap">
+                <label class="bw-label w-50 registered-calendar-info-desc">{{bxMsg 'scheduler.current-calendar-info'}}</label>
+            </section>
+        </div>
+
+        <!-- 우측 하단 그리드  -->
+        <div class="module add-mg-t w-100 bx-loding-wrap calendar-biz-date">
+            <section class="bw-tool add-bd2-t">
+                <h3 class="bw-desc d-block">{{bxMsg 'common.biz-date-detail'}}</h3>
+            </section>
+            <section class="search-wrap">
+                <div class="bw-grid add-bd no-margin biz-date-detail"></div>
+            </section>
+        </div>
+    </section>
+</div>

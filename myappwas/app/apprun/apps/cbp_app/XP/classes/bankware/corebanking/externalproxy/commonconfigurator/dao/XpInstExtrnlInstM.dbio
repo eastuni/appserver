@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonconfigurator.dao.XpInstExtrnlInstM">
+<!--Generated Thu Apr 28 10:36:05 KST 2016-->
+<delete id="deleteInstExternalInst">
+DELETE FROM xp_inst_extrnl_inst_m    /* 기관별대외기관기본 */
+ WHERE inst_cd = #{instCd}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+</delete>
+<insert id="insertInstExternalInst" parameterType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpInstExtrnlInstMIO">
+INSERT INTO xp_inst_extrnl_inst_m    /* 기관별대외기관기본 */
+(
+       inst_cd    /*기관코드*/
+     , extrnl_inst_cd    /*대외기관코드*/
+     , aply_start_dt    /*적용시작년월일*/
+     , last_chng_tmstmp    /*최종변경일시*/
+     , last_chng_guid    /*최종변경GUID*/
+)
+VALUES 
+(
+       #{instCd}    /*기관코드*/
+     , #{extrnlInstCd}    /*대외기관코드*/
+     , #{aplyStartDt}    /*적용시작년월일*/
+     , #{lastChngTmstmp}    /*최종변경일시*/
+     , #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectInstExternalInstList" resultType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpInstExtrnlInstMIO">
+SELECT    /* 기관별대외기관기본 */
+       inst_cd AS instCd    /*기관코드*/
+     , extrnl_inst_cd AS extrnlInstCd    /*대외기관코드*/
+     , aply_start_dt AS aplyStartDt    /*적용시작년월일*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_inst_extrnl_inst_m
+ WHERE inst_cd = #{instCd}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+</select>
+<select id="selectInstExternalInst" resultType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpInstExtrnlInstMIO">
+SELECT    
+       inst_cd AS instCd    /*기관코드*/
+     , extrnl_inst_cd AS extrnlInstCd    /*대외기관코드*/
+     , aply_start_dt AS aplyStartDt    /*적용시작년월일*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_inst_extrnl_inst_m
+ WHERE inst_cd = #{instCd}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+</select>
+<update id="updateInstExternalInst" parameterType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpInstExtrnlInstMIO">
+UPDATE xp_inst_extrnl_inst_m    /* 기관별대외기관기본 */
+   SET aply_start_dt = #{aplyStartDt}    /* 적용시작년월일 */
+     , last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE inst_cd = #{instCd}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+</update>
+<select id="selectInstExternalInstInfo" resultType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpInstExtrnlInstMIO">
+SELECT    /* 기관별대외기관기본 */
+       #{instCd} as instCd    /*기관코드*/
+     , t1.extrnl_inst_cd AS extrnlInstCd    /*대외기관코드*/
+     , t1.hangul_inst_nm AS hangulInstNm    /*한글기관명*/
+     , t2.aply_start_dt AS aplyStartDt    /*적용시작년월일*/
+     , CASE
+        WHEN NVL(t2.extrnl_inst_cd, ' ') = ' ' THEN 'N'
+        ELSE 'Y'
+        END as useYn     
+     , t2.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , t2.last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_extrnl_inst_m t1 LEFT OUTER JOIN xp_inst_extrnl_inst_m t2
+     ON t1.extrnl_inst_cd = t2.extrnl_inst_cd
+   AND t1.sts_cd = '01'
+   AND t2.inst_cd = #{instCd}
+<where>
+    <if test="extrnlInstCd != null and extrnlInstCd != ''">
+       AND t1.extrnl_inst_cd = #{extrnlInstCd}
+    </if>
+    <if test="hangulInstNm != null and hangulInstNm != ''">
+       AND EXISTS (
+       SELECT 1
+         FROM cm_mlt_lng_trnsltn_d t3
+        WHERE t3.trnsfr_knd = 'EXTERNAL_INST_NAME' 
+          AND t3.trnsfr_origin_key_val = t1.extrnl_inst_cd
+          AND t3.lng_cd = #{lngCd}
+          AND t3.trnsfr_rslt_val LIKE '%' || #{hangulInstNm} || '%' )
+    </if>
+</where>
+ORDER BY t1.extrnl_inst_cd
+</select>
+</mapper>

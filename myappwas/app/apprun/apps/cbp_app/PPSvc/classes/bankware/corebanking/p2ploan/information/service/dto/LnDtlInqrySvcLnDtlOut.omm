@@ -1,0 +1,16 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.LnDtlInqrySvcLnDtlOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	bankware.corebanking.p2ploan.information.service.dto.LnDtlInqrySvcCustInfoOut custInfo<length=0 description="고객정보">;
+	bankware.corebanking.p2ploan.information.service.dto.LnDtlInqrySvcAplctnInfoOut aplctnInfoCntnt<length=0 description="신청입력정보">;
+	bankware.corebanking.p2ploan.information.service.dto.LnDtlInqrySvcBiddingInfoOut biddingInfo<length=0 description="입찰정보">;
+	bankware.corebanking.p2ploan.information.service.dto.LnDtlInqrySvcAgrmntInfoOut agrmntInfo<length=0 description="계약정보">;
+	bankware.corebanking.p2ploan.information.service.dto.LnDtlInqrySvcRpymntInfoOut rpymntInfo<length=0 description="상환정보">;
+	String pdNm<length=100 description="상품명">;
+	String pdCd<length=14 description="상품코드">;
+	String arrStsCd<length=2 description="계약상태코드">;
+	String prcsNm<length=100 description="계약상태명">;
+	String arrId<length=40 description="계약식별자">;
+	bankware.corebanking.p2ploan.information.service.dto.LnListOut loanList<length=0 arrayReference="1000" description="대출리스트">;
+	String childPdCd<length=20 description="자식상품코드">;
+}

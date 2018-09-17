@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonconfigurator.dao.SystemIntrfcCdListDbio">
+<!--Generated Wed Jul 27 17:01:32 KST 2016-->
+<select id="selectSystemIntrfcCdList" resultType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.SystemIntrfcCdOut">
+SELECT
+        SYS_INTRFC_ID AS sysIntrfcId,
+        SYS_INTRFC_NM AS sysIntrfcNm
+  FROM  XP_SYS_INTRFC_M
+ORDER BY SYS_INTRFC_ID ASC
+</select>
+</mapper>

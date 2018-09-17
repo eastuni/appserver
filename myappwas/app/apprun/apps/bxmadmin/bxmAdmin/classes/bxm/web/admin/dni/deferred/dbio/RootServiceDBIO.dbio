@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.dni.deferred.dbio.RootServiceDBIO">
+<!--Generated Mon Dec 04 19:49:36 KST 2017-->
+<select id="selectTargetMethodList" resultType="bxm.web.admin.dni.analyze.domain.BxmDniRootSvcOMM">
+SELECT
+	a.methodId
+	, a.rootMethodId
+	, a.modifyDttm
+FROM (
+	SELECT /* BXM ROOT 서비스 정보 */ 
+    	   METHOD_ID AS methodId,/*메소드 ID*/ 
+	       ROOT_METHOD_ID AS rootMethodId,/*Root 메소드 ID*/ 
+    	   MODIFY_DTTM AS modifyDttm /*변경 일시*/
+	FROM BXM_DNI_ROOT_SVC
+	WHERE ROOT_METHOD_ID IS NULL
+	ORDER BY MODIFY_DTTM ASC
+	) a
+WHERE ROWNUM &lt;= #{count}
+</select>
+<select databaseId="mysql" id="selectTargetMethodList" resultType="bxm.web.admin.dni.analyze.domain.BxmDniRootSvcOMM">
+SELECT
+	a.methodId
+	, a.rootMethodId
+	, a.modifyDttm
+FROM (
+	SELECT /* BXM ROOT 서비스 정보 */ 
+    	   METHOD_ID AS methodId,/*메소드 ID*/ 
+	       ROOT_METHOD_ID AS rootMethodId,/*Root 메소드 ID*/ 
+    	   MODIFY_DTTM AS modifyDttm /*변경 일시*/
+	FROM BXM_DNI_ROOT_SVC 
+	WHERE ROOT_METHOD_ID IS NULL
+	ORDER BY MODIFY_DTTM ASC
+	) a
+LIMIT #{count}
+</select>
+<select id="selectTargetMethodInfo" resultType="bxm.web.admin.dni.analyze.domain.BxmDniMethodOMM">
+SELECT /* 메소드 분석 정보 */ 
+       METHOD_ID AS methodId,/*메소드 ID*/ 
+       BXM_APP_ID AS bxmAppId,/*BXM어플리케이션ID*/ 
+       PKG_NM AS pkgNm,/*패키지 명*/ 
+       CLASS_NM AS classNm,/*클래스 명*/ 
+       METHOD_SIGN AS methodSign,/*메소드 시그니쳐*/ 
+       METHOD_NM AS methodNm,/*메소드 명*/ 
+       METHOD_EXEC_TYPE_CD AS methodExecTypeCd,/*메소드 실행 타입 코드*/ 
+       START_LINE_CNT AS startLineCnt,/*시작 라인 수*/ 
+       END_LINE_CNT AS endLineCnt,/*종료 라인 수*/ 
+       OP_NM AS opNm,/*오퍼레이션 명*/ 
+       TRAN_YN AS tranYn,/*트랜잭션 여부*/ 
+       METHOD_MODIFIER_LIST AS methodModifierList,/*메소드 접근자 목록*/ 
+       MODIFY_DTTM AS modifyDttm /*변경 일시*/
+  FROM BXM_DNI_METHOD 
+ WHERE METHOD_ID = #{methodId}
+</select>
+<select id="selectMethodCallerList" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniMethodOMM" resultType="bxm.web.admin.dni.analyze.domain.BxmDniMethodCalleeOMM">
+SELECT /* 메소드 Callee 호출 정보 */ 
+       METHOD_ID AS methodId,/*메소드 ID*/ 
+       CALLER_METHOD_LINE AS callerMethodLine,/*Caller 메소드 라인*/ 
+       CALLEE_BXM_APP_ID AS calleeBxmAppId,/*Callee BXM 어플리케이션 ID*/ 
+       CALLEE_PKG_NM AS calleePkgNm,/*Callee 패키지 명*/ 
+       CALLEE_CLASS_NM AS calleeClassNm,/*Callee 클래스 명*/ 
+       CALLEE_METHOD_SIGN AS calleeMethodSign,/*Callee 메소드 시그니쳐*/ 
+       MODIFY_DTTM AS modifyDttm /*변경 일시*/
+FROM BXM_DNI_METHOD_CALLEE 
+WHERE CALLEE_PKG_NM = #{pkgNm}
+	AND CALLEE_CLASS_NM = #{classNm}
+	AND CALLEE_METHOD_SIGN = #{methodSign}
+</select>
+<delete id="deleteRootSvcInfo">
+DELETE FROM BXM_DNI_ROOT_SVC /*  BXM ROOT 서비스 정보 */ 
+WHERE METHOD_ID = #{methodId}
+</delete>
+<insert id="insertRootSvcList" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniRootSvcOMM">
+INSERT INTO BXM_DNI_ROOT_SVC /* BXM ROOT 서비스 정보 */
+(
+    METHOD_ID,/*메소드 ID*/ 
+    ROOT_METHOD_ID,/*Root 메소드 ID*/ 
+    MODIFY_DTTM /*변경 일시*/ 
+)
+VALUES
+(
+    #{methodId, jdbcType=VARCHAR},/*메소드 ID*/ 
+    #{rootMethodId, jdbcType=VARCHAR},/*Root 메소드 ID*/
+    #{modifyDttm, jdbcType=VARCHAR} /*변경 일시*/ 
+)
+</insert>
+<select id="selectBxmOpInfo" resultType="bxm.web.admin.dni.deferred.domain.BxmOperationInfoOMM">
+SELECT 
+  A.METHOD_ID AS methodId
+  , A.BXM_APP_ID AS bxmAppId
+  , A.PKG_NM AS pkgNm
+  , A.CLASS_NM AS classNm
+  , A.METHOD_SIGN AS methodSign
+  , A.METHOD_EXEC_TYPE_CD AS methodExecTypeCd
+  , A.OP_NM AS opNm
+  , B.EXEC_TYPE_CD AS execTypeCd
+  , B.SVC_NM AS svcNm
+FROM BXM_DNI_METHOD A
+INNER JOIN BXM_DNI_RES B
+ON A.BXM_APP_ID = B.BXM_APP_ID AND A.PKG_NM = B.PKG_NM AND A.CLASS_NM = B.CLASS_NM
+WHERE A.METHOD_ID = #{methodId}
+  AND A.METHOD_EXEC_TYPE_CD = 1
+</select>
+<select id="selectSvcCalleeList" parameterType="bxm.web.admin.dni.deferred.domain.BxmOperationInfoOMM" resultType="bxm.web.admin.dni.analyze.domain.BxmDniSvcCalleeOMM">
+SELECT /* 메소드 서비스 호출 정보 */ 
+       METHOD_ID AS methodId,/*메소드 ID*/ 
+       CALLEE_METHOD_LINE AS calleeMethodLine,/*Caller 라인*/ 
+       CALLEE_BXM_APP_ID AS calleeBxmAppId,/*Callee BXM 어플리케이션 ID*/ 
+       CALLEE_SVC_NM AS calleeSvcNm,/*Callee 서비스 명*/ 
+       CALLEE_OP_NM AS calleeOpNm,/*Callee 오퍼레이션 명*/ 
+       MODIFY_DTTM AS modifyDttm /*변경 일시*/
+FROM BXM_DNI_SVC_CALLEE 
+WHERE CALLEE_BXM_APP_ID = #{bxmAppId}
+  AND CALLEE_SVC_NM = #{svcNm}
+  AND CALLEE_OP_NM = #{opNm}
+</select>
+<select id="selectRootSvcList" resultType="bxm.web.admin.dni.deferred.domain.BxmRootSvcInfo">
+WITH ROOT_SVC_ANALYZE(METHOD_ID, PKG_NM, CLASS_NM, METHOD_SIGN, CALLEE_PKG_NM, CALLEE_CLASS_NM, CALLEE_METHOD_SIGN, METHOD_EXEC_TYPE_CD)
+AS
+(
+  SELECT METHOD_ID, PKG_NM, CLASS_NM, METHOD_SIGN, null, null, null, METHOD_EXEC_TYPE_CD
+  FROM BXM_DNI_METHOD 
+  WHERE METHOD_ID = #{methodId}
+  UNION ALL 
+  SELECT C.METHOD_ID, C.PKG_NM, C.CLASS_NM, C.METHOD_SIGN, A.CALLEE_PKG_NM, A.CALLEE_CLASS_NM, A.CALLEE_METHOD_SIGN, C.METHOD_EXEC_TYPE_CD
+  FROM BXM_DNI_METHOD_CALLEE A 
+  INNER JOIN ROOT_SVC_ANALYZE B 
+  ON A.CALLEE_PKG_NM = B.PKG_NM 
+    AND A.CALLEE_CLASS_NM = B.CLASS_NM
+    AND A.CALLEE_METHOD_SIGN = B.METHOD_SIGN
+  INNER JOIN BXM_DNI_METHOD C
+  ON A.METHOD_ID = C.METHOD_ID
+)
+CYCLE METHOD_ID SET iscycle TO "1" DEFAULT "0"
+SELECT 
+      METHOD_ID AS methodId
+      , PKG_NM AS pkgNm
+      , CLASS_NM AS classNm
+      , METHOD_SIGN AS methodSign
+      , CALLEE_PKG_NM AS calleePkgNm
+      , CALLEE_CLASS_NM AS calleeClassNm
+      , CALLEE_METHOD_SIGN AS calleeMethodSign
+      , METHOD_EXEC_TYPE_CD AS methodExecTypeCd
+ FROM ROOT_SVC_ANALYZE WHERE METHOD_EXEC_TYPE_CD = '1'
+</select>
+</mapper>

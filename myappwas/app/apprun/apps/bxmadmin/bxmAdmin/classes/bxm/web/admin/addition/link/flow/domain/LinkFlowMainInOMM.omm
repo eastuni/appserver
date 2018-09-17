@@ -1,0 +1,8 @@
+OMM bxm.web.admin.addition.link.flow.domain.LinkFlowMainInOMM
+<description="">
+{
+	String linkMainCd<length=14 description="연동대표코드">;
+	String linkStartTrxCd<length=12 description="연동기동 거래코드">;
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+}

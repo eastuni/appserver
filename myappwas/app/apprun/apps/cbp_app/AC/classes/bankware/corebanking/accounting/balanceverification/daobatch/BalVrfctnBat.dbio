@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.accounting.balanceverification.daobatch.BalVrfctnBat">
+<!--Generated Tue Aug 01 13:38:32 KST 2017-->
+<insert id="insert" parameterType="bankware.corebanking.accounting.balanceverification.daobatch.dto.BalVrfctnBatIO">
+INSERT  
+
+  INTO  ac_bal_vrfctn_smtn_d    /* 잔액대사집계명세 */
+
+(
+
+  INST_CD,     /*기관코드*/
+
+  BASE_DT,     /*기준년월일*/
+
+  DEPT_ID,     /*부서식별자*/
+
+  CRNCY_CD,     /*통화코드*/
+
+  ACCTG_DSCD,     /*회계구분코드*/
+
+  ACCTG_ITM_CD,     /*계정과목코드*/
+
+  BIZ_DSCD,     /*업무구분코드*/
+
+  biz_team_bal,     /*업무팀잔액*/
+  MANUAL_ENTRY_BAL,     /*비온라인잔액*/
+
+  GL_BAL,     /*총계정잔액*/
+
+  BAL_DFRNC_AMT,     /*잔액차액*/
+
+  biz_team_rcvd_amt,     /*업무팀입금금액*/
+  biz_team_whdrwl_amt,     /*업무팀출금금액*/
+  MANUAL_ENTRY_RCVD_AMT,     /*비온라인입금금액*/
+
+  manual_entry_whdrwl_amt,     /*비온라인출금금액*/
+  GL_RCVD_AMT,     /*총계정입금금액*/
+
+  gl_whdrwl_amt,     /*총계정출금금액*/
+  RCVD_DFRNC_AMT,     /*입금차액*/
+
+  whdrwl_dfrnc_amt,     /*출금차액*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+
+  LAST_CHNG_GUID    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+  #{instCd},     /*기관코드*/
+
+  #{baseDt},     /*기준년월일*/
+
+  #{deptId},     /*부서식별자*/
+
+  #{crncyCd},     /*통화코드*/
+
+  #{acctgDscd},     /*회계구분코드*/
+
+  #{acctgItmCd},     /*계정과목코드*/
+
+  #{bizDscd},     /*업무구분코드*/
+
+  #{bizTeamBal},     /*업무팀잔액*/
+  #{manualEntryBal},     /*비온라인잔액*/
+
+  #{glBal},     /*총계정잔액*/
+
+  #{balDfrncAmt},     /*잔액차액*/
+
+  #{bizTeamRcvdAmt},     /*업무팀입금금액*/
+  #{bizTeamWhdrwlAmt},     /*업무팀출금금액*/
+  #{manualEntryRcvdAmt},     /*비온라인입금금액*/
+
+  #{manualEntryWhdrwlAmt},     /*비온라인출금금액*/
+  #{glRcvdAmt},     /*총계정입금금액*/
+
+  #{glWhdrwlAmt},     /*총계정출금금액*/
+  #{rcvdDfrncAmt},     /*입금차액*/
+
+  #{whdrwlDfrncAmt},     /*출금차액*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+
+  #{lastChngGuid}    /*최종변경GUID*/
+
+)
+</insert>
+<update id="update" parameterType="bankware.corebanking.accounting.balanceverification.daobatch.dto.BalVrfctnBatIO">
+UPDATE  
+
+        ac_bal_vrfctn_smtn_d    /* 잔액대사집계명세 */
+
+   SET  BIZ_DSCD = #{bizDscd}    /* 업무구분코드 */
+
+     , biz_team_bal = #{bizTeamBal}    /* 업무팀잔액 */
+     , MANUAL_ENTRY_BAL = #{manualEntryBal}    /* 비온라인잔액 */
+
+     , GL_BAL = #{glBal}    /* 총계정잔액 */
+
+     , BAL_DFRNC_AMT = #{balDfrncAmt}    /* 잔액차액 */
+
+     , biz_team_rcvd_amt = #{bizTeamRcvdAmt}    /* 업무팀입금금액 */
+     , biz_team_whdrwl_amt = #{bizTeamWhdrwlAmt}    /* 업무팀출금금액 */
+     , MANUAL_ENTRY_RCVD_AMT = #{manualEntryRcvdAmt}    /* 비온라인입금금액 */
+
+     , manual_entry_whdrwl_amt = #{manualEntryWhdrwlAmt}    /* 비온라인출금금액 */
+     , GL_RCVD_AMT = #{glRcvdAmt}    /* 총계정입금금액 */
+
+     , gl_whdrwl_amt = #{glWhdrwlAmt}    /* 총계정출금금액 */
+     , RCVD_DFRNC_AMT = #{rcvdDfrncAmt}    /* 입금차액 */
+
+     , whdrwl_dfrnc_amt = #{whdrwlDfrncAmt}    /* 출금차액 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+
+ WHERE INST_CD = #{instCd}
+
+   AND BASE_DT = #{baseDt}
+
+   AND DEPT_ID = #{deptId}
+
+   AND CRNCY_CD = #{crncyCd}
+
+   AND ACCTG_DSCD = #{acctgDscd}
+
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+</update>
+<update id="updateAmt" parameterType="bankware.corebanking.accounting.balanceverification.daobatch.dto.BalVrfctnBatIO">
+UPDATE  
+
+        ac_bal_vrfctn_smtn_d    /* 잔액대사집계명세 */
+
+   SET  biz_team_bal = #{bizTeamBal}    /* 업무팀잔액 */
+     , MANUAL_ENTRY_BAL = #{manualEntryBal}    /* 비온라인잔액 */
+
+     , GL_BAL = #{glBal}    /* 총계정잔액 */
+
+     , BAL_DFRNC_AMT = #{balDfrncAmt}    /* 잔액차액 */
+
+     , biz_team_rcvd_amt = #{bizTeamRcvdAmt}    /* 업무팀입금금액 */
+     , biz_team_whdrwl_amt = #{bizTeamWhdrwlAmt}    /* 업무팀출금금액 */
+     , MANUAL_ENTRY_RCVD_AMT = #{manualEntryRcvdAmt}    /* 비온라인입금금액 */
+
+     , manual_entry_whdrwl_amt = #{manualEntryWhdrwlAmt}    /* 비온라인출금금액 */
+     , GL_RCVD_AMT = #{glRcvdAmt}    /* 총계정입금금액 */
+
+     , gl_whdrwl_amt = #{glWhdrwlAmt}    /* 총계정출금금액 */
+     , RCVD_DFRNC_AMT = #{rcvdDfrncAmt}    /* 입금차액 */
+
+     , whdrwl_dfrnc_amt = #{whdrwlDfrncAmt}    /* 출금차액 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+
+ WHERE INST_CD = #{instCd}
+
+   AND BASE_DT = #{baseDt}
+</update>
+</mapper>

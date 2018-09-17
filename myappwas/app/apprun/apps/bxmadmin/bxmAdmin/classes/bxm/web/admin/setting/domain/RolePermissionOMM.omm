@@ -1,0 +1,7 @@
+OMM bxm.web.admin.setting.domain.RolePermissionOMM
+<description="">
+{
+	Integer size<length=9>;
+	bxm.web.admin.setting.domain.UserPermissionOMM permList<length=0 arrayReference="size" description="권한 리스트">;
+	Integer totalPage<length=9 description="권한 리스트 페이지 수">;
+}

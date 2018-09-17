@@ -1,0 +1,6 @@
+OMM bxm.web.admin.dni.operation.domain.TableListOMM
+<description="">
+{
+	Integer listSize<length=9>;
+	bxm.web.admin.dni.operation.domain.TableInfoOMM tableList<length=0 arrayReference="listSize">;
+}

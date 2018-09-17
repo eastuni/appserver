@@ -1,0 +1,8 @@
+OMM bxm.web.admin.setting.domain.StudioDataSourceAuthOMM
+<description="">
+{
+	String userId<length=32 description="사용자ID">;
+	String userNm<length=50 description="사용자명">;
+	String accessUseDatabase<length=20 description="커넥션 명">;
+	String dataSourceName<length=20 description="데이터소스 명">;
+}

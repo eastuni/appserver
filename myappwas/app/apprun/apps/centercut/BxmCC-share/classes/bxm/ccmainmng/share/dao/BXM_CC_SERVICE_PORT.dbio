@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.ccmainmng.share.dao.BXM_CC_SERVICE_PORT">
+<!--Generated Fri Dec 08 18:07:16 KST 2017-->
+<select id="selectServicePort" resultType="bxm.ccmainmng.share.dto.BxmCCServicePortManageIO">
+SELECT /* 센터컷 포트 관리 */ 
+       DOMAIN_ID AS domainId /*도메인ID*/,
+       CC_ID AS ccId /*센터컷ID*/,
+       PCSN_DT AS pcsnDt /*처리일자*/,
+       ACPT_NO AS acptNo /*접수번호*/,
+       TN_NO AS tnNo /*회차번호*/,
+       IP AS ip /*IP*/,
+       SRVR_PORT_NO AS srvrPortNo /*서버포트번호*/,
+       MODIFY_USER_ID AS modifyUserId /*변경사용자ID*/,
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경발생일시*/
+  FROM BXM_CC_SERVICE_PORT_MANAGE
+ WHERE DOMAIN_ID = #{domainId}
+   AND CC_ID = #{ccId}
+   AND PCSN_DT = #{pcsnDt}
+   AND ACPT_NO = #{acptNo}
+   AND TN_NO = #{tnNo}
+</select>
+</mapper>

@@ -1,0 +1,6 @@
+OMM bankware.corebanking.deposit.transaction.batch.dao.dto.DpstTxBatIO
+<description="">
+{
+	String arrId<length=40 description="계약식별자">;
+	String baseDt<length=8 description="기준일자">;
+}

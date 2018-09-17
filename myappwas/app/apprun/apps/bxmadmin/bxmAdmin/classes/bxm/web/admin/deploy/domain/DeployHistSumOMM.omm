@@ -1,0 +1,11 @@
+OMM bxm.web.admin.deploy.domain.DeployHistSumOMM
+<description="">
+{
+	String deployId<length=20 description="배포ID">;
+	Integer instanceCount<length=9 description="인스턴스개수">;
+	Integer appCount<length=9 description="어플리케이션개수">;
+	String deployProcMethodNm<length=20 description="처리방법">;
+	String deploySuccessYn<length=20 description="성공여부">;
+	String regUserId<length=20 description="사용자ID">;
+	String regOccurDttm<length=20 description="실행시간">;
+}

@@ -1,0 +1,23 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.BcMsg0800
+<description="">
+{
+	String sysId<length=3 description="시스템ID" defaultValue="DY2">;
+	String sndRcvFlagCntnt<length=1 description="송수신FLAG">;
+	String sndrId<length=10 description="송신자ID">;
+	String rcvrId<length=10 description="수신자ID">;
+	String msgId<length=12 description="메시지ID">;
+	String useEntrprsNm1<length=8 description="BC업체코드">;
+	String bnkCd<length=2 description="은행코드">;
+	String jointNetworkClCd<length=4 description="전문종별코드">;
+	String jointNetworkTxDscd<length=3 description="전문거래구분코드">;
+	String msgTraceNbr<length=6 description="전문추적번호">;
+	String msgSndDt<length=8 description="전송일자">;
+	String msgSndTmstmp1<length=6 description="전송시간">;
+	String rspnsCd<length=4 description="응답코드">;
+	String fillerCntnt64<length=12 description="예비영역1">;
+	String useEntrprsNm2<length=8 description="업체코드">;
+	String fillerCntnt65<length=10 description="예비영역2">;
+	String fillerCntnt66<length=1 description="예비영역3">;
+	String fillerCntnt1<length=300 description="예비필드1">;
+	String fillerCntnt2<length=50 description="예비필드2">;
+}

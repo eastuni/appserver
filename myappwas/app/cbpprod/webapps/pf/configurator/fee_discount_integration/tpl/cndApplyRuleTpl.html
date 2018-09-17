@@ -1,0 +1,61 @@
+<!-- 적용규칙 (수수료할인적용규칙, 우대금리적용규칙) -->
+<div class="apply-rule-title-wrap">
+    <span class="cnd-value-title">{{bxMsg 'ApplyRule'}}</span>
+    <!-- 적용규칙 -->
+</div>
+<table class="bx-info-table">
+    <tr>
+        <td class="btn-box" colspan="4">
+
+            <!--<button class="bx-btn bx-btn-small pf-cp-apply-rule-history-btn">{{bxMsg 'ButtonGrayString3'}}</button>-->
+            <button type="button" class="bw-btn pf-cp-apply-rule-history-btn" icon-tooltip="{{bxMsg 'ButtonGrayString3'}}">
+                    <i class="bw-icon i-25 i-func-history"></i>
+                </button>
+        </td>
+    </tr>
+    <tr>
+        <!-- 적용시작일자 -->
+        <th>{{bxMsg 'PAS0202String19'}}</th>
+        <td>
+            <input type="text" class="bx-form-item bx-compoenent-small calendar start-date" data-form-param="applyStartDate" value="{{applyStartDate}}">
+        </td>
+        <!-- 적용종료일자 -->
+        <th>{{bxMsg 'PAS0202String20'}}</th>
+        <td>
+            <input type="text" class="bx-form-item bx-compoenent-small calendar end-date" data-form-param="applyEndDate" value="{{applyEndDate}}">
+        </td>
+    </tr>
+    <tr>
+        <!-- 상태 -->
+        <th>{{bxMsg 'DPS0101String6'}}</th>
+        <td>
+            <select data-form-param="ruleStatusCode" value="{{ruleStatusCode}}" class="bx-form-item bx-compoenent-small status" disabled>
+                </select>
+        </td>
+        <!-- 최대할인 -->
+        <th><span class="max-discount">{{bxMsg 'MaxDiscount'}}</span></th>
+        <td>
+            <label class="discount-radio max-discount"><input type="radio" name="discount-radio" class="bx-form-item discount-radio discount-amount" value="02" checked>{{bxMsg 'DPS0121_4BString2'}}</label>
+            <label class="discount-radio max-discount"><input type="radio" name="discount-radio" class="bx-form-item discount-radio discount-rate" value="01">{{bxMsg 'DPS0121_4BString3'}}</label>
+            <input type="text" data-form-param="maxAmount" value="{{maxAmount}}" class="bx-form-item bx-compoenent-small removeComma float21 input-align-right max-amount max-discount" />
+            <input type="hidden" data-form-param="maxRate" value="{{maxRate}}" class="bx-form-item bx-compoenent-small removeComma float10 input-align-right max-rate max-discount" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <!-- 2017.05.17 적용규칙 Help버튼 추가 -->
+            <button type="button" class="bw-btn pf-cp-apply-rule-help-btn write-btn" icon-tooltip="{{bxMsg 'helpBtn'}}" style="float:right;margin-top: -10px;">
+					<!--<i class="icon-help" style="width:20px;height:20px"></i>-->
+   					<i class="bw-icon i-25 i-help" style="width:20px;height:20px"></i>
+				</button>
+
+            <!-- 적용규칙 -->
+            <textarea data-form-param="ruleContent" class="bx-form-item bx-compoenent-small apply-rule">{{ruleContent}}</textarea>
+            <!-- 숨김 : ruleID -->
+            <input type="hidden" class="bx-form-item bx-compoenent-small rule-id" data-form-param="ruleId" value="{{ruleId}}">
+            <input type="hidden" class="bx-form-item bx-compoenent-small rule-apply-target-distinction-code" data-form-param="ruleApplyTargetDistinctionCode" value="{{ruleApplyTargetDistinctionCode}}">
+        </td>
+    </tr>
+</table>
+<footer class="pf-panel-footer">
+</footer>

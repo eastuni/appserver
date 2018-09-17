@@ -1,0 +1,9 @@
+OMM bxm.web.admin.addition.link.flow.domain.LinkStartTrxCdInOMM
+<description="">
+{
+	String linkStartTrxCd<length=12 description="연동기동 거래코드">;
+	String linkStartTrxNm<length=256 description="거래 명">;
+	String existingTrxCdList<length=20 arrayReference="1" description="선택할 수 없는 코드목록">;
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+}

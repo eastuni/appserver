@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.systemcommon.batch.dao.FBatchStepExecution">
+<!--Generated Wed Nov 25 21:44:24 KST 2015-->
+<select id="selectBatchStepExecutionInfo" resultType="bankware.corebanking.systemcommon.batch.dao.dto.FBatchStepExecutionIO">
+SELECT    /* VIEW */
+       step_execution_id AS stepExecutionId    /*배치스텝 아이디*/
+     , version AS version    /*배치스텝 실행버전*/
+     , step_name AS stepName    /*배치스텝 이름*/
+     , job_execution_id AS jobExecutionId    /*배치작업 아이디*/
+     , start_time AS startTime    /*배치스텝 시작시각*/
+     , end_time AS endTime    /*배치스텝 종료시각*/
+     , status AS status    /*배치스텝 상태*/
+     , commit_count AS commitCount    /*배치스텝 커밋카운트*/
+     , read_count AS readCount    /*배치스텝 READ 카운트*/
+     , filter_count AS filterCount    /*배치스텝 FILTER 카운트*/
+     , write_count AS writeCount    /*배치스텝 WRITE 카운트*/
+     , read_skip_count AS readSkipCount    /*배치스텝 READSKIP 카운트*/
+     , write_skip_count AS writeSkipCount    /*배치스텝 WRITESKIP 카운트*/
+     , process_skip_count AS processSkipCount    /*배치스텝 PROCESSSKIP 카운트*/
+     , rollback_count AS rollbackCount    /*배치스텝 ROLLBACK 카운트*/
+     , exit_code AS exitCode    /*배치스텝 종료 구분*/
+     , exit_message AS exitMessage    /*배치스텝 종료 메시지*/
+     , last_updated AS lastUpdated    /*배치스텝 상태 업테이트 시각*/
+  FROM f_batch_step_execution
+  WHERE step_execution_id = #{stepExecutionId}
+</select>
+<select id="selectBatchStepExecutionInfoList" resultType="bankware.corebanking.systemcommon.batch.dao.dto.FBatchStepExecutionIO">
+SELECT    /* VIEW */
+       step_execution_id AS stepExecutionId    /*배치스텝 아이디*/
+     , version AS version    /*배치스텝 실행버전*/
+     , step_name AS stepName    /*배치스텝 이름*/
+     , job_execution_id AS jobExecutionId    /*배치작업 아이디*/
+     , start_time AS startTime    /*배치스텝 시작시각*/
+     , end_time AS endTime    /*배치스텝 종료시각*/
+     , status AS status    /*배치스텝 상태*/
+     , commit_count AS commitCount    /*배치스텝 커밋카운트*/
+     , read_count AS readCount    /*배치스텝 READ 카운트*/
+     , filter_count AS filterCount    /*배치스텝 FILTER 카운트*/
+     , write_count AS writeCount    /*배치스텝 WRITE 카운트*/
+     , read_skip_count AS readSkipCount    /*배치스텝 READSKIP 카운트*/
+     , write_skip_count AS writeSkipCount    /*배치스텝 WRITESKIP 카운트*/
+     , process_skip_count AS processSkipCount    /*배치스텝 PROCESSSKIP 카운트*/
+     , rollback_count AS rollbackCount    /*배치스텝 ROLLBACK 카운트*/
+     , exit_code AS exitCode    /*배치스텝 종료 구분*/
+     , exit_message AS exitMessage    /*배치스텝 종료 메시지*/
+     , last_updated AS lastUpdated    /*배치스텝 상태 업테이트 시각*/
+  FROM f_batch_step_execution
+  WHERE job_execution_id = #{jobExecutionId}
+</select>
+</mapper>

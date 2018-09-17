@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.XpInstSysIntrfcM">
+<!--Generated Thu Jul 21 14:41:53 KST 2016-->
+<select id="selectListByCmpntCd" parameterType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpInstSysIntrfcMIO" resultType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpInstSysIntrfcMIO">
+SELECT    /* 기관별시스템인터페이스기본 */
+       t1.sys_intrfc_id AS sysIntrfcId    /*시스템인터페이스식별자*/
+     , t1.sys_intrfc_nm AS sysIntrfcNm    /*시스템인터페이스명*/
+     , t1.cmpnt_cd AS cmpntCd    /*컴포넌트코드*/
+     , t2.inst_cd AS instCd    /*기관코드*/
+     , t2.aply_start_dt AS aplyStartDt    /*적용시작년월일*/
+     , t2.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , t2.last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM sv_sys_intrfc_m t1
+		  , sv_inst_sys_intrfc_m t2
+ WHERE t1.sys_intrfc_id = t2.sys_intrfc_id
+   AND t1.sys_intrfc_sts_cd = '01'
+   AND t1.cmpnt_cd = #{cmpntCd}
+   AND t2.inst_cd = #{instCd}
+   AND t2.aply_start_dt &lt;= #{aplyStartDt}
+ ORDER  BY t1.sys_intrfc_id
+</select>
+<select id="selectListByInstCd" resultType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpInstSysIntrfcMIO">
+SELECT    /* 기관별시스템인터페이스기본 */
+       t1.sys_intrfc_id AS sysIntrfcId    /*시스템인터페이스식별자*/
+     , t1.sys_intrfc_nm AS sysIntrfcNm    /*시스템인터페이스명*/
+     , t1.cmpnt_cd AS cmpntCd    /*컴포넌트코드*/
+     , t2.inst_cd AS instCd    /*기관코드*/
+     , t2.aply_start_dt AS aplyStartDt    /*적용시작년월일*/
+     , t2.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , t2.last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM sv_sys_intrfc_m t1
+		  , sv_inst_sys_intrfc_m t2
+ WHERE t1.sys_intrfc_id = t2.sys_intrfc_id
+   AND t1.sys_intrfc_sts_cd = '01'
+   AND t2.inst_cd = #{instCd}
+   AND t2.aply_start_dt &lt;= #{aplyStartDt}
+ ORDER  BY t1.cmpnt_cd, t1.sys_intrfc_id
+</select>
+<select id="selectListAllIntrfcByInstCd" resultType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpInstSysIntrfcMIO">
+SELECT    /* 기관별시스템인터페이스기본 */
+       #{a.instCd} as instCd    /*기관코드*/
+     , t1.sys_intrfc_id AS sysIntrfcId    /*시스템인터페이스식별자*/
+     , t1.sys_intrfc_nm AS sysIntrfcNm    /*시스템인터페이스명*/
+     , t1.cmpnt_cd AS cmpntCd    /*컴포넌트코드*/
+     , t2.aply_start_dt AS aplyStartDt    /*적용시작년월일*/
+     , CASE
+        WHEN NVL(t2.sys_intrfc_id, ' ') = ' ' THEN 'N'
+        ELSE 'Y'
+        END as useYn     
+     , t2.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , t2.last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM sv_sys_intrfc_m t1 LEFT OUTER JOIN sv_inst_sys_intrfc_m t2
+     ON t1.sys_intrfc_id = t2.sys_intrfc_id
+   AND t1.sys_intrfc_sts_cd = '01'
+   AND t2.inst_cd = #{a.instCd}
+<where>
+    <if test="a.cmpntCd != null and a.cmpntCd != ''">
+       AND t1.cmpnt_cd = #{a.cmpntCd}
+    </if>
+    <if test="a.sysIntrfcId != null and a.sysIntrfcId != ''">
+       AND t1.sys_intrfc_id like '%' || #{a.sysIntrfcId} || '%'
+    </if>
+    <if test="a.sysIntrfcNm != null and a.sysIntrfcNm != ''">
+       AND EXISTS (
+       SELECT 1
+         FROM cm_mlt_lng_trnsltn_d t3
+        WHERE t3.trnsfr_knd = 'SYS_INTRFC_NAME' 
+          AND t3.trnsfr_origin_key_val = t1.sys_intrfc_id
+          AND t3.lng_cd = #{lngCd}
+          AND t3.trnsfr_rslt_val LIKE '%' || #{a.sysIntrfcNm} || '%' )
+    </if>
+</where>
+ORDER BY t1.cmpnt_cd , t1.sys_intrfc_id
+</select>
+<insert id="insertInstituteSystemInterface" parameterType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpInstSysIntrfcMIO">
+INSERT INTO sv_inst_sys_intrfc_m    /* 기관별시스템인터페이스기본 */
+(
+       inst_cd    /*기관코드*/
+     , sys_intrfc_id    /*시스템인터페이스식별자*/
+     , aply_start_dt    /*적용시작년월일*/
+     , last_chng_tmstmp    /*최종변경일시*/
+     , last_chng_guid    /*최종변경GUID*/
+)
+VALUES 
+(
+       #{instCd}    /*기관코드*/
+     , #{sysIntrfcId}    /*시스템인터페이스식별자*/
+     , #{aplyStartDt}    /*적용시작년월일*/
+     , #{lastChngTmstmp}    /*최종변경일시*/
+     , #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectInstituteSystemInterface" resultType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpInstSysIntrfcMIO">
+SELECT    /* 기관별시스템인터페이스기본 */
+       inst_cd AS instCd    /*기관코드*/
+     , sys_intrfc_id AS sysIntrfcId    /*시스템인터페이스식별자*/
+     , aply_start_dt AS aplyStartDt    /*적용시작년월일*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_inst_sys_intrfc_m
+ WHERE inst_cd = #{instCd}
+   AND sys_intrfc_id = #{sysIntrfcId}
+</select>
+<select id="selectInstituteSystemInterfaceAll" resultType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpInstSysIntrfcMIO">
+SELECT    /* 기관별시스템인터페이스기본 */
+       inst_cd AS instCd    /*기관코드*/
+     , sys_intrfc_id AS sysIntrfcId    /*시스템인터페이스식별자*/
+     , aply_start_dt AS aplyStartDt    /*적용시작년월일*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM sv_inst_sys_intrfc_m
+</select>
+<update id="updateInstituteSystemInterface" parameterType="bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpInstSysIntrfcMIO">
+UPDATE sv_inst_sys_intrfc_m    /* 기관별시스템인터페이스기본 */
+   SET aply_start_dt = #{aplyStartDt}    /* 적용시작년월일 */
+     , last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE inst_cd = #{instCd}
+   AND sys_intrfc_id = #{sysIntrfcId}
+</update>
+<delete id="deleteInstituteSystemInterface">
+DELETE FROM sv_inst_sys_intrfc_m    /* 기관별시스템인터페이스기본 */
+ WHERE inst_cd = #{instCd}
+   AND sys_intrfc_id = #{sysIntrfcId}
+</delete>
+</mapper>

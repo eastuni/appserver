@@ -1,0 +1,9 @@
+OMM bankware.corebanking.supplychain.financialtransaction.batch.dto.ScfPaymentCcutTrgtIO
+<description="">
+{
+	String crncyCd<length=3 description="통화코드">;
+	BigDecimal arrAmt<length=10 decimal=2 description="계약금액">;
+	String arrId<length=40 description="계약식별자">;
+	String baseDt<length=8 description="기준일자">;
+	BigDecimal plnSeqNbr<length=7 description="계획일련번호">;
+}

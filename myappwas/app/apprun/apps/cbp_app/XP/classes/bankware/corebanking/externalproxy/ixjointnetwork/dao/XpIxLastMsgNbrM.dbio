@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ixjointnetwork.dao.XpIxLastMsgNbrM">
+<!--Generated Mon Feb 29 13:14:28 KST 2016-->
+<update id="updateIxLastMsgNbr">
+UPDATE xp_ix_last_msg_nbr_m    /* 타행환최종전문관리번호기본 */
+   SET last_intrmdry_msg_mgmt_nbr = #{lastIntrmdryMsgMgmtNbr}   /* 최종중개기관전문관리번호 */
+     , last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE inst_cd = #{instCd}
+   AND tx_dt = #{txDt}
+   AND intrmdry_inst_cd = #{intrmdryInstCd}
+</update>
+<insert id="insertIxLastMsgNbr">
+INSERT  
+  INTO  xp_ix_last_msg_nbr_m    /* 타행환최종전문관리번호기본 */
+(
+  INST_CD,     /*기관코드*/
+  TX_DT,     /*거래년월일*/
+  INTRMDRY_INST_CD,     /*중개기관코드*/
+  LAST_INTRMDRY_MSG_MGMT_NBR,     /*최종중개기관전문관리번호*/
+  LAST_OUR_MSG_MGMT_NBR,     /*최종당행전문관리번호*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{txDt},     /*거래년월일*/
+  #{intrmdryInstCd},     /*중개기관코드*/
+  #{lastIntrmdryMsgMgmtNbr},     /*최종중개기관전문관리번호*/
+  #{lastOurMsgMgmtNbr},     /*최종당행전문관리번호*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectIxLastMsgNbrWithLock" resultType="java.math.BigDecimal">
+SELECT    /* 타행환최종전문관리번호기본 */
+        LAST_INTRMDRY_MSG_MGMT_NBR AS lastIntrmdryMsgMgmtNbr    /*최종중개기관전문관리번호*/
+  FROM  xp_ix_last_msg_nbr_m
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND INTRMDRY_INST_CD = #{intrmdryInstCd}
+   FOR UPDATE
+</select>
+</mapper>

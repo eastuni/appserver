@@ -1,0 +1,14 @@
+OMM bankware.corebanking.p2ploan.repayment.service.dto.P2pLnRpymntSvcCalcnListOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	Integer seqNbr<length=6 description="일련번호">;
+	String amtTpCdNm<length=100 description="금액유형코드명">;
+	BigDecimal calcnBaseAmt<length=18 decimal=2 description="계산기준금액">;
+	String sctnStartDt<length=8 description="구간시작년월일">;
+	String sctnEndDt<length=8 description="구간종료년월일">;
+	BigDecimal aplyIntRt<length=18 decimal=2 description="적용금리">;
+	String rpymntSchdldDt<length=8 description="상환예정년월일">;
+	BigDecimal rpymntSchdldAmt<length=18 decimal=2 description="상환예정금액">;
+	BigDecimal rpymntAmt<length=18 decimal=2 description="상환금액">;
+	String rpymntStsCd<length=10 description="상환상태코드">;
+}

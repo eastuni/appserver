@@ -1,0 +1,5 @@
+OMM bankware.corebanking.p2ploan.open.service.dto.LendingAgrmntCashFlwSchdlSvcOut
+<description="Lending Arrangement Cash Flow Schedule Output">
+{
+	bankware.corebanking.loan.query.service.dto.AcctRpymntSchdldOut rpymntSchdldList<length=0 arrayReference="1000" description="상환스케줄">;
+}

@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonjointnetwork.dao.XpExtrnlSafL">
+<!--Generated Fri May 19 16:08:46 KST 2017-->
+<delete id="deleteExternalSafLog">
+DELETE  FROM  xp_extrnl_saf_l    /* 대외미완료로그 */
+ WHERE  INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND INCMPLT_KEY_CNTNT = #{incmpltKeyCntnt}
+</delete>
+<insert id="insertExternalSafLog" parameterType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlSafLIO">
+INSERT  
+  INTO  XP_EXTRNL_SAF_L    /* 대외거래미완료전문정보 */
+(
+  INST_CD,     /*기관코드*/
+  EXTRNL_INST_CD,     /*연계하기 위한 기관별로 부여되는 코드. ex)결제원, 한국은행,은행연합회,신용카드사*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드. ex) 001:업무공통, 010:CD공동망, 011:전자금융공동망, 012:타행환공동망, 013:직불공동망, 014:전자화폐, 015:ARS공동망, 016:PG공동망, 017:경찰망, 080:일괄전송, 081:이용기관 CMS 일괄전송, 082:한신평 기업정보 일괄전송, 081:한신평 기업정보 일괄전송,*/
+  TX_DT,     /*거래년월일*/
+  INCMPLT_KEY_CNTNT,     /*미완료키*/
+  INCMPLT_PRCS_Dscd,     /*미완료처리구분코드. Ex)0:처리전 1:처리중 2:정상처리완료  9:불능*/
+  GUID,     /*GUID*/
+  RGSTRN_HMS,     /*등록시각*/
+  SYS_INTRFC_ID,     /*시스템인터페이스식별자*/
+  EXTRNL_TX_CD,     /*대외거래코드*/
+  EXTRNL_NON_FIN_SRVC_CD,     /*대외미완료서비스코드*/
+  HDR_INFO_CNTNT,     /*타임아웃서비스코드*/
+  MSG_LEN,     /*메시지길이*/
+  MSG_CNTNT,     /*메시지내용*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{extrnlInstCd},     /*연계하기 위한 기관별로 부여되는 코드. ex)결제원, 한국은행,은행연합회,신용카드사*/
+  #{extrnlBizDscd},     /*대외업무구분코드. ex) 001:업무공통, 010:CD공동망, 011:전자금융공동망, 012:타행환공동망, 013:직불공동망, 014:전자화폐, 015:ARS공동망, 016:PG공동망, 017:경찰망, 080:일괄전송, 081:이용기관 CMS 일괄전송, 082:한신평 기업정보 일괄전송, 081:한신평 기업정보 일괄전송,*/
+  #{txDt},     /*거래년월일*/
+  #{incmpltKeyCntnt},     /*미완료키*/
+  #{incmpltPrcsDscd},     /*미완료처리구분코드. Ex)0:처리전 1:처리중 2:정상처리완료  9:불능*/
+  #{guid},     /*GUID*/
+  #{rgstrnHms},     /*등록시각*/
+  #{sysIntrfcId},     /*시스템인터페이스식별자*/
+  #{extrnlTxCd},     /*대외거래코드*/
+  #{extrnlNonFinSrvcCd},     /*대외미완료서비스코드*/
+  #{hdrInfoCntnt},     /*타임아웃서비스코드*/
+  #{msgLen},     /*메시지길이*/
+  #{msgCntnt},     /*메시지내용*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectExternalSafLog" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlSafLIO">
+SELECT    /* 대외거래미완료전문정보 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*연계하기 위한 기관별로 부여되는 코드. ex)결제원, 한국은행,은행연합회,신용카드사*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드. ex) 001:업무공통, 010:CD공동망, 011:전자금융공동망, 012:타행환공동망, 013:직불공동망, 014:전자화폐, 015:ARS공동망, 016:PG공동망, 017:경찰망, 080:일괄전송, 081:이용기관 CMS 일괄전송, 082:한신평 기업정보 일괄전송, 081:한신평 기업정보 일괄전송,*/
+        TX_DT AS txDt,     /*거래년월일*/
+        INCMPLT_KEY_CNTNT AS incmpltKeyCntnt,     /*미완료키*/
+        INCMPLT_PRCS_Dscd AS incmpltPrcsDscd,     /*미완료처리구분코드. Ex)0:처리전 1:처리중 2:정상처리완료  9:불능*/
+        GUID AS guid,     /*GUID*/
+        RGSTRN_HMS AS rgstrnHms,     /*등록시각*/
+        SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        EXTRNL_TX_CD AS extrnlTxCd,     /*대외거래코드*/
+        EXTRNL_NON_FIN_SRVC_CD AS extrnlNonFinSrvcCd,     /*대외미완료서비스코드*/
+        HDR_INFO_CNTNT AS hdrInfoCntnt,     /*타임아웃서비스코드*/
+        MSG_LEN AS msgLen,     /*메시지길이*/
+        MSG_CNTNT AS msgCntnt,     /*메시지내용*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_EXTRNL_SAF_L
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND INCMPLT_KEY_CNTNT = #{incmpltKeyCntnt}
+</select>
+<select id="selectExternalSafLogProcessing" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlSafLIO">
+SELECT 
+instCd,     /*기관코드*/
+extrnlInstCd,     
+extrnlBizDscd,    
+txDt,     /*거래년월일*/
+incmpltKeyCntnt,     /*미완료키*/
+incmpltPrcsDscd,     /*미완료처리구분코드. Ex)0 처리전 1 처리중 2 정상처리완료  9 불능*/
+guid,     /*GUID*/
+rgstrnHms,     /*등록시각*/
+sysIntrfcId,     /*시스템인터페이스식별자*/
+extrnlTxCd,     /*대외거래코드*/
+extrnlNonFinSrvcCd,     /*대외미완료서비스코드*/
+hdrInfoCntnt,     /*타임아웃서비스코드*/
+msgLen,     /*메시지길이*/
+msgCntnt,     /*메시지내용*/
+lastChngTmstmp,     /*최종변경일시*/
+lastChngGuid    /*최종변경GUID*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+A.instCd,     /*기관코드*/
+A.extrnlInstCd,     
+A.extrnlBizDscd,    
+A.txDt,     /*거래년월일*/
+A.incmpltKeyCntnt,     /*미완료키*/
+A.incmpltPrcsDscd,     /*미완료처리구분코드. Ex)0 처리전 1 처리중 2 정상처리완료  9 불능*/
+A.guid,     /*GUID*/
+A.rgstrnHms,     /*등록시각*/
+A.sysIntrfcId,     /*시스템인터페이스식별자*/
+A.extrnlTxCd,     /*대외거래코드*/
+A.extrnlNonFinSrvcCd,     /*대외미완료서비스코드*/
+A.hdrInfoCntnt,     /*타임아웃서비스코드*/
+A.msgLen,     /*메시지길이*/
+A.msgCntnt,     /*메시지내용*/
+A.lastChngTmstmp,     /*최종변경일시*/
+A.lastChngGuid    /*최종변경GUID*/
+     FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* 대외거래미완료전문정보 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*연계하기 위한 기관별로 부여되는 코드. ex)결제원, 한국은행,은행연합회,신용카드사*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드. ex) 001:업무공통, 010:CD공동망, 011:전자금융공동망, 012:타행환공동망, 013:직불공동망, 014:전자화폐, 015:ARS공동망, 016:PG공동망, 017:경찰망, 080:일괄전송, 081:이용기관 CMS 일괄전송, 082:한신평 기업정보 일괄전송, 081:한신평 기업정보 일괄전송,*/
+        TX_DT AS txDt,     /*거래년월일*/
+        INCMPLT_KEY_CNTNT AS incmpltKeyCntnt,     /*미완료키*/
+        INCMPLT_PRCS_Dscd AS incmpltPrcsDscd,     /*미완료처리구분코드. Ex)0:처리전 1:처리중 2:정상처리완료  9:불능*/
+        GUID AS guid,     /*GUID*/
+        RGSTRN_HMS AS rgstrnHms,     /*등록시각*/
+        SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        EXTRNL_TX_CD AS extrnlTxCd,     /*대외거래코드*/
+        EXTRNL_NON_FIN_SRVC_CD AS extrnlNonFinSrvcCd,     /*대외미완료서비스코드*/
+        HDR_INFO_CNTNT AS hdrInfoCntnt,     /*타임아웃서비스코드*/
+        MSG_LEN AS msgLen,     /*메시지길이*/
+        MSG_CNTNT AS msgCntnt,     /*메시지내용*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  xp_extrnl_saf_l
+ WHERE tx_dt = #{txDt}
+   AND incmplt_prcs_Dscd = '0'
+   AND RGSTRN_HMS &lt; #{rgstrnHms}
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectExternalSafLogWithLock" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlSafLIO">
+SELECT    /* 대외거래미완료전문정보 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*연계하기 위한 기관별로 부여되는 코드. ex)결제원, 한국은행,은행연합회,신용카드사*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드. ex) 001:업무공통, 010:CD공동망, 011:전자금융공동망, 012:타행환공동망, 013:직불공동망, 014:전자화폐, 015:ARS공동망, 016:PG공동망, 017:경찰망, 080:일괄전송, 081:이용기관 CMS 일괄전송, 082:한신평 기업정보 일괄전송, 081:한신평 기업정보 일괄전송,*/
+        TX_DT AS txDt,     /*거래년월일*/
+        INCMPLT_KEY_CNTNT AS incmpltKeyCntnt,     /*미완료키*/
+        INCMPLT_PRCS_Dscd AS incmpltPrcsDscd,     /*미완료처리구분코드. Ex)0:처리전 1:처리중 2:정상처리완료  9:불능*/
+        GUID AS guid,     /*GUID*/
+        RGSTRN_HMS AS rgstrnHms,     /*등록시각*/
+        SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        EXTRNL_TX_CD AS extrnlTxCd,     /*대외거래코드*/
+        EXTRNL_NON_FIN_SRVC_CD AS extrnlNonFinSrvcCd,     /*대외미완료서비스코드*/
+        HDR_INFO_CNTNT AS hdrInfoCntnt,     /*타임아웃서비스코드*/
+        MSG_LEN AS msgLen,     /*메시지길이*/
+        MSG_CNTNT AS msgCntnt,     /*메시지내용*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_EXTRNL_SAF_L
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND INCMPLT_KEY_CNTNT = #{incmpltKeyCntnt}
+   FOR UPDATE
+</select>
+<select id="selectListExternalSafLog" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlSafLIO">
+SELECT    /* 대외거래미완료전문정보 */
+        L.INST_CD AS instCd,     /*기관코드*/
+        L.EXTRNL_INST_CD AS extrnlInstCd,     /*연계하기 위한 기관별로 부여되는 코드. ex)결제원, 한국은행,은행연합회,신용카드사*/
+        L.EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드. ex) 001:업무공통, 010:CD공동망, 011:전자금융공동망, 012:타행환공동망, 013:직불공동망, 014:전자화폐, 015:ARS공동망, 016:PG공동망, 017:경찰망, 080:일괄전송, 081:이용기관 CMS 일괄전송, 082:한신평 기업정보 일괄전송, 081:한신평 기업정보 일괄전송,*/
+        L.TX_DT AS txDt,     /*거래년월일*/
+        L.INCMPLT_KEY_CNTNT AS incmpltKeyCntnt,     /*미완료키*/
+        L.INCMPLT_PRCS_Dscd AS incmpltPrcsDscd,     /*미완료처리구분코드. Ex)0:처리전 1:처리중 2:정상처리완료  9:불능*/
+        L.GUID AS guid,     /*GUID*/
+        L.RGSTRN_HMS AS rgstrnHms,     /*등록시각*/
+        L.SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        M.SYS_INTRFC_NM AS sysIntrfcNm,
+        L.EXTRNL_TX_CD AS extrnlTxCd,     /*대외거래코드*/
+        L.EXTRNL_NON_FIN_SRVC_CD AS extrnlNonFinSrvcCd,     /*대외미완료서비스코드*/
+        L.HDR_INFO_CNTNT AS hdrInfoCntnt,     /*타임아웃서비스코드*/
+        L.MSG_LEN AS msgLen,     /*메시지길이*/
+        L.MSG_CNTNT AS msgCntnt,     /*메시지내용*/
+        L.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        L.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  xp_extrnl_saf_l L , XP_SYS_INTRFC_M M
+ WHERE L.INST_CD = #{instCd}
+   AND L.EXTRNL_INST_CD = #{extrnlInstCd}
+   AND L.EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND L.TX_DT = #{txDt}
+   AND L.INCMPLT_KEY_CNTNT = NVL(#{incmpltKeyCntnt}, L.INCMPLT_KEY_CNTNT)
+   AND L.SYS_INTRFC_ID = M.SYS_INTRFC_ID
+   ORDER BY L.RGSTRN_HMS DESC
+</select>
+<update id="updateExternalSafLogStatus">
+UPDATE  
+        xp_extrnl_saf_l    /* 대외미완료로그 */
+   SET  INCMPLT_PRCS_Dscd = #{incmpltPrcsDscd}    /* 미완료처리구분코드 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND INCMPLT_KEY_CNTNT = #{incmpltKeyCntnt}
+</update>
+<update id="updateExternalSafLogTime">
+UPDATE  
+        xp_extrnl_saf_l    /* 대외미완료로그 */
+   SET  RGSTRN_HMS     /*등록시각*/
+       = to_char( SYSTIMESTAMP + (1/24/60), 'HH24MISS')
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND INCMPLT_KEY_CNTNT = #{incmpltKeyCntnt}
+</update>
+<insert id="insertExternalSafLogNextTime" parameterType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlSafLIO">
+INSERT  
+  INTO  XP_EXTRNL_SAF_L    /* 대외거래미완료전문정보 */
+(
+  INST_CD,     /*기관코드*/
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드. ex) 001:업무공통, 010:CD공동망, 011:전자금융공동망, 012:타행환공동망, 013:직불공동망, 014:전자화폐, 015:ARS공동망, 016:PG공동망, 017:경찰망, 080:일괄전송, 081:이용기관 CMS 일괄전송, 082:한신평 기업정보 일괄전송, 081:한신평 기업정보 일괄전송,*/
+  TX_DT,     /*거래년월일*/
+  INCMPLT_KEY_CNTNT,     /*미완료키*/
+  INCMPLT_PRCS_Dscd,     /*미완료처리구분코드. Ex)0:처리전 1:처리중 2:정상처리완료  9:불능*/
+  GUID,     /*GUID*/
+  RGSTRN_HMS,     /*등록시각*/
+  SYS_INTRFC_ID,     /*시스템인터페이스식별자*/
+  EXTRNL_TX_CD,     /*대외거래코드*/
+  EXTRNL_NON_FIN_SRVC_CD,     /*대외미완료서비스코드*/
+  HDR_INFO_CNTNT,     /*타임아웃서비스코드*/
+  MSG_LEN,     /*메시지길이*/
+  MSG_CNTNT,     /*메시지내용*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+SELECT 
+  #{instCd},     /*기관코드*/
+  #{extrnlInstCd},     /*대외기관코드*/
+  #{extrnlBizDscd},     /*대외업무구분코드. ex) 001:업무공통, 010:CD공동망, 011:전자금융공동망, 012:타행환공동망, 013:직불공동망, 014:전자화폐, 015:ARS공동망, 016:PG공동망, 017:경찰망, 080:일괄전송, 081:이용기관 CMS 일괄전송, 082:한신평 기업정보 일괄전송, 081:한신평 기업정보 일괄전송,*/
+  #{txDt},     /*거래년월일*/
+  #{incmpltKeyCntnt},     /*미완료키*/
+  #{incmpltPrcsDscd},     /*미완료처리구분코드. Ex)0:처리전 1:처리중 2:정상처리완료  9:불능*/
+  #{guid},     /*GUID*/
+  to_char( SYSTIMESTAMP + (#{rgstrnHms}/24/60), 'HH24MISS'),
+  #{sysIntrfcId},     /*시스템인터페이스식별자*/
+  #{extrnlTxCd},     /*대외거래코드*/
+  #{extrnlNonFinSrvcCd},     /*대외미완료서비스코드*/
+  #{hdrInfoCntnt},     /*타임아웃서비스코드*/
+  #{msgLen},     /*메시지길이*/
+  #{msgCntnt},     /*메시지내용*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+FROM DUAL
+</insert>
+<update id="updateExternalSafLogNextTime">
+UPDATE  
+        xp_extrnl_saf_l   T /* 대외미완료로그 */
+   SET  INCMPLT_PRCS_Dscd = #{incmpltPrcsDscd}    /* 미완료처리구분코드 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND INCMPLT_PRCS_Dscd = '0'
+   AND MSG_LEN  IN (SELECT MSG_LEN
+                                      FROM
+                                      xp_extrnl_saf_l
+                                      WHERE  TX_DT=T.TX_DT 
+                                          AND  EXTRNL_BIZ_Dscd = T.EXTRNL_BIZ_Dscd
+                                          AND  EXTRNL_INST_CD = T.EXTRNL_INST_CD
+                                          AND  INCMPLT_KEY_CNTNT   = #{incmpltKeyCntnt} )
+</update>
+<select id="selectExternalSafLogStatus" resultType="java.lang.String">
+SELECT    /* 대외거래미완료전문정보 */
+       CASE WHEN COUNT(EXTRNL_BIZ_Dscd) &gt; 0 THEN 'Y' ELSE 'N' END AS useYn
+  FROM  XP_EXTRNL_SAF_L
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = '099'
+   AND EXTRNL_BIZ_Dscd = '012'
+   AND TX_DT = #{txDt}
+   AND MSG_CNTNT LIKE '%' ||#{whdrwlAcctNbr} || '%'
+   AND INCMPLT_PRCS_Dscd &lt;&gt; '2'
+   AND ROWNUM = 1
+</select>
+</mapper>

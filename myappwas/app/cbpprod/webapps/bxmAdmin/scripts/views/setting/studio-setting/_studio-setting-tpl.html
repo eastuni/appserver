@@ -1,0 +1,112 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'setting.studio-setting'}}
+    <p class="desc">{{bxMsg 'setting.studio-setting-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap studio-setting-search">
+    <!--INPUT TYPE1 * 분할 없이 INLINE-->
+    <ul class="clr">
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-20">{{bxMsg 'setting.division'}}</label>
+                <select class="bw-input ipt-select w-80" data-form-param="namespace"></select>
+            </div>
+        </li>
+        <li class="w-40">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'setting.use-yn'}}</label>
+                <select class="bw-input ipt-select w-70" data-form-param="useYn">
+                	<option value="">{{bxMsg 'common.all'}}</option>
+                	<option value="Y">Y</option>
+                    <option value="N">N</option>
+                </select>
+            </div>
+        </li>
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-20">{{bxMsg 'setting.type'}}</label>
+                <input type="text" class="bw-input w-80" data-form-param="property">
+            </div>
+        </li>
+        <li class="w-40">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'setting.description'}}</label>
+				<input type="text" class="bw-input w-70" data-form-param="description">
+            </div>
+        </li>
+    </ul>
+    <!--/END INPUT TYPE1-->
+</section>
+<!--/END SEARCH AREA-->
+<!--GRID AREA-->
+<section class="studio-setting-grid"></section>
+<!--/END GRID AREA-->
+<!--BW-SUB TITLE * 컨텐츠 서브타이틀-->
+<h3 class="bw-stt add-mg-t">{{bxMsg 'setting.studio-setting-detail'}}<p class="desc"></p></h3>
+<!--/END BW-SUB TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn edit edit-studio-btn" title="{{bxMsg 'common.edit'}}"><i class="bw-icon i-25 i-func-edit"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--INFO AREA * 상세 영역-->
+<section class="search-wrap clr studio-setting-detail bx-loding-wrap">
+    <ul class="clr">
+        <li class="w-70">
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-20">{{bxMsg 'setting.division'}}</label>
+                <input type="text" class="bw-input w-80" data-form-param="ns_description" readonly />
+                <input type="hidden" class="bw-input w-80" data-form-param="namespace" readonly />
+            </div>
+        </li>
+        <li class="w-70">
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-20">{{bxMsg 'setting.attr'}}</label>
+                <input type="text" class="bw-input w-80" data-form-param="property" readonly />
+            </div>
+        </li>
+        <li class="w-70">
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-20">{{bxMsg 'setting.value'}}</label>
+                <input type="text" class="bw-input w-80" data-form-param="value" readonly />
+            </div>
+        </li>
+        <li class="w-30">
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'setting.use-yn'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="useYn" readonly />
+            </div>
+        </li>
+        <li class="w-70">
+            <div class="input-wrap fix-txtarea h-half p-rel clr">
+                <label class="bw-label w-20 inline-flex-display">
+                    {{bxMsg 'setting.description'}}
+                </label>
+                <div class="txt-wrap2 fix-size w-80 f-r">
+                    <textarea class="bw-textarea" data-form-param="description" readonly></textarea>
+                </div>
+            </div>
+        </li>
+        
+        
+<!--         <li class="w-70"> -->
+<!--             <div class="input-wrap clr"> -->
+<!--                 <label class="bw-label w-20">{{bxMsg 'setting.description'}}</label> -->
+<!--                 <input type="text" class="bw-input w-80" data-form-param="description" readonly /> -->
+<!--             </div> -->
+<!--         </li> -->
+    </ul>
+</section>
+<!--/END INFO AREA-->

@@ -1,0 +1,15 @@
+OMM bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd2214IO
+<description="결제원 월중 취급 미완료 현황">
+{
+	String instCd<length=14 description="기관코드">;
+	String txYm<length=6 description="거래년월">;
+	String seqNbr<length=7 description="일련번호">;
+	String txDscd<length=2 description="거래구분코드">;
+	String fnclInstCd<length=3 description="금융기관코드">;
+	BigDecimal totCnt<length=15 description="총건수">;
+	Integer rankingNbr<length=3 description="순위">;
+	BigDecimal totBal<length=18 decimal=2 description="총금액">;
+	BigDecimal dlyAmt<length=18 decimal=2 description="지연금액">;
+	Date lastChngTmstmp<length=30 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

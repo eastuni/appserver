@@ -1,0 +1,27 @@
+OMM bankware.corebanking.externalproxy.cdjointnetwork.interfaces.dto.ExternalCdCashServiceAggregateIO
+<description="CD현금서비스집계기본 XpCdCashSrvcAgrgtMIO Proxy">
+{
+	String instCd<length=14 description="기관코드">;
+	String fnclInstCd<length=3 description="금융기관코드">;
+	String txDt<length=8 description="거래일자">;
+	String txStartDt<length=8 description="조회시작일자">;
+	String txEndDt<length=8 description="조회종료일자">;
+	String hndlngOpnDscd<length=1 description="취급개설구분코드">;
+	BigDecimal nrmlCnt<length=15 description="정상건수">;
+	BigDecimal nrmlAmt<length=17 description="정상금액">;
+	BigDecimal nrmlFeeAmt<length=17 description="정상수수료">;
+	BigDecimal nrmlOpnProxyFeeAmt<length=17 description="정상개설대행수수료">;
+	BigDecimal cnclCnt<length=15 description="취소건수">;
+	BigDecimal cnclAmt<length=17 description="취소금액">;
+	BigDecimal cnclFeeAmt<length=17 description="취소수수료">;
+	BigDecimal cnclOpnProxyFeeAmt<length=17 description="취소개설대행수수료">;
+	BigDecimal adjstmntCnt<length=15 description="조정건수">;
+	BigDecimal adjstmntAmt<length=17 description="조정금액">;
+	BigDecimal adjstmntFeeAmt<length=17 description="조정수수료">;
+	BigDecimal adjstmntOpnProxyFeeAmt<length=17 description="조정개설대행수수료">;
+	Date lastChngTmstmp<length=20 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+	Integer pgNbr<length=9 description="페이지번호">;
+	Integer pgCnt<length=9 description="페이지건수">;
+	String totCntInqryYn<length=20 description="전체건수조회여부">;
+}

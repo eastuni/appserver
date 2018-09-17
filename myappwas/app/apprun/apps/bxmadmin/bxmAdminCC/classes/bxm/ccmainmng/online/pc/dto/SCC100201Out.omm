@@ -1,0 +1,7 @@
+OMM bxm.ccmainmng.online.pc.dto.SCC100201Out
+<description="  ">
+{
+	Integer rowCnt<length=9 description="행건수">;
+	bxm.ccmainmng.online.dto.BxmCCWorkStatusIO listSCC1002Out<length=0 arrayReference="rowCnt">;
+	Integer totalPageCount<length=9 description="총페이지갯수">;
+}

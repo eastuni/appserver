@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.userportal.example.dao.TsTstTblM">
+<!--Generated Fri Jan 08 20:33:08 KST 2016-->
+<select id="selectList" parameterType="bankware.corebanking.userportal.example.dao.dto.TsTstTblMIO" resultType="bankware.corebanking.userportal.example.dao.dto.TsTstTblMIO">
+SELECT INST_CD as instCd
+, CUST_ID as custId
+, USER_NM as userNm
+, User_AGE as userAge
+, GNDR_DSCD as gndrDscd
+, NEW_VAL as NewVal
+FROM  `ts_tst_tbl_m`
+WHERE USER_NM LIKE concat('%',#{userNm},'%')
+</select>
+<select id="selectForUpdate" resultType="bankware.corebanking.userportal.example.dao.dto.TsTstTblMIO">
+SELECT    /* 교육용테이블 */
+        INST_CD AS instCd,     /*기관코드*/
+        CUST_ID AS custId,     /*고객식별자*/
+        USER_NM AS userNm,     /*이름*/
+        USER_AGE AS userAge,     /*나이*/
+        GNDR_DSCD AS gndrDscd,     /*성별*/
+        NEW_VAL AS newVal,     /*새로운값*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ts_tst_tbl_m
+ WHERE INST_CD = #{instCd}
+   AND CUST_ID = #{custId}
+ FOR UPDATE
+</select>
+<update id="update" parameterType="bankware.corebanking.userportal.example.dao.dto.TsTstTblMIO">
+UPDATE  
+        ts_tst_tbl_m    /* 교육용테이블 */
+   SET  USER_NM = #{userNm}    /* 이름 */
+     , USER_AGE = #{userAge}    /* 나이 */
+     , GNDR_DSCD = #{gndrDscd}    /* 성별 */
+     , NEW_VAL = #{newVal}    /* 새로운값 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND CUST_ID = #{custId}
+</update>
+<insert id="insertTest">
+INSERT  
+  INTO  test
+(
+  a, 
+  b
+)
+VALUES 
+(
+  #{a}, 
+  #{b}
+)
+</insert>
+</mapper>

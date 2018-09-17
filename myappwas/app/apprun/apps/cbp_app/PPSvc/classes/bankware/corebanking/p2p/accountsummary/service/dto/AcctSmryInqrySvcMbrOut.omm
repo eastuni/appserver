@@ -1,0 +1,49 @@
+OMM bankware.corebanking.p2p.accountsummary.service.dto.AcctSmryInqrySvcMbrOut
+<description="">
+{
+	String loinIdNbr<length=20 description="Login Id">;
+	Integer age<length=9 description="age ">;
+	String mobileNbr<length=50 description="mobile phone number">;
+	String custGradeKndTpCd<length=5 description="고객등급">;
+	BigDecimal lnAplctnCnt<length=18 decimal=2 description="대출신청건수">;
+	BigDecimal lnAplctnSumAmt<length=18 decimal=2 description="대출신청합계금액">;
+	BigDecimal lnOpnCnt<length=18 decimal=2 description="대출실행건수">;
+	BigDecimal lnOpnSumAmt<length=18 decimal=2 description="대출실행합계금액">;
+	BigDecimal lnBiddingCnt<length=18 decimal=2 description="대출입찰건수">;
+	BigDecimal lnBiddingSumAmt<length=18 decimal=2 description="대출입찰합계금액">;
+	BigDecimal lnFailrBidCnt<length=18 decimal=2 description="대출유찰건수">;
+	BigDecimal lnFailrBidSumAmt<length=18 decimal=2 description="대출유찰합계금액">;
+	BigDecimal lnRpymntCnt<length=18 decimal=2 description="대출상환건수">;
+	BigDecimal lnRpymntSumAmt<length=18 decimal=2 description="대출상환합계금액">;
+	BigDecimal lnTrmntCnt<length=18 decimal=2 description="대출종료건수">;
+	BigDecimal lnTrmntSumAmt<length=18 decimal=2 description="대출종료합계금액">;
+	BigDecimal lnRpymntOfPrncplSumAmt<length=18 decimal=2 description="대출상환원금합계금액">;
+	BigDecimal lnBalSumAmt<length=18 decimal=2 description="대출잔액합계금액">;
+	BigDecimal lnRpymntOfIntSumAmt<length=18 decimal=2 description="대출상환이자합계금액">;
+	BigDecimal lnOvrduPrncplSumAmt<length=18 decimal=2 description="대출연체원금합계금액">;
+	BigDecimal lnOvrduIntSumAmt<length=18 decimal=2 description="대출연체이자합계금액">;
+	BigDecimal totInvstmntCnt<length=18 decimal=2 description="총투자건수">;
+	BigDecimal totInvstmntAmt<length=18 decimal=2 description="총투자금액">;
+	BigDecimal invstmntBiddingCnt<length=18 decimal=2 description="투자입찰건수">;
+	BigDecimal invstmntBiddingSumAmt<length=18 decimal=2 description="투자입찰합계금액">;
+	BigDecimal invstmntWinBidCnt<length=18 decimal=2 description="투자낙찰건수">;
+	BigDecimal invstmntWinBidSumAmt<length=18 decimal=2 description="투자낙찰합계금액">;
+	BigDecimal invstmntFailrBidCnt<length=18 decimal=2 description="투자유찰건수">;
+	BigDecimal invstmntFailrBidSumAmt<length=18 decimal=2 description="투자유찰합계금액">;
+	BigDecimal invstmntAbandonBidCnt<length=18 decimal=2 description="투자포기건수">;
+	BigDecimal invstmntAbandonBidSumAmt<length=18 decimal=2 description="투자포기합계금액">;
+	BigDecimal invstmntClctnCnt<length=18 decimal=2 description="투자회수건수">;
+	BigDecimal invstmntClctnSumAmt<length=18 decimal=2 description="투자회수합계금액">;
+	BigDecimal invstmntTrmntCnt<length=18 decimal=2 description="투자종료건수">;
+	BigDecimal invstmntTrmntSumAmt<length=18 decimal=2 description="투자종료합계금액">;
+	BigDecimal invstmntPaybackOfPrncplSumAmt<length=18 decimal=2 description="투자회수원금합계금액">;
+	BigDecimal invstmntBalSumAmt<length=18 decimal=2 description="투자잔액합계금액">;
+	BigDecimal expctdLossSumAmt<length=18 decimal=2 description="예상손실금액">;
+	BigDecimal invstmntProfitSumAmt<length=18 decimal=2 description="투자수익합계금액">;
+	BigDecimal invstmntBidSucssRt<length=5 decimal=2 description="투자입찰성공율">;
+	BigDecimal rtrnOnInvstmntRt<length=5 decimal=2 description="투자회수율">;
+	BigDecimal avgInvstmntAmt<length=18 decimal=2 description="평균투자금액">;
+	BigDecimal totInvstmntExpctdProfitSumAmt<length=18 decimal=2 description="총투자예상수익금액">;
+	BigDecimal invstmntExpctdProfitRmndAmt<length=18 decimal=2 description="투자예상수익잔존금액">;
+	BigDecimal invstmntExpctdRtrnOnInvstmntRt<length=18 decimal=2 description="투자예상회수율">;
+}

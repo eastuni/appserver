@@ -1,0 +1,97 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'online.online-group-management'}}
+    <p class="desc">{{bxMsg 'online.online-group-management-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+
+<div class="module-wrap add-bd2-t add-bd">
+    <section class="module add-mg w-40">
+        <div class="sub-section module w-100 trx-group-list-wrap">
+            <h4>{{bxMsg 'online.online-group-list'}}</h4>
+            <section class="bw-tool add-bd2-t">
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+                </div>
+            </section>
+            <section class="search-wrap trx-group-search">
+                <ul class="clr">
+                    <li class="input-wrap w-100">
+                        <label class="bw-label w-40">{{bxMsg 'online.trx-group-id'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="trxGrpId"/>
+                    </li>
+                    <li class="input-wrap w-100">
+                        <label class="bw-label w-40">{{bxMsg 'online.trx-group-name'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="trxGrpNm"/>
+                    </li>
+                </ul>
+            </section>
+            <!--GRID AREA-->
+            <section class="trx-group-grid"></section>
+            <!--/END GRID AREA-->
+        </div>
+
+        <div class="sub-section module">
+            <h4>{{bxMsg 'online.online-group-detail'}}<span class="trx-group-title"></span></h4>
+
+            <div class="bw-grid add-mg-zero">
+                <section class="bw-tool add-bd2-t">
+                
+                    <div class="btn-wrap fix-r">
+                        <button type="button" class="bw-btn edit edit-trx-group-btn" title="{{bxMsg 'common.edit'}}"><i class="bw-icon i-25 i-func-edit"></i></button>
+                    </div>
+                </section>
+                <section class="search-wrap clr bx-loding-wrap trx-group-detail">
+                    <ul class="clr">
+                    	<li class="w-100">
+                            <div class="input-wrap add-mg-t-half clr">
+                                <label class="bw-label w-45">{{bxMsg 'online.trx-control-type'}}</label>
+                                <select class="bw-input ipt-select trx-control-type w-45" data-form-param="trxCtrlCd" data-code="BXMRT0005"></select>
+                                <button type="button" class="bw-btn f-r execute-ctrl-trxs" title="{{bxMsg 'common.apply'}}">
+                                    <i class="svg-icon i-25 i-control-2"></i>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="w-100">
+                            <div class="input-wrap clr">
+                                <label class="bw-label w-45">{{bxMsg 'online.forced-timeout-mills'}}<i class="fa fa-question-circle chr-c-yellow2" title="{{bxMsg 'online.unit-ms'}}"></i></label>
+                                <input type="text" class="bw-input w-45" data-form-param="frcdTimeoutMills">
+                                <button type="button" class="bw-btn f-r control-frcd-timeout" title="{{bxMsg 'common.apply'}}">
+                                    <i class="svg-icon i-25 i-control-2"></i>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="w-100">
+                            <div class="input-wrap clr">
+                                <label class="bw-label w-45">{{bxMsg 'online.trx-group-id'}}</label>
+                                <input type="text" class="bw-input w-55" data-form-param="trxGrpId" readonly>
+                            </div>
+                        </li>
+                        <li class="w-100">
+                            <div class="input-wrap clr">
+                                <label class="bw-label w-45">{{bxMsg 'online.trx-group-name'}}</label>
+                                <input type="text" class="bw-input w-55" data-form-param="trxGrpNm" readonly>
+                            </div>
+                        </li>
+                        <li class="w-100">
+                            <div class="input-wrap clr">
+                                <label class="bw-label w-45">{{bxMsg 'online.use-yn'}}</label>
+                                <input type="text" class="bw-input w-55" data-form-param="useYn" readonly>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section class="sub-section module add-mg-t w-53">
+        <h4>
+            <span class="trx-title">{{bxMsg 'online.online-group-trx-list'}}</span>
+        </h4>
+        <!--GRID AREA-->
+        <section class="trx-grid"></section>
+        <!--/END GRID AREA-->
+    </section>
+</div>

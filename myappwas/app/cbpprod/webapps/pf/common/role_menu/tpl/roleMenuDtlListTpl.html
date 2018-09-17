@@ -1,0 +1,53 @@
+<!-- 역할별사용자관리 -->
+<div class="pf-panel pf-crm-role-menu-list">
+    <div class="pf-panel-header">
+        <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+        <!--<h2 class="pf-panel-title">{{bxMsg 'MENU06002'}}</h2>-->
+        <!-- 역할별사용자관리 -->
+        <h2 class="pf-panel-title">{{bxMsg 'SCRN035'}}</h2>
+    </div>
+    <div class="pf-panel-body">
+        <div class="pf-crm-role-menu-list-form">
+            <table class="role-menu-query-table bx-info-table">
+                <tr>
+                    <th>{{bxMsg 'Role'}}</th>
+                    <!-- 역할 -->
+                    <td>
+                        <select class="bx-compoenent-small bx-form-item bx role-select" data-form-param="roleId"></select>
+                    </td>
+                    <th>{{bxMsg 'searchBaseDate'}}</th>
+                    <td>
+                        <input type="text" name="start" data-form-param="aplyStartDt" class="bx-form-item bx-compoenent-small base-search-date calendar calendar-all start-date">
+                    </td>
+                </tr>
+            </table>
+            <div class="btn-box">
+                <button type="button" class="bw-btn role-menu-list-inquiry-btn" icon-tooltip="{{bxMsg 'ButtonBottomString5'}}">
+                            <i class="bw-icon i-25 i-search"></i>
+                        </button>
+            </div>
+            <div id="role-list-grid-tab"></div>
+            <div id="role-list-grid-tab-conts">
+                <div class="menu-list-grid-wrap role-grid-wrap"></div>
+                <div class="category-list-grid-wrap role-grid-wrap"></div>
+                <div class="cnd-grp-list-grid-wrap role-grid-wrap"></div>
+                <div class="cnd-list-grid-wrap role-grid-wrap"></div>
+                <div class="atrb-list-grid-wrap role-grid-wrap"></div>
+                <div class="pd-base-rel-list-grid-wrap role-grid-wrap"></div>
+                <div class="project-list-grid-wrap role-grid-wrap"></div>
+            </div>
+        </div>
+
+        <footer class="pf-panel-footer">
+            <button type="button" class="bw-btn role-menu-save-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+                        <i class="bw-icon i-30 i-func-save"></i>
+                    </button>
+        </footer>
+    </div>
+    <!--            <div class="btn-box">
+                <button type="button" class="bw-btn role-menu-save-btn write-btn" title="{{bxMsg 'ButtonBottomString1'}}">
+                    <i class="bw-icon i-30 i-func-save"></i>
+                </button>
+            </div>
+-->
+</div>

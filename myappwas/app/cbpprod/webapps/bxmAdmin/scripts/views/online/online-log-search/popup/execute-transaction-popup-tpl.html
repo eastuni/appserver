@@ -1,0 +1,40 @@
+<div class="modal-wrap bx-loding-wrap">
+    <h2 class="bw-tt a-center">{{bxMsg 'online.online-execute-title'}}</h2>
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t fix-h bx-no-draggable bx-loding-wrap execute-transaction-popup">
+
+        <!-- STEP 목록 -->
+
+        <div class="module add-mg-t">
+			<a class="font-icon-m add-mg-b">{{bxMsg 'online.online-execute-msg'}}
+            </a>
+            <div class="bw-tab add-mg-t">
+            </div>
+            <div class="module-wrap add-bd2-t add-bd add-mg-b">
+                <div class="bw-grid add-mg-zero">
+                    <table>
+                        <colgroup>
+                            <col width="5%;">
+                            <col width="70%;">
+                            <col width="25%;">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>{{bxMsg 'online.online-url'}}</th>
+                            <th>{{bxMsg 'online.url-desc'}}</th>
+                        </tr>
+                        </thead>
+                        <tbody class="online-url-list"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on run-online-btn">{{bxMsg 'common.run'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

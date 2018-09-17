@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.pnjointnetwork.dao.XpPnTxH">
+<!--Generated Tue Jan 10 14:19:42 GMT+09:00 2017-->
+<insert id="insertPnTransHistory" parameterType="bankware.corebanking.externalproxy.pnjointnetwork.dao.dto.XpPnTxHIO">
+INSERT  
+  INTO  XP_PN_TX_H    /* 경찰망거래내역 */
+(
+  INST_CD,     /*기관코드*/
+  TX_DT,     /*거래년월일*/
+  RQST_INST_MSG_MGMT_NBR,     /*의뢰기관전문관리번호*/
+  TX_HMS,     /*거래시각*/
+  GUID,     /*GUID*/ 
+  MSG_CD,     /*Kor)에러 메시지코드*/
+  EXTRNL_RSPNS_CD,     /*대외응답코드*/
+  RQST_FNCL_INST_CD,     /*의뢰금융기관코드*/
+  RQST_FNCL_INST_BRNCH_CD,     /*의뢰금융기관부점코드*/
+  POLICE_MSG_MGMT_NBR,     /*경찰청전문관리번호*/
+  POLICE_SND_DT,     /*경찰청전송일자*/
+  POLICE_SND_HMS,    /*경찰청전송시각*/
+  RELAY_CNTR_MSG_NBR,     /*중계센터전문번호*/
+  RELAY_CNTR_SND_DT,     /*중계센터전송일자*/
+  RELAY_CNTR_SND_HMS,     /*중계센터전송시각*/
+  CRPTN_WHDRWL_DT,     /*부정인출년월일*/
+  CRPTN_WHDRWL_HMS,     /*부정인출시각*/
+  CRPTN_WHDRWL_INST_CD,     /*부정인출금융기관코드*/
+  CRPTN_WHDRWL_INST_BRNCH_CD,     /*부정인출금융기관부점코드*/
+  CRPTN_WHDRWL_TP_CD,     /*부정인출종류코드*/
+  CRPTN_WHDRWL_PSTN_CNTNT,     /*부정인출위치*/
+  CRPTN_WHDRWL_ACCT_NBR,     /*부정인출계좌번호*/
+  ACCT_OWNR_NM,     /*예금주명*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID     /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{txDt},     /*거래년월일*/
+  #{rqstInstMsgMgmtNbr},     /*의뢰기관전문관리번호*/
+  #{txHms},     /*거래시각*/
+  #{guid},     /*GUID*/
+  #{msgCd, jdbcType=VARCHAR},     /*Kor)에러 메시지코드*/
+  #{extrnlRspnsCd, jdbcType=VARCHAR},     /*대외응답코드*/
+  #{rqstFnclInstCd},     /*의뢰금융기관코드*/
+  #{rqstFnclInstBrnchCd},     /*의뢰금융기관부점코드*/
+  #{policeMsgMgmtNbr, jdbcType=VARCHAR},     /*경찰청전문관리번호*/
+  #{policeSndDt, jdbcType=VARCHAR},     /*경찰청전송일자*/
+  #{policeSndHms, jdbcType=VARCHAR},    /*경찰청전송시각*/
+  #{relayCntrMsgNbr, jdbcType=VARCHAR},     /*중계센터전문번호*/
+  #{relayCntrSndDt, jdbcType=VARCHAR},     /*중계센터전송일자*/
+  #{relayCntrSndHms, jdbcType=VARCHAR},     /*중계센터전송시각*/
+  #{crptnWhdrwlDt},     /*부정인출년월일*/
+  #{crptnWhdrwlHms},     /*부정인출시각*/
+  #{crptnWhdrwlInstCd},     /*부정인출금융기관코드*/
+  #{crptnWhdrwlInstBrnchCd},     /*부정인출금융기관부점코드*/
+  #{crptnWhdrwlTpCd},     /*부정인출종류코드*/
+  #{crptnWhdrwlPstnCntnt},     /*부정인출위치*/
+  #{crptnWhdrwlAcctNbr},     /*부정인출계좌번호*/
+  #{acctOwnrNm},     /*예금주명*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}     /*최종변경GUID*/
+)
+</insert>
+<select id="selectListPnTransHistory" resultType="bankware.corebanking.externalproxy.pnjointnetwork.dao.dto.XpPnTxHIO">
+SELECT
+instCd,     /*기관코드*/
+txDt,     /*거래년월일*/
+rqstInstMsgMgmtNbr,     /*의뢰기관전문관리번호*/
+txHms,     /*거래시각*/
+guid,     /*GUID*/
+msgCd,     /*Kor)에러 메시지코드*/
+extrnlRspnsCd,     /*Kor)대외기관에서 응답받은 코드. 업무별 전문format 참조*/
+rqstFnclInstCd,     /*의뢰금융기관코드*/
+rqstFnclInstBrnchCd,     /*의뢰금융기관부점코드*/
+policeMsgMgmtNbr,     /*경찰청전문관리번호*/
+policeSndDt,     /*경찰청전송일자*/
+policeSndHms,    /*경찰청전송시각*/
+relayCntrMsgNbr,     /*중계센터전문번호*/
+relayCntrSndDt,     /*중계센터전송일자*/
+relayCntrSndHms,     /*중계센터전송시각*/
+crptnWhdrwlDt,     /*부정인출년월일*/
+crptnWhdrwlHms,     /*부정인출시각*/
+crptnWhdrwlInstCd,     /*부정인출금융기관코드*/
+crptnWhdrwlInstBrnchCd,     /*부정인출금융기관부점코드*/
+crptnWhdrwlTpCd,     /*부정인출종류코드*/
+crptnWhdrwlPstnCntnt,     /*부정인출위치*/
+crptnWhdrwlAcctNbr,     /*부정인출계좌번호*/
+acctOwnrNm,     /*예금주명*/
+lastChngTmstmp,     /*최종변경일시*/
+lastChngGuid     /*최종변경GUID*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+A.instCd,     /*기관코드*/
+A.txDt,     /*거래년월일*/
+A.rqstInstMsgMgmtNbr,     /*의뢰기관전문관리번호*/
+A.txHms,     /*거래시각*/
+A.guid,     /*GUID*/
+A.msgCd,     /*Kor)에러 메시지코드*/
+A.extrnlRspnsCd,     /*Kor)대외기관에서 응답받은 코드. 업무별 전문format 참조*/
+A.rqstFnclInstCd,     /*의뢰금융기관코드*/
+A.rqstFnclInstBrnchCd,     /*의뢰금융기관부점코드*/
+A.policeMsgMgmtNbr,     /*경찰청전문관리번호*/
+A.policeSndDt,     /*경찰청전송일자*/
+A.policeSndHms,    /*경찰청전송시각*/
+A.relayCntrMsgNbr,     /*중계센터전문번호*/
+A.relayCntrSndDt,     /*중계센터전송일자*/
+A.relayCntrSndHms,     /*중계센터전송시각*/
+A.crptnWhdrwlDt,     /*부정인출년월일*/
+A.crptnWhdrwlHms,     /*부정인출시각*/
+A.crptnWhdrwlInstCd,     /*부정인출금융기관코드*/
+A.crptnWhdrwlInstBrnchCd,     /*부정인출금융기관부점코드*/
+A.crptnWhdrwlTpCd,     /*부정인출종류코드*/
+A.crptnWhdrwlPstnCntnt,     /*부정인출위치*/
+A.crptnWhdrwlAcctNbr,     /*부정인출계좌번호*/
+A.acctOwnrNm,     /*예금주명*/
+A.lastChngTmstmp,     /*최종변경일시*/
+A.lastChngGuid     /*최종변경GUID*/
+     FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* 경찰망거래내역 */
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        RQST_INST_MSG_MGMT_NBR AS rqstInstMsgMgmtNbr,     /*의뢰기관전문관리번호*/
+        TX_HMS AS txHms,     /*거래시각*/
+        GUID AS guid,     /*GUID*/
+        MSG_CD AS msgCd,     /*Kor)에러 메시지코드*/
+		EXTRNL_RSPNS_CD AS extrnlRspnsCd,     /*Kor)대외기관에서 응답받은 코드. 업무별 전문format 참조*/
+        RQST_FNCL_INST_CD AS rqstFnclInstCd,     /*의뢰금융기관코드*/
+        RQST_FNCL_INST_BRNCH_CD AS rqstFnclInstBrnchCd,     /*의뢰금융기관부점코드*/
+        POLICE_MSG_MGMT_NBR AS policeMsgMgmtNbr,     /*경찰청전문관리번호*/
+        POLICE_SND_DT AS policeSndDt,     /*경찰청전송일자*/
+        POLICE_SND_HMS AS policeSndHms,    /*경찰청전송시각*/
+        RELAY_CNTR_MSG_NBR AS relayCntrMsgNbr,     /*중계센터전문번호*/
+        RELAY_CNTR_SND_DT AS relayCntrSndDt,     /*중계센터전송일자*/
+        RELAY_CNTR_SND_HMS AS relayCntrSndHms,     /*중계센터전송시각*/
+        CRPTN_WHDRWL_DT AS crptnWhdrwlDt,     /*부정인출년월일*/
+        CRPTN_WHDRWL_HMS AS crptnWhdrwlHms,     /*부정인출시각*/
+        CRPTN_WHDRWL_INST_CD AS crptnWhdrwlInstCd,     /*부정인출금융기관코드*/
+        CRPTN_WHDRWL_INST_BRNCH_CD AS crptnWhdrwlInstBrnchCd,     /*부정인출금융기관부점코드*/
+        CRPTN_WHDRWL_TP_CD AS crptnWhdrwlTpCd,     /*부정인출종류코드*/
+        CRPTN_WHDRWL_PSTN_CNTNT AS crptnWhdrwlPstnCntnt,     /*부정인출위치*/
+        CRPTN_WHDRWL_ACCT_NBR AS crptnWhdrwlAcctNbr,     /*부정인출계좌번호*/
+        ACCT_OWNR_NM AS acctOwnrNm,     /*예금주명*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid     /*최종변경GUID*/
+  FROM  XP_PN_TX_H
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+   AND TX_DT BETWEEN #{txStartDt, jdbcType=VARCHAR} AND #{txEndDt, jdbcType=VARCHAR}
+ <if test=" rqstInstMsgMgmtNbr != null &amp;&amp; rqstInstMsgMgmtNbr != '' ">
+   AND RQST_INST_MSG_MGMT_NBR = #{rqstInstMsgMgmtNbr, jdbcType=VARCHAR}
+ </if>
+ <if test=" guid != null &amp;&amp; guid != '' ">
+   AND GUID = #{guid, jdbcType=VARCHAR}
+  </if>
+ORDER BY TX_DT, TX_HMS
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectPnTransHistory" resultType="bankware.corebanking.externalproxy.pnjointnetwork.dao.dto.XpPnTxHIO">
+SELECT    /* 경찰망거래내역 */
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        RQST_INST_MSG_MGMT_NBR AS rqstInstMsgMgmtNbr,     /*의뢰기관전문관리번호*/
+        TX_HMS AS txHms,     /*거래시각*/
+        GUID AS guid,     /*GUID*/
+        MSG_CD AS msgCd,     /*Kor)에러 메시지코드*/
+		EXTRNL_RSPNS_CD AS extrnlRspnsCd,     /*Kor)대외기관에서 응답받은 코드. 업무별 전문format 참조*/
+        RQST_FNCL_INST_CD AS rqstFnclInstCd,     /*의뢰금융기관코드*/
+        RQST_FNCL_INST_BRNCH_CD AS rqstFnclInstBrnchCd,     /*의뢰금융기관부점코드*/
+        POLICE_MSG_MGMT_NBR AS policeMsgMgmtNbr,     /*경찰청전문관리번호*/
+        POLICE_SND_DT AS policeSndDt,     /*경찰청전송일자*/
+        POLICE_SND_HMS AS policeSndHms,    /*경찰청전송시각*/
+        RELAY_CNTR_MSG_NBR AS relayCntrMsgNbr,     /*중계센터전문번호*/
+        RELAY_CNTR_SND_DT AS relayCntrSndDt,     /*중계센터전송일자*/
+        RELAY_CNTR_SND_HMS AS relayCntrSndHms,     /*중계센터전송시각*/
+        CRPTN_WHDRWL_DT AS crptnWhdrwlDt,     /*부정인출년월일*/
+        CRPTN_WHDRWL_HMS AS crptnWhdrwlHms,     /*부정인출시각*/
+        CRPTN_WHDRWL_INST_CD AS crptnWhdrwlInstCd,     /*부정인출금융기관코드*/
+        CRPTN_WHDRWL_INST_BRNCH_CD AS crptnWhdrwlInstBrnchCd,     /*부정인출금융기관부점코드*/
+        CRPTN_WHDRWL_TP_CD AS crptnWhdrwlTpCd,     /*부정인출종류코드*/
+        CRPTN_WHDRWL_PSTN_CNTNT AS crptnWhdrwlPstnCntnt,     /*부정인출위치*/
+        CRPTN_WHDRWL_ACCT_NBR AS crptnWhdrwlAcctNbr,     /*부정인출계좌번호*/
+        ACCT_OWNR_NM AS acctOwnrNm,     /*예금주명*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid     /*최종변경GUID*/
+  FROM  XP_PN_TX_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND RQST_INST_MSG_MGMT_NBR = #{rqstInstMsgMgmtNbr}
+</select>
+<update id="updatePnTransHistoryForResult" parameterType="bankware.corebanking.externalproxy.pnjointnetwork.dao.dto.XpPnTxHIO">
+UPDATE  
+        XP_PN_TX_H    /* 경찰망거래내역 */
+   SET EXTRNL_RSPNS_CD = #{extrnlRspnsCd, jdbcType=VARCHAR}
+     , POLICE_MSG_MGMT_NBR = #{policeMsgMgmtNbr, jdbcType=VARCHAR}    /* 경찰청전문관리번호 */
+     , POLICE_SND_DT = #{policeSndDt, jdbcType=VARCHAR}    /* 경찰청전송일자 */
+     , POLICE_SND_HMS = #{policeSndHms, jdbcType=VARCHAR}    /* 경찰청전송시각 */
+     , RELAY_CNTR_MSG_NBR = #{relayCntrMsgNbr}    /* 중계센터전문번호 */
+     , RELAY_CNTR_SND_DT = #{relayCntrSndDt}    /* 중계센터전송일자 */
+     , RELAY_CNTR_SND_HMS = #{relayCntrSndHms}    /* 중계센터전송시각 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND RQST_INST_MSG_MGMT_NBR = #{rqstInstMsgMgmtNbr}
+</update>
+<select id="selectTotalCount" resultType="java.lang.Integer">
+SELECT COUNT(1) FROM  XP_PN_TX_H
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+   AND TX_DT BETWEEN #{txStartDt, jdbcType=VARCHAR} AND #{txEndDt, jdbcType=VARCHAR}
+ <if test=" rqstInstMsgMgmtNbr != null &amp;&amp; rqstInstMsgMgmtNbr != '' ">
+   AND RQST_INST_MSG_MGMT_NBR = #{rqstInstMsgMgmtNbr, jdbcType=VARCHAR}
+ </if>
+ <if test=" guid != null &amp;&amp; guid != '' ">
+   AND GUID = #{guid, jdbcType=VARCHAR}
+  </if>
+</select>
+</mapper>

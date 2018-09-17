@@ -1,0 +1,14 @@
+OMM bankware.corebanking.deposit.transaction.batch.dto.DmndDpstAcmltdCalcnTrgtIO
+<description="요구불 적수계산대상 IO">
+{
+	String arrId<length=40 description="계약식별자">;
+	BigDecimal plnSeqNbr<length=7 description="계획일련번호">;
+	String acctNbr<length=20 description="계좌번호">;
+	String crncyCd<length=3 description="통화코드">;
+	String cashTrnsfrDscd<length=2 description="현금대체구분코드">;
+	String oprtnAcctNbr<length=20 description="오퍼레이션계좌번호">;
+	String txRmk<length=10 description="거래적요">;
+	String pdCd<length=12 description="상품코드">;
+	String arrOpnDt<length=8 description="계약신규일">;
+	String arrMtrtyDt<length=8 description="계약만기일">;
+}

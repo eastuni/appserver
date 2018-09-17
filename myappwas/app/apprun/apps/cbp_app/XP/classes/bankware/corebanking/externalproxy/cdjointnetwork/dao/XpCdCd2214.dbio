@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.cdjointnetwork.dao.XpCdCd2214">
+<!--Generated Fri Aug 26 13:22:22 GMT+09:00 2016-->
+<delete id="deleteXpCdCd2214" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd2214IO">
+DELETE  FROM  XP_CD_CD2214_H    /* Kor)CD공동망 일괄전송 데이터 중 '월중취급미완료현황(CD2214)' 데이터 Eng) */
+ WHERE  INST_CD = #{instCd}
+   AND TX_YM = #{txYm}
+   AND SEQ_NBR = #{seqNbr}
+</delete>
+<insert id="insertXpCdCd2214" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd2214IO">
+INSERT  
+  INTO  XP_CD_CD2214_H    /* CD공동망일괄전송데이터월중취급미완료현황(CD2214) */
+(
+  INST_CD,     /*기관코드*/
+  TX_YM,     /*거래년월*/
+  SEQ_NBR,     /*일련번호*/
+  TX_Dscd,     /*거래구분코드*/
+  FNCL_INST_CD,     /*금융기관코드*/
+  TOT_CNT,     /*총건수*/
+  RANKING_NBR,     /*순위*/
+  TOT_AMT,     /*총금액*/
+  DLY_AMT,     /*지연금액*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{txYm},     /*거래년월*/
+  #{seqNbr},     /*일련번호*/
+  #{txDscd},     /*거래구분코드*/
+  #{fnclInstCd},     /*금융기관코드*/
+  #{totCnt},     /*총건수*/
+  #{rankingNbr},     /*순위*/
+  #{totBal},     /*총금액*/
+  #{dlyAmt},     /*지연금액*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectXpCdCd2214List" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd2214IO">
+SELECT    /* CD공동망일괄전송데이터월중취급미완료현황(CD2214) */
+        INST_CD AS instCd,     /*기관코드*/
+        TX_YM AS txYm,     /*거래년월*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        TX_Dscd AS txDscd,     /*거래구분코드*/
+        FNCL_INST_CD AS fnclInstCd,     /*금융기관코드*/
+        TOT_CNT AS totCnt,     /*총건수*/
+        RANKING_NBR AS rankingNbr,     /*순위*/
+        TOT_AMT AS totBal,     /*총금액*/
+        DLY_AMT AS dlyAmt,     /*지연금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_CD_CD2214_H
+ WHERE INST_CD = #{instCd}
+   AND TX_YM = #{txYm}
+ORDER BY TX_YM, SEQ_NBR
+</select>
+<update id="updateXpCdCd2214" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd2214IO">
+UPDATE  
+        XP_CD_CD2214_H    /* CD공동망일괄전송데이터월중취급미완료현황(CD2214) */
+   SET  TX_Dscd = #{txDscd}    /* 거래구분코드 */
+     , FNCL_INST_CD = #{fnclInstCd}    /* 금융기관코드 */
+     , TOT_CNT = #{totCnt}    /* 총건수 */
+     , RANKING_NBR = #{rankingNbr}    /* 순위 */
+     , TOT_AMT = #{totBal}    /* 총금액 */
+     , DLY_AMT = #{dlyAmt}    /* 지연금액 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND TX_YM = #{txYm}
+   AND SEQ_NBR = #{seqNbr}
+</update>
+</mapper>

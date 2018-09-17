@@ -1,0 +1,14 @@
+OMM bxm.web.admin.dni.deferred.domain.BxmDniSqlInfoOMM
+<description="">
+{
+	String bxmAppId<length=40 description="BXM어플리케이션ID">;
+	String pkgNm<length=512 description="패키지 명">;
+	String classNm<length=512 description="클래스 명">;
+	String sqlId<length=512 description="SQL ID">;
+	Integer seq<length=9 description="일련번호">;
+	String sqlTypeCd<length=1 description="SQL 구분 코드">;
+	String dbioPath<length=512 description="DBIO경로">;
+	String tableNm<length=100 description="테이블명">;
+	String columnNm<length=100 description="컬럼명">;
+	String modifyDttm<length=23 description="변경 일시">;
+}

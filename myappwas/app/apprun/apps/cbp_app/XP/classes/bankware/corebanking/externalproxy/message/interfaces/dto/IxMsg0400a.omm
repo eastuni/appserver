@@ -1,0 +1,38 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IxMsg0400a
+<description="입금취소처리(0400/200, 0410/200)">
+{
+	String sysId<length=2 description="시스템ID">;
+	String extrnlInstCd<length=3 description="대외기관코드">;
+	String jointNetworkClCd<length=4 description="공동망종별코드">;
+	String jointNetworkTxDscd<length=3 description="공동망거래구분코드">;
+	String sndRcvFlagCntnt<length=1 description="송수신FLAG">;
+	String rspnsCd<length=3 description="응답코드">;
+	String hndlngFnclInstCd<length=3 description="취급금융기관코드">;
+	String fillerCntnt1<length=4 description="FILLER1">;
+	String hndlngMsgMgmtNbr<length=6 description="취급전문관리번호">;
+	String hndlngMsgSndDtHms<length=12 description="취급전문전송일시">;
+	String intrmdryMsgMgmtNbr<length=9 description="중개기관전문관리번호">;
+	String intrmdryMsgSndDtHms<length=12 description="중개기관전문전송일시">;
+	String opnFnclInstCd<length=3 description="개설금융기관코드">;
+	String fillerCntnt2<length=4 description="FILLER2">;
+	String opnMsgMgmtNbr<length=6 description="개설전문관리번호">;
+	String opnMsgSndTmstmp<length=12 description="개설전문전송일시">;
+	String orgnlTxHndlngFnclInstCd<length=3 description="원거래취급금융기관코드">;
+	String orgnlTxHndlngFnclInstBrnchCd<length=4 description="원거래취급금융기관부점코드">;
+	String orgnlTxHndlngMsgMgmtNbr<length=6 description="원거래취급전문관리번호">;
+	String orgnlTxHndlngMsgSndTmstmp<length=12 description="원거래취급전문전송일시">;
+	String orgnlTxIntrmdryMsgMgmtNbr<length=9 description="원거래중개기관전문관리번호">;
+	String orgnlTxIntrmdryMsgSndTmstmp<length=12 description="원거래중개기관전문전송일시">;
+	String orgnlTxOpnFnclInstCd<length=3 description="원거래개설금융기관코드">;
+	String orgnlTxOpnFnclInstBrnchCd<length=4 description="원거래개설금융기관부점코드">;
+	String orgnlTxOpnMsgMgmtNbr<length=6 description="원거래개설전문관리번호">;
+	String orgnlTxOpnMsgSndTmstmp<length=12 description="원거래개설전문전송일시">;
+	String orgnlTxRcpntAcctNbr<length=14 description="원거래수취인계좌번호" encrypt="AES256">;
+	String orgnlTxAmt<length=12 description="원거래거래금액">;
+	String fillerCntnt3<length=12 description="FILLER3">;
+	String fillerCntnt64<length=11 description="예비정보 FIELD1">;
+	String hndlngFnclInstCdBrnchCd<length=7 description="취급금융기관코드부점코드">;
+	String opnFnclInstCdBrnchCd<length=7 description="개설금융기관코드부점코드">;
+	String txCnclRsnCd<length=2 description="거래취소사유코드">;
+	String fillerCntnt4<length=77 description="FILLER4">;
+}

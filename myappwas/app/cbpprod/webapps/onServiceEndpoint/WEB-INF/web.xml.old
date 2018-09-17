@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
+  <display-name> ServiceEndpoint </display-name>
+  <context-param>
+  	<param-name>config-location</param-name>
+  	<param-value>bxm-management-instance.xml</param-value>
+  </context-param>
+  <listener>
+  	<listener-class>bankware.corebanking.web.endpoint.CbbHttpServiceEndpointContextListener</listener-class>
+  </listener>
+
+  <servlet>
+    <servlet-name>bxmHttpJsonServiceEndpoint</servlet-name>
+        <servlet-class>bankware.corebanking.web.endpoint.WebJsonDataHttpTestServiceEndpoint</servlet-class>
+        <load-on-startup>1</load-on-startup>
+  </servlet>
+                                
+  <servlet-mapping>
+    <servlet-name>bxmHttpJsonServiceEndpoint</servlet-name>
+    <url-pattern>/json/*</url-pattern>
+  </servlet-mapping>
+                                
+</web-app>

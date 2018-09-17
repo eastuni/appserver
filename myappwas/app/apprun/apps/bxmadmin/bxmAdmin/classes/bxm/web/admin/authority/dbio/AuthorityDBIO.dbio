@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.authority.dbio.AuthorityDBIO">
+<!--Generated Fri Nov 10 13:17:28 KST 2017-->
+<select id="selectUserAuthority" resultType="bxm.web.admin.authority.domain.LoginOMM">
+SELECT 
+  A.USER_ID AS userId
+  , A.USER_NM AS userNm
+  , A.USER_PWD AS userPwd
+  , A.ROLE_ID AS roleId
+  , B.AUTH_ID AS authId
+FROM BXM_USER_INFO A
+LEFT OUTER JOIN BXM_USER_ROLE_N_PERM B
+ON A.ROLE_ID = B.ROLE_ID and A.DOMAIN_ID = B.DOMAIN_ID
+WHERE A.USER_ID = #{userId}
+	AND A.DOMAIN_ID = #{domainId}
+	AND A.USE_YN = 'Y'
+</select>
+<select id="selectLangCd" resultType="bxm.web.admin.main.domain.ComCdDetailOMM">
+SELECT
+  A.CD_ID as cdId
+  , A.CD_NM as cdNm
+  , B.CD_VAL as cdVal
+  , B.CD_VAL_NM as cdValNm
+  , B.CD_VAL_DESC as cdValDesc
+  , B.SEQ as seq
+FROM BXM_COM_CD A
+INNER JOIN BXM_COM_CD_DETAIL B
+ON A.CD_ID = B.CD_ID
+WHERE A.CD_ID = #{cdId}
+  AND B.LANG_CD = #{langCd}
+  AND B.USE_YN = 'Y'
+ORDER BY B.SEQ
+</select>
+<delete id="deleteFBatchRegistry">
+delete from F_BATCH_JOB_REGISTRY
+where FRM_INSTANCE_ID in(
+select 
+  A.FRM_INSTANCE_ID
+from F_BATCH_JOB_REGISTRY A
+left outer join BXM_RUNTIME_INSTANCE B
+on A.FRM_INSTANCE_ID = B.BXM_INSTANCE_ID
+where B.BXM_INSTANCE_ID IS NULL
+group by A.FRM_INSTANCE_ID
+)
+</delete>
+<select id="selectDomainList" resultType="bxm.web.admin.authority.domain.DomainOMM">
+SELECT /* BXM도메인 */ 
+       DOMAIN_ID AS domainId /*도메인ID*/,
+       DOMAIN_NM AS domainNm /*도메인명*/,
+       DOMAIN_DESC AS domainDesc /*도메인설명*/
+  FROM BXM_DOMAIN
+</select>
+</mapper>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.cdjointnetwork.dao.XpCdCd1113">
+<!--Generated Wed Jan 11 13:37:41 KST 2017-->
+<delete id="deleteXpCdCd1113" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd1113IO">
+DELETE  FROM  XP_CD_CD1113_H
+ WHERE  INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND SEQ_NBR = #{seqNbr}
+</delete>
+<insert id="insertXpCdCd1113" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd1113IO">
+INSERT  
+  INTO  XP_CD_CD1113_H    /* CD결제지시서(CD1113) */
+(
+  INST_CD,     /*기관코드*/
+  TX_DT,     /*거래년월일*/
+  SEQ_NBR,     /*일련번호*/
+  CNTNT_Dscd,     /*내용구분코드*/
+  CRDT_DEBIT_Dscd_1,     /*대차구분코드1*/
+  CASH_DSBRSMNT_AMT,     /*현금지급금액*/
+  CRDT_DEBIT_Dscd_2,     /*대차구분코드2*/
+  CASH_SRVC_AMT,     /*현금서비스금액*/
+  CRDT_DEBIT_Dscd_3,     /*대차구분코드3*/
+  ACCT_TRNSFR_AMT,     /*계좌이체금액*/
+  CRDT_DEBIT_Dscd_4,     /*대차구분코드4*/
+  ELCTRNC_MNY_AMT,     /*전자화폐금액*/
+  CRDT_DEBIT_Dscd_5,     /*대차구분코드5*/
+  CASH_RCVD_AMT,     /*현금입금금액*/
+  CRDT_DEBIT_Dscd_6,     /*대차구분코드6*/
+  MAN_LESS_RCPT_AMT,     /*무인수납금액*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID,     /*최종변경GUID*/
+  CRDT_DEBIT_Dscd_7,     /*대차구분코드7*/
+  CASH_IC_CARD_STLMNT_AMT    /*현금IC카드결제금액*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR},     /*기관코드*/
+  #{txDt, jdbcType=VARCHAR},     /*거래년월일*/
+  #{seqNbr, jdbcType=VARCHAR},     /*일련번호*/
+  #{cntntDscd, jdbcType=VARCHAR},     /*내용구분코드*/
+  #{crdtDebitDscd1, jdbcType=VARCHAR},     /*대차구분코드1*/
+  #{cashDsbrsmntAmt, jdbcType=NUMERIC},     /*현금지급금액*/
+  #{crdtDebitDscd2, jdbcType=VARCHAR},     /*대차구분코드2*/
+  #{cashSrvcAmt, jdbcType=NUMERIC},     /*현금서비스금액*/
+  #{crdtDebitDscd3, jdbcType=VARCHAR},     /*대차구분코드3*/
+  #{acctTrnsfrAmt, jdbcType=NUMERIC},     /*계좌이체금액*/
+  #{crdtDebitDscd4, jdbcType=VARCHAR},     /*대차구분코드4*/
+  #{elctrncMnyAmt, jdbcType=NUMERIC},     /*전자화폐금액*/
+  #{crdtDebitDscd5, jdbcType=VARCHAR},     /*대차구분코드5*/
+  #{cashRcvdAmt, jdbcType=NUMERIC},     /*현금입금금액*/
+  #{crdtDebitDscd6, jdbcType=VARCHAR},     /*대차구분코드6*/
+  #{manLessRcptAmt, jdbcType=NUMERIC},     /*무인수납금액*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR},     /*최종변경GUID*/
+  #{crdtDebitDscd7, jdbcType=VARCHAR},     /*대차구분코드7*/
+  #{cashIcCardStlmntAmt, jdbcType=NUMERIC}    /*현금IC카드결제금액*/
+)
+</insert>
+<select id="selectXpCdCd1113List" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd1113IO">
+SELECT    /* CD결제지시서(CD1113) */
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        CNTNT_Dscd AS cntntDscd,     /*내용구분코드*/
+        CRDT_DEBIT_Dscd_1 AS crdtDebitDscd1,     /*대차구분코드1*/
+        CASH_DSBRSMNT_AMT AS cashDsbrsmntAmt,     /*현금지급금액*/
+        CRDT_DEBIT_Dscd_2 AS crdtDebitDscd2,     /*대차구분코드2*/
+        CASH_SRVC_AMT AS cashSrvcAmt,     /*현금서비스금액*/
+        CRDT_DEBIT_Dscd_3 AS crdtDebitDscd3,     /*대차구분코드3*/
+        ACCT_TRNSFR_AMT AS acctTrnsfrAmt,     /*계좌이체금액*/
+        CRDT_DEBIT_Dscd_4 AS crdtDebitDscd4,     /*대차구분코드4*/
+        ELCTRNC_MNY_AMT AS elctrncMnyAmt,     /*전자화폐금액*/
+        CRDT_DEBIT_Dscd_5 AS crdtDebitDscd5,     /*대차구분코드5*/
+        CASH_RCVD_AMT AS cashRcvdAmt,     /*현금입금금액*/
+        CRDT_DEBIT_Dscd_6 AS crdtDebitDscd6,     /*대차구분코드6*/
+        MAN_LESS_RCPT_AMT AS manLessRcptAmt,     /*무인수납금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid,     /*최종변경GUID*/
+        CRDT_DEBIT_Dscd_7 AS crdtDebitDscd7,     /*대차구분코드7*/
+        CASH_IC_CARD_STLMNT_AMT AS cashIcCardStlmntAmt    /*현금IC카드결제금액*/
+  FROM  XP_CD_CD1113_H 
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+   AND TX_DT between #{txStartDt, jdbcType=VARCHAR} and #{txEndDt, jdbcType=VARCHAR}
+ORDER BY TX_DT desc, SEQ_NBR
+</select>
+<update id="updateXpCdCd1113" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd1113IO">
+UPDATE  
+        XP_CD_CD1113_H    /* CD결제지시서(CD1113) */
+   SET  CNTNT_Dscd = #{cntntDscd, jdbcType=VARCHAR}    /* 내용구분코드 */
+     , CRDT_DEBIT_Dscd_1 = #{crdtDebitDscd1, jdbcType=VARCHAR}    /* 대차구분코드1 */
+     , CASH_DSBRSMNT_AMT = #{cashDsbrsmntAmt, jdbcType=NUMERIC}    /* 현금지급금액 */
+     , CRDT_DEBIT_Dscd_2 = #{crdtDebitDscd2, jdbcType=VARCHAR}    /* 대차구분코드2 */
+     , CASH_SRVC_AMT = #{cashSrvcAmt, jdbcType=NUMERIC}    /* 현금서비스금액 */
+     , CRDT_DEBIT_Dscd_3 = #{crdtDebitDscd3, jdbcType=VARCHAR}    /* 대차구분코드3 */
+     , ACCT_TRNSFR_AMT = #{acctTrnsfrAmt, jdbcType=NUMERIC}    /* 계좌이체금액 */
+     , CRDT_DEBIT_Dscd_4 = #{crdtDebitDscd4, jdbcType=VARCHAR}    /* 대차구분코드4 */
+     , ELCTRNC_MNY_AMT = #{elctrncMnyAmt, jdbcType=NUMERIC}    /* 전자화폐금액 */
+     , CRDT_DEBIT_Dscd_5 = #{crdtDebitDscd5, jdbcType=VARCHAR}    /* 대차구분코드5 */
+     , CASH_RCVD_AMT = #{cashRcvdAmt, jdbcType=NUMERIC}    /* 현금입금금액 */
+     , CRDT_DEBIT_Dscd_6 = #{crdtDebitDscd6, jdbcType=VARCHAR}    /* 대차구분코드6 */
+     , MAN_LESS_RCPT_AMT = #{manLessRcptAmt, jdbcType=NUMERIC}    /* 무인수납금액 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+     , CRDT_DEBIT_Dscd_7 = #{crdtDebitDscd7, jdbcType=VARCHAR}    /* 대차구분코드7 */
+     , CASH_IC_CARD_STLMNT_AMT = #{cashIcCardStlmntAmt, jdbcType=NUMERIC}    /* 현금IC카드결제금액 */
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+   AND TX_DT = #{txDt, jdbcType=VARCHAR}
+   AND SEQ_NBR = #{seqNbr, jdbcType=VARCHAR}
+</update>
+</mapper>

@@ -1,0 +1,6 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.ElMsg0200d extends bankware.corebanking.externalproxy.message.interfaces.dto.ElMsg0200c
+<description="0200/0210 : (910000)  정지연장, (920000) 지급정지처리결과조회, | 0400/0410 :(910000) 지급정지해지">
+{
+	String dsbrsmntSpnsnRqstDt<length=8 fill="0" description="지급정지요청일">;
+	String dsbrsmntSpnsnTxUnqNbr<length=13 description="지급정지거래고유번호">;
+}

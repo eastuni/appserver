@@ -1,0 +1,12 @@
+OMM bankware.corebanking.loan.financialtransaction.batch.dto.LnRpymntCcutTrgtIO
+<description="원리금상환센터컷 대상 IO">
+{
+	String arrId<length=40 description="계약식별자">;
+	String rpymntSchdldDt<length=8 description="상환예정일자">;
+	String rpymntTpDscd<length=2 description="상환유형구분코드">;
+	String acctNbr<length=15 description="계좌번호">;
+	String rpymntDt<length=8 description="상환년월일">;
+	String whdrwlAcctNbr<length=15 description="출금계좌번호">;
+	String cntrCtTrgtYn<length=1 description="센터컷대상여부">;
+	String rmkCntnt<length=200 description="비고 ">;
+}

@@ -1,0 +1,11 @@
+OMM bxm.web.admin.deploy.domain.ValidateIPOMM
+<description="">
+{
+	String validIp<length=30 description="검증IP">;
+	String validIpDesc<length=512 description="검증IP설명">;
+	String useYn<length=1 description="사용 여부">;
+	String regUserId<length=32 description="등록 사용자 ID">;
+	String regOccurDttm<length=23 description="등록 발생 일시">;
+	String modifyUserId<length=32 description="변경 사용자 ID">;
+	String modifyOccurDttm<length=23 description="변경 발생 일시">;
+}

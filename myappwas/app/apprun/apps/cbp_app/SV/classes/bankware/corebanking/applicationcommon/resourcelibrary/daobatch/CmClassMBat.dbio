@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bankware.corebanking.applicationcommon.resourcelibrary.daobatch.CmClassMBat">
+<!--Generated Fri Nov 06 09:59:02 KST 2015-->
+
+<select id="selectAll" resultType="bankware.corebanking.applicationcommon.resourcelibrary.daobatch.dto.CmClassMBatIO">
+SELECT    
+
+       CLASS_NM AS classNm    
+     , BEAN_NM AS beanNm    
+
+     , PARNT_CLASS_NM AS parntClassNm  
+     , PCKG_NM AS pckgNm 
+
+     , CMPNT_CD AS cmpntCd
+
+     , LAST_CHNG_TMSTMP AS lastChngTmstmp 
+
+     , LAST_CHNG_GUID AS lastChngGuid  
+
+  FROM CM_CLASS_M
+  limit 10
+
+</select>
+
+</mapper>
+

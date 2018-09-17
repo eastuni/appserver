@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.actor.customer.dao.AtCustLoinInfoDXtn">
+<!--Generated Tue Nov 07 13:29:31 KST 2017-->
+<select id="selectList" resultType="bankware.corebanking.actor.customer.dao.dto.AtCustLoinInfoDXtnIO">
+SELECT inst_cd as instCd
+     , cust_id as custId
+     , loin_tp_cd as loinTpCd
+     , loin_id_nbr as loinIdNbr
+     , loin_seq_nbr as loinSeqNbr
+     , efctv_start_dt as efctvStartDt
+     , efctv_end_dt as efctvEndDt
+     , encrptn_pswd as encrptnPswd
+     , cust_loin_info_sts_cd as custLoinInfoStsCd
+     , cust_loin_info_sts_rsn_cd as custLoinInfoStsRsnCd
+     , last_chng_tmstmp as lastChngTmstmp
+     , last_chng_guid as lastChngGuid 
+
+  FROM at_cust_loin_info_d
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+   AND cust_id = #{custId}
+   AND cust_loin_info_sts_cd = #{infoStsCd}
+<if test="txDt != null and txDt != ''"> 
+   AND efctv_start_dt &lt;= #{txDt}
+   AND efctv_end_dt &gt;= #{txDt}
+</if>
+</select>
+<update id="restoreDelYn" parameterType="bankware.corebanking.actor.customer.dao.dto.AtCustLoinInfoDXtnIO">
+UPDATE at_cust_loin_info_d
+
+   SET cust_loin_info_sts_cd = #{custLoinInfoStsCd,jdbcType=VARCHAR}
+
+   	 , efctv_end_dt = #{efctvEndDt,jdbcType=VARCHAR}
+
+     , last_chng_tmstmp = #{lastChngTmstmp,jdbcType=TIMESTAMP}
+
+     , last_chng_guid = #{lastChngGuid,jdbcType=VARCHAR}
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+  AND loin_tp_cd = #{loinTpCd,jdbcType=VARCHAR}
+
+<if test="loinSeqNbr != null and loinSeqNbr != 0"> 
+
+   AND loin_seq_nbr = #{loinSeqNbr,jdbcType=INTEGER}
+
+</if>
+</update>
+</mapper>

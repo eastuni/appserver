@@ -1,0 +1,5 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.LnSmryInfoInqrySvcLnSmryInfoIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String custId<length=15 description="고객식별자">;
+}

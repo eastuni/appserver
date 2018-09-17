@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.commondata.batch.dao.CmBizDayMBat">
+<!--Generated Mon Aug 28 16:05:47 KST 2017-->
+<select id="select" resultType="bankware.corebanking.applicationcommon.commondata.batch.dto.CmBizDayMBatIO">
+SELECT  inst_cd AS instCd
+
+     ,  base_dt AS baseDt
+
+     ,  bf_bf_biz_dt AS bfBfBizDt
+
+     ,  bf_biz_dt AS bfBizDt
+
+     ,  biz_dt AS bizDt
+
+     ,  nxt_biz_dt AS nxtBizDt
+
+     ,  nxt_nxt_biz_dt AS nxtNxtBizDt
+
+     ,  hldy_yn AS hldyYn
+
+     ,  last_chng_guid AS lastChngGuid
+
+     ,  last_chng_tmstmp AS lastChngTmstmp
+
+  FROM  cm_biz_day_m
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  base_dt = #{baseDt}
+</select>
+</mapper>

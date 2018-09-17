@@ -1,0 +1,24 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.CdMsg0210l
+<description="사용 0210 : (납부결과조회)-전자납부">
+{
+	String startChrCntnt1<length=3 description="개시문자">;
+	String msgHdrCntnt<length=9 description="전문헤더">;
+	String jointNetworkClCd<length=4 description="공동망종별코드">;
+	String prmryBitmapCntnt<length=16 description="Primary Bit Map">;
+	String scndryBitmapCntnt<length=16 description="Secondary Bit Map">;
+	String jointNetworkTxDscd<length=6 description="공동망거래구분코드">;
+	String txAmt<length=12 description="거래금액">;
+	String msgSndTmstmp1<length=10 description="전문전송일시">;
+	String msgTraceNbr<length=6 description="전문추적번호">;
+	String txStartHms<length=6 description="거래개시시간">;
+	String txStartDay<length=4 description="거래개시일">;
+	String hndlngInstCd<length=9 description="취급기관점코드">;
+	String txUnqNbr<length=13 description="거래고유번호">;
+	String rspnsCd<length=2 description="응답코드">;
+	String trmnlNbr<length=17 description="단말번호">;
+	String giroNbr<length=9 description="지로번호">;
+	String elctrncPymntNbr<length=19 description="전자납부번호">;
+	String useInstNm<length=16 description="이용기관명">;
+	String whdrwlNm<length=16 description="출금인명(납부자명)">;
+	String pymntRsltInqryHstCntnt<length=155 description="납부결과조회내역">;
+}

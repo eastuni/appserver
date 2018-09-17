@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.deferred.dbio.DfrdErrLogDBIO">
+<!--Generated Mon Nov 27 14:38:03 KST 2017-->
+<select id="selectDfrdErrInCompleteCount01" parameterType="bxm.web.admin.deferred.domain.DfrdErrLog01IO" resultType="java.lang.Integer">
+SELECT count(*)
+FROM BXM_DEFERRED_ERR_LOG
+<where> ERR_PROC_STATUS_CD IN (1,2,4)
+	AND DOMAIN_ID = #{domainId}
+  <if test="deferredId != null and deferredId != ''">
+ 	  AND DEFERRED_ID = #{deferredId}
+   </if>
+     <if test="bizDt != null and bizDt != ''">
+ 	  AND BIZ_DT = #{bizDt}
+   </if>
+   	<if test="nodeNo != null and nodeNo != ''">
+		and NODE_NO = #{nodeNo}
+	</if>
+</where>
+</select>
+<select id="selectDfrdErrLogListUsingPaging01" resultType="bxm.web.admin.deferred.domain.DfrdErrLog01IO">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT 
+       AA.deferred_id as deferredId,
+       BB.deferred_nm as deferredNm,
+       AA.node_no as nodeNo,
+       AA.biz_dt as bizDt,
+       AA.err_seq as errSeq,
+       AA.err_proc_status_cd as errProcStatusCd,
+       AA.err_proc_type_cd as errProcTypeCd,
+       AA.start_seq as startSeq,
+       AA.end_seq as endSeq,
+       AA.err_reg_dttm as errRegDttm,
+       AA.proc_end_dttm as procEndDttm,
+       AA.err_guid as errGuid,
+       AA.err_cd as errCd,
+       AA.err_msg_ctt as errMsgCtt,
+       AA.curr_err_reproc_cnt as currErrReprocCnt
+FROM bxm_deferred_err_log AA, bxm_deferred_main bb
+<where> AA.deferred_id = bb.deferred_id
+	and AA.domain_id = #{AA.domainId} 
+	and BB.domain_id = #{AA.domainId}
+   <if test="AA.deferredId != null and AA.deferredId != ''">
+ 	  and AA.Deferred_ID = #{AA.deferredId}
+   </if>
+    <if test="AA.bizDt != null and AA.bizDt != ''">
+ 	  and AA.biz_dt = #{AA.bizDt}
+   </if>
+   <if test="AA.errGuid != null and AA.errGuid != ''">
+ 	  and AA.err_guid = #{AA.errGuid}
+   </if>
+    <if test="AA.errSeq != null and AA.errSeq != ''">
+ 	  and AA.err_seq = #{AA.errSeq}
+   </if>
+	<if test="errProcStatusCodes != null and errProcStatusCodes.size() != 0">
+  AND err_proc_status_cd in
+  <foreach close=")" collection="errProcStatusCodes" index="index" item="item" open="(" separator=",">
+    #{item}
+  </foreach>  
+  </if>
+	
+ORDER BY AA.ERR_REG_DTTM DESC, AA.ERR_SEQ DESC
+</where>
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="oracle" id="selectDfrdErrLogListUsingPaging01" resultType="bxm.web.admin.deferred.domain.DfrdErrLog01IO">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT 
+       AA.deferred_id as deferredId,
+       BB.deferred_nm as deferredNm,
+       AA.node_no as nodeNo,
+       AA.biz_dt as bizDt,
+       AA.err_seq as errSeq,
+       AA.err_proc_status_cd as errProcStatusCd,
+       AA.err_proc_type_cd as errProcTypeCd,
+       AA.start_seq as startSeq,
+       AA.end_seq as endSeq,
+       AA.err_reg_dttm as errRegDttm,
+       AA.proc_end_dttm as procEndDttm,
+       AA.err_guid as errGuid,
+       AA.err_cd as errCd,
+       AA.err_msg_ctt as errMsgCtt,
+       AA.curr_err_reproc_cnt as currErrReprocCnt
+FROM bxm_deferred_err_log AA, bxm_deferred_main bb
+<where> AA.deferred_id = bb.deferred_id
+	and AA.domain_id = #{AA.domainId} 
+	and BB.domain_id = #{AA.domainId}
+   <if test="AA.deferredId != null and AA.deferredId != ''">
+ 	  and AA.Deferred_ID = #{AA.deferredId}
+   </if>
+    <if test="AA.bizDt != null and AA.bizDt != ''">
+ 	  and AA.biz_dt = #{AA.bizDt}
+   </if>
+   <if test="AA.errGuid != null and AA.errGuid != ''">
+ 	  and AA.err_guid = #{AA.errGuid}
+   </if>
+    <if test="AA.errSeq != null and AA.errSeq != ''">
+ 	  and AA.err_seq = #{AA.errSeq}
+   </if>
+	<if test="errProcStatusCodes != null and errProcStatusCodes.size() != 0">
+  AND err_proc_status_cd in
+  <foreach close=")" collection="errProcStatusCodes" index="index" item="item" open="(" separator=",">
+    #{item}
+  </foreach>  
+  </if>
+	
+ORDER BY AA.ERR_REG_DTTM DESC, AA.ERR_SEQ DESC
+</where>
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectDfrdErrLogListUsingPaging01" resultType="bxm.web.admin.deferred.domain.DfrdErrLog01IO">
+/* #### Original SQL [[ ################# */
+SELECT 
+       AA.DEFERRED_ID as deferredId,
+       BB.DEFERRED_NM as deferredNm,
+       AA.NODE_NO as nodeNo,
+       AA.BIZ_DT as bizDt,
+       AA.ERR_SEQ as errSeq,
+       AA.ERR_PROC_STATUS_CD as errProcStatusCd,
+       AA.ERR_PROC_TYPE_CD as errProcTypeCd,
+       AA.START_SEQ as startSeq,
+       AA.END_SEQ as endSeq,
+       AA.ERR_REG_DTTM as errRegDttm,
+       AA.PROC_END_DTTM as procEndDttm,
+       AA.ERR_GUID as errGuid,
+       AA.ERR_CD as errCd,
+       AA.ERR_MSG_CTT as errMsgCtt,
+       AA.CURR_ERR_REPROC_CNT as currErrReprocCnt
+FROM BXM_DEFERRED_ERR_LOG AA, BXM_DEFERRED_MAIN BB
+<where> AA.DEFERRED_ID = BB.DEFERRED_ID
+	and AA.DOMAIN_ID = #{AA.domainId} 
+	and BB.DOMAIN_ID = #{AA.domainId}
+   <if test="AA.deferredId != null and AA.deferredId != ''">
+ 	  and AA.DEFERRED_ID = #{AA.deferredId}
+   </if>
+    <if test="AA.bizDt != null and AA.bizDt != ''">
+ 	  and AA.BIZ_DT = #{AA.bizDt}
+   </if>
+   <if test="AA.errGuid != null and AA.errGuid != ''">
+ 	  and AA.ERR_GUID = #{AA.errGuid}
+   </if>
+    <if test="AA.errSeq != null and AA.errSeq != ''">
+ 	  and AA.ERR_SEQ = #{AA.errSeq}
+   </if>
+	<if test="errProcStatusCodes != null and errProcStatusCodes.size() != 0">
+  AND ERR_PROC_STATUS_CD in
+  <foreach close=")" collection="errProcStatusCodes" index="index" item="item" open="(" separator=",">
+    #{item}
+  </foreach>  
+  </if>
+	
+ORDER BY AA.ERR_REG_DTTM DESC, AA.ERR_SEQ DESC
+</where>
+/* #### Original SQL ]] ################# */
+LIMIT #{pageNum}, #{pageCount}
+</select>
+<select id="countDfrdErrLog01" resultType="java.lang.Integer">
+SELECT count(*) 
+FROM BXM_DEFERRED_ERR_LOG AA
+<where> 
+	1=1
+	and AA.DOMAIN_ID = #{AA.domainId}
+   <if test="AA.deferredId != null and AA.deferredId != ''">
+ 	  and AA.DEFERRED_ID = #{AA.deferredId}
+   </if>
+    <if test="AA.bizDt != null and AA.bizDt != ''">
+ 	  and AA.BIZ_DT = #{AA.bizDt}
+   </if>
+   <if test="AA.errGuid != null and AA.errGuid != ''">
+ 	  and AA.ERR_GUID = #{AA.errGuid}
+   </if>
+    <if test="AA.errSeq != null and AA.errSeq != ''">
+ 	  and AA.ERR_SEQ = #{AA.errSeq}
+   </if>
+	<if test="errProcStatusCodes != null and errProcStatusCodes.size() != 0">
+		AND ERR_PROC_STATUS_CD in
+	  <foreach close=")" collection="errProcStatusCodes" index="index" item="item" open="(" separator=",">
+	    #{item}
+	  </foreach>
+	</if>
+ORDER BY AA.ERR_REG_DTTM DESC, AA.ERR_SEQ DESC
+</where>
+</select>
+<select id="selectDfrdErrLog01" resultType="bxm.web.admin.deferred.domain.DfrdErrLog01IO">
+SELECT 
+       AA.DEFERRED_ID as deferredId,
+       BB.DEFERRED_NM as deferredNm,
+       AA.NODE_NO as nodeNo,
+       AA.BIZ_DT as bizDt,
+       AA.ERR_SEQ as errSeq,
+       AA.ERR_PROC_STATUS_CD as errProcStatusCd,
+       AA.ERR_PROC_TYPE_CD as errProcTypeCd,
+       AA.START_SEQ as startSeq,
+       AA.END_SEQ as endSeq,
+       AA.ERR_REG_DTTM as errRegDttm,
+       AA.PROC_END_DTTM as procEndDttm,
+       AA.ERR_GUID as errGuid,
+       AA.ERR_CD as errCd,
+       AA.ERR_MSG_CTT as errMsgCtt,
+       AA.CURR_ERR_REPROC_CNT as currErrReprocCnt
+FROM BXM_DEFERRED_ERR_LOG AA, BXM_DEFERRED_MAIN BB
+where 
+AA.DEFERRED_ID = BB.DEFERRED_ID
+and AA.DEFERRED_ID = #{AA.deferredId, jdbcType=VARCHAR}
+and AA.NODE_NO = #{AA.nodeNo, jdbcType=NUMERIC}
+and AA.BIZ_DT = #{AA.bizDt, jdbcType=VARCHAR}
+and AA.ERR_SEQ = #{AA.errSeq, jdbcType=NUMERIC}
+and AA.DOMAIN_ID = #{AA.domainId}
+and BB.DOMAIN_ID = #{AA.domainId}
+</select>
+<select id="selectDfrdErrLog02" parameterType="bxm.web.admin.deferred.domain.DfrdErrLog01IO" resultType="bxm.web.admin.deferred.domain.DfrdErrLog01IO">
+SELECT    /* BXM 후행 에러 로그 */
+        DEFERRED_ID AS deferredId,     /*후행ID*/
+        DEFERRED_ID AS deferredNm,
+        NODE_NO AS nodeNo,     /*노드번호*/
+        BIZ_DT AS bizDt,     /*영업일자*/
+        ERR_SEQ AS errSeq,     /*에러일련번호*/
+        ERR_GUID AS errGuid,     /*에러GUID*/
+        ERR_PROC_STATUS_CD AS errProcStatusCd,     /*에러처리상태코드*/
+        ERR_PROC_TYPE_CD AS errProcTypeCd,     /*에러처리유형코드*/
+        START_SEQ AS startSeq,     /*시작일련번호*/
+        END_SEQ AS endSeq,     /*종료일련번호*/
+        ERR_REG_DTTM AS errRegDttm,     /*에러등록일시*/
+        PROC_END_DTTM AS procEndDttm,     /*처리종료일시*/
+        ERR_CD AS errCd,     /*에러코드*/
+        ERR_MSG_CTT AS errMsgCtt    /*에러메시지내용*/,
+        CURR_ERR_REPROC_CNT AS currErrReprocCnt
+  FROM  BXM_DEFERRED_ERR_LOG
+ WHERE 1=1
+ and DOMAIN_ID = #{domainId}
+<if test="deferredId != null and deferredId != ''">
+  AND DEFERRED_ID = #{deferredId}
+</if>
+<if test="nodeNo != null and nodeNo != 0">
+   AND NODE_NO = #{nodeNo}
+</if>
+   AND BIZ_DT = #{bizDt}
+   <if test="errSeq != null and errSeq != 0">
+   AND ERR_SEQ = #{errSeq}
+   </if>
+   <if test="errGuid != null and errGuid != ''">
+   AND ERR_GUID = #{errGuid}
+   </if>
+</select>
+<update id="updateDfrdErrLog01" parameterType="bxm.web.admin.deferred.domain.DfrdErrLog01IO">
+UPDATE  
+        BXM_DEFERRED_ERR_LOG    /* BXM 후행 에러 로그 */
+<trim prefix="SET" prefixOverrides=","> 
+<if test="errGuid != null and errGuid != ''">
+     , ERR_GUID = #{errGuid}    /* 에러GUID */
+</if>
+<if test="errProcStatusCd != null and errProcStatusCd != ''">
+     , ERR_PROC_STATUS_CD = #{errProcStatusCd}    /* 에러처리상태코드 */
+</if>
+<if test="errProcTypeCd != null and errProcTypeCd != ''">
+     , ERR_PROC_TYPE_CD = #{errProcTypeCd}    /* 에러처리유형코드 */
+</if>
+<if test="startSeq != null and startSeq != ''">
+     , START_SEQ = #{startSeq}    /* 시작일련번호 */
+</if>
+<if test="endSeq != null and endSeq != ''">
+     , END_SEQ = #{endSeq}    /* 종료일련번호 */
+</if>
+     , PROC_END_DTTM = TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')    /* 처리종료일시 */
+<if test="errCd != null and errCd != ''">
+     , ERR_CD = #{errCd}    /* 에러코드 */
+</if>
+<if test="errMsgCtt != null and errMsgCtt != ''">
+     , ERR_MSG_CTT = #{errMsgCtt}    /* 에러메시지내용 */
+</if>
+
+, CURR_ERR_REPROC_CNT = CURR_ERR_REPROC_CNT + 1
+
+</trim>
+ WHERE DEFERRED_ID = #{deferredId}
+   AND NODE_NO = #{nodeNo}
+   AND BIZ_DT = #{bizDt}
+   AND ERR_SEQ = #{errSeq}
+</update>
+<update databaseId="oracle" id="updateDfrdErrLog01" parameterType="bxm.web.admin.deferred.domain.DfrdErrLog01IO">
+UPDATE  
+        BXM_DEFERRED_ERR_LOG    /* BXM 후행 에러 로그 */
+<trim prefix="SET" prefixOverrides=","> 
+<if test="errGuid != null and errGuid != ''">
+     , ERR_GUID = #{errGuid}    /* 에러GUID */
+</if>
+<if test="errProcStatusCd != null and errProcStatusCd != ''">
+     , ERR_PROC_STATUS_CD = #{errProcStatusCd}    /* 에러처리상태코드 */
+</if>
+<if test="errProcTypeCd != null and errProcTypeCd != ''">
+     , ERR_PROC_TYPE_CD = #{errProcTypeCd}    /* 에러처리유형코드 */
+</if>
+<if test="startSeq != null and startSeq != ''">
+     , START_SEQ = #{startSeq}    /* 시작일련번호 */
+</if>
+<if test="endSeq != null and endSeq != ''">
+     , END_SEQ = #{endSeq}    /* 종료일련번호 */
+</if>
+     , PROC_END_DTTM = TO_CHAR(SYSDATE, 'YYYYMMDDHH24MISS')    /* 처리종료일시 */
+<if test="errCd != null and errCd != ''">
+     , ERR_CD = #{errCd}    /* 에러코드 */
+</if>
+<if test="errMsgCtt != null and errMsgCtt != ''">
+     , ERR_MSG_CTT = #{errMsgCtt}    /* 에러메시지내용 */
+</if>
+
+, CURR_ERR_REPROC_CNT = CURR_ERR_REPROC_CNT + 1
+
+</trim>
+ WHERE DEFERRED_ID = #{deferredId}
+   AND NODE_NO = #{nodeNo}
+   AND BIZ_DT = #{bizDt}
+   AND ERR_SEQ = #{errSeq}
+</update>
+<update databaseId="mysql" id="updateDfrdErrLog01" parameterType="bxm.web.admin.deferred.domain.DfrdErrLog01IO">
+UPDATE  
+        BXM_DEFERRED_ERR_LOG    /* BXM 후행 에러 로그 */
+<trim prefix="SET" prefixOverrides=","> 
+<if test="errGuid != null and errGuid != ''">
+     , ERR_GUID = #{errGuid}    /* 에러GUID */
+</if>
+<if test="errProcStatusCd != null and errProcStatusCd != ''">
+     , ERR_PROC_STATUS_CD = #{errProcStatusCd}    /* 에러처리상태코드 */
+</if>
+<if test="errProcTypeCd != null and errProcTypeCd != ''">
+     , ERR_PROC_TYPE_CD = #{errProcTypeCd}    /* 에러처리유형코드 */
+</if>
+<if test="startSeq != null and startSeq != ''">
+     , START_SEQ = #{startSeq}    /* 시작일련번호 */
+</if>
+<if test="endSeq != null and endSeq != ''">
+     , END_SEQ = #{endSeq}    /* 종료일련번호 */
+</if>
+     , PROC_END_DTTM = DATE_FORMAT(CURRENT_TIMESTAMP, "%Y%c%d%H%i%S")    /* 처리종료일시 */
+<if test="errCd != null and errCd != ''">
+     , ERR_CD = #{errCd}    /* 에러코드 */
+</if>
+<if test="errMsgCtt != null and errMsgCtt != ''">
+     , ERR_MSG_CTT = #{errMsgCtt}    /* 에러메시지내용 */
+</if>
+
+, CURR_ERR_REPROC_CNT = CURR_ERR_REPROC_CNT + 1
+
+</trim>
+ WHERE DEFERRED_ID = #{deferredId}
+   AND NODE_NO = #{nodeNo}
+   AND BIZ_DT = #{bizDt}
+   AND ERR_SEQ = #{errSeq}
+</update>
+<select id="selectDfrdErrCompleteCount01" parameterType="bxm.web.admin.deferred.domain.DfrdErrLog01IO" resultType="java.lang.Integer">
+SELECT count(*)
+FROM BXM_DEFERRED_ERR_LOG
+WHERE ERR_PROC_STATUS_CD = '3'
+	AND DOMAIN_ID = #{domainId}
+  <if test="deferredId != null and deferredId != ''">
+ 	  AND DEFERRED_ID = #{deferredId}
+   </if>
+     <if test="bizDt != null and bizDt != ''">
+ 	  AND BIZ_DT = #{bizDt}
+   </if>
+</select>
+<update id="updateDfrdErrLogPerSeq01" parameterType="bxm.web.admin.deferred.domain.DfrdErrLog01IO">
+UPDATE BXM_DEFERRED_ERR_LOG /* BXM 후행 에러 로그 */
+   SET ERR_SEQ = #{errSeq}
+ WHERE DEFERRED_ID = #{deferredId}
+   AND NODE_NO = #{nodeNo}
+   AND BIZ_DT = #{bizDt}
+   AND START_SEQ = #{startSeq}
+   AND END_SEQ = #{endSeq}
+   AND DOMAIN_ID = #{domainId}
+</update>
+<update id="updateErrLogMarkCompleteStatus01" parameterType="bxm.web.admin.deferred.domain.DfrdErrLog01IO">
+UPDATE BXM_DEFERRED_ERR_LOG /* BXM 후행 에러 로그 */
+   SET 
+       ERR_PROC_STATUS_CD = #{errProcStatusCd} /* 에러처리상태코드 */,
+       CURR_ERR_REPROC_CNT = CURR_ERR_REPROC_CNT + 1 /* 현재에러재처리수 */
+ WHERE DEFERRED_ID = #{deferredId}
+   AND NODE_NO = #{nodeNo}
+   AND BIZ_DT = #{bizDt}
+   AND START_SEQ = #{startSeq}
+   AND END_SEQ = #{endSeq}
+   AND DOMAIN_ID = #{domainId}
+</update>
+<update id="updateErrLogExceptionSituation01" parameterType="bxm.web.admin.deferred.domain.DfrdErrLog01IO">
+UPDATE BXM_DEFERRED_ERR_LOG /* BXM 후행 에러 로그 */
+   SET 
+       ERR_CD = #{errCd},
+       ERR_MSG_CTT = #{errMsgCtt},
+       ERR_PROC_STATUS_CD = #{errProcStatusCd},
+       CURR_ERR_REPROC_CNT = CURR_ERR_REPROC_CNT + 1 /* 현재에러재처리수 */
+ WHERE DEFERRED_ID = #{deferredId}
+   AND NODE_NO = #{nodeNo}
+   AND BIZ_DT = #{bizDt}
+   AND START_SEQ = #{startSeq}
+   AND END_SEQ = #{endSeq}
+   AND DOMAIN_ID = #{domainId}
+</update>
+</mapper>

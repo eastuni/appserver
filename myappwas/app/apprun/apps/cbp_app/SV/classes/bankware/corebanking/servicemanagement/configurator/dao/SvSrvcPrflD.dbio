@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.configurator.dao.SvSrvcPrflD">
+<!--Generated Thu Aug 02 14:47:17 KST 2018-->
+<select id="selectListAll" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvSrvcPrflAtrbtDIO">
+SELECT  /* 서비스프로파일명세 */
+
+        t1.SRVC_PRFL_ATRBT_NM AS srvcPrflAtrbtNm    /*서비스프로파일속성명*/, 
+
+        t1.SRVC_PRFL_NM AS srvcPrflNm   	          /*서비스프로파일명*/
+
+  FROM  sv_srvc_prfl_atrbt_d t1
+
+     where t1.ACTV_STS_CD = '01'
+
+ ORDER  BY SRVC_PRFL_ATRBT_NM
+</select>
+<update id="update" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvSrvcPrflDIO">
+UPDATE sv_srvc_prfl_d
+
+   SET srvc_prfl_cntnt = #{srvcPrflCntnt, jdbcType=VARCHAR}
+     , ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/
+     , site_lbrtry_dscd = #{siteLbrtryDscd, jdbcType=VARCHAR}
+     , last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}
+     , last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}
+ WHERE srvc_cd = #{srvcCd, jdbcType=VARCHAR}
+   AND srvc_prfl_atrbt_nm = #{srvcPrflAtrbtNm, jdbcType=VARCHAR}
+</update>
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvSrvcPrflDIO">
+INSERT INTO sv_srvc_prfl_d
+(
+       srvc_cd
+     , srvc_prfl_atrbt_nm
+     , srvc_prfl_cntnt
+     , SITE_LBRTRY_DSCD /* 사이트연구소구분코드 */
+     , ACTV_STS_CD /* 활동상태코드 */
+     , last_chng_tmstmp
+     , last_chng_guid
+)
+VALUES 
+(
+       #{srvcCd, jdbcType=VARCHAR}
+     , #{srvcPrflAtrbtNm, jdbcType=VARCHAR}
+     , #{srvcPrflCntnt, jdbcType=VARCHAR}
+     , #{siteLbrtryDscd, jdbcType=VARCHAR} /*사이트연구소구분코드*/
+     , #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/
+     , #{lastChngTmstmp, jdbcType=TIMESTAMP}
+     , #{lastChngGuid, jdbcType=VARCHAR}
+)
+</insert>
+<select id="selectListBySrvcCd" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvSrvcPrflDIO">
+SELECT    
+
+       srvc_cd AS srvcCd
+
+     , srvc_prfl_atrbt_nm AS srvcPrflAtrbtNm
+
+     , srvc_prfl_cntnt AS srvcPrflCntnt
+
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM sv_srvc_prfl_d
+
+ WHERE srvc_cd = #{srvcCd}
+<if test="actvStsCd != null and actvStsCd != '' ">   
+   AND ACTV_STS_CD =#{actvStsCd}
+</if>
+</select>
+<select id="selectListBySrvcCdJoin" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvSrvcPrflDIO">
+select #{srvcCd} AS srvcCd 
+
+, a.SRVC_PRFL_ATRBT_NM AS srvcPrflAtrbtNm
+
+, b.SRVC_PRFL_CNTNT AS srvcPrflCntnt
+
+, b.LAST_CHNG_TMSTMP AS lastChngTmstmp
+
+, b.LAST_CHNG_GUID AS lastChngGuid
+
+from sv_srvc_prfl_atrbt_d a
+
+left outer join sv_srvc_prfl_d b
+
+on a.SRVC_PRFL_ATRBT_NM = b.srvc_prfl_atrbt_nm
+
+and a.ACTV_STS_CD = b.ACTV_STS_CD
+
+and b.SRVC_CD = #{srvcCd}
+
+where a.ACTV_STS_CD = '01'
+</select>
+<select id="select" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvSrvcPrflDIO" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvSrvcPrflDIO">
+SELECT    
+
+       srvc_cd AS srvcCd
+
+     , srvc_prfl_atrbt_nm AS srvcPrflAtrbtNm
+
+     , srvc_prfl_cntnt AS srvcPrflCntnt
+
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM sv_srvc_prfl_d
+
+ WHERE srvc_cd = #{srvcCd}
+    AND srvc_prfl_atrbt_nm = #{srvcPrflAtrbtNm}
+<if test="actvStsCd != null and actvStsCd != '' ">   
+   AND ACTV_STS_CD =#{actvStsCd}
+</if>
+</select>
+<select id="selectNewSrvcPrflAtrbt" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvSrvcPrflDIO">
+SELECT	a.srvc_cd as srvcCd
+	 ,  b.srvc_prfl_atrbt_nm as srvcPrflAtrbtNm
+	 , b.SITE_LBRTRY_DSCD as siteLbrtryDscd /* 사이트연구소구분코드 */
+     , c.ACTV_STS_CD as actvStsCd /* 활동상태코드 */
+     ,c.SRVC_PRFL_CNTNT as srvcPrflCntnt
+  FROM	sv_srvc_m a
+    join  sv_srvc_prfl_atrbt_d b
+     left outer join sv_srvc_prfl_d c on a.SRVC_CD=c.SRVC_CD and b.srvc_prfl_atrbt_nm=c.srvc_prfl_atrbt_nm
+ WHERE	b.srvc_prfl_atrbt_nm =  #{srvcPrflAtrbtNm}
+   AND  a.srvc_sts_cd = '01'
+   AND b.ACTV_STS_CD = '01'
+</select>
+<select id="selectListBySrvcPrflAtrbtNm" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvSrvcPrflDIO">
+SELECT    
+
+       srvc_cd AS srvcCd
+
+     , srvc_prfl_atrbt_nm AS srvcPrflAtrbtNm
+
+     , srvc_prfl_cntnt AS srvcPrflCntnt
+
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM sv_srvc_prfl_d
+
+ WHERE srvc_prfl_atrbt_nm = #{srvcPrflAtrbtNm}
+
+<if test="actvStsCd != null and actvStsCd != '' ">   
+   AND ACTV_STS_CD =#{actvStsCd}
+</if>
+</select>
+</mapper>

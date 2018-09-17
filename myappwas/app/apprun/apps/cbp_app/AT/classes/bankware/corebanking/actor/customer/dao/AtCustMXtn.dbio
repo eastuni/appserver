@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.actor.customer.dao.AtCustMXtn">
+<!--Generated Wed Jul 12 14:37:34 KST 2017-->
+<select id="selectCountByCustLoginId" resultType="java.lang.Integer">
+SELECT COUNT(acm.cust_id) as cnt
+
+  FROM at_cust_loin_info_d aclid
+
+     , at_cust_m acm
+
+     , at_actor_m aam
+
+     , at_actor_nm_d aand      
+
+ WHERE aclid.inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND aclid.loin_id_nbr like CONCAT(CONCAT('%', #{loinIdNbr,jdbcType=VARCHAR}), '%')
+
+   AND aclid.cust_loin_info_sts_cd = #{infoStsCd}
+
+   AND aclid.efctv_start_dt &lt;= #{txDt}
+
+   AND aclid.efctv_end_dt &gt;= #{txDt}
+
+   AND aclid.inst_cd = acm.inst_cd
+
+   AND aclid.cust_id = acm.cust_id
+
+   AND acm.inst_cd = aam.inst_cd
+
+   AND acm.actor_id = aam.actor_id
+
+   AND acm.cust_sts_cd &lt;&gt; #{ignoreStsCd}
+
+   AND acm.inst_cd = aand.inst_cd
+
+   AND acm.actor_id = aand.actor_id
+
+   AND aand.actor_nm_tp_cd = #{actorNmTpCd}
+
+   AND aand.efctv_start_dt &lt;= #{txDt,jdbcType=VARCHAR}
+
+   AND aand.efctv_end_dt &gt;= #{txDt,jdbcType=VARCHAR}  
+   
+   AND aand.actor_nm_sts_cd = #{infoStsCd} 
+
+   AND aam.actor_sts_cd &lt;&gt; #{ignoreInfoStsCd}
+
+<if test="actorTpCd != null and actorTpCd != ''"> 
+
+   AND aam.actor_tp_cd = #{actorTpCd,jdbcType=VARCHAR}
+
+</if>
+</select>
+<select id="selectOvrwCount" resultType="java.lang.Integer">
+SELECT count(acm.cust_id) as cnt
+
+  FROM at_cust_m acm
+
+       INNER JOIN at_actor_m aam
+
+         ON (acm.inst_cd = aam.inst_cd
+
+             AND acm.actor_id = aam.actor_id
+             
+             AND aam.actor_sts_cd &lt;&gt; #{ignoreInfoStsCd}
+
+<if test="actorTpCd != null and actorTpCd != ''"> 
+
+             AND aam.actor_tp_cd = #{actorTpCd,jdbcType=VARCHAR}
+
+</if>       
+
+            )
+
+       INNER JOIN at_actor_nm_d aand 
+
+          ON (acm.inst_cd = aand.inst_cd
+
+              AND acm.actor_id = aand.actor_id
+
+              AND aand.actor_nm_tp_cd = #{actorNmTpCd,jdbcType=VARCHAR}
+
+              AND aand.efctv_start_dt &lt;= #{txDt,jdbcType=VARCHAR}
+
+              AND aand.efctv_end_dt &gt;= #{txDt,jdbcType=VARCHAR} 
+              
+              AND aand.actor_nm_sts_cd = #{infoStsCd}
+
+<if test="actorNm != null and actorNm != ''">  
+
+              AND aand.actor_nm like CONCAT(CONCAT('%', #{actorNm,jdbcType=VARCHAR}), '%')
+
+</if>
+
+            )
+
+       INNER JOIN at_actor_unq_id_nbr_d aauind    
+
+          ON (acm.inst_cd = aauind.inst_cd
+
+              AND acm.actor_id = aauind.actor_id
+
+              AND aauind.actor_unq_id_nbr_tp_cd = #{actorUnqIdNbrTpCd,jdbcType=VARCHAR}
+
+              AND aauind.efctv_start_dt &lt;= #{txDt,jdbcType=VARCHAR}
+
+              AND aauind.efctv_end_dt &gt;= #{txDt,jdbcType=VARCHAR}        
+              
+              AND aauind.actor_unq_id_nbr_sts_cd = #{infoStsCd}
+
+<if test="actorUnqIdNbr != null and actorUnqIdNbr != ''">  
+
+              AND aauind.actor_unq_id_nbr like CONCAT(CONCAT('%', #{actorUnqIdNbr,jdbcType=VARCHAR}), '%')
+
+</if>
+
+             )
+
+       LEFT OUTER JOIN at_cust_loin_info_d aclid
+
+         ON (acm.inst_cd = aclid.inst_cd
+
+             AND acm.cust_id = aclid.cust_id
+
+             AND aclid.cust_loin_info_sts_cd = #{infoStsCd}
+
+             AND aclid.efctv_start_dt &lt;= #{txDt}
+
+   			 AND aclid.efctv_end_dt &gt;= #{txDt}
+
+
+
+<if test="loinIdNbr != null and loinIdNbr != ''">  
+
+             AND aclid.loin_id_nbr like CONCAT(CONCAT('%', #{loinIdNbr,jdbcType=VARCHAR}), '%')
+
+</if>
+
+
+
+<if test="loinIdNbr == null or loinIdNbr == ''">  
+
+             AND aclid.loin_tp_cd = #{loinTpCd} 
+
+</if>
+
+
+
+
+
+             )
+
+ WHERE acm.inst_cd = #{instCd,jdbcType=VARCHAR}
+ AND acm.cust_sts_cd &lt;&gt; #{ignoreStsCd}
+</select>
+<select id="selectListByCustLoginIdOracle" resultType="bankware.corebanking.actor.actor.dao.dto.AtActorMXtnIO">
+SELECT * FROM 
+
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+
+        (
+
+
+
+/* #### Original SQL [[ ################# */
+
+SELECT aand.actor_nm as actorNm
+
+     , acm.cust_id as rltdId
+
+     , aam.actor_id as actorId
+
+     , aam.actor_tp_cd as actorTpCd
+
+     , aam.actor_dtl_tp_cd as actorDtlTpCd
+
+     , aclid.loin_id_nbr as loinIdNbr
+
+  FROM at_cust_loin_info_d aclid
+
+     , at_cust_m acm
+
+     , at_actor_m aam
+
+     , at_actor_nm_d aand     
+
+ WHERE aclid.inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND aclid.cust_loin_info_sts_cd = #{infoStsCd}
+
+   AND aclid.efctv_start_dt &lt;= #{txDt}
+
+   AND aclid.efctv_end_dt &gt;= #{txDt}
+
+   AND aclid.loin_id_nbr like CONCAT(CONCAT('%', #{loinIdNbr,jdbcType=VARCHAR}), '%')
+
+   AND aclid.loin_tp_cd = #{loinTpCd}
+
+   AND aclid.inst_cd = acm.inst_cd
+
+   AND aclid.cust_id = acm.cust_id
+
+ AND acm.inst_cd = aam.inst_cd
+
+   AND acm.actor_id = aam.actor_id
+
+   AND acm.inst_cd = aand.inst_cd
+
+   AND acm.cust_sts_cd &lt;&gt; #{ignoreStsCd}
+
+   AND acm.actor_id = aand.actor_id
+
+   AND aand.actor_nm_tp_cd = #{actorNmTpCd}
+
+   AND aand.efctv_start_dt &lt;= #{txDt,jdbcType=VARCHAR}
+
+   AND aand.efctv_end_dt &gt;= #{txDt,jdbcType=VARCHAR} 
+   
+   AND aand.actor_nm_sts_cd = #{infoStsCd}  
+
+   AND aam.actor_sts_cd &lt;&gt; #{ignoreInfoStsCd}
+
+<if test="actorTpCd != null and actorTpCd != ''"> 
+
+   AND aam.actor_tp_cd = #{actorTpCd,jdbcType=VARCHAR}
+
+</if>
+
+
+
+  ORDER BY aand.actor_nm, aam.actor_id DESC
+
+/* #### Original SQL ]] ################# */
+
+
+
+        ) A 
+
+    WHERE ROWNUM &lt;= (#{pgNbr} + #{pgCnt}) 
+    ) 
+
+WHERE ROW__NUM &gt; #{pgNbr}
+</select>
+<select id="selectListByCustLoginIdMysql" resultType="bankware.corebanking.actor.actor.dao.dto.AtActorMXtnIO">
+SELECT aand.actor_nm as actorNm
+
+     , acm.cust_id as rltdId
+
+     , aam.actor_id as actorId
+
+     , aam.actor_tp_cd as actorTpCd
+
+     , aam.actor_dtl_tp_cd as actorDtlTpCd
+
+     , aclid.loin_id_nbr as loinIdNbr
+
+  FROM at_cust_loin_info_d aclid
+
+     , at_cust_m acm
+
+     , at_actor_m aam
+
+     , at_actor_nm_d aand     
+
+ WHERE aclid.inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND aclid.cust_loin_info_sts_cd = #{infoStsCd}
+
+   AND aclid.efctv_start_dt &lt;= #{txDt}
+
+   AND aclid.efctv_end_dt &gt;= #{txDt}
+
+   AND aclid.loin_id_nbr like CONCAT('%', #{loinIdNbr,jdbcType=VARCHAR}, '%')
+
+   AND aclid.loin_tp_cd = #{loinTpCd}
+
+   AND aclid.inst_cd = acm.inst_cd
+
+   AND aclid.cust_id = acm.cust_id
+
+   AND acm.inst_cd = aam.inst_cd
+
+   AND acm.actor_id = aam.actor_id
+   
+   AND acm.cust_sts_cd &lt;&gt; #{ignoreStsCd}
+
+   AND acm.inst_cd = aand.inst_cd
+
+   AND acm.actor_id = aand.actor_id
+
+   AND aand.actor_nm_tp_cd = #{actorNmTpCd}
+
+   AND aand.efctv_start_dt &lt;= #{txDt,jdbcType=VARCHAR}
+
+   AND aand.efctv_end_dt &gt;= #{txDt,jdbcType=VARCHAR}   
+   
+   AND aand.actor_nm_sts_cd = #{infoStsCd}
+
+   AND aam.actor_sts_cd &lt;&gt; #{ignoreInfoStsCd}
+
+<if test="actorTpCd != null and actorTpCd != ''"> 
+
+   AND aam.actor_tp_cd = #{actorTpCd,jdbcType=VARCHAR}
+
+</if>
+
+
+
+  ORDER BY aand.actor_nm, aam.actor_id DESC 
+
+ LIMIT #{pgOffset}, #{pgCnt}
+</select>
+<select id="selectOvrwListOracle" resultType="bankware.corebanking.actor.actor.dao.dto.AtActorMXtnIO">
+SELECT * FROM 
+
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+
+        (
+
+
+
+/* #### Original SQL [[ ################# */
+
+SELECT aand.actor_nm as actorNm
+
+     , acm.cust_id as rltdId
+
+     , aclid.loin_id_nbr as loinIdNbr
+
+     , aam.actor_id as actorId
+
+     , aam.actor_tp_cd as actorTpCd
+
+     , aam.actor_dtl_tp_cd as actorDtlTpCd
+
+     , aauind.actor_unq_id_nbr as actorUnqIdNbr
+
+  FROM at_cust_m acm
+
+       INNER JOIN at_actor_m aam
+
+         ON (acm.inst_cd = aam.inst_cd
+
+             AND acm.actor_id = aam.actor_id
+             
+             AND aam.actor_sts_cd &lt;&gt; #{ignoreInfoStsCd}
+
+<if test="actorTpCd != null and actorTpCd != ''"> 
+
+             AND aam.actor_tp_cd = #{actorTpCd,jdbcType=VARCHAR}
+
+</if>       
+
+            )
+
+       INNER JOIN at_actor_nm_d aand 
+
+          ON (acm.inst_cd = aand.inst_cd
+
+              AND acm.actor_id = aand.actor_id
+
+              AND aand.actor_nm_tp_cd = #{actorNmTpCd,jdbcType=VARCHAR}
+
+              AND aand.efctv_start_dt &lt;= #{txDt,jdbcType=VARCHAR}
+
+              AND aand.efctv_end_dt &gt;= #{txDt,jdbcType=VARCHAR} 
+              
+              AND aand.actor_nm_sts_cd = #{infoStsCd}
+
+<if test="actorNm != null and actorNm != ''">  
+
+              AND aand.actor_nm like CONCAT(CONCAT('%', #{actorNm,jdbcType=VARCHAR}), '%')
+
+</if>
+
+            )
+
+       INNER JOIN at_actor_unq_id_nbr_d aauind    
+
+          ON (acm.inst_cd = aauind.inst_cd
+
+              AND acm.actor_id = aauind.actor_id
+
+              AND aauind.actor_unq_id_nbr_tp_cd = #{actorUnqIdNbrTpCd,jdbcType=VARCHAR}
+
+              AND aauind.efctv_start_dt &lt;= #{txDt,jdbcType=VARCHAR}
+
+              AND aauind.efctv_end_dt &gt;= #{txDt,jdbcType=VARCHAR}     
+              
+              AND aauind.actor_unq_id_nbr_sts_cd = #{infoStsCd} 
+
+<if test="actorUnqIdNbr != null and actorUnqIdNbr != ''">  
+
+              AND aauind.actor_unq_id_nbr like CONCAT(CONCAT('%', #{actorUnqIdNbr,jdbcType=VARCHAR}), '%')
+
+</if>
+
+             )
+
+       LEFT OUTER JOIN at_cust_loin_info_d aclid
+
+         ON (acm.inst_cd = aclid.inst_cd
+
+             AND acm.cust_id = aclid.cust_id
+
+             AND aclid.cust_loin_info_sts_cd = #{infoStsCd}
+
+             AND aclid.efctv_start_dt &lt;= #{txDt}
+
+             AND aclid.efctv_end_dt &gt;= #{txDt}
+
+
+
+<if test="loinIdNbr != null and loinIdNbr != ''">  
+
+             AND aclid.loin_id_nbr like CONCAT(CONCAT('%', #{loinIdNbr,jdbcType=VARCHAR}), '%')
+
+</if>
+
+
+
+<if test="loinIdNbr == null or loinIdNbr == ''">  
+
+             AND aclid.loin_tp_cd = #{loinTpCd}  
+
+</if>
+
+
+
+             )
+
+ WHERE acm.inst_cd = #{instCd,jdbcType=VARCHAR}
+ 
+  AND acm.cust_sts_cd &lt;&gt; #{ignoreStsCd}
+  
+
+  ORDER BY aand.actor_nm, aam.actor_id DESC
+
+/* #### Original SQL ]] ################# */
+
+
+
+        ) A 
+
+    WHERE ROWNUM &lt;= (#{pgNbr} + #{pgCnt}) 
+    ) 
+
+WHERE ROW__NUM &gt; #{pgNbr}
+</select>
+<select id="selectOvrwListMysql" resultType="bankware.corebanking.actor.actor.dao.dto.AtActorMXtnIO">
+SELECT aand.actor_nm as actorNm
+
+     , acm.cust_id as rltdId
+
+     , aclid.loin_id_nbr as loinIdNbr
+
+     , aam.actor_id as actorId
+
+     , aam.actor_tp_cd as actorTpCd
+
+     , aam.actor_dtl_tp_cd as actorDtlTpCd
+
+     , aauind.actor_unq_id_nbr as actorUnqIdNbr
+
+  FROM at_cust_m acm
+
+       INNER JOIN at_actor_m aam
+
+         ON (acm.inst_cd = aam.inst_cd
+
+             AND acm.actor_id = aam.actor_id
+             
+             AND aam.actor_sts_cd &lt;&gt; #{ignoreInfoStsCd}
+
+<if test="actorTpCd != null and actorTpCd != ''"> 
+
+             AND aam.actor_tp_cd = #{actorTpCd,jdbcType=VARCHAR}
+
+</if>       
+
+            )
+
+       INNER JOIN at_actor_nm_d aand 
+
+          ON (acm.inst_cd = aand.inst_cd
+
+              AND acm.actor_id = aand.actor_id
+
+              AND aand.actor_nm_tp_cd = #{actorNmTpCd,jdbcType=VARCHAR}
+
+              AND aand.efctv_start_dt &lt;= #{txDt,jdbcType=VARCHAR}
+
+              AND aand.efctv_end_dt &gt;= #{txDt,jdbcType=VARCHAR} 
+              
+              AND aand.actor_nm_sts_cd = #{infoStsCd}
+
+<if test="actorNm != null and actorNm != ''">  
+
+              AND aand.actor_nm like CONCAT(CONCAT('%', #{actorNm,jdbcType=VARCHAR}), '%')
+
+</if>
+
+            )
+
+       INNER JOIN at_actor_unq_id_nbr_d aauind    
+
+          ON (acm.inst_cd = aauind.inst_cd
+
+              AND acm.actor_id = aauind.actor_id
+
+              AND aauind.actor_unq_id_nbr_tp_cd = #{actorUnqIdNbrTpCd,jdbcType=VARCHAR}
+
+              AND aauind.efctv_start_dt &lt;= #{txDt,jdbcType=VARCHAR}
+
+              AND aauind.efctv_end_dt &gt;= #{txDt,jdbcType=VARCHAR}        
+              
+              AND aauind.actor_unq_id_nbr_sts_cd = #{infoStsCd}
+
+<if test="actorUnqIdNbr != null and actorUnqIdNbr != ''">  
+
+              AND aauind.actor_unq_id_nbr like CONCAT(CONCAT('%', #{actorUnqIdNbr,jdbcType=VARCHAR}), '%')
+
+</if>
+
+             )
+
+       LEFT OUTER JOIN at_cust_loin_info_d aclid
+
+         ON (acm.inst_cd = aclid.inst_cd
+
+             AND acm.cust_id = aclid.cust_id
+
+             AND aclid.cust_loin_info_sts_cd = #{infoStsCd}
+
+             AND aclid.efctv_start_dt &lt;= #{txDt}
+
+             AND aclid.efctv_end_dt &gt;= #{txDt}
+
+
+
+<if test="loinIdNbr != null and loinIdNbr != ''">  
+
+	              AND aclid.loin_id_nbr like CONCAT(CONCAT('%', #{loinIdNbr,jdbcType=VARCHAR}), '%')
+
+</if>
+
+
+
+<if test="loinIdNbr == null or loinIdNbr == ''">  
+
+             AND aclid.loin_tp_cd = #{loinTpCd}  
+
+</if>
+
+
+
+             )
+
+ WHERE acm.inst_cd = #{instCd,jdbcType=VARCHAR}
+
+ AND acm.cust_sts_cd &lt;&gt; #{ignoreStsCd}
+
+  ORDER BY aand.actor_nm, aam.actor_id DESC 
+
+
+
+
+
+ LIMIT #{pgOffset}, #{pgCnt}
+</select>
+</mapper>

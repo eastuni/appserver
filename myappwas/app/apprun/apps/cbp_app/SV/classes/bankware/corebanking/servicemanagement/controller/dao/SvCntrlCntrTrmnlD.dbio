@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.controller.dao.SvCntrlCntrTrmnlD">
+<!--Generated Fri May 04 10:38:53 KST 2018-->
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrTrmnlDIO">
+INSERT  
+
+  INTO  sv_cntrl_cntr_trmnl_d    /* 제어센터단말명세 */
+
+(
+
+  inst_cd    /*기관코드*/, 
+
+  cntrl_cntr_id    /*제어센터식별자*/, 
+  dept_id    /*부점코드*/, 
+
+  trmnl_nbr    /*단말번호*/, 
+
+  aply_start_dt    /*적용시작년월일*/, 
+
+  aply_end_dt    /*적용종료년월일*/, 
+
+  last_chng_tmstmp    /*최종변경일시*/, 
+
+  last_chng_guid    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+  #{instCd, jdbcType=VARCHAR}    /*기관코드*/, 
+
+  #{cntrlCntrId, jdbcType=VARCHAR}    /*제어센터식별자*/, 
+
+  #{deptId, jdbcType=VARCHAR}    /*부점코드*/, 
+
+  #{trmnlNbr, jdbcType=VARCHAR}    /*단말번호*/, 
+
+  #{aplyStartDt, jdbcType=VARCHAR}    /*적용시작년월일*/, 
+
+  #{aplyEndDt, jdbcType=VARCHAR}    /*적용종료년월일*/, 
+
+  #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경일시*/, 
+
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+
+)
+</insert>
+<update id="update" parameterType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrTrmnlDIO">
+UPDATE  
+
+        sv_cntrl_cntr_trmnl_d    /* 제어센터단말명세 */
+
+   SET  aply_end_dt = #{aplyEndDt, jdbcType=VARCHAR}    /* 적용종료년월일 */, 
+
+        last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */, 
+
+        last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+
+ WHERE  inst_cd = #{instCd, jdbcType=VARCHAR}
+
+   AND  cntrl_cntr_id = #{cntrlCntrId, jdbcType=VARCHAR}
+   AND  dept_id = #{deptId, jdbcType=VARCHAR}
+
+   AND  trmnl_nbr = #{trmnlNbr, jdbcType=VARCHAR}
+
+   AND  aply_start_dt = #{aplyStartDt, jdbcType=VARCHAR}
+</update>
+<delete id="delete" parameterType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrTrmnlDIO">
+DELETE  FROM  sv_cntrl_cntr_trmnl_d    /* 제어센터단말명세 */
+
+ WHERE  inst_cd = #{instCd, jdbcType=VARCHAR}
+
+   AND  cntrl_cntr_id = #{cntrlCntrId, jdbcType=VARCHAR}
+   AND  dept_id = #{deptId, jdbcType=VARCHAR}
+
+   AND  trmnl_nbr = #{trmnlNbr, jdbcType=VARCHAR}
+
+   AND  aply_start_dt = #{aplyStartDt, jdbcType=VARCHAR}
+</delete>
+<select id="selectList" resultType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrTrmnlDIO">
+SELECT
+
+       inst_cd AS instCd
+
+     , cntrl_cntr_id AS cntrlCntrId
+     , dept_id AS deptId
+
+     , trmnl_nbr AS trmnlNbr
+
+     , aply_start_dt AS aplyStartDt
+
+     , aply_end_dt AS aplyEndDt
+
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM sv_cntrl_cntr_trmnl_d
+
+ WHERE inst_cd =  #{instCd}
+<if test="cntrlCntrId != null and cntrlCntrId != '' ">   
+    AND  cntrl_cntr_id = #{cntrlCntrId}
+</if>
+<if test="txDt != null and txDt != '' ">   
+
+   AND #{txDt} BETWEEN aply_start_dt AND aply_end_dt  
+
+</if>
+</select>
+<delete id="deleteByCntrlCntrId">
+DELETE  FROM  sv_cntrl_cntr_trmnl_d    /* 제어센터단말명세 */
+
+ WHERE  inst_cd = #{instCd, jdbcType=VARCHAR}
+
+   AND  cntrl_cntr_id = #{cntrlCntrId, jdbcType=VARCHAR}
+</delete>
+</mapper>

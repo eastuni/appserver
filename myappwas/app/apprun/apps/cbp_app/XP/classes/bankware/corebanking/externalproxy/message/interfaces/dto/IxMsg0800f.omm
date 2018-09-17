@@ -1,0 +1,14 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IxMsg0800f
+<description="자금화연장처리 전문(0800/906, 0810/906), 자금화 재연장처리전문(0800/907, 0810/907) - 전기관-자기앞수표 연장">
+{
+	String sysId<length=2 description="시스템ID">;
+	String extrnlInstCd<length=3 description="대외기관코드">;
+	String jointNetworkClCd<length=4 description="공동망종별코드">;
+	String jointNetworkTxDscd<length=3 description="공동망거래구분코드">;
+	String sndRcvFlagCntnt<length=1 description="송수신FLAG">;
+	String rspnsCd<length=3 description="응답코드">;
+	String msgSndTmstmp1<length=12 description="전문전송일시(yymmddhhmmss)">;
+	String prtcptnInstCd<length=3 description="참가기관코드" defaultValue="099">;
+	String extnsnHms1<length=4 description="연장시각">;
+	String fillerCntnt61<length=12 description="예비정보 FIELD">;
+}

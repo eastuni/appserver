@@ -1,0 +1,7 @@
+OMM bxm.web.admin.addition.before.image.domain.BeforeImageListOMM
+<description="">
+{
+	Integer totalPage<length=9>;
+	Integer size<length=9>;
+	bxm.web.admin.addition.before.image.domain.BeforeImageOMM beforeImageList<length=0 arrayReference="size" description="beforeImageList">;
+}

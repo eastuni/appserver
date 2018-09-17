@@ -1,0 +1,23 @@
+OMM bankware.corebanking.p2p.accountsummary.service.dto.AcctSmryInqrySvcOut
+<description="총괄표 Input">
+{
+	BigDecimal invstmntBiddingSumAmt<length=18 decimal=2 description="투자입찰합계금액">;
+	BigDecimal invstmntBiddingCnt<length=18 decimal=2 description="투자입찰건수">;
+	BigDecimal invstmntClctnSumAmt<length=18 decimal=2 description="투자회수합계금액">;
+	BigDecimal invstmntClctnCnt<length=18 decimal=2 description="투자회수건수">;
+	BigDecimal invstmntTrmntSumAmt<length=18 decimal=2 description="투자종료합계금액">;
+	BigDecimal invstmntTrmntCnt<length=18 decimal=2 description="투자종료건수">;
+	BigDecimal lnAplctnSumAmt<length=18 decimal=2 description="대출신청합계">;
+	BigDecimal lnAplctnCnt<length=18 decimal=2 description="대출실행건수">;
+	BigDecimal lnBiddingSumAmt<length=18 decimal=2 description="대출입찰합계금액">;
+	BigDecimal lnBiddingCnt<length=18 decimal=2 description="대출입찰건수">;
+	BigDecimal lnRpymntSumAmt<length=18 decimal=2 description="대출상환합계금액">;
+	BigDecimal lnRpymntCnt<length=18 decimal=2 description="대출상환건수">;
+	BigDecimal lnTrmntSumAmt<length=18 decimal=2 description="대출종료합계금액">;
+	BigDecimal lnTrmntCnt<length=18 decimal=2 description="대출종료건수">;
+	String cnfrmAuthDataCntnt<length=1000 description="Cnfrmauthdata">;
+	String arrId<length=15 description="계약식별자">;
+	String prvsLoinTmstmp<length=15 description="이전로그인시간">;
+	String lastLoinTmstmp<length=15 description="최종로그인시간">;
+	String arrStsCd<length=1 description="Arrangement Status Code">;
+}

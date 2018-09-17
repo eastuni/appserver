@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://api.prodwsvc.pf.bankware.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://api.prodwsvc.pf.bankware.com" xmlns:intf="http://api.prodwsvc.pf.bankware.com" xmlns:tns1="http://model.prodwsvc.pf.bankware.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://api.prodwsvc.pf.bankware.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model.prodwsvc.pf.bankware.com"/>
+   <element name="executeSql">
+    <complexType>
+     <sequence>
+      <element name="executeSqlVO" type="tns1:ExecuteSqlVO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_string">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns1_ExecuteInfoRecord">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:ExecuteInfoRecord"/>
+    </sequence>
+   </complexType>
+   <element name="executeSqlResponse">
+    <complexType>
+     <sequence>
+      <element name="executeSqlReturn" type="tns1:ExecuteSqlVO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="pushDistribute">
+    <complexType>
+     <sequence>
+      <element name="wMeta" type="tns1:WsvcMeta"/>
+      <element name="distributeVO" type="tns1:DistributeVO"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns1_ProductInfoRecord">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:ProductInfoRecord"/>
+    </sequence>
+   </complexType>
+   <element name="pushDistributeResponse">
+    <complexType>
+     <sequence>
+      <element name="pushDistributeReturn" type="tns1:WsvcMeta"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model.prodwsvc.pf.bankware.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://api.prodwsvc.pf.bankware.com"/>
+   <complexType name="ExecuteInfoRecord">
+    <sequence>
+     <element name="cnstncyChkTrgtObjCd" nillable="true" type="xsd:string"/>
+     <element name="errorCode" nillable="true" type="xsd:string"/>
+     <element name="errorMessage" nillable="true" type="xsd:string"/>
+     <element name="industryDistinctionCode" nillable="true" type="xsd:string"/>
+     <element name="pdInfoDscd" nillable="true" type="xsd:string"/>
+     <element name="resultContent" nillable="true" type="impl:ArrayOf_xsd_string"/>
+     <element name="sqlContent" nillable="true" type="impl:ArrayOf_xsd_string"/>
+     <element name="success" type="xsd:boolean"/>
+     <element name="table" nillable="true" type="xsd:string"/>
+     <element name="tableKey" nillable="true" type="impl:ArrayOf_xsd_string"/>
+     <element name="tableValue" nillable="true" type="impl:ArrayOf_xsd_string"/>
+     <element name="tntInstId" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ExecuteSqlVO">
+    <sequence>
+     <element name="executeInfoRecord" nillable="true" type="impl:ArrayOf_tns1_ExecuteInfoRecord"/>
+     <element name="sysUrl" nillable="true" type="impl:ArrayOf_xsd_string"/>
+    </sequence>
+   </complexType>
+   <complexType name="WsvcMeta">
+    <sequence>
+     <element name="dataCount" type="xsd:int"/>
+     <element name="errorCode" nillable="true" type="xsd:string"/>
+     <element name="errorMessage" nillable="true" type="xsd:string"/>
+     <element name="footer" nillable="true" type="xsd:string"/>
+     <element name="header" nillable="true" type="xsd:string"/>
+     <element name="serviceDscd" nillable="true" type="xsd:string"/>
+     <element name="sucess" type="xsd:boolean"/>
+     <element name="txCode" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ProductInfoRecord">
+    <sequence>
+     <element name="changeType" nillable="true" type="xsd:string"/>
+     <element name="dataContent" nillable="true" type="xsd:string"/>
+     <element name="processState" nillable="true" type="xsd:string"/>
+     <element name="projectId" nillable="true" type="xsd:string"/>
+     <element name="publishId" nillable="true" type="xsd:string"/>
+     <element name="sequenceNumber" type="xsd:long"/>
+     <element name="targetTableKey" nillable="true" type="xsd:string"/>
+     <element name="targetTableName" nillable="true" type="xsd:string"/>
+     <element name="tntInstId" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="DistributeVO">
+    <sequence>
+     <element name="distributeCheckInterfaceId" nillable="true" type="xsd:string"/>
+     <element name="distributeInterfaceId" nillable="true" type="xsd:string"/>
+     <element name="productInfoRecordList" nillable="true" type="impl:ArrayOf_tns1_ProductInfoRecord"/>
+     <element name="projectId" nillable="true" type="xsd:string"/>
+     <element name="publishId" nillable="true" type="xsd:string"/>
+     <element name="sequenceNumber" type="xsd:int"/>
+     <element name="sucess" type="xsd:boolean"/>
+     <element name="targetSystemCode" nillable="true" type="xsd:string"/>
+     <element name="targetSystemEnvrnmntDscd" nillable="true" type="xsd:string"/>
+     <element name="tntInstId" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="pushDistributeResponse">
+
+      <wsdl:part element="impl:pushDistributeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="executeSqlRequest">
+
+      <wsdl:part element="impl:executeSql" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="executeSqlResponse">
+
+      <wsdl:part element="impl:executeSqlResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="pushDistributeRequest">
+
+      <wsdl:part element="impl:pushDistribute" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="DataReceiver">
+
+      <wsdl:operation name="executeSql">
+
+         <wsdl:input message="impl:executeSqlRequest" name="executeSqlRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:executeSqlResponse" name="executeSqlResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="pushDistribute">
+
+         <wsdl:input message="impl:pushDistributeRequest" name="pushDistributeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:pushDistributeResponse" name="pushDistributeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="DataReceiverSoapBinding" type="impl:DataReceiver">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="executeSql">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="executeSqlRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="executeSqlResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="pushDistribute">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="pushDistributeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="pushDistributeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="DataReceiverService">
+
+      <wsdl:port binding="impl:DataReceiverSoapBinding" name="DataReceiver">
+
+         <wsdlsoap:address location="http://localhost:18082/bankware-pf-wsvc-biz/services/DataReceiver"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

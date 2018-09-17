@@ -1,0 +1,41 @@
+<!-- 화면설정상세 팝업 -->
+<div class="pf-menu-screen-form">
+    <table class="bx-info-table screen-info-table">
+        <tr>
+            <!-- 화면ID -->
+            <th>{{bxMsg 'ScrnId'}}</th>
+            <td>
+                <input type="text" placeholder="{{bxMsg 'scrnIdPlaceholder'}}" class="bx-form-item bx-compoenent-small scrn-id" data-form-param="scrnId" value="{{scrnId}}">
+            </td>
+        </tr>
+        <tr>
+            <!-- 화면명 -->
+            <th>{{bxMsg 'ScrnNm'}}</th>
+            <td>
+                <input type="text" class="bx-form-item bx-compoenent-small scrn-name" data-form-param="scrnNm" value="{{scrnNm}}">
+            </td>
+        </tr>
+
+        <tr>
+            <!-- 화면URL주소 -->
+            <th>{{bxMsg 'ScrnUrlAddr'}}</th>
+            <td>
+                <input type="text" class="bx-form-item bx-compoenent-small scrn-url-addr" data-form-param="scrnUrlAddr" value="{{scrnUrlAddr}}">
+            </td>
+        </tr>
+        <tr>
+            <!-- 메뉴대상화면여부 -->
+            <th>{{bxMsg 'menuTargetYn'}}</th>
+            <td>
+                <select class="bx-form-item bx-compoenent-small menu-target-yn" data-form-param="menuTargetScrnYn" value="{{menuTargetScrnYn}}"></select>
+            </td>
+        </tr>
+        <tr>
+            <!-- 활동여부 -->
+            <th>{{bxMsg 'MTM0300String2'}}</th>
+            <td>
+                <select class="bx-form-item bx-compoenent-small actv-yn" data-form-param="actvYn" value="{{actvYn}}"></select>
+            </td>
+        </tr>
+    </table>
+</div>

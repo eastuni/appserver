@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.dni.analyze.dbio.AnalyzeFileDBIO">
+<!--Generated Mon Dec 04 16:09:51 KST 2017-->
+<insert id="insertBxmApp" parameterType="bxm.web.admin.dni.analyze.domain.BxmAppOMM">
+INSERT INTO BXM_APP /* BXM어플리케이션 */
+(
+    BXM_APP_ID,/*BXM어플리케이션ID*/ 
+    BXM_APP_DESC,/*BXM어플리케이션설명*/ 
+    BXM_APP_TYPE_CD,/*BXM 어플리케이션 타입 코드*/ 
+    BXM_APP_SHARED_YN,/*BXM 어플리케이션 공유 여부*/ 
+    BXM_REF_APP_LIST,/*BXM 참조 어플리케이션 목록*/ 
+    USE_YN,/*사용여부*/ 
+    BIZ_PRE_PROC_NM,/*업무선처리명*/ 
+    BIZ_POST_PROC_NM,/*업무후처리명*/ 
+    REG_USER_ID,/*등록 사용자 ID*/ 
+    REG_OCCUR_DTTM,/*등록발생일시*/ 
+    MODIFY_USER_ID,/*변경 사용자 ID*/ 
+    MODIFY_OCCUR_DTTM /*변경발생일시*/ 
+)
+VALUES
+(
+    #{bxmAppId, jdbcType=VARCHAR},/*BXM어플리케이션ID*/ 
+    #{bxmAppDesc, jdbcType=VARCHAR},/*BXM어플리케이션설명*/ 
+    #{bxmAppTypeCd, jdbcType=VARCHAR},/*BXM 어플리케이션 타입 코드*/ 
+    #{bxmAppSharedYn, jdbcType=VARCHAR},/*BXM 어플리케이션 공유 여부*/ 
+    #{bxmRefAppList, jdbcType=VARCHAR},/*BXM 참조 어플리케이션 목록*/ 
+    #{useYn, jdbcType=VARCHAR},/*사용여부*/ 
+    #{bizPreProcNm, jdbcType=VARCHAR},/*업무선처리명*/ 
+    #{bizPostProcNm, jdbcType=VARCHAR},/*업무후처리명*/ 
+    #{regUserId, jdbcType=VARCHAR},/*등록 사용자 ID*/ 
+    #{regOccurDttm, jdbcType=VARCHAR},/*등록발생일시*/ 
+    #{modifyUserId, jdbcType=VARCHAR},/*변경 사용자 ID*/
+    #{modifyOccurDttm, jdbcType=VARCHAR} /*변경발생일시*/ 
+)
+</insert>
+<update id="updateBxmApp" parameterType="bxm.web.admin.dni.analyze.domain.BxmAppOMM">
+UPDATE BXM_APP /* BXM어플리케이션 */
+   SET BXM_APP_DESC = #{bxmAppDesc, jdbcType=VARCHAR} /* BXM어플리케이션설명 */,
+       BXM_APP_TYPE_CD = #{bxmAppTypeCd, jdbcType=VARCHAR} /* BXM 어플리케이션 타입 코드 */,
+       BXM_APP_SHARED_YN = #{bxmAppSharedYn, jdbcType=VARCHAR} /* BXM 어플리케이션 공유 여부 */,
+       BXM_REF_APP_LIST = #{bxmRefAppList, jdbcType=VARCHAR} /* BXM 참조 어플리케이션 목록 */,
+       USE_YN = #{useYn, jdbcType=VARCHAR} /* 사용여부 */,
+       BIZ_PRE_PROC_NM = #{bizPreProcNm, jdbcType=VARCHAR} /* 업무선처리명 */,
+       BIZ_POST_PROC_NM = #{bizPostProcNm, jdbcType=VARCHAR} /* 업무후처리명 */,
+       MODIFY_USER_ID = #{modifyUserId, jdbcType=VARCHAR} /* 변경 사용자 ID */,
+       MODIFY_OCCUR_DTTM = #{modifyOccurDttm, jdbcType=VARCHAR} /* 변경발생일시 */
+ WHERE BXM_APP_ID = #{bxmAppId, jdbcType=VARCHAR}
+</update>
+<insert id="insertRes" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniResOMM">
+INSERT INTO BXM_DNI_RES /* 리소스 분석 정보 */
+(
+    BXM_APP_ID,/*BXM어플리케이션ID*/ 
+    PKG_NM,/*패키지 명*/ 
+    CLASS_NM,/*클래스 명*/ 
+    SVC_NM,/*서비스 명*/ 
+    EXEC_TYPE_CD,/*실행 타입 코드*/ 
+    CLASS_TYPE_CD,/*클래스 타입 코드*/ 
+    CLASS_MODIFIER_LIST,/*클래스 접근자 목록*/ 
+    FIELD_CNT,/*필드 수*/ 
+    FILE_PATH,/*파일 경로*/ 
+    TOTAL_LINE_CNT,/*총 라인 수*/ 
+    MODIFY_DTTM /*변경 일시*/ 
+)
+VALUES
+(
+    #{bxmAppId, jdbcType=VARCHAR},/*BXM어플리케이션ID*/ 
+    #{pkgNm, jdbcType=VARCHAR},/*패키지 명*/ 
+    #{classNm, jdbcType=VARCHAR},/*클래스 명*/ 
+    #{svcNm, jdbcType=VARCHAR},/*서비스 명*/ 
+    #{execTypeCd, jdbcType=VARCHAR},/*실행 타입 코드*/ 
+    #{classTypeCd, jdbcType=VARCHAR},/*클래스 타입 코드*/ 
+    #{classModifierList, jdbcType=VARCHAR},/*클래스 접근자 목록*/ 
+    #{fieldCnt, jdbcType=NUMERIC},/*필드 수*/ 
+    #{filePath, jdbcType=VARCHAR},/*파일 경로*/ 
+    #{totalLineCnt, jdbcType=NUMERIC},/*총 라인 수*/
+    #{modifyDttm, jdbcType=VARCHAR} /*변경 일시*/ 
+)
+</insert>
+<insert id="insertMethod" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniMethodOMM">
+INSERT INTO BXM_DNI_METHOD /* 메소드 분석 정보 */
+(
+    METHOD_ID,/*메소드 ID*/ 
+    BXM_APP_ID,/*BXM어플리케이션ID*/ 
+    PKG_NM,/*패키지 명*/ 
+    CLASS_NM,/*클래스 명*/ 
+    METHOD_SIGN,/*메소드 시그니쳐*/ 
+    METHOD_NM,/*메소드 명*/ 
+    METHOD_EXEC_TYPE_CD,/*메소드 실행 타입 코드*/ 
+    START_LINE_CNT,/*시작 라인 수*/ 
+    END_LINE_CNT,/*종료 라인 수*/ 
+    OP_NM,/*오퍼레이션 명*/ 
+    TRAN_YN,/*트랜잭션 여부*/ 
+    METHOD_MODIFIER_LIST,/*메소드 접근자 목록*/ 
+    MODIFY_DTTM /*변경 일시*/ 
+)
+VALUES
+(
+    #{methodId, jdbcType=VARCHAR},/*메소드 ID*/ 
+    #{bxmAppId, jdbcType=VARCHAR},/*BXM어플리케이션ID*/ 
+    #{pkgNm, jdbcType=VARCHAR},/*패키지 명*/ 
+    #{classNm, jdbcType=VARCHAR},/*클래스 명*/ 
+    #{methodSign, jdbcType=VARCHAR},/*메소드 시그니쳐*/ 
+    #{methodNm, jdbcType=VARCHAR},/*메소드 명*/ 
+    #{methodExecTypeCd, jdbcType=VARCHAR},/*메소드 실행 타입 코드*/ 
+    #{startLineCnt, jdbcType=NUMERIC},/*시작 라인 수*/ 
+    #{endLineCnt, jdbcType=NUMERIC},/*종료 라인 수*/ 
+    #{opNm, jdbcType=VARCHAR},/*오퍼레이션 명*/ 
+    #{tranYn, jdbcType=VARCHAR},/*트랜잭션 여부*/ 
+    #{methodModifierList, jdbcType=VARCHAR},/*메소드 접근자 목록*/
+    #{modifyDttm, jdbcType=VARCHAR} /*변경 일시*/ 
+)
+</insert>
+<insert id="insertMethodCallee" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniMethodCalleeOMM">
+INSERT INTO BXM_DNI_METHOD_CALLEE /* 메소드 Callee 호출 정보 */
+(
+    METHOD_ID,/*메소드 ID*/ 
+    CALLER_METHOD_LINE,/*Caller 메소드 라인*/ 
+    CALLEE_BXM_APP_ID,/*Callee BXM 어플리케이션 ID*/ 
+    CALLEE_PKG_NM,/*Callee 패키지 명*/ 
+    CALLEE_CLASS_NM,/*Callee 클래스 명*/ 
+    CALLEE_METHOD_SIGN,/*Callee 메소드 시그니쳐*/ 
+    MODIFY_DTTM /*변경 일시*/ 
+)
+VALUES
+(
+    #{methodId, jdbcType=VARCHAR},/*메소드 ID*/ 
+    #{callerMethodLine, jdbcType=NUMERIC},/*Caller 메소드 라인*/ 
+    #{calleeBxmAppId, jdbcType=VARCHAR},/*Callee BXM 어플리케이션 ID*/ 
+    #{calleePkgNm, jdbcType=VARCHAR},/*Callee 패키지 명*/ 
+    #{calleeClassNm, jdbcType=VARCHAR},/*Callee 클래스 명*/ 
+    #{calleeMethodSign, jdbcType=VARCHAR},/*Callee 메소드 시그니쳐*/
+    #{modifyDttm, jdbcType=VARCHAR} /*변경 일시*/ 
+)
+</insert>
+<insert id="insertMethodParam" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniMethodParam">
+INSERT INTO BXM_DNI_METHOD_PARAM /* 메소드 파라미터 정보 */
+(
+    METHOD_ID,/*메소드 ID*/ 
+    PARAM_FQN,/*파라미터 FQN*/ 
+    PARAM_SEQ, /*파라미터 일련번호*/
+    PARAM_TYPE_CD,/*파라미터 타입 코드*/ 
+    MODIFY_DTTM /*변경 일시*/ 
+)
+VALUES
+(
+    #{methodId, jdbcType=VARCHAR},/*메소드 ID*/ 
+    #{paramFqn, jdbcType=VARCHAR},/*파라미터 FQN*/ 
+    #{paramSeq, jdbcType=NUMERIC}, /*파라미터 일련번호*/
+    #{paramTypeCd, jdbcType=VARCHAR},/*파라미터 타입 코드*/
+    #{modifyDttm, jdbcType=VARCHAR} /*변경 일시*/ 
+)
+</insert>
+<insert id="insertMethodExecutorCallee" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniSvcCalleeOMM">
+INSERT INTO BXM_DNI_SVC_CALLEE /* 메소드 서비스 호출 정보 */
+(
+    METHOD_ID,/*메소드 ID*/ 
+    CALLEE_METHOD_LINE,/*Caller 라인*/ 
+    CALLEE_BXM_APP_ID,/*Callee BXM 어플리케이션 ID*/ 
+    CALLEE_SVC_NM,/*Callee 서비스 명*/ 
+    CALLEE_OP_NM,/*Callee 오퍼레이션 명*/ 
+    MODIFY_DTTM /*변경 일시*/ 
+)
+VALUES
+(
+    #{methodId, jdbcType=VARCHAR},/*메소드 ID*/ 
+    #{calleeMethodLine, jdbcType=NUMERIC},/*Caller 라인*/ 
+    #{calleeBxmAppId, jdbcType=VARCHAR},/*Callee BXM 어플리케이션 ID*/ 
+    #{calleeSvcNm, jdbcType=VARCHAR},/*Callee 서비스 명*/ 
+    #{calleeOpNm, jdbcType=VARCHAR},/*Callee 오퍼레이션 명*/
+    #{modifyDttm, jdbcType=VARCHAR} /*변경 일시*/ 
+)
+</insert>
+<select id="selectMethodIds" parameterType="bxm.web.admin.dni.analyze.domain.AnalyzeFileOMM" resultType="bxm.web.admin.dni.analyze.domain.BxmDniMethodOMM">
+SELECT /* 메소드 분석 정보 */ 
+       METHOD_ID AS methodId/*메소드 ID*/ 
+  FROM BXM_DNI_METHOD
+ WHERE BXM_APP_ID = #{bxmAppId}
+     AND PKG_NM = #{packageNm}
+     AND CLASS_NM = #{classNm}
+</select>
+<delete id="deleteMethodExecutorCallee" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniMethodOMM">
+DELETE FROM BXM_DNI_SVC_CALLEE /* 메소드 서비스 호출 정보 */ 
+WHERE METHOD_ID = #{methodId}
+</delete>
+<delete id="deleteMethodParam" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniMethodOMM">
+DELETE FROM BXM_DNI_METHOD_PARAM /* 메소드 파라미터 정보 */
+      WHERE METHOD_ID = #{methodId}
+</delete>
+<delete id="deleteMethodCallee" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniMethodOMM">
+DELETE FROM BXM_DNI_METHOD_CALLEE
+WHERE METHOD_ID = #{methodId}
+</delete>
+<delete id="deleteMethod" parameterType="bxm.web.admin.dni.analyze.domain.AnalyzeFileOMM">
+DELETE FROM BXM_DNI_METHOD /* 메소드 분석 정보 */
+ WHERE BXM_APP_ID = #{bxmAppId}
+     AND PKG_NM = #{packageNm}
+     AND CLASS_NM = #{classNm}
+</delete>
+<delete id="deleteRes" parameterType="bxm.web.admin.dni.analyze.domain.AnalyzeFileOMM">
+DELETE FROM BXM_DNI_RES /* 리소스 분석 정보 */
+      WHERE BXM_APP_ID = #{bxmAppId}
+        AND PKG_NM = #{packageNm}
+        AND CLASS_NM = #{classNm}
+</delete>
+<insert id="insertRootSvc" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniRootSvcOMM">
+INSERT INTO BXM_DNI_ROOT_SVC /* BXM ROOT 서비스 정보 */
+(
+    METHOD_ID,/*메소드 ID*/ 
+    ROOT_METHOD_ID,/*Root 메소드 ID*/ 
+    MODIFY_DTTM /*변경 일시*/ 
+)
+VALUES
+(
+    #{methodId, jdbcType=VARCHAR},/*메소드 ID*/ 
+    #{rootMethodId, jdbcType=VARCHAR},/*Root 메소드 ID*/
+    #{modifyDttm, jdbcType=VARCHAR} /*변경 일시*/ 
+)
+</insert>
+<delete id="deleteRootSvc" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniMethodOMM">
+DELETE FROM BXM_DNI_ROOT_SVC /* BXM ROOT 서비스 정보 */ 
+WHERE METHOD_ID = #{methodId}
+</delete>
+</mapper>

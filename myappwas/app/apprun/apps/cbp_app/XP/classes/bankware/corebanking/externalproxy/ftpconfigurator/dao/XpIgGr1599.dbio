@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpIgGr1599">
+<!--Generated Wed Apr 26 16:48:07 KST 2017-->
+<select id="selectGR1599InqryList" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIgGr1599IO">
+SELECT 		instCd,     /*기관코드*/
+			    txYm,     /*거래년월*/
+			    seqNbr,     /*일련번호*/
+			    baseDt,     /*기준일자*/
+			    fnclInstBizBrnchCd,     /*금융기관영업은행지점코드*/
+			    useInstClCd,     /*이용기관분류코드*/
+			    useInstSeqNbr,     /*이용기관구분번호*/
+			    acctNbr,     /*계좌번호*/
+			    useInstNm,     /*이용기관명*/
+			    rprsntnBzmanNm,     /*대표자명*/
+			    aprvDt,     /*승인일자*/
+			    mnthUseCnt,     /*월이용건수*/
+			    mnthUseAmt     /*월이용금액*/  
+FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+    			A.instCd,     /*기관코드*/
+			    A.txYm,     /*거래년월*/
+			    A.seqNbr,     /*일련번호*/
+			    A.baseDt,     /*기준일자*/
+			    A.fnclInstBizBrnchCd,     /*금융기관영업은행지점코드*/
+			    A.useInstClCd,     /*이용기관분류코드*/
+			    A.useInstSeqNbr,     /*이용기관구분번호*/
+			    A.acctNbr,     /*계좌번호*/
+			    A.useInstNm,     /*이용기관명*/
+			    A.rprsntnBzmanNm,     /*대표자명*/
+			    A.aprvDt,     /*승인일자*/
+			    A.mnthUseCnt,     /*월이용건수*/
+			    A.mnthUseAmt     /*월이용금액*/ 
+    FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+			SELECT    /* 인터넷지로_금융기관별지로번호부여현황월보 */
+			        INST_CD AS instCd,     /*기관코드*/
+			        TX_YM AS txYm,     /*거래년월*/
+			        SEQ_NBR AS seqNbr,     /*일련번호*/
+			        BASE_DT AS baseDt,     /*기준일자*/
+			        FNCL_INST_BSOP_BNK_BRH_CD AS fnclInstBizBrnchCd,     /*금융기관영업은행지점코드*/
+			        UTL_INST_CL_CD AS useInstClCd,     /*이용기관분류코드*/
+			        UTL_INST_DS_NBR AS useInstSeqNbr,     /*이용기관구분번호*/
+			        ACCT_NBR AS acctNbr,     /*계좌번호*/
+			        UTL_INST_NM AS useInstNm,     /*이용기관명*/
+			        RPPR_NM AS rprsntnBzmanNm,     /*대표자명*/
+			        APRVL_DT AS aprvDt,     /*승인일자*/
+			        MTH_UTL_CNT AS mnthUseCnt,     /*월이용건수*/
+			        MTH_UTL_AMT AS mnthUseAmt     /*월이용금액*/
+			  FROM  XP_IG_GR1599
+			 WHERE INST_CD = #{instCd}
+			   AND TX_YM = #{txYm}
+			order by SEQ_NBR desc
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectGR1599InqryTotalCnt" resultType="java.lang.Integer">
+SELECT    /* 인터넷지로_요금종류별수납및지급집계내역 */
+        COUNT(INST_CD)
+  FROM  XP_IG_GR1599
+ WHERE INST_CD = #{instCd}
+   AND TX_YM = #{txYm}
+</select>
+</mapper>

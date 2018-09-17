@@ -1,0 +1,6 @@
+OMM bxm.web.admin.dni.operation.domain.DBTableTreeOMM
+<description="">
+{
+	String tableNm<length=100 description="테이블 명">;
+	String columnNm<length=100 description="컬럼 명">;
+}

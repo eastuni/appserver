@@ -1,0 +1,22 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for merchant group
+ * 가맹점그룹 CSS 
+ */
+/*가맹점검색 팝업그리드*/
+.merchant-search-popup .merchant-list-grid {
+    height: 200px;
+}
+.pf-mg .pf-mg-rel-form th {
+    width: 150px; }
+/*가맹점그룹 그리드*/
+.pf-mg-str-grid {
+    height: 360px;
+}
+.merchant-group-management-popup .bx-info-table th {
+    width:150px;
+}
+/*input, select width*/
+.merchant-group-management-popup .bx-info-table input, .merchant-group-management-popup .bx-info-table select {
+    width:160px;
+}

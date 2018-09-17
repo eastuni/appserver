@@ -1,0 +1,22 @@
+OMM bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlTimerLIO
+<description="">
+{
+	String instCd<length=14 description="기관코드">;
+	String extrnlInstCd<length=3 description="대외기관코드">;
+	String extrnlBizDscd<length=3 description="대외업무구분코드">;
+	String txDt<length=8 description="거래년월일">;
+	String timerKeyCntnt<length=20 description="타이머키">;
+	String timerPrcsDscd<length=1 description="타이머처리구분코드">;
+	Integer timeoutScnd<length=7 description="타임아웃시간(초)">;
+	String timeoutHms<length=6 description="타임아웃발생시각">;
+	String guid<length=40 description="GUID">;
+	String sysIntrfcId<length=40 description="시스템인터페이스식별자">;
+	String sysIntrfcNm<length=100 description="시스템인터페이스식별자명">;
+	String extrnlTxCd<length=14 description="대외거래코드">;
+	String timeoutSrvcCd<length=20 description="타임아웃서비스코드">;
+	String hdrInfoCntnt<length=2000 description="헤더정보">;
+	BigDecimal msgLen<length=10 description="메시지길이">;
+	String msgCntnt<length=4000 description="메시지내용">;
+	Date lastChngTmstmp<length=20 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

@@ -1,0 +1,11 @@
+OMM bankware.corebanking.sample.dao.dto.SampleDaoIO
+<description="">
+{
+	String instCd<length=14 description="기관코드">;
+	String custId<length=100 description="고객식별자">;
+	String userNm<length=50 description="이름">;
+	BigDecimal userAge<length=6 description="나이">;
+	String gndrDscd<length=1 description="성별">;
+	Date lastChngTmstmp<length=20 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

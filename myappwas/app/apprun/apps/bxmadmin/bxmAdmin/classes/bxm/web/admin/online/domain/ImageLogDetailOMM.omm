@@ -1,0 +1,21 @@
+OMM bxm.web.admin.online.domain.ImageLogDetailOMM
+<description="">
+{
+	String guid<length=40 description="GUID">;
+	String trxCd<length=12 description="거래코드">;
+	String nodeName<length=128 description="NODE명">;
+	String containerNm<length=128 description="컨테이너명">;
+	String contextNm<length=128 description="컨텍스트명">;
+	String bxmAppId<length=32 description="BXM어플리케이션ID">;
+	String svcNm<length=512 description="서비스명">;
+	String opNm<length=512 description="오퍼레이션명">;
+	String msgEncodingCd<length=16 description="전문인코딩코드">;
+	String msgType<length=20 description="전문유형">;
+	Integer msgLen<length=8 description="전문길이">;
+	String inputRawData<length=20 description="입력 전문 데이터">;
+	bxm.web.admin.online.domain.ImageLogDetailGridOMM inputGridData<length=0 description="입력 전문 그리드 데이터">;
+	String outputRawData<length=20 description="출력 전문 데이터">;
+	bxm.web.admin.online.domain.ImageLogDetailGridOMM outputGridData<length=0 description="출력 전문 그리드 데이터">;
+	String inputLogOccurDttm<length=23 description="로그발생일시">;
+	String outputLogOccurDttm<length=23 description="로그발생일시">;
+}

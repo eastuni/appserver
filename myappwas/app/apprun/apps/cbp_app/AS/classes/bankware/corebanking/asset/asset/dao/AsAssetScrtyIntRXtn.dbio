@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.asset.asset.dao.AsAssetScrtyIntRXtn">
+<!--Generated Fri Mar 09 17:18:14 KST 2018-->
+<select id="selectListDebtorCustIdByAssetId" resultType="java.lang.String">
+SELECT DISTINCT
+        M.DEBTOR_CUST_ID AS debtorCustId     /*채무자고객식별자*/
+  FROM  as_asset_scrty_int_r R,
+		    as_scrty_int_m M
+ WHERE R.INST_CD = #{instCd}
+   AND R.ASSET_ID  = #{assetId}
+   AND  M.INST_CD = R.INST_CD
+   AND  M.SCRTY_INT_ID = R.SCRTY_INT_ID
+   AND  M.CRDTR_DSCD = '1'  /*채권자구분(1당행)*/ 
+   <if test="stsCd != null and stsCd != '' and stsCd eq 'N'.toString()">
+       AND	'N' =#{stsCd}  AND R.ASSET_SCRTY_INT_REL_STS_CD IN ('1','2','3') /*정상상태(예정,확정,해지예정)*/ 
+   </if>
+   <if test="stsCd != null and stsCd != '' and stsCd eq 'A'.toString()">
+       AND	'A' =#{stsCd}  AND	R.ASSET_SCRTY_INT_REL_STS_CD IN ( '2','3') /*활동상태(확정,해지예정)*/ 
+   </if>
+   <if test="stsCd != null and stsCd != '' and stsCd eq 'T'.toString()">
+       AND	'T' =#{stsCd}  AND	R.ASSET_SCRTY_INT_REL_STS_CD IN ( '4')  /*해지상태 (해지)*/ 
+   </if>
+   <if test="stsCd != null and stsCd != '' and stsCd eq 'W'.toString()">
+       AND	'W' =#{stsCd}  AND	R.ASSET_SCRTY_INT_REL_STS_CD IN ( '1','2','3','4')  /*전체(예정,확정,해지예정,해지)*/ 
+   </if>
+   <if test="stsCd != null and stsCd != '' and stsCd eq 'C'.toString()"> 
+       AND	'C' =#{stsCd}  AND	R.ASSET_SCRTY_INT_REL_STS_CD IN ( '9')   /*취소*/ 
+   </if>
+</select>
+<select id="selectAssetScrtyIntRelSummation" resultType="bankware.corebanking.asset.summation.interfaces.dto.AssetScrtyIntRelList">
+select a1.asset_id          as assetId
+     , a1.scrty_int_id      as scrtyIntId
+     , a4.scrty_int_dt      as scrtyIntDt
+     , a1.scrty_int_prity   as scrtyIntPrity
+     , a4.CRDTR_DSCD        as crdtrDscd
+     , a2.XTN_ATRBT_CNTNT   as debtor_ownr_rel_dscd
+     , a3.XTN_ATRBT_CNTNT   as third_party_cltrl_yn
+  from as_asset_scrty_int_r     a1
+  inner join as_scrty_int_m a4 on a1.inst_cd = a4.inst_cd
+                              and a1.SCRTY_INT_ID = a4.SCRTY_INT_ID
+  left outer join as_asset_scrty_int_xtn_info_d a2 on a1.inst_cd = a2.inst_cd 
+                                                  and a1.asset_id = a2.asset_id 
+                                                  and a1.SCRTY_INT_ID = a2.SCRTY_INT_ID
+                                                  and a2.XTN_ATRBT_NM = 'debtorOwnrRelDscd'
+  left outer join as_asset_scrty_int_xtn_info_d a3 on a1.inst_cd = a3.inst_cd 
+                                                  and a1.asset_id = a3.asset_id 
+                                                  and a1.SCRTY_INT_ID = a3.SCRTY_INT_ID
+                                                  and a3.XTN_ATRBT_NM = 'thirdPartyCltrlYn'
+ where a1.asset_id in (
+                    select distinct asset_id
+                      from as_asset_scrty_int_r
+                     where scrty_int_id in (
+                                            select scrty_int_id
+                                              from as_scrty_int_m
+                                             where debtor_cust_id = #{debtorCustId}
+                                           )
+                      )
+<if test="settingDcsnDscd eq '1'.toString()"> 
+   AND  '1' = #{settingDcsnDscd}
+   AND	a1.ASSET_SCRTY_INT_REL_STS_CD IN ('1','2','3') /*정상상태(예정,확정,해지예정)*/
+</if>  
+<if test="settingDcsnDscd eq '2'.toString()"> 
+   AND  '2' = #{settingDcsnDscd}
+   AND	a1.ASSET_SCRTY_INT_REL_STS_CD IN ('2','3') /*정상상태(확정,해지예정)*/
+</if>
+</select>
+</mapper>

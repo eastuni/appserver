@@ -1,0 +1,6 @@
+OMM bxm.web.admin.setting.domain.BatchUrlPwdOMM
+<description="BatchUrlPwdOMM">
+{
+	String password<length=64 description="비밀번호">;
+	String batchUrl<length=512 description="배치Url">;
+}

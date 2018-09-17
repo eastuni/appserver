@@ -1,0 +1,8 @@
+OMM bxm.web.admin.system.setting.domain.CacheInOMM
+<description="">
+{
+	String cacheNm<length=128 description="캐시명">;
+	String tableNm<length=100 description="테이블명">;
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+}

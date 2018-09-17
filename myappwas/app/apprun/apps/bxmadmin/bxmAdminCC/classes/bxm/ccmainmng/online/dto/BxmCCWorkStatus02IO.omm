@@ -1,0 +1,6 @@
+OMM bxm.ccmainmng.online.dto.BxmCCWorkStatus02IO
+<description="">
+{
+	Integer rowCnt<length=7>;
+	bxm.ccmainmng.online.dto.BxmCCWorkStatusIO out<length=0 arrayReference="rowCnt">;
+}

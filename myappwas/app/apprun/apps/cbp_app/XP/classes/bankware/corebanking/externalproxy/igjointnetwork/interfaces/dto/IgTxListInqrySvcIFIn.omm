@@ -1,0 +1,14 @@
+OMM bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.IgTxListInqrySvcIFIn
+<description="인터넷지로 거래내역 조회 IN">
+{
+	String instCd<length=3 description="기관코드">;
+	String txStartDt<length=8 description="거래 시작년월일">;
+	String txEndDt<length=8 description="거래 종료년월일">;
+	String cntrMsgMgmtNbr<length=12 description="센터전문관리번호">;
+	String whdrwlAcctNbr<length=24 description="출금계좌번호">;
+	String giroNbr<length=7 description="지로번호">;
+	String elctrncPymntNbr<length=20 description="전자납부번호">;
+	String guid<length=40 description="GUID">;
+	Integer pgNbr<length=5 description="페이지번호">;
+	Integer pgCnt<length=5 description="페이지건수">;
+}

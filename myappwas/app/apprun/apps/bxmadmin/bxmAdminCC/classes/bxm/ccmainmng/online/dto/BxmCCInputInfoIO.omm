@@ -1,0 +1,10 @@
+OMM bxm.ccmainmng.online.dto.BxmCCInputInfoIO
+<description=" ">
+{
+	String name<length=50>;
+	String type<length=20>;
+	String description<length=50>;
+	Integer length<length=6>;
+	String value<length=512>;
+	String domainId<length=20>;
+}

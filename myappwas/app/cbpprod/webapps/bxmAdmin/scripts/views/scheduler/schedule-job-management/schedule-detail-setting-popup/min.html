@@ -1,0 +1,26 @@
+<div class="modal-wrap fix-h cal-wrapper cal-wrapper-small">
+    <div class="bw-cal-wrap w-100">
+        <h3 class="db-tt tt-cal">{{title}}</h3>
+        <div class="search-wrap bx-no-draggable">
+            <div class="input-wrap w-100">
+                <div class="input-wrap w-70">
+                    <label class="bw-label w-60">{{bxMsg 'scheduler.execution-time'}}</label>
+                    <select class="bw-input a-right w-40 ipt-select start-hour"></select>
+                    <div class="input-right-text">{{bxMsg 'common.hour'}}</div>
+                </div>
+                <div class="input-wrap w-30">
+                    <select class="bw-input w-100 ipt-select end-hour"></select>
+                    <div class="input-right-text">{{bxMsg 'common.hour'}}</div>
+                </div>
+            </div>
+            <div class="input-wrap w-100 clr-mg">
+                <input type="text" class="bw-input a-right w-50 minute-input" />
+                <label class="bw-label clr-bd w-50 ">{{bxMsg 'scheduler.execute-every-minutes'}}</label>
+            </div>
+        </div>
+        <div class="btn-wrap a-center add-mg-t bx-no-draggable">
+            <button type="button" class="bw-btn-txt on save-btn">{{bxMsg 'common.save'}}</button>
+            <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+        </div>
+    </div>
+</div>

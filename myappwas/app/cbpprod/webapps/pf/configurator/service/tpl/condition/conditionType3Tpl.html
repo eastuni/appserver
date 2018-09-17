@@ -1,0 +1,134 @@
+<div class="pf-panel pf-cp-product-condition-panel">
+    <div class="pf-panel-header">
+        <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+        <h2 class="pf-panel-title">{{bxMsg 'productConditionInfoMgmt'}}</h2>
+
+        <div class="header-btn-group">
+            <!--<button class="bx-btn bx-btn-small pf-cp-condition-view-history-btn">{{bxMsg 'ButtonGrayString3'}}</button>-->
+            <button type="button" class="bw-btn pf-cp-condition-view-history-btn" icon-tooltip="{{bxMsg 'ButtonGrayString3'}}">
+                    <i class="bw-icon i-25 i-func-history"></i>
+                </button>
+        </div>
+    </div>
+    <div class="pf-panel-body">
+        <div class="bx-info-table-wrap">
+            <table class="bx-info-table condition-table-wrap">
+                <tr>
+                    <th>{{bxMsg 'DPP0127String1'}}</th>
+                    <td>
+                        <input type="text" data-form-param="id" class="bx-form-item bx-compoenent-small input-140px" value="{{id}}" disabled/>
+                        <input type="text" class="bx-form-item bx-compoenent-small input-140px" value="{{statusNm}}" disabled/>
+                        <input type="hidden" data-form-param="status" value="{{status}}" />
+                        <input type="hidden" data-form-param="conditionGroupTemplateCode" value="{{conditionGroupTemplateCode}}" />
+                        <input type="hidden" data-form-param="conditionGroupCode" value="{{conditionGroupCode}}" />
+                        <input type="hidden" data-form-param="conditionTypeCode" value="{{conditionTypeCode}}" disabled/>
+                        <input type="hidden" data-form-param="conditionDetailTypeCode" value="{{conditionDetailTypeCode}}" disabled/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{{bxMsg 'DPP0127String2'}}</th>
+                    <td>
+                        <input type="text" data-form-param="text" class="bx-form-item bx-compoenent-small input-285px" value="{{text}}" disabled/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{{bxMsg 'DPS0121String4'}} <span class="red-notice">*</span></th>
+                    <td>
+                        <input name="start" data-form-param="applyStart" class="bx-form-item bx-compoenent-small calendar start-date" value="{{applyStart}}" type="text"> -
+                        <input name="end" data-form-param="applyEnd" class="bx-form-item bx-compoenent-small calendar end-date" value="{{applyEnd}}" type="text" disabled>
+                    </td>
+                </tr>
+                <tr class="cndAtrb-01">
+                    <th>{{bxMsg 'DPS0121String7'}}</th>
+                    <td>
+                        <select data-form-param="conditionAgreeLevel" class="bx-form-item bx-compoenent-small ProductConditionAgreeLevelCode" value="{{conditionAgreeLevel}}" disabled>
+                            </select>
+                        <label><input type="checkbox" class="isValueNull bx-form-item"> {{bxMsg 'DPS0121String10'}}</label>
+                        <label><input type="checkbox" class="isMandatory bx-form-item"> {{bxMsg 'DPS0121String8'}}</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{{bxMsg 'DPS0121String5'}} <span class="red-notice">*</span></th>
+                    <td>
+                        <input type="text" class="bx-form-item bx-compoenent-small input-140px" value="{{conditionTypeCodeNm}}" disabled/> /
+                        <select data-form-param="conditionClassifyCode" class="bx-form-item bx-compoenent-small select-140px ProductConditionClassifyCode isEnableComplexCondition-disabled" value="{{conditionClassifyCode}}">
+                            </select>
+                        <!-- 값적용방법(숨김) -->
+                        <select hidden data-form-param="conditionValueAplyWayCode" class="bx-form-item bx-compoenent-small ConditionValueApplyWayCodeCode" value="{{conditionValueAplyWayCode}}"></select>
+                    </td>
+                </tr>
+                <tr class="isValueNull-hidden cndAtrb-08">
+                    <th class="TierAplyCalcnWayCodeCode-th">{{bxMsg 'DPS0121String9'}} <span class="red-notice"></span></th>
+                    <td>
+                        <select data-form-param="layerCalcType" class="bx-form-item bx-compoenent-small TierAplyCalcnWayCodeCode conditionClassifyCode01-disabled" value="{{layerCalcType}}">
+                            </select>
+                    </td>
+                </tr>
+                <tr class="cndAtrb-04">
+                    <th>{{bxMsg 'searchBaseDate'}}</th>
+                    <td>
+                        <select data-form-param="intRtAplyBaseDayCd" class="bx-form-item bx-compoenent-small intRtAplyBaseDayCd"></select>
+                    </td>
+                </tr>
+                <!--<tr class="isValueNull-hidden">-->
+                <!--<th>{{bxMsg 'DPS0121String16'}} <span class="red-notice">*</span></th>-->
+                <!--<td>-->
+                <!--<select  data-form-param="termCalcType" class="bx-form-item bx-compoenent-small IntTermCalculateTpyeCode" value="{{termCalcType}}">-->
+                <!--</select>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <!--<tr class="isValueNull-hidden">-->
+                <!--<th>{{bxMsg 'DPS0121String19'}} <span class="red-notice">*</span></th>-->
+                <!--<td>-->
+                <!--<select data-form-param="dayRateYearlyCoefficient" class="bx-form-item bx-compoenent-small IntDailyRateYearCoefficientCode" value="{{dayRateYearlyCoefficient}}">-->
+                <!--</select>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <!--<tr class="isValueNull-hidden">-->
+                <!--<th>{{bxMsg 'DPS0121String20'}} <span class="red-notice">*</span></th>-->
+                <!--<td>-->
+                <!--<select data-form-param="calcInterestMethod" class="bx-form-item bx-compoenent-small InterestMethodCode" value="{{calcInterestMethod}}">-->
+                <!--</select>-->
+                <!--</td>-->
+                <!--</tr>-->
+            </table>
+
+            <div class="condition-value-wrap active">
+
+                <div class="complex-grid-wrap">
+                    <header class="grid-extra-header">
+
+                        <button type="button" class="bw-btn complex-condition-value-add-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                                <i class="bw-icon i-25 i-func-add"></i>
+                            </button>
+                        <button type="button" class="bw-btn column-setting-btn write-btn" icon-tooltip="{{bxMsg 'columnSetting'}}">
+                                <i class="bw-icon i-25 i-setting"></i>
+                            </button>
+                        <div class="tierHistoryExistYn-position">
+                            <span>{{bxMsg 'tierHistoryExistYn'}}</span>
+                            <input type="checkbox" class="bx-form-item tierHistoryExistYn-check">
+                            <input type="hidden" class="tierHistoryExistYn-check-value" data-form-param="tierHistoryExistYn" value="{{tierHistoryExistYn}}">
+                            <input name="start" data-form-param="baseDt" class="bx-form-item bx-compoenent-small calendar-all base-date" type="text">
+                        </div>
+                    </header>
+                    <div class="complex-grid">
+                    </div>
+                </div>
+
+                <div class="condition-value">
+                </div>
+            </div>
+
+            <footer class="pf-panel-footer">
+
+                <button type="button" class="bw-btn pf-cp-product-condition-delete-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString2'}}">
+                        <i class="bw-icon i-30 i-func-trash"></i>
+                    </button>
+
+                <button type="button" class="bw-btn pf-cp-product-condition-save-btn write-btn" data-status="{{status}}" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+                        <i class="bw-icon i-30 i-func-save"></i>
+                    </button>
+            </footer>
+        </div>
+    </div>
+</div>

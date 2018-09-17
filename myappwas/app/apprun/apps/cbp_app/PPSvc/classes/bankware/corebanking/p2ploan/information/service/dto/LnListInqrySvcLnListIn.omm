@@ -1,0 +1,10 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.LnListInqrySvcLnListIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String custId<length=100 description="고객식별자">;
+	String inqryStartDt<length=8 description="조회시작일">;
+	String inqryEndDt<length=8 description="조회종료일">;
+	String lnAplctnPrcsDscd<length=1 description="계약상태코드">;
+	String deptId<length=4 description="관리부점코드">;
+	bankware.corebanking.p2ploan.information.service.dto.LnListInqryCndListIn cndCdList<length=0 arrayReference="50" description="조건값목록">;
+}

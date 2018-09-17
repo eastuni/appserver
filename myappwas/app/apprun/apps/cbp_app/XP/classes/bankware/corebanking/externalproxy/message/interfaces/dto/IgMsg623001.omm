@@ -1,0 +1,11 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IgMsg623001 extends bankware.corebanking.externalproxy.message.interfaces.dto.IgComm
+<description="예약 납부 건별 예약 현황 간략 조회 표준전문  ">
+{
+	String maskRvctnIdNbr<length=13 description="마스킹해제주민등록번호" encrypt="AES256">;
+	String inqryStartDt<length=8 description="조회시작일자">;
+	String inqryEndDt<length=8 description="조회종료일자">;
+	Integer rsrvtnTotCnt<length=3 description="예약총건수">;
+	Integer dsgntnNbr<length=3 description="지정번호">;
+	Integer demandCnt<length=2 description="요청건수">;
+	bankware.corebanking.externalproxy.message.interfaces.dto.IgTxHst623001 txHst623001<length=0 arrayReference="demandCnt" description="거래내역(623001)">;
+}

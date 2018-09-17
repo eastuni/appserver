@@ -1,0 +1,1208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.cdjointnetwork.dao.XpCdTxGiroH">
+<!--Generated Fri Sep 15 12:28:11 KST 2017-->
+<insert id="insertCdGiroHistory" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdTxGiroHIO">
+INSERT  
+  INTO  XP_CD_TX_GRIO_H    /* 전자수납CD거래내역 */
+(
+  INST_CD,     /*기관코드*/
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드*/
+  TX_DT,     /*거래일자*/
+  TX_UNQ_NBR,     /*거래고유번호*/
+  REQ_TLGR_NBR,     /*요청전문번호*/
+  TLGR_CLS_CD,     /*전문종별코드*/
+  ELTRN_RCPT_TX_DS_CD,     /*전자수납거래구분코드*/
+  TX_AMT,     /*거래금액*/
+  FEE_AMT,     /*수수료금액*/
+  ELCTRNC_RCPT_GIRO_NBR,     /*전자수납지로번호*/
+  ELCTRNC_PYMNT_NBR,     /*전자납부번호*/
+  ELTRN_RCPT_RSPNS_CD,     /*전자수납응답코드*/
+  CDATM_GIRO_NBR,     /*CDATM지로번호*/
+  SIMP_PYMNT_NBR,     /*간편납부번호*/
+  ELTRN_RCPT_TLGR_SND_DTTM,     /*전자수납전문전송일시*/
+  GIRO_PYMNT_BIZ_DS_CD,     /*지로납부업무구분코드*/
+  PYMNT_BFAF_DS_CD,     /*납부전후구분코드*/
+  PYMNT_DS_CD,     /*납부구분코드*/
+  STLM_ACCT_NBR,     /*결제계좌번호*/
+  HNDLNG_INST_BRNCH_CD,     /*취급기관부점코드*/
+  CARD_ACCT_NBR,     /*카드계좌번호*/
+  RGST_TRMNL_NBR,     /*등록단말번호*/
+  MSG_DATA_Dscd,     /*전문데이터구분코드*/
+  IC_CARD_SEQ_NBR,     /*IC카드일련번호*/
+  CARD_SEQ_NBR,     /*카드일련번호*/
+  PAYER_FULL_NM,     /*납부자성명*/
+  BNFCRY_NM,     /*수취인명*/
+  WHDRWL_NM,     /*출금인명*/
+  UTL_INST_NM,     /*이용기관명*/
+  ETC_DATA_CNTNT,     /*기타데이터내용*/
+  ORGNL_TX_TLGR_CLS_CD,     /*원거래전문종별코드*/
+  ORGNL_TX_TLGR_TRACE_NBR,     /*원거래전문추적번호*/
+  ORGNL_TX_TX_OPNG_DD,     /*원거래거래개시일*/
+  ORGNL_TX_HNDN_INST_CD,     /*원거래취급기관코드*/
+  ORGNL_TX_RSPNS_CD,     /*원거래응답코드*/
+  TX_STEP_DS_CD,     /*거래단계구분코드*/
+  ATMTC_PYMNT_CNT,     /*자동납부건수*/
+  PYMNT_MTH_NTH1,     /*납부월회차1*/
+  PYMNT_DS_CD1,     /*납부구분코드1*/
+  GIRO_PYMNT_AMT1,     /*지로납부금액1*/
+  HNDN_INST_BRTY_CD1,     /*취급기관점별코드1*/
+  PYMNT_PRCS_DT1,     /*납부처리일자1*/
+  PYMNT_MTH_NTH2,     /*납부월회차2*/
+  PYMNT_DS_CD2,     /*납부구분코드2*/
+  GIRO_PYMNT_AMT2,     /*지로납부금액2*/
+  HNDN_INST_BRTY_CD2,     /*취급기관점별코드2*/
+  PYMNT_PRCS_DT2,     /*납부처리일자2*/
+  PYMNT_MTH_NTH3,     /*납부월회차3*/
+  PYMNT_DS_CD3,     /*납부구분코드3*/
+  GIRO_PYMNT_AMT3,     /*지로납부금액3*/
+  HNDN_INST_BRTY_CD3,     /*취급기관점별코드3*/
+  PYMNT_PRCS_DT3,     /*납부처리일자3*/
+  PYMNT_MTH_NTH4,     /*납부월회차4*/
+  PYMNT_DS_CD4,     /*납부구분코드4*/
+  GIRO_PYMNT_AMT4,     /*지로납부금액4*/
+  HNDN_INST_BRTY_CD4,     /*취급기관점별코드4*/
+  PYMNT_PRCS_DT4,     /*납부처리일자4*/
+  CARD_EFCTV_TRM,     /*카드유효기간*/
+  PIN_PSWD,     /*PIN비밀번호*/
+  RCPT_CNT,     /*수납건수*/
+  GIRO_INST_NM1,     /*지로기관명1*/
+  ELTRN_RCPT_PYMNT_AMT1,     /*전자수납납부금액1*/
+  UNATD_UTLBL_SHT_CD1,     /*무인공과금장표코드1*/
+  GIRO_INST_NM2,     /*지로기관명2*/
+  ELTRN_RCPT_PYMNT_AMT2,     /*전자수납납부금액2*/
+  UNATD_UTLBL_SHT_CD2,     /*무인공과금장표코드2*/
+  GIRO_INST_NM3,     /*지로기관명3*/
+  ELTRN_RCPT_PYMNT_AMT3,     /*전자수납납부금액3*/
+  UNATD_UTLBL_SHT_CD3,     /*무인공과금장표코드3*/
+  GIRO_INST_NM4,     /*지로기관명4*/
+  ELTRN_RCPT_PYMNT_AMT4,     /*전자수납납부금액4*/
+  UNATD_UTLBL_SHT_CD4,     /*무인공과금장표코드4*/
+  GIRO_INST_NM5,     /*지로기관명5*/
+  ELTRN_RCPT_PYMNT_AMT5,     /*전자수납납부금액5*/
+  UNATD_UTLBL_SHT_CD5,     /*무인공과금장표코드5*/
+  MEDIA_DS_CD,     /*매체구분코드*/
+  TOT_CNT,     /*총계건수*/
+  TOT_AMT,     /*총계금액*/
+  LCLT_SLGV_NM1,     /*지방자치명1*/
+  PYMNT_TAXIT_NM1,     /*납부세목명1*/
+  SIMP_PYMNT_AMT1,     /*간편납부금액1*/
+  PYMNT_DLN_DT1,     /*납부기한일자1*/
+  CDATM_GIRO_NBR1,     /*CDATM지로번호1*/
+  ELTRN_PYMNT_NBR1,     /*전자납부번호1*/
+  PYMNT_QTR1,     /*납부분기1*/
+  TMPM_DS_CD1,     /*납기구분코드1*/
+  PYMNT_YN1,     /*납부여부1*/
+  LCLT_SLGV_NM2,     /*지방자치명2*/
+  PYMNT_TAXIT_NM2,     /*납부세목명2*/
+  SIMP_PYMNT_AMT2,     /*간편납부금액2*/
+  PYMNT_DLN_DT2,     /*납부기한일자2*/
+  CDATM_GIRO_NBR2,     /*CDATM지로번호2*/
+  ELTRN_PYMNT_NBR2,     /*전자납부번호2*/
+  PYMNT_QTR2,     /*납부분기2*/
+  TMPM_DS_CD2,     /*납기구분코드2*/
+  PYMNT_YN2,     /*납부여부2*/
+  LCLT_SLGV_NM3,     /*지방자치명3*/
+  PYMNT_TAXIT_NM3,     /*납부세목명3*/
+  SIMP_PYMNT_AMT3,     /*간편납부금액3*/
+  PYMNT_DLN_DT3,     /*납부기한일자3*/
+  CDATM_GIRO_NBR3,     /*CDATM지로번호3*/
+  ELTRN_PYMNT_NBR3,     /*전자납부번호3*/
+  PYMNT_QTR3,     /*납부분기3*/
+  TMPM_DS_CD3,     /*납기구분코드3*/
+  PYMNT_YN3,     /*납부여부3*/
+  LCLT_SLGV_NM4,     /*지방자치명4*/
+  PYMNT_TAXIT_NM4,     /*납부세목명4*/
+  SIMP_PYMNT_AMT4,     /*간편납부금액4*/
+  PYMNT_DLN_DT4,     /*납부기한일자4*/
+  CDATM_GIRO_NBR4,     /*CDATM지로번호4*/
+  ELTRN_PYMNT_NBR4,     /*전자납부번호4*/
+  PYMNT_QTR4,     /*납부분기4*/
+  TMPM_DS_CD4,     /*납기구분코드4*/
+  PYMNT_YN4,     /*납부여부4*/
+  PYMNT_MEDIA_DS_CD,     /*납부매체구분코드*/
+  TX_MEDIA_DS_CD,     /*거래매체구분코드*/
+  DLPM_YN,     /*체납여부*/
+  DLPM_CNTNT,     /*체납내용*/
+  CARD_RNNM_CNTNT,     /*카드난수내용*/
+  C_D_RNNM_CNTNT,     /*CD난수내용*/
+  ECRY_PSWD,     /*암호화비밀번호*/
+  FNCL_IC_DS_NBR,     /*금융IC구분번호*/
+  ELTRN_RCPT_TX_MEDIA_DS_CD,     /*전자수납거래매체구분코드*/
+  CNCL_YN,     /*취소여부*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID,     /*최종변경GUID*/
+  GIRO_PYMNT_CNTNT,     /*지로납부내용*/
+  PYMNT_DS_CD5,     /*납부구분코드5*/
+  PYMNT_DS_CD6,     /*납부구분코드6*/
+  PYMNT_DS_CD7,     /*납부구분코드7*/
+  PYMNT_DS_CD8,     /*납부구분코드8*/
+  PAYER_NBR,     /*납부자번호*/
+  ACCTG_ITM_CD,     /*계정과목코드*/
+  LEVY_ACCT_NBR,     /*징수계좌번호*/
+  ACCTG_CD,     /*계정코드*/
+  ACN_YR,     /*회계년도*/
+  MNTX_AMT,     /*본세금액*/
+  FFVLG_SPECI_TAM_AMT,     /*농어촌특별세액금액*/
+  STAC_EDTX_AMT,     /*결산교육세금액*/
+  PYMNT_AMT_AMNN_YN,     /*납부금액수정여부*/
+  SLDT_PYMNT_TRGT_YN,     /*연대납부대상여부*/
+  VLNR_PYMNT_TRGT_YN,     /*자진납부대상여부*/
+  PYMNT_SQN,     /*납부순번*/
+  PYMNT_MTH_NTH_NBR    /*납부월회차번호*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR},     /*기관코드*/
+  #{extrnlInstCd, jdbcType=VARCHAR},     /*대외기관코드*/
+  #{extrnlBizDscd, jdbcType=VARCHAR},     /*대외업무구분코드*/
+  #{txDt, jdbcType=VARCHAR},     /*거래일자*/
+  #{txUnqNbr, jdbcType=VARCHAR},     /*거래고유번호*/
+  #{rqstMsgNbr, jdbcType=VARCHAR},     /*요청전문번호*/
+  #{msgPerTpCd, jdbcType=VARCHAR},     /*전문종별코드*/
+  #{elctrncRcptTxDscd, jdbcType=VARCHAR},     /*전자수납거래구분코드*/
+  #{txAmt, jdbcType=NUMERIC},     /*거래금액*/
+  #{feeAmt, jdbcType=NUMERIC},     /*수수료금액*/
+  #{elctrncRcptGiroNbr, jdbcType=VARCHAR},     /*전자수납지로번호*/
+  #{elctrncPymntNbr, jdbcType=VARCHAR},     /*전자납부번호*/
+  #{elctrncRcptRspnsCd, jdbcType=VARCHAR},     /*전자수납응답코드*/
+  #{cdAutoTlrMachineGiroNbr, jdbcType=VARCHAR},     /*CDATM지로번호*/
+  #{simplePymntNbr, jdbcType=VARCHAR},     /*간편납부번호*/
+  #{elctrncRcptMsgSndDtm, jdbcType=VARCHAR},     /*전자수납전문전송일시*/
+  #{giroPymntBizDscd, jdbcType=VARCHAR},     /*지로납부업무구분코드*/
+  #{pymntBfAfDscd, jdbcType=VARCHAR},     /*납부전후구분코드*/
+  #{pymntDscd, jdbcType=VARCHAR},     /*납부구분코드*/
+  #{stlmntAcctNbr, jdbcType=VARCHAR},     /*결제계좌번호*/
+  #{hndlngInstBrnchCd, jdbcType=VARCHAR},     /*취급기관부점코드*/
+  #{cardAcctNbr, jdbcType=VARCHAR},     /*카드계좌번호*/
+  #{rgstrnTrmnlNbr, jdbcType=VARCHAR},     /*등록단말번호*/
+  #{msgDataDscd, jdbcType=VARCHAR},     /*전문데이터구분코드*/
+  #{icCardSeqNbr, jdbcType=VARCHAR},     /*IC카드일련번호*/
+  #{cardSeqNbr, jdbcType=NUMERIC},     /*카드일련번호*/
+  #{payerFullNm, jdbcType=VARCHAR},     /*납부자성명*/
+  #{bnfcryNm, jdbcType=VARCHAR},     /*수취인명*/
+  #{whdrwlNm, jdbcType=VARCHAR},     /*출금인명*/
+  #{useInstNm1, jdbcType=VARCHAR},     /*이용기관명*/
+  #{etcDataCntnt, jdbcType=VARCHAR},     /*기타데이터내용*/
+  #{orgnlTxMsgClsCd, jdbcType=VARCHAR},     /*원거래전문종별코드*/
+  #{orgnlTxMsgTraceNbr, jdbcType=VARCHAR},     /*원거래전문추적번호*/
+  #{orgnlTxTxOpnDt, jdbcType=VARCHAR},     /*원거래거래개시일*/
+  #{orgnlTxHndlngInstCd, jdbcType=VARCHAR},     /*원거래취급기관코드*/
+  #{orgnlTxRspnsCd, jdbcType=VARCHAR},     /*원거래응답코드*/
+  #{txStepDscd, jdbcType=VARCHAR},     /*거래단계구분코드*/
+  #{atmtcPymntCnt, jdbcType=NUMERIC},     /*자동납부건수*/
+  #{pymntMonthlyNth1, jdbcType=VARCHAR},     /*납부월회차1*/
+  #{pymntDscd1, jdbcType=VARCHAR},     /*납부구분코드1*/
+  #{giroPymntAmt1, jdbcType=NUMERIC},     /*지로납부금액1*/
+  #{hndlngInstBrnchCd1, jdbcType=VARCHAR},     /*취급기관점별코드1*/
+  #{pymntPrcsngDt1, jdbcType=VARCHAR},     /*납부처리일자1*/
+  #{pymntMonthlyNth2, jdbcType=VARCHAR},     /*납부월회차2*/
+  #{pymntDscd2, jdbcType=VARCHAR},     /*납부구분코드2*/
+  #{giroPymntAmt2, jdbcType=NUMERIC},     /*지로납부금액2*/
+  #{hndlngInstBrnchCd2, jdbcType=VARCHAR},     /*취급기관점별코드2*/
+  #{pymntPrcsngDt2, jdbcType=VARCHAR},     /*납부처리일자2*/
+  #{pymntMonthlyNth3, jdbcType=VARCHAR},     /*납부월회차3*/
+  #{pymntDscd3, jdbcType=VARCHAR},     /*납부구분코드3*/
+  #{giroPymntAmt3, jdbcType=NUMERIC},     /*지로납부금액3*/
+  #{hndlngInstBrnchCd3, jdbcType=VARCHAR},     /*취급기관점별코드3*/
+  #{pymntPrcsngDt3, jdbcType=VARCHAR},     /*납부처리일자3*/
+  #{pymntMonthlyNth4, jdbcType=VARCHAR},     /*납부월회차4*/
+  #{pymntDscd4, jdbcType=VARCHAR},     /*납부구분코드4*/
+  #{giroPymntAmt4, jdbcType=NUMERIC},     /*지로납부금액4*/
+  #{hndlngInstBrnchCd4, jdbcType=VARCHAR},     /*취급기관점별코드4*/
+  #{pymntPrcsngDt4, jdbcType=VARCHAR},     /*납부처리일자4*/
+  #{cardAvlblTrmCnt, jdbcType=NUMERIC},     /*카드유효기간*/
+  #{pinPswd, jdbcType=NUMERIC},     /*PIN비밀번호*/
+  #{rcptCnt, jdbcType=NUMERIC},     /*수납건수*/
+  #{giroInstNm1, jdbcType=VARCHAR},     /*지로기관명1*/
+  #{elctrncRcptPymntAmt1, jdbcType=NUMERIC},     /*전자수납납부금액1*/
+  #{manLessUtlblSheetCd1, jdbcType=VARCHAR},     /*무인공과금장표코드1*/
+  #{giroInstNm2, jdbcType=VARCHAR},     /*지로기관명2*/
+  #{elctrncRcptPymntAmt2, jdbcType=NUMERIC},     /*전자수납납부금액2*/
+  #{manLessUtlblSheetCd2, jdbcType=VARCHAR},     /*무인공과금장표코드2*/
+  #{giroInstNm3, jdbcType=VARCHAR},     /*지로기관명3*/
+  #{elctrncRcptPymntAmt3, jdbcType=NUMERIC},     /*전자수납납부금액3*/
+  #{manLessUtlblSheetCd3, jdbcType=VARCHAR},     /*무인공과금장표코드3*/
+  #{giroInstNm4, jdbcType=VARCHAR},     /*지로기관명4*/
+  #{elctrncRcptPymntAmt4, jdbcType=NUMERIC},     /*전자수납납부금액4*/
+  #{manLessUtlblSheetCd4, jdbcType=VARCHAR},     /*무인공과금장표코드4*/
+  #{giroInstNm5, jdbcType=VARCHAR},     /*지로기관명5*/
+  #{elctrncRcptPymntAmt5, jdbcType=NUMERIC},     /*전자수납납부금액5*/
+  #{manLessUtlblSheetCd5, jdbcType=VARCHAR},     /*무인공과금장표코드5*/
+  #{mediaDscd, jdbcType=VARCHAR},     /*매체구분코드*/
+  #{totCnt, jdbcType=NUMERIC},     /*총계건수*/
+  #{totBal, jdbcType=NUMERIC},     /*총계금액*/
+  #{localGvrnmntNm1, jdbcType=VARCHAR},     /*지방자치명1*/
+  #{pymntTaxNm1, jdbcType=VARCHAR},     /*납부세목명1*/
+  #{simplePymntAmt1, jdbcType=NUMERIC},     /*간편납부금액1*/
+  #{prdDlnDt1, jdbcType=VARCHAR},     /*납부기한일자1*/
+  #{cdAutoTlrMachineGiroNbr1, jdbcType=VARCHAR},     /*CDATM지로번호1*/
+  #{elctrncPymntNbr1, jdbcType=VARCHAR},     /*전자납부번호1*/
+  #{pymntQrtrCntnt1, jdbcType=VARCHAR},     /*납부분기1*/
+  #{prdDscd1, jdbcType=VARCHAR},     /*납기구분코드1*/
+  #{pymntYn1, jdbcType=VARCHAR},     /*납부여부1*/
+  #{localGvrnmntNm2, jdbcType=VARCHAR},     /*지방자치명2*/
+  #{pymntTaxNm2, jdbcType=VARCHAR},     /*납부세목명2*/
+  #{simplePymntAmt2, jdbcType=NUMERIC},     /*간편납부금액2*/
+  #{prdDlnDt2, jdbcType=VARCHAR},     /*납부기한일자2*/
+  #{cdAutoTlrMachineGiroNbr2, jdbcType=VARCHAR},     /*CDATM지로번호2*/
+  #{elctrncPymntNbr2, jdbcType=VARCHAR},     /*전자납부번호2*/
+  #{pymntQrtrCntnt2, jdbcType=VARCHAR},     /*납부분기2*/
+  #{prdDscd2, jdbcType=VARCHAR},     /*납기구분코드2*/
+  #{pymntYn2, jdbcType=VARCHAR},     /*납부여부2*/
+  #{localGvrnmntNm3, jdbcType=VARCHAR},     /*지방자치명3*/
+  #{pymntTaxNm3, jdbcType=VARCHAR},     /*납부세목명3*/
+  #{simplePymntAmt3, jdbcType=NUMERIC},     /*간편납부금액3*/
+  #{prdDlnDt3, jdbcType=VARCHAR},     /*납부기한일자3*/
+  #{cdAutoTlrMachineGiroNbr3, jdbcType=VARCHAR},     /*CDATM지로번호3*/
+  #{elctrncPymntNbr3, jdbcType=VARCHAR},     /*전자납부번호3*/
+  #{pymntQrtrCntnt3, jdbcType=VARCHAR},     /*납부분기3*/
+  #{prdDscd3, jdbcType=VARCHAR},     /*납기구분코드3*/
+  #{pymntYn3, jdbcType=VARCHAR},     /*납부여부3*/
+  #{localGvrnmntNm4, jdbcType=VARCHAR},     /*지방자치명4*/
+  #{pymntTaxNm4, jdbcType=VARCHAR},     /*납부세목명4*/
+  #{simplePymntAmt4, jdbcType=NUMERIC},     /*간편납부금액4*/
+  #{prdDlnDt4, jdbcType=VARCHAR},     /*납부기한일자4*/
+  #{cdAutoTlrMachineGiroNbr4, jdbcType=VARCHAR},     /*CDATM지로번호4*/
+  #{elctrncPymntNbr4, jdbcType=VARCHAR},     /*전자납부번호4*/
+  #{pymntQrtrCntnt4, jdbcType=VARCHAR},     /*납부분기4*/
+  #{prdDscd4, jdbcType=VARCHAR},     /*납기구분코드4*/
+  #{pymntYn4, jdbcType=VARCHAR},     /*납부여부4*/
+  #{pymntMediaDscd, jdbcType=VARCHAR},     /*납부매체구분코드*/
+  #{txMediaDscd, jdbcType=VARCHAR},     /*거래매체구분코드*/
+  #{arrearsYn, jdbcType=VARCHAR},     /*체납여부*/
+  #{arrearsCntnt, jdbcType=VARCHAR},     /*체납내용*/
+  #{cardRandomNbrCntnt, jdbcType=VARCHAR},     /*카드난수내용*/
+  #{cdRandomNbr, jdbcType=VARCHAR},     /*CD난수내용*/
+  #{encrptnPswd, jdbcType=VARCHAR},     /*암호화비밀번호*/
+  #{fnclIcDsNbr, jdbcType=NUMERIC},     /*금융IC구분번호*/
+  #{elctrncRcptTxMediaDscd, jdbcType=VARCHAR},     /*전자수납거래매체구분코드*/
+  #{cnclYn, jdbcType=VARCHAR},     /*취소여부*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR},     /*최종변경GUID*/
+  #{giroPymntCntnt, jdbcType=VARCHAR},     /*지로납부내용*/
+  #{pymntDscd5, jdbcType=VARCHAR},     /*납부구분코드5*/
+  #{pymntDscd6, jdbcType=VARCHAR},     /*납부구분코드6*/
+  #{pymntDscd7, jdbcType=VARCHAR},     /*납부구분코드7*/
+  #{pymntDscd8, jdbcType=VARCHAR},     /*납부구분코드8*/
+  #{payerNbr, jdbcType=VARCHAR},     /*납부자번호*/
+  #{acctgItmCd, jdbcType=VARCHAR},     /*계정과목코드*/
+  #{levyAcctNbr, jdbcType=NUMERIC},     /*징수계좌번호*/
+  #{acctgCd, jdbcType=VARCHAR},     /*계정코드*/
+  #{acctgYr, jdbcType=VARCHAR},     /*회계년도*/
+  #{mainTaxAmt, jdbcType=NUMERIC},     /*본세금액*/
+  #{farmingFishingVlgsSpecialTax, jdbcType=NUMERIC},     /*농어촌특별세액금액*/
+  #{stlmntEdctnTxAmt, jdbcType=NUMERIC},     /*결산교육세금액*/
+  #{pymntAmtMdfctnYn, jdbcType=VARCHAR},     /*납부금액수정여부*/
+  #{jointSeveralPymntYn, jdbcType=VARCHAR},     /*연대납부대상여부*/
+  #{vlntrPymntTrgtYn, jdbcType=VARCHAR},     /*자진납부대상여부*/
+  #{pymntSeq, jdbcType=NUMERIC},     /*납부순번*/
+  #{pymntMonthlyNthNbr, jdbcType=VARCHAR}    /*납부월회차번호*/
+)
+</insert>
+<update id="updateCdGiroHistoryForResult" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdTxGiroHIO">
+UPDATE  
+        XP_CD_TX_GRIO_H    /* 전자수납CD거래내역 */
+   SET  REQ_TLGR_NBR = #{rqstMsgNbr, jdbcType=VARCHAR}    /* 전문추적번호 */
+     , TLGR_CLS_CD = #{msgPerTpCd, jdbcType=VARCHAR}    /* 전문종별코드 */
+     , ELTRN_RCPT_TX_DS_CD = #{elctrncRcptTxDscd, jdbcType=VARCHAR}    /* 전자수납거래구분코드 */
+     , TX_AMT = #{txAmt, jdbcType=NUMERIC}    /* 거래금액 */
+     , FEE_AMT = #{feeAmt, jdbcType=NUMERIC}    /* 수수료금액 */
+     , ELCTRNC_RCPT_GIRO_NBR = #{elctrncRcptGiroNbr, jdbcType=VARCHAR}    /* 전자수납지로번호 */
+     , ELCTRNC_PYMNT_NBR = #{elctrncPymntNbr, jdbcType=VARCHAR}    /* 전자납부번호 */
+     , ELTRN_RCPT_RSPNS_CD = #{elctrncRcptRspnsCd, jdbcType=VARCHAR}    /* 전자수납응답코드 */
+     , CDATM_GIRO_NBR = #{cdAutoTlrMachineGiroNbr, jdbcType=VARCHAR}    /* CDATM지로번호 */
+     , SIMP_PYMNT_NBR = #{simplePymntNbr, jdbcType=VARCHAR}    /* 간편납부번호 */
+     , ELTRN_RCPT_TLGR_SND_DTTM = #{elctrncRcptMsgSndDtm, jdbcType=VARCHAR}    /* 전자수납전문전송일시 */
+     , GIRO_PYMNT_BIZ_DS_CD = #{giroPymntBizDscd, jdbcType=VARCHAR}    /* 지로납부업무구분코드 */
+     , PYMNT_MTH_NTH_NBR = #{pymntMonthlyNthNbr, jdbcType=VARCHAR}    /* 납부월회차 */
+     , PYMNT_BFAF_DS_CD = #{pymntBfAfDscd, jdbcType=VARCHAR}    /* 납부전후구분코드 */
+     , PYMNT_DS_CD = #{pymntDscd, jdbcType=VARCHAR}    /* 납부구분코드 */
+     , STLM_ACCT_NBR = #{stlmntAcctNbr, jdbcType=VARCHAR}    /* 결제계좌번호 */
+     , HNDLNG_INST_BRNCH_CD = #{hndlngInstBrnchCd, jdbcType=VARCHAR}    /* 취급기관부점코드 */
+     , CARD_ACCT_NBR = #{cardAcctNbr, jdbcType=VARCHAR}    /* 카드계좌번호 */
+     , RGST_TRMNL_NBR = #{rgstrnTrmnlNbr, jdbcType=VARCHAR}    /* 등록단말번호 */
+     , MSG_DATA_Dscd = #{msgDataDscd, jdbcType=VARCHAR}    /* 전문데이터구분코드 */
+     , IC_CARD_SEQ_NBR = #{icCardSeqNbr, jdbcType=VARCHAR}    /* IC카드일련번호 */
+     , CARD_SEQ_NBR = #{cardSeqNbr, jdbcType=NUMERIC}    /* 카드일련번호 */
+     , PAYER_FULL_NM = #{payerFullNm, jdbcType=VARCHAR}    /* 납부자성명 */
+     , BNFCRY_NM = #{bnfcryNm, jdbcType=VARCHAR}    /* 수취인명 */
+     , WHDRWL_NM = #{whdrwlNm, jdbcType=VARCHAR}    /* 출금인명 */
+     , UTL_INST_NM = #{useInstNm1, jdbcType=VARCHAR}    /* 이용기관명 */
+     , ETC_DATA_CNTNT = #{etcDataCntnt, jdbcType=VARCHAR}    /* 기타데이터내용 */
+     , ORGNL_TX_TLGR_CLS_CD = #{orgnlTxMsgClsCd, jdbcType=VARCHAR}    /* 원거래전문종별코드 */
+     , ORGNL_TX_TLGR_TRACE_NBR = #{orgnlTxMsgTraceNbr, jdbcType=VARCHAR}    /* 원거래전문추적번호 */
+     , ORGNL_TX_TX_OPNG_DD = #{orgnlTxTxOpnDt, jdbcType=VARCHAR}    /* 원거래거래개시일 */
+     , ORGNL_TX_HNDN_INST_CD = #{orgnlTxHndlngInstCd, jdbcType=VARCHAR}    /* 원거래취급기관코드 */
+     , ORGNL_TX_RSPNS_CD = #{orgnlTxRspnsCd, jdbcType=VARCHAR}    /* 원거래응답코드 */
+     , TX_STEP_DS_CD = #{txStepDscd, jdbcType=VARCHAR}    /* 거래단계구분코드 */
+     , ATMTC_PYMNT_CNT = #{atmtcPymntCnt, jdbcType=NUMERIC}    /* 자동납부건수 */
+     , PYMNT_MTH_NTH1 = #{pymntMonthlyNth1, jdbcType=VARCHAR}    /* 납부월회차1 */
+     , PYMNT_DS_CD1 = #{pymntDscd1, jdbcType=VARCHAR}    /* 납부구분코드1 */
+     , GIRO_PYMNT_AMT1 = #{giroPymntAmt1, jdbcType=NUMERIC}    /* 지로납부금액1 */
+     , HNDN_INST_BRTY_CD1 = #{hndlngInstBrnchCd1, jdbcType=VARCHAR}    /* 취급기관점별코드1 */
+     , PYMNT_PRCS_DT1 = #{pymntPrcsngDt1, jdbcType=VARCHAR}    /* 납부처리일자1 */
+     , PYMNT_MTH_NTH2 = #{pymntMonthlyNth2, jdbcType=VARCHAR}    /* 납부월회차2 */
+     , PYMNT_DS_CD2 = #{pymntDscd2, jdbcType=VARCHAR}    /* 납부구분코드2 */
+     , GIRO_PYMNT_AMT2 = #{giroPymntAmt2, jdbcType=NUMERIC}    /* 지로납부금액2 */
+     , HNDN_INST_BRTY_CD2 = #{hndlngInstBrnchCd2, jdbcType=VARCHAR}    /* 취급기관점별코드2 */
+     , PYMNT_PRCS_DT2 = #{pymntPrcsngDt2, jdbcType=VARCHAR}    /* 납부처리일자2 */
+     , PYMNT_MTH_NTH3 = #{pymntMonthlyNth3, jdbcType=VARCHAR}    /* 납부월회차3 */
+     , PYMNT_DS_CD3 = #{pymntDscd3, jdbcType=VARCHAR}    /* 납부구분코드3 */
+     , GIRO_PYMNT_AMT3 = #{giroPymntAmt3, jdbcType=NUMERIC}    /* 지로납부금액3 */
+     , HNDN_INST_BRTY_CD3 = #{hndlngInstBrnchCd3, jdbcType=VARCHAR}    /* 취급기관점별코드3 */
+     , PYMNT_PRCS_DT3 = #{pymntPrcsngDt3, jdbcType=VARCHAR}    /* 납부처리일자3 */
+     , PYMNT_MTH_NTH4 = #{pymntMonthlyNth4, jdbcType=VARCHAR}    /* 납부월회차4 */
+     , PYMNT_DS_CD4 = #{pymntDscd4, jdbcType=VARCHAR}    /* 납부구분코드4 */
+     , GIRO_PYMNT_AMT4 = #{giroPymntAmt4, jdbcType=NUMERIC}    /* 지로납부금액4 */
+     , HNDN_INST_BRTY_CD4 = #{hndlngInstBrnchCd4, jdbcType=VARCHAR}    /* 취급기관점별코드4 */
+     , PYMNT_PRCS_DT4 = #{pymntPrcsngDt4, jdbcType=VARCHAR}    /* 납부처리일자4 */
+     , CARD_EFCTV_TRM = #{cardAvlblTrmCnt, jdbcType=NUMERIC}    /* 카드유효기간 */
+     , PIN_PSWD = #{pinPswd, jdbcType=NUMERIC}    /* PIN비밀번호 */
+     , RCPT_CNT = #{rcptCnt, jdbcType=NUMERIC}    /* 수납건수 */
+     , GIRO_INST_NM1 = #{giroInstNm1, jdbcType=VARCHAR}    /* 지로기관명1 */
+     , ELTRN_RCPT_PYMNT_AMT1 = #{elctrncRcptPymntAmt1, jdbcType=NUMERIC}    /* 전자수납납부금액1 */
+     , UNATD_UTLBL_SHT_CD1 = #{manLessUtlblSheetCd1, jdbcType=VARCHAR}    /* 무인공과금장표코드1 */
+     , GIRO_INST_NM2 = #{giroInstNm2, jdbcType=VARCHAR}    /* 지로기관명2 */
+     , ELTRN_RCPT_PYMNT_AMT2 = #{elctrncRcptPymntAmt2, jdbcType=NUMERIC}    /* 전자수납납부금액2 */
+     , UNATD_UTLBL_SHT_CD2 = #{manLessUtlblSheetCd2, jdbcType=VARCHAR}    /* 무인공과금장표코드2 */
+     , GIRO_INST_NM3 = #{giroInstNm3, jdbcType=VARCHAR}    /* 지로기관명3 */
+     , ELTRN_RCPT_PYMNT_AMT3 = #{elctrncRcptPymntAmt3, jdbcType=NUMERIC}    /* 전자수납납부금액3 */
+     , UNATD_UTLBL_SHT_CD3 = #{manLessUtlblSheetCd3, jdbcType=VARCHAR}    /* 무인공과금장표코드3 */
+     , GIRO_INST_NM4 = #{giroInstNm4, jdbcType=VARCHAR}    /* 지로기관명4 */
+     , ELTRN_RCPT_PYMNT_AMT4 = #{elctrncRcptPymntAmt4, jdbcType=NUMERIC}    /* 전자수납납부금액4 */
+     , UNATD_UTLBL_SHT_CD4 = #{manLessUtlblSheetCd4, jdbcType=VARCHAR}    /* 무인공과금장표코드4 */
+     , GIRO_INST_NM5 = #{giroInstNm5, jdbcType=VARCHAR}    /* 지로기관명5 */
+     , ELTRN_RCPT_PYMNT_AMT5 = #{elctrncRcptPymntAmt5, jdbcType=NUMERIC}    /* 전자수납납부금액5 */
+     , UNATD_UTLBL_SHT_CD5 = #{manLessUtlblSheetCd5, jdbcType=VARCHAR}    /* 무인공과금장표코드5 */
+     , MEDIA_DS_CD = #{mediaDscd, jdbcType=VARCHAR}    /* 매체구분코드 */
+     , TOT_CNT = #{totCnt, jdbcType=NUMERIC}    /* 총계건수 */
+     , TOT_AMT = #{totBal, jdbcType=NUMERIC}    /* 총계금액 */
+     , LCLT_SLGV_NM1 = #{localGvrnmntNm1, jdbcType=VARCHAR}    /* 지방자치명1 */
+     , PYMNT_TAXIT_NM1 = #{pymntTaxNm1, jdbcType=VARCHAR}    /* 납부세목명1 */
+     , SIMP_PYMNT_AMT1 = #{simplePymntAmt1, jdbcType=NUMERIC}    /* 간편납부금액1 */
+     , PYMNT_DLN_DT1 = #{prdDlnDt1, jdbcType=VARCHAR}    /* 납부기한일자1 */
+     , CDATM_GIRO_NBR1 = #{cdAutoTlrMachineGiroNbr1, jdbcType=VARCHAR}    /* CDATM지로번호1 */
+     , ELTRN_PYMNT_NBR1 = #{elctrncPymntNbr1, jdbcType=VARCHAR}    /* 전자납부번호1 */
+     , PYMNT_QTR1 = #{pymntQrtrCntnt1, jdbcType=VARCHAR}    /* 납부분기1 */
+     , TMPM_DS_CD1 = #{prdDscd1, jdbcType=VARCHAR}    /* 납기구분코드1 */
+     , PYMNT_YN1 = #{pymntYn1, jdbcType=VARCHAR}    /* 납부여부1 */
+     , LCLT_SLGV_NM2 = #{localGvrnmntNm2, jdbcType=VARCHAR}    /* 지방자치명2 */
+     , PYMNT_TAXIT_NM2 = #{pymntTaxNm2, jdbcType=VARCHAR}    /* 납부세목명2 */
+     , SIMP_PYMNT_AMT2 = #{simplePymntAmt2, jdbcType=NUMERIC}    /* 간편납부금액2 */
+     , PYMNT_DLN_DT2 = #{prdDlnDt2, jdbcType=VARCHAR}    /* 납부기한일자2 */
+     , CDATM_GIRO_NBR2 = #{cdAutoTlrMachineGiroNbr2, jdbcType=VARCHAR}    /* CDATM지로번호2 */
+     , ELTRN_PYMNT_NBR2 = #{elctrncPymntNbr2, jdbcType=VARCHAR}    /* 전자납부번호2 */
+     , PYMNT_QTR2 = #{pymntQrtrCntnt2, jdbcType=VARCHAR}    /* 납부분기2 */
+     , TMPM_DS_CD2 = #{prdDscd2, jdbcType=VARCHAR}    /* 납기구분코드2 */
+     , PYMNT_YN2 = #{pymntYn2, jdbcType=VARCHAR}    /* 납부여부2 */
+     , LCLT_SLGV_NM3 = #{localGvrnmntNm3, jdbcType=VARCHAR}    /* 지방자치명3 */
+     , PYMNT_TAXIT_NM3 = #{pymntTaxNm3, jdbcType=VARCHAR}    /* 납부세목명3 */
+     , SIMP_PYMNT_AMT3 = #{simplePymntAmt3, jdbcType=NUMERIC}    /* 간편납부금액3 */
+     , PYMNT_DLN_DT3 = #{prdDlnDt3, jdbcType=VARCHAR}    /* 납부기한일자3 */
+     , CDATM_GIRO_NBR3 = #{cdAutoTlrMachineGiroNbr3, jdbcType=VARCHAR}    /* CDATM지로번호3 */
+     , ELTRN_PYMNT_NBR3 = #{elctrncPymntNbr3, jdbcType=VARCHAR}    /* 전자납부번호3 */
+     , PYMNT_QTR3 = #{pymntQrtrCntnt3, jdbcType=VARCHAR}    /* 납부분기3 */
+     , TMPM_DS_CD3 = #{prdDscd3, jdbcType=VARCHAR}    /* 납기구분코드3 */
+     , PYMNT_YN3 = #{pymntYn3, jdbcType=VARCHAR}    /* 납부여부3 */
+     , LCLT_SLGV_NM4 = #{localGvrnmntNm4, jdbcType=VARCHAR}    /* 지방자치명4 */
+     , PYMNT_TAXIT_NM4 = #{pymntTaxNm4, jdbcType=VARCHAR}    /* 납부세목명4 */
+     , SIMP_PYMNT_AMT4 = #{simplePymntAmt4, jdbcType=NUMERIC}    /* 간편납부금액4 */
+     , PYMNT_DLN_DT4 = #{prdDlnDt4, jdbcType=VARCHAR}    /* 납부기한일자4 */
+     , CDATM_GIRO_NBR4 = #{cdAutoTlrMachineGiroNbr4, jdbcType=VARCHAR}    /* CDATM지로번호4 */
+     , ELTRN_PYMNT_NBR4 = #{elctrncPymntNbr4, jdbcType=VARCHAR}    /* 전자납부번호4 */
+     , PYMNT_QTR4 = #{pymntQrtrCntnt4, jdbcType=VARCHAR}    /* 납부분기4 */
+     , TMPM_DS_CD4 = #{prdDscd4, jdbcType=VARCHAR}    /* 납기구분코드4 */
+     , PYMNT_YN4 = #{pymntYn4, jdbcType=VARCHAR}    /* 납부여부4 */
+     , PYMNT_MEDIA_DS_CD = #{pymntMediaDscd, jdbcType=VARCHAR}    /* 납부매체구분코드 */
+     , TX_MEDIA_DS_CD = #{txMediaDscd, jdbcType=VARCHAR}    /* 거래매체구분코드 */
+     , DLPM_YN = #{arrearsYn, jdbcType=VARCHAR}    /* 체납여부 */
+     , DLPM_CNTNT = #{arrearsCntnt, jdbcType=VARCHAR}    /* 체납내용 */
+     , CARD_RNNM_CNTNT = #{cardRandomNbrCntnt, jdbcType=VARCHAR}    /* 카드난수내용 */
+     , C_D_RNNM_CNTNT = #{cdRandomNbr, jdbcType=VARCHAR}    /* CD난수내용 */
+     , ECRY_PSWD = #{encrptnPswd, jdbcType=VARCHAR}    /* 암호화비밀번호 */
+     , FNCL_IC_DS_NBR = #{fnclIcDsNbr, jdbcType=NUMERIC}    /* 금융IC구분번호 */
+     , ELTRN_RCPT_TX_MEDIA_DS_CD = #{elctrncRcptTxMediaDscd, jdbcType=VARCHAR}    /* 전자수납거래매체구분코드 */
+     , CNCL_YN = #{cnclYn, jdbcType=VARCHAR}    /* 취소여부 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+   AND EXTRNL_INST_CD = #{extrnlInstCd, jdbcType=VARCHAR}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd, jdbcType=VARCHAR}
+   AND TX_DT = #{txDt, jdbcType=VARCHAR}
+   AND TX_UNQ_NBR = #{txUnqNbr, jdbcType=VARCHAR}
+</update>
+<select id="selectCdGiroHistory" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdTxGiroHIO">
+SELECT    /* 전자수납CD거래내역 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래일자*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        REQ_TLGR_NBR AS tlgrTraceNbr,     /*전문추적번호*/
+        TLGR_CLS_CD AS msgPerTpCd,     /*전문종별코드*/
+        ELTRN_RCPT_TX_DS_CD AS elctrncRcptTxDscd,     /*전자수납거래구분코드*/
+        TX_AMT AS txAmt,     /*거래금액*/
+        FEE_AMT AS feeAmt,     /*수수료금액*/
+        ELCTRNC_RCPT_GIRO_NBR AS elctrncRcptGiroNbr,     /*전자수납지로번호*/
+        ELCTRNC_PYMNT_NBR AS elctrncPymntNbr,     /*전자납부번호*/
+        ELTRN_RCPT_RSPNS_CD AS elctrncRcptRspnsCd,     /*전자수납응답코드*/
+        CDATM_GIRO_NBR AS cdAutoTlrMachineGiroNbr,     /*CDATM지로번호*/
+        SIMP_PYMNT_NBR AS simplePymntNbr,     /*간편납부번호*/
+        ELTRN_RCPT_TLGR_SND_DTTM AS elctrncRcptMsgSndDtm,     /*전자수납전문전송일시*/
+        GIRO_PYMNT_BIZ_DS_CD AS giroPymntBizDscd,     /*지로납부업무구분코드*/
+        PYMNT_MTH_NTH_NBR AS pymntMonthlyNthNbr,     /*납부월회차*/
+        PYMNT_BFAF_DS_CD AS pymntBfAfDscd,     /*납부전후구분코드*/
+        PYMNT_DS_CD AS pymntDscd,     /*납부구분코드*/
+        STLM_ACCT_NBR AS stlmntAcctNbr,     /*결제계좌번호*/
+        HNDLNG_INST_BRNCH_CD AS hndlngInstBrnchCd,     /*취급기관부점코드*/
+        CARD_ACCT_NBR AS cardAcctNbr,     /*카드계좌번호*/
+        RGST_TRMNL_NBR AS rgstrnTrmnlNbr,     /*등록단말번호*/
+        MSG_DATA_Dscd AS msgDataDscd,     /*전문데이터구분코드*/
+        IC_CARD_SEQ_NBR AS icCardSeqNbr,     /*IC카드일련번호*/
+        CARD_SEQ_NBR AS cardSeqNbr,     /*카드일련번호*/
+        PAYER_FULL_NM AS payerFullNm,     /*납부자성명*/
+        BNFCRY_NM AS bnfcryNm,     /*수취인명*/
+        WHDRWL_NM AS whdrwlNm,     /*출금인명*/
+        UTL_INST_NM AS useInstNm1,     /*이용기관명*/
+        ETC_DATA_CNTNT AS etcDataCntnt,     /*기타데이터내용*/
+        ORGNL_TX_TLGR_CLS_CD AS orgnlTxMsgClsCd,     /*원거래전문종별코드*/
+        ORGNL_TX_TLGR_TRACE_NBR AS orgnlTxMsgTraceNbr,     /*원거래전문추적번호*/
+        ORGNL_TX_TX_OPNG_DD AS orgnlTxTxOpnDt,     /*원거래거래개시일*/
+        ORGNL_TX_HNDN_INST_CD AS orgnlTxHndlngInstCd,     /*원거래취급기관코드*/
+        ORGNL_TX_RSPNS_CD AS orgnlTxRspnsCd,     /*원거래응답코드*/
+        TX_STEP_DS_CD AS txStepDscd,     /*거래단계구분코드*/
+        ATMTC_PYMNT_CNT AS atmtcPymntCnt,     /*자동납부건수*/
+        PYMNT_MTH_NTH1 AS pymntMonthlyNth1,     /*납부월회차1*/
+        PYMNT_DS_CD1 AS pymntDscd1,     /*납부구분코드1*/
+        GIRO_PYMNT_AMT1 AS giroPymntAmt1,     /*지로납부금액1*/
+        HNDN_INST_BRTY_CD1 AS hndlngInstBrnchCd1,     /*취급기관점별코드1*/
+        PYMNT_PRCS_DT1 AS pymntPrcsngDt1,     /*납부처리일자1*/
+        PYMNT_MTH_NTH2 AS pymntMonthlyNth2,     /*납부월회차2*/
+        PYMNT_DS_CD2 AS pymntDscd2,     /*납부구분코드2*/
+        GIRO_PYMNT_AMT2 AS giroPymntAmt2,     /*지로납부금액2*/
+        HNDN_INST_BRTY_CD2 AS hndlngInstBrnchCd2,     /*취급기관점별코드2*/
+        PYMNT_PRCS_DT2 AS pymntPrcsngDt2,     /*납부처리일자2*/
+        PYMNT_MTH_NTH3 AS pymntMonthlyNth3,     /*납부월회차3*/
+        PYMNT_DS_CD3 AS pymntDscd3,     /*납부구분코드3*/
+        GIRO_PYMNT_AMT3 AS giroPymntAmt3,     /*지로납부금액3*/
+        HNDN_INST_BRTY_CD3 AS hndlngInstBrnchCd3,     /*취급기관점별코드3*/
+        PYMNT_PRCS_DT3 AS pymntPrcsngDt3,     /*납부처리일자3*/
+        PYMNT_MTH_NTH4 AS pymntMonthlyNth4,     /*납부월회차4*/
+        PYMNT_DS_CD4 AS pymntDscd4,     /*납부구분코드4*/
+        GIRO_PYMNT_AMT4 AS giroPymntAmt4,     /*지로납부금액4*/
+        HNDN_INST_BRTY_CD4 AS hndlngInstBrnchCd4,     /*취급기관점별코드4*/
+        PYMNT_PRCS_DT4 AS pymntPrcsngDt4,     /*납부처리일자4*/
+        CARD_EFCTV_TRM AS cardAvlblTrmCnt,     /*카드유효기간*/
+        PIN_PSWD AS pinPswd,     /*PIN비밀번호*/
+        RCPT_CNT AS rcptCnt,     /*수납건수*/
+        GIRO_INST_NM1 AS giroInstNm1,     /*지로기관명1*/
+        ELTRN_RCPT_PYMNT_AMT1 AS elctrncRcptPymntAmt1,     /*전자수납납부금액1*/
+        UNATD_UTLBL_SHT_CD1 AS manLessUtlblSheetCd1,     /*무인공과금장표코드1*/
+        GIRO_INST_NM2 AS giroInstNm2,     /*지로기관명2*/
+        ELTRN_RCPT_PYMNT_AMT2 AS elctrncRcptPymntAmt2,     /*전자수납납부금액2*/
+        UNATD_UTLBL_SHT_CD2 AS manLessUtlblSheetCd2,     /*무인공과금장표코드2*/
+        GIRO_INST_NM3 AS giroInstNm3,     /*지로기관명3*/
+        ELTRN_RCPT_PYMNT_AMT3 AS elctrncRcptPymntAmt3,     /*전자수납납부금액3*/
+        UNATD_UTLBL_SHT_CD3 AS manLessUtlblSheetCd3,     /*무인공과금장표코드3*/
+        GIRO_INST_NM4 AS giroInstNm4,     /*지로기관명4*/
+        ELTRN_RCPT_PYMNT_AMT4 AS elctrncRcptPymntAmt4,     /*전자수납납부금액4*/
+        UNATD_UTLBL_SHT_CD4 AS manLessUtlblSheetCd4,     /*무인공과금장표코드4*/
+        GIRO_INST_NM5 AS giroInstNm5,     /*지로기관명5*/
+        ELTRN_RCPT_PYMNT_AMT5 AS elctrncRcptPymntAmt5,     /*전자수납납부금액5*/
+        UNATD_UTLBL_SHT_CD5 AS manLessUtlblSheetCd5,     /*무인공과금장표코드5*/
+        MEDIA_DS_CD AS mediaDscd,     /*매체구분코드*/
+        TOT_CNT AS totCnt,     /*총계건수*/
+        TOT_AMT AS totBal,     /*총계금액*/
+        LCLT_SLGV_NM1 AS localGvrnmntNm1,     /*지방자치명1*/
+        PYMNT_TAXIT_NM1 AS pymntTaxNm1,     /*납부세목명1*/
+        SIMP_PYMNT_AMT1 AS simplePymntAmt1,     /*간편납부금액1*/
+        PYMNT_DLN_DT1 AS prdDlnDt1,     /*납부기한일자1*/
+        CDATM_GIRO_NBR1 AS cdAutoTlrMachineGiroNbr1,     /*CDATM지로번호1*/
+        ELTRN_PYMNT_NBR1 AS elctrncPymntNbr1,     /*전자납부번호1*/
+        PYMNT_QTR1 AS pymntQrtrCntnt1,     /*납부분기1*/
+        TMPM_DS_CD1 AS prdDscd1,     /*납기구분코드1*/
+        PYMNT_YN1 AS pymntYn1,     /*납부여부1*/
+        LCLT_SLGV_NM2 AS localGvrnmntNm2,     /*지방자치명2*/
+        PYMNT_TAXIT_NM2 AS pymntTaxNm2,     /*납부세목명2*/
+        SIMP_PYMNT_AMT2 AS simplePymntAmt2,     /*간편납부금액2*/
+        PYMNT_DLN_DT2 AS prdDlnDt2,     /*납부기한일자2*/
+        CDATM_GIRO_NBR2 AS cdAutoTlrMachineGiroNbr2,     /*CDATM지로번호2*/
+        ELTRN_PYMNT_NBR2 AS elctrncPymntNbr2,     /*전자납부번호2*/
+        PYMNT_QTR2 AS pymntQrtrCntnt2,     /*납부분기2*/
+        TMPM_DS_CD2 AS prdDscd2,     /*납기구분코드2*/
+        PYMNT_YN2 AS pymntYn2,     /*납부여부2*/
+        LCLT_SLGV_NM3 AS localGvrnmntNm3,     /*지방자치명3*/
+        PYMNT_TAXIT_NM3 AS pymntTaxNm3,     /*납부세목명3*/
+        SIMP_PYMNT_AMT3 AS simplePymntAmt3,     /*간편납부금액3*/
+        PYMNT_DLN_DT3 AS prdDlnDt3,     /*납부기한일자3*/
+        CDATM_GIRO_NBR3 AS cdAutoTlrMachineGiroNbr3,     /*CDATM지로번호3*/
+        ELTRN_PYMNT_NBR3 AS elctrncPymntNbr3,     /*전자납부번호3*/
+        PYMNT_QTR3 AS pymntQrtrCntnt3,     /*납부분기3*/
+        TMPM_DS_CD3 AS prdDscd3,     /*납기구분코드3*/
+        PYMNT_YN3 AS pymntYn3,     /*납부여부3*/
+        LCLT_SLGV_NM4 AS localGvrnmntNm4,     /*지방자치명4*/
+        PYMNT_TAXIT_NM4 AS pymntTaxNm4,     /*납부세목명4*/
+        SIMP_PYMNT_AMT4 AS simplePymntAmt4,     /*간편납부금액4*/
+        PYMNT_DLN_DT4 AS prdDlnDt4,     /*납부기한일자4*/
+        CDATM_GIRO_NBR4 AS cdAutoTlrMachineGiroNbr4,     /*CDATM지로번호4*/
+        ELTRN_PYMNT_NBR4 AS elctrncPymntNbr4,     /*전자납부번호4*/
+        PYMNT_QTR4 AS pymntQrtrCntnt4,     /*납부분기4*/
+        TMPM_DS_CD4 AS prdDscd4,     /*납기구분코드4*/
+        PYMNT_YN4 AS pymntYn4,     /*납부여부4*/
+        PYMNT_MEDIA_DS_CD AS pymntMediaDscd,     /*납부매체구분코드*/
+        TX_MEDIA_DS_CD AS txMediaDscd,     /*거래매체구분코드*/
+        DLPM_YN AS arrearsYn,     /*체납여부*/
+        DLPM_CNTNT AS arrearsCntnt,     /*체납내용*/
+        CARD_RNNM_CNTNT AS cardRandomNbrCntnt,     /*카드난수내용*/
+        C_D_RNNM_CNTNT AS cdRandomNbr,     /*CD난수내용*/
+        ECRY_PSWD AS encrptnPswd,     /*암호화비밀번호*/
+        FNCL_IC_DS_NBR AS fnclIcDsNbr,     /*금융IC구분번호*/
+        ELTRN_RCPT_TX_MEDIA_DS_CD AS elctrncRcptTxMediaDscd,     /*전자수납거래매체구분코드*/
+        CNCL_YN AS cnclYn,     /*취소여부*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_CD_TX_GRIO_H
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND TX_UNQ_NBR = #{txUnqNbr}
+</select>
+<select id="selectCdGiroHistoryForRefd" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdTxGiroHIO">
+SELECT    /* 전자수납CD거래내역 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래일자*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        REQ_TLGR_NBR AS tlgrTraceNbr,     /*전문추적번호*/
+        TLGR_CLS_CD AS msgPerTpCd,     /*전문종별코드*/
+        ELTRN_RCPT_TX_DS_CD AS elctrncRcptTxDscd,     /*전자수납거래구분코드*/
+        TX_AMT AS txAmt,     /*거래금액*/
+        FEE_AMT AS feeAmt,     /*수수료금액*/
+        ELCTRNC_RCPT_GIRO_NBR AS elctrncRcptGiroNbr,     /*전자수납지로번호*/
+        ELCTRNC_PYMNT_NBR AS elctrncPymntNbr,     /*전자납부번호*/
+        ELTRN_RCPT_RSPNS_CD AS elctrncRcptRspnsCd,     /*전자수납응답코드*/
+        CDATM_GIRO_NBR AS cdAutoTlrMachineGiroNbr,     /*CDATM지로번호*/
+        SIMP_PYMNT_NBR AS simplePymntNbr,     /*간편납부번호*/
+        ELTRN_RCPT_TLGR_SND_DTTM AS elctrncRcptMsgSndDtm,     /*전자수납전문전송일시*/
+        GIRO_PYMNT_BIZ_DS_CD AS giroPymntBizDscd,     /*지로납부업무구분코드*/
+        PYMNT_MTH_NTH_NBR AS pymntMonthlyNthNbr,     /*납부월회차*/
+        PYMNT_BFAF_DS_CD AS pymntBfAfDscd,     /*납부전후구분코드*/
+        PYMNT_DS_CD AS pymntDscd,     /*납부구분코드*/
+        STLM_ACCT_NBR AS stlmntAcctNbr,     /*결제계좌번호*/
+        HNDLNG_INST_BRNCH_CD AS hndlngInstBrnchCd,     /*취급기관부점코드*/
+        CARD_ACCT_NBR AS cardAcctNbr,     /*카드계좌번호*/
+        RGST_TRMNL_NBR AS rgstrnTrmnlNbr,     /*등록단말번호*/
+        MSG_DATA_Dscd AS msgDataDscd,     /*전문데이터구분코드*/
+        IC_CARD_SEQ_NBR AS icCardSeqNbr,     /*IC카드일련번호*/
+        CARD_SEQ_NBR AS cardSeqNbr,     /*카드일련번호*/
+        PAYER_FULL_NM AS payerFullNm,     /*납부자성명*/
+        BNFCRY_NM AS bnfcryNm,     /*수취인명*/
+        WHDRWL_NM AS whdrwlNm,     /*출금인명*/
+        UTL_INST_NM AS useInstNm1,     /*이용기관명*/
+        ETC_DATA_CNTNT AS etcDataCntnt,     /*기타데이터내용*/
+        ORGNL_TX_TLGR_CLS_CD AS orgnlTxMsgClsCd,     /*원거래전문종별코드*/
+        ORGNL_TX_TLGR_TRACE_NBR AS orgnlTxMsgTraceNbr,     /*원거래전문추적번호*/
+        ORGNL_TX_TX_OPNG_DD AS orgnlTxTxOpnDt,     /*원거래거래개시일*/
+        ORGNL_TX_HNDN_INST_CD AS orgnlTxHndlngInstCd,     /*원거래취급기관코드*/
+        ORGNL_TX_RSPNS_CD AS orgnlTxRspnsCd,     /*원거래응답코드*/
+        TX_STEP_DS_CD AS txStepDscd,     /*거래단계구분코드*/
+        ATMTC_PYMNT_CNT AS atmtcPymntCnt,     /*자동납부건수*/
+        PYMNT_MTH_NTH1 AS pymntMonthlyNth1,     /*납부월회차1*/
+        PYMNT_DS_CD1 AS pymntDscd1,     /*납부구분코드1*/
+        GIRO_PYMNT_AMT1 AS giroPymntAmt1,     /*지로납부금액1*/
+        HNDN_INST_BRTY_CD1 AS hndlngInstBrnchCd1,     /*취급기관점별코드1*/
+        PYMNT_PRCS_DT1 AS pymntPrcsngDt1,     /*납부처리일자1*/
+        PYMNT_MTH_NTH2 AS pymntMonthlyNth2,     /*납부월회차2*/
+        PYMNT_DS_CD2 AS pymntDscd2,     /*납부구분코드2*/
+        GIRO_PYMNT_AMT2 AS giroPymntAmt2,     /*지로납부금액2*/
+        HNDN_INST_BRTY_CD2 AS hndlngInstBrnchCd2,     /*취급기관점별코드2*/
+        PYMNT_PRCS_DT2 AS pymntPrcsngDt2,     /*납부처리일자2*/
+        PYMNT_MTH_NTH3 AS pymntMonthlyNth3,     /*납부월회차3*/
+        PYMNT_DS_CD3 AS pymntDscd3,     /*납부구분코드3*/
+        GIRO_PYMNT_AMT3 AS giroPymntAmt3,     /*지로납부금액3*/
+        HNDN_INST_BRTY_CD3 AS hndlngInstBrnchCd3,     /*취급기관점별코드3*/
+        PYMNT_PRCS_DT3 AS pymntPrcsngDt3,     /*납부처리일자3*/
+        PYMNT_MTH_NTH4 AS pymntMonthlyNth4,     /*납부월회차4*/
+        PYMNT_DS_CD4 AS pymntDscd4,     /*납부구분코드4*/
+        GIRO_PYMNT_AMT4 AS giroPymntAmt4,     /*지로납부금액4*/
+        HNDN_INST_BRTY_CD4 AS hndlngInstBrnchCd4,     /*취급기관점별코드4*/
+        PYMNT_PRCS_DT4 AS pymntPrcsngDt4,     /*납부처리일자4*/
+        CARD_EFCTV_TRM AS cardAvlblTrmCnt,     /*카드유효기간*/
+        PIN_PSWD AS pinPswd,     /*PIN비밀번호*/
+        RCPT_CNT AS rcptCnt,     /*수납건수*/
+        GIRO_INST_NM1 AS giroInstNm1,     /*지로기관명1*/
+        ELTRN_RCPT_PYMNT_AMT1 AS elctrncRcptPymntAmt1,     /*전자수납납부금액1*/
+        UNATD_UTLBL_SHT_CD1 AS manLessUtlblSheetCd1,     /*무인공과금장표코드1*/
+        GIRO_INST_NM2 AS giroInstNm2,     /*지로기관명2*/
+        ELTRN_RCPT_PYMNT_AMT2 AS elctrncRcptPymntAmt2,     /*전자수납납부금액2*/
+        UNATD_UTLBL_SHT_CD2 AS manLessUtlblSheetCd2,     /*무인공과금장표코드2*/
+        GIRO_INST_NM3 AS giroInstNm3,     /*지로기관명3*/
+        ELTRN_RCPT_PYMNT_AMT3 AS elctrncRcptPymntAmt3,     /*전자수납납부금액3*/
+        UNATD_UTLBL_SHT_CD3 AS manLessUtlblSheetCd3,     /*무인공과금장표코드3*/
+        GIRO_INST_NM4 AS giroInstNm4,     /*지로기관명4*/
+        ELTRN_RCPT_PYMNT_AMT4 AS elctrncRcptPymntAmt4,     /*전자수납납부금액4*/
+        UNATD_UTLBL_SHT_CD4 AS manLessUtlblSheetCd4,     /*무인공과금장표코드4*/
+        GIRO_INST_NM5 AS giroInstNm5,     /*지로기관명5*/
+        ELTRN_RCPT_PYMNT_AMT5 AS elctrncRcptPymntAmt5,     /*전자수납납부금액5*/
+        UNATD_UTLBL_SHT_CD5 AS manLessUtlblSheetCd5,     /*무인공과금장표코드5*/
+        MEDIA_DS_CD AS mediaDscd,     /*매체구분코드*/
+        TOT_CNT AS totCnt,     /*총계건수*/
+        TOT_AMT AS totBal,     /*총계금액*/
+        LCLT_SLGV_NM1 AS localGvrnmntNm1,     /*지방자치명1*/
+        PYMNT_TAXIT_NM1 AS pymntTaxNm1,     /*납부세목명1*/
+        SIMP_PYMNT_AMT1 AS simplePymntAmt1,     /*간편납부금액1*/
+        PYMNT_DLN_DT1 AS prdDlnDt1,     /*납부기한일자1*/
+        CDATM_GIRO_NBR1 AS cdAutoTlrMachineGiroNbr1,     /*CDATM지로번호1*/
+        ELTRN_PYMNT_NBR1 AS elctrncPymntNbr1,     /*전자납부번호1*/
+        PYMNT_QTR1 AS pymntQrtrCntnt1,     /*납부분기1*/
+        TMPM_DS_CD1 AS prdDscd1,     /*납기구분코드1*/
+        PYMNT_YN1 AS pymntYn1,     /*납부여부1*/
+        LCLT_SLGV_NM2 AS localGvrnmntNm2,     /*지방자치명2*/
+        PYMNT_TAXIT_NM2 AS pymntTaxNm2,     /*납부세목명2*/
+        SIMP_PYMNT_AMT2 AS simplePymntAmt2,     /*간편납부금액2*/
+        PYMNT_DLN_DT2 AS prdDlnDt2,     /*납부기한일자2*/
+        CDATM_GIRO_NBR2 AS cdAutoTlrMachineGiroNbr2,     /*CDATM지로번호2*/
+        ELTRN_PYMNT_NBR2 AS elctrncPymntNbr2,     /*전자납부번호2*/
+        PYMNT_QTR2 AS pymntQrtrCntnt2,     /*납부분기2*/
+        TMPM_DS_CD2 AS prdDscd2,     /*납기구분코드2*/
+        PYMNT_YN2 AS pymntYn2,     /*납부여부2*/
+        LCLT_SLGV_NM3 AS localGvrnmntNm3,     /*지방자치명3*/
+        PYMNT_TAXIT_NM3 AS pymntTaxNm3,     /*납부세목명3*/
+        SIMP_PYMNT_AMT3 AS simplePymntAmt3,     /*간편납부금액3*/
+        PYMNT_DLN_DT3 AS prdDlnDt3,     /*납부기한일자3*/
+        CDATM_GIRO_NBR3 AS cdAutoTlrMachineGiroNbr3,     /*CDATM지로번호3*/
+        ELTRN_PYMNT_NBR3 AS elctrncPymntNbr3,     /*전자납부번호3*/
+        PYMNT_QTR3 AS pymntQrtrCntnt3,     /*납부분기3*/
+        TMPM_DS_CD3 AS prdDscd3,     /*납기구분코드3*/
+        PYMNT_YN3 AS pymntYn3,     /*납부여부3*/
+        LCLT_SLGV_NM4 AS localGvrnmntNm4,     /*지방자치명4*/
+        PYMNT_TAXIT_NM4 AS pymntTaxNm4,     /*납부세목명4*/
+        SIMP_PYMNT_AMT4 AS simplePymntAmt4,     /*간편납부금액4*/
+        PYMNT_DLN_DT4 AS prdDlnDt4,     /*납부기한일자4*/
+        CDATM_GIRO_NBR4 AS cdAutoTlrMachineGiroNbr4,     /*CDATM지로번호4*/
+        ELTRN_PYMNT_NBR4 AS elctrncPymntNbr4,     /*전자납부번호4*/
+        PYMNT_QTR4 AS pymntQrtrCntnt4,     /*납부분기4*/
+        TMPM_DS_CD4 AS prdDscd4,     /*납기구분코드4*/
+        PYMNT_YN4 AS pymntYn4,     /*납부여부4*/
+        PYMNT_MEDIA_DS_CD AS pymntMediaDscd,     /*납부매체구분코드*/
+        TX_MEDIA_DS_CD AS txMediaDscd,     /*거래매체구분코드*/
+        DLPM_YN AS arrearsYn,     /*체납여부*/
+        DLPM_CNTNT AS arrearsCntnt,     /*체납내용*/
+        CARD_RNNM_CNTNT AS cardRandomNbrCntnt,     /*카드난수내용*/
+        C_D_RNNM_CNTNT AS cdRandomNbr,     /*CD난수내용*/
+        ECRY_PSWD AS encrptnPswd,     /*암호화비밀번호*/
+        FNCL_IC_DS_NBR AS fnclIcDsNbr,     /*금융IC구분번호*/
+        ELTRN_RCPT_TX_MEDIA_DS_CD AS elctrncRcptTxMediaDscd,     /*전자수납거래매체구분코드*/
+        CNCL_YN AS cnclYn,     /*취소여부*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_CD_TX_GRIO_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND REQ_TLGR_NBR = #{tlgrTraceNbr}
+</select>
+<select id="selectCdTransHistoryList" resultType="bankware.corebanking.externalproxy.cdjointnetwork.interfaces.dto.ExternalCdGiroHOut">
+SELECT instCd,       /*기관코드*/
+       extrnlInstCd,       /*대외기관코드*/
+       extrnlBizDscd,       /*대외업무구분코드*/
+       txDt,       /*거래일자*/
+       txUnqNbr,       /*거래고유번호*/
+       rqstMsgNbr,       /*요청전문번호*/
+       msgPerTpCd,       /*전문종별코드*/
+       elctrncRcptTxDscd,       /*전자수납거래구분코드*/
+       txAmt,       /*거래금액*/
+       feeAmt,       /*수수료금액*/
+       elctrncRcptGiroNbr,       /*전자수납지로번호*/
+       elctrncPymntNbr,       /*전자납부번호*/
+       elctrncRcptRspnsCd,       /*전자수납응답코드*/
+       cdAutoTlrMachineGiroNbr,       /*CDATM지로번호*/
+       simplePymntNbr,       /*간편납부번호*/
+       elctrncRcptMsgSndDtm,       /*전자수납전문전송일시*/
+       giroPymntBizDscd,       /*지로납부업무구분코드*/
+       pymntBfAfDscd,       /*납부전후구분코드*/
+       pymntDscd,       /*납부구분코드*/
+       acctNbr,       /*결제계좌번호*/
+       hndlngFnclInstCd,     /*취급기관코드*/
+       hndlngFnclInstNm,     /*취급금융기관코드*/
+       hndlngFnclInstBrnchCd, /*취급기관부점코드*/
+       cardAcctNbr,       /*카드계좌번호*/
+       rgstrnTrmnlNbr,       /*등록단말번호*/
+       msgDataDscd,       /*전문데이터구분코드*/
+       icCardSeqNbr,       /*IC카드일련번호*/
+       cardSeqNbr,       /*카드일련번호*/
+       payerFullNm,       /*납부자성명*/
+       bnfcryNm,       /*수취인명*/
+       whdrwlNm,       /*출금인명*/
+       useInstNm1,       /*이용기관명*/
+       etcDataCntnt,       /*기타데이터내용*/
+       orgnlTxMsgClsCd,       /*원거래전문종별코드*/
+       orgnlTxMsgTraceNbr,       /*원거래전문추적번호*/
+       orgnlTxTxOpnDt,       /*원거래거래개시일*/
+       orgnlTxHndlngInstCd,       /*원거래취급기관코드*/
+       orgnlTxRspnsCd,       /*원거래응답코드*/
+       txStepDscd,       /*거래단계구분코드*/
+       atmtcPymntCnt,       /*자동납부건수*/
+       pymntMonthlyNth1,       /*납부월회차1*/
+       pymntDscd1,       /*납부구분코드1*/
+       giroPymntAmt1,       /*지로납부금액1*/
+       hndlngInstBrnchCd1,       /*취급기관점별코드1*/
+       pymntPrcsngDt1,       /*납부처리일자1*/
+       pymntMonthlyNth2,       /*납부월회차2*/
+       pymntDscd2,       /*납부구분코드2*/
+       giroPymntAmt2,       /*지로납부금액2*/
+       hndlngInstBrnchCd2,       /*취급기관점별코드2*/
+       pymntPrcsngDt2,       /*납부처리일자2*/
+       pymntMonthlyNth3,       /*납부월회차3*/
+       pymntDscd3,       /*납부구분코드3*/
+       giroPymntAmt3,       /*지로납부금액3*/
+       hndlngInstBrnchCd3,       /*취급기관점별코드3*/
+       pymntPrcsngDt3,       /*납부처리일자3*/
+       pymntMonthlyNth4,       /*납부월회차4*/
+       pymntDscd4,       /*납부구분코드4*/
+       giroPymntAmt4,       /*지로납부금액4*/
+       hndlngInstBrnchCd4,       /*취급기관점별코드4*/
+       pymntPrcsngDt4,       /*납부처리일자4*/
+       cardAvlblTrmCnt,       /*카드유효기간*/
+       pinPswd,       /*PIN비밀번호*/
+       rcptCnt,       /*수납건수*/
+       giroInstNm1,       /*지로기관명1*/
+       elctrncRcptPymntAmt1,       /*전자수납납부금액1*/
+       manLessUtlblSheetCd1,       /*무인공과금장표코드1*/
+       giroInstNm2,       /*지로기관명2*/
+       elctrncRcptPymntAmt2,       /*전자수납납부금액2*/
+       manLessUtlblSheetCd2,       /*무인공과금장표코드2*/
+       giroInstNm3,       /*지로기관명3*/
+       elctrncRcptPymntAmt3,       /*전자수납납부금액3*/
+       manLessUtlblSheetCd3,       /*무인공과금장표코드3*/
+       giroInstNm4,       /*지로기관명4*/
+       elctrncRcptPymntAmt4,       /*전자수납납부금액4*/
+       manLessUtlblSheetCd4,       /*무인공과금장표코드4*/
+       giroInstNm5,       /*지로기관명5*/
+       elctrncRcptPymntAmt5,       /*전자수납납부금액5*/
+       manLessUtlblSheetCd5,       /*무인공과금장표코드5*/
+       mediaDscd,       /*매체구분코드*/
+       totCnt1,       /*총계건수*/
+       totBal,       /*총계금액*/
+       localGvrnmntNm1,       /*지방자치명1*/
+       pymntTaxNm1,       /*납부세목명1*/
+       simplePymntAmt1,       /*간편납부금액1*/
+       prdDlnDt1,       /*납부기한일자1*/
+       cdAutoTlrMachineGiroNbr1,       /*CDATM지로번호1*/
+       elctrncPymntNbr1,       /*전자납부번호1*/
+       pymntQrtrCntnt1,       /*납부분기1*/
+       prdDscd1,       /*납기구분코드1*/
+       pymntYn1,       /*납부여부1*/
+       localGvrnmntNm2,       /*지방자치명2*/
+       pymntTaxNm2,       /*납부세목명2*/
+       simplePymntAmt2,       /*간편납부금액2*/
+       prdDlnDt2,       /*납부기한일자2*/
+       cdAutoTlrMachineGiroNbr2,       /*CDATM지로번호2*/
+       elctrncPymntNbr2,       /*전자납부번호2*/
+       pymntQrtrCntnt2,       /*납부분기2*/
+       prdDscd2,       /*납기구분코드2*/
+       pymntYn2,       /*납부여부2*/
+       localGvrnmntNm3,       /*지방자치명3*/
+       pymntTaxNm3,       /*납부세목명3*/
+       simplePymntAmt3,       /*간편납부금액3*/
+       prdDlnDt3,       /*납부기한일자3*/
+       cdAutoTlrMachineGiroNbr3,       /*CDATM지로번호3*/
+       elctrncPymntNbr3,       /*전자납부번호3*/
+       pymntQrtrCntnt3,       /*납부분기3*/
+       prdDscd3,       /*납기구분코드3*/
+       pymntYn3,       /*납부여부3*/
+       localGvrnmntNm4,       /*지방자치명4*/
+       pymntTaxNm4,       /*납부세목명4*/
+       simplePymntAmt4,       /*간편납부금액4*/
+       prdDlnDt4,       /*납부기한일자4*/
+       cdAutoTlrMachineGiroNbr4,       /*CDATM지로번호4*/
+       elctrncPymntNbr4,       /*전자납부번호4*/
+       pymntQrtrCntnt4,       /*납부분기4*/
+       prdDscd4,       /*납기구분코드4*/
+       pymntYn4,       /*납부여부4*/
+       pymntMediaDscd,       /*납부매체구분코드*/
+       txMediaDscd,       /*거래매체구분코드*/
+       arrearsYn,       /*체납여부*/
+       arrearsCntnt,       /*체납내용*/
+       cardRandomNbrCntnt,       /*카드난수내용*/
+       cdRandomNbr,       /*CD난수내용*/
+       encrptnPswd,       /*암호화비밀번호*/
+       fnclIcDsNbr,       /*금융IC구분번호*/
+       elctrncRcptTxMediaDscd,       /*전자수납거래매체구분코드*/
+       cnclYn,       /*취소여부*/
+       lastChngTmstmp,       /*최종변경일시*/
+       lastChngGuid,       /*최종변경GUID*/
+       giroPymntCntnt,       /*지로납부내용*/
+       pymntDscd5,       /*납부구분코드5*/
+       pymntDscd6,       /*납부구분코드6*/
+       pymntDscd7,       /*납부구분코드7*/
+       pymntDscd8,       /*납부구분코드8*/
+       payerNbr,       /*납부자번호*/
+       acctgItmCd,       /*계정과목코드*/
+       levyAcctNbr,       /*징수계좌번호*/
+       acctgCd,       /*계정코드*/
+       acctgYr,       /*회계년도*/
+       mainTaxAmt,       /*본세금액*/
+       farmingFishingVlgsSpecialTax,       /*농어촌특별세액금액*/
+       stlmntEdctnTxAmt,       /*결산교육세금액*/
+       pymntAmtMdfctnYn,       /*납부금액수정여부*/
+       jointSeveralPymntYn,       /*연대납부대상여부*/
+       vlntrPymntTrgtYn,       /*자진납부대상여부*/
+       pymntSeq,       /*납부순번*/
+       pymntMonthlyNthNbr,/*납부월회차번호*/      		
+       cnclDscd/*취소구분코드*/	
+FROM 
+    ( SELECT ROWNUM AS ROW__NUM,
+		       	instCd,       /*기관코드*/
+            extrnlInstCd,       /*대외기관코드*/
+            extrnlBizDscd,       /*대외업무구분코드*/
+            txDt,       /*거래일자*/
+            txUnqNbr,       /*거래고유번호*/
+            rqstMsgNbr,       /*요청전문번호*/
+            msgPerTpCd,       /*전문종별코드*/
+            elctrncRcptTxDscd,       /*전자수납거래구분코드*/
+            txAmt,       /*거래금액*/
+            feeAmt,       /*수수료금액*/
+            elctrncRcptGiroNbr,       /*전자수납지로번호*/
+            elctrncPymntNbr,       /*전자납부번호*/
+            elctrncRcptRspnsCd,       /*전자수납응답코드*/
+            cdAutoTlrMachineGiroNbr,       /*CDATM지로번호*/
+            simplePymntNbr,       /*간편납부번호*/
+            elctrncRcptMsgSndDtm,       /*전자수납전문전송일시*/
+            giroPymntBizDscd,       /*지로납부업무구분코드*/
+            pymntBfAfDscd,       /*납부전후구분코드*/
+            pymntDscd,       /*납부구분코드*/
+            acctNbr,       /*결제계좌번호*/
+            hndlngFnclInstCd,     /*취급기관코드*/
+            hndlngFnclInstCd AS hndlngFnclInstNm,     /*취급금융기관코드*/
+        	hndlngFnclInstBrnchCd, /*취급기관부점코드*/
+            cardAcctNbr,       /*카드계좌번호*/
+            rgstrnTrmnlNbr,       /*등록단말번호*/
+            msgDataDscd,       /*전문데이터구분코드*/
+            icCardSeqNbr,       /*IC카드일련번호*/
+            cardSeqNbr,       /*카드일련번호*/
+            payerFullNm,       /*납부자성명*/
+            bnfcryNm,       /*수취인명*/
+            whdrwlNm,       /*출금인명*/
+            useInstNm1,       /*이용기관명*/
+            etcDataCntnt,       /*기타데이터내용*/
+            orgnlTxMsgClsCd,       /*원거래전문종별코드*/
+            orgnlTxMsgTraceNbr,       /*원거래전문추적번호*/
+            orgnlTxTxOpnDt,       /*원거래거래개시일*/
+            orgnlTxHndlngInstCd,       /*원거래취급기관코드*/
+            orgnlTxRspnsCd,       /*원거래응답코드*/
+            txStepDscd,       /*거래단계구분코드*/
+            atmtcPymntCnt,       /*자동납부건수*/
+            pymntMonthlyNth1,       /*납부월회차1*/
+            pymntDscd1,       /*납부구분코드1*/
+            giroPymntAmt1,       /*지로납부금액1*/
+            hndlngInstBrnchCd1,       /*취급기관점별코드1*/
+            pymntPrcsngDt1,       /*납부처리일자1*/
+            pymntMonthlyNth2,       /*납부월회차2*/
+            pymntDscd2,       /*납부구분코드2*/
+            giroPymntAmt2,       /*지로납부금액2*/
+            hndlngInstBrnchCd2,       /*취급기관점별코드2*/
+            pymntPrcsngDt2,       /*납부처리일자2*/
+            pymntMonthlyNth3,       /*납부월회차3*/
+            pymntDscd3,       /*납부구분코드3*/
+            giroPymntAmt3,       /*지로납부금액3*/
+            hndlngInstBrnchCd3,       /*취급기관점별코드3*/
+            pymntPrcsngDt3,       /*납부처리일자3*/
+            pymntMonthlyNth4,       /*납부월회차4*/
+            pymntDscd4,       /*납부구분코드4*/
+            giroPymntAmt4,       /*지로납부금액4*/
+            hndlngInstBrnchCd4,       /*취급기관점별코드4*/
+            pymntPrcsngDt4,       /*납부처리일자4*/
+            cardAvlblTrmCnt,       /*카드유효기간*/
+            pinPswd,       /*PIN비밀번호*/
+            rcptCnt,       /*수납건수*/
+            giroInstNm1,       /*지로기관명1*/
+            elctrncRcptPymntAmt1,       /*전자수납납부금액1*/
+            manLessUtlblSheetCd1,       /*무인공과금장표코드1*/
+            giroInstNm2,       /*지로기관명2*/
+            elctrncRcptPymntAmt2,       /*전자수납납부금액2*/
+            manLessUtlblSheetCd2,       /*무인공과금장표코드2*/
+            giroInstNm3,       /*지로기관명3*/
+            elctrncRcptPymntAmt3,       /*전자수납납부금액3*/
+            manLessUtlblSheetCd3,       /*무인공과금장표코드3*/
+            giroInstNm4,       /*지로기관명4*/
+            elctrncRcptPymntAmt4,       /*전자수납납부금액4*/
+            manLessUtlblSheetCd4,       /*무인공과금장표코드4*/
+            giroInstNm5,       /*지로기관명5*/
+            elctrncRcptPymntAmt5,       /*전자수납납부금액5*/
+            manLessUtlblSheetCd5,       /*무인공과금장표코드5*/
+            mediaDscd,       /*매체구분코드*/
+            totCnt1,       /*총계건수*/
+            totBal,       /*총계금액*/
+            localGvrnmntNm1,       /*지방자치명1*/
+            pymntTaxNm1,       /*납부세목명1*/
+            simplePymntAmt1,       /*간편납부금액1*/
+            prdDlnDt1,       /*납부기한일자1*/
+            cdAutoTlrMachineGiroNbr1,       /*CDATM지로번호1*/
+            elctrncPymntNbr1,       /*전자납부번호1*/
+            pymntQrtrCntnt1,       /*납부분기1*/
+            prdDscd1,       /*납기구분코드1*/
+            pymntYn1,       /*납부여부1*/
+            localGvrnmntNm2,       /*지방자치명2*/
+            pymntTaxNm2,       /*납부세목명2*/
+            simplePymntAmt2,       /*간편납부금액2*/
+            prdDlnDt2,       /*납부기한일자2*/
+            cdAutoTlrMachineGiroNbr2,       /*CDATM지로번호2*/
+            elctrncPymntNbr2,       /*전자납부번호2*/
+            pymntQrtrCntnt2,       /*납부분기2*/
+            prdDscd2,       /*납기구분코드2*/
+            pymntYn2,       /*납부여부2*/
+            localGvrnmntNm3,       /*지방자치명3*/
+            pymntTaxNm3,       /*납부세목명3*/
+            simplePymntAmt3,       /*간편납부금액3*/
+            prdDlnDt3,       /*납부기한일자3*/
+            cdAutoTlrMachineGiroNbr3,       /*CDATM지로번호3*/
+            elctrncPymntNbr3,       /*전자납부번호3*/
+            pymntQrtrCntnt3,       /*납부분기3*/
+            prdDscd3,       /*납기구분코드3*/
+            pymntYn3,       /*납부여부3*/
+            localGvrnmntNm4,       /*지방자치명4*/
+            pymntTaxNm4,       /*납부세목명4*/
+            simplePymntAmt4,       /*간편납부금액4*/
+            prdDlnDt4,       /*납부기한일자4*/
+            cdAutoTlrMachineGiroNbr4,       /*CDATM지로번호4*/
+            elctrncPymntNbr4,       /*전자납부번호4*/
+            pymntQrtrCntnt4,       /*납부분기4*/
+            prdDscd4,       /*납기구분코드4*/
+            pymntYn4,       /*납부여부4*/
+            pymntMediaDscd,       /*납부매체구분코드*/
+            txMediaDscd,       /*거래매체구분코드*/
+            arrearsYn,       /*체납여부*/
+            arrearsCntnt,       /*체납내용*/
+            cardRandomNbrCntnt,       /*카드난수내용*/
+            cdRandomNbr,       /*CD난수내용*/
+            encrptnPswd,       /*암호화비밀번호*/
+            fnclIcDsNbr,       /*금융IC구분번호*/
+            elctrncRcptTxMediaDscd,       /*전자수납거래매체구분코드*/
+            cnclYn,       /*취소여부*/
+            lastChngTmstmp,       /*최종변경일시*/
+            lastChngGuid,       /*최종변경GUID*/
+            giroPymntCntnt,       /*지로납부내용*/
+            pymntDscd5,       /*납부구분코드5*/
+            pymntDscd6,       /*납부구분코드6*/
+            pymntDscd7,       /*납부구분코드7*/
+            pymntDscd8,       /*납부구분코드8*/
+            payerNbr,       /*납부자번호*/
+            acctgItmCd,       /*계정과목코드*/
+            levyAcctNbr,       /*징수계좌번호*/
+            acctgCd,       /*계정코드*/
+            acctgYr,       /*회계년도*/
+            mainTaxAmt,       /*본세금액*/
+            farmingFishingVlgsSpecialTax,       /*농어촌특별세액금액*/
+            stlmntEdctnTxAmt,       /*결산교육세금액*/
+            pymntAmtMdfctnYn,       /*납부금액수정여부*/
+            jointSeveralPymntYn,       /*연대납부대상여부*/
+            vlntrPymntTrgtYn,       /*자진납부대상여부*/
+            pymntSeq,       /*납부순번*/
+            pymntMonthlyNthNbr,/*납부월회차번호*/	
+            cnclDscd/*취소구분코드*/	
+        FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* 전자수납CD거래내역 */
+        A.INST_CD AS instCd,     /*기관코드*/
+        A.EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        A.EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        A.TX_DT AS txDt,     /*거래일자*/
+        A.TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        A.REQ_TLGR_NBR AS rqstMsgNbr,     /*요청전문번호*/
+        A.TLGR_CLS_CD AS msgPerTpCd,     /*전문종별코드*/
+        A.ELTRN_RCPT_TX_DS_CD AS elctrncRcptTxDscd,     /*전자수납거래구분코드*/
+        A.TX_AMT AS txAmt,     /*거래금액*/
+        A.FEE_AMT AS feeAmt,     /*수수료금액*/
+        A.ELCTRNC_RCPT_GIRO_NBR AS elctrncRcptGiroNbr,     /*전자수납지로번호*/
+        A.ELCTRNC_PYMNT_NBR AS elctrncPymntNbr,     /*전자납부번호*/
+        A.ELTRN_RCPT_RSPNS_CD AS elctrncRcptRspnsCd,     /*전자수납응답코드*/
+        A.CDATM_GIRO_NBR AS cdAutoTlrMachineGiroNbr,     /*CDATM지로번호*/
+        A.SIMP_PYMNT_NBR AS simplePymntNbr,     /*간편납부번호*/
+        A.ELTRN_RCPT_TLGR_SND_DTTM AS elctrncRcptMsgSndDtm,     /*전자수납전문전송일시*/
+        A.GIRO_PYMNT_BIZ_DS_CD AS giroPymntBizDscd,     /*지로납부업무구분코드*/
+        A.PYMNT_BFAF_DS_CD AS pymntBfAfDscd,     /*납부전후구분코드*/
+        A.PYMNT_DS_CD AS pymntDscd,     /*납부구분코드*/
+        A.STLM_ACCT_NBR AS acctNbr,     /*결제계좌번호*/
+        SUBSTR(A.HNDLNG_INST_BRNCH_CD,0,3) AS hndlngFnclInstCd,     /*취급기관코드*/
+        SUBSTR(A.HNDLNG_INST_BRNCH_CD,4,4) AS hndlngFnclInstBrnchCd, /*취급기관부점코드*/
+        A.CARD_ACCT_NBR AS cardAcctNbr,     /*카드계좌번호*/
+        A.RGST_TRMNL_NBR AS rgstrnTrmnlNbr,     /*등록단말번호*/
+        A.MSG_DATA_Dscd AS msgDataDscd,     /*전문데이터구분코드*/
+        A.IC_CARD_SEQ_NBR AS icCardSeqNbr,     /*IC카드일련번호*/
+        A.CARD_SEQ_NBR AS cardSeqNbr,     /*카드일련번호*/
+        A.PAYER_FULL_NM AS payerFullNm,     /*납부자성명*/
+        A.BNFCRY_NM AS bnfcryNm,     /*수취인명*/
+        A.WHDRWL_NM AS whdrwlNm,     /*출금인명*/
+        A.UTL_INST_NM AS useInstNm1,     /*이용기관명*/
+        A.ETC_DATA_CNTNT AS etcDataCntnt,     /*기타데이터내용*/
+        A.ORGNL_TX_TLGR_CLS_CD AS orgnlTxMsgClsCd,     /*원거래전문종별코드*/
+        A.ORGNL_TX_TLGR_TRACE_NBR AS orgnlTxMsgTraceNbr,     /*원거래전문추적번호*/
+        A.ORGNL_TX_TX_OPNG_DD AS orgnlTxTxOpnDt,     /*원거래거래개시일*/
+        A.ORGNL_TX_HNDN_INST_CD AS orgnlTxHndlngInstCd,     /*원거래취급기관코드*/
+        A.ORGNL_TX_RSPNS_CD AS orgnlTxRspnsCd,     /*원거래응답코드*/
+        A.TX_STEP_DS_CD AS txStepDscd,     /*거래단계구분코드*/
+        A.ATMTC_PYMNT_CNT AS atmtcPymntCnt,     /*자동납부건수*/
+        A.PYMNT_MTH_NTH1 AS pymntMonthlyNth1,     /*납부월회차1*/
+        A.PYMNT_DS_CD1 AS pymntDscd1,     /*납부구분코드1*/
+        A.GIRO_PYMNT_AMT1 AS giroPymntAmt1,     /*지로납부금액1*/
+        A.HNDN_INST_BRTY_CD1 AS hndlngInstBrnchCd1,     /*취급기관점별코드1*/
+        A.PYMNT_PRCS_DT1 AS pymntPrcsngDt1,     /*납부처리일자1*/
+        A.PYMNT_MTH_NTH2 AS pymntMonthlyNth2,     /*납부월회차2*/
+        A.PYMNT_DS_CD2 AS pymntDscd2,     /*납부구분코드2*/
+        A.GIRO_PYMNT_AMT2 AS giroPymntAmt2,     /*지로납부금액2*/
+        A.HNDN_INST_BRTY_CD2 AS hndlngInstBrnchCd2,     /*취급기관점별코드2*/
+        A.PYMNT_PRCS_DT2 AS pymntPrcsngDt2,     /*납부처리일자2*/
+        A.PYMNT_MTH_NTH3 AS pymntMonthlyNth3,     /*납부월회차3*/
+        A.PYMNT_DS_CD3 AS pymntDscd3,     /*납부구분코드3*/
+        A.GIRO_PYMNT_AMT3 AS giroPymntAmt3,     /*지로납부금액3*/
+        A.HNDN_INST_BRTY_CD3 AS hndlngInstBrnchCd3,     /*취급기관점별코드3*/
+        A.PYMNT_PRCS_DT3 AS pymntPrcsngDt3,     /*납부처리일자3*/
+        A.PYMNT_MTH_NTH4 AS pymntMonthlyNth4,     /*납부월회차4*/
+        A.PYMNT_DS_CD4 AS pymntDscd4,     /*납부구분코드4*/
+        A.GIRO_PYMNT_AMT4 AS giroPymntAmt4,     /*지로납부금액4*/
+        A.HNDN_INST_BRTY_CD4 AS hndlngInstBrnchCd4,     /*취급기관점별코드4*/
+        A.PYMNT_PRCS_DT4 AS pymntPrcsngDt4,     /*납부처리일자4*/
+        A.CARD_EFCTV_TRM AS cardAvlblTrmCnt,     /*카드유효기간*/
+        A.PIN_PSWD AS pinPswd,     /*PIN비밀번호*/
+        A.RCPT_CNT AS rcptCnt,     /*수납건수*/
+        A.GIRO_INST_NM1 AS giroInstNm1,     /*지로기관명1*/
+        A.ELTRN_RCPT_PYMNT_AMT1 AS elctrncRcptPymntAmt1,     /*전자수납납부금액1*/
+        A.UNATD_UTLBL_SHT_CD1 AS manLessUtlblSheetCd1,     /*무인공과금장표코드1*/
+        A.GIRO_INST_NM2 AS giroInstNm2,     /*지로기관명2*/
+        A.ELTRN_RCPT_PYMNT_AMT2 AS elctrncRcptPymntAmt2,     /*전자수납납부금액2*/
+        A.UNATD_UTLBL_SHT_CD2 AS manLessUtlblSheetCd2,     /*무인공과금장표코드2*/
+        A.GIRO_INST_NM3 AS giroInstNm3,     /*지로기관명3*/
+        A.ELTRN_RCPT_PYMNT_AMT3 AS elctrncRcptPymntAmt3,     /*전자수납납부금액3*/
+        A.UNATD_UTLBL_SHT_CD3 AS manLessUtlblSheetCd3,     /*무인공과금장표코드3*/
+        A.GIRO_INST_NM4 AS giroInstNm4,     /*지로기관명4*/
+        A.ELTRN_RCPT_PYMNT_AMT4 AS elctrncRcptPymntAmt4,     /*전자수납납부금액4*/
+        A.UNATD_UTLBL_SHT_CD4 AS manLessUtlblSheetCd4,     /*무인공과금장표코드4*/
+        A.GIRO_INST_NM5 AS giroInstNm5,     /*지로기관명5*/
+        A.ELTRN_RCPT_PYMNT_AMT5 AS elctrncRcptPymntAmt5,     /*전자수납납부금액5*/
+        A.UNATD_UTLBL_SHT_CD5 AS manLessUtlblSheetCd5,     /*무인공과금장표코드5*/
+        A.MEDIA_DS_CD AS mediaDscd,     /*매체구분코드*/
+        A.TOT_CNT AS totCnt1,     /*총계건수*/
+        A.TOT_AMT AS totBal,     /*총계금액*/
+        A.LCLT_SLGV_NM1 AS localGvrnmntNm1,     /*지방자치명1*/
+        A.PYMNT_TAXIT_NM1 AS pymntTaxNm1,     /*납부세목명1*/
+        A.SIMP_PYMNT_AMT1 AS simplePymntAmt1,     /*간편납부금액1*/
+        A.PYMNT_DLN_DT1 AS prdDlnDt1,     /*납부기한일자1*/
+        A.CDATM_GIRO_NBR1 AS cdAutoTlrMachineGiroNbr1,     /*CDATM지로번호1*/
+        A.ELTRN_PYMNT_NBR1 AS elctrncPymntNbr1,     /*전자납부번호1*/
+        A.PYMNT_QTR1 AS pymntQrtrCntnt1,     /*납부분기1*/
+        A.TMPM_DS_CD1 AS prdDscd1,     /*납기구분코드1*/
+        A.PYMNT_YN1 AS pymntYn1,     /*납부여부1*/
+        A.LCLT_SLGV_NM2 AS localGvrnmntNm2,     /*지방자치명2*/
+        A.PYMNT_TAXIT_NM2 AS pymntTaxNm2,     /*납부세목명2*/
+        A.SIMP_PYMNT_AMT2 AS simplePymntAmt2,     /*간편납부금액2*/
+        A.PYMNT_DLN_DT2 AS prdDlnDt2,     /*납부기한일자2*/
+        A.CDATM_GIRO_NBR2 AS cdAutoTlrMachineGiroNbr2,     /*CDATM지로번호2*/
+        A.ELTRN_PYMNT_NBR2 AS elctrncPymntNbr2,     /*전자납부번호2*/
+        A.PYMNT_QTR2 AS pymntQrtrCntnt2,     /*납부분기2*/
+        A.TMPM_DS_CD2 AS prdDscd2,     /*납기구분코드2*/
+        A.PYMNT_YN2 AS pymntYn2,     /*납부여부2*/
+        A.LCLT_SLGV_NM3 AS localGvrnmntNm3,     /*지방자치명3*/
+        A.PYMNT_TAXIT_NM3 AS pymntTaxNm3,     /*납부세목명3*/
+        A.SIMP_PYMNT_AMT3 AS simplePymntAmt3,     /*간편납부금액3*/
+        A.PYMNT_DLN_DT3 AS prdDlnDt3,     /*납부기한일자3*/
+        A.CDATM_GIRO_NBR3 AS cdAutoTlrMachineGiroNbr3,     /*CDATM지로번호3*/
+        A.ELTRN_PYMNT_NBR3 AS elctrncPymntNbr3,     /*전자납부번호3*/
+        A.PYMNT_QTR3 AS pymntQrtrCntnt3,     /*납부분기3*/
+        A.TMPM_DS_CD3 AS prdDscd3,     /*납기구분코드3*/
+        A.PYMNT_YN3 AS pymntYn3,     /*납부여부3*/
+        A.LCLT_SLGV_NM4 AS localGvrnmntNm4,     /*지방자치명4*/
+        A.PYMNT_TAXIT_NM4 AS pymntTaxNm4,     /*납부세목명4*/
+        A.SIMP_PYMNT_AMT4 AS simplePymntAmt4,     /*간편납부금액4*/
+        A.PYMNT_DLN_DT4 AS prdDlnDt4,     /*납부기한일자4*/
+        A.CDATM_GIRO_NBR4 AS cdAutoTlrMachineGiroNbr4,     /*CDATM지로번호4*/
+        A.ELTRN_PYMNT_NBR4 AS elctrncPymntNbr4,     /*전자납부번호4*/
+        A.PYMNT_QTR4 AS pymntQrtrCntnt4,     /*납부분기4*/
+        A.TMPM_DS_CD4 AS prdDscd4,     /*납기구분코드4*/
+        A.PYMNT_YN4 AS pymntYn4,     /*납부여부4*/
+        A.PYMNT_MEDIA_DS_CD AS pymntMediaDscd,     /*납부매체구분코드*/
+        A.TX_MEDIA_DS_CD AS txMediaDscd,     /*거래매체구분코드*/
+        A.DLPM_YN AS arrearsYn,     /*체납여부*/
+        A.DLPM_CNTNT AS arrearsCntnt,     /*체납내용*/
+        A.CARD_RNNM_CNTNT AS cardRandomNbrCntnt,     /*카드난수내용*/
+        A.C_D_RNNM_CNTNT AS cdRandomNbr,     /*CD난수내용*/
+        A.ECRY_PSWD AS encrptnPswd,     /*암호화비밀번호*/
+        A.FNCL_IC_DS_NBR AS fnclIcDsNbr,     /*금융IC구분번호*/
+        A.ELTRN_RCPT_TX_MEDIA_DS_CD AS elctrncRcptTxMediaDscd,     /*전자수납거래매체구분코드*/
+        A.CNCL_YN AS cnclYn,     /*취소여부*/
+        TO_CHAR(A.LAST_CHNG_TMSTMP, 'YYYYMMDDHH24MI')  AS lastChngTmstmp,     /*최종변경일시*/
+        A.LAST_CHNG_GUID AS lastChngGuid,     /*최종변경GUID*/
+        A.GIRO_PYMNT_CNTNT AS giroPymntCntnt,     /*지로납부내용*/
+        A.PYMNT_DS_CD5 AS pymntDscd5,     /*납부구분코드5*/
+        A.PYMNT_DS_CD6 AS pymntDscd6,     /*납부구분코드6*/
+        A.PYMNT_DS_CD7 AS pymntDscd7,     /*납부구분코드7*/
+        A.PYMNT_DS_CD8 AS pymntDscd8,     /*납부구분코드8*/
+        A.PAYER_NBR AS payerNbr,     /*납부자번호*/
+        ACCTG_ITM_CD AS acctgItmCd,     /*계정과목코드*/
+        A.LEVY_ACCT_NBR AS levyAcctNbr,     /*징수계좌번호*/
+        A.ACCTG_CD AS acctgCd,     /*계정코드*/
+        A.ACN_YR AS acctgYr,     /*회계년도*/
+        A.MNTX_AMT AS mainTaxAmt,     /*본세금액*/
+        A.FFVLG_SPECI_TAM_AMT AS farmingFishingVlgsSpecialTax,     /*농어촌특별세액금액*/
+        A.STAC_EDTX_AMT AS stlmntEdctnTxAmt,     /*결산교육세금액*/
+        A.PYMNT_AMT_AMNN_YN AS pymntAmtMdfctnYn,     /*납부금액수정여부*/
+        A.SLDT_PYMNT_TRGT_YN AS jointSeveralPymntYn,     /*연대납부대상여부*/
+        A.VLNR_PYMNT_TRGT_YN AS vlntrPymntTrgtYn,     /*자진납부대상여부*/
+        A.PYMNT_SQN AS pymntSeq,     /*납부순번*/
+        A.PYMNT_MTH_NTH_NBR AS pymntMonthlyNthNbr,    /*납부월회차번호*/
+		B.CNCL_Dscd AS cnclDscd						/*취소구분코드*/
+  FROM  XP_CD_TX_GRIO_H A,
+		 XP_CD_TX_H B
+  WHERE A.INST_CD = B.INST_CD
+  AND A.EXTRNL_INST_CD = B.EXTRNL_INST_CD
+  AND A.EXTRNL_BIZ_Dscd = B.EXTRNL_BIZ_Dscd
+  AND A.TX_DT = B.TX_DT
+  AND A.TX_UNQ_NBR = B.TX_UNQ_NBR
+  AND A.REQ_TLGR_NBR = B.MSG_TRACE_NBR
+  AND A.inst_cd = #{instCd}
+   AND A.tx_dt &gt;= #{txStartDt}
+   AND A.tx_dt &lt;= #{txEndDt}
+   <if test="extrnlInstCd != null and extrnlInstCd != ''">
+   		AND A.extrnl_inst_cd = #{extrnlInstCd}
+   </if>
+   <if test="txUnqNbr != null and txUnqNbr != ''">
+   		AND A.tx_unq_nbr = #{txUnqNbr}
+   </if>
+   <if test="stlmntAcctNbr != null and stlmntAcctNbr != ''">
+   		AND A.CARD_ACCT_NBR = #{stlmntAcctNbr}
+   </if>
+   <if test="elctrncRcptGiroNbr != null and elctrncRcptGiroNbr != ''">
+   		AND A.ELCTRNC_RCPT_GIRO_NBR = #{elctrncRcptGiroNbr}
+   </if>
+/* #### Original SQL ]] ################# */
+		ORDER BY A.TX_DT desc, A.ELTRN_RCPT_TLGR_SND_DTTM desc
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectCdTransHistoryTotCnt" resultType="bankware.corebanking.externalproxy.cdjointnetwork.interfaces.dto.ExternalCdGiroHOut">
+SELECT   COUNT(1) as totCnt
+  FROM  XP_CD_TX_GRIO_H
+ WHERE inst_cd = #{instCd}
+   AND tx_dt &gt;= #{txStartDt}
+   AND tx_dt &lt;= #{txEndDt}
+   <if test="extrnlInstCd != null and extrnlInstCd != ''">
+   		AND extrnl_inst_cd = #{extrnlInstCd}
+   </if>
+   <if test="txUnqNbr != null and txUnqNbr != ''">
+   		AND tx_unq_nbr = #{txUnqNbr}
+   </if>
+   <if test="stlmntAcctNbr != null and stlmntAcctNbr != ''">
+   		AND CARD_ACCT_NBR = #{stlmntAcctNbr}
+   </if>
+   <if test="elctrncRcptGiroNbr != null and elctrncRcptGiroNbr != ''">
+   		AND ELCTRNC_RCPT_GIRO_NBR = #{elctrncRcptGiroNbr}
+   </if>
+</select>
+</mapper>

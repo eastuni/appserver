@@ -1,0 +1,82 @@
+<div class="pf-cal-sub-tab tab-title">
+	<ul>
+		<li class="pfui-tab-panel-item active first-tab" style="width: 115px;">
+			<a href="javascript:void();">{{bxMsg 'baseInfo'}} <span
+				class="tab-bg"></span>
+		</a>
+		</li>
+	</ul>
+</div>
+<div id="pf-cal-tab-conts" class="pf-cal-tab-conts">
+	<div class="pf-cal-detail-info">
+		<div class="pf-panel pf-cal-panel">
+			<div class="pf-panel-header">
+				<!-- 기본정보 관리 -->
+				<i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+				<h2 class="pf-panel-title">{{bxMsg 'baseInformationManagement'}}</h2>
+
+			</div>
+			<div class="pf-panel-body bx-info-table-wrap">
+				<!-- 계산단위 기본 정보 -->
+				<table
+					class="bx-info-table calculation-formula-form-table">
+					<tr>
+						<th>{{bxMsg 'formulaIdName'}}</th>
+						<td><input type="text"
+							class="bx-form-item bx-compoenent-small formula-id"
+							data-form-param="formulaId" value="{{formulaId}}" disabled /> <input
+							type="text" class="bx-form-item bx-compoenent-small formula-name"
+							data-form-param="formulaName" value="{{formulaName}}" /></td>
+						<th>{{bxMsg 'status'}}</th>
+						<td><select
+							class="bx-form-item bx-compoenent-small active-yn"
+							data-form-param="activeYn" disabled>
+						</select></td>
+					</tr>
+					<tr>
+						<th>{{bxMsg 'applyDate'}}</th>
+						<td><input name="start"
+							class="bx-form-item bx-compoenent-small calendar start-date"
+							type="text" data-form-param="applyStartDate"
+							value="{{applyStartDate}}"> ~ <input name="end"
+							class="bx-form-item bx-compoenent-small calendar end-date"
+							type="text" data-form-param="applyEndDate"
+							value="{{applyEndDate}}"></td>
+						<th>{{bxMsg 'distinction'}}</th>
+						<td><select
+							class="bx-form-item bx-compoenent-small formula-type-code"
+							data-form-param="formulaTypeCode" disabled>
+						</select></td>
+					</tr>
+					<tr>
+						<th>{{bxMsg 'formulaContent'}}</th>
+						<td colspan="3"><textarea
+								class="bx-form-item bx-compoenent-small formula-content"
+								data-form-param="formulaContent">{{formulaContent}}</textarea></td>
+					</tr>
+					<tr>
+						<th>{{bxMsg 'conversionFormula'}}</th>
+						<td colspan="3"><textarea
+								class="bx-form-item bx-compoenent-small conversion-formula" disabled></textarea>
+						</td>
+					</tr>
+				</table>
+
+				<footer class="pf-panel-footer">
+					<button type="button"
+						class="bw-btn delete-calculation-formula-btn write-btn"
+						icon-tooltip="{{bxMsg 'ButtonBottomString2'}}">
+						<i class="bw-icon i-30 i-func-trash"></i>
+					</button>
+
+					<button type="button"
+						class="bw-btn save-calculation-formula-btn write-btn"
+						data-status="{{status}}"
+						icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+						<i class="bw-icon i-30 i-func-save"></i>
+					</button>
+				</footer>
+			</div>
+		</div>
+	</div>
+</div>

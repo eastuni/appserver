@@ -1,0 +1,7 @@
+OMM bxm.cconexec.share.pc.dto.DepositCcServiceIn
+<description="">
+{
+	String cusNo<length=10 description="고객번호">;
+	String accNum<length=6 description="계좌번호">;
+	BigDecimal amt<length=20 description="입금금액">;
+}

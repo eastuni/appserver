@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonjointnetwork.dao.XpExternalFileInfo">
+<!--Generated Wed Jun 07 13:13:49 KST 2017-->
+<insert id="insertExternalFileInfo" parameterType="bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.ExternalFileInfoIn">
+INSERT INTO XP_EXTR_FILE_INFO_M /* 대외파일정보 */
+(
+    INST_CD,  /*기관코드*/
+    EXTRNL_INST_CD,  /* 대외기관코드 */
+    EXTRNL_BIZ_Dscd,  /* 대외업무구분코드 */
+    EXTR_LINK_FILE_CD_NM,  /* 대외연계파일코드명 */
+    STS_CD,  /* 상태코드 */
+    FILE_NM,  /* 파일명 */
+    SNRC_DS_CD,  /* 송수신구분코드 */
+    PRCS_FILE_NM,  /* 처리파일명 */
+    BATCH_JOB_CYCL_CD,  /* 배치작업주기코드 */
+    FILE_PRCS_TMZN_CNTNT,  /* 파일처리시간대내용 */
+    MEMO_CNTNT,  /* 메모내용 */
+    RSPBL_PERSON_NM,  /* 담당자성명 */
+    BIZ_DS_NM,  /* 업무구분명 */
+    LAST_CHNG_TMSTMP,  /*최종변경GUID*/
+    LAST_CHNG_GUID  /*송수신응답메시지내용*/
+)
+VALUES 
+(
+    #{instCd, jdbcType=VARCHAR}, 
+    #{extrnlInstCd, jdbcType=VARCHAR}, 
+    #{extrnlBizDscd, jdbcType=VARCHAR}, 
+    #{extrnlLinkFileCdNm, jdbcType=VARCHAR}, 
+    #{stsCd, jdbcType=VARCHAR}, 
+    #{fileNm, jdbcType=VARCHAR}, 
+    #{sndRcvDscd, jdbcType=VARCHAR}, 
+    #{prcsngFileNm, jdbcType=VARCHAR}, 
+    #{batchJobCyclCd, jdbcType=VARCHAR}, 
+    #{filePrcsTmCntnt, jdbcType=VARCHAR}, 
+    #{memoCntnt, jdbcType=VARCHAR}, 
+    #{rspblPersonNm, jdbcType=VARCHAR}, 
+    #{bizDsNm, jdbcType=VARCHAR}, 
+    #{lastChngTmstmp},  
+    #{lastChngGuid, jdbcType=VARCHAR}	
+)
+</insert>
+<update id="modifyExternalFileInfo" parameterType="bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.ExternalFileInfoIn">
+UPDATE XP_EXTR_FILE_INFO_M    /* 대외파일정보 */
+   SET EXTRNL_INST_CD =  #{extrnlInstCd}   /* 대외기관코드 */
+     , EXTRNL_BIZ_Dscd =  #{extrnlBizDscd}   /* 대외업무구분코드 */
+     , EXTR_LINK_FILE_CD_NM = #{extrnlLinkFileCdNm} /* 대외파일코드 */
+     , FILE_NM = #{fileNm}   /* 파일명 */
+     , SNRC_DS_CD = #{sndRcvDscd}   /* 송수신구분코드 */ 
+     , PRCS_FILE_NM = #{prcsngFileNm}   /* 송수신구분코드 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}   /* 최종변경일시 */ 
+     , LAST_CHNG_GUID = #{lastChngGuid}   /* 최종변경GUID */ 
+ WHERE EXTR_LINK_FILE_CD_NM = #{bfChngExtrnlLinkFileCdNm} /* 대외파일코드 */
+    AND EXTRNL_INST_CD =  #{bfChngExtrnlInstCd}   /* 대외기관코드 */
+    AND EXTRNL_BIZ_Dscd =  #{bfChngExtrnlBizDscd}   /* 대외업무구분코드 */
+</update>
+</mapper>

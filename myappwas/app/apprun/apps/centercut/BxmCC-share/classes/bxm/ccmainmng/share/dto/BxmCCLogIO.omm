@@ -1,0 +1,16 @@
+OMM bxm.ccmainmng.share.dto.BxmCCLogIO
+<description="">
+{
+	String domainId<length=14 description="도메인ID">;
+	String ccId<length=9 description="센터컷ID">;
+	String pcsnDt<length=8 description="처리일자">;
+	Integer acptNo<length=3 description="접수번호">;
+	Integer tnNo<length=2 description="회차번호">;
+	String logOccurDttm<length=23 description="로그발생일시">;
+	String logLvCd<length=1 description="로그레벨코드">;
+	Integer logClsfNo<length=2 description="로그구분번호">;
+	Integer ccAlrmNo<length=3 description="센터컷알람번호">;
+	String logCn<length=200 description="로그내용">;
+	String modifyUserId<length=32 description="변경사용자ID">;
+	String modifyOccurDttm<length=23 description="변경발생일시">;
+}

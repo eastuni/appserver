@@ -1,0 +1,32 @@
+OMM bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIgGr6738IO
+<description="CD 이용 수수료 정산내역">
+{
+	String instCd<length=3 description="기관코드">;
+	String txYm<length=6 description="거래년월">;
+	String seqNbr<length=7 description="일련번호">;
+	String hndlngBnkCd<length=3 description="취급은행코드">;
+	String rcptYm<length=6 description="수납년월">;
+	String rcptDt<length=8 description="수납월일">;
+	String fnclInstBizBrnchCd<length=7 description="금융기관영업은행지점코드">;
+	String cardCmpnyCd<length=3 description="카드사코드">;
+	String txUnqNbr<length=13 description="거래고유번호">;
+	BigDecimal feeAmt<length=12 description="수수료금액">;
+	String issueInstDscd1<length=2 description="이용기관발행기관분류코드1">;
+	String useInstGiroNbr1<length=7 description="이용기관지로번호1">;
+	String elctrncPymntNbr1<length=19 description="전자납부번호1">;
+	BigDecimal rcptAmt1<length=12 description="수납금액1">;
+	String issueInstDscd2<length=2 description="이용기관발행기관분류코드2">;
+	String useInstGiroNbr2<length=7 description="이용기관지로번호2">;
+	String elctrncPymntNbr2<length=19 description="전자납부번호2">;
+	BigDecimal rcptAmt2<length=12 description="수납금액2">;
+	String issueInstDscd3<length=2 description="이용기관발행기관분류코드3">;
+	String useInstGiroNbr3<length=7 description="이용기관지로번호3">;
+	String elctrncPymntNbr3<length=19 description="전자납부번호3">;
+	BigDecimal rcptAmt3<length=12 description="수납금액3">;
+	String issueInstDscd4<length=2 description="이용기관발행기관분류코드4">;
+	String useInstGiroNbr4<length=7 description="이용기관지로번호4">;
+	String elctrncPymntNbr4<length=19 description="전자납부번호4">;
+	BigDecimal rcptAmt4<length=12 description="수납금액4">;
+	Date lastChngTmstmp<length=20 description="최종변경일시">;
+	String lastChngGuid<length=20 description="최종변경GUID">;
+}

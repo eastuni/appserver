@@ -1,0 +1,7 @@
+OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CD0088InqryIFOut
+<description="">
+{
+	Integer cnt<length=9 description="건수">;
+	bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CD0088InqryIFOutSub outList<length=20 arrayReference="cnt" description="리스트">;
+	Integer totCnt<length=9 description="전체건수">;
+}

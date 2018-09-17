@@ -1,0 +1,10 @@
+OMM bxm.web.admin.deferred.domain.DfrdManagerOMM
+<description="">
+{
+	String userId<length=32 description="사용자ID">;
+	String userNm<length=50 description="사용자명">;
+	String roleId<length=40 description="역할ID">;
+	String phoneNo<length=20 description="폰번호">;
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+}

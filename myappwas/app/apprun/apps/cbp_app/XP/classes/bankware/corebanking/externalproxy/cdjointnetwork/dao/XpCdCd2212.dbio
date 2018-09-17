@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.cdjointnetwork.dao.XpCdCd2212">
+<!--Generated Fri Aug 26 12:19:13 GMT+09:00 2016-->
+<delete id="deleteXpCdCd2212" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd2212IO">
+DELETE  FROM  XP_CD_CD2212_H
+ WHERE  INST_CD = #{instCd}
+   AND TX_YM = #{txYm}
+   AND SEQ_NBR = #{seqNbr}
+</delete>
+<insert id="insertXpCdCd2212" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd2212IO">
+INSERT  
+  INTO  XP_CD_CD2212_H
+(
+  INST_CD,     /*기관코드*/
+  TX_YM,     /*거래년월*/
+  SEQ_NBR,     /*일련번호*/
+  TX_Dscd,     /*거래구분코드*/
+  FNCL_INST_CD,     /*금융기관코드*/
+  OPN_INQRY_CNT,     /*개설조회건수*/
+  OPN_INCMPLT_CNT,     /*개설미완료건수*/
+  OPN_DSBRSMNT_CNT,     /*개설지급건수*/
+  OPN_DSBRSMNT_CNCL_CNT,     /*개설지급취소건수*/
+  HNDLNG_INQRY_CNT,     /*취급조회건수*/
+  HNDLNG_DSBRSMNT_CNT,     /*취급지급건수*/
+  HNDLNG_DSBRSMNT_CNCL_CNT,     /*취급지급취소건수*/
+  OPN_INCMPLT_AMT,     /*개설미완료금액*/
+  OPN_DSBRSMNT_AMT,     /*개설지급금액*/
+  OPN_DSBRSMNT_CNCL_AMT,     /*개설지급취소금액*/
+  HNDLNG_DSBRSMNT_AMT,     /*취급지급금액*/
+  HNDLNG_DSBRSMNT_CNCL_AMT,     /*취급지급취소금액*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR},     /*기관코드*/
+  #{txYm, jdbcType=VARCHAR},     /*거래년월*/
+  #{seqNbr, jdbcType=NUMERIC},     /*일련번호*/
+  #{txDscd, jdbcType=VARCHAR},     /*거래구분코드*/
+  #{fnclInstCd, jdbcType=VARCHAR},     /*금융기관코드*/
+  #{opnInqryCnt, jdbcType=NUMERIC},     /*개설조회건수*/
+  #{opnIncmpltCnt, jdbcType=NUMERIC},     /*개설미완료건수*/
+  #{opnDsbrsmntCnt, jdbcType=NUMERIC},     /*개설지급건수*/
+  #{opnDsbrsmntCnclCnt, jdbcType=NUMERIC},     /*개설지급취소건수*/
+  #{hndlngInqryCnt, jdbcType=NUMERIC},     /*취급조회건수*/
+  #{hndlngDsbrsmntCnt, jdbcType=NUMERIC},     /*취급지급건수*/
+  #{hndlngDsbrsmntCnclCnt, jdbcType=NUMERIC},     /*취급지급취소건수*/
+  #{opnIncmpltAmt, jdbcType=NUMERIC},     /*개설미완료금액*/
+  #{opnDsbrsmntAmt, jdbcType=NUMERIC},     /*개설지급금액*/
+  #{opnDsbrsmntCnclAmt, jdbcType=NUMERIC},     /*개설지급취소금액*/
+  #{hndlngDsbrsmntAmt, jdbcType=NUMERIC},     /*취급지급금액*/
+  #{hndlngDsbrsmntCnclAmt, jdbcType=NUMERIC},     /*취급지급취소금액*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectXpCdCd2212List" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd2212IO">
+SELECT    
+        INST_CD AS instCd,     /*기관코드*/
+        TX_YM AS txYm,     /*거래년월*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        TX_Dscd AS txDscd,     /*거래구분코드*/
+        FNCL_INST_CD AS fnclInstCd,     /*금융기관코드*/
+        OPN_INQRY_CNT AS opnInqryCnt,     /*개설조회건수*/
+        OPN_INCMPLT_CNT AS opnIncmpltCnt,     /*개설미완료건수*/
+        OPN_DSBRSMNT_CNT AS opnDsbrsmntCnt,     /*개설지급건수*/
+        OPN_DSBRSMNT_CNCL_CNT AS opnDsbrsmntCnclCnt,     /*개설지급취소건수*/
+        HNDLNG_INQRY_CNT AS hndlngInqryCnt,     /*취급조회건수*/
+        HNDLNG_DSBRSMNT_CNT AS hndlngDsbrsmntCnt,     /*취급지급건수*/
+        HNDLNG_DSBRSMNT_CNCL_CNT AS hndlngDsbrsmntCnclCnt,     /*취급지급취소건수*/
+        OPN_INCMPLT_AMT AS opnIncmpltAmt,     /*개설미완료금액*/
+        OPN_DSBRSMNT_AMT AS opnDsbrsmntAmt,     /*개설지급금액*/
+        OPN_DSBRSMNT_CNCL_AMT AS opnDsbrsmntCnclAmt,     /*개설지급취소금액*/
+        HNDLNG_DSBRSMNT_AMT AS hndlngDsbrsmntAmt,     /*취급지급금액*/
+        HNDLNG_DSBRSMNT_CNCL_AMT AS hndlngDsbrsmntCnclAmt,     /*취급지급취소금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_CD_CD2212_H
+ WHERE INST_CD = #{instCd}
+   AND TX_YM = #{txYm}
+ORDER BY TX_YM, SEQ_NBR
+</select>
+<update id="updateXpCdCd2212" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd2212IO">
+UPDATE  
+        XP_CD_CD2212_H
+   SET  TX_Dscd = #{txDscd, jdbcType=VARCHAR}    /* 거래구분코드 */
+     , FNCL_INST_CD = #{fnclInstCd, jdbcType=VARCHAR}    /* 금융기관코드 */
+     , OPN_INQRY_CNT = #{opnInqryCnt, jdbcType=NUMERIC}    /* 개설조회건수 */
+     , OPN_INCMPLT_CNT = #{opnIncmpltCnt, jdbcType=NUMERIC}    /* 개설미완료건수 */
+     , OPN_DSBRSMNT_CNT = #{opnDsbrsmntCnt, jdbcType=NUMERIC}    /* 개설지급건수 */
+     , OPN_DSBRSMNT_CNCL_CNT = #{opnDsbrsmntCnclCnt, jdbcType=NUMERIC}    /* 개설지급취소건수 */
+     , HNDLNG_INQRY_CNT = #{hndlngInqryCnt, jdbcType=NUMERIC}    /* 취급조회건수 */
+     , HNDLNG_DSBRSMNT_CNT = #{hndlngDsbrsmntCnt, jdbcType=NUMERIC}    /* 취급지급건수 */
+     , HNDLNG_DSBRSMNT_CNCL_CNT = #{hndlngDsbrsmntCnclCnt, jdbcType=NUMERIC}    /* 취급지급취소건수 */
+     , OPN_INCMPLT_AMT = #{opnIncmpltAmt, jdbcType=NUMERIC}    /* 개설미완료금액 */
+     , OPN_DSBRSMNT_AMT = #{opnDsbrsmntAmt, jdbcType=NUMERIC}    /* 개설지급금액 */
+     , OPN_DSBRSMNT_CNCL_AMT = #{opnDsbrsmntCnclAmt, jdbcType=NUMERIC}    /* 개설지급취소금액 */
+     , HNDLNG_DSBRSMNT_AMT = #{hndlngDsbrsmntAmt, jdbcType=NUMERIC}    /* 취급지급금액 */
+     , HNDLNG_DSBRSMNT_CNCL_AMT = #{hndlngDsbrsmntCnclAmt, jdbcType=NUMERIC}    /* 취급지급취소금액 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND TX_YM = #{txYm}
+   AND SEQ_NBR = #{seqNbr}
+</update>
+</mapper>

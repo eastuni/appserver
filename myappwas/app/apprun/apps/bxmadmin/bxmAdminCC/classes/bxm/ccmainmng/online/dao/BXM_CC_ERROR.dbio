@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.ccmainmng.online.dao.BXM_CC_ERROR">
+<!--Generated Thu Nov 23 13:18:39 KST 2017-->
+<select id="selectBxmCCError01A" parameterType="bxm.ccmainmng.online.dto.BxmCCErrorIO" resultType="bxm.ccmainmng.online.dto.BxmCCErrorIO">
+SELECT /* 센터컷 오류 */ 
+       DOMAIN_ID AS domainId /*도메인ID*/,
+       CC_ID AS ccId /*센터컷ID*/,
+       PCSN_DT AS pcsnDt /*처리일자*/,
+       ACPT_NO AS acptNo /*접수번호*/,
+       EXEC_NO AS execNo /*실행번호*/,
+       TN_NO AS tnNo /*회차번호*/,
+       CC_TRX_SQNO AS ccTrxSqno /*센터컷거래일련번호*/,
+       SERI_PCSN_KEY AS seriPcsnKey /*순차처리키*/,
+       PCSN_ELTM AS pcsnEltm /*처리시간*/,
+       RE_REG_CD AS reRegCd /*재등록코드*/,
+       MSG_CD AS msgCd /*메시지코드*/,
+       ERR_PRGM_ID AS errPrgmId /*오류프로그램ID*/,
+       OPUT_MSG AS oputMsg /*출력메시지*/,
+       MODIFY_USER_ID AS chngUserId /*변경사용자ID*/,
+       MODIFY_OCCUR_DTTM AS chngDttm /*변경발생일시*/
+  FROM BXM_CC_ERROR
+ WHERE DOMAIN_ID = #{domainId}
+   AND CC_ID = #{ccId}
+   AND PCSN_DT = #{pcsnDt}
+   AND ACPT_NO = #{acptNo}
+   AND EXEC_NO = #{execNo}
+   AND TN_NO = #{tnNo}
+   AND CC_TRX_SQNO = #{ccTrxSqno}
+</select>
+<select id="selectBxmCCError01B" parameterType="bxm.ccmainmng.online.dto.BxmCCErrorIO" resultType="bxm.ccmainmng.online.dao.dto.SelectBxmCCError01BOut">
+SELECT  /* 센터컷 오류 */
+        min(cc_trx_sqno) AS srtSqno , 
+        max(cc_trx_sqno) AS endSqno , 
+        count(*) AS iqryCnt
+  FROM  BXM_CC_ERROR
+ WHERE  domain_id = #{domainId}
+   AND cc_id = #{ccId}
+   AND  pcsn_dt = #{pcsnDt}
+   AND  acpt_no = #{acptNo}
+   AND  exec_no = #{execNo}
+   AND  tn_no = #{tnNo}
+   AND  re_reg_cd = 0
+</select>
+<select id="selectListBxmCCError01D" resultType="bxm.ccmainmng.online.dto.BxmCCErrorIO">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT  /* 센터컷 오류 */
+		domain_id AS domainId,
+        cc_id AS ccId    /*CCID*/, 
+        pcsn_dt AS pcsnDt    /*처리일자*/, 
+        acpt_no AS acptNo    /*접수번호*/, 
+        exec_no AS execNo    /*실행번호*/, 
+        tn_no AS tnNo    /*회차번호*/, 
+        cc_trx_sqno AS ccTrxSqno    /*CC거래일련번호*/, 
+        seri_pcsn_key AS seriPcsnKey    /*순차처리키*/, 
+        pcsn_eltm AS pcsnEltm    /*처리시간*/, 
+        re_reg_cd AS reRegCd    /*재등록코드*/, 
+        msg_cd AS msgCd    /*메시지코드*/, 
+        err_prgm_id AS errPrgmId    /*오류프로그램ID*/, 
+        oput_msg AS oputMsg    /*출력메시지*/, 
+        modify_occur_dttm AS chngDttm    /*변경일시*/, 
+        modify_user_id AS chngUserId    /*변경사용자ID*/
+  FROM  BXM_CC_ERROR
+ WHERE  domain_id = #{A.domainId}
+   AND cc_id = #{A.ccId}
+   AND  pcsn_dt = #{A.pcsnDt}
+   AND  acpt_no = #{A.acptNo}
+   AND  exec_no = #{A.execNo}
+   AND  tn_no = #{A.tnNo}
+   ORDER BY acpt_no asc, exec_no asc, tn_no asc, cc_trx_sqno desc
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="oracle" id="selectListBxmCCError01D" resultType="bxm.ccmainmng.online.dto.BxmCCErrorIO">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT  /* 센터컷 오류 */
+		domain_id AS domainId,
+        cc_id AS ccId    /*CCID*/, 
+        pcsn_dt AS pcsnDt    /*처리일자*/, 
+        acpt_no AS acptNo    /*접수번호*/, 
+        exec_no AS execNo    /*실행번호*/, 
+        tn_no AS tnNo    /*회차번호*/, 
+        cc_trx_sqno AS ccTrxSqno    /*CC거래일련번호*/, 
+        seri_pcsn_key AS seriPcsnKey    /*순차처리키*/, 
+        pcsn_eltm AS pcsnEltm    /*처리시간*/, 
+        re_reg_cd AS reRegCd    /*재등록코드*/, 
+        msg_cd AS msgCd    /*메시지코드*/, 
+        err_prgm_id AS errPrgmId    /*오류프로그램ID*/, 
+        oput_msg AS oputMsg    /*출력메시지*/, 
+        modify_occur_dttm AS chngDttm    /*변경일시*/, 
+        modify_user_id AS chngUserId    /*변경사용자ID*/
+  FROM  BXM_CC_ERROR
+ WHERE  domain_id = #{A.domainId}
+   AND cc_id = #{A.ccId}
+   AND  pcsn_dt = #{A.pcsnDt}
+   AND  acpt_no = #{A.acptNo}
+   AND  exec_no = #{A.execNo}
+   AND  tn_no = #{A.tnNo}
+   ORDER BY acpt_no asc, exec_no asc, tn_no asc, cc_trx_sqno desc
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectListBxmCCError01D" resultType="bxm.ccmainmng.online.dto.BxmCCErrorIO">
+SELECT  /* 센터컷 오류 */
+		domain_id AS domainId,
+        cc_id AS ccId    /*CCID*/, 
+        pcsn_dt AS pcsnDt    /*처리일자*/, 
+        acpt_no AS acptNo    /*접수번호*/, 
+        exec_no AS execNo    /*실행번호*/, 
+        tn_no AS tnNo    /*회차번호*/, 
+        cc_trx_sqno AS ccTrxSqno    /*CC거래일련번호*/, 
+        seri_pcsn_key AS seriPcsnKey    /*순차처리키*/, 
+        pcsn_eltm AS pcsnEltm    /*처리시간*/, 
+        re_reg_cd AS reRegCd    /*재등록코드*/, 
+        msg_cd AS msgCd    /*메시지코드*/, 
+        err_prgm_id AS errPrgmId    /*오류프로그램ID*/, 
+        oput_msg AS oputMsg    /*출력메시지*/, 
+        modify_occur_dttm AS chngDttm    /*변경일시*/, 
+        modify_user_id AS chngUserId    /*변경사용자ID*/
+  FROM  BXM_CC_ERROR
+ WHERE  domain_id = #{A.domainId}
+   AND cc_id = #{A.ccId}
+   AND  pcsn_dt = #{A.pcsnDt}
+   AND  acpt_no = #{A.acptNo}
+   AND  exec_no = #{A.execNo}
+   AND  tn_no = #{A.tnNo}
+   ORDER BY acpt_no asc, exec_no asc, tn_no asc, cc_trx_sqno desc
+LIMIT #{pageNum}, #{pageCount}
+</select>
+<update id="updateBxmCCError01C" parameterType="bxm.ccmainmng.online.dto.BxmCCErrorIO">
+UPDATE  
+        BXM_CC_ERROR    /* 센터컷 오류 */
+   SET  
+        re_reg_cd = #{reRegCd}    /* 재등록코드 */, 
+        modify_occur_dttm = #{chngDttm}    /* 변경일시 */, 
+        modify_user_id = #{chngUserId}    /* 변경사용자ID */
+ WHERE  domain_id = #{domainId}
+   AND cc_id = #{ccId}
+   AND  pcsn_dt = #{pcsnDt}
+   AND  acpt_no = #{acptNo}
+   AND  exec_no = #{execNo}
+   AND  tn_no = #{tnNo}
+   AND  cc_trx_sqno = #{ccTrxSqno}
+</update>
+<update id="updateBxmCCError01D" parameterType="bxm.ccmainmng.online.dao.dto.UpdateBxmCCError01DIn">
+UPDATE  
+        BXM_CC_ERROR    /* 센터컷 오류 */
+   SET  
+        re_reg_cd = #{reRegCd}    /* 재등록코드 */, 
+        modify_occur_dttm = #{chngDttm}    /* 변경일시 */, 
+        modify_user_id = #{chngUserId}    /* 변경사용자ID */
+ WHERE  domain_id = #{domainId}
+   AND cc_id = #{ccId}
+   AND  pcsn_dt = #{pcsnDt}
+   AND  acpt_no = #{acptNo}
+   AND  exec_no = #{execNo}
+   AND  tn_no = #{tnNo}
+   AND  cc_trx_sqno BETWEEN #{srtSqno} AND #{endSqno}
+   AND  re_reg_cd = 0
+</update>
+<select id="countBxmCCError01A" parameterType="bxm.ccmainmng.online.dto.BxmCCErrorIO" resultType="java.lang.Integer">
+SELECT count(*)
+  FROM  BXM_CC_ERROR
+ WHERE  domain_id = #{domainId} 
+   AND cc_id = #{ccId}
+   AND  pcsn_dt = #{pcsnDt}
+   AND  (#{acptNo} = 0 OR acpt_no = #{acptNo})
+   AND  (#{execNo} = 0 OR exec_no = #{execNo})
+   AND  (#{tnNo} = 0 OR tn_no = #{tnNo})
+   ORDER BY acpt_no asc, exec_no asc, tn_no asc, cc_trx_sqno desc
+</select>
+</mapper>

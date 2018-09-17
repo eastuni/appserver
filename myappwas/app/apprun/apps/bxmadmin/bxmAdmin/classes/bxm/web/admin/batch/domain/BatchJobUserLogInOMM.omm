@@ -1,0 +1,9 @@
+OMM bxm.web.admin.batch.domain.BatchJobUserLogInOMM
+<description="">
+{
+	BigDecimal jobExecutionId<length=20 description="작업실행ID">;
+	String jobId<length=20 description="작업ID">;
+	String domainId<length=20 description="도메인ID">;
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+}

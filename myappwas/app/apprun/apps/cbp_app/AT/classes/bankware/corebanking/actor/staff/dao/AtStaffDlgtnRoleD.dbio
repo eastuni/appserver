@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.actor.staff.dao.AtStaffDlgtnRoleD">
+<!--Generated Mon Sep 11 15:50:02 KST 2017-->
+<select id="select" resultType="bankware.corebanking.actor.staff.dao.dto.AtStaffDlgtnRoleDIO">
+SELECT 
+
+        INST_CD AS instCd,  
+
+        STAFF_ID AS staffId,
+
+        ROLE_ID AS roleId,  
+
+        DLGTN_SEQ_NBR AS dlgtnSeqNbr,
+
+        EFCTV_START_DT AS efctvStartDt,   
+
+        EFCTV_END_DT AS efctvEndDt, 
+
+        DLGTN_STS_CD AS dlgtnStsCd,  
+
+        DEPT_ID AS deptId,
+
+        DLGTN_DEPT_ID AS dlgtnDeptId,   
+
+        DLGTN_STAFF_ID AS dlgtnStaffId,   
+
+        CHNG_RSN_CNTNT AS chngRsnCntnt,  
+
+        DEL_YN AS delYn, 
+
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,  
+
+        LAST_CHNG_GUID AS lastChngGuid
+
+  FROM  at_staff_dlgtn_role_d
+
+ WHERE INST_CD = #{instCd,jdbcType=VARCHAR}
+
+   AND STAFF_ID = #{staffId,jdbcType=VARCHAR}
+
+   AND ROLE_ID = #{roleId,jdbcType=VARCHAR}
+
+   AND DLGTN_SEQ_NBR = #{dlgtnSeqNbr}
+</select>
+<select id="selectList" resultType="bankware.corebanking.actor.staff.dao.dto.AtStaffDlgtnRoleDIO">
+SELECT    
+
+        INST_CD AS instCd,   
+
+        STAFF_ID AS staffId,    
+
+        ROLE_ID AS roleId,   
+
+        DLGTN_SEQ_NBR AS dlgtnSeqNbr,
+
+        EFCTV_START_DT AS efctvStartDt,    
+
+        EFCTV_END_DT AS efctvEndDt,  
+
+        DLGTN_STS_CD AS dlgtnStsCd,  
+
+        DEPT_ID AS deptId,  
+
+        DLGTN_DEPT_ID AS dlgtnDeptId,  
+
+        DLGTN_STAFF_ID AS dlgtnStaffId,  
+
+        CHNG_RSN_CNTNT AS chngRsnCntnt,   
+
+        DEL_YN AS delYn,
+
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,    
+
+        LAST_CHNG_GUID AS lastChngGuid 
+
+  FROM  at_staff_dlgtn_role_d
+
+ WHERE INST_CD = #{instCd,jdbcType=VARCHAR}
+
+   AND STAFF_ID = #{staffId,jdbcType=VARCHAR}
+
+   AND ROLE_ID = #{roleId,jdbcType=VARCHAR}
+
+   AND EFCTV_START_DT = #{efctvStartDt,jdbcType=VARCHAR}
+</select>
+<insert id="insert" parameterType="bankware.corebanking.actor.staff.dao.dto.AtStaffDlgtnRoleDIO">
+INSERT  
+
+  INTO  at_staff_dlgtn_role_d 
+
+(
+
+  INST_CD,  
+
+  STAFF_ID,  
+
+  ROLE_ID,   
+
+  DLGTN_SEQ_NBR,
+
+  EFCTV_START_DT,   
+
+  EFCTV_END_DT,   
+
+  DLGTN_STS_CD,    
+
+  DEPT_ID,  
+
+  DLGTN_DEPT_ID,   
+
+  DLGTN_STAFF_ID,   
+
+  CHNG_RSN_CNTNT,
+
+  DEL_YN,  
+
+  LAST_CHNG_TMSTMP,  
+
+  LAST_CHNG_GUID 
+
+)
+
+VALUES 
+
+(
+
+  #{instCd, jdbcType=VARCHAR},   
+
+  #{staffId, jdbcType=VARCHAR}, 
+
+  #{roleId, jdbcType=VARCHAR}, 
+
+  #{dlgtnSeqNbr, jdbcType=NUMERIC},
+
+  #{efctvStartDt, jdbcType=VARCHAR},   
+
+  #{efctvEndDt, jdbcType=VARCHAR},  
+
+  #{dlgtnStsCd, jdbcType=VARCHAR},  
+
+  #{deptId, jdbcType=VARCHAR},   
+
+  #{dlgtnDeptId, jdbcType=VARCHAR},    
+
+  #{dlgtnStaffId, jdbcType=VARCHAR},   
+
+  #{chngRsnCntnt, jdbcType=VARCHAR},   
+
+  #{delYn, jdbcType=VARCHAR},
+
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},  
+
+  #{lastChngGuid, jdbcType=VARCHAR}  
+
+)
+</insert>
+<select id="selectDynamic" resultType="bankware.corebanking.actor.staff.dao.dto.AtStaffDlgtnRoleDIO">
+SELECT
+
+        INST_CD AS instCd,   
+
+        STAFF_ID AS staffId,
+
+        ROLE_ID AS roleId,  
+
+        DLGTN_SEQ_NBR AS dlgtnSeqNbr,
+
+        EFCTV_START_DT AS efctvStartDt, 
+
+        EFCTV_END_DT AS efctvEndDt,   
+
+        DLGTN_STS_CD AS dlgtnStsCd,   
+
+        DEPT_ID AS deptId, 
+
+        DLGTN_DEPT_ID AS dlgtnDeptId,   
+
+        DLGTN_STAFF_ID AS dlgtnStaffId,   
+
+        CHNG_RSN_CNTNT AS chngRsnCntnt, 
+
+        DEL_YN AS delYn,
+
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,   
+
+        LAST_CHNG_GUID AS lastChngGuid  
+
+  FROM  at_staff_dlgtn_role_d
+
+ WHERE INST_CD = #{instCd,jdbcType=VARCHAR}
+
+
+
+   <if test="roleId != null and roleId != ''">
+
+   AND STAFF_ID = #{staffId}
+
+   </if>
+
+
+
+   <if test="roleId != null and roleId != ''">
+
+   AND ROLE_ID = #{roleId}
+
+   </if>
+
+
+
+   <if test="efctvStartDt != null and efctvStartDt != ''">
+
+   AND EFCTV_START_DT = #{efctvStartDt}
+
+   </if>
+</select>
+<select id="selectHst" resultType="bankware.corebanking.actor.staff.dao.dto.AtStaffDlgtnRoleDIO">
+SELECT 
+
+        INST_CD AS instCd,   
+
+        STAFF_ID AS staffId, 
+
+        ROLE_ID AS roleId,  
+
+        DLGTN_SEQ_NBR AS dlgtnSeqNbr,
+
+        EFCTV_START_DT AS efctvStartDt,    
+
+        EFCTV_END_DT AS efctvEndDt, 
+
+        DLGTN_STS_CD AS dlgtnStsCd,    
+
+        DEPT_ID AS deptId, 
+
+        DLGTN_DEPT_ID AS dlgtnDeptId, 
+
+        DLGTN_STAFF_ID AS dlgtnStaffId,  
+
+        CHNG_RSN_CNTNT AS chngRsnCntnt,   
+
+        DEL_YN AS delYn,
+
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,  
+
+        LAST_CHNG_GUID AS lastChngGuid 
+
+  FROM  at_staff_dlgtn_role_d
+
+ WHERE INST_CD = #{instCd,jdbcType=VARCHAR}
+
+   AND STAFF_ID = #{staffId,jdbcType=VARCHAR}
+
+   AND ROLE_ID = #{roleId,jdbcType=VARCHAR}
+
+   AND EFCTV_START_DT = #{efctvStartDt,jdbcType=VARCHAR}
+</select>
+<update id="update" parameterType="bankware.corebanking.actor.staff.dao.dto.AtStaffDlgtnRoleDIO">
+UPDATE  
+
+        at_staff_dlgtn_role_d   
+
+   SET  EFCTV_END_DT = #{efctvEndDt, jdbcType=VARCHAR}
+
+     , DEL_YN = #{delYn, jdbcType=VARCHAR}
+
+     , DLGTN_STS_CD = #{dlgtnStsCd, jdbcType=VARCHAR}   
+
+     , DEPT_ID = #{deptId, jdbcType=VARCHAR}    
+
+     , DLGTN_DEPT_ID = #{dlgtnDeptId, jdbcType=VARCHAR}    
+
+     , DLGTN_STAFF_ID = #{dlgtnStaffId, jdbcType=VARCHAR}    
+
+     , CHNG_RSN_CNTNT = #{chngRsnCntnt, jdbcType=VARCHAR}  
+
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}  
+
+     , LAST_CHNG_GUID = #{lastChngGuid} 
+
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+
+   AND STAFF_ID = #{staffId, jdbcType=VARCHAR}
+
+   AND ROLE_ID = #{roleId, jdbcType=VARCHAR}
+
+   AND EFCTV_START_DT = #{efctvStartDt, jdbcType=VARCHAR}
+</update>
+<select id="selectJoinName" resultType="bankware.corebanking.actor.staff.dao.dto.AtStaffDlgtnRoleDIO">
+SELECT   
+
+        asdrd.INST_CD AS instCd,  
+
+        asdrd.STAFF_ID AS staffId, 
+
+        asdrd.ROLE_ID AS roleId,  
+
+        asdrd.DLGTN_SEQ_NBR AS dlgtnSeqNbr,
+
+        asdrd.EFCTV_START_DT AS efctvStartDt,  
+
+        asdrd.EFCTV_END_DT AS efctvEndDt,   
+
+        asdrd.DLGTN_STS_CD AS dlgtnStsCd,   
+
+        asdrd.DEPT_ID AS deptId,  
+
+        asdrd.DLGTN_DEPT_ID AS dlgtnDeptId,  
+
+        asdrd.DLGTN_STAFF_ID AS dlgtnStaffId,  
+
+        asdrd.CHNG_RSN_CNTNT AS chngRsnCntnt,   
+
+        asdrd.DEL_YN AS delYn,
+
+        asdrd.LAST_CHNG_TMSTMP AS lastChngTmstmp,  
+
+        asdrd.LAST_CHNG_GUID AS lastChngGuid, 
+
+        aand.ACTOR_NM AS actorNm, 
+
+        adm.DEPT_NM AS deptNm, 
+
+        dlgtn_aand.ACTOR_NM AS dlgtnActorNm,
+        
+         dlgtn_adm.DEPT_NM AS dlgtnDeptNm
+
+  FROM  at_staff_dlgtn_role_d asdrd
+
+  INNER JOIN 
+
+  AT_STAFF_M asm /* staff master-delegated staff */
+
+      ON (asm.INST_CD = asdrd.INST_CD
+
+        AND asm.STAFF_ID = asdrd.STAFF_ID
+
+        )
+
+  INNER JOIN 
+
+  AT_ACTOR_NM_D aand /* actor name detail - delegated staff */
+
+      ON (aand.INST_CD = asdrd.INST_CD
+
+        AND aand.ACTOR_ID = asm.ACTOR_ID
+
+        AND aand.ACTOR_NM_TP_CD = #{atStaffDlgtnRoleDIO.actorNmTpCd,jdbcType=VARCHAR}
+
+        AND aand.EFCTV_START_DT &lt;= #{atStaffDlgtnRoleDIO.txDt,jdbcType=VARCHAR}
+
+        AND aand.EFCTV_END_DT &gt;= #{atStaffDlgtnRoleDIO.txDt,jdbcType=VARCHAR}
+        
+        AND aand.actor_nm_sts_cd = #{infoStsCd})
+
+  INNER JOIN 
+
+  AT_STAFF_M dlgtn_asm /* staff master - delegating staff */
+
+      ON (dlgtn_asm.INST_CD = asdrd.INST_CD
+
+        AND dlgtn_asm.STAFF_ID = asdrd.DLGTN_STAFF_ID
+
+        )
+
+  INNER JOIN 
+
+  AT_ACTOR_NM_D dlgtn_aand /* actor name detail - delegating staff */
+
+      ON (dlgtn_aand.INST_CD = asdrd.INST_CD
+
+        AND dlgtn_aand.ACTOR_ID = dlgtn_asm.ACTOR_ID
+
+        AND dlgtn_aand.ACTOR_NM_TP_CD = #{atStaffDlgtnRoleDIO.actorNmTpCd,jdbcType=VARCHAR}
+
+        AND dlgtn_aand.EFCTV_START_DT &lt;= #{atStaffDlgtnRoleDIO.txDt,jdbcType=VARCHAR}
+
+        AND dlgtn_aand.EFCTV_END_DT &gt;= #{atStaffDlgtnRoleDIO.txDt,jdbcType=VARCHAR}
+        
+        AND dlgtn_aand.actor_nm_sts_cd = #{infoStsCd})
+
+  LEFT OUTER JOIN
+
+  AT_DEPT_M adm  /* staff name according to the role(same with the delegating staff department) */
+
+          ON (adm.INST_CD = asdrd.INST_CD
+
+            AND adm.DEPT_ID = asdrd.DEPT_ID)
+            
+  LEFT OUTER JOIN
+
+  AT_DEPT_M dlgtn_adm  
+
+          ON (dlgtn_adm.INST_CD = asdrd.INST_CD
+
+            AND dlgtn_adm.DEPT_ID = asdrd.DLGTN_DEPT_ID)
+
+ WHERE     asdrd.INST_CD = #{atStaffDlgtnRoleDIO.instCd,jdbcType=VARCHAR}
+
+
+
+   /* delegation role id */
+
+   <if test="atStaffDlgtnRoleDIO.roleId != null and atStaffDlgtnRoleDIO.roleId != ''">
+
+   AND asdrd.ROLE_ID = #{atStaffDlgtnRoleDIO.roleId}
+
+   </if>
+
+
+
+      /* delegation status code */
+
+   <if test="atStaffDlgtnRoleDIO.dlgtnStsCd != null and atStaffDlgtnRoleDIO.dlgtnStsCd != ''">
+
+   AND asdrd.DLGTN_STS_CD = #{atStaffDlgtnRoleDIO.dlgtnStsCd}
+
+   </if>
+
+
+
+   /* effective start date */
+
+   <if test="atStaffDlgtnRoleDIO.efctvStartDt != null and atStaffDlgtnRoleDIO.efctvStartDt != ''">
+
+   AND asdrd.EFCTV_START_DT = #{atStaffDlgtnRoleDIO.efctvStartDt}
+
+   </if>
+
+
+
+   /* delegated staff identification */
+
+   <if test="atStaffDlgtnRoleDIO.staffId != null and atStaffDlgtnRoleDIO.staffId != ''">
+
+   AND asdrd.STAFF_ID = #{atStaffDlgtnRoleDIO.staffId}
+
+   </if>
+
+
+
+   /* delegated staff name */
+
+   <if test="atStaffDlgtnRoleDIO.actorNm != null and atStaffDlgtnRoleDIO.actorNm != ''">
+
+   AND aand.ACTOR_NM like CONCAT(CONCAT('%', #{atStaffDlgtnRoleDIO.actorNm}), '%')  
+
+   </if>
+
+
+
+   /* delegation department identification - according to the role */
+
+   <if test="atStaffDlgtnRoleDIO.dlgtnDeptId != null and atStaffDlgtnRoleDIO.dlgtnDeptId != ''">
+
+   AND asdrd.DLGTN_DEPT_ID = #{atStaffDlgtnRoleDIO.dlgtnDeptId}
+
+   </if>
+
+
+
+   /* delegation department name - according to the role */
+
+   <if test="atStaffDlgtnRoleDIO.dlgtnDeptNm != null and atStaffDlgtnRoleDIO.dlgtnDeptNm != ''">
+
+   AND adm.DEPT_NM like CONCAT(CONCAT('%', #{atStaffDlgtnRoleDIO.dlgtnDeptNm}), '%') 
+
+   </if>
+
+
+
+   /* delegating staff identification */
+
+   <if test="atStaffDlgtnRoleDIO.dlgtnStaffId != null and atStaffDlgtnRoleDIO.dlgtnStaffId != ''">
+
+   AND asdrd.DLGTN_STAFF_ID = #{atStaffDlgtnRoleDIO.dlgtnStaffId}
+
+   </if>
+
+
+
+   /* delegating staff name */
+
+   <if test="atStaffDlgtnRoleDIO.dlgtnStaffNm != null and atStaffDlgtnRoleDIO.dlgtnStaffNm != ''">
+
+   AND dlgtn_aand.ACTOR_NM like CONCAT(CONCAT('%', #{atStaffDlgtnRoleDIO.dlgtnStaffNm}), '%') 
+
+   </if>
+</select>
+<update id="updateEfctvEndDt" parameterType="bankware.corebanking.actor.staff.dao.dto.AtStaffDlgtnRoleDIO">
+UPDATE at_staff_dlgtn_role_d
+
+   SET efctv_end_dt = #{newEfctvEndDt,jdbcType=VARCHAR}
+
+     , DLGTN_STS_CD = #{dlgtnStsCd,jdbcType=VARCHAR}     
+
+     , last_chng_tmstmp = #{lastChngTmstmp}
+
+     , last_chng_guid = #{lastChngGuid}
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND dept_id = #{deptId,jdbcType=VARCHAR}
+
+   AND role_id = #{roleId,jdbcType=VARCHAR}
+
+   AND staff_id = #{staffId,jdbcType=VARCHAR}
+
+   AND efctv_start_dt = #{efctvStartDt,jdbcType=VARCHAR}
+</update>
+<update id="updateDynamic" parameterType="bankware.corebanking.actor.staff.dao.dto.AtStaffDlgtnRoleDIO">
+UPDATE  
+
+        at_staff_dlgtn_role_d   
+
+   SET STAFF_ID = #{staffId,jdbcType=VARCHAR}
+
+
+
+   <if test="efctvEndDt != null and efctvEndDt != ''">   	   
+
+   	 , EFCTV_END_DT = #{efctvEndDt}   
+
+   </if>
+
+
+
+   <if test="dlgtnStsCd != null and dlgtnStsCd != ''">   	   
+
+     , DLGTN_STS_CD = #{dlgtnStsCd}    
+
+   </if>
+
+
+
+   <if test="deptId != null and deptId != ''">   	   
+
+     , DEPT_ID = #{deptId}    
+
+   </if>
+
+
+
+   <if test="dlgtnDeptId != null and dlgtnDeptId != ''">   	   
+
+     , DLGTN_DEPT_ID = #{dlgtnDeptId}  
+
+   </if>
+
+
+
+   <if test="dlgtnStaffId != null and dlgtnStaffId != ''">   	   
+
+     , DLGTN_STAFF_ID = #{dlgtnStaffId}   
+
+   </if>
+
+
+
+   <if test="chngRsnCntnt != null and chngRsnCntnt != ''">   	   
+
+     , CHNG_RSN_CNTNT = #{chngRsnCntnt}   
+
+   </if>
+
+
+
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}  
+
+     , LAST_CHNG_GUID = #{lastChngGuid}    
+
+ WHERE INST_CD = #{instCd,jdbcType=VARCHAR}
+
+   AND STAFF_ID = #{staffId,jdbcType=VARCHAR}
+
+   AND ROLE_ID = #{roleId,jdbcType=VARCHAR}
+
+   AND EFCTV_START_DT = #{efctvStartDt,jdbcType=VARCHAR}
+</update>
+<select id="selectRoleDlgtnRole" resultType="bankware.corebanking.actor.staff.dao.dto.AtStaffDlgtnRoleDIO">
+SELECT 
+
+    a.INST_CD as instCd
+
+    , a.DEPT_ID as dlgtnDeptId
+
+    , a.STAFF_ID as dlgtnStaffId
+
+    , a.ROLE_ID as dlgtnRoleId
+
+    , a.DLGTN_SEQ_NBR AS dlgtnSeqNbr   
+
+    , a.DEL_YN AS delYn
+
+    , d.actor_nm as dlgtnStaffNm
+
+    , b.DEPT_ID as deptId
+
+    , b.ROLE_ID as roleId
+
+    , b.STAFF_ID as staffId
+
+    , f.actor_nm as staffNm
+
+FROM AT_STAFF_ROLE_D a
+
+  LEFT OUTER JOIN
+
+      AT_STAFF_DLGTN_ROLE_D b
+
+      ON (
+
+        a.INST_CD = b.INST_CD
+
+        AND a.DEPT_ID = b.DLGTN_DEPT_ID
+
+        AND a.ROLE_ID = b.DLGTN_STAFF_ID
+
+        AND b.DLGTN_STS_CD = #{dlgtnStsCd} /*active*/
+
+        AND b.EFCTV_START_DT &lt;= #{txDt,jdbcType=VARCHAR}
+
+        AND b.EFCTV_END_DT &gt;= #{txDt,jdbcType=VARCHAR})
+
+  INNER JOIN 
+
+  AT_STAFF_M c /* staff master-delegating staff */
+
+      ON (c.INST_CD = a.INST_CD
+
+        AND c.STAFF_ID = a.STAFF_ID
+
+        )
+
+  INNER JOIN 
+
+  AT_ACTOR_NM_D d /* actor name detail-delegating staff */
+
+      ON (d.INST_CD = c.INST_CD
+
+        AND d.ACTOR_ID = c.ACTOR_ID
+
+        AND d.ACTOR_NM_TP_CD = #{actorNmTpCd,jdbcType=VARCHAR}
+
+        AND d.EFCTV_START_DT &lt;= #{txDt,jdbcType=VARCHAR}
+
+        AND d.EFCTV_END_DT &gt;= #{txDt,jdbcType=VARCHAR}
+        
+        AND d.actor_nm_sts_cd = #{infoStsCd})
+
+  INNER JOIN 
+
+  AT_STAFF_M e /* staff master-delegated staff*/
+
+      ON (e.INST_CD = b.INST_CD
+
+        AND e.STAFF_ID = b.STAFF_ID
+
+        )
+
+  INNER JOIN 
+
+  AT_ACTOR_NM_D f /* actor name detail-delegated staff */
+
+      ON (f.INST_CD = b.INST_CD
+
+        AND f.ACTOR_ID = b.ACTOR_ID
+
+        AND f.ACTOR_NM_TP_CD = #{actorNmTpCd,jdbcType=VARCHAR}
+
+        AND f.EFCTV_START_DT &lt;= #{txDt,jdbcType=VARCHAR}
+
+        AND f.EFCTV_END_DT &gt;= #{txDt,jdbcType=VARCHAR}
+        
+        AND f.actor_nm_sts_cd = #{infoStsCd})
+
+WHERE
+
+    a.INST_CD = #{instCd,jdbcType=VARCHAR}
+
+    AND a.DEPT_ID = #{deptId,jdbcType=VARCHAR}
+
+    AND a.ROLE_ID = #{roleId,jdbcType=VARCHAR}
+
+    AND a.STAFF_ROLE_STS_CD = #{staffRoleStsCd} /*active*/
+
+    AND a.EFCTV_START_DT &lt;= #{txDt,jdbcType=VARCHAR}
+
+    AND a.EFCTV_END_DT &gt;= #{txDt,jdbcType=VARCHAR}
+</select>
+<select id="selectNextSeqNbrMySQL" resultType="java.lang.Integer">
+SELECT IFNULL(MAX(dlgtn_seq_nbr), 0) + 1 as dlgtnSeqNbr
+
+  FROM at_staff_dlgtn_role_d
+
+ WHERE inst_cd = #{instCd}
+
+   AND staff_id = #{staffId}
+
+   AND role_id = #{roleId}
+</select>
+<select id="selectNextSeqNbrOracle" resultType="java.lang.Integer">
+SELECT NVL(MAX(dlgtn_seq_nbr), 0) + 1 as dlgtnSeqNbr
+
+  FROM at_staff_dlgtn_role_d
+
+ WHERE inst_cd = #{instCd}
+
+   AND staff_id = #{staffId}
+
+   AND role_id = #{roleId}
+</select>
+<select id="selectLastDlgtnRoleInfo" resultType="bankware.corebanking.actor.staff.dao.dto.AtStaffDlgtnRoleDIO">
+SELECT 
+
+        INST_CD AS instCd,  
+
+        STAFF_ID AS staffId,
+
+        ROLE_ID AS roleId,  
+
+        DLGTN_SEQ_NBR AS dlgtnSeqNbr,
+
+        EFCTV_START_DT AS efctvStartDt,   
+
+        EFCTV_END_DT AS efctvEndDt, 
+
+        DLGTN_STS_CD AS dlgtnStsCd,  
+
+        DEPT_ID AS deptId,
+
+        DLGTN_DEPT_ID AS dlgtnDeptId,   
+
+        DLGTN_STAFF_ID AS dlgtnStaffId,   
+
+        CHNG_RSN_CNTNT AS chngRsnCntnt,   
+
+        DEL_YN AS delYn,
+
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,  
+
+        LAST_CHNG_GUID AS lastChngGuid
+
+  FROM  at_staff_dlgtn_role_d
+
+ WHERE INST_CD = #{instCd}
+
+   AND STAFF_ID = #{staffId}
+
+   AND ROLE_ID = #{roleId}
+
+   AND DLGTN_SEQ_NBR = #{dlgtnSeqNbr}
+</select>
+<update id="updateLastDlgtnRole" parameterType="bankware.corebanking.actor.staff.dao.dto.AtStaffDlgtnRoleDIO">
+UPDATE  
+
+        at_staff_dlgtn_role_d   
+
+   SET  EFCTV_END_DT = #{efctvEndDt, jdbcType=VARCHAR}  
+
+     , CHNG_RSN_CNTNT = #{chngRsnCntnt, jdbcType=VARCHAR}  
+
+     , DEL_YN = #{delYn, jdbcType=VARCHAR}
+
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}  
+
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR} 
+
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+
+   AND STAFF_ID = #{staffId, jdbcType=VARCHAR}
+
+   AND ROLE_ID = #{roleId, jdbcType=VARCHAR}
+
+   AND DLGTN_SEQ_NBR = #{dlgtnSeqNbr, jdbcType=NUMERIC}
+</update>
+</mapper>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.actor.staff.dao.AtStaffRoleDXtn">
+<!--Generated Tue Sep 19 10:31:49 KST 2017-->
+<select id="selectDlgtnList" resultType="bankware.corebanking.actor.staff.dao.dto.AtStaffDlgtnRoleDIO">
+SELECT 
+
+    a.INST_CD as instCd
+
+    , a.DEPT_ID as dlgtnDeptId
+
+    , a.STAFF_ID as dlgtnStaffId
+
+    , a.ROLE_ID as dlgtnRoleId    
+
+    , d.actor_nm as dlgtnStaffNm
+
+    , b.DEPT_ID as deptId
+
+    , b.ROLE_ID as roleId
+
+    , b.STAFF_ID as staffId
+
+    , f.actor_nm as staffNm
+
+FROM AT_STAFF_ROLE_D a
+
+  LEFT OUTER JOIN
+
+      AT_STAFF_DLGTN_ROLE_D b
+
+      ON (
+
+        a.INST_CD = b.INST_CD
+
+        AND a.DEPT_ID = b.DLGTN_DEPT_ID
+
+        AND a.ROLE_ID = b.ROLE_ID
+
+        AND a.STAFF_ID = b.DLGTN_STAFF_ID 
+
+        AND b.DLGTN_STS_CD = #{dlgtnStsCd} /*active*/
+
+        AND b.EFCTV_START_DT &lt;= #{txDt,jdbcType=VARCHAR}
+
+        AND b.EFCTV_END_DT &gt;= #{txDt,jdbcType=VARCHAR})
+
+  INNER JOIN 
+
+  AT_STAFF_M c /* staff master - delegating staff */
+
+      ON (c.INST_CD = a.INST_CD
+
+        AND c.STAFF_ID = a.STAFF_ID
+
+        )
+
+  INNER JOIN 
+
+  AT_ACTOR_NM_D d /* actor name detail - delegating staff */
+
+      ON (d.INST_CD = c.INST_CD
+
+        AND d.ACTOR_ID = c.ACTOR_ID
+
+        AND d.ACTOR_NM_TP_CD = #{actorNmTpCd,jdbcType=VARCHAR}
+
+        AND d.EFCTV_START_DT &lt;= #{txDt,jdbcType=VARCHAR}
+
+        AND d.EFCTV_END_DT &gt;= #{txDt,jdbcType=VARCHAR}
+        
+        AND d.actor_nm_sts_cd = #{infoStsCd})
+
+  LEFT OUTER JOIN
+
+  AT_STAFF_M e /* staff master - delegated staff */
+
+      ON (e.INST_CD = b.INST_CD
+
+        AND e.STAFF_ID = b.STAFF_ID
+
+        )
+
+  LEFT OUTER JOIN
+
+  AT_ACTOR_NM_D f /* actor name detail - delegated staff */
+
+      ON (f.INST_CD = e.INST_CD
+
+        AND f.ACTOR_ID = e.ACTOR_ID
+
+        AND f.ACTOR_NM_TP_CD = #{actorNmTpCd,jdbcType=VARCHAR}
+
+        AND f.EFCTV_START_DT &lt;= #{txDt,jdbcType=VARCHAR}
+
+        AND f.EFCTV_END_DT &gt;= #{txDt,jdbcType=VARCHAR}
+        
+        AND f.actor_nm_sts_cd = #{infoStsCd})
+
+WHERE
+
+    a.INST_CD = #{instCd,jdbcType=VARCHAR}
+
+    AND a.DEPT_ID = #{deptId,jdbcType=VARCHAR}
+
+    AND a.ROLE_ID = #{roleId,jdbcType=VARCHAR}
+
+    AND a.STAFF_ROLE_STS_CD = #{staffRoleStsCd} /*active*/
+
+    AND a.EFCTV_START_DT &lt;= #{txDt,jdbcType=VARCHAR}
+
+    AND a.EFCTV_END_DT &gt;= #{txDt,jdbcType=VARCHAR}
+</select>
+<select id="selectAllRoles" resultType="bankware.corebanking.actor.staff.dao.dto.AtStaffRoleDXtnIO">
+SELECT  
+
+        INST_CD AS instCd,  
+
+        DEPT_ID AS deptId,   
+
+        ROLE_ID AS roleId, 
+
+        STAFF_ID AS staffId, 
+
+        DTSF_REL_SEQ_NBR AS dtsfRelSeqNbr,   
+        
+        STAFF_ROLE_SEQ_NBR AS staffRoleSeqNbr, 
+
+        EFCTV_START_DT AS efctvStartDt,   
+
+        EFCTV_END_DT AS efctvEndDt,  
+
+        STAFF_ROLE_STS_CD AS staffRoleStsCd,    
+
+        STAFF_ROLE_STS_CHNG_RSN_CD AS staffRoleStsChngRsnCd,     
+
+        STAFF_ROLE_STS_CHNG_RSN_CNTNT AS staffRoleStsChngRsnCntnt,    
+
+        SPVSR_STAFF_ID AS spvsrStaffId, 
+
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,  
+
+        LAST_CHNG_GUID AS lastChngGuid  
+
+  FROM  at_staff_role_d
+
+ WHERE INST_CD = #{instCd}
+
+   AND STAFF_ID = #{staffId}
+
+ ORDER BY EFCTV_START_DT DESC, EFCTV_END_DT DESC
+</select>
+<select id="selectListByDeptIdAndRoleId" resultType="bankware.corebanking.actor.staff.dao.dto.AtStaffRoleDXtnIO">
+SELECT    /* 스태프역할명세 */
+        asrd.INST_CD AS instCd,     /*기관코드*/
+        asrd.DEPT_ID AS deptId,     /*부서식별자*/
+        asrd.ROLE_ID AS roleId,     /*역할식별자*/
+        asrd.STAFF_ID AS staffId,     /*스태프식별자*/
+        asrd.DTSF_REL_SEQ_NBR AS dtsfRelSeqNbr,     /*부서스태프관계일련번호*/
+        asrd.STAFF_ROLE_SEQ_NBR AS staffRoleSeqNbr,
+        asrd.EFCTV_START_DT AS efctvStartDt,     /*적용시작년월일*/
+        asrd.EFCTV_END_DT AS efctvEndDt,     /*적용종료년월일*/
+        asrd.STAFF_ROLE_STS_CD AS staffRoleStsCd,     /*스태프역할상태코드*/
+        asrd.STAFF_ROLE_STS_CHNG_RSN_CD AS staffRoleStsChngRsnCd,     /*스태프역할상태변경사유코드*/
+        asrd.STAFF_ROLE_STS_CHNG_RSN_CNTNT AS staffRoleStsChngRsnCntnt,     /*스태프역할상태변경사유내용*/
+        asrd.SPVSR_STAFF_ID AS spvsrStaffId,     /*관리스태프식별자*/
+        asrd.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        asrd.LAST_CHNG_GUID AS lastChngGuid,    /*최종변경GUID*/
+        
+        aand.ACTOR_NM AS staffNm
+        
+  FROM  at_staff_role_d asrd
+  
+	  INNER JOIN at_staff_sts_d assd
+	  ON(assd.inst_cd = asrd.inst_cd
+	  AND assd.staff_id = asrd.staff_id
+	  AND assd.efctv_start_dt &lt;= #{txDt}
+	  AND assd.efctv_end_dt &gt;= #{txDt}
+	  AND assd.staff_sts_cd = #{staffStsCd})
+	  
+	  INNER JOIN at_staff_m asm
+	  ON (asm.inst_cd = asrd.inst_cd
+	  AND asm.staff_id = asrd.staff_id)
+	  
+	  INNER JOIN at_actor_nm_d aand
+	  ON (aand.inst_cd = asm.inst_cd
+	  AND aand.actor_id = asm.actor_id
+	  AND aand.actor_nm_tp_cd = #{actorNmTpCd}
+	  AND aand.efctv_start_dt &lt;= #{txDt}
+	  AND aand.efctv_end_dt &gt;= #{txDt}
+	  AND aand.actor_nm_sts_cd = #{infoStsCd})
+  
+ WHERE asrd.INST_CD = #{instCd}
+   AND asrd.DEPT_ID = #{deptId}
+<if test="roleId != null and roleId != ''">
+   AND asrd.ROLE_ID = #{roleId}
+</if>
+   AND asrd.EFCTV_START_DT &lt;= #{txDt}
+   AND asrd.EFCTV_END_DT &gt;= #{txDt}
+   AND asrd.STAFF_ROLE_STS_CD = #{staffRoleStsCd}
+</select>
+</mapper>

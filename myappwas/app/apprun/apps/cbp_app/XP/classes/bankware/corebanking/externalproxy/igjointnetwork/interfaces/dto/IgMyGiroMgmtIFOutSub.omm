@@ -1,0 +1,7 @@
+OMM bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.IgMyGiroMgmtIFOutSub
+<description="자주쓰는 지로번호 Out">
+{
+	String giroNbr<length=7 description="지로번호">;
+	String useInstCmpnyNm<length=150 description="이용기관상호명">;
+	String pymntFormDscd<length=1 description="납부형태구분코드">;
+}

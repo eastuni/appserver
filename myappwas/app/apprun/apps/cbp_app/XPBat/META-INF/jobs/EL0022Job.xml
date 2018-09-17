@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" 
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation=" 
+         http://www.es-code.com/schema/batchex http://www.es-code.com/schema/batchex/spring-batch-ex-2.1.xsd
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+    <import resource="classpath:JobConfig.xml" />
+    <job-component xmlns="http://www.es-code.com/schema/batchex" 
+        id="jobcomp" with-dependon="true">
+        <base-package name="bankware.corebanking.externalproxy.eljointnetwork.batch">
+            <include name="EL0022Batch" />
+        </base-package>
+    </job-component>
+
+    <!--
+    - 배치잡 : 전자금융공동망 개설 미완료거래통지표 (EL0022)
+    - 설명   : 수신한 파일을 DB에 적재한다
+
+    - 배치 입력 파라미터
+      * txDt 작업일자
+      * orgCd 기관코드
+    - 작성자 : 주윤정
+    - 변경 이력
+      * 2016.05.23 initial 
+    -->
+    <job id="EL0022Job" parent="parentJob" 
+        xmlns="http://www.es-code.com/schema/batchex">
+
+        <!-- 
+        - 스텝1 : 수신파일 검증 후 DB에 적재
+        - 설명  
+            수신파일 검증 후 DB에 적재
+         -->
+        <step id="EL0022_Step01" parent="parentStep">
+            <tasklet>
+                <chunk commit-interval="100" reader="EL0022Reader" processor="EL0022Batch" writer="EL0022Batch" />
+            </tasklet>
+        </step>
+    </job>
+    
+    <!-- READER : UTF-8 file -->
+    <bean id="EL0022Reader" parent="RPatternMatching" scope="step">
+        <property name="name" value="EL0022Reader" />
+        <property name="resource" value="file://#{jobExecutionContext['eaiDataAplcntHome']}/099/012/rcv/EL0022.#{jobExecutionContext[jobDt]}" />
+        <property name="encoding" value="EUC-KR" />
+        <property name="patternItemMapper">
+			<list>
+				<bean class="bxm.batch.item.file.PatternMatchingItemMapper">
+					<property name="pattern" value="EL00221*" />
+					<property name="matchLength" value="8" />
+					<property name="itemMapper">
+						<bean class="bxm.batch.item.file.mapping.ItemOmmMapper">
+							<property name="targetType" value="bankware.corebanking.externalproxy.eljointnetwork.batch.dto.EL0022BatchHeaderIO" />
+						</bean>
+					</property>
+				</bean>
+				<bean class="bxm.batch.item.file.PatternMatchingItemMapper">
+					<property name="pattern" value="EL00223*" />
+					<property name="matchLength" value="8" />
+					<property name="itemMapper">
+						<bean class="bxm.batch.item.file.mapping.ItemOmmMapper">
+							<property name="targetType" value="bankware.corebanking.externalproxy.eljointnetwork.batch.dto.EL0022BatchTrailerIO" />
+						</bean>
+					</property>
+				</bean>
+				<bean class="bxm.batch.item.file.PatternMatchingItemMapper">
+					<property name="pattern" value="*" />
+					<property name="matchLength" value="9" />
+					<property name="itemMapper">
+						<bean class="bxm.batch.item.file.mapping.ItemOmmMapper">
+							<property name="targetType" value="bankware.corebanking.externalproxy.eljointnetwork.batch.dto.EL0022BatchDataIO" />
+							<property name="encoding" value="EUC-KR" />
+						</bean>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+</beans>

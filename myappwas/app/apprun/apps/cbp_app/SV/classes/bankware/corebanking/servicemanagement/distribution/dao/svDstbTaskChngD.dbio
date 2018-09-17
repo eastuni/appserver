@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.distribution.dao.svDstbTaskChngD">
+<!--Generated Mon Aug 20 15:43:35 KST 2018-->
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskDIO">
+insert into SV_DSTB_TASK_CHNG_D
+	(
+	DSTB_TASK_ID    /*배포과제식별자*/,
+	DSTB_TASK_CHNG_SEQ_NBR    /*배포과제변경일련번호*/,
+	DSTB_TBL_ID    /*배포테이블식별자*/,
+	DSTB_PK_VAL_CNTNT    /*배포PK키값내용*/,
+	DPLCTN_KEY_VAL_CNTNT    /*배포중복체크키값내용*/,
+	INITZ_CACHE_KEY_VAL    /*캐쉬초기화키값*/,
+	DSTB_SAVE_DSCD    /*배포저장구분코드*/,
+	DSTB_BF_CHNG_CNTNT    /*배포변경전내용*/,
+	DSTB_CHNG_STS_DSCD    /*배포과제변경상태구분코드*/,
+	DSTB_TASK_CHNG_HST_SEQ_NBR    /*배포과제변경이력일련번호*/,
+	LAST_DSTB_ENVRNMNT_CD    /*최종배포환경코드*/,
+	LAST_CHNG_GUID    /*최종변경GUID*/,
+	LAST_CHNG_ID    /*최종변경식별자*/,
+	LAST_CHNG_TMSTMP    /*최종변경타임스탬프*/
+) values (
+	#{dstbTaskId, jdbcType=VARCHAR}    /*배포과제식별자*/,
+	#{dstbTaskChngSeqNbr, jdbcType=NUMERIC}    /*배포과제변경일련번호*/,
+	#{dstbTblId, jdbcType=VARCHAR}    /*배포테이블식별자*/,
+	#{dstbPkValCntnt, jdbcType=VARCHAR}    /*배포PK키값내용*/,
+	#{dplctnKeyValCntnt, jdbcType=VARCHAR}    /*배포중복체크키값내용*/,
+	#{initzCacheKeyVal, jdbcType=VARCHAR}    /*캐쉬초기화키값*/,
+	#{dstbSaveDscd, jdbcType=VARCHAR}    /*배포저장구분코드*/,
+	#{dstbBfChngCntnt, jdbcType=VARCHAR}    /*배포변경전내용*/,
+	#{dstbChngStsDscd, jdbcType=VARCHAR}    /*배포과제변경상태구분코드*/,
+	#{dstbTaskChngHstSeqNbr, jdbcType=NUMERIC}    /*배포과제변경이력일련번호*/,
+	#{lastDstbEnvrnmntCd, jdbcType=VARCHAR}    /*최종배포환경코드*/,
+	#{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/,
+	#{lastChngId, jdbcType=VARCHAR}    /*최종변경식별자*/,
+	#{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경타임스탬프*/
+)
+</insert>
+<select id="selectMaxSeq" resultType="java.math.BigDecimal">
+select 
+	max(DSTB_TASK_CHNG_SEQ_NBR) + 1 as dstbTaskChngSeqNbr  
+from SV_DSTB_TASK_CHNG_D
+where DSTB_TASK_ID = #{dstbTaskId}
+</select>
+<select id="selectExistList" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskDIO" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskDIO">
+select 
+	DSTB_TASK_ID as dstbTaskId    /*배포과제식별자*/,
+	DSTB_TASK_CHNG_SEQ_NBR as dstbTaskChngSeqNbr    /*배포과제변경일련번호*/,
+	DSTB_TBL_ID as dstbTblId    /*배포테이블식별자*/,
+	DSTB_PK_VAL_CNTNT as dstbPkValCntnt    /*배포PK키값내용*/,
+	DPLCTN_KEY_VAL_CNTNT as dplctnKeyValCntnt    /*배포중복체크키값내용*/,
+	INITZ_CACHE_KEY_VAL as initzCacheKeyVal    /*캐쉬초기화키값*/,
+	DSTB_SAVE_DSCD as dstbSaveDscd    /*배포저장구분코드*/,
+	DSTB_BF_CHNG_CNTNT as dstbBfChngCntnt    /*배포변경전내용*/,
+	DSTB_CHNG_STS_DSCD as dstbChngStsDscd    /*배포과제변경상태구분코드*/,
+	DSTB_TASK_CHNG_HST_SEQ_NBR as dstbTaskChngHstSeqNbr    /*배포과제변경이력일련번호*/,
+	LAST_DSTB_ENVRNMNT_CD as lastDstbEnvrnmntCd    /*최종배포환경코드*/,
+	LAST_CHNG_GUID as lastChngGuid    /*최종변경GUID*/,
+	LAST_CHNG_ID as lastChngId    /*최종변경식별자*/,
+	LAST_CHNG_TMSTMP as lastChngTmstmp    /*최종변경타임스탬프*/
+from SV_DSTB_TASK_CHNG_D
+where DSTB_TASK_ID = #{dstbTaskId}
+	and DSTB_TBL_ID = #{dstbTblId}
+	and DSTB_PK_VAL_CNTNT = #{dstbPkValCntnt}
+</select>
+<select id="selectAleadyWorkList" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskDIO" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskDIO">
+select 
+	a.DSTB_TASK_ID as dstbTaskId    /*배포과제식별자*/,
+	a.DSTB_TASK_CHNG_SEQ_NBR as dstbTaskChngSeqNbr    /*배포과제변경일련번호*/,
+	a.DSTB_TBL_ID as dstbTblId    /*배포테이블식별자*/,
+	a.DSTB_PK_VAL_CNTNT as dstbPkValCntnt    /*배포PK키값내용*/,
+	a.DPLCTN_KEY_VAL_CNTNT as dplctnKeyValCntnt    /*배포중복체크키값내용*/,
+	a.DSTB_SAVE_DSCD as dstbSaveDscd    /*배포저장구분코드*/,
+	a.DSTB_BF_CHNG_CNTNT as dstbBfChngCntnt    /*배포변경전내용*/,
+	a.DSTB_CHNG_STS_DSCD as dstbChngStsDscd    /*과제변경상태구분코드*/,
+	a.INITZ_CACHE_KEY_VAL as initzCacheKeyVal    /*캐쉬초기화키값*/,
+	a.LAST_DSTB_ENVRNMNT_CD as lastDstbEnvrnmntDscd    /*배포환경구분코드*/,
+	a.LAST_CHNG_GUID as lastChngGuid    /*최종변경GUID*/,
+	a.LAST_CHNG_ID as lastChngId    /*최종변경식별자*/,
+	a.LAST_CHNG_TMSTMP as lastChngTmstmp    /*최종변경타임스탬프*/
+from SV_DSTB_TASK_CHNG_D a
+        INNER JOIN SV_DSTB_TASK_M b on a.DSTB_TASK_ID=b.DSTB_TASK_ID and b.DSTB_TASK_STS_CD in ('01') 
+where a.DSTB_TASK_ID not in ( #{dstbTaskId})
+	and a.DSTB_TBL_ID = #{dstbTblId}
+	and a.DPLCTN_KEY_VAL_CNTNT = #{dplctnKeyValCntnt}
+	and a.DSTB_CHNG_STS_DSCD = '01'
+order by a.DSTB_TASK_CHNG_SEQ_NBR
+</select>
+<select id="selectForChangeIdList" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskInfoIO" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskDIO">
+select 
+	DSTB_TASK_ID as dstbTaskId    /*배포과제식별자*/,
+	DSTB_TASK_CHNG_SEQ_NBR as dstbTaskChngSeqNbr    /*배포과제변경일련번호*/,
+	DSTB_TBL_ID as dstbTblId    /*배포테이블식별자*/,
+	DSTB_PK_VAL_CNTNT as dstbPkValCntnt    /*배포PK키값내용*/,
+	DPLCTN_KEY_VAL_CNTNT as dplctnKeyValCntnt    /*배포중복체크키값내용*/,
+	INITZ_CACHE_KEY_VAL as initzCacheKeyVal    /*캐쉬초기화키값*/,
+	DSTB_SAVE_DSCD as dstbSaveDscd    /*배포저장구분코드*/,
+	DSTB_BF_CHNG_CNTNT as dstbBfChngCntnt    /*배포변경전내용*/,
+	DSTB_CHNG_STS_DSCD as dstbChngStsDscd    /*배포과제변경상태구분코드*/,
+	DSTB_TASK_CHNG_HST_SEQ_NBR as dstbTaskChngHstSeqNbr    /*배포과제변경이력일련번호*/,
+	LAST_DSTB_ENVRNMNT_CD as lastDstbEnvrnmntCd    /*최종배포환경코드*/,
+	LAST_CHNG_GUID as lastChngGuid    /*최종변경GUID*/,
+	LAST_CHNG_ID as lastChngId    /*최종변경식별자*/,
+	LAST_CHNG_TMSTMP as lastChngTmstmp    /*최종변경타임스탬프*/
+from SV_DSTB_TASK_CHNG_D
+where DSTB_TASK_ID = #{dstbTaskId}
+  <if test="dstbTaskDtl != null">
+            AND DSTB_TASK_CHNG_SEQ_NBR IN
+			<foreach close=")" collection="dstbTaskDtl" item="item" open="(" separator=",">		
+				#{item.dstbTaskChngSeqNbr}		
+			</foreach>
+    </if>
+order by DSTB_TASK_CHNG_SEQ_NBR
+</select>
+<select id="selectListByTaskId" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskDIO" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskDIO">
+select 
+	DSTB_TASK_ID as dstbTaskId    /*배포과제식별자*/,
+	DSTB_TASK_CHNG_SEQ_NBR as dstbTaskChngSeqNbr    /*배포과제변경일련번호*/,
+	DSTB_TBL_ID as dstbTblId    /*배포테이블식별자*/,
+	DSTB_PK_VAL_CNTNT as dstbPkValCntnt    /*배포PK키값내용*/,
+	DPLCTN_KEY_VAL_CNTNT as dplctnKeyValCntnt    /*배포중복체크키값내용*/,
+	INITZ_CACHE_KEY_VAL as initzCacheKeyVal    /*캐쉬초기화키값*/,
+	DSTB_SAVE_DSCD as dstbSaveDscd    /*배포저장구분코드*/,
+	DSTB_BF_CHNG_CNTNT as dstbBfChngCntnt    /*배포변경전내용*/,
+	DSTB_CHNG_STS_DSCD as dstbChngStsDscd    /*배포과제변경상태구분코드*/,
+	DSTB_TASK_CHNG_HST_SEQ_NBR as dstbTaskChngHstSeqNbr    /*배포과제변경이력일련번호*/,
+	LAST_DSTB_ENVRNMNT_CD as lastDstbEnvrnmntCd    /*최종배포환경코드*/,
+	LAST_CHNG_GUID as lastChngGuid    /*최종변경GUID*/,
+	LAST_CHNG_ID as lastChngId    /*최종변경식별자*/,
+	LAST_CHNG_TMSTMP as lastChngTmstmp    /*최종변경타임스탬프*/
+from SV_DSTB_TASK_CHNG_D
+where DSTB_TASK_ID = #{dstbTaskId}
+<if test="dstbChngStsDscd != null and dstbChngStsDscd != ''">
+  and DSTB_CHNG_STS_DSCD = #{dstbChngStsDscd}
+</if>
+order by DSTB_TASK_CHNG_SEQ_NBR
+</select>
+<select id="selectListForTgt" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskDIO">
+select distinct
+	a.DSTB_TASK_ID as dstbTaskId    /*배포과제식별자*/,
+	a.DSTB_TASK_CHNG_SEQ_NBR as dstbTaskChngSeqNbr    /*배포과제변경일련번호*/,
+	a.DSTB_TBL_ID as dstbTblId    /*배포테이블식별자*/,
+	a.DSTB_PK_VAL_CNTNT as dstbPkValCntnt    /*배포PK키값내용*/,
+	a.DPLCTN_KEY_VAL_CNTNT as dplctnKeyValCntnt    /*배포중복체크키값내용*/,
+	a.DSTB_SAVE_DSCD as dstbSaveDscd    /*배포저장구분코드*/,
+	a.DSTB_BF_CHNG_CNTNT as dstbBfChngCntnt    /*배포변경전내용*/,
+	a.DSTB_CHNG_STS_DSCD as dstbChngStsDscd    /*과제변경상태구분코드*/,
+	a.INITZ_CACHE_KEY_VAL as initzCacheKeyVal    /*캐쉬초기화키값*/,
+	a.LAST_DSTB_ENVRNMNT_CD as lastDstbEnvrnmntCd    /*배포환경구분코드*/,
+    a.LAST_CHNG_GUID as lastChngGuid    /*최종변경GUID*/,
+	a.LAST_CHNG_ID as lastChngId    /*최종변경식별자*/,
+	a.LAST_CHNG_TMSTMP as lastChngTmstmp    /*최종변경타임스탬프*/
+from SV_DSTB_TASK_CHNG_D a 
+where a.DSTB_TASK_ID = #{dstbTaskId} 
+and a.DSTB_CHNG_STS_DSCD = '01' 
+and not exists (select 'Y' from SV_DSTB_REQ_M b inner join SV_DSTB_REQ_SRVR_CHNG_D c on b.DSTB_RQST_ID = c.DSTB_RQST_ID
+                where a.DSTB_TASK_ID= b.DSTB_TASK_ID 
+							  and a.DSTB_TASK_CHNG_SEQ_NBR=c.DSTB_TASK_CHNG_SEQ_NBR
+							  and a.DSTB_TASK_CHNG_HST_SEQ_NBR=c.DSTB_TASK_CHNG_HST_SEQ_NBR
+                              and b.DSTB_ENVRNMNT_CD in  (#{dstbEnvrnmntCd})
+                              and b.DSTB_STS_CD not in ('04', '99')
+                )
+order by a.DSTB_TASK_CHNG_SEQ_NBR
+</select>
+<update id="updateForChngStsDscd" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskDIO">
+update SV_DSTB_TASK_CHNG_D set
+	<if test="dstbChngStsDscd != null and dstbChngStsDscd != ''">
+    DSTB_CHNG_STS_DSCD = #{dstbChngStsDscd, jdbcType=VARCHAR}    /*과제변경상태구분코드*/,
+    </if>
+   <if test="dstbTaskChngHstSeqNbr != null and dstbTaskChngHstSeqNbr != ''">
+    DSTB_TASK_CHNG_HST_SEQ_NBR = #{dstbTaskChngHstSeqNbr, jdbcType=NUMERIC}   /*배포과제변경이력일련번호*/,
+    </if>
+	<if test="lastDstbEnvrnmntCd != null and lastDstbEnvrnmntCd != ''">
+    LAST_DSTB_ENVRNMNT_CD = #{lastDstbEnvrnmntCd, jdbcType=VARCHAR}    /*배포환경구분코드*/,
+    </if>
+	LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/,
+	LAST_CHNG_ID = #{lastChngId, jdbcType=VARCHAR}    /*최종변경식별자*/,
+	LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경타임스탬프*/
+where DSTB_TASK_ID = #{dstbTaskId, jdbcType=VARCHAR}    /*배포과제식별자*/
+and DSTB_TASK_CHNG_SEQ_NBR = #{dstbTaskChngSeqNbr, jdbcType=NUMERIC}    /*배포과제변경일련번호*/
+</update>
+<update id="updateForChngStsDscdWithEnv" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskDIO">
+update SV_DSTB_TASK_CHNG_D set
+	<if test="dstbChngStsDscd != null and dstbChngStsDscd != ''">
+    DSTB_CHNG_STS_DSCD = #{dstbChngStsDscd, jdbcType=VARCHAR}    /*과제변경상태구분코드*/,
+    </if>
+   <if test="dstbTaskChngHstSeqNbr != null and dstbTaskChngHstSeqNbr != ''">
+    DSTB_TASK_CHNG_HST_SEQ_NBR = #{dstbTaskChngHstSeqNbr, jdbcType=NUMERIC}   /*배포과제변경이력일련번호*/,
+    </if>
+    LAST_DSTB_ENVRNMNT_CD = #{lastDstbEnvrnmntCd, jdbcType=VARCHAR}    /*배포환경구분코드*/,
+	LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/,
+	LAST_CHNG_ID = #{lastChngId, jdbcType=VARCHAR}    /*최종변경식별자*/,
+	LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경타임스탬프*/
+where DSTB_TASK_ID = #{dstbTaskId, jdbcType=VARCHAR}    /*배포과제식별자*/
+and DSTB_TASK_CHNG_SEQ_NBR = #{dstbTaskChngSeqNbr, jdbcType=NUMERIC}    /*배포과제변경일련번호*/
+</update>
+<select id="selectDynamicTblMysql" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbDnmcPIn" resultType="java.util.HashMap">
+select /*dynamic sql*/
+* from ${tblId}
+<where>
+<foreach close="" collection="whereFldVal" item="item" open="" separator=" and ">
+        ${item.fldNm} = #{item.fldVal}
+</foreach>
+</where>
+limit 1
+</select>
+<select id="selectDynamicTblOracle" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbDnmcPIn" resultType="java.util.HashMap">
+select /*dynamic sql*/
+* from ${tblId}
+<where>
+<foreach close="" collection="whereFldVal" item="item" open="" separator=" and ">
+        ${item.fldNm} = #{item.fldVal}
+</foreach>
+</where>
+and rownum &lt;= 1
+</select>
+<update id="updateDynamicTblMysql" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbDnmcPIn">
+update ${tblId}
+<set>
+	<foreach close="" collection="uptFldVal" item="item" open="" separator=" , ">
+	        ${item.fldNm} =  #{item.fldVal}
+	</foreach>
+</set>
+<where>
+	<foreach close="" collection="whereFldVal" item="item" open="" separator=" and ">
+	        ${item.fldNm} = #{item.fldVal}
+	</foreach>
+</where>
+</update>
+<update id="updateDynamicTblOracle" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbDnmcPIn">
+update ${tblId}
+<set>
+	<foreach close="" collection="uptFldVal" item="item" open="" separator=" , ">
+ <choose>
+  <when test="item.fldTpCd == 'VARCHAR'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=VARCHAR}
+  </when>
+  <when test="item.fldTpCd == 'BIGINT'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=BIGINT}
+  </when>
+  <when test="item.fldTpCd == 'CLOB'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=CLOB}
+  </when>
+  <when test="item.fldTpCd == 'INTEGER'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=INTEGER}
+  </when>
+  <when test="item.fldTpCd == 'TINYINT'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=TINYINT}
+  </when>
+  <when test="item.fldTpCd == 'NUMBER'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=DECIMAL}
+  </when>
+  <when test="item.fldTpCd == 'DECIMAL'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=DECIMAL}
+  </when>
+  <when test="item.fldTpCd == 'DOUBLE'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=DOUBLE}
+  </when>
+  <when test="item.fldTpCd == 'FLOAT'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=FLOAT}
+  </when>
+  <when test="item.fldTpCd == 'BLOB'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=BLOB}
+  </when>
+    <when test="item.fldTpCd == 'CHAR'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=CHAR}
+  </when>
+  <when test="item.fldTpCd == 'TIMESTAMP'">
+		${item.fldNm} = sysdate
+  </when>
+    <when test="item.fldTpCd == 'DATE'">
+		${item.fldNm} = sysdate
+  </when>
+ </choose>
+	</foreach>
+</set>
+<where>
+	<foreach close="" collection="whereFldVal" item="item" open="" separator=" and ">
+ <choose>
+  <when test="item.fldTpCd == 'VARCHAR'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=VARCHAR}
+  </when>
+  <when test="item.fldTpCd == 'BIGINT'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=BIGINT}
+  </when>
+  <when test="item.fldTpCd == 'CLOB'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=CLOB}
+  </when>
+  <when test="item.fldTpCd == 'INTEGER'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=INTEGER}
+  </when>
+  <when test="item.fldTpCd == 'TINYINT'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=TINYINT}
+  </when>
+  <when test="item.fldTpCd == 'NUMBER'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=DECIMAL}
+  </when>
+  <when test="item.fldTpCd == 'DECIMAL'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=DECIMAL}
+  </when>
+  <when test="item.fldTpCd == 'DOUBLE'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=DOUBLE}
+  </when>
+  <when test="item.fldTpCd == 'FLOAT'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=FLOAT}
+  </when>
+  <when test="item.fldTpCd == 'BLOB'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=BLOB}
+  </when>
+  <when test="item.fldTpCd == 'CHAR'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=CHAR}
+  </when>
+  <when test="item.fldTpCd == 'TIMESTAMP'">
+		${item.fldNm} = #{item.fldVal, jdbcType=TIMESTAMP}
+  </when>
+    <when test="item.fldTpCd == 'DATE'">
+		${item.fldNm} = #{item.fldVal, jdbcType=DATE}
+  </when>
+ </choose>
+	</foreach>
+</where>
+</update>
+<insert id="insertDynamicTblOracle" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbDnmcPIn">
+insert into ${tblId}
+(
+<foreach close="" collection="uptFldVal" item="item" open="" separator=" , ">
+        ${item.fldNm}
+</foreach>
+)
+values 
+(
+<foreach close="" collection="uptFldVal" item="item" open="" separator=" , ">
+ <choose>
+  <when test="item.fldTpCd == 'VARCHAR'">
+       #{item.fldVal, jdbcType=VARCHAR}
+  </when>
+  <when test="item.fldTpCd == 'BIGINT'">
+       #{item.fldVal, jdbcType=BIGINT}
+  </when>
+  <when test="item.fldTpCd == 'CLOB'">
+       #{item.fldVal, jdbcType=CLOB}
+  </when>
+  <when test="item.fldTpCd == 'INTEGER'">
+       #{item.fldVal, jdbcType=INTEGER}
+  </when>
+  <when test="item.fldTpCd == 'TINYINT'">
+       #{item.fldVal, jdbcType=TINYINT}
+  </when>
+  <when test="item.fldTpCd == 'NUMBER'">
+       #{item.fldVal, jdbcType=DECIMAL}
+  </when>
+  <when test="item.fldTpCd == 'DECIMAL'">
+       #{item.fldVal, jdbcType=DECIMAL}
+  </when>
+  <when test="item.fldTpCd == 'DOUBLE'">
+       #{item.fldVal, jdbcType=DOUBLE}
+  </when>
+  <when test="item.fldTpCd == 'FLOAT'">
+       #{item.fldVal, jdbcType=FLOAT}
+  </when>
+  <when test="item.fldTpCd == 'BLOB'">
+       #{item.fldVal, jdbcType=BLOB}
+  </when>
+  <when test="item.fldTpCd == 'CHAR'">
+       #{item.fldVal, jdbcType=CHAR}
+  </when>
+  <when test="item.fldTpCd == 'TIMESTAMP'">
+       sysdate
+  </when>
+  <when test="item.fldTpCd == 'DATE'">
+       sysdate
+  </when>
+ </choose>
+</foreach>
+)
+</insert>
+<insert id="insertDynamicTblMysql" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbDnmcPIn">
+insert into ${tblId}
+(
+<foreach close="" collection="uptFldVal" item="item" open="" separator=" , ">
+        ${item.fldNm}
+</foreach>
+)
+values 
+(
+<foreach close="" collection="uptFldVal" item="item" open="" separator=" , ">
+       #{item.fldVal}
+</foreach>
+)
+</insert>
+<delete id="deleteDynamicTblOracle" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbDnmcPIn">
+delete
+ from ${tblId}
+
+<where>
+	<foreach close="" collection="whereFldVal" item="item" open="" separator=" and ">
+ <choose>
+  <when test="item.fldTpCd == 'VARCHAR'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=VARCHAR}
+  </when>
+  <when test="item.fldTpCd == 'BIGINT'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=BIGINT}
+  </when>
+  <when test="item.fldTpCd == 'CLOB'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=CLOB}
+  </when>
+  <when test="item.fldTpCd == 'INTEGER'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=INTEGER}
+  </when>
+  <when test="item.fldTpCd == 'TINYINT'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=TINYINT}
+  </when>
+  <when test="item.fldTpCd == 'NUMBER'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=DECIMAL}
+  </when>
+  <when test="item.fldTpCd == 'DECIMAL'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=DECIMAL}
+  </when>
+  <when test="item.fldTpCd == 'DOUBLE'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=DOUBLE}
+  </when>
+  <when test="item.fldTpCd == 'FLOAT'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=FLOAT}
+  </when>
+  <when test="item.fldTpCd == 'BLOB'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=BLOB}
+  </when>
+  <when test="item.fldTpCd == 'CHAR'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=CHAR}
+  </when>
+  <when test="item.fldTpCd == 'TIMESTAMP'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=TIMESTAMP}
+  </when>
+  <when test="item.fldTpCd == 'DATE'">
+       ${item.fldNm} = #{item.fldVal, jdbcType=DATE}
+  </when>
+ </choose>
+	</foreach>
+</where>
+</delete>
+<delete id="deleteDynamicTblMysql" parameterType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbDnmcPIn">
+delete
+ from ${tblId}
+<where>
+<foreach close="" collection="whereFldVal" item="item" open="" separator=" and ">
+        ${item.fldNm} = #{item.fldVal}
+</foreach>
+</where>
+</delete>
+<select id="selectListTableMetaInfoMysql" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.InformationSchemaTableOut">
+select column_name as columnNm, 
+       data_type as dataTpCd
+  from information_schema.COLUMNS
+ where table_name =  #{tblNm}
+</select>
+<select id="selectListTableMetaInfoOracle" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.InformationSchemaTableOut">
+select COLUMN_NAME as columnNm, 
+       DATA_TYPE as dataTpCd
+  from USER_TAB_COLS
+ where TABLE_NAME =  #{tblNm}
+</select>
+<select id="selectEffectedWorkOnCpMysql" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskDCtvdIO">
+select 
+	a.DSTB_TASK_ID as dstbTaskId    /*배포과제식별자*/,
+	a.DSTB_TASK_CHNG_SEQ_NBR as dstbTaskChngSeqNbr    /*배포과제변경일련번호*/,
+	a.DSTB_TBL_ID as dstbTblId    /*배포테이블식별자*/,
+	a.DSTB_PK_VAL_CNTNT as dstbPkValCntnt    /*배포PK키값내용*/,
+	a.DPLCTN_KEY_VAL_CNTNT as dplctnKeyValCntnt    /*배포중복체크키값내용*/,
+	a.DSTB_SAVE_DSCD as dstbSaveDscd    /*배포저장구분코드*/,
+	CASE WHEN a.DSTB_BF_CHNG_CNTNT is null then '' else a.DSTB_BF_CHNG_CNTNT end as dstbBfChngCntnt    /*배포변경전내용*/,
+	a.DSTB_CHNG_STS_DSCD as dstbChngStsDscd    /*과제변경상태구분코드*/,
+	a.INITZ_CACHE_KEY_VAL as initzCacheKeyVal    /*캐쉬초기화키값*/,
+	a.LAST_DSTB_ENVRNMNT_CD as lastDstbEnvrnmntCd    /*배포환경구분코드*/,
+	a.DSTB_TASK_CHNG_HST_SEQ_NBR as dstbTaskChngHstSeqNbr    /*배포과제변경일련번호*/,
+	a.LAST_CHNG_GUID as lastChngGuid    /*최종변경GUID*/,
+	a.LAST_CHNG_ID as lastChngId    /*최종변경식별자*/,
+	a.LAST_CHNG_TMSTMP as lastChngTmstmp    /*최종변경타임스탬프*/
+from SV_DSTB_TASK_CHNG_D a
+        INNER JOIN SV_DSTB_TASK_M b 
+                on a.DSTB_TASK_ID=b.DSTB_TASK_ID 
+               and b.DSTB_TASK_STS_CD in ('01') 
+where a.DSTB_TBL_ID = #{dstbTblId}
+  and a.DSTB_CHNG_STS_DSCD = '01'
+order by a.DSTB_PK_VAL_CNTNT
+</select>
+<select id="selectEffectedWorkOnCpOracle" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskDCtvdIO">
+select 
+	a.DSTB_TASK_ID as dstbTaskId    /*배포과제식별자*/,
+	a.DSTB_TASK_CHNG_SEQ_NBR as dstbTaskChngSeqNbr    /*배포과제변경일련번호*/,
+	a.DSTB_TBL_ID as dstbTblId    /*배포테이블식별자*/,
+	a.DSTB_PK_VAL_CNTNT as dstbPkValCntnt    /*배포PK키값내용*/,
+	a.DPLCTN_KEY_VAL_CNTNT as dplctnKeyValCntnt    /*배포중복체크키값내용*/,
+	a.DSTB_SAVE_DSCD as dstbSaveDscd    /*배포저장구분코드*/,
+	NVL(a.DSTB_BF_CHNG_CNTNT, '') as dstbBfChngCntnt    /*배포변경전내용*/,
+	a.DSTB_CHNG_STS_DSCD as dstbChngStsDscd    /*과제변경상태구분코드*/,
+	a.INITZ_CACHE_KEY_VAL as initzCacheKeyVal    /*캐쉬초기화키값*/,
+	a.LAST_DSTB_ENVRNMNT_CD as lastDstbEnvrnmntCd    /*배포환경구분코드*/,
+	a.DSTB_TASK_CHNG_HST_SEQ_NBR as dstbTaskChngHstSeqNbr    /*배포과제변경일련번호*/,
+	a.LAST_CHNG_GUID as lastChngGuid    /*최종변경GUID*/,
+	a.LAST_CHNG_ID as lastChngId    /*최종변경식별자*/,
+	a.LAST_CHNG_TMSTMP as lastChngTmstmp    /*최종변경타임스탬프*/
+from SV_DSTB_TASK_CHNG_D a
+        INNER JOIN SV_DSTB_TASK_M b 
+                on a.DSTB_TASK_ID=b.DSTB_TASK_ID 
+               and b.DSTB_TASK_STS_CD in ('01') 
+where a.DSTB_TBL_ID = #{dstbTblId}
+  and a.DSTB_CHNG_STS_DSCD = '01'
+order by a.DSTB_PK_VAL_CNTNT
+</select>
+<select id="selectListForSql" resultType="bankware.corebanking.servicemanagement.distribution.dao.dto.SvDstbTaskDIO">
+select distinct
+	a.DSTB_TASK_ID as dstbTaskId    /*배포과제식별자*/,
+	a.DSTB_TASK_CHNG_SEQ_NBR as dstbTaskChngSeqNbr    /*배포과제변경일련번호*/,
+	a.DSTB_TBL_ID as dstbTblId    /*배포테이블식별자*/,
+	a.DSTB_PK_VAL_CNTNT as dstbPkValCntnt    /*배포PK키값내용*/,
+	a.DPLCTN_KEY_VAL_CNTNT as dplctnKeyValCntnt    /*배포중복체크키값내용*/,
+	a.DSTB_SAVE_DSCD as dstbSaveDscd    /*배포저장구분코드*/,
+	a.DSTB_BF_CHNG_CNTNT as dstbBfChngCntnt    /*배포변경전내용*/,
+	a.DSTB_CHNG_STS_DSCD as dstbChngStsDscd    /*과제변경상태구분코드*/,
+	a.INITZ_CACHE_KEY_VAL as initzCacheKeyVal    /*캐쉬초기화키값*/,
+	a.LAST_DSTB_ENVRNMNT_CD as lastDstbEnvrnmntCd    /*배포환경구분코드*/,
+    a.LAST_CHNG_GUID as lastChngGuid    /*최종변경GUID*/,
+	a.LAST_CHNG_ID as lastChngId    /*최종변경식별자*/,
+	a.LAST_CHNG_TMSTMP as lastChngTmstmp    /*최종변경타임스탬프*/
+from SV_DSTB_TASK_CHNG_D a 
+where a.DSTB_TASK_ID = #{dstbTaskId} 
+and a.DSTB_CHNG_STS_DSCD = '01' 
+and exists (select 'Y' from SV_DSTB_REQ_M b inner join SV_DSTB_REQ_SRVR_CHNG_D c on b.DSTB_RQST_ID = c.DSTB_RQST_ID
+                where a.DSTB_TASK_ID= b.DSTB_TASK_ID 
+							  and a.DSTB_TASK_CHNG_SEQ_NBR=c.DSTB_TASK_CHNG_SEQ_NBR
+							  and a.DSTB_TASK_CHNG_HST_SEQ_NBR=c.DSTB_TASK_CHNG_HST_SEQ_NBR
+                              and b.DSTB_ENVRNMNT_CD in  (#{dstbEnvrnmntCd})
+                )
+order by a.DSTB_TASK_CHNG_SEQ_NBR
+</select>
+</mapper>

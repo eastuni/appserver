@@ -1,0 +1,6 @@
+OMM bxm.web.admin.error.mgmt.domain.TopChlTypeCdOMM
+<description="">
+{
+	String chlTypeCd<length=3 description="채널타입코드">;
+	Integer errOccurCnt<length=4 description="에러발생건수">;
+}

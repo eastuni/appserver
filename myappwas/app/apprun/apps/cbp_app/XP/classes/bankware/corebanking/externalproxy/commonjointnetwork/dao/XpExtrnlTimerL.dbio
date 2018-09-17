@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonjointnetwork.dao.XpExtrnlTimerL">
+<!--Generated Tue Sep 19 13:03:45 KST 2017-->
+<insert id="insertExternalTimerLog" parameterType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlTimerLIO">
+INSERT  
+  INTO  xp_extrnl_timer_l    /* 대외타어머로그 */
+(
+  INST_CD,     /*기관코드*/
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드*/
+  TX_DT,     /*거래년월일*/
+  TIMER_KEY_CNTNT,     /*타이머키*/
+  TIMER_PRCS_Dscd,     /*타이머처리구분코드*/
+  TIMEOUT_SCND,     /*타임아웃시간(초)*/
+  TIMEOUT_HMS,     /*타임아웃발생시각*/
+  GUID,     /*GUID*/
+  SYS_INTRFC_ID,     /*시스템인터페이스식별자*/
+  EXTRNL_TX_CD,     /*대외거래코드*/
+  TIMEOUT_SRVC_CD,     /*타임아웃서비스코드*/
+  HDR_INFO_CNTNT,     /*헤더정보*/
+  MSG_LEN,     /*대외송신데이터길이*/
+  MSG_CNTNT,     /*대외송신데이터1*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{extrnlInstCd},     /*대외기관코드*/
+  #{extrnlBizDscd},     /*대외업무구분코드*/
+  #{txDt},     /*거래년월일*/
+  #{timerKeyCntnt},     /*타이머키*/
+  #{timerPrcsDscd},     /*타이머처리구분코드*/
+  #{timeoutScnd},     /*타임아웃시간(초)*/
+   DATE_FORMAT(DATE_ADD(STR_TO_DATE(#{timeoutHms}, '%H%i%s'), Interval  (1/24/60/60*#{timeoutScnd}) second), '%H%i%s'),     /*타임아웃발생시각*/
+  #{guid},     /*GUID*/
+  #{sysIntrfcId},     /*시스템인터페이스식별자*/
+  #{extrnlTxCd},     /*대외거래코드*/
+  #{timeoutSrvcCd},     /*타임아웃서비스코드*/
+  #{hdrInfoCntnt},     /*헤더정보*/
+  #{msgLen},     /*대외송신데이터길이*/
+  #{msgCntnt},     /*대외송신데이터1*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectExternalTimerLog" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlTimerLIO">
+SELECT    /* 대외타어머로그 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        TIMER_KEY_CNTNT AS timerKeyCntnt,     /*타이머키*/
+        TIMER_PRCS_Dscd AS timerPrcsDscd,     /*타이머처리구분코드*/
+        TIMEOUT_SCND AS timeoutScnd,     /*타임아웃시간(초)*/
+        TIMEOUT_HMS AS timeoutHms,     /*타임아웃발생시각*/
+        GUID AS guid,     /*GUID*/
+        SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        EXTRNL_TX_CD AS extrnlTxCd,     /*대외거래코드*/
+        TIMEOUT_SRVC_CD AS timeoutSrvcCd,     /*타임아웃서비스코드*/
+        HDR_INFO_CNTNT AS hdrInfoCntnt,     /*헤더정보*/
+        MSG_LEN AS msgLen,     /*대외송신데이터길이*/
+        MSG_CNTNT AS msgCntnt,     /*대외송신데이터1*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  xp_extrnl_timer_l
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND TIMER_KEY_CNTNT = #{timerKeyCntnt}
+</select>
+<select id="selectExternalTimerLogTimeout" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlTimerLIO">
+SELECT 
+instCd,     /*기관코드*/
+extrnlInstCd,     /*대외기관코드*/
+extrnlBizDscd,     /*대외업무구분코드*/
+txDt,     /*거래년월일*/
+timerKeyCntnt,     /*타이머키*/
+timerPrcsDscd,     /*타이머처리구분코드*/
+timeoutScnd,     /*타임아웃시간(초)*/
+timeoutHms,     /*타임아웃발생시각*/
+guid,     /*GUID*/
+sysIntrfcId,     /*시스템인터페이스식별자*/
+extrnlTxCd,     /*대외거래코드*/
+timeoutSrvcCd,     /*타임아웃서비스코드*/
+hdrInfoCntnt,     /*헤더정보*/
+msgLen,     /*대외송신데이터길이*/
+msgCntnt,     /*대외송신데이터1*/
+lastChngTmstmp,     /*최종변경일시*/
+lastChngGuid    /*최종변경GUID*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+A.instCd,     /*기관코드*/
+A.extrnlInstCd,     /*대외기관코드*/
+A.extrnlBizDscd,     /*대외업무구분코드*/
+A.txDt,     /*거래년월일*/
+A.timerKeyCntnt,     /*타이머키*/
+A.timerPrcsDscd,     /*타이머처리구분코드*/
+A.timeoutScnd,     /*타임아웃시간(초)*/
+A.timeoutHms,     /*타임아웃발생시각*/
+A.guid,     /*GUID*/
+A.sysIntrfcId,     /*시스템인터페이스식별자*/
+A.extrnlTxCd,     /*대외거래코드*/
+A.timeoutSrvcCd,     /*타임아웃서비스코드*/
+A.hdrInfoCntnt,     /*헤더정보*/
+A.msgLen,     /*대외송신데이터길이*/
+A.msgCntnt,     /*대외송신데이터1*/
+A.lastChngTmstmp,     /*최종변경일시*/
+A.lastChngGuid    /*최종변경GUID*/    
+     FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* 대외타어머로그 */
+       inst_cd AS instCd    /*기관코드*/
+     , extrnl_inst_cd AS extrnlInstCd    /*대외기관코드*/
+     , extrnl_biz_Dscd AS extrnlBizDscd    /*대외업무구분코드*/
+     , tx_dt AS txDt    /*거래년월일*/
+     , timer_key_cntnt AS timerKeyCntnt    /*타이머키*/
+     , timer_prcs_Dscd AS timerPrcsDscd    /*타이머처리구분코드*/
+     , timeout_scnd AS timeoutScnd    /*타임아웃시간(초)*/
+     , timeout_hms AS timeoutHms    /*타임아웃발생시각*/
+     , guid AS guid    /*GUID*/
+     , sys_intrfc_id AS sysIntrfcId    /*시스템인터페이스식별자*/
+     , extrnl_tx_cd AS extrnlTxCd    /*대외거래코드*/
+     , timeout_srvc_cd AS timeoutSrvcCd    /*타임아웃서비스코드*/
+     , hdr_info_cntnt AS hdrInfoCntnt    /*헤더정보*/
+     , msg_len AS msgLen    /*대외송신데이터길이*/
+     , msg_cntnt AS msgCntnt    /*대외송신데이터1*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_extrnl_timer_l
+ WHERE tx_dt = #{txDt}
+   AND timer_prcs_Dscd = '0'
+   AND timeout_hms &lt; #{timeoutHms}
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<delete id="deleteExternalTimerLog">
+DELETE FROM xp_extrnl_timer_l    /* 대외타어머로그 */
+ WHERE inst_cd = #{instCd}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+   AND extrnl_biz_Dscd = #{extrnlBizDscd}
+   AND tx_dt = #{txDt}
+   AND timer_key_cntnt = #{timerKeyCntnt}
+</delete>
+<update id="updateExternalTimerLogToProcessing">
+UPDATE xp_extrnl_timer_l    /* 대외타어머로그 */
+   SET timer_prcs_Dscd = #{timerPrcsDscd}    /* 타이머처리구분코드 */
+     , last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE inst_cd = #{instCd}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+   AND extrnl_biz_Dscd = #{extrnlBizDscd}
+   AND tx_dt = #{txDt}
+   AND timer_key_cntnt = #{timerKeyCntnt}
+</update>
+<select id="selectListExternalTimerLog" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlTimerLIO">
+SELECT    /* 대외타어머로그 */
+        L.INST_CD AS instCd,     /*기관코드*/
+        L.EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        L.EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        L.TX_DT AS txDt,     /*거래년월일*/
+        L.TIMER_KEY_CNTNT AS timerKeyCntnt,     /*타이머키*/
+        L.TIMER_PRCS_Dscd AS timerPrcsDscd,     /*타이머처리구분코드*/
+        L.TIMEOUT_SCND AS timeoutScnd,     /*타임아웃시간(초)*/
+        L.TIMEOUT_HMS AS timeoutHms,     /*타임아웃발생시각*/
+        L.GUID AS guid,     /*GUID*/
+        L.SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        M.SYS_INTRFC_NM AS sysIntrfcNm,
+        L.EXTRNL_TX_CD AS extrnlTxCd,     /*대외거래코드*/
+        L.TIMEOUT_SRVC_CD AS timeoutSrvcCd,     /*타임아웃서비스코드*/
+        L.HDR_INFO_CNTNT AS hdrInfoCntnt,     /*헤더정보*/
+        L.MSG_LEN AS msgLen,     /*대외송신데이터길이*/
+        L.MSG_CNTNT AS msgCntnt,     /*대외송신데이터1*/
+        L.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        L.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  xp_extrnl_timer_l L, XP_SYS_INTRFC_M M
+ WHERE L.INST_CD = #{instCd}
+   AND L.EXTRNL_INST_CD = #{extrnlInstCd}
+   AND L.EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND L.TX_DT = #{txDt}
+   AND L.TIMER_KEY_CNTNT = NVL(#{timerKeyCntnt},L.TIMER_KEY_CNTNT)
+   AND L.SYS_INTRFC_ID = M.SYS_INTRFC_ID
+   ORDER BY L.TIMEOUT_HMS DESC
+</select>
+</mapper>

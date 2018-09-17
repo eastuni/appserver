@@ -1,0 +1,8 @@
+OMM bankware.corebanking.p2plending.listreport.service.dto.LendingCashFlowInqrySvcIn
+<description="Lending Cash Flow Input">
+{
+	String custId<length=20 description="고객식별자">;
+	String inqryStartDt<length=8 description="조회시작일자">;
+	String inqryEndDt<length=8 description="조회종료일자">;
+	String lnYn<length=1 description="대출여부">;
+}

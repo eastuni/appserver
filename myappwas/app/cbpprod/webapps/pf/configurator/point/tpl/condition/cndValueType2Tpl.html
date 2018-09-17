@@ -1,0 +1,50 @@
+<div class="cnd-value-type2">
+    <div class="additional-info-wrap">
+        <table class="bx-info-table cnd-value-type2-table">
+            <tr class="isSingleValue-hide">
+                <th>{{bxMsg 'DPS0121_1String1'}}</th>
+                <td>
+                    <input type="text" data-form-param="minValue" class="bx-form-item bx-compoenent-small removeComma float-range-21 minValue input-align-right type2-min-check" value="{{minValue}}" />
+                    <label class="isUseSameValue"><input type="checkbox" class="bx-form-item" style="vertical-align: middle;">{{bxMsg 'useSameValue'}}</label>
+                </td>
+                <th class="detail-except-type01-hide">{{bxMsg 'currencyCode'}}</th>
+                <td class="detail-except-type01-hide">
+                    <select data-form-param="currencyValue" class="bx-form-item bx-compoenent-small CurrencyCode" value="{{currencyValue}}"></select>
+                </td>
+                <th class="detail-type01-hide">{{bxMsg 'DPS0121_1String5'}}</th>
+                <td class="detail-type01-hide">
+                    <select data-form-param="productMeasurementUnit" class="bx-form-item bx-compoenent-small ProductMeasurementUnitCode" value="{{productMeasurementUnit}}">
+                        </select>
+                </td>
+            </tr>
+            <tr class="isSingleValue-hide">
+                <th>{{bxMsg 'DPS0121_1String2'}}</th>
+                <td colspan="3">
+                    <input type="text" data-form-param="maxValue" class="bx-form-item bx-compoenent-small removeComma input-align-right float-range-21 maxValue  type2-max-check" value="{{maxValue}}" />
+                    <label class="isSystemMaxValue"><input type="checkbox" class="bx-form-item">{{bxMsg 'systemMax'}}</label>
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'DPS0121_1String3'}}</th>
+                <td>
+                    <input type="text" data-form-param="defalueValue" class="bx-form-item bx-compoenent-small removeComma float21 input-align-right defalueValue type2-default-check" value="{{defalueValue}}" />
+                </td>
+                <th class="detail-except-type01-hide isNotSingleValue-hide">{{bxMsg 'currencyCode'}}</th>
+                <td class="detail-except-type01-hide isNotSingleValue-hide">
+                    <select data-form-param="currencyValue" class="bx-form-item bx-compoenent-small CurrencyCode" value="{{currencyValue}}"></select>
+                </td>
+                <th class="detail-type01-hide isNotSingleValue-hide">{{bxMsg 'DPS0121_1String5'}}</th>
+                <td class="detail-type01-hide isNotSingleValue-hide">
+                    <select data-form-param="productMeasurementUnit" class="bx-form-item bx-compoenent-small ProductMeasurementUnitCode" value="{{productMeasurementUnit}}">
+                        </select>
+                </td>
+            </tr>
+            <tr class="isSingleValue-hide">
+                <th>{{bxMsg 'DPS0121_1String4'}}</th>
+                <td colspan="3">
+                    <input type="text" data-form-param="increaseValue" class="bx-form-item bx-compoenent-small removeComma float21 input-align-right increaseValue type2-increase-check" value="{{increaseValue}}" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

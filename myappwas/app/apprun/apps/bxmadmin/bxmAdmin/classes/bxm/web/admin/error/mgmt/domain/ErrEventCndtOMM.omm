@@ -1,0 +1,25 @@
+OMM bxm.web.admin.error.mgmt.domain.ErrEventCndtOMM
+<description="">
+{
+	String cndtUid<length=40 description="조건UID">;
+	String cndtNm<length=128 description="조건명">;
+	String trxTargetCd<length=1 description="거래대상">;
+	String trxCd<length=12 description="거래코드">;
+	String errTargetCd<length=1 description="에러대상">;
+	String errCd<length=9 description="에러코드">;
+	String stdPerdCd<length=1 description="기준기간코드">;
+	Integer stdCnt<length=4 description="기준횟수">;
+	String ctrlCd<length=1 description="제어방식코드">;
+	String useYn<length=1 description="사용여부">;
+	String regOccurDttm<length=23 description="등록발생일시">;
+	String regUserId<length=32 description="등록자ID">;
+	String modifyOccurDttm<length=23 description="변경발생일시">;
+	String modifyUserId<length=32 description="최종변경자ID">;
+	String sqlErrCd<length=20 description="SQL에러코드">;
+	Integer pageNum<length=9 description="페이지숫자">;
+	Integer pageCount<length=9 description="페이지카운트">;
+	Integer eventOccurCnt<length=4 description="이벤트발생횟수">;
+	String occurDt<length=10 description="발생일자">;
+	String bizDt<length=10 description="영업일자">;
+	String domainId<length=14 description="도메인ID ">;
+}

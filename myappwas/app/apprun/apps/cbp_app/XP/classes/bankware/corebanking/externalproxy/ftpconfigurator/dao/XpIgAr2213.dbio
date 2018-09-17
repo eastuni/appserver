@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpIgAr2213">
+<!--Generated Fri Sep 15 12:27:53 KST 2017-->
+<select id="selectAR2213InqryList" resultType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.AR2213InqryIFOutSub">
+SELECT    /* 인터넷지로_취소 및 예약신청 미완료 */
+	instCd,     /*기관코드*/
+	txDt,     /*거래일자*/
+	seqNbr,     /*일련번호*/
+	elctrncRcptTxDscd,     /*전자수납거래구분코드*/
+	msgDataDscd,     /*전문데이터구분코드*/
+	whdrwlBnkBrnchCd,     /*출금은행지점코드*/
+	orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+	issueInstDscd,     /*발행기관분류코드*/
+	giroNbr,     /*지로번호*/
+	whdrwlAcctNbr,     /*출금계좌번호*/
+	giroPymntAmt,     /*지로납부금액*/
+	bnkCd,     /*은행코드*/
+	totDataRecordCnt,     /*총계데이터레코드건수*/
+	cnclCnt,     /*취소건수*/
+	cnclAmt,     /*취소금액*/
+	realPymntDt,     /*실제납부일자*/
+	aplctnDt,     /*신청일자*/
+	cntrCtPrcsngRsltCd     /*센터컷처리결과코드*/
+
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+	instCd,     /*기관코드*/
+	txDt,     /*거래일자*/
+	seqNbr,     /*일련번호*/
+	elctrncRcptTxDscd,     /*전자수납거래구분코드*/
+	msgDataDscd,     /*전문데이터구분코드*/
+	whdrwlBnkBrnchCd,     /*출금은행지점코드*/
+	orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+	issueInstDscd,     /*발행기관분류코드*/
+	giroNbr,     /*지로번호*/
+	whdrwlAcctNbr,     /*출금계좌번호*/
+	giroPymntAmt,     /*지로납부금액*/
+	bnkCd,     /*은행코드*/
+	totDataRecordCnt,     /*총계데이터레코드건수*/
+	cnclCnt,     /*취소건수*/
+	cnclAmt,     /*취소금액*/
+	realPymntDt,     /*실제납부일자*/
+	aplctnDt,     /*신청일자*/
+	cntrCtPrcsngRsltCd     /*센터컷처리결과코드*/
+ 
+ FROM 
+        (
+
+SELECT    /* 인터넷지로_취소 및 예약신청 미완료 */
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래일자*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        ELTRN_RCPT_TX_DS_CD AS elctrncRcptTxDscd,     /*전자수납거래구분코드*/
+        MSG_DATA_Dscd AS msgDataDscd,     /*전문데이터구분코드*/
+        WHDRWL_BNK_BRNCH_CD AS whdrwlBnkBrnchCd,     /*출금은행지점코드*/
+        ORGNL_TX_CNTR_MSG_MGMT_NBR AS orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+        ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+        GIRO_NBR AS giroNbr,     /*지로번호*/
+        WHDRWL_ACCT_NBR AS whdrwlAcctNbr,     /*출금계좌번호*/
+        GIRO_PYMNT_AMT AS giroPymntAmt,     /*지로납부금액*/
+        BNK_CD AS bnkCd,     /*은행코드*/
+        TOT_DATA_RECORD_CNT AS totDataRecordCnt,     /*총계데이터레코드건수*/
+        CNCL_CNT AS cnclCnt,     /*취소건수*/
+        CNCL_AMT AS cnclAmt,     /*취소금액*/
+        TRTH_PYMNT_DT AS realPymntDt,     /*실제납부일자*/
+        APLCTN_DT AS aplctnDt,     /*신청일자*/
+        CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd     /*센터컷처리결과코드*/
+
+  FROM  XP_IG_AR2213
+ WHERE INST_CD = '103'
+   AND TX_DT between #{strtxDt, jdbcType=VARCHAR}   and    #{endtxDt, jdbcType=VARCHAR}
+   AND ELTRN_RCPT_TX_DS_CD = #{elctrncRcptTxDscd, jdbcType=VARCHAR}
+   AND MSG_DATA_Dscd = '22'
+    ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr, jdbcType=NUMERIC}*#{pgCnt, jdbcType=NUMERIC})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr, jdbcType=NUMERIC}-1)*#{pgCnt, jdbcType=NUMERIC}
+</select>
+<select id="selectAR2213InqryTotalCnt" resultType="java.lang.Integer">
+SELECT count(1) as totalCount
+  FROM  XP_IG_AR2213
+ WHERE INST_CD = '103'
+   AND TX_DT between #{strtxDt, jdbcType=VARCHAR}
+                       and    #{endtxDt, jdbcType=VARCHAR}
+   AND ELTRN_RCPT_TX_DS_CD = #{elctrncRcptTxDscd, jdbcType=VARCHAR}
+   AND MSG_DATA_Dscd = '22'
+</select>
+<update id="modifyAR2213">
+UPDATE XP_IG_AR2213
+SET CNTR_CT_PRCSNG_RSLT_CD=#{msg, jdbcType=VARCHAR}
+WHERE TX_DT=#{txDt, jdbcType=VARCHAR}
+AND SEQ_NBR=#{seqNbr, jdbcType=VARCHAR}
+AND ELTRN_RCPT_TX_DS_CD=#{Dscd, jdbcType=VARCHAR}
+AND INST_CD='103'
+</update>
+</mapper>

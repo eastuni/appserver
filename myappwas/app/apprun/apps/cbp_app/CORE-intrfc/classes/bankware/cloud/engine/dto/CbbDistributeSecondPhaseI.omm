@@ -1,0 +1,9 @@
+OMM bankware.cloud.engine.dto.CbbDistributeSecondPhaseI
+<description="Super Type Class for Distributed Service's Second Phase Input DTO.     ">
+{
+	String bizObjId<length=30 description="Business Object Id">;
+	String txDt<length=8 description="Transactin Date">;
+	Integer txSeqNbr<length=7 description="Transactin Sequence Number">;
+	String guid<length=40 description="guid">;
+	Integer jrnlSeqNbr<length=4 description="Journal Sequence Number">;
+}

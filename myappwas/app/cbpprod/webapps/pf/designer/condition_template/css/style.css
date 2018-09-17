@@ -1,0 +1,34 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for Condition template
+ * 조건템플릿 CSS 
+ */
+.pf-dc .pf-dc-info-form th { width: 150px; }
+.pf-dc .pf-dc-list-grid { height: 300px;margin: -5px 10px 10px 10px; }
+.pf-dc .pf-dc-event-grid { height: 280px;margin: -5px 10px 10px 10px; }
+.pf-dc .grid-extra-header { margin: 0px 10px 5px 0; }
+.pf-dc .grid-extra-header .bw-btn { float: right; }
+.pf-dc .pf-dc-info-form td input { width: 98.6%; }
+.pf-dc .pf-dc-info-form td input.single-value-checkbox { width: inherit; }
+.pf-dc .pf-dc-info-form td input.ref-target-name { width: 100px; }
+.pf-dc .pf-dc-info-form td input.cmn-code-name { width: 200px; }
+.pf-dc .type-content { margin-top: 10px; }
+.new-condition-tpl-popup .bx-info-table, .copy-condition-tpl-popup .bx-info-table { margin-top: 15px; }
+.new-condition-tpl-popup .bx-info-table input, .copy-condition-tpl-popup .bx-info-table input {
+    margin-top: 0;
+    width: 100%; 
+}
+.context-popup input { margin-top: 10px;width: 100%; }
+.add-detail-type-popup input,
+.change-name-popup input,
+.new-condition-group-tpl-popup input,
+.copy-condition-group-tpl-popup input,
+.change-condition-group-Tpl-name-popup input,
+.change-product-type-Tpl-name-popup input,
+.new-product-type-Tpl-name-popup input,
+.condition-name-change-input,
+.product-name-input,
+.change-product-Tpl-name-popup input {
+    width: 100% !important;
+    margin-top: 15px;
+}

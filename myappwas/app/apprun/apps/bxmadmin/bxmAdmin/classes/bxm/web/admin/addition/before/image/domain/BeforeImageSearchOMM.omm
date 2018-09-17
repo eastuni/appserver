@@ -1,0 +1,9 @@
+OMM bxm.web.admin.addition.before.image.domain.BeforeImageSearchOMM
+<description="">
+{
+	String trxDt<length=20 description="거래일자">;
+	String tableNm<length=100 description="테이블명">;
+	String revertResultCd<length=10 description="보정결과코드">;
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+}

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.deferred.dbio.DfrdStatusDBIO">
+<!--Generated Mon Nov 27 13:43:04 KST 2017-->
+<select id="selectDfrdStatus01" parameterType="bxm.web.admin.deferred.domain.DfrdStatus01IO" resultType="java.lang.Integer">
+select count(*)
+from BXM_DEFERRED_STATUS
+where DEFERRED_ID = #{deferredId,jdbcType=VARCHAR}
+and NODE_NO = #{nodeNo,jdbcType=VARCHAR}
+and BIZ_DT = #{bizDt,jdbcType=VARCHAR}
+and DEFERRED_MAIN_STATUS_CD not in (1,2)
+and DOMAIN_ID = #{domainId}
+</select>
+<select id="selectDfrdStatusListUsingPaging01" resultType="bxm.web.admin.deferred.domain.DfrdStatus01IO">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* BXM 후행 MAIN 상태 */ 
+       AA.DEFERRED_ID AS deferredId /*후행ID*/,
+       BB.deferred_nm as deferredNm,
+       AA.NODE_NO AS nodeNo /*노드번호*/,
+       AA.BIZ_DT AS bizDt /*영업일자*/,
+       AA.DEFERRED_MAIN_STATUS_CD AS deferredMainStatusCd /*후행메인상태코드*/,
+       AA.MODIFY_DTTM AS modifyDttm /*변경일시*/
+
+  FROM bxm_deferred_status AA, bxm_deferred_main BB
+ WHERE 
+	AA.deferred_id = BB.deferred_id
+	and AA.deferred_id = #{AA.deferredId}
+	and AA.biz_dt = #{AA.bizDt}
+	and AA.domain_id = #{AA.domainId}
+	and BB.domain_id = #{AA.domainId}
+	order by AA.DEFERRED_ID asc, node_no asc  
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="oracle" id="selectDfrdStatusListUsingPaging01" resultType="bxm.web.admin.deferred.domain.DfrdStatus01IO">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* BXM 후행 MAIN 상태 */ 
+       AA.DEFERRED_ID AS deferredId /*후행ID*/,
+       BB.deferred_nm as deferredNm,
+       AA.NODE_NO AS nodeNo /*노드번호*/,
+       AA.BIZ_DT AS bizDt /*영업일자*/,
+       AA.DEFERRED_MAIN_STATUS_CD AS deferredMainStatusCd /*후행메인상태코드*/,
+       AA.MODIFY_DTTM AS modifyDttm /*변경일시*/
+
+  FROM bxm_deferred_status AA, bxm_deferred_main BB
+ WHERE 
+	AA.deferred_id = BB.deferred_id
+	and AA.deferred_id = #{AA.deferredId}
+	and AA.biz_dt = #{AA.bizDt}
+	and AA.domain_id = #{AA.domainId}
+	and BB.domain_id = #{AA.domainId}
+	order by AA.DEFERRED_ID asc, node_no asc  
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectDfrdStatusListUsingPaging01" resultType="bxm.web.admin.deferred.domain.DfrdStatus01IO">
+/* #### Original SQL [[ ################# */
+SELECT /* BXM 후행 MAIN 상태 */ 
+       AA.DEFERRED_ID AS deferredId /*후행ID*/,
+       BB.DEFERRED_NM as deferredNm,
+       AA.NODE_NO AS nodeNo /*노드번호*/,
+       AA.BIZ_DT AS bizDt /*영업일자*/,
+       AA.DEFERRED_MAIN_STATUS_CD AS deferredMainStatusCd /*후행메인상태코드*/,
+       AA.MODIFY_DTTM AS modifyDttm /*변경일시*/
+
+  FROM BXM_DEFERRED_STATUS AA, BXM_DEFERRED_MAIN BB
+ WHERE 
+	AA.DEFERRED_ID = BB.DEFERRED_ID
+	and AA.DEFERRED_ID = #{AA.deferredId}
+	and AA.BIZ_DT = #{AA.bizDt}
+	and AA.DOMAIN_ID = #{AA.domainId}
+	and BB.DOMAIN_ID = #{AA.domainId}
+	order by AA.DEFERRED_ID asc, NODE_NO asc  
+/* #### Original SQL ]] ################# */
+LIMIT #{pageNum}, #{pageCount}
+</select>
+<select id="countDfrdStatus01" resultType="java.lang.Integer">
+SELECT count(*)
+from BXM_DEFERRED_STATUS AA
+WHERE 
+	1=1
+	and DOMAIN_ID = #{AA.domainId}
+	<if test="AA.deferredId != null and AA.deferredId != ''">
+		and AA.DEFERRED_ID = #{AA.deferredId}
+	 </if>
+	<if test="AA.nodeNo != null and AA.nodeNo != ''">
+		and AA.NODE_NO = #{AA.nodeNo}
+	</if>
+</select>
+<update id="updateDfrdStatus01" parameterType="bxm.web.admin.deferred.domain.DfrdStatus01IO">
+UPDATE BXM_DEFERRED_STATUS /* BXM 후행 MAIN 상태 */
+   SET DEFERRED_MAIN_STATUS_CD = '1'
+ WHERE DEFERRED_ID = #{deferredId}
+ and NODE_NO = #{nodeNo}
+ and DOMAIN_ID = #{domainId}
+</update>
+<update id="updateDfrdStatus02" parameterType="bxm.web.admin.deferred.domain.DfrdStatus01IO">
+UPDATE BXM_DEFERRED_STATUS /* BXM 후행 MAIN 상태 */
+	SET OTHER_NODE_MAIN_STATUS_CD = '1'
+WHERE DEFERRED_ID = #{deferredId}
+and DOMAIN_ID = #{domainId}
+</update>
+<update id="executeAllDfrdWork01" parameterType="bxm.web.admin.deferred.domain.DfrdStatus01IO">
+update BXM_DEFERRED_STATUS
+set OTHER_NODE_MAIN_STATUS_CD = '1', DEFERRED_MAIN_STATUS_CD = '1'
+where DEFERRED_MAIN_STATUS_CD != '7'
+and DOMAIN_ID = #{domainId}
+</update>
+<update id="stopAllDfrdWork01" parameterType="bxm.web.admin.deferred.domain.DfrdStatus01IO">
+update BXM_DEFERRED_STATUS
+set OTHER_NODE_MAIN_STATUS_CD = '10'
+where DEFERRED_MAIN_STATUS_CD != '7'
+and DOMAIN_ID = #{domainId}
+</update>
+<update id="pauseOneDfrdWork01" parameterType="bxm.web.admin.deferred.domain.DfrdStatus01IO">
+update BXM_DEFERRED_STATUS
+set OTHER_NODE_MAIN_STATUS_CD = '10'
+where 
+DEFERRED_ID = #{deferredId}
+and NODE_NO = #{nodeNo}
+and BIZ_DT = #{bizDt}
+and DOMAIN_ID = #{domainId}
+</update>
+<update id="startOneDfrdWork01" parameterType="bxm.web.admin.deferred.domain.DfrdStatus01IO">
+update BXM_DEFERRED_STATUS
+set DEFERRED_MAIN_STATUS_CD = '1', OTHER_NODE_MAIN_STATUS_CD = '1'
+where DEFERRED_ID = #{deferredId}
+and NODE_NO = #{nodeNo}
+and BIZ_DT = #{bizDt}
+and DOMAIN_ID = #{domainId}
+</update>
+<update id="startOneDfrdWork02" parameterType="bxm.web.admin.deferred.domain.DfrdStatus01IO">
+update BXM_DEFERRED_STATUS
+set OTHER_NODE_MAIN_STATUS_CD = '1'
+where DEFERRED_ID = #{deferredId}
+and BIZ_DT = #{bizDt}
+and DOMAIN_ID = #{domainId}
+</update>
+</mapper>

@@ -1,0 +1,57 @@
+.formula-editor-table-wrap {
+	top: 0px;
+}
+
+.formula-editor-table .formula-content-header {
+	width: 70px;
+}
+
+.formula-editor-table .formula-content {
+	width: 345px !important;
+}
+
+.formula-editor-table .conversion-content {
+	height: 50px;
+}
+
+.formula-editor-btn-wrap, .formula-editor-grid-wrap {
+	margin-top: 10px;
+}
+
+.formula-editor-grid-table .cnd-type-header {
+	width: 60px;
+}
+
+.formula-editor-grid-table .cnd-type-content {
+	width: 120px !important;
+}
+
+.formula-editor-grid-table .cnd-type-select {
+	width: 80px;
+}
+
+.formula-editor-grid-table .cnd-name-header {
+	width: 50px;
+}
+
+.formula-editor-grid-table .cnd-name-search {
+	width: 100% !important;
+}
+
+.formula-editor-grid {
+	height: 220px;
+}
+
+.pf-cal-formula-editor-popup .large-btn {
+    width: 45px; 
+}
+
+.pf-cal-formula-editor-popup .small-btn {
+    width: 35px;
+}
+
+.pf-cal-formula-editor-popup .formula-cal-btn {
+    border: 1px solid #bbbbbb;
+    text-align: center;
+    height: 27px;
+}

@@ -1,0 +1,11 @@
+OMM bankware.corebanking.loan.financialtransaction.batch.dto.LnExctnCcutTrgtIO
+<description="">
+{
+	String arrId<length=40 description="계약식별자">;
+	String baseDt<length=8 description="기준일자">;
+	BigDecimal plnSeqNbr<length=7 description="계획일련번호">;
+	String acctNbr<length=20 description="대출계좌번호">;
+	BigDecimal lnDsbrsmntAmt<length=18 decimal=2 description="대출실행금액">;
+	String mnyRcvdAcctNbr1<length=20 decimal=2 description="입금계좌번호1">;
+	BigDecimal mnyRcvdAmt1<length=18 decimal=2 description="입금금액1">;
+}

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.system.setting.dbio.ValidationRuleDBIO">
+<!--Generated Thu Nov 30 15:47:44 KST 2017-->
+<select id="selectValidRuleList" resultType="bxm.web.admin.system.setting.domain.ValidationRuleOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* BXM OMM 검증 */ 
+       A.VALID_RULE_ID AS validRuleId /*검증룰ID*/,
+       A.VALID_RULE_NM AS validRuleNm /*검증룰명*/,
+       A.VALID_RULE_DESC AS validRuleDesc /*검증룰설명*/,
+       A.VALID_RULE_CLASS_NM AS validRuleClassNm /*검증룰클래스명*/,
+       A.VALID_RULE_SEQUENCE AS validRuleSequence /*검증룰순차*/,
+       A.VALID_RULE_PARAM AS validRuleParam /*검증룰파라미터*/,
+       A.ERR_MSG_ID AS errMsgId /*에러메시지ID*/,
+       B.TYPE as type /* 타입 */,
+       A.REG_USER_ID AS regUserId /*등록 사용자 ID*/,
+       A.REG_OCCUR_DTTM AS regOccurDttm /*등록 발생 일시*/,
+       A.MODIFY_USER_ID AS modifyUserId /*변경 사용자 ID*/,
+       A.MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경 발생 일시*/
+  FROM bxm_omm_validator A
+  INNER JOIN BXM_OMM_VALIDATOR_APPLY_TYPE B
+  ON A.VALID_RULE_ID = B.VALID_RULE_ID
+  	AND A.DOMAIN_ID = B.DOMAIN_ID
+  WHERE A.DOMAIN_ID = #{validRule.domainId}
+	  	<if test="validRule.validRuleId != null and validRule.validRuleId !=''">
+	  		AND upper(A.VALID_RULE_ID) like upper(#{validRule.validRuleId, jdbcType=VARCHAR})||'%'
+	  	</if>
+	  	<if test="validRule.type != null and validRule.type !=''">
+	  		AND upper(B.TYPE) LIKE '%'||upper(#{validRule.type, jdbcType=VARCHAR})||'%'
+	  	</if>
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectValidRuleList" resultType="bxm.web.admin.system.setting.domain.ValidationRuleOMM">
+SELECT /* BXM OMM 검증 */ 
+       A.VALID_RULE_ID AS validRuleId /*검증룰ID*/,
+       A.VALID_RULE_NM AS validRuleNm /*검증룰명*/,
+       A.VALID_RULE_DESC AS validRuleDesc /*검증룰설명*/,
+       A.VALID_RULE_CLASS_NM AS validRuleClassNm /*검증룰클래스명*/,
+       A.VALID_RULE_SEQUENCE AS validRuleSequence /*검증룰순차*/,
+       A.VALID_RULE_PARAM AS validRuleParam /*검증룰파라미터*/,
+       A.ERR_MSG_ID AS errMsgId /*에러메시지ID*/,
+       B.TYPE as type /* 타입 */,
+       A.REG_USER_ID AS regUserId /*등록 사용자 ID*/,
+       A.REG_OCCUR_DTTM AS regOccurDttm /*등록 발생 일시*/,
+       A.MODIFY_USER_ID AS modifyUserId /*변경 사용자 ID*/,
+       A.MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경 발생 일시*/
+  FROM BXM_OMM_VALIDATOR A
+  INNER JOIN BXM_OMM_VALIDATOR_APPLY_TYPE B
+  ON A.VALID_RULE_ID = B.VALID_RULE_ID
+  	AND A.DOMAIN_ID = B.DOMAIN_ID
+  WHERE A.DOMAIN_ID = #{validRule.domainId}
+	  	<if test="validRule.validRuleId != null and validRule.validRuleId !=''">
+	  		AND upper(A.VALID_RULE_ID) like CONCAT( upper(#{validRule.validRuleId}) , '%')
+	  	</if>
+	  	<if test="validRule.type != null and validRule.type !=''">
+	  		AND upper(B.TYPE) = upper(#{validRule.type})
+	  	</if>
+LIMIT #{pageNum}, #{pageCount}
+</select>
+<select id="countTotalPage" parameterType="bxm.web.admin.system.setting.domain.ValidationRuleSearchConditionOMM" resultType="java.lang.Integer">
+SELECT COUNT(A.VALID_RULE_ID) 
+FROM BXM_OMM_VALIDATOR A
+INNER JOIN BXM_OMM_VALIDATOR_APPLY_TYPE B
+ON A.VALID_RULE_ID = B.VALID_RULE_ID
+	AND A.DOMAIN_ID = B.DOMAIN_ID
+WHERE A.DOMAIN_ID = #{domainId}
+  	<if test="validRuleId != null and validRuleId !=''">
+  		upper(A.VALID_RULE_ID) like upper(#{validRuleId, jdbcType=VARCHAR})||'%'
+  	</if>
+  	<if test="type != null and type !=''">
+  		and upper(B.TYPE) = upper(#{type, jdbcType=VARCHAR})
+  	</if>
+</select>
+<select databaseId="mysql" id="countTotalPage" parameterType="bxm.web.admin.system.setting.domain.ValidationRuleSearchConditionOMM" resultType="java.lang.Integer">
+SELECT COUNT(A.VALID_RULE_ID) 
+FROM BXM_OMM_VALIDATOR A
+INNER JOIN BXM_OMM_VALIDATOR_APPLY_TYPE B
+ON A.VALID_RULE_ID = B.VALID_RULE_ID
+	AND A.DOMAIN_ID = B.DOMAIN_ID
+WHERE A.DOMAIN_ID = #{domainId}
+  	<if test="validRuleId != null and validRuleId !=''">
+  		and upper(A.VALID_RULE_ID) like CONCAT( upper(#{validRuleId}) , '%')
+  	</if>
+  	<if test="type != null and type !=''">
+  		and upper(B.TYPE) = upper(#{type})
+  	</if>
+</select>
+<select id="selectValidRuleInfo" parameterType="bxm.web.admin.system.setting.domain.ValidationRuleOMM" resultType="bxm.web.admin.system.setting.domain.ValidationRuleOMM">
+SELECT /* BXM OMM 검증 */ 
+       A.VALID_RULE_ID AS validRuleId /*검증룰ID*/,
+       A.VALID_RULE_NM AS validRuleNm /*검증룰명*/,
+       A.VALID_RULE_DESC AS validRuleDesc /*검증룰설명*/,
+       A.VALID_RULE_CLASS_NM AS validRuleClassNm /*검증룰클래스명*/,
+       A.VALID_RULE_SEQUENCE AS validRuleSequence /*검증룰순차*/,
+       A.VALID_RULE_PARAM AS validRuleParam /*검증룰파라미터*/,
+       A.ERR_MSG_ID AS errMsgId /*에러메시지ID*/,
+       B.TYPE as type /* 타입 */,
+       A.REG_USER_ID AS regUserId /*등록 사용자 ID*/,
+       A.REG_OCCUR_DTTM AS regOccurDttm /*등록 발생 일시*/,
+       A.MODIFY_USER_ID AS modifyUserId /*변경 사용자 ID*/,
+       A.MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경 발생 일시*/
+  FROM BXM_OMM_VALIDATOR A
+  INNER JOIN BXM_OMM_VALIDATOR_APPLY_TYPE B
+  ON A.VALID_RULE_ID = B.VALID_RULE_ID
+  	AND A.DOMAIN_ID = B.DOMAIN_ID
+WHERE A.VALID_RULE_ID = #{validRuleId}
+	AND A.DOMAIN_ID = #{domainId}
+</select>
+<insert id="insertValidRuleInfo" parameterType="bxm.web.admin.system.setting.domain.ValidationRuleOMM">
+INSERT INTO BXM_OMM_VALIDATOR /* BXM OMM 검증 */
+(
+	DOMAIN_ID /* 도메인 ID */,
+    VALID_RULE_ID /*검증룰ID*/,
+    VALID_RULE_NM /*검증룰명*/,
+    VALID_RULE_DESC /*검증룰설명*/,
+    VALID_RULE_CLASS_NM /*검증룰클래스명*/,
+    VALID_RULE_SEQUENCE /*검증룰순차*/,
+    VALID_RULE_PARAM /*검증룰파라미터*/,
+    ERR_MSG_ID /*에러메시지ID*/,
+    REG_USER_ID /*등록 사용자 ID*/,
+    REG_OCCUR_DTTM /*등록 발생 일시*/,
+    MODIFY_USER_ID /*변경 사용자 ID*/,
+    MODIFY_OCCUR_DTTM /*변경 발생 일시*/ 
+)
+VALUES
+(
+	#{domainId} /* 도메인 ID */,
+    #{validRuleId, jdbcType=VARCHAR} /*검증룰ID*/,
+    #{validRuleNm, jdbcType=VARCHAR} /*검증룰명*/,
+    #{validRuleDesc, jdbcType=VARCHAR} /*검증룰설명*/,
+    #{validRuleClassNm, jdbcType=VARCHAR} /*검증룰클래스명*/,
+    #{validRuleSequence, jdbcType=NUMERIC} /*검증룰순차*/,
+    #{validRuleParam, jdbcType=VARCHAR} /*검증룰파라미터*/,
+    #{errMsgId, jdbcType=VARCHAR} /*에러메시지ID*/,
+    #{regUserId, jdbcType=VARCHAR} /*등록 사용자 ID*/,
+    #{regOccurDttm, jdbcType=VARCHAR} /*등록 발생 일시*/,
+    #{modifyUserId, jdbcType=VARCHAR} /*변경 사용자 ID*/,
+    #{modifyOccurDttm, jdbcType=VARCHAR} /*변경 발생 일시*/ 
+)
+</insert>
+<insert id="insertValidRuleTypeInfo" parameterType="bxm.web.admin.system.setting.domain.ValidationRuleOMM">
+INSERT INTO BXM_OMM_VALIDATOR_APPLY_TYPE /* BXM OMM 검증 적용 타입 */
+(
+	DOMAIN_ID /* 도메인 ID */,
+    VALID_RULE_ID /*검증룰ID*/,
+    TYPE /*타입*/ 
+)
+VALUES
+(
+	#{domainId} /* 도메인 ID */,
+    #{validRuleId, jdbcType=VARCHAR} /*검증룰ID*/,
+    #{type, jdbcType=VARCHAR} /*타입*/ 
+)
+</insert>
+<update id="updateValidRuleInfo" parameterType="bxm.web.admin.system.setting.domain.ValidationRuleOMM">
+UPDATE BXM_OMM_VALIDATOR /* BXM OMM 검증 */
+   SET VALID_RULE_NM = #{validRuleNm, jdbcType=VARCHAR} /* 검증룰명 */,
+       VALID_RULE_DESC = #{validRuleDesc, jdbcType=VARCHAR} /* 검증룰설명 */,
+       VALID_RULE_CLASS_NM = #{validRuleClassNm, jdbcType=VARCHAR} /* 검증룰클래스명 */,
+       VALID_RULE_SEQUENCE = #{validRuleSequence, jdbcType=NUMERIC} /* 검증룰순차 */,
+       VALID_RULE_PARAM = #{validRuleParam, jdbcType=VARCHAR} /* 검증룰파라미터 */,
+       ERR_MSG_ID = #{errMsgId, jdbcType=VARCHAR} /* 에러메시지ID */,
+       MODIFY_USER_ID = #{modifyUserId, jdbcType=VARCHAR} /* 변경 사용자 ID */,
+       MODIFY_OCCUR_DTTM = #{modifyOccurDttm, jdbcType=VARCHAR} /* 변경 발생 일시 */
+ WHERE VALID_RULE_ID = #{validRuleId, jdbcType=VARCHAR}
+ AND DOMAIN_ID = #{domainId}
+</update>
+<update id="updateValidRuleTypeInfo" parameterType="bxm.web.admin.system.setting.domain.ValidationRuleOMM">
+UPDATE BXM_OMM_VALIDATOR_APPLY_TYPE /* BXM OMM 검증 적용 타입 */
+   SET TYPE = #{type, jdbcType=VARCHAR}
+ WHERE VALID_RULE_ID = #{validRuleId, jdbcType=VARCHAR}
+   AND DOMAIN_ID = #{domainId}
+</update>
+<delete id="deleteValidRuleTypeInfo">
+DELETE FROM BXM_OMM_VALIDATOR_APPLY_TYPE /* BXM OMM 검증 적용 타입 */
+      WHERE VALID_RULE_ID = #{validRuleId, jdbcType=VARCHAR}
+      AND DOMAIN_ID = #{domainId}
+</delete>
+<delete id="deleteValidRuleInfo">
+DELETE FROM BXM_OMM_VALIDATOR /* BXM OMM 검증 */
+      WHERE VALID_RULE_ID = #{validRuleId}
+      AND DOMAIN_ID = #{domainId}
+</delete>
+</mapper>

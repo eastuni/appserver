@@ -1,0 +1,7 @@
+OMM bxm.web.admin.batch.domain.BatchStepSearchConditionOMM
+<description="BatchStepSearchConditionOMM">
+{
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+	String jobId<length=100 description="배치작업ID">;
+}

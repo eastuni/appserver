@@ -1,0 +1,5 @@
+COM0000=Welcome Message
+COM0000.title=Welcome Message
+COM0000.type=INFO
+COM0000.parammessage=Welcome BXM {0, number, #.#}, built  {1, choice, 0# in lab | 1# in qps | 1< in site} F
+COM0000.defaultmessage=Welcome to BXM

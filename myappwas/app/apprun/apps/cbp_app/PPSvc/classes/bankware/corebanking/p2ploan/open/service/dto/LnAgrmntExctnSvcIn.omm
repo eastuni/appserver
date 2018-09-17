@@ -1,0 +1,5 @@
+OMM bankware.corebanking.p2ploan.open.service.dto.LnAgrmntExctnSvcIn
+<description="Loan Agreement Execution Service Input">
+{
+	String arrId<length=20 description="계약식별자">;
+}

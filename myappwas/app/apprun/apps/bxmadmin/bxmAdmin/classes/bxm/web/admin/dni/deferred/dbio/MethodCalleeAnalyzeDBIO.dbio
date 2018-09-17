@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.dni.deferred.dbio.MethodCalleeAnalyzeDBIO">
+<!--Generated Mon Dec 04 18:03:27 KST 2017-->
+<select id="selectMethodCalleeList" resultType="bxm.web.admin.dni.analyze.domain.BxmDniMethodCalleeOMM">
+SELECT /* 메소드 Callee 호출  정보 */ 
+       A.METHOD_ID AS methodId,/*메소드 ID*/ 
+       A.CALLER_METHOD_LINE AS callerMethodLine,/*Caller 메소드 라인*/ 
+       A.CALLEE_BXM_APP_ID AS calleeBxmAppId,/*Callee BXM 어플리케이션 ID*/ 
+       A.CALLEE_PKG_NM AS calleePkgNm,/*Callee 패키지 명*/ 
+       A.CALLEE_CLASS_NM AS calleeClassNm,/*Callee 클래스 명*/ 
+       A.CALLEE_METHOD_SIGN AS calleeMethodSign,/*Callee 메소드 시그니쳐*/ 
+       A.MODIFY_DTTM AS modifyDttm /*변경 일시*/
+FROM (
+	SELECT *
+	FROM BXM_DNI_METHOD_CALLEE
+	WHERE CALLEE_BXM_APP_ID IS NULL
+	ORDER BY MODIFY_DTTM ASC )A
+WHERE ROWNUM &lt;= #{count}
+</select>
+<select databaseId="mysql" id="selectMethodCalleeList" resultType="bxm.web.admin.dni.analyze.domain.BxmDniMethodCalleeOMM">
+SELECT /* 메소드 Callee 호출 정보 */ 
+       A.METHOD_ID AS methodId,/*메소드 ID*/ 
+       A.CALLER_METHOD_LINE AS callerMethodLine,/*Caller 메소드 라인*/ 
+       A.CALLEE_BXM_APP_ID AS calleeBxmAppId,/*Callee BXM 어플리케이션 ID*/ 
+       A.CALLEE_PKG_NM AS calleePkgNm,/*Callee 패키지 명*/ 
+       A.CALLEE_CLASS_NM AS calleeClassNm,/*Callee 클래스 명*/ 
+       A.CALLEE_METHOD_SIGN AS calleeMethodSign,/*Callee 메소드 시그니쳐*/ 
+       A.MODIFY_DTTM AS modifyDttm /*변경 일시*/
+FROM (
+	SELECT *
+	FROM BXM_DNI_METHOD_CALLEE
+	WHERE CALLEE_BXM_APP_ID IS NULL
+	ORDER BY MODIFY_DTTM ASC )A
+LIMIT #{count}
+</select>
+<select id="selectMethodInfo" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniMethodCalleeOMM" resultType="bxm.web.admin.dni.analyze.domain.BxmDniMethodOMM">
+SELECT /* 메소드 분석 정보 */ 
+       METHOD_ID AS methodId,/*메소드 ID*/ 
+       BXM_APP_ID AS bxmAppId,/*BXM어플리케이션ID*/ 
+       PKG_NM AS pkgNm,/*패키지 명*/ 
+       CLASS_NM AS classNm,/*클래스 명*/ 
+       METHOD_SIGN AS methodSign,/*메소드 시그니쳐*/ 
+       METHOD_NM AS methodNm,/*메소드 명*/ 
+       METHOD_EXEC_TYPE_CD AS methodExecTypeCd,/*메소드 실행 타입 코드*/ 
+       START_LINE_CNT AS startLineCnt,/*시작 라인 수*/ 
+       END_LINE_CNT AS endLineCnt,/*종료 라인 수*/ 
+       OP_NM AS opNm,/*오퍼레이션 명*/ 
+       TRAN_YN AS tranYn,/*트랜잭션 여부*/ 
+       METHOD_MODIFIER_LIST AS methodModifierList,/*메소드 접근자 목록*/ 
+       MODIFY_DTTM AS modifyDttm /*변경 일시*/
+FROM BXM_DNI_METHOD 
+WHERE PKG_NM = #{calleePkgNm}
+	AND CLASS_NM = #{calleeClassNm} 
+	AND METHOD_SIGN = #{calleeMethodSign}
+</select>
+<update id="updateMethodCalleeInfo" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniMethodCalleeOMM">
+UPDATE BXM_DNI_METHOD_CALLEE  /* 메소드 Callee 호출 정보 */
+SET CALLEE_BXM_APP_ID = #{calleeBxmAppId} /* Callee BXM 어플리케이션 ID */,
+    MODIFY_DTTM = #{modifyDttm} /* 변경 일시 */ 
+WHERE METHOD_ID = #{methodId} /* 메소드 ID */
+	AND	CALLER_METHOD_LINE = #{callerMethodLine} /* Caller 메소드 라인 */
+    AND CALLEE_PKG_NM = #{calleePkgNm} /* Callee 패키지 명 */
+    AND CALLEE_CLASS_NM = #{calleeClassNm} /* Callee 클래스 명 */
+    AND CALLEE_METHOD_SIGN = #{calleeMethodSign} /* Callee 메소드 시그니쳐 */
+</update>
+<update id="updateMethodCalleePending" parameterType="bxm.web.admin.dni.analyze.domain.BxmDniMethodCalleeOMM">
+UPDATE BXM_DNI_METHOD_CALLEE/* 메소드 Callee 호출 정보 */
+SET CALLEE_BXM_APP_ID = #{calleeBxmAppId} /* Callee BXM 어플리케이션 ID */,
+    MODIFY_DTTM = #{modifyDttm} /* 변경 일시 */ 
+WHERE METHOD_ID = #{methodId} /* 메소드 ID */
+	AND	CALLER_METHOD_LINE = #{callerMethodLine} /* Caller 메소드 라인 */
+    AND CALLEE_PKG_NM = #{calleePkgNm} /* Callee 패키지 명 */
+    AND CALLEE_CLASS_NM = #{calleeClassNm} /* Callee 클래스 명 */
+    AND CALLEE_METHOD_SIGN = #{calleeMethodSign} /* Callee 메소드 시그니쳐 */
+</update>
+<update id="updateMethodCalleeInit">
+UPDATE BXM_DNI_METHOD_CALLEE  /* 메소드 Callee 호출 정보 */
+SET CALLEE_BXM_APP_ID = null /* Callee BXM 어플리케이션 ID */,
+    MODIFY_DTTM = #{modifyDttm} /* 변경 일시 */ 
+WHERE CALLEE_BXM_APP_ID = #{calleeBxmAppId} /* Callee BXM 어플리케이션 ID */
+</update>
+</mapper>

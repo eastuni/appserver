@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.actor.department.dao.AtDeptMXtn">
+<!--Generated Thu Jul 13 09:42:40 KST 2017-->
+<select id="selectByDscdCode" resultType="bankware.corebanking.actor.department.dao.dto.AtDeptMXtnIO">
+SELECT  
+
+        INST_CD AS instCd,   
+
+        DEPT_ID AS deptId,  
+
+        DEPT_NM AS deptNm,   
+
+        DEPT_ABRVTN_NM AS deptAbrvtnNm,    
+
+        DEPT_ENG_NM AS deptEngNm,  
+
+        OPN_DT AS opnDt,  
+
+        CLSR_DT AS clsrDt, 
+
+        DEPT_DSCD AS deptDscd, 
+
+        ADDR_HRARCY_CD AS addrHrarcyCd, 
+
+        ADDR_ID AS addrId,   
+
+        DTL_ADDR_CNTNT AS dtlAddrCntnt,   
+
+        TEL_NBR AS telNbr, 
+
+        FAX_NBR AS faxNbr,  
+
+        DEPT_STS_CD AS deptStsCd,  
+
+        MGMT_STAFF_ID AS mgmtStaffId, 
+
+        ROLE_TMPLT_ID AS roleTmpltId,  
+
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,  
+
+        LAST_CHNG_GUID AS lastChngGuid  
+
+  FROM  at_dept_m
+
+ WHERE INST_CD = #{instCd,jdbcType=VARCHAR}
+
+<if test="deptNm != null and deptNm != ''">
+
+   AND dept_nm LIKE CONCAT(CONCAT('%', #{deptNm}), '%')
+
+</if>
+
+
+
+<if test="deptDscd != null and deptDscd != ''">
+
+   AND dept_dscd  = #{deptDscd,jdbcType=VARCHAR}
+
+</if>
+</select>
+</mapper>

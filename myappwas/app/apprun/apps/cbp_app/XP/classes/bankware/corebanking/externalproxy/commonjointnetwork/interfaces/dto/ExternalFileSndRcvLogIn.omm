@@ -1,0 +1,13 @@
+OMM bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.ExternalFileSndRcvLogIn
+<description="대외파일송수신OMM ">
+{
+	String fileNm<length=200 description="송수신파일명(계정계호출필수)">;
+	String fileCdNm<length=20 description="송수신파일코드(계정계호출필수)">;
+	String sndRcvDscd<length=1 description="송수신구분코드(송신:S 수신:R 계정계호출필수)">;
+	String txDt<length=8 description="전송일자">;
+	String extrnlInstCd<length=3 description="대외기관코드">;
+	String extrnlBizDscd<length=6 description="대외업무구분코드">;
+	Integer pgNbr<length=9 description="페이지번호">;
+	Integer pgCnt<length=9 description="페이지당건수">;
+	String totCntInqryYn<length=1 description="전체건수조회여부">;
+}

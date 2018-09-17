@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ixjointnetwork.dao.XpIxExteH">
+<!--Generated Fri Apr 28 15:31:15 KST 2017-->
+<insert id="insertXpIxExteH" parameterType="bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxExteHIO">
+INSERT  
+  INTO  XP_IX_EXTNSN_H    /* Kor)타행환공동망 거래의 집계 정보를 관리함 Eng) */
+(
+  INST_CD,     /*Kor)다중 금융기관서비스를 위한 속성으로 동일 시스템을 사용하는 각 금융기관마다 부여된 코드 Eng)Code that distinguishes each financial entity when one system operates multi-entity*/
+  TX_DT,     /*Kor)거래가 발생한 영업일자*/
+  OTHR_BNK_EX_EXTNSN_Dscd,     /*타행환연장구분코드*/
+  FNCL_INST_CD,     /*Kor)금융기관코드*/
+  EXTNSN_HMS,     /*Kor)개설현금입금금액*/
+  LAST_CHNG_TMSTMP,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+  LAST_CHNG_GUID    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+)
+VALUES 
+(
+  #{instCd},     /*Kor)다중 금융기관서비스를 위한 속성으로 동일 시스템을 사용하는 각 금융기관마다 부여된 코드 Eng)Code that distinguishes each financial entity when one system operates multi-entity*/
+  #{txDt},     /*Kor)거래가 발생한 영업일자*/
+  #{othrBnkExExtnsnDscd},     /*타행환연장구분코드*/
+  #{fnclInstCd},     /*Kor)금융기관코드*/
+  #{extnsnHms},     /*Kor)개설현금입금금액*/
+  #{lastChngTmstmp},     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+  #{lastChngGuid}    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+)
+</insert>
+<select id="selectXpIxExteH" resultType="bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxExteHIO">
+SELECT    /* Kor)타행환공동망 거래의 집계 정보를 관리함 Eng) */
+        INST_CD AS instCd,     /*Kor)다중 금융기관서비스를 위한 속성으로 동일 시스템을 사용하는 각 금융기관마다 부여된 코드 Eng)Code that distinguishes each financial entity when one system operates multi-entity*/
+        TX_DT AS txDt,     /*Kor)거래가 발생한 영업일자*/
+        OTHR_BNK_EX_EXTNSN_Dscd AS othrBnkExExtnsnDscd,     /*타행환연장구분코드*/
+        FNCL_INST_CD AS fnclInstCd,     /*Kor)금융기관코드*/
+        EXTNSN_HMS AS extnsnHms,     /*Kor)개설현금입금금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+        LAST_CHNG_GUID AS lastChngGuid    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+  FROM  XP_IX_EXTNSN_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND OTHR_BNK_EX_EXTNSN_Dscd = #{othrBnkExExtnsnDscd}
+   AND FNCL_INST_CD = #{fnclInstCd}
+</select>
+<update id="updateXpIxExteH" parameterType="bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxExteHIO">
+UPDATE  
+        XP_IX_EXTNSN_H    /* Kor)타행환공동망 거래의 집계 정보를 관리함 Eng) */
+   SET  EXTNSN_HMS = #{extnsnHms}    /* Kor)개설현금입금금액 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record. */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record */
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND OTHR_BNK_EX_EXTNSN_Dscd = #{othrBnkExExtnsnDscd}
+   AND FNCL_INST_CD = #{fnclInstCd}
+</update>
+<select id="selectListXpIxExteH" resultType="bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxExteHIO">
+SELECT    /* Kor)타행환공동망 거래의 집계 정보를 관리함 Eng) */
+        INST_CD AS instCd,     /*Kor)다중 금융기관서비스를 위한 속성으로 동일 시스템을 사용하는 각 금융기관마다 부여된 코드 Eng)Code that distinguishes each financial entity when one system operates multi-entity*/
+        TX_DT AS txDt,     /*Kor)거래가 발생한 영업일자*/
+        OTHR_BNK_EX_EXTNSN_Dscd AS othrBnkExExtnsnDscd,     /*타행환연장구분코드*/
+        FNCL_INST_CD AS fnclInstCd,     /*Kor)금융기관코드*/
+        EXTNSN_HMS AS extnsnHms,     /*Kor)개설현금입금금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+        LAST_CHNG_GUID AS lastChngGuid    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+  FROM  XP_IX_EXTNSN_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+</select>
+</mapper>

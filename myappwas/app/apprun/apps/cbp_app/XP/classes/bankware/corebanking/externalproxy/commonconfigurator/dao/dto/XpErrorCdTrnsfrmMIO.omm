@@ -1,0 +1,15 @@
+OMM bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpErrorCdTrnsfrmMIO
+<description="">
+{
+	String instCd<length=14 description="기관코드 ">;
+	String extrnlInstCd<length=3 description="대외기관코드">;
+	String extrnlBizDscd<length=3 description="대외업무구분코드">;
+	String msgCd<length=9 description="메시지코드">;
+	String extrnlRspnsCd<length=3 description="대외응답코드">;
+	String msgDscd<length=1 description="메시지구분코드">;
+	String rprsntnCdYn<length=1 description="대표코드여부">;
+	Date lastChngTmstmp<length=20 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+	String bfMsgCd<length=10 description="변경전메시지코드">;
+	String bfExtrnlRspnsCd<length=4 description="변경전대외응답코드">;
+}

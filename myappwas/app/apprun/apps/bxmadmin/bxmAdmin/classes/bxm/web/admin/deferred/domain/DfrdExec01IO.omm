@@ -1,0 +1,21 @@
+OMM bxm.web.admin.deferred.domain.DfrdExec01IO
+<description="">
+{
+	String domainId<length=10 description="도메인아이디">;
+	String deferredId<length=20 description="후행ID">;
+	String deferredNm<length=100 description="후행명">;
+	String bizDt<length=8 description="영업일자">;
+	Integer nodeNo<length=2 description="노드번호">;
+	BigDecimal parllProcSeq<length=22 description="병렬처리일련번호">;
+	String deferredProcCd<length=1 description="후행실행처리코드">;
+	String deferredStatusCd<length=1 description="후행실행상태코드">;
+	BigDecimal startSeq<length=22 description="시작일련번호">;
+	BigDecimal endSeq<length=22 description="종료일련번호">;
+	BigDecimal currSeq<length=22 description="현재일련번호">;
+	BigDecimal errSeq<length=22 description="에러일련번호">;
+	String startDttm<length=14 description="시작일시">;
+	String errCd<length=9 description="에러코드">;
+	String errMsgCtt<length=4000 description="에러메시지내용">;
+	Integer pageNum<length=9 description="페이지숫자">;
+	Integer pageCount<length=9 description="페이지카운트">;
+}

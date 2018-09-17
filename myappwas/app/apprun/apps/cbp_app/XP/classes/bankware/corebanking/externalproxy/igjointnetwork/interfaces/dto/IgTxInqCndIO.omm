@@ -1,0 +1,12 @@
+OMM bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.IgTxInqCndIO
+<description="인터넷지로조회조건">
+{
+	String custId<length=15 description="고객식별자">;
+	String txStartDt<length=8 description="거래시작일자">;
+	String txEndDt<length=8 description="거래종료일자">;
+	String extrnlBizDscd<length=3 description="대외업무구분코드">;
+	String intrntGiroPymntHstMgmtCd<length=2 description="인터넷지로납부구분코드">;
+	String whdrwlAcctNbr<length=24 description="출금계좌번호">;
+	Integer pgNbr<length=5 description="페이지번호">;
+	Integer pgCnt<length=5 description="페이지건수">;
+}

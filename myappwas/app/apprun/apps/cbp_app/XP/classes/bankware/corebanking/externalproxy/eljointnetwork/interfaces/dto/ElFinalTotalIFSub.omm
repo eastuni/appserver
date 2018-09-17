@@ -1,0 +1,24 @@
+OMM bankware.corebanking.externalproxy.eljointnetwork.interfaces.dto.ElFinalTotalIFSub
+<description="">
+{
+	String instCd<length=3 description="기관코드">;
+	String txDt<length=8 description="거래년월일">;
+	String fnclInstCd<length=3 description="금융기관코드">;
+	String jointNetworkTxDscd<length=6 description="공동망거래구분코드">;
+	BigDecimal othrCrdtTxCnt<length=15 description="상대기관대변거래건수">;
+	BigDecimal othrCrdtTxAmt<length=18 decimal=2 description="상대기관대변거래금액">;
+	BigDecimal othrCrdtTxCnclCnt<length=15 description="상대기관대변거래취소건수">;
+	BigDecimal othrCrdtTxCnclAmt<length=18 decimal=2 description="상대기관대변거래취소금액">;
+	BigDecimal othrDebitTxCnt<length=15 description="상대기관차변거래건수">;
+	BigDecimal othrDebitTxAmt<length=18 decimal=2 description="상대기관차변거래금액">;
+	BigDecimal othrDebitTxCnclCnt<length=15 description="상대기관차변거래취소건수">;
+	BigDecimal othrDebitTxCnclAmt<length=18 decimal=2 description="상대기관차변거래취소금액">;
+	BigDecimal selfCrdtTxCnt<length=15 description="KBANK대변거래건수">;
+	BigDecimal selfCrdtTxAmt<length=18 decimal=2 description="KBANK대변거래금액">;
+	BigDecimal selfCrdtTxCnclCnt<length=15 description="KBANK대변거래취소건수">;
+	BigDecimal selfCrdtTxCnclAmt<length=18 decimal=2 description="KBANK대변거래취소금액">;
+	BigDecimal selfDebitTxCnt<length=15 description="KBANK차변거래건수">;
+	BigDecimal selfDebitTxAmt<length=18 decimal=2 description="KBANK차변거래금액">;
+	BigDecimal selfDebitTxCnclCnt<length=15 description="KBANK차변거래취소건수">;
+	BigDecimal selfDebitTxCnclAmt<length=18 decimal=2 description="KBANK차변거래취소금액">;
+}

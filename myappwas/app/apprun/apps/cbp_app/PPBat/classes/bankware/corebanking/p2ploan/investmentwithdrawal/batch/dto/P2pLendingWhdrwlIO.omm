@@ -1,0 +1,6 @@
+OMM bankware.corebanking.p2ploan.investmentwithdrawal.batch.dto.P2pLendingWhdrwlIO
+<description="">
+{
+	String arrId<length=15 description="Arrangement Identification">;
+	BigDecimal aplctnAmt<length=10 decimal=4 description="Application Amount">;
+}

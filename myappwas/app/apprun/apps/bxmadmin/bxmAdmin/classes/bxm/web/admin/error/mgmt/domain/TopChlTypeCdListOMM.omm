@@ -1,0 +1,6 @@
+OMM bxm.web.admin.error.mgmt.domain.TopChlTypeCdListOMM
+<description="">
+{
+	Integer listSize<length=9>;
+	bxm.web.admin.error.mgmt.domain.TopChlTypeCdOMM topChlTypeCdOmmList<length=0 arrayReference="listSize">;
+}

@@ -1,0 +1,10 @@
+OMM bxm.web.admin.batch.domain.BatchDaemonSearchConditionOMM
+<description="">
+{
+	String jobNm<length=256 description="배치작업명">;
+	String jobId<length=100 description="배치작업ID">;
+	Integer execNodeNo<length=2 description="실행노드번호">;
+	String jobStatusCd<length=12 description="배치작업상태코드">;
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+}

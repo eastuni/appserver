@@ -1,0 +1,10 @@
+OMM bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpMsgTrnsfrmMIO
+<description="">
+{
+	String msgTrnsfrmId<length=50 description="메시지변환식별자">;
+	String sysIntrfcMsgTrnsfrmNm<length=500 description="메시지변환명">;
+	String inpDtoNm<length=200 description="입력DTO명">;
+	String outpDtoNm<length=200 description="출력DTO명">;
+	Date lastChngTmstmp<length=20 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

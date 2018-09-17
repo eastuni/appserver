@@ -1,0 +1,7 @@
+OMM bxm.web.admin.deploy.domain.BxmDeployBinOMM
+<description="">
+{
+	String bxmAppId<length=32 description="BXM어플리케이션ID">;
+	String deployId<length=40 description="배포 ID">;
+	BLOB deployBin<length=4000 description="배포 바이너리">;
+}

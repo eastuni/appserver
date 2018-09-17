@@ -1,0 +1,19 @@
+OMM bxm.ccmainmng.dao.dto.BxmJobInfoOMM
+<description="">
+{
+	String domainId<length=20 description="도메인ID">;
+	String jobId<length=100 description="배치작업ID">;
+	String jobNm<length=256 description="배치작업명">;
+	String jobTypeCd<length=1 description="배치작업유형코드">;
+	String bxmAppId<length=40 description="BXM어플리케이션ID">;
+	String useYn<length=1 description="사용여부">;
+	String logLvNm<length=10 description="로그레벨명">;
+	String commitCfgList<length=1024 description="커밋설정목록">;
+	String dupExecUseYn<length=1 description="중복실행가능여부">;
+	String jobUseStartDt<length=8 description="배치작업허용시작일자">;
+	String jobUseEndDt<length=8 description="배치작업허용종료일자">;
+	String regUserId<length=32 description="등록 사용자 ID">;
+	String regOccurDttm<length=23 description="등록 발생 일시">;
+	String modifyUserId<length=32 description="변경 사용자 ID">;
+	String modifyOccurDttm<length=23 description="변경 발생 일시">;
+}

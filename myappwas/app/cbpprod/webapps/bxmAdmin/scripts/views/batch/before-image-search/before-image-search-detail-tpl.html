@@ -1,0 +1,29 @@
+{{#if modifyBefData.length}}
+<h4 class="bw-stt">{{bxMsg 'batch.data-before-change'}}</h4>
+
+<div class="bw-grid add-bd">
+    <table>
+        {{#each modifyBefData}}
+        <tr>
+            <th class="{{#ifIn key ../pkList }}chr-c-orange{{/ifIn}} vertical-table-th">{{key}}</th>
+            <td>{{value}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+{{/if}}
+
+{{#if modifyAftData.length}}
+<h4 class="bw-stt">{{bxMsg 'batch.data-after-change'}}</h4>
+
+<div class="bw-grid add-bd">
+    <table>
+        {{#each modifyAftData}}
+        <tr>
+            <th class="{{#ifIn key ../pkList }}chr-c-orange{{/ifIn}} vertical-table-th">{{key}}</th>
+            <td>{{value}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+{{/if}}

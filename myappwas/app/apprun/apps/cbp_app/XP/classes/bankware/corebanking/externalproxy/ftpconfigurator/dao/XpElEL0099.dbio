@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpElEL0099">
+<!--Generated Tue Jan 10 16:44:43 KST 2017-->
+<select id="selectList" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpElEL0099IO">
+SELECT 
+instCd,     /*기관코드*/
+txDt,     /*거래년월일*/
+seqNbr,     /*일련번호*/
+cntntDscd,     /*내용구분코드*/
+crdtDebitDscd,     /*대차구분코드*/
+netStlmntAmt,     /*차액결제금액*/
+lastChngTmstmp,     /*최종변경일시*/
+lastChngGuid    /*최종변경GUID*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+A.instCd,     /*기관코드*/
+A.txDt,     /*거래년월일*/
+A.seqNbr,     /*일련번호*/
+A.cntntDscd,     /*내용구분코드*/
+A.crdtDebitDscd,     /*대차구분코드*/
+A.netStlmntAmt,     /*차액결제금액*/
+A.lastChngTmstmp,     /*최종변경일시*/
+A.lastChngGuid    /*최종변경GUID*/
+     FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    
+        T1.INST_CD AS instCd,     /*기관코드*/
+        T1.TX_DT AS txDt,     /*거래년월일*/
+        T1.SEQ_NBR AS seqNbr,     /*일련번호*/
+        T1.CNTNT_Dscd AS cntntDscd,     /*내용구분코드*/
+        T1.CRDT_DEBIT_Dscd AS crdtDebitDscd,     /*대차구분코드*/
+        T1.NET_STLMNT_AMT AS netStlmntAmt,     /*차액결제금액*/
+        T1.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        T1.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_EL_EL0099_H T1
+  LEFT  OUTER JOIN CM_BIZ_DAY_M T2
+    ON  T2.INST_CD = T1.INST_CD
+   AND  T2.BASE_DT = #{txDt}
+ WHERE
+        T1.INST_CD = #{instCd}
+   AND  T1.TX_DT &gt;= T2.BF_BIZ_DT
+   AND  T1.TX_DT &lt; T2.BIZ_DT
+   ORDER BY T1.TX_DT, T1.SEQ_NBR
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectListPage" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpElEL0099IO">
+SELECT 
+instCd,     /*기관코드*/
+txDt,     /*거래년월일*/
+seqNbr,     /*일련번호*/
+cntntDscd,     /*내용구분코드*/
+crdtDebitDscd,     /*대차구분코드*/
+netStlmntAmt,     /*차액결제금액*/
+lastChngTmstmp,     /*최종변경일시*/
+lastChngGuid    /*최종변경GUID*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+A.instCd,     /*기관코드*/
+A.txDt,     /*거래년월일*/
+A.seqNbr,     /*일련번호*/
+A.cntntDscd,     /*내용구분코드*/
+A.crdtDebitDscd,     /*대차구분코드*/
+A.netStlmntAmt,     /*차액결제금액*/
+A.lastChngTmstmp,     /*최종변경일시*/
+A.lastChngGuid    /*최종변경GUID*/
+     FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        CNTNT_Dscd AS cntntDscd,     /*내용구분코드*/
+        CRDT_DEBIT_Dscd AS crdtDebitDscd,     /*대차구분코드*/
+        NET_STLMNT_AMT AS netStlmntAmt,     /*차액결제금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_EL_EL0099_H
+   WHERE  INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+   ORDER BY INST_CD, TX_DT desc, SEQ_NBR desc
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectListPageCount" resultType="java.lang.Integer">
+SELECT    
+        count(INST_CD)
+  FROM  XP_EL_EL0099_H
+   WHERE  INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+</select>
+</mapper>

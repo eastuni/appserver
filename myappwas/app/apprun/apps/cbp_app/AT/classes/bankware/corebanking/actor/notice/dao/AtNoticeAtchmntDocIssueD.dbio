@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bankware.corebanking.actor.notice.dao.AtNoticeAtchmntDocIssueD">
+<!--Generated Tue Apr 12 17:53:07 KST 2016-->
+
+<insert id="insert" parameterType="bankware.corebanking.actor.notice.dao.dto.AtNoticeAtchmntDocIssueDIO">
+INSERT 
+
+  INTO at_notice_atchmnt_doc_issue_d
+(
+
+   inst_cd
+
+ , notice_id
+
+ , doc_issue_id
+ , last_chng_tmstmp
+
+ , last_chng_guid
+
+)
+
+VALUES
+
+(
+
+   #{instCd,jdbcType=VARCHAR}
+
+ , #{noticeId,jdbcType=VARCHAR}
+
+ , #{docIssueId,jdbcType=VARCHAR}
+ , #{lastChngTmstmp}
+
+ , #{lastChngGuid}
+
+)
+
+</insert>
+
+<select id="selectList" resultType="bankware.corebanking.actor.notice.dao.dto.AtNoticeAtchmntDocIssueDIO">
+SELECT inst_cd as instCd
+
+     , notice_id as noticeId
+
+     , doc_issue_id as docIssueId
+     , last_chng_tmstmp as lastChngTmstmp
+
+     , last_chng_guid as lastChngGuid
+
+  FROM at_notice_atchmnt_doc_issue_d
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND notice_id = #{noticeId,jdbcType=VARCHAR}
+
+</select>
+
+</mapper>
+

@@ -1,0 +1,16 @@
+OMM bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.ExtrnlFepFileIO
+<description="대외FEP파일송수신IO ">
+{
+	String filePrcsDscd<length=1 description="파일처리구분코드">;
+	String filePrcsBizCd<length=20 description="파일처리업무코드">;
+	String fileCd<length=20 description="파일코드">;
+	String txDt<length=8 description="거래일자">;
+	String filePstnCntnt<length=60 description="파일위치">;
+	String fileNm<length=200 description="파일명">;
+	String trgtFileNm<length=200 description="타겟파일명">;
+	String backupDscd<length=1 description="백업구분코드">;
+	String backupPath<length=60 description="백업경로">;
+	String callDscd<length=1 description="호출구분">;
+	String eaiIntrfcId<length=50 description="EAI인터페이스아이디">;
+	String sndTrgtFileNm<length=200 description="전송대상파일명">;
+}

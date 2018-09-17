@@ -1,0 +1,8 @@
+OMM bankware.corebanking.dto.TimeoutIO
+<description="타임아웃서비스 공통 Omm">
+{
+	String txDt<length=8 description="거래년월일">;
+	String sndGuid<length=40 description="송신GUID">;
+	String orgnlTxDt<length=8 description="원거래년월일">;
+	String orgnlTxGuid<length=40 description="원거래Guid">;
+}

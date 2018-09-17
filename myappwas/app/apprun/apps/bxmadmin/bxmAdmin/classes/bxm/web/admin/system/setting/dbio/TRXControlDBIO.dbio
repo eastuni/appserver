@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.system.setting.dbio.TRXControlDBIO">
+<!--Generated Thu Nov 30 15:17:04 KST 2017-->
+<select id="selectTRXControl" resultType="bxm.web.admin.system.setting.domain.TRXControlOMM">
+SELECT /* BXM복합거래제어 */ 
+       ALL_TRX_CTRL_YN AS allTrxCtrlYn,/*전체거래제어여부*/ 
+       DTCHG_TRX_CTRL_YN AS dtchgTrxCtrlYn,/*일자변경거래제어여부*/ 
+       IMG_LOG_YN AS imgLogYn,/*이미지로그여부*/ 
+       DW_LOG_YN AS dwLogYn /*DW로그여부*/
+  FROM BXM_MTRX_CTRL
+  WHERE DOMAIN_ID = #{domainId}
+</select>
+<update id="updateTRXControl" parameterType="bxm.web.admin.system.setting.domain.TRXControlOMM">
+UPDATE BXM_MTRX_CTRL /* BXM복합거래제어 */
+   SET ALL_TRX_CTRL_YN = #{allTrxCtrlYn, jdbcType=VARCHAR} /* 전체거래제어여부 */,
+       DTCHG_TRX_CTRL_YN = #{dtchgTrxCtrlYn, jdbcType=VARCHAR} /* 일자변경거래제어여부 */,
+       IMG_LOG_YN = #{imgLogYn, jdbcType=VARCHAR} /* 이미지로그여부 */,
+       DW_LOG_YN = #{dwLogYn, jdbcType=VARCHAR} /* DW로그여부 */
+ WHERE DOMAIN_ID = #{domainId}
+</update>
+<insert id="insertTRXControl" parameterType="bxm.web.admin.system.setting.domain.TRXControlOMM">
+INSERT INTO bxm_mtrx_ctrl /* BXM복합거래제어 */
+(
+	DOMAIN_ID, /* 도메인 ID */
+    ALL_TRX_CTRL_YN,/*전체거래제어여부*/ 
+    DTCHG_TRX_CTRL_YN,/*일자변경거래제어여부*/ 
+    IMG_LOG_YN,/*이미지로그여부*/
+    DW_LOG_YN /*DW로그여부*/ 
+)
+VALUES
+(
+	#{domainId} /* 도메인 ID */
+    #{allTrxCtrlYn},/*전체거래제어여부*/ 
+    #{dtchgTrxCtrlYn},/*일자변경거래제어여부*/ 
+    #{imgLogYn},/*이미지로그여부*/
+    #{dwLogYn} /*DW로그여부*/ 
+)
+</insert>
+</mapper>

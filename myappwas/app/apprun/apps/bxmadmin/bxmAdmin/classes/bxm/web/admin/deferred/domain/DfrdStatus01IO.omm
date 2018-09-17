@@ -1,0 +1,17 @@
+OMM bxm.web.admin.deferred.domain.DfrdStatus01IO
+<description="">
+{
+	String domainId<length=10 description="도메인아이디">;
+	String deferredId<length=20 description="후행ID">;
+	String deferredNm<length=100 description="후행명">;
+	Integer nodeNo<length=2 description="노드번호">;
+	String bizDt<length=8 description="영업일자">;
+	String deferredMainStatusCd<length=1 description="후행메인상태코드">;
+	String otherNodeMainStatusCd<length=1 description="다른노드메인상태">;
+	String modifyDttm<length=14 description="변경일시">;
+	Integer completeCnt<length=9 description="완료갯수">;
+	Integer inCompleteCnt<length=9 description="미처리누적건수">;
+	Integer errCnt<length=9 description="에러갯수">;
+	Integer pageNum<length=9 description="페이지숫자">;
+	Integer pageCount<length=9 description="페이지카운트">;
+}

@@ -1,0 +1,43 @@
+OMM bankware.corebanking.externalproxy.rejointnetwork.interfaces.dto.FundBillMIO
+<description="자금청구서비스">
+{
+	String txOcrDt<length=8 description="거래발생일자">;
+	String billRefundTxDscd<length=6 description="청구반환거래구분코드">;
+	String txUnqNbr<length=13 description="거래고유번호">;
+	String guid<length=40 description="GUID">;
+	String hndlngInstCd<length=3 description="취급기관코드">;
+	String hndlngInstBrnchCd<length=7 description="취급기관점별코드">;
+	String opnInstCd<length=3 description="개설기관코드">;
+	String opnInstBrnchCd<length=7 description="개설기관점별코드">;
+	String errMsgCntnt<length=150 description="에러메시지">;
+	String rspnsCd<length=3 description="응답코드">;
+	String billRefundJointNetworkCd<length=2 description="청구반환공동망코드">;
+	String orgnlTxTxDscd<length=6 description="원거래거래구분코드">;
+	String orgnlTxDt<length=8 description="원거래일자">;
+	String orgnlTxUnqMgmtNbr<length=20 description="원거래고유관리번호">;
+	String orgnlTxRcpntAcctNbr<length=100 description="원거래수취계좌번호">;
+	BigDecimal billRefundAmt<length=14 description="청구반환금액">;
+	BigDecimal hndlngProxyCostAmt<length=7 description="취급대행비용금액">;
+	String proxyCostRefundInstCd<length=3 description="대행비용반환기관코드">;
+	String billRefundRsnCd<length=2 description="청구반환사유코드">;
+	String billRefundRsnCntnt<length=150 description="청구반환사유내용">;
+	String orgnlTxMatchYnCd<length=1 description="원거래일치여부코드">;
+	String rspblPersonCtcptCntnt<length=15 description="담당자연락처">;
+	String onlineBillYnCd<length=1 description="온라인청구여부코드">;
+	String billDt<length=8 description="청구일자">;
+	String billTxUnqNbr<length=13 description="청구거래고유번호">;
+	String refundYnCd<length=1 description="반환여부코드">;
+	String refundRjctRsnCd<length=2 description="반환거부사유코드">;
+	String refundRjctRsnCntnt<length=150 description="반환거부사유내용">;
+	String fundRefundDpstAcctNbr<length=100 description="자금반환입금계좌번호">;
+	BigDecimal ownBnkHndlngFeeAmt<length=7 decimal=2 description="당행취급수수료금액">;
+	Date lastChngTmstmp<length=30 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+	String orgnlTxRcpntBnkCd<length=3 description="원거래수취은행코드">;
+	BigDecimal orgnlTxAmt<length=14 description="원거래금액">;
+	String custId<length=15 description="고객식별자">;
+	String custNm<length=50 description="고객명">;
+	String rqerTelNbr<length=20 description="의뢰인전화번호">;
+	String bizDsNm<length=100 description="업무구분명">;
+	String txStsCdNm<length=100 description="거래상태코드명">;
+}

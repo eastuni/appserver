@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.asset.asset.dao.AsScrtyIntMXtn">
+<!--Generated Thu Aug 23 18:17:11 KST 2018-->
+<select id="selectScrtyIntSummation" resultType="bankware.corebanking.asset.summation.interfaces.dto.ScrtyIntList">
+select a1.scrty_int_id      as scrtyIntId
+     , a1.scrty_int_sts_cd  as scrtyIntStsCd
+     , a2.xtn_atrbt_cntnt   as cltrlOprtngDscd
+     , a1.crdtr_nm          as crdtrNm
+     , a1.arr_id            as arrId
+     , a1.crncy_cd          as crncyCd
+     , a1.scrty_int_amt     as scrtyIntAmt
+     , a1.scrty_int_rt      as scrtyIntRt
+  from as_scrty_int_m   a1
+  left outer join as_scrty_int_xtn_info_d a2 on a1.inst_cd = a2.inst_cd 
+                                            and a1.scrty_int_id = a2.scrty_int_id 
+                                            and a2.xtn_atrbt_nm = 'cltrlOprtngDscd'
+ where a1.scrty_int_id in (
+                         select distinct scrty_int_id
+                           from as_asset_scrty_int_r
+                          where asset_id in (
+                                            select asset_id
+                                              from as_asset_scrty_int_r
+                                             where scrty_int_id in (
+                                                                    select scrty_int_id
+                                                                      from as_scrty_int_m
+                                                                     where debtor_cust_id = #{debtorCustId}
+                                                                   )
+                                               and inst_cd=  #{instCd}      
+                                            )
+                              and inst_cd=  #{instCd}
+                          )
+ and a1.inst_cd=  #{instCd}
+<if test="settingDcsnDscd eq '1'.toString()"> 
+   AND  '1' = #{settingDcsnDscd}
+   AND	a1.SCRTY_INT_STS_CD IN ('1','2','3') /*정상상태(예정,확정,해지예정)*/
+</if>  
+<if test="settingDcsnDscd eq '2'.toString()"> 
+   AND  '2' = #{settingDcsnDscd}
+   AND	a1.SCRTY_INT_STS_CD IN ('2','3') /*정상상태(확정,해지예정)*/
+</if>
+</select>
+</mapper>

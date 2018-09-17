@@ -1,0 +1,18 @@
+OMM bankware.corebanking.systemcommon.deferred.dao.dto.BxmDeferredExecIO
+<description="후행 실행 DBIO IO">
+{
+	String deferredId<length=20 description="후행ID">;
+	String deferredNm<length=100 description="후행명">;
+	String bizDt<length=8 description="영업일자">;
+	Integer nodeNo<length=2 description="노드번호">;
+	Long parllProcSeq<length=10 description="병렬처리일련번호">;
+	String deferredProcCd<length=1 description="후행실행처리코드">;
+	String deferredStatusCd<length=1 description="후행실행상태코드">;
+	Long startSeq<length=10 description="시작일련번호">;
+	Long endSeq<length=10 description="종료일련번호">;
+	Long currSeq<length=10 description="현재일련번호">;
+	Long errSeq<length=10 description="에러일련번호">;
+	String startDttm<length=14 description="시작일시">;
+	String errCd<length=9 description="에러코드">;
+	String errMsgCtt<length=4000 description="에러메시지내용">;
+}

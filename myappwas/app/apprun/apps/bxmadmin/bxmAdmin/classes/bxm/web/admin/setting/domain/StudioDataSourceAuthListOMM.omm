@@ -1,0 +1,7 @@
+OMM bxm.web.admin.setting.domain.StudioDataSourceAuthListOMM
+<description="">
+{
+	Integer size<length=9>;
+	bxm.web.admin.setting.domain.StudioDataSourceAuthOMM dataAuthList<length=0 arrayReference="size">;
+	Integer totalPage<length=9>;
+}

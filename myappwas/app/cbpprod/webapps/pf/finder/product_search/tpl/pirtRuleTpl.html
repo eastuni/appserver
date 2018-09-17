@@ -1,0 +1,32 @@
+<!-- 우대금리 적용규칙 -->
+<div class="pf-panel-header">
+    <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+    <h2 class="pf-panel-title">{{bxMsg 'pirtApplyRule'}}</h2>
+    <!-- 우대금리제공조건 -->
+</div>
+<div class="pf-panel-body bx-info-table-wrap">
+    <div class="pirt-grid"></div>
+    <table class="bx-info-table provided-cnd-table-wrap">
+        <tr>
+            <!-- 적용기간 -->
+            <th>{{bxMsg 'DPS0121String4'}}</th>
+            <td>
+                {{applyStartDate}} - {{applyEndDate}}
+            </td>
+        </tr>
+        <tr>
+            <!-- 상태 -->
+            <th>{{bxMsg 'DPS0101String6'}}</th>
+            <td>
+                {{ruleStatusCodeNm}}
+            </td>
+        </tr>
+        <tr>
+            <!-- 적용규칙 -->
+            <th>{{bxMsg 'ApplyRule'}}</th>
+            <td>
+                {{ruleContent}}
+            </td>
+        </tr>
+    </table>
+</div>

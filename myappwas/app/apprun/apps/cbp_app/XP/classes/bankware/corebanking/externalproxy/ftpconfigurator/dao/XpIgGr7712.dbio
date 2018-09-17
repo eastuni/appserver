@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpIgGr7712">
+<!--Generated Wed Mar 22 10:44:29 KST 2017-->
+<select id="selectGR7712InqryList" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIgGr7712IO">
+SELECT 
+	instCd,
+	txDt,
+	seqNbr,
+	fnclInstCd,
+	rmtncDt,
+	fnclInstBizBrnchCd,
+	acctNbr,
+	mnyRcvdAmt,
+	acctKndCd,
+	acctOwnrNm1,
+	lastChngTmstmp,
+	lastChngGuid
+  FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+		instCd,
+		txDt,
+		seqNbr,
+		fnclInstCd,
+		rmtncDt,
+		fnclInstBizBrnchCd,
+		acctNbr,
+		mnyRcvdAmt,
+		acctKndCd,
+		acctOwnrNm1,
+		lastChngTmstmp,
+		lastChngGuid		    
+      FROM 
+        (
+/* #### Original SQL [[ ################# */
+SELECT    /* 지방세입금 입금지시내역 */
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래일자*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        FNCL_INST_CD AS fnclInstCd,     /*금융기관코드*/
+        TRNS_DT AS rmtncDt,     /*이체일자*/
+        FNCL_INST_BSOP_BNK_BRH_CD AS fnclInstBizBrnchCd,     /*금융기관영업은행지점코드*/
+        ACCT_NBR AS acctNbr,     /*계좌번호*/
+        MNY_RCVD_AMT AS mnyRcvdAmt,     /*입금금액*/
+        ACCT_KND_CD AS acctKndCd,     /*계좌종류코드*/
+        ACCT_MAIN_NM AS acctOwnrNm1,     /*계좌주명*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_IG_GR7712
+ WHERE INST_CD = '103'
+   AND TX_DT  BETWEEN #{startDt} AND #{endDt}
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectGR7712InqryCnt" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIgGr7712IO">
+SELECT    /* 지방세입금 입금지시내역 */
+	COUNT(1) AS totCnt
+  FROM  XP_IG_GR7712
+ WHERE INST_CD = '103'
+   AND TX_DT  BETWEEN #{startDt} AND #{endDt}
+</select>
+</mapper>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonjointnetwork.dao.XpInfrmtvAgrgtM">
+<!--Generated Thu Jul 21 15:45:47 KST 2016-->
+<update id="updateInfrmtvAgrgtNormal">
+UPDATE  
+        xp_infrmtv_agrgt_m    /* 대외정보성집계기본 */
+   SET  NRML_CNT = NRML_CNT+ 1    /* 정상건수 */
+     , NRML_AMT = NRML_AMT + #{nrmlAmt}    /* 정상금액 */
+     , NRML_FEE_AMT = NRML_FEE_AMT + #{nrmlFeeAmt}    /* 정상수수료 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND INFO_AGRGT_Dscd = #{infoSmtnDscd}
+</update>
+<update id="updateInfrmtvAgrgtCancel">
+UPDATE  
+        xp_infrmtv_agrgt_m    /* 대외정보성집계기본 */
+   SET  CNCL_CNT = CNCL_CNT + 1   /* 취소건수 */
+     , CNCL_AMT = CNCL_AMT +  #{cnclAmt}    /* 취소금액 */
+     , CNCL_FEE_AMT = CNCL_FEE_AMT + #{cnclFeeAmt}    /* 취소수수료 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND INFO_AGRGT_Dscd = #{infoSmtnDscd}
+</update>
+<select id="selectInfrmtvAgrgt" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpInfrmtvAgrgtMIO">
+SELECT    /* 대외정보성집계기본 */
+       inst_cd AS instCd    /*기관코드*/
+     , tx_dt AS txDt    /*거래년월일*/
+     , extrnl_inst_cd AS extrnlInstCd    /*대외기관코드*/
+     , extrnl_biz_Dscd AS extrnlBizDscd    /*대외업무구분코드*/
+     , info_agrgt_Dscd AS infoSmtnDscd    /*정보성집계구분코드*/
+     , nrml_cnt AS nrmlCnt    /*정상건수*/
+     , nrml_amt AS nrmlAmt    /*정상금액*/
+     , nrml_fee_amt AS nrmlFeeAmt    /*정상수수료*/
+     , cncl_cnt AS cnclCnt    /*취소건수*/
+     , cncl_amt AS cnclAmt    /*취소금액*/
+     , cncl_fee_amt AS cnclFeeAmt    /*취소수수료*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_infrmtv_agrgt_m
+ WHERE inst_cd = #{instCd}
+   AND tx_dt = #{txDt}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+   AND extrnl_biz_Dscd = #{extrnlBizDscd}
+   AND info_agrgt_Dscd = #{infoSmtnDscd}
+</select>
+<insert id="insertInfrmtvAgrgt" parameterType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpInfrmtvAgrgtMIO">
+INSERT INTO xp_infrmtv_agrgt_m    /* 대외정보성집계기본 */
+(
+       inst_cd    /*기관코드*/
+     , tx_dt    /*거래년월일*/
+     , extrnl_inst_cd    /*대외기관코드*/
+     , extrnl_biz_Dscd    /*대외업무구분코드*/
+     , info_agrgt_Dscd    /*정보성집계구분코드*/
+     , nrml_cnt    /*정상건수*/
+     , nrml_amt    /*정상금액*/
+     , nrml_fee_amt    /*정상수수료*/
+     , cncl_cnt    /*취소건수*/
+     , cncl_amt    /*취소금액*/
+     , cncl_fee_amt    /*취소수수료*/
+     , last_chng_tmstmp    /*최종변경일시*/
+     , last_chng_guid    /*최종변경GUID*/
+)
+VALUES 
+(
+       #{instCd}    /*기관코드*/
+     , #{txDt}    /*거래년월일*/
+     , #{extrnlInstCd}    /*대외기관코드*/
+     , #{extrnlBizDscd}    /*대외업무구분코드*/
+     , #{infoSmtnDscd}    /*정보성집계구분코드*/
+     , #{nrmlCnt}    /*정상건수*/
+     , #{nrmlAmt}    /*정상금액*/
+     , #{nrmlFeeAmt}    /*정상수수료*/
+     , #{cnclCnt}    /*취소건수*/
+     , #{cnclAmt}    /*취소금액*/
+     , #{cnclFeeAmt}    /*취소수수료*/
+     , #{lastChngTmstmp}    /*최종변경일시*/
+     , #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectListInfrmtvAgrgt" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpInfrmtvAgrgtMIO">
+SELECT    /* 대외정보성집계기본 */
+       inst_cd AS instCd    /*기관코드*/
+     , tx_dt AS txDt    /*거래년월일*/
+     , extrnl_inst_cd AS extrnlInstCd    /*대외기관코드*/
+     , extrnl_biz_Dscd AS extrnlBizDscd    /*대외업무구분코드*/
+     , info_agrgt_Dscd AS infoSmtnDscd    /*정보성집계구분코드*/
+     , nrml_cnt AS nrmlCnt    /*정상건수*/
+     , nrml_amt AS nrmlAmt    /*정상금액*/
+     , nrml_fee_amt AS nrmlFeeAmt    /*정상수수료*/
+     , cncl_cnt AS cnclCnt    /*취소건수*/
+     , cncl_amt AS cnclAmt    /*취소금액*/
+     , cncl_fee_amt AS cnclFeeAmt    /*취소수수료*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_infrmtv_agrgt_m
+ WHERE inst_cd = #{instCd}
+   AND tx_dt = #{txDt}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+   AND extrnl_biz_Dscd = #{extrnlBizDscd}
+</select>
+</mapper>

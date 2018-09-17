@@ -1,0 +1,15 @@
+OMM bxm.web.admin.deferred.domain.DfrdExecHistory02IO
+<description="">
+{
+	String domainId<length=10 description="도메인아이디">;
+	String deferredId<length=20 description="후행ID">;
+	Integer nodeNo<length=2 description="노드번호">;
+	String bizDt<length=8 description="업무일자">;
+	BigDecimal logSeq<length=22 description="로그일련번호">;
+	String guid<length=40 description="GUID">;
+	Integer linkSeq<length=3 description="연동일련번호">;
+	String deferredStatusCd<length=1 description="후행상태코드">;
+	String startDttm<length=14 description="시작일시">;
+	String endDttm<length=14 description="종료일시">;
+	Boolean renderOnlineLogYn<length=20>;
+}

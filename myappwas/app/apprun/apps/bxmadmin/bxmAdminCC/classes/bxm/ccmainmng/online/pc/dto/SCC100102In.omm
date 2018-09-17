@@ -1,0 +1,6 @@
+OMM bxm.ccmainmng.online.pc.dto.SCC100102In
+<description="  ">
+{
+	String tskClsfCd<length=2 description="업무구분코드">;
+	String trxXdXlsf<length=1 description="거래코드구분">;
+}

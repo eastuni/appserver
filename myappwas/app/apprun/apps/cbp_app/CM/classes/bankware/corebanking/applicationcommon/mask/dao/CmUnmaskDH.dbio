@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.mask.dao.CmUnmaskDH">
+<!--Generated Mon Sep 18 18:27:10 KST 2017-->
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.mask.dao.dto.CmUnmaskDHIO">
+INSERT 
+INTO cm_unmask_d_h 
+(
+	INST_CD, 
+	UNMASK_ID, 
+	UNMASK_SEQ_NBR, 
+	ATRBT_NM, 
+	MASK_TP_CD, 
+	LAST_CHNG_TMSTMP, 
+	LAST_CHNG_GUID, 
+	LAST_CHNG_ID
+) VALUES (
+	#{instCd, jdbcType=VARCHAR},
+	#{unmaskId, jdbcType=VARCHAR},
+	#{unmaskSeqNbr, jdbcType=VARCHAR},
+	#{atrbtNm, jdbcType=VARCHAR},
+	#{maskTpCd, jdbcType=VARCHAR},
+	#{lastChngTmstmp, jdbcType=VARCHAR},
+	#{lastChngGuid, jdbcType=VARCHAR},
+	#{lastChngId, jdbcType=VARCHAR}
+)
+</insert>
+<select id="select" parameterType="bankware.corebanking.applicationcommon.mask.dao.dto.CmUnmaskDHIO" resultType="bankware.corebanking.applicationcommon.mask.dao.dto.CmUnmaskDHIO">
+SELECT
+		INST_CD  AS  instCd, 
+		UNMASK_ID  AS  unmaskId,  
+		UNMASK_SEQ_NBR  AS  unmaskSeqNbr,  
+		ATRBT_NM  AS  atrbtNm, 
+		MASK_TP_CD  AS  maskTpCd
+  FROM cm_unmask_d_h 
+ WHERE INST_CD  =  #{instCd}
+   AND UNMASK_ID  =  #{unmaskId}
+   AND UNMASK_SEQ_NBR  =  #{unmaskSeqNbr}
+</select>
+<select id="selectList" parameterType="bankware.corebanking.applicationcommon.mask.dao.dto.CmUnmaskDHIO" resultType="bankware.corebanking.applicationcommon.mask.dao.dto.CmUnmaskDHIO">
+SELECT
+		INST_CD  AS  instCd, 
+		UNMASK_ID  AS  unmaskId,  
+		UNMASK_SEQ_NBR  AS  unmaskSeqNbr,  
+		ATRBT_NM  AS  atrbtNm, 
+		MASK_TP_CD  AS  maskTpCd
+  FROM cm_unmask_d_h 
+ WHERE INST_CD  =  #{instCd}
+   AND UNMASK_ID  =  #{unmaskId}
+</select>
+</mapper>

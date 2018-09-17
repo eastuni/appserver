@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
+  <display-name> serviceEndpoint </display-name>
+  <context-param>
+        <param-name>config-location</param-name>
+        <param-value>bxm-management-instance.xml</param-value>
+  </context-param>
+  <!--
+  <context-param>
+        <param-name>cache-datasource</param-name>
+        <param-value>java:/comp/env/BXMNXA</param-value>
+  </context-param>
+  -->
+  <listener>
+        <listener-class>bxm.service.endpoint.http.HttpServiceEndpointContextListener</listener-class>
+  </listener>
+  <!--
+  <listener>
+        <listener-class>bxm.cache.manager.BxmCacheContextListener</listener-class>
+  </listener>
+  -->
+  <servlet>
+    <servlet-name>bxmHttpServiceEndpointMapping</servlet-name>
+        <servlet-class>bxm.dft.service.endpoint.http.DefaultHttpServiceEndpointMapping</servlet-class>
+        <load-on-startup>1</load-on-startup>
+        <init-param>
+                <param-name>fld-encoding</param-name>
+                <param-value>UTF-8</param-value>
+        </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>bxmHttpServiceEndpointMapping</servlet-name>
+    <url-pattern>/httpService/*</url-pattern>
+  </servlet-mapping>
+
+</web-app>
+

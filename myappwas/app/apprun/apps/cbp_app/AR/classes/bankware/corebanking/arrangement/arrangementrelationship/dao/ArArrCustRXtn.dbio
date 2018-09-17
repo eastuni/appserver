@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.arrangement.arrangementrelationship.dao.ArArrCustRXtn">
+<!--Generated Tue Oct 24 18:48:26 KST 2017-->
+<select id="selectListPdInfo" resultType="java.lang.String">
+select c.pd_cd as pdCd
+from  ar_arr_cust_r b, ar_arr_m c
+where 1=1
+  and b.INST_CD = #{instCd}
+  and b.CUST_ID =  #{custId}
+  and b.ARR_CUST_REL_CD = #{arrCustRelCd}
+  and b.REL_START_DT &lt;= #{baseDt}
+  and b.REL_END_DT  &gt; #{baseDt}
+  and b.INST_CD = c.INST_CD
+  and b.ARR_ID = c.ARR_ID
+<if test="arrStsCd != null and arrStsCd != '' ">
+  and c.ARR_STS_CD = #{arrStsCd}
+</if>
+  and b.ARR_CUST_REL_STS_CD in ('1','2')
+<if test="bizDscd != null and bizDscd != '' ">
+  and c.BIZ_DSCD = #{bizDscd}
+</if>
+GROUP BY c.pd_cd
+</select>
+<select id="selectListArrByCustAndCustRelStsChngRsn" parameterType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrCustRSelectListArrByCustRelStsChngRsnIO" resultType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrCustRSelectListArrByCustRelStsChngRsnIO">
+SELECT T2.INST_CD AS instCd
+         , T2.ARR_ID AS arrId
+         , T1.REL_START_DT AS relStartDt
+         , T1.REL_END_DT AS relEndDt
+         , T2.CUST_ID AS custId
+         , T2.STS_CHNG_TX_DT AS stsChngTxDt
+         , T2.STS_CHNG_TX_SEQ_NBR AS stsChngTxSeqNbr
+         , T2.ARR_CUST_REL_STS_CD AS arrCustRelStsCd
+         , T2.ARR_CUST_REL_STS_CHNG_RSN_CD AS arrCustRelStsChngRsnCd
+         , T4.CUST_ID AS rltdCustId
+FROM AR_ARR_CUST_R T1
+JOIN AR_ARR_CUST_R_STS_H T2
+ON  T1.INST_CD = T2.INST_CD
+AND T1.CUST_ID = T2.CUST_ID
+AND T1.ARR_ID = T2.ARR_ID
+AND T1.ARR_CUST_REL_CD = T2.ARR_CUST_REL_CD
+AND T1.ARR_CUST_REL_SEQ_NBR = T2.ARR_CUST_REL_SEQ_NBR
+-- AND T2.ARR_CUST_REL_STS_CD = '1'
+AND T2.CNCL_YN = 'N'
+AND T1.INST_CD = #{instCd}
+AND T2.CUST_ID = #{custId}
+AND T2.STS_CHNG_TX_DT &gt;= #{relStartDt} AND T2.STS_CHNG_TX_DT &lt;= #{relEndDt}
+AND T1.ARR_CUST_REL_CD = #{arrCustRelCd}
+<if test="arrCustRelStsChngRsnCd != null and arrCustRelStsChngRsnCd != '' ">
+AND T2.ARR_CUST_REL_STS_CHNG_RSN_CD = #{arrCustRelStsChngRsnCd}
+</if>
+JOIN AR_ARR_M T3
+ON  T1.INST_CD = T3.INST_CD
+AND T1.ARR_ID  = T3.ARR_ID
+AND T3.ARR_KND_CD = '01'
+<if test="bizDscd != null and bizDscd != '' ">
+  and T3.BIZ_DSCD = #{bizDscd}
+</if>
+<if test="pdTpCd != null and pdTpCd != '' ">
+  and T3.PD_TP_CD = #{pdTpCd}
+</if>
+<if test="pdTmpltCd != null and pdTmpltCd != '' ">
+  and T3.PD_TMPLT_CD = #{pdTmpltCd}
+</if>
+<if test="pdCd != null and pdCd != '' ">
+  and T3.PD_CD = #{pdCd}
+</if>
+-- 동일거래에서 수행된 상태변경내역 중에서 상태가 다른 상대 고객식별자 조회
+LEFT JOIN AR_ARR_CUST_R_STS_H T4
+ON  T2.INST_CD = T4.INST_CD
+AND T2.ARR_ID  = T4.ARR_ID
+AND T2.ARR_CUST_REL_CD = T4.ARR_CUST_REL_CD
+AND T2.STS_CHNG_TX_DT       = T4.STS_CHNG_TX_DT
+AND T2.STS_CHNG_TX_SEQ_NBR  = T4.STS_CHNG_TX_SEQ_NBR
+AND T2.ARR_CUST_REL_STS_CD  &lt;&gt; T4.ARR_CUST_REL_STS_CD
+</select>
+<select id="selectListArrByCustRelStsChngRsn" parameterType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrCustRSelectListArrByCustRelStsChngRsnIO" resultType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrCustRSelectListArrByCustRelStsChngRsnIO">
+SELECT T2.INST_CD AS instCd
+         , T2.ARR_ID AS arrId
+         , T1.REL_START_DT AS relStartDt
+         , T1.REL_END_DT AS relEndDt
+         , T2.CUST_ID AS custId
+         , T2.STS_CHNG_TX_DT AS stsChngTxDt
+         , T2.STS_CHNG_TX_SEQ_NBR AS stsChngTxSeqNbr
+         , T2.ARR_CUST_REL_STS_CD AS arrCustRelStsCd
+         , T2.ARR_CUST_REL_STS_CHNG_RSN_CD AS arrCustRelStsChngRsnCd
+         , T4.CUST_ID AS rltdCustId
+FROM AR_ARR_CUST_R T1
+JOIN AR_ARR_CUST_R_STS_H T2
+ON  T1.INST_CD = T2.INST_CD
+AND T1.CUST_ID = T2.CUST_ID
+AND T1.ARR_ID  = T2.ARR_ID
+AND T1.ARR_CUST_REL_CD = T2.ARR_CUST_REL_CD
+AND T1.ARR_CUST_REL_SEQ_NBR = T2.ARR_CUST_REL_SEQ_NBR
+AND T1.INST_CD = #{instCd}
+AND T1.ARR_ID = #{arrId}
+AND T1.REL_START_DT &lt;= #{relEndDt} 
+AND T1.REL_END_DT &gt; #{relStartDt}
+AND T1.ARR_CUST_REL_CD = #{arrCustRelCd}
+AND T1.ARR_CUST_REL_STS_CD in( '1','2') 
+AND T2.ARR_CUST_REL_STS_CD = '1' 
+AND T2.CNCL_YN = 'N'
+<if test="arrCustRelStsChngRsnCd != null and arrCustRelStsChngRsnCd != '' ">
+AND T2.ARR_CUST_REL_STS_CHNG_RSN_CD = #{arrCustRelStsChngRsnCd}
+</if>
+-- 동일거래에서 수행된 상태변경내역 중에서 상태가 다른 상대 고객식별자 조회
+LEFT JOIN AR_ARR_CUST_R_STS_H T4
+ON  T2.INST_CD = T4.INST_CD
+AND T2.ARR_ID  = T4.ARR_ID
+AND T2.ARR_CUST_REL_CD = T4.ARR_CUST_REL_CD
+AND T2.ARR_CUST_REL_SEQ_NBR = T4.ARR_CUST_REL_SEQ_NBR
+AND T2.STS_CHNG_TX_DT       = T4.STS_CHNG_TX_DT
+AND T2.STS_CHNG_TX_SEQ_NBR  = T4.STS_CHNG_TX_SEQ_NBR
+AND T2.ARR_CUST_REL_STS_CD  &lt;&gt; T4.ARR_CUST_REL_STS_CD
+</select>
+<select id="selectListArrByCustAndCustRelStsChngRsnByDdo" parameterType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrCustRSelectListArrByCustRelStsChngRsnIO" resultType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrCustRSelectListArrByCustRelStsChngRsnIO">
+SELECT T2.INST_CD AS instCd
+         , T2.ARR_ID AS arrId
+         , T1.REL_START_DT AS relStartDt
+         , T1.REL_END_DT AS relEndDt
+         , T2.CUST_ID AS custId
+         , T2.STS_CHNG_TX_DT AS stsChngTxDt
+         , T2.STS_CHNG_TX_SEQ_NBR AS stsChngTxSeqNbr
+         , T2.ARR_CUST_REL_STS_CD AS arrCustRelStsCd
+         , T2.ARR_CUST_REL_STS_CHNG_RSN_CD AS arrCustRelStsChngRsnCd
+         , T4.CUST_ID AS rltdCustId
+FROM AR_ARR_CUST_R T1
+JOIN AR_ARR_CUST_R_STS_H T2
+ON  T1.INST_CD = T2.INST_CD
+AND T1.CUST_ID = T2.CUST_ID
+AND T1.ARR_ID = T2.ARR_ID
+AND T1.ARR_CUST_REL_CD = T2.ARR_CUST_REL_CD
+AND T1.ARR_CUST_REL_SEQ_NBR = T2.ARR_CUST_REL_SEQ_NBR
+-- AND T2.ARR_CUST_REL_STS_CD = '1'
+AND T2.CNCL_YN = 'N'
+AND T1.INST_CD = #{instCd}
+AND T2.CUST_ID = #{custId}
+AND T2.STS_CHNG_TX_DT &gt;= #{relStartDt} AND T2.STS_CHNG_TX_DT &lt;= #{relEndDt}
+AND T1.ARR_CUST_REL_CD = #{arrCustRelCd}
+<if test="arrCustRelStsChngRsnCd != null and arrCustRelStsChngRsnCd != '' ">
+AND T2.ARR_CUST_REL_STS_CHNG_RSN_CD = #{arrCustRelStsChngRsnCd}
+</if>
+JOIN AR_ARR_M T3
+ON  T1.INST_CD = T3.INST_CD
+AND T1.ARR_ID  = T3.ARR_ID
+AND T3.ARR_KND_CD = '01'
+<if test="bizDscd != null and bizDscd != '' ">
+  and T3.BIZ_DSCD = #{bizDscd}
+</if>
+<if test="pdTpCd != null and pdTpCd != '' ">
+  and T3.PD_TP_CD = #{pdTpCd}
+</if>
+<if test="pdTmpltCd != null and pdTmpltCd != '' ">
+  and T3.PD_TMPLT_CD = #{pdTmpltCd}
+</if>
+<if test="pdCd != null and pdCd != '' ">
+  and T3.PD_CD = #{pdCd}
+</if>
+-- 동일거래에서 수행된 상태변경내역 중에서 상태가 다른 상대 고객식별자 조회
+LEFT JOIN AR_ARR_CUST_R_STS_H T4
+ON  T2.INST_CD = T4.INST_CD
+AND T2.ARR_ID  = T4.ARR_ID
+AND T2.ARR_CUST_REL_CD = T4.ARR_CUST_REL_CD
+AND T2.STS_CHNG_TX_DT       = T4.STS_CHNG_TX_DT
+AND T2.STS_CHNG_TX_SEQ_NBR  = T4.STS_CHNG_TX_SEQ_NBR
+AND T2.ARR_CUST_REL_STS_CD  &lt;&gt; T4.ARR_CUST_REL_STS_CD
+</select>
+</mapper>

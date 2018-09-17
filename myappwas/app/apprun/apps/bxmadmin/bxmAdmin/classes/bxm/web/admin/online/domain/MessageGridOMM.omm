@@ -1,0 +1,7 @@
+OMM bxm.web.admin.online.domain.MessageGridOMM
+<description="">
+{
+	String key<length=20 description="전문 Key">;
+	String value<length=20 description="전문 Value">;
+	String desc<length=20 description="필드 설명">;
+}

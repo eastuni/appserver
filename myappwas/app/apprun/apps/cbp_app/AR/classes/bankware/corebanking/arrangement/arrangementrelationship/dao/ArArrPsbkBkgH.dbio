@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.arrangement.arrangementrelationship.dao.ArArrPsbkBkgH">
+<!--Generated Sat Mar 31 12:11:47 KST 2018-->
+<insert id="insert" parameterType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrPsbkBkgHIO">
+INSERT  
+  INTO  ar_arr_psbk_bkg_h
+(
+  INST_CD,     /*기관코드*/
+  ARR_ID,     /*계약식별자*/
+  ARR_ISSMDA_INHRNC_ID,     /*계약발급매체고유식별자*/
+  ARR_ISSMDA_TP_CD,     /*계약발급매체유형코드*/
+  ARR_ISSMDA_REL_SEQ_NBR,     /*계약발급매체관계일련번호*/
+  ARR_PSBK_BKG_SEQ_NBR,     /*계약통장기장일련번호*/
+  PSBK_BKG_CNTNT,     /*통장기장내용*/
+  PSBK_BKG_SIDE_CNT,     /*통장기장면수*/
+  PSBK_BKG_ROW_CNT,     /*통장기장행수*/
+  PSBK_MSG_ID,     /*통장메시지식별자*/
+  CMPRESN_START_DT,     /*압축시작년월일*/
+  CMPRESN_END_DT,     /*압축종료년월일*/
+  CMPRESN_WAY_DSCD,     /*압축방법구분코드*/
+  LAST_CHNG_TMSTMP,     /*최종변경타임스탬프*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR},     /*기관코드*/
+  #{arrId, jdbcType=VARCHAR},     /*계약식별자*/
+  #{arrIssmdaInhrncId, jdbcType=VARCHAR},     /*계약발급매체고유식별자*/
+  #{arrIssmdaTpCd, jdbcType=VARCHAR},     /*계약발급매체유형코드*/
+  #{arrIssmdaRelSeqNbr, jdbcType=NUMERIC},     /*계약발급매체관계일련번호*/
+  #{arrPsbkBkgSeqNbr, jdbcType=NUMERIC},     /*계약통장기장일련번호*/
+  #{psbkBkgCntnt, jdbcType=VARCHAR},     /*통장기장내용*/
+  #{psbkBkgSideCnt, jdbcType=NUMERIC},     /*통장기장면수*/
+  #{psbkBkgRowCnt, jdbcType=NUMERIC},     /*통장기장행수*/
+  #{psbkMsgId, jdbcType=VARCHAR},     /*통장메시지식별자*/
+  #{psbkCmpresnStartDt, jdbcType=VARCHAR},     /*압축시작년월일*/
+  #{psbkCmpresnEndDt, jdbcType=VARCHAR},     /*압축종료년월일*/
+  #{psbkCmpresnWayDscd, jdbcType=VARCHAR},     /*압축방법구분코드*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경타임스탬프*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<select id="select" parameterType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrPsbkBkgHIO" resultType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrPsbkBkgHIO">
+SELECT    
+        INST_CD AS instCd,     /*기관코드*/
+        ARR_ID AS arrId,     /*계약식별자*/
+        ARR_ISSMDA_INHRNC_ID AS arrIssmdaInhrncId,     /*계약발급매체고유식별자*/
+        ARR_ISSMDA_TP_CD AS arrIssmdaTpCd,     /*계약발급매체유형코드*/
+        ARR_ISSMDA_REL_SEQ_NBR AS arrIssmdaRelSeqNbr,     /*계약발급매체관계일련번호*/
+        ARR_PSBK_BKG_SEQ_NBR AS arrPsbkBkgSeqNbr,     /*계약통장기장일련번호*/
+        PSBK_BKG_CNTNT AS psbkBkgCntnt,     /*통장기장내용*/
+        PSBK_BKG_SIDE_CNT AS psbkBkgSideCnt,     /*통장기장면수*/
+        PSBK_BKG_ROW_CNT AS psbkBkgRowCnt,     /*통장기장행수*/
+        PSBK_MSG_ID AS psbkMsgId,     /*통장메시지식별자*/
+        CMPRESN_START_DT AS psbkCmpresnStartDt,     /*압축시작년월일*/
+        CMPRESN_END_DT AS psbkCmpresnEndDt,     /*압축종료년월일*/
+        CMPRESN_WAY_DSCD AS psbkCmpresnWayDscd,     /*압축방법구분코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ar_arr_psbk_bkg_h
+ WHERE INST_CD = #{instCd}
+   AND ARR_ID = #{arrId}
+   AND ARR_ISSMDA_INHRNC_ID = #{arrIssmdaInhrncId}
+   AND ARR_ISSMDA_TP_CD = #{arrIssmdaTpCd}
+   AND ARR_ISSMDA_REL_SEQ_NBR = #{arrIssmdaRelSeqNbr}
+   AND ARR_PSBK_BKG_SEQ_NBR = #{arrPsbkBkgSeqNbr}
+</select>
+<update id="update" parameterType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrPsbkBkgHIO">
+UPDATE  
+        ar_arr_psbk_bkg_h
+   SET  PSBK_BKG_CNTNT = #{psbkBkgCntnt}    /* 통장기장내용 */
+     , PSBK_BKG_SIDE_CNT = #{psbkBkgSideCnt}    /* 통장기장면수 */
+     , PSBK_BKG_ROW_CNT = #{psbkBkgRowCnt}    /* 통장기장행수 */
+     , PSBK_MSG_ID = #{psbkMsgId}    /* 통장메시지식별자 */
+     , CMPRESN_START_DT = #{psbkCmpresnStartDt}    /* 압축시작년월일 */
+     , CMPRESN_END_DT = #{psbkCmpresnEndDt}    /* 압축종료년월일 */
+     , CMPRESN_WAY_DSCD = #{psbkCmpresnWayDscd}    /* 압축방법구분코드 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경타임스탬프 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND ARR_ID = #{arrId}
+   AND ARR_ISSMDA_INHRNC_ID = #{arrIssmdaInhrncId}
+   AND ARR_ISSMDA_TP_CD = #{arrIssmdaTpCd}
+   AND ARR_ISSMDA_REL_SEQ_NBR = #{arrIssmdaRelSeqNbr}
+   AND ARR_PSBK_BKG_SEQ_NBR = #{arrPsbkBkgSeqNbr}
+</update>
+<select id="selectListOnPeriod" parameterType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrPsbkBkgHIO" resultType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrPsbkBkgHIO">
+SELECT    
+        INST_CD AS instCd,     /*기관코드*/
+        ARR_ID AS arrId,     /*계약식별자*/
+        ARR_ISSMDA_INHRNC_ID AS arrIssmdaInhrncId,     /*계약발급매체고유식별자*/
+        ARR_ISSMDA_TP_CD AS arrIssmdaTpCd,     /*계약발급매체유형코드*/
+        ARR_ISSMDA_REL_SEQ_NBR AS arrIssmdaRelSeqNbr,     /*계약발급매체관계일련번호*/
+        ARR_PSBK_BKG_SEQ_NBR AS arrPsbkBkgSeqNbr,     /*계약통장기장일련번호*/
+        PSBK_BKG_CNTNT AS psbkBkgCntnt,     /*통장기장내용*/
+        PSBK_BKG_SIDE_CNT AS psbkBkgSideCnt,     /*통장기장면수*/
+        PSBK_BKG_ROW_CNT AS psbkBkgRowCnt,     /*통장기장행수*/
+        PSBK_MSG_ID AS psbkMsgId,     /*통장메시지식별자*/
+        CMPRESN_START_DT AS psbkCmpresnStartDt,     /*압축시작년월일*/
+        CMPRESN_END_DT AS psbkCmpresnEndDt,     /*압축종료년월일*/
+        CMPRESN_WAY_DSCD AS psbkCmpresnWayDscd,     /*압축방법구분코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ar_arr_psbk_bkg_h
+ WHERE INST_CD = #{instCd}
+   AND ARR_ID = #{arrId}
+   AND ARR_ISSMDA_INHRNC_ID = #{arrIssmdaInhrncId}
+   AND ARR_ISSMDA_TP_CD = #{arrIssmdaTpCd}
+   AND ARR_ISSMDA_REL_SEQ_NBR = #{arrIssmdaRelSeqNbr}
+<if test="psbkCmpresnStartDt != null and psbkCmpresnStartDt != '' ">
+   AND CMPRESN_START_DT &lt;= #{psbkCmpresnEndDt}
+   AND CMPRESN_END_DT &gt; #{psbkCmpresnStartDt}
+</if>
+</select>
+<select id="selectMaxSeqNbrOracle" parameterType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrPsbkBkgHIO" resultType="java.lang.Integer">
+SELECT    
+        NVL(MAX(ARR_PSBK_BKG_SEQ_NBR),0) AS arrPsbkBkgSeqNbr      /* 계약통장기장일련번호 */
+  FROM  ar_arr_psbk_bkg_h
+ WHERE INST_CD = #{instCd}
+   AND ARR_ID = #{arrId}
+   AND ARR_ISSMDA_TP_CD = #{arrIssmdaTpCd}
+   AND ARR_ISSMDA_INHRNC_ID = #{arrIssmdaInhrncId}
+   AND ARR_ISSMDA_REL_SEQ_NBR = #{arrIssmdaRelSeqNbr}
+</select>
+<select id="selectMaxSeqNbrMysql" parameterType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrPsbkBkgHIO" resultType="java.lang.Integer">
+SELECT    
+        IFNULL(MAX(ARR_PSBK_BKG_SEQ_NBR),0) AS arrPsbkBkgSeqNbr      /* 계약통장기장일련번호 */
+  FROM  ar_arr_psbk_bkg_h
+ WHERE INST_CD = #{instCd}
+   AND ARR_ID = #{arrId}
+   AND ARR_ISSMDA_TP_CD = #{arrIssmdaTpCd}
+   AND ARR_ISSMDA_INHRNC_ID = #{arrIssmdaInhrncId}
+   AND ARR_ISSMDA_REL_SEQ_NBR = #{arrIssmdaRelSeqNbr}
+</select>
+<select id="selectListByBkgRowColumn" parameterType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrPsbkBkgHSelectListByBkgRowColIO" resultType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrPsbkBkgHIO">
+SELECT    
+        INST_CD AS instCd,     /*기관코드*/
+        ARR_ID AS arrId,     /*계약식별자*/
+        ARR_ISSMDA_INHRNC_ID AS arrIssmdaInhrncId,     /*계약발급매체고유식별자*/
+        ARR_ISSMDA_TP_CD AS arrIssmdaTpCd,     /*계약발급매체유형코드*/
+        ARR_ISSMDA_REL_SEQ_NBR AS arrIssmdaRelSeqNbr,     /*계약발급매체관계일련번호*/
+        ARR_PSBK_BKG_SEQ_NBR AS arrPsbkBkgSeqNbr,     /*계약통장기장일련번호*/
+        PSBK_BKG_CNTNT AS psbkBkgCntnt,     /*통장기장내용*/
+        PSBK_BKG_SIDE_CNT AS psbkBkgSideCnt,     /*통장기장면수*/
+        PSBK_BKG_ROW_CNT AS psbkBkgRowCnt,     /*통장기장행수*/
+        PSBK_MSG_ID AS psbkMsgId,     /*통장메시지식별자*/
+        CMPRESN_START_DT AS psbkCmpresnStartDt,     /*압축시작년월일*/
+        CMPRESN_END_DT AS psbkCmpresnEndDt,     /*압축종료년월일*/
+        CMPRESN_WAY_DSCD AS psbkCmpresnWayDscd,     /*압축방법구분코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ar_arr_psbk_bkg_h
+ WHERE INST_CD = #{instCd}
+   AND ARR_ID = #{arrId}
+   AND ARR_ISSMDA_INHRNC_ID = #{arrIssmdaInhrncId}
+   AND ARR_ISSMDA_TP_CD = #{arrIssmdaTpCd}
+   AND ARR_ISSMDA_REL_SEQ_NBR = #{arrIssmdaRelSeqNbr}
+   AND PSBK_BKG_SIDE_CNT BETWEEN #{inqryStartSideCnt} AND #{inqryEndSideCnt}
+   AND PSBK_BKG_ROW_CNT BETWEEN #{inqryStartRowCnt} AND #{inqryEndRowCnt}
+ORDER BY PSBK_BKG_ROW_CNT
+</select>
+</mapper>

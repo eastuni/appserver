@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.batch.dbio.RemoteExecuteDBIO">
+<!--Generated Wed Nov 29 17:19:16 KST 2017-->
+<select id="selectInstanceProp" resultType="bxm.web.admin.batch.domain.RuntimeInstanceOMM">
+SELECT /* BXM런타임인스턴스 */ 
+       BXM_INSTANCE_ID AS bxmInstanceId,/*BXM인스턴스ID*/ 
+       MNG_OBJ_PROPS AS mngObjProps/*관리OBJ프로퍼티*/ 
+  FROM BXM_RUNTIME_INSTANCE
+ WHERE BXM_INSTANCE_NM = 'bxm-batch-daemon'
+ and DOMAIN_ID = #{domainId}
+</select>
+<select id="selectFrmInstance" resultType="bxm.web.admin.deploy.domain.FrmInstanceOMM">
+SELECT /* BXM런타임인스턴스 */ 
+       BXM_INSTANCE_ID AS bxmInstanceId,/*BXM인스턴스ID*/ 
+       BXM_INSTANCE_NM AS bxmInstanceNm,/*BXM인스턴스명*/ 
+       BXM_INSTANCE_DESC AS bxmInstanceDesc,/*BXM 인스턴스 설명*/ 
+       BXM_INSTANCE_PID AS bxmInstancePid,/*BXM 인스턴스 PID*/ 
+       MNG_SVC_URL AS mngSvcUrl,/*관리서비스URL*/ 
+       MNG_SVC_ENV_PROPS AS mngSvcEnvProps,/*관리서비스환경프로퍼티*/ 
+       MNG_OBJ_DOMAIN AS mngObjDomain,/*관리OBJ도메인*/ 
+       MNG_OBJ_PROPS AS mngObjProps,/*관리OBJ프로퍼티*/ 
+       ENV_PROPS AS envProps,/*환경 프로퍼티*/ 
+       AUTO_DEPLOY_YN AS autoDeployYn,/*자동 배포 여부*/ 
+       LOADING_MODE_CD AS loadingModeCd /*로딩 코드*/
+  FROM BXM_RUNTIME_INSTANCE
+ WHERE BXM_INSTANCE_ID = #{bxmInstanceId}
+ and DOMAIN_ID = #{domainId}
+</select>
+</mapper>

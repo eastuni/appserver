@@ -1,0 +1,6 @@
+OMM bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.ExternalTimerSrvcIn
+<description="">
+{
+	String sysIntrfcId<length=40 description="시스템인터페이스식별자">;
+	String timerKeyCntnt<length=200 description="타이머키">;
+}

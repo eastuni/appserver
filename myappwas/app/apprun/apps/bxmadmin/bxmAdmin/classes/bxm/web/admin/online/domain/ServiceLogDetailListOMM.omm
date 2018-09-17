@@ -1,0 +1,9 @@
+OMM bxm.web.admin.online.domain.ServiceLogDetailListOMM
+<description="">
+{
+	Integer msgListSize<length=9>;
+	bxm.web.admin.online.domain.ServiceLogDetailOMM serviceLogDetailList<length=0 arrayReference="msgListSize">;
+	Integer tagListSize<length=9>;
+	bxm.web.admin.online.domain.ServiceLogTagOMM serviceLogTagList<length=0 arrayReference="tagListSize">;
+	Integer totalPage<length=9>;
+}

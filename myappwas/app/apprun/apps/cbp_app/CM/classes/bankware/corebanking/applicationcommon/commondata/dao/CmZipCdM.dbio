@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.commondata.dao.CmZipCdM">
+<!--Generated Wed Jan 18 17:27:09 KST 2017-->
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.commondata.dao.dto.CmZipCdMIO">
+INSERT 
+
+  INTO  cm_zip_cd_m
+
+(
+
+    inst_cd
+
+ ,  zip_cd
+
+ ,  zip_cd_seq_nbr
+
+ ,  cty_prvnc_addr
+
+ ,  gun_dstrct_addr
+
+ , emdong_addr
+
+ ,  adri_addr
+ ,  islnds_addr
+
+ ,  muntn_nbr_addr
+
+ ,  start_nbr_addr
+
+ ,  start_househld_addr
+
+ ,  end_nbr_addr
+
+ ,  end_househld_addr
+
+ ,  apt_nm
+
+ ,  start_apt_nbr
+
+ ,  end_apt_nbr
+
+ ,  addr
+
+ ,  sts_cd
+
+ ,  last_chng_guid
+
+ ,  last_chng_tmstmp
+
+)
+
+VALUES
+
+(
+
+    #{instCd,jdbcType=VARCHAR}
+
+ ,  #{zipCd,jdbcType=VARCHAR}
+
+ ,  #{zipCdSeqNbr,jdbcType=VARCHAR}
+
+ ,  #{cityPrvncAddr,jdbcType=VARCHAR}
+
+ ,  #{gunDstrctAddr,jdbcType=VARCHAR}
+
+ ,  #{dongBlwAddr,jdbcType=VARCHAR}
+
+ ,  #{adriAddr,jdbcType=VARCHAR}
+ ,  #{islndsAddr,jdbcType=VARCHAR}
+
+ ,  #{muntnNbrAddr,jdbcType=VARCHAR}
+
+ ,  #{startNbrAddr,jdbcType=VARCHAR}
+
+ ,  #{startHousehldAddr,jdbcType=VARCHAR}
+
+ ,  #{endNbrAddr,jdbcType=VARCHAR}
+
+ ,  #{endHousehldAddr,jdbcType=VARCHAR}
+
+ ,  #{aptNm,jdbcType=VARCHAR}
+
+ ,  #{startAptNbr,jdbcType=VARCHAR}
+
+ ,  #{endAptNbr,jdbcType=VARCHAR}
+
+ ,  #{addr,jdbcType=VARCHAR}
+
+ ,  #{stsCd,jdbcType=VARCHAR}
+
+ ,  #{lastChngGuid,jdbcType=VARCHAR}
+
+ ,  #{lastChngTmstmp,jdbcType=VARCHAR}
+
+)
+</insert>
+<select id="select" parameterType="bankware.corebanking.applicationcommon.commondata.dao.dto.CmZipCdMIO" resultType="bankware.corebanking.applicationcommon.commondata.dao.dto.CmZipCdMIO">
+SELECT    /* 우편번호기본 */
+
+       ADDR_HRARCY_CD AS addrHrarcyCd    /*주소체계코드*/
+
+     , ADDR_ID AS addrId    /*주소식별자*/
+
+     , ZIP_CD AS zipCd    /*우편번호*/
+
+     , ZIP_CD_SEQ_NBR AS zipCdSeqNbr    /*우편번호일련번호*/
+
+     , CTY_PRVNC_ADDR AS ctyPrvncAddr    /*시도주소*/
+
+     , GUN_DSTRCT_ADDR AS gunDstrctAddr    /*군구주소*/
+
+     , EMDONG_ADDR AS dongBlwAddr    /*읍면동주소*/
+
+     , adri_addr AS adriAddr    /*리주소*/
+     , ISLNDS_ADDR AS islndsAddr    /*섬주소*/
+
+     , MUNTN_NBR_ADDR AS muntnNbrAddr    /*산번지*/
+
+     , START_NBR_ADDR AS startNbrAddr    /*시작번지주소*/
+
+     , START_HOUSEHLD_ADDR AS startHousehldAddr    /*시작호주소*/
+
+     , END_NBR_ADDR AS endNbrAddr    /*종료번지주소*/
+
+     , END_HOUSEHLD_ADDR AS endHousehldAddr    /*종료호주소*/
+
+     , APT_NM AS aptNm    /*아파트명*/
+
+     , START_APT_NBR AS startAptNbr    /*시작아파트동*/
+
+     , END_APT_NBR AS endAptNbr    /*종료아파트동*/
+
+     , ADDR AS addr    /*주소*/
+
+     , STS_CD AS stsCd    /*상태코드*/
+
+     , LAST_CHNG_TMSTMP AS lastChngTmstmp    /*최종변경일시*/
+
+     , LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+
+  FROM CM_ZIP_CD_M
+
+ WHERE UPPER(ADDR_HRARCY_CD) = UPPER(#{addrHrarcyCd})
+
+   AND ADDR_ID = #{addrId}
+</select>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.commondata.dao.dto.CmZipCdMIO">
+UPDATE  cm_zip_cd_m
+
+   SET  inst_cd = #{instCd,jdbcType=VARCHAR}
+
+     ,  zip_cd = #{zipCd,jdbcType=VARCHAR}
+
+     ,  zip_cd_seq_nbr = #{zipCdSeqNbr,jdbcType=VARCHAR}
+
+     ,  cty_prvnc_addr = #{cityPrvncAddr,jdbcType=VARCHAR}
+
+     ,  gun_dstrct_addr = #{gunDstrctAddr,jdbcType=VARCHAR}
+
+     ,  emdong_addr = #{dongBlwAddr,jdbcType=VARCHAR}
+
+     ,  adri_addr = #{adriAddr,jdbcType=VARCHAR}
+     ,  islnds_addr = #{islndsAddr,jdbcType=VARCHAR}
+
+     ,  muntn_nbr_addr = #{muntnNbrAddr,jdbcType=VARCHAR}
+
+     ,  start_nbr_addr = #{startNbrAddr,jdbcType=VARCHAR}
+
+     ,  start_househld_addr = #{startHousehldAddr,jdbcType=VARCHAR}
+
+     ,  end_nbr_addr = #{endNbrAddr,jdbcType=VARCHAR}
+
+     ,  end_househld_addr = #{endHousehldAddr,jdbcType=VARCHAR}
+
+     ,  apt_nm = #{aptNm,jdbcType=VARCHAR}
+
+     ,  start_apt_nbr = #{startAptNbr,jdbcType=VARCHAR}
+
+     ,  end_apt_nbr = #{endAptNbr,jdbcType=VARCHAR}
+
+     ,  addr = #{addr,jdbcType=VARCHAR}
+
+     ,  sts_cd = #{stsCd,jdbcType=VARCHAR}
+
+     ,  last_chng_guid = #{lastChngGuid,jdbcType=VARCHAR}
+
+     ,  last_chng_tmstmp = #{lastChngTmstmp,jdbcType=VARCHAR}
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  zip_cd = #{zipCd}
+
+   AND  zip_cd_seq_nbr = #{zipCdSeqNbr}
+</update>
+<select id="selectList" parameterType="bankware.corebanking.applicationcommon.commondata.dao.dto.CmZipCdMIO" resultType="bankware.corebanking.applicationcommon.commondata.dao.dto.CmZipCdMIO">
+SELECT    /* 우편번호기본 */
+
+       ADDR_HRARCY_CD AS addrHrarcyCd    /*주소체계코드*/
+
+     , ADDR_ID AS addrId    /*주소식별자*/
+
+     , ZIP_CD AS zipCd    /*우편번호*/
+
+     , ZIP_CD_SEQ_NBR AS zipCdSeqNbr    /*우편번호일련번호*/
+
+     , CTY_PRVNC_ADDR AS ctyPrvncAddr    /*시도주소*/
+
+     , GUN_DSTRCT_ADDR AS gunDstrctAddr    /*군구주소*/
+
+     , EMDONG_ADDR AS dongBlwAddr    /*읍면동주소*/
+
+     , adri_addr AS adriAddr    /*리주소*/
+     , ISLNDS_ADDR AS islndsAddr    /*섬주소*/
+
+     , MUNTN_NBR_ADDR AS muntnNbrAddr    /*산번지*/
+
+     , START_NBR_ADDR AS startNbrAddr    /*시작번지주소*/
+
+     , START_HOUSEHLD_ADDR AS startHousehldAddr    /*시작호주소*/
+
+     , END_NBR_ADDR AS endNbrAddr    /*종료번지주소*/
+
+     , END_HOUSEHLD_ADDR AS endHousehldAddr    /*종료호주소*/
+
+     , APT_NM AS aptNm    /*아파트명*/
+
+     , START_APT_NBR AS startAptNbr    /*시작아파트동*/
+
+     , END_APT_NBR AS endAptNbr    /*종료아파트동*/
+
+     , ADDR AS addr    /*주소*/
+
+     , STS_CD AS stsCd    /*상태코드*/
+
+     , LAST_CHNG_TMSTMP AS lastChngTmstmp    /*최종변경일시*/
+
+     , LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+
+  FROM CM_ZIP_CD_M
+
+<where>
+
+	<if test="ctyPrvncAddr != null and ctyPrvncAddr !=''">
+
+ 		AND CTY_PRVNC_ADDR like CONCAT(CONCAT('%', #{cityPrvncAddr}), '%')
+
+ 	</if>
+
+ 	<if test="gunDstrctAddr != null and gunDstrctAddr !=''">
+
+ 		AND GUN_DSTRCT_ADDR like CONCAT(CONCAT('%', #{gunDstrctAddr}), '%')
+
+ 	</if>
+
+ 	<if test="dongBlwAddr != null and dongBlwAddr !=''">
+
+ 		AND EMDONG_ADDR like CONCAT(CONCAT('%', #{dongBlwAddr}), '%')
+
+ 	</if>
+
+ 	<if test="aptNm != null and aptNm !=''">
+
+ 		AND APT_NM like CONCAT(CONCAT('%', #{aptNm}), '%')
+
+ 	</if>
+
+ 	<if test="zipCd != null and zipCd !=''">
+
+ 		AND ZIP_CD like CONCAT(CONCAT('%', #{zipCd}), '%')
+
+ 	</if>
+
+</where>
+</select>
+</mapper>

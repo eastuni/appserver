@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.ccmainmng.online.dao.BXM_CC_ENV">
+<!--Generated Wed Nov 22 11:03:28 KST 2017-->
+<insert id="insertBxmCCEnv01C" parameterType="bxm.ccmainmng.online.dto.BxmCCEnvIO">
+INSERT INTO BXM_CC_ENV /* 센터컷 환경 */
+(
+     DOMAIN_ID /*도메인ID*/,
+    TRX_KN_CD /*거래종류코드*/,
+    USER_DEFN_CLSE_NM1 /*사용자정의항목명1*/,
+    USER_DEFN_CLSE_NM2 /*사용자정의항목명2*/,
+    USER_DEFN_CLSE_NM3 /*사용자정의항목명3*/,
+    USER_DEFN_CLSE_NM4 /*사용자정의항목명4*/,
+    USER_DEFN_CLSE_NM5 /*사용자정의항목명5*/,
+    USER_DEFN_CLSE_NM6 /*사용자정의항목명6*/,
+    USER_DEFN_CLSE_NM7 /*사용자정의항목명7*/,
+    USER_DEFN_CLSE_NM8 /*사용자정의항목명8*/,
+    USER_DEFN_CLSE_NM9 /*사용자정의항목명9*/,
+    USER_DEFN_CLSE_NM10 /*사용자정의항목명10*/,
+    MODIFY_USER_ID /*변경사용자ID*/,
+    MODIFY_OCCUR_DTTM /*변경발생일시*/ 
+)
+VALUES
+(
+    #{domainId, jdbcType=VARCHAR} /*도메인ID*/,
+    #{trxKnCd, jdbcType=VARCHAR} /*거래종류코드*/,
+    #{userDefnClseNm1, jdbcType=VARCHAR} /*사용자정의항목명1*/,
+    #{userDefnClseNm2, jdbcType=VARCHAR} /*사용자정의항목명2*/,
+    #{userDefnClseNm3, jdbcType=VARCHAR} /*사용자정의항목명3*/,
+    #{userDefnClseNm4, jdbcType=VARCHAR} /*사용자정의항목명4*/,
+    #{userDefnClseNm5, jdbcType=VARCHAR} /*사용자정의항목명5*/,
+    #{userDefnClseNm6, jdbcType=VARCHAR} /*사용자정의항목명6*/,
+    #{userDefnClseNm7, jdbcType=VARCHAR} /*사용자정의항목명7*/,
+    #{userDefnClseNm8, jdbcType=VARCHAR} /*사용자정의항목명8*/,
+    #{userDefnClseNm9, jdbcType=VARCHAR} /*사용자정의항목명9*/,
+    #{userDefnClseNm10, jdbcType=VARCHAR} /*사용자정의항목명10*/,
+    #{chngUserId, jdbcType=VARCHAR} /*변경사용자ID*/,
+    #{chngDttm, jdbcType=VARCHAR} /*변경발생일시*/ 
+)
+</insert>
+<select id="selectBxmCCEnv01H" parameterType="bxm.ccmainmng.online.dto.BxmCCEnvIO" resultType="bxm.ccmainmng.online.dto.BxmCCEnvIO">
+SELECT  /* 센터컷 환경 */
+		domain_id AS domainId,
+        trx_kn_cd AS trxKnCd    /*거래종류코드*/, 
+        user_defn_clse_nm1 AS userDefnClseNm1    /*사용자정의항목명1*/, 
+        user_defn_clse_nm2 AS userDefnClseNm2    /*사용자정의항목명2*/, 
+        user_defn_clse_nm3 AS userDefnClseNm3    /*사용자정의항목명3*/, 
+        user_defn_clse_nm4 AS userDefnClseNm4    /*사용자정의항목명4*/, 
+        user_defn_clse_nm5 AS userDefnClseNm5    /*사용자정의항목명5*/, 
+        user_defn_clse_nm6 AS userDefnClseNm6    /*사용자정의항목명6*/, 
+        user_defn_clse_nm7 AS userDefnClseNm7    /*사용자정의항목명7*/, 
+        user_defn_clse_nm8 AS userDefnClseNm8    /*사용자정의항목명8*/, 
+        user_defn_clse_nm9 AS userDefnClseNm9    /*사용자정의항목명9*/ 
+  FROM  BXM_CC_ENV
+ WHERE domain_id = #{domainId} 
+   AND trx_kn_cd = #{trxKnCd}
+   AND  user_defn_clse_nm1 = #{userDefnClseNm1}
+</select>
+<update id="updateBxmCCEnv01C" parameterType="bxm.ccmainmng.online.dto.BxmCCEnvIO">
+UPDATE  
+        BXM_CC_ENV    /* 센터컷 환경 */
+   SET  user_defn_clse_nm2 = #{userDefnClseNm2, jdbcType=VARCHAR}    /* 사용자정의항목명2 */, 
+        user_defn_clse_nm3 = #{userDefnClseNm3, jdbcType=VARCHAR}    /* 사용자정의항목명3 */, 
+        user_defn_clse_nm4 = #{userDefnClseNm4, jdbcType=VARCHAR}    /* 사용자정의항목명4 */, 
+        user_defn_clse_nm5 = #{userDefnClseNm5, jdbcType=VARCHAR}    /* 사용자정의항목명5 */, 
+        user_defn_clse_nm6 = #{userDefnClseNm6, jdbcType=VARCHAR}    /* 사용자정의항목명6 */, 
+        user_defn_clse_nm7 = #{userDefnClseNm7, jdbcType=VARCHAR}    /* 사용자정의항목명7 */, 
+        user_defn_clse_nm8 = #{userDefnClseNm8, jdbcType=VARCHAR}    /* 사용자정의항목명8 */, 
+        user_defn_clse_nm9 = #{userDefnClseNm9, jdbcType=VARCHAR}    /* 사용자정의항목명9 */, 
+        user_defn_clse_nm10 = #{userDefnClseNm10, jdbcType=VARCHAR}    /* 사용자정의항목명10 */, 
+        modify_occur_dttm = #{chngDttm}   /* 변경일시 */, 
+        modify_user_id = #{chngUserId, jdbcType=VARCHAR}    /* 변경사용자id */
+ WHERE  domain_id = #{domainId}
+   AND trx_kn_cd = #{trxKnCd, jdbcType=VARCHAR}
+   AND  user_defn_clse_nm1 = #{userDefnClseNm1, jdbcType=VARCHAR}
+</update>
+<update id="updateAutoServer" parameterType="bxm.ccmainmng.online.dto.BxmCCEnvIO">
+UPDATE BXM_CC_ENV /* 센터컷 환경 */
+  SET  USER_DEFN_CLSE_NM5 = #{userDefnClseNm5} /* 사용자정의항목명5 */,
+       MODIFY_OCCUR_DTTM = #{chngDttm} /* 변경일시 */,
+       MODIFY_USER_ID = #{chngUserId} /* 변경사용자ID */
+ WHERE DOMAIN_ID = #{domainId} 
+   AND TRX_KN_CD = #{trxKnCd}
+   AND USER_DEFN_CLSE_NM1 = #{userDefnClseNm1}
+</update>
+<select id="selectAutoServer" parameterType="bxm.ccmainmng.online.dto.BxmCCEnvIO" resultType="bxm.ccmainmng.online.dto.BxmCCEnvIO">
+SELECT /* 센터컷 환경 */ 
+	   DOMAIN_ID AS domainId,
+       TRX_KN_CD AS trxKnCd /*거래종류코드*/,
+       USER_DEFN_CLSE_NM1 AS userDefnClseNm1 /*사용자정의항목명1*/,
+       USER_DEFN_CLSE_NM2 AS userDefnClseNm2 /*사용자정의항목명2*/,
+       USER_DEFN_CLSE_NM3 AS userDefnClseNm3 /*사용자정의항목명3*/,
+       USER_DEFN_CLSE_NM4 AS userDefnClseNm4 /*사용자정의항목명4*/,
+       USER_DEFN_CLSE_NM5 AS userDefnClseNm5 /*사용자정의항목명5*/,
+       USER_DEFN_CLSE_NM6 AS userDefnClseNm6 /*사용자정의항목명6*/,
+       USER_DEFN_CLSE_NM7 AS userDefnClseNm7 /*사용자정의항목명7*/,
+       USER_DEFN_CLSE_NM8 AS userDefnClseNm8 /*사용자정의항목명8*/,
+       USER_DEFN_CLSE_NM9 AS userDefnClseNm9 /*사용자정의항목명9*/,
+       USER_DEFN_CLSE_NM10 AS userDefnClseNm10 /*사용자정의항목명10*/,
+       MODIFY_OCCUR_DTTM AS chngDttm /*변경일시*/,
+       MODIFY_USER_ID AS chngUserId /*변경사용자ID*/
+  FROM BXM_CC_ENV
+ WHERE DOMAIN_ID = #{domainId}
+   AND TRX_KN_CD = #{trxKnCd}
+   AND USER_DEFN_CLSE_NM1 = #{userDefnClseNm1}
+   AND USER_DEFN_CLSE_NM5 = #{userDefnClseNm5}
+</select>
+</mapper>

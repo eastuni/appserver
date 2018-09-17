@@ -1,0 +1,49 @@
+<!-- 공통코드 관리 팝업 -->
+<div class="common-code-management-popup">
+    <table class="bx-info-table pf-cd-manage-form">
+        <tr>
+            <th>{{bxMsg 'DomainCode'}}</th>
+            <!-- 도메인코드 -->
+            <td>
+                <input type="text" placeholder="{{bxMsg 'DPP160_Error2'}}" class="bx-form-item bx-compoenent-small domainCode" value="{{domainCode}}" data-form-param="domainCode" />
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'DomainName'}}</th>
+            <!-- 도메인코드명 -->
+            <td>
+                <input type="text" class="bx-form-item bx-compoenent-small length-check-input mandatory domainName only-english" value="{{domainName}}" data-form-param="domainName" maxlength="100" />
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'DomainContent'}}</th>
+            <!-- 도메인코드한글명 -->
+            <td>
+                <input type="text" class="bx-form-item bx-compoenent-small length-check-input mandatory domainContent" value="{{domainContent}}" data-form-param="domainContent" maxlength="500" />
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'InstanceLength'}}</th>
+            <!-- 인스턴스길이 -->
+            <td>
+                <input type="text" class="bx-form-item bx-compoenent-small length-check-input mandatory instanceLength" value="{{instanceLength}}" data-form-param="instanceLength" maxlength="3" />
+
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'HighDomainCode'}}</th>
+            <!-- 상위도메인코드 -->
+            <td>
+                <input type="text" class="bx-form-item bx-compoenent-small length-check-input highDomainCode" value="{{highDomainCode}}" data-form-param="highDomainCode" />
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'MTM0300String2'}}</th>
+            <!-- 활동여부 -->
+            <td>
+                <select class="bx-form-item bx-compoenent-small select-item cls-str-active-yn-select" data-form-param="activeYn">
+                    </select>
+            </td>
+        </tr>
+    </table>
+</div>

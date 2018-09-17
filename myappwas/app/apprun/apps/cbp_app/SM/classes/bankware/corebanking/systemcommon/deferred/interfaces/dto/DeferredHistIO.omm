@@ -1,0 +1,16 @@
+OMM bankware.corebanking.systemcommon.deferred.interfaces.dto.DeferredHistIO
+<description="후행 실행내역 IO">
+{
+	String dfrdId<length=20 description="후행ID">;
+	String bizDt<length=8 description="영업일자">;
+	Integer nodeNbr<length=2 description="노드번호">;
+	Long prlPrcsngSeqNbr<length=10 description="병렬처리일련번호">;
+	String dfrdExctnStsCd<length=1 description="후행실행상태코드">;
+	Long startSeqNbr<length=10 description="시작일련번호">;
+	Long endSeqNbr<length=10 description="종료일련번호">;
+	Long errorSeqNbr<length=10 description="에러일련번호">;
+	String startTmstmp<length=14 description="시작일시">;
+	String endTmstmp<length=14 description="종료일시">;
+	String errorCd<length=9 description="에러코드">;
+	String errorMsgCntnts<length=4000 description="에러메시지내용">;
+}

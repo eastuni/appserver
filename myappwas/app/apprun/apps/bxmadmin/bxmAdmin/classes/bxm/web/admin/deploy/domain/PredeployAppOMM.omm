@@ -1,0 +1,9 @@
+OMM bxm.web.admin.deploy.domain.PredeployAppOMM
+<description="">
+{
+	String bxmAppId<length=32 description="BXM어플리케이션ID">;
+	String bxmAppDesc<length=512 description="BXM어플리케이션설명">;
+	String bxmAppSharedYn<length=1 description="BXM어플리케이션공유코드">;
+	String bxmAppLogLv<length=10 description="BXM어플리케이션로그레벨 ">;
+	String refBxmAppIdList<length=1024 description="참조 BXM어플리케이션ID 목록">;
+}

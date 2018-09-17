@@ -1,0 +1,6 @@
+OMM bankware.corebanking.deposit.transaction.batch.dto.TermArrOpenFromSwingBalanceTrgtIO
+<description="">
+{
+	String acctNbr<length=15 description="계좌번호">;
+	BigDecimal lastBal<length=18 decimal=2 description="최종잔액">;
+}

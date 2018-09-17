@@ -1,0 +1,13 @@
+OMM bxm.ccmainmng.online.pc.dto.SCC100204In
+<description="">
+{
+	String ccId<length=20 description="센터컷ID">;
+	String pcsnDt<length=20 description="처리일자">;
+	Integer acptNo<length=9 description="접수번호">;
+	Integer tnNo<length=9 description="회차번호">;
+	Integer execNo<length=9 description="실행번호">;
+	Integer paraPrcsCnt<length=9 description="병렬프로세스수">;
+	String nodeAsgnMethCd<length=20 description="노드지정방법코드">;
+	Integer size<length=9>;
+	bxm.ccmainmng.online.pc.dto.SCC100204InSub1 nodeList<length=0 arrayReference="size">;
+}

@@ -1,0 +1,32 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IgMsg403006 extends bankware.corebanking.externalproxy.message.interfaces.dto.IgComm
+<description="일반지로 납부내역 상세조회 표준전문">
+{
+	String pymntFormDscd<length=1 description="납부형태구분코드">;
+	String elctrncPymntNbr<length=20 description="전자납부번호">;
+	String maskRvctnIdNbr<length=13 description="마스킹해제주민등록번호" encrypt="AES256">;
+	String impstnYm<length=6 description="부과년월" defaultValue="000000">;
+	String ntfctnFormCd<length=1 description="고지형태코드" defaultValue="0">;
+	String giroIssueFormCd<length=1 description="발행형태코드" defaultValue="0">;
+	String etcCd<length=2 description="기타" defaultValue="00">;
+	String prdDt1<length=8 description="납기일자(1차)" defaultValue="00000000">;
+	BigDecimal bfPrdAmt<length=12 description="납기내금액">;
+	String prdDt2<length=8 description="납기일자(2차)" defaultValue="00000000">;
+	BigDecimal afPrdAmt<length=12 description="납기후금액">;
+	String sheetDscd<length=1 description="장표종류코드">;
+	String custInqryCustNbr<length=20 description="고객조회고객번호">;
+	String payerCnfrmNbr<length=20 description="납부자확인번호">;
+	String payerCnfrmInfoCntnt<length=40 description="납부자확인정보" encrypt="KSC5601">;
+	String cmpnyNm<length=30 description="상호명" encrypt="KSC5601">;
+	String giroUseInstCntnt<length=34 description="지로이용기관" encrypt="KSC5601">;
+	String dfltStartMnth<length=6 description="체납시작월" defaultValue="000000">;
+	String dfltEndMnth<length=6 description="체납종료월" defaultValue="000000">;
+	Integer dfltMnthCnt<length=3 description="체납개월수">;
+	String pymntUseSysDscd1<length=1 description="납부이용시스템코드">;
+	String rcvngBnkBrnchCd<length=7 description="수납은행점별코드" defaultValue="0000000">;
+	String pymntTmstmp<length=14 description="납부일시" defaultValue="00000000000000">;
+	BigDecimal pymntAmt<length=12 description="납부금액">;
+	String whdrwlAcctNbr<length=16 description="출금계좌번호" encrypt="AES256">;
+	String payerFullNm<length=10 description="납부자성명" encrypt="KSC5601">;
+	String ntfctnDt<length=8 description="고지일자" defaultValue="00000000">;
+	String fillerCntnt50<length=50 description="fillerCntnt50">;
+}

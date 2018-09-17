@@ -1,0 +1,86 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for data migration execute
+ * 데이터이행실행 CSS 
+ */
+.pf-migration .pf-page-conts {
+    margin: 10px auto; }
+.pf-migration .pf-migration-grid {
+	height: 450px; 
+}
+.pf-migration-detail-tpl .pf-migration-detail-form {
+    margin-bottom: 10px; }
+.pf-migration-detail-tpl .pf-migration-detail-table {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+.pf-migration-detail-tpl .button-footer {
+    text-align: right; }
+
+/* 데이터이행단계 그리드 */
+.pf-migration-detail-tpl .pf-migration-step-grid {
+    height: 428px;
+    margin-bottom: 5px; }
+.pf-migration-detail-tpl .pf-migration-detail-table input {
+    width:166px;
+}
+.pf-migration-result-list-wrap {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.pf-migration-result-list-wrap .pf-migration-result-grid {
+    height: 180px; }
+.pf-migration-result-list-wrap .pf-migration-result-detail-grid {
+    height: 180px; }
+.pf-migration-result-info-wrap {
+    padding: 10px; }
+.pf-migration-detail-header {
+    height: 63px; }
+.pf-migration-detail-header .td-width {
+    width: 106px; }
+.pf-migration-detail-header button {
+    float:right;
+}
+/*th width*/
+.pf-migration th {
+    width:100px;
+}
+/*탭간격조절*/
+.nav-tabs .pfui-tab-item-text {
+    margin-right:-1px;
+    width:150px;
+}
+.pf-migration-result .pf-migration-result-list-wrap .grid-extra-header,
+.pf-migration-result-info-wrap  .grid-extra-header {
+    font-size: 13px;
+    font-weight: 600;
+    color: #515151;
+}
+.x-grid-row-alt .x-grid-td {
+    background-color: #fafafa;
+}
+.loading-dim {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.4);
+	display: none;
+	z-index: 10;
+}
+.loading-dim-icon {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -40px;
+	margin-top: -40px;
+	color: white;
+	font-size: 80px;
+}
+.pd-migration-result-detail-area {
+	height: 520px;
+	overflow: auto; 
+}

@@ -1,0 +1,5 @@
+OMM bankware.corebanking.p2ploan.repayment.service.dto.LnRpymntPlnListOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="Loan Repayment Plan List Output">
+{
+	bankware.corebanking.p2ploan.repayment.service.dto.LnRpymntTx lnRpymntTxList<length=0 arrayReference="200" description="대출상환대상내역">;
+}

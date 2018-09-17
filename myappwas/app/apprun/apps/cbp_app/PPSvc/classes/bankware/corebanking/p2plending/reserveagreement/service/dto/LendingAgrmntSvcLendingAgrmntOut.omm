@@ -1,0 +1,7 @@
+OMM bankware.corebanking.p2plending.reserveagreement.service.dto.LendingAgrmntSvcLendingAgrmntOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String arrStsCd<length=2 description="계약상태코드">;
+	String arrId<length=40 description="계약식별자">;
+	String mthrArrId<length=40 description="모계약식별자">;
+}

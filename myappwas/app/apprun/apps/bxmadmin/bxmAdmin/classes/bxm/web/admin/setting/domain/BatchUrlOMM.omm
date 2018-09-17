@@ -1,0 +1,14 @@
+OMM bxm.web.admin.setting.domain.BatchUrlOMM
+<description="BatchUrlOMM">
+{
+	String batchUrl<length=512 description="배치URL">;
+	String batchUrlDesc<length=512 description="배치 URL 설명">;
+	String useYn<length=1 description="사용여부">;
+	String batchUrlTypeCd<length=1 description="배치URL유형코드">;
+	String urlTypeCd<length=1 description="URL유형코드">;
+	String regUserId<length=32 description="등록 사용자 ID">;
+	String regOccurDttm<length=23 description="등록 발생 일시">;
+	String modifyUserId<length=32 description="변경 사용자 ID">;
+	String modifyOccurDttm<length=23 description="변경 발생 일시">;
+	String batchUrlTypeCdNm<length=128 description="배치URL유형코드 명">;
+}

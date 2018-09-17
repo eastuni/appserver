@@ -1,0 +1,17 @@
+OMM bankware.corebanking.externalproxy.cdjointnetwork.interfaces.dto.ExternalCdCd1111DownloadOut
+<description="">
+{
+	String fnclInstCd<length=3 description="금융기관코드">;
+	BigDecimal opnCloseBfTxCnt<length=15 description="개설마감전거래건수">;
+	BigDecimal opnCloseAfTxCnt<length=15 description="개설마감후거래건수">;
+	BigDecimal opnCloseBfTxAmt<length=18 decimal=2 description="개설마감전거래금액">;
+	BigDecimal opnCloseAfTxAmt<length=18 decimal=2 description="개설마감후거래금액">;
+	BigDecimal opnTotCnt<length=15 description="개설합계건수">;
+	BigDecimal opnTotAmt<length=18 decimal=2 description="개설합계금액">;
+	BigDecimal hndlngCloseBfTxCnt<length=15 description="취급마감전거래건수">;
+	BigDecimal hndlngCloseAfTxCnt<length=15 description="취급마감후거래건수">;
+	BigDecimal hndlngCloseBfTxAmt<length=18 decimal=2 description="취급마감전거래금액">;
+	BigDecimal hndlngCloseAfTxAmt<length=18 decimal=2 description="취급마감후거래금액">;
+	BigDecimal hndlngTotCnt<length=15 description="취급합계건수">;
+	BigDecimal hndlngTotAmt<length=18 decimal=2 description="취급합계금액">;
+}

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpPgPG1112">
+<!--Generated Tue May 16 09:32:18 KST 2017-->
+<select id="selectList" resultType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.PG1112InqryIFSub">
+SELECT
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래일자*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        WHDRWL_DT AS whdrwlDt,     /*출금일자*/
+        WHDRWL_CNT AS whdrwlCnt,     /*출금건수*/
+        WHDRWL_AMT AS whdrwlAmt,     /*출금금액*/
+        FEE_AMT AS feeAmt,     /*수수료*/
+        DEBIT_DPST_BNK_FEE_AMT AS debitDpstBnkFeeAmt,     /*차변입금은행수수료*/
+        REAL_SBMT_AMT AS realSbmtAmt,     /*실제출금액*/
+        MNY_RCVD_CNT AS mnyRcvdCnt,     /*입금건수*/
+        MNY_RCVD_AMT AS mnyRcvdAmt,     /*입금금액*/
+        CRDT_DPST_BNK_FEE_AMT AS crdtDpstBnkFeeAmt,     /*대변입금은행수수료*/
+        DPST_SUM_AMT AS dpstSumAmt,     /*입금합계금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+FROM 
+    ( SELECT ROWNUM AS ROW__NUM,
+	         A.INST_CD,
+	         A.TX_DT,
+	         A.SEQ_NBR,
+	         A.WHDRWL_DT,
+	         A.WHDRWL_CNT,
+	         A.WHDRWL_AMT,
+	         A.FEE_AMT,
+	         A.DEBIT_DPST_BNK_FEE_AMT,
+	         A.REAL_SBMT_AMT,
+	         A.MNY_RCVD_CNT,
+	         A.MNY_RCVD_AMT,
+	         A.CRDT_DPST_BNK_FEE_AMT,
+	         A.DPST_SUM_AMT,
+	         A.LAST_CHNG_TMSTMP,
+	         A.LAST_CHNG_GUID
+      FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* PG업무입출금및입금내역 */
+        INST_CD,
+        TX_DT,
+        SEQ_NBR,
+        WHDRWL_DT,
+        WHDRWL_CNT,
+        WHDRWL_AMT,
+        FEE_AMT,
+        DEBIT_DPST_BNK_FEE_AMT,
+        REAL_SBMT_AMT,
+        MNY_RCVD_CNT,
+        MNY_RCVD_AMT,
+        CRDT_DPST_BNK_FEE_AMT,
+        DPST_SUM_AMT,
+        LAST_CHNG_TMSTMP,
+        LAST_CHNG_GUID
+  FROM  XP_PG_PG1112_H
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+   AND TX_DT &gt;= #{txStartDt, jdbcType=VARCHAR}
+   AND TX_DT &lt;= #{txEndDt, jdbcType=VARCHAR}
+ORDER BY TX_DT desc, SEQ_NBR desc
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr, jdbcType=NUMERIC}*#{pgCnt, jdbcType=NUMERIC})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr, jdbcType=NUMERIC}-1)*#{pgCnt, jdbcType=NUMERIC}
+</select>
+<select id="selectAllCount" resultType="java.lang.Integer">
+SELECT    COUNT(1)
+  FROM  XP_PG_PG1112_H
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+   AND TX_DT &gt;= #{txStartDt, jdbcType=VARCHAR}
+   AND TX_DT &lt;= #{txEndDt, jdbcType=VARCHAR}
+</select>
+<select id="selectListXpPgPG111x" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpPgPG1112IO">
+SELECT    /* PG망차액결제대사금액조회 */
+        SUM(mnyRcvdAmt) AS mnyRcvdAmt,     /*입금금액*/
+        SUM(realSbmtAmt) AS realSbmtAmt,     /*실제출금액*/
+        SUM(crdtDpstBnkFeeAmt) AS crdtDpstBnkFeeAmt,     /*대변입금은행수수료*/
+        SUM(netStlmntAmt) AS netStlmntAmt     /*차액결제금액*/
+FROM (
+SELECT    /* PG업무입출금내역(PG1112) */
+        T1.MNY_RCVD_AMT AS mnyRcvdAmt,
+        T1.REAL_SBMT_AMT AS realSbmtAmt,
+        T1.CRDT_DPST_BNK_FEE_AMT AS crdtDpstBnkFeeAmt,
+        0  AS netStlmntAmt    /*차액결제금액*/
+  FROM  XP_PG_PG1112_H T1
+  LEFT  OUTER JOIN CM_BIZ_DAY_M T2
+    ON  T2.INST_CD = T1.INST_CD
+   AND  T2.BASE_DT = #{txDt}
+ WHERE
+        T1.INST_CD = #{instCd}
+   AND  T1.TX_DT &gt;= T2.BF_BIZ_DT
+   AND  T1.TX_DT &lt; T2.BIZ_DT
+UNION ALL
+SELECT    /* PG실시간입출금내역(PG1115)  */
+        T1.MNY_RCVD_AMT AS mnyRcvdAmt,
+        T1.REAL_SBMT_AMT AS realSbmtAmt,
+        T1.CRDT_DPST_BNK_FEE_AMT AS crdtDpstBnkFeeAmt,
+        T1.FUND_ADJSTMNT_STLMNT_TX_NET_AMT  AS netStlmntAmt     /*차액결제금액*/
+  FROM  XP_PG_PG1115_H T1
+  LEFT  OUTER JOIN CM_BIZ_DAY_M T2
+    ON  T2.INST_CD = T1.INST_CD
+   AND  T2.BASE_DT = #{txDt}
+ WHERE
+        T1.INST_CD = #{instCd}
+   AND  T1.TX_DT &gt;= T2.BF_BIZ_DT
+   AND  T1.TX_DT &lt; T2.BIZ_DT
+)
+</select>
+</mapper>

@@ -1,0 +1,15 @@
+OMM bxm.web.admin.system.setting.domain.CacheOMM
+<description="">
+{
+	String cacheNm<length=128 description="캐시명">;
+	String tableNm<length=100 description="테이블명">;
+	String cacheConfig<length=1024 description="환경값">;
+	String selectCndt<length=1024 description="조회조건">;
+	String description<length=512 description="설명">;
+	String initLoadYn<length=1 description="초기적재여부">;
+	String useYn<length=1 description="사용여부">;
+	String modifyUserId<length=32 description="변경사용자ID">;
+	String modifyDttm<length=23 description="변경일시">;
+	String bxmAppId<length=40 description="BXM어플리케이션ID">;
+	String dtoNm<length=1024 description="DTO명">;
+}

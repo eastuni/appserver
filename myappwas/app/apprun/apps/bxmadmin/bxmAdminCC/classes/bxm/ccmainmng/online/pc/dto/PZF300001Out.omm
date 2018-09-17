@@ -1,0 +1,18 @@
+OMM bxm.ccmainmng.online.pc.dto.PZF300001Out
+<description="  ">
+{
+	Integer rowCnt<length=6>;
+	bxm.ccmainmng.online.pc.dto.PZF3000OutSub1 listProcessCnt<length=0 arrayReference="rowCnt">;
+	Integer rowCnt2<length=6>;
+	bxm.ccmainmng.online.pc.dto.PZF3000OutSub3 listMonthCnt<length=0 arrayReference="rowCnt2">;
+	Integer rowCnt4<length=6>;
+	bxm.ccmainmng.online.pc.dto.PZF3000OutSub4 listPara<length=0 arrayReference="rowCnt4">;
+	Integer rowCnt5<length=6>;
+	bxm.ccmainmng.online.pc.dto.PZF3000OutSub5 listAlarm<length=0 arrayReference="rowCnt5">;
+	Integer rowCnt6<length=6>;
+	bxm.ccmainmng.online.pc.dto.PZF3000OutSub6 listError<length=0 arrayReference="rowCnt6">;
+	Integer rowCnt7<length=6>;
+	bxm.ccmainmng.online.pc.dto.PZF3000OutSub7 listLog<length=0 arrayReference="rowCnt7">;
+	Integer rowCnt8<length=6>;
+	bxm.ccmainmng.online.pc.dto.PZF3000OutSub8 listMonitor<length=0 arrayReference="rowCnt8">;
+}

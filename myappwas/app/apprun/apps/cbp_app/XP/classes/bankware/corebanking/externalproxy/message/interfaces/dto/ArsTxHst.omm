@@ -1,0 +1,9 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.ArsTxHst
+<description="">
+{
+	String txDt<length=4 description="거래일자">;
+	String txShopCd<length=7 description="거래점코드">;
+	String tranrNm<length=10 encrypt="KSC5601" description="거래자성명">;
+	String txCntnt<length=2 description="거래내용">;
+	String txAmt<length=12 description="거래금액">;
+}

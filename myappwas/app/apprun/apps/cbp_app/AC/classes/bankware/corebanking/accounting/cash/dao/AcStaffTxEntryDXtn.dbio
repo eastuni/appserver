@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.accounting.cash.dao.AcStaffTxEntryDXtn">
+<!--Generated Tue Jan 09 17:55:07 KST 2018-->
+<select id="selectByGuidLogSeqNbr" resultType="bankware.corebanking.accounting.cash.dao.dto.AcStaffTxEntryDselectOut">
+SELECT  b.GUID   AS guid
+		, a.INST_CD   AS instCd
+		, b.ACCTG_PRCSNG_DT AS acctgPrcsngDt
+		, b.DEPT_ID AS deptId
+		, b.TX_DEPT_ID AS txDeptId
+		, b.MGMT_DEPT_ID AS mgmtDeptId
+		, a.STAFF_ID AS staffId
+		, b.CLSG_BFAF_DSCD AS clsgBfafDscd
+		, a.NRML_CNCL_CRCTN_DSCD AS nrmlCnclCrctnDscd
+		, a.DPST_WHDRWL_DSCD AS dpstWhdrwlDscd
+      	, a.TX_DT  AS txDt
+		, b.TX_HMS AS txHms
+		, a.CRNCY_CD AS crncyCd
+		, a.ACCTG_DSCD AS acctgDscd
+		, a.ACCTG_ITM_CD AS acctgItmCd
+	    , b.TX_AMT AS txAmt     /*거래금액*/
+        , b.CASH_AMT AS cashAmt     /*현금거래금액*/
+        , b.CHK_AMT AS chkAmt     /*자기앞금액*/
+	    , b.OTHR_CHK_AMT AS othrChkAmt     /*기타타점권금액*/
+	    , b.TRNSFR_AMT AS trnsfrAmt     /*대체금액*/
+	    , b.frgn_tx_amt AS frgnTxAmt     /*외화거래금액*/
+	    , b.frgn_trnsfr_amt AS frgnTrnsfrAmt     /*외화대체금액*/
+	    , b.FRGN_TRNSFR_CNVRTD_AMT AS frgnTrnsfrCnvrtdAmt    /*외화대체환산금액*/
+		, b.RCKNG_DT AS rckngDt
+   		, b.CHNL_DSCD AS chnlDscd
+		, b.BIZ_DSCD AS bizDscd
+		, b.PD_TP_CD AS pdTpCd
+		, b.PD_TMPLT_CD AS pdTmpltCd
+		, b.PD_CD AS pdCd
+		, b.AMT_TP_CD AS amtTpCd
+		, b.SLIP_DSCD AS slipDscd
+		, b.SLIP_NBR AS slipNbr
+		, b.CHK_CNT AS chkCnt
+		, b.SRVC_CD AS srvcCd
+		, b.SCRN_ID AS scrnId
+		, b.BNK_CD AS bankCd
+		, b.ACCT_NBR AS acctNbr
+		, b.ARR_ID AS arrId
+		, b.TX_SEQ_NBR AS txSeqNbr
+		, b.DTL_SEQ_NBR AS dtlSeqNbr
+		, b.CUST_ID AS custId
+		, b.TX_CUST_ID AS txCustId
+		, b.JRNZ_PRCS_YN AS jrnzPrcsYn
+  FROM AC_STAFF_TX_ENTRY_D a, AC_ACCTG_L b
+WHERE  a.last_chng_guid = #{guid}
+	and a.log_seq_nbr = #{logSeqNbr}
+	and a.last_chng_guid = b.guid
+	and a.log_seq_nbr = b.log_seq_nbr
+ORDER BY a.STAFF_ID, b.TX_HMS
+</select>
+<select id="selectList" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcStaffTxEntryDselectListIn" resultType="bankware.corebanking.accounting.cash.dao.dto.AcStaffTxEntryDselectListOut">
+select b.inst_cd as instCd
+
+      ,a.tx_dt as txDt
+
+      ,b.staff_id as staffId
+
+      ,b.tx_seq_nbr as txSeqNbr
+
+      ,b.entry_seq_nbr as entrySeqNbr
+
+      ,a.dept_id as deptId
+
+      ,b.ACCTG_DEPT_ID as acctgDeptId
+
+      ,a.slip_dscd as slipDscd
+
+      ,a.slip_nbr as slipNbr
+
+      ,a.tx_hms as txHms
+
+      ,a.nrml_cncl_crctn_dscd as nrmlCnclCrctnDscd
+
+      ,a.CLSG_BFAF_DSCD as clsgBfafDscd
+
+      ,b.ACCTG_DSCD AS acctgDscd
+
+      ,b.acctg_itm_cd as acctgItmCd
+
+      ,b.dpst_whdrwl_dscd as dpstWhdrwlDscd
+      ,b.tx_amt as txAmt
+
+      ,b.trnsfr_amt as trnsfrAmt
+
+      ,b.crncy_tx_amt as crncyTxAmt
+
+      ,b.chk_tx_amt as chkTxAmt
+
+      ,b.othr_chk_tx_amt as othrChkTxAmt
+
+      ,b.frgn_tx_amt as frgnTxAmt
+      ,b.frgn_trnsfr_amt as frgnTrnsfrAmt
+      ,b.acct_nbr as acctNbr
+
+      ,b.crncy_cd as crncyCd
+
+      ,b.LOG_SEQ_NBR AS logSeqNbr
+
+      ,b.last_Chng_Guid as guid
+
+  from ac_staff_tx_m a
+
+      ,ac_staff_tx_entry_d b
+
+ where a.inst_cd = b.inst_cd
+
+   and a.dept_id = b.dept_id
+
+   and a.staff_id = b.staff_id
+
+   and a.tx_dt = b.tx_dt
+
+   and a.tx_seq_nbr = b.tx_seq_nbr 
+
+<if test="instCd != null and instCd != ''">   
+
+   and a.inst_cd = #{instCd}
+
+</if>   
+
+<if test="staffId != null and staffId != ''">   
+
+   and a.staff_id = #{staffId}
+
+</if>      
+
+<if test="deptId != null and deptId != ''">   
+
+   and a.dept_id = #{deptId}
+
+</if>
+
+<if test="txDt != null and txDt != ''">   
+
+   and a.tx_dt = #{txDt}
+
+</if>
+
+<if test="clsgBfafDscd != null and clsgBfafDscd != ''">      
+
+   and a.CLSG_BFAF_DSCD = #{clsgBfafDscd}
+
+</if>
+
+<if test="startTxHms != null and startTxHms != ''">      
+
+   and a.tx_hms &gt;= #{startTxHms}
+
+</if>
+
+<if test="endTxHms != null and endTxHms != ''">      
+
+   and a.tx_hms &lt;= #{endTxHms}
+
+</if>
+
+order by b.inst_cd,b.staff_id,a.tx_hms ,b.tx_seq_nbr, entry_seq_nbr
+</select>
+</mapper>

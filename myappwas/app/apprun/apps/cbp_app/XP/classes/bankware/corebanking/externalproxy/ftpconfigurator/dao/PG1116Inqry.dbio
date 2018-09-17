@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.PG1116Inqry">
+<!--Generated Mon Feb 06 15:42:49 KST 2017-->
+<select id="selectPG1116InqryTotalCnt" parameterType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.PG1116InqryIFIn" resultType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.PG1116InqryIFOut">
+SELECT count(1) as totalCount
+  FROM  XP_PG_PG1116_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+</select>
+<select id="selectPG1116InqryList" parameterType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.PG1116InqryIFIn" resultType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.PG1116InqryIFOutSub">
+SELECT 
+A.txDt,     /*거래일자*/
+        A.seqNbr,     /*일련번호*/
+        A.orgnlTxGuid,     /*원거래GUID*/
+        A.orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+        A.orgnlTxCntrMsgSndDtm,     /*원거래센터전문전송일시*/
+        A.orgnlTxWhdrwlAcctNbr AS orgnlTxWhdrwlAcctNbr,     /*원거래출금계좌번호*/
+        A.orgnlTxWhdrwlAmt,     /*원거래출금금액*/
+        A.orgnlTxWhdrwlFeeAmt,     /*원거래출금수수료*/
+        A.orgnlTxFeeAlctnBnkCd,     /*원거래수수료배분은행코드*/
+        A.orgnlTxAlctnFeeAmt,     /*원거래배분수수료금액*/
+        A.psbkCntnt,     /*통자인자내용*/
+        A.cntrCtPrcsngRsltCd     /*센터컷처리결과코드*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM,
+		A.txDt,     /*거래일자*/
+        A.seqNbr,     /*일련번호*/
+        A.orgnlTxGuid,     /*원거래GUID*/
+        A.orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+        A.orgnlTxCntrMsgSndDtm,     /*원거래센터전문전송일시*/
+        A.orgnlTxWhdrwlAcctNbr,     /*원거래출금계좌번호*/
+        A.orgnlTxWhdrwlAmt,     /*원거래출금금액*/
+        A.orgnlTxWhdrwlFeeAmt,     /*원거래출금수수료*/
+        A.orgnlTxFeeAlctnBnkCd,     /*원거래수수료배분은행코드*/
+        A.orgnlTxAlctnFeeAmt,     /*원거래배분수수료금액*/
+        A.psbkCntnt,     /*통자인자내용*/
+        A.cntrCtPrcsngRsltCd     /*센터컷처리결과코드*/
+     FROM 
+        (
+        
+
+SELECT    /* 실시간출금취소미완료내역 */
+        TX_DT AS txDt,     /*거래일자*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        ORGNL_TX_GUID AS orgnlTxGuid,     /*원거래GUID*/
+        ORGNL_TX_CNTR_MSG_MGMT_NBR AS orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+        ORGNL_TX_CNTR_MSG_SND_DTM AS orgnlTxCntrMsgSndDtm,     /*원거래센터전문전송일시*/
+        ORGNL_TX_WHDRWL_ACCT_NBR AS orgnlTxWhdrwlAcctNbr,     /*원거래출금계좌번호*/
+        ORGNL_TX_WHDRWL_AMT AS orgnlTxWhdrwlAmt,     /*원거래출금금액*/
+        ORGNL_TX_WHDRWL_FEE_AMT AS orgnlTxWhdrwlFeeAmt,     /*원거래출금수수료*/
+        ORGNL_TX_FEE_ALCTN_BNK_CD AS orgnlTxFeeAlctnBnkCd,     /*원거래수수료배분은행코드*/
+        ORGNL_TX_ALCTN_FEE_AMT AS orgnlTxAlctnFeeAmt,     /*원거래배분수수료금액*/
+        PSBK_CNTNT AS psbkCntnt,     /*통자인자내용*/
+        CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd     /*센터컷처리결과코드*/
+  FROM  XP_PG_PG1116_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+   order by TX_DT desc, SEQ_NBR desc
+   
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) A
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+</mapper>

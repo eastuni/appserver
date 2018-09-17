@@ -1,0 +1,31 @@
+OMM bxm.ccmainmng.online.dto.BxmCCWorkStatusIO
+<description=" ">
+{
+	String domainId<length=20 description="도메인ID">;
+	String ccId<length=9 description="CCID">;
+	String pcsnDt<length=8 description="처리일자">;
+	Integer acptNo<length=3 description="접수번호">;
+	Integer execNo<length=6 description="실행번호">;
+	Integer tnNo<length=2 description="회차번호">;
+	Integer pcsnStat<length=2 description="처리상태">;
+	String fstSrtDt<length=8 description="최초시작일자">;
+	String fstSrtTime<length=6 description="최초시작시각">;
+	String reSrtDt<length=8 description="재시작일자">;
+	String reSrtTime<length=6 description="재시작시각">;
+	String endDt<length=8 description="종료일자">;
+	String endTime<length=6 description="종료시각">;
+	BigDecimal maxPcsnCnt<length=15 description="최대처리개수">;
+	BigDecimal lastPcsnNo<length=15 description="최종처리번호">;
+	BigDecimal ttObjCnt<length=10 description="총대상건수">;
+	BigDecimal ttObjAmt<length=20 decimal=2 description="총대상금액">;
+	BigDecimal nomlPcsnCnt<length=10 description="정상처리건수">;
+	BigDecimal nomlPcsnAmt<length=20 decimal=2 description="정상처리금액">;
+	BigDecimal errPcsnCnt<length=10 description="오류처리건수">;
+	BigDecimal errPcsnAmt<length=20 decimal=2 description="오류처리금액">;
+	BigDecimal delPcsnCnt<length=10 description="삭제처리건수">;
+	BigDecimal delPcsnAmt<length=20 decimal=2 description="삭제처리금액">;
+	String chngDttm<length=30 description="변경일시">;
+	String chngUserId<length=20 description="변경사용자ID">;
+	Integer pageNum<length=9 description="페이지숫자">;
+	Integer pageCount<length=9 description="페이지카운트">;
+}

@@ -1,0 +1,5 @@
+OMM bankware.cloud.engine.dto.CbbDistributeSecondPhasePostprocessO
+<description="Distributed Service's Second Phase's Postprocess output DTO.     ">
+{
+	Boolean reExctnYn<length=1 description="재실행여부">;
+}

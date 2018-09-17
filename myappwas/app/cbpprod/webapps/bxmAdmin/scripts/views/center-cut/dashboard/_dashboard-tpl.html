@@ -1,0 +1,63 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'centerCut.centerCutDashboard'}}
+    <p class="desc">{{bxMsg 'centerCut.centerCutDashboardMsg'}}</p>
+    <div class="f-r header-wrap">
+        <label class="desc schedule-date">{{bxMsg 'centerCut.transactionDate'}} :</label>
+        <input type="text" class="bw-input ipt-cal a-center add-bd" data-form-param="pcsnDt" readonly/>
+        <select class="bw-input ipt-select reload-interval-select">
+            <option value="">{{bxMsg 'common.no-auto-refresh'}}</option>
+            <option value="10000">10{{bxMsg 'common.second'}}</option>
+            <option value="30000" selected>30{{bxMsg 'common.second'}}</option>
+            <option value="60000">60{{bxMsg 'common.second'}}</option>
+        </select>
+        <button type="button" class="bw-btn refresh-btn" title="{{bxMsg 'common.refresh'}}"><i class="bw-icon i-25 i-func-refresh"></i></button>
+    </div>
+</h2>
+<!--/END BW-TITLE-->
+<!--MODULE AREA * 레이아웃용 모듈영역-->
+<div class="module-wrap md-db">
+    <div class="module w-50">
+        <div class="module-inner">
+            <h3 class="db-tt">{{bxMsg 'centerCut.processesPerServer'}}</h3>
+            <canvas class="bw-chart chart-m processesPerServerChart"></canvas>
+        </div>
+    </div>
+    <div class="module w-50">
+        <div class="module-inner md-lc">
+            <h3 class="db-tt">{{bxMsg 'centerCut.parallelProcessStatus'}}</h3>
+            <div class="bw-grid clr-mg add-bd2-t grid-header-no-border grid-body-no-border parallelProcessStatusGrid"></div>
+        </div>
+    </div>
+    <!--<div class="module w-66-6">-->
+        <!--<div class="module-inner">-->
+            <!--<h3 class="db-tt">{{bxMsg 'centerCut.alarmOccurrenceCases'}}</h3>-->
+            <!--<div class="bw-grid clr-mg add-bd2-t grid-header-no-border grid-body-no-border alarmOccurrenceCasesGrid"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="module w-50">
+        <div class="module-inner">
+            <h3 class="db-tt">{{bxMsg 'centerCut.dailyTransactionsPerTask'}}</h3>
+            <canvas class="bw-chart chart-m dailyTransactionsPerTaskChart"></canvas>
+        </div>
+    </div>
+    <div class="module w-50">
+        <div class="module-inner md-lc">
+            <h3 class="db-tt">{{bxMsg 'centerCut.errorOccurrenceCases'}}</h3>
+            <div class="bw-grid clr-mg add-bd2-t grid-header-no-border grid-body-no-border errorOccurrenceCasesGrid"></div>
+        </div>
+    </div>
+    <div class="module w-100">
+        <div class="module-inner">
+            <h3 class="db-tt">{{bxMsg 'centerCut.keyLogs'}}</h3>
+            <div class="bw-grid clr-mg add-bd2-t grid-header-no-border grid-body-no-border keyLogsGrid"></div>
+        </div>
+    </div>
+    <!--<div class="module w-50">-->
+        <!--<div class="module-inner md-lc">-->
+            <!--<h3 class="db-tt">{{bxMsg 'centerCut.monitoringStatus'}}</h3>-->
+            <!--<div class="bw-grid clr-mg add-bd2-t grid-header-no-border grid-body-no-border monitoringStatusGrid"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+<!--/END MODULE AREA-->

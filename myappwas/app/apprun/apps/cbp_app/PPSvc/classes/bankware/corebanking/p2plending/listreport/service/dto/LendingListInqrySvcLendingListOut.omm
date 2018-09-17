@@ -1,0 +1,5 @@
+OMM bankware.corebanking.p2plending.listreport.service.dto.LendingListInqrySvcLendingListOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	bankware.corebanking.p2ploan.information.service.dto.LnListOut loanList<length=0 arrayReference="1000" description="대출리스트">;
+}

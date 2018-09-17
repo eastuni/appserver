@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.batch.dbio.OndemandExecuteDBIO">
+<!--Generated Wed Nov 29 17:20:14 KST 2017-->
+<select id="selectBatchUrl" resultType="bxm.web.admin.setting.domain.BatchUrlOMM">
+SELECT /* BXM배치URL */ 
+       BATCH_URL AS batchUrl,/*배치URL*/ 
+       BATCH_URL_DESC AS batchUrlDesc,/*배치 URL 설명*/ 
+       USE_YN AS useYn/*사용여부*/ 
+  FROM BXM_BATCH_URL
+  WHERE USE_YN = #{useYn} 
+  	AND URL_TYPE_CD = #{urlTypeCd}
+</select>
+<select id="selectFBatchRegistry" resultType="java.lang.String">
+SELECT 
+       FRM_INSTANCE_ID AS frmInstanceId
+  FROM F_BATCH_JOB_REGISTRY
+  WHERE JOB_NAME = #{jobName}
+</select>
+<select id="selectRuntimeInstance" resultType="java.lang.String">
+SELECT
+       BXM_INSTANCE_ID AS bxmInstanceId
+  FROM BXM_RUNTIME_INSTANCE
+ WHERE BXM_INSTANCE_ID = #{bxmInstanceId}
+</select>
+<delete id="deleteFBatchRegistry">
+DELETE FROM F_BATCH_JOB_REGISTRY
+ WHERE FRM_INSTANCE_ID=#{frmInstanceId}
+</delete>
+</mapper>

@@ -1,0 +1,92 @@
+<!-- 정합성검증상세 팝업 -->
+<div class="pf-cnstncy-chk-detail-popup">
+
+    <div class="pf-cnstncy-chk-sub-tab">
+    </div>
+
+    <div id="pf-cnstncy-chk-sub-tab-conts" class="cnstncy-chk-sub-conts">
+
+        <!-- 정합성검증상세 탭 -->
+        <div class="pf-cnstncy-chk-information">
+            <div class="pf-cnstncy-chk-detail-tpl">
+                <div class="pf-panelbody bx-info-table-wrap">
+                    <div class="pf-cnstncy-chk-detail-form">
+                        <table class="bx-info-table pf-cnstncy-chk-detail-table">
+                            <tr>
+                                <!-- 정합성체크ID -->
+                                <th>{{bxMsg 'cnstncyChkId'}}</th>
+                                <td>
+                                    <input type="text" class="bx-form-item bx-compoenent-small cnstncy-chk-id" disabled value="{{cnstncyChkId}}" data-form-param="cnstncyChkId">
+                                </td>
+                                <!-- 정합성체크상태-->
+                                <th>{{bxMsg 'cnstncyChkStatus'}}</th>
+                                <td>
+                                    <select disabled data-form-param="cnstncyChkStsCd" class="bx-form-item bx-compoenent-small cnstncy-chk-status-code-list">
+                                        </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- 수행일자 -->
+                                <th>{{bxMsg 'performDate'}}</th>
+                                <td>
+                                    <input type="text" class="bx-form-item bx-compoenent-small cnstncy-chk-id" disabled value="{{cnstncyChkExecStartTimestamp}}"> -
+                                    <input type="text" class="bx-form-item bx-compoenent-small cnstncy-chk-id" disabled value="{{cnstncyChkExecEndTimestamp}}">
+                                </td>
+
+                                <!-- 실행일련번호 -->
+                                <th>{{bxMsg 'execSeqNbr'}}</th>
+                                <td>
+                                    <input type="text" class="bx-form-item bx-compoenent-small exec-seq-nbr" disabled value="{{execSeqNbr}}" data-form-param="execSeqNbr">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="pf-cnstncy-chk-info">
+                        <!-- 정합성체크시스템 -->
+                        <div class="pf-cnstncy-chk-target-info">
+                            <header class="grid-extra-header">
+                                <th><span style="text-align:left;font-size:13px;font-weight:600;color:#515151;">{{bxMsg 'cnstncyChkSystem'}}</span></th>
+                                <!-- 정합성체크시스템추가 -->
+                                <button type="button" class="bw-btn add-target-sys-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                                        <i class="bw-icon i-25 i-func-add"></i>
+                                    </button>
+                            </header>
+                            <div class="pf-cnstncy-chk-target-sys-grid"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <header class="pf-cnstncy-chk-detail-header">
+                            <table class="bx-info-table">
+                                <tr>
+                                    <!-- 정합성체크대상 -->
+                                    </th>
+                                    <th style="font-size:13px;font-weight:600;color:#515151;">{{bxMsg 'cnstncyChkTrgtObj'}}
+                                </tr>
+                                <tr>
+                                    <!-- 정합성체크유형 -->
+                                    <th class="td-width">{{bxMsg 'cnstncyChkTpDscd'}}
+                                    </th>
+                                    <td>
+                                        <select disabled data-form-param="cnstncyChkTpDscd" class="bx-form-item bx-compoenent-small cnstncy-chk-type-dscd">
+                                            </select>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="bw-btn add-target-obj-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                                        		<i class="bw-icon i-25 i-func-add"></i>
+                                    		</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </header>
+                        <div class="pf-cnstncy-chk-target-object-detail-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 정합성검증결과 탭 -->
+        <div class="pf-cnstncy-chk-result">
+        </div>
+    </div>
+</div>

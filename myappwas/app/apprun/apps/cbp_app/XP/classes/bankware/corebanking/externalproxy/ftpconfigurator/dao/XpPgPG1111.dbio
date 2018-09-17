@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpPgPG1111">
+<!--Generated Mon Feb 06 15:41:43 KST 2017-->
+<select id="selectList" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpPgPG1111IO">
+SELECT 
+instCd,     /*기관코드*/
+txDt,     /*거래일자*/
+seqNbr,     /*일련번호*/
+dpstAcctDt,     /*입금일자*/
+whdrwlDt,     /*출금일자*/
+dpstAcctNbr,     /*입금계좌번호*/
+mnyRcvdAmt,     /*입금금액*/
+mnyRcvdAcctOwnrNm,     /*입금계좌소유자명*/
+psbkCntnt,     /*통자인자내용*/
+dpstInfoCntnt,     /*입금정보*/
+useEntrprsAprvlNbr,     /*이용업체승인번호*/
+dpstBnkFeeAmt,     /*입금은행수수료*/
+orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+orgnlWhdrwlDt,     /*원출금일자*/
+cntrCtPrcsngRsltCd,     /*센터컷처리결과코드*/
+lastChngTmstmp,     /*최종변경일시*/
+lastChngGuid    /*최종변경GUID*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+A.instCd,     /*기관코드*/
+A.txDt,     /*거래일자*/
+A.seqNbr,     /*일련번호*/
+A.dpstAcctDt,     /*입금일자*/
+A.whdrwlDt,     /*출금일자*/
+A.dpstAcctNbr,     /*입금계좌번호*/
+A.mnyRcvdAmt,     /*입금금액*/
+A.mnyRcvdAcctOwnrNm,     /*입금계좌소유자명*/
+A.psbkCntnt,     /*통자인자내용*/
+A.dpstInfoCntnt,     /*입금정보*/
+A.useEntrprsAprvlNbr,     /*이용업체승인번호*/
+A.dpstBnkFeeAmt,     /*입금은행수수료*/
+A.orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+A.orgnlWhdrwlDt,     /*원출금일자*/
+A.cntrCtPrcsngRsltCd,     /*센터컷처리결과코드*/
+A.lastChngTmstmp,     /*최종변경일시*/
+A.lastChngGuid    /*최종변경GUID*/
+     FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* PG업무출금및입금내역 */
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래일자*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        DPST_ACCT_DT AS dpstAcctDt,     /*입금일자*/
+        WHDRWL_DT AS whdrwlDt,     /*출금일자*/
+        DPST_ACCT_NBR AS dpstAcctNbr,     /*입금계좌번호*/
+        MNY_RCVD_AMT AS mnyRcvdAmt,     /*입금금액*/
+        MNY_RCVD_ACCT_OWNR_NM AS mnyRcvdAcctOwnrNm,     /*입금계좌소유자명*/
+        PSBK_CNTNT AS psbkCntnt,     /*통자인자내용*/
+        DPST_INFO_CNTNT AS dpstInfoCntnt,     /*입금정보*/
+        USE_ENTRPRS_APRVL_NBR AS useEntrprsAprvlNbr,     /*이용업체승인번호*/
+        DPST_BNK_FEE_AMT AS dpstBnkFeeAmt,     /*입금은행수수료*/
+        ORGNL_TX_CNTR_MSG_MGMT_NBR AS orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+        ORGNL_WHDRWL_DT AS orgnlWhdrwlDt,     /*원출금일자*/
+        CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,     /*센터컷처리결과코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_PG_PG1111_H
+ WHERE INST_CD = #{instCd}
+<if test="txStartDt != null and txStartDt != ''">
+   AND TX_DT &gt;= #{txStartDt}
+</if>
+<if test="txEndDt != null and txEndDt != ''">
+   AND TX_DT &lt;= #{txEndDt}
+</if>
+<if test="whdrwlDt != null and whdrwlDt != ''">
+   AND WHDRWL_DT = #{whdrwlDt}
+</if>
+<if test="dpstAcctNbr != null and dpstAcctNbr != ''">
+   AND DPST_ACCT_NBR = #{dpstAcctNbr}
+</if>
+ORDER BY TX_DT desc, SEQ_NBR desc
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectAllCount" resultType="java.lang.Integer">
+SELECT COUNT(1) FROM XP_PG_PG1111_H
+ WHERE INST_CD = #{instCd}
+<if test="txStartDt != null and txStartDt != ''">
+   AND TX_DT &gt;= #{txStartDt}
+</if>
+<if test="txEndDt != null and txEndDt != ''">
+   AND TX_DT &lt;= #{txEndDt}
+</if>
+<if test="whdrwlDt != null and whdrwlDt != ''">
+   AND WHDRWL_DT = #{whdrwlDt}
+</if>
+<if test="dpstAcctNbr != null and dpstAcctNbr != ''">
+   AND DPST_ACCT_NBR = #{dpstAcctNbr}
+</if>
+</select>
+</mapper>

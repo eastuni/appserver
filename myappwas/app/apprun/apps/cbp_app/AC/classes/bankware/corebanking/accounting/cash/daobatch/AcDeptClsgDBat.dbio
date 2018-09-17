@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bankware.corebanking.accounting.cash.daobatch.AcDeptClsgDBat">
+
+<!--Generated Tue Jun 28 11:06:26 KST 2016-->
+
+<select id="selectList" resultType="bankware.corebanking.accounting.cash.daobatch.dto.AcDeptClsgDBatIO">
+
+SELECT
+
+   inst_cd   AS instCd   /*기관코드*/,
+
+   base_dt   AS baseDt   /*기준년월일*/,
+
+   dept_id   AS deptId   /*부서식별자*/,
+
+   dept_clsg_dscd   AS deptClsgDscd   /*부서마감구분코드*/,
+
+   cntrct_prcsng_fin_yn   AS cntrctPrcsngFinYn   /*센터컷처리완료여부*/,
+
+   rgstrn_staff_id   AS rgstrnStaffId   /*등록스태프식별자*/,
+
+   rgstrn_dt   AS rgstrnDt   /*등록년월일*/,
+
+   rgstrn_hms   AS rgstrnHms   /*등록시각*/,
+
+   rvctn_staff_id   AS rvctnStaffId   /*해제스태프식별자*/,
+
+   rvctn_dt   AS rvctnDt   /*해제년월일*/,
+
+   rvctn_hms   AS rvctnHms   /*해제시각*/,
+
+   last_chng_tmstmp   AS lastChngTmstmp   /*최종변경일시*/,
+
+   last_chng_guid   AS lastChngGuid   /*최종변경GUID*/ 
+
+  FROM AC_DEPT_CLSG_D
+
+ WHERE INST_CD =   #{instCd}
+
+<if test="deptId != null and deptId != ''">   
+
+  AND DEPT_ID =   #{deptId}
+
+</if>
+
+<if test="baseDt != null and baseDt != ''">   
+
+  AND BASE_DT =   #{baseDt}
+
+</if>
+
+<if test="deptClsgDscd != null and deptClsgDscd != ''">   
+
+  AND DEPT_CLSG_DSCD =   #{deptClsgDscd}
+
+</if>
+
+</select>
+
+<update id="update" parameterType="bankware.corebanking.accounting.cash.daobatch.dto.AcDeptClsgDBatIO">
+
+UPDATE  
+
+        ac_dept_clsg_d    /* 부서마감명세 */
+
+   SET  DEPT_CLSG_DSCD = #{deptClsgDscd}    /* 부서마감구분코드 */
+
+     , CNTRCT_PRCSNG_FIN_YN = #{cntrctPrcsngFinYn}    /* 센터컷처리완료여부 */
+
+     , RGSTRN_STAFF_ID = #{rgstrnStaffId}    /* 등록스태프식별자 */
+
+     , RGSTRN_DT = #{rgstrnDt}    /* 등록년월일 */
+
+     , RGSTRN_HMS = #{rgstrnHms}    /* 등록시각 */
+
+     , RVCTN_STAFF_ID = #{rvctnStaffId}    /* 해제스태프식별자 */
+
+     , RVCTN_DT = #{rvctnDt}    /* 해제년월일 */
+
+     , RVCTN_HMS = #{rvctnHms}    /* 해제시각 */
+
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+
+ WHERE INST_CD = #{instCd}
+
+   AND BASE_DT = #{baseDt}
+
+   AND DEPT_ID = #{deptId}
+
+</update>
+
+<insert id="insert" parameterType="bankware.corebanking.accounting.cash.daobatch.dto.AcDeptClsgDBatIO">
+
+INSERT  
+
+  INTO  ac_dept_clsg_d    /* 부서마감명세 */
+
+(
+
+  INST_CD,     /*기관코드*/
+
+  BASE_DT,     /*기준년월일*/
+
+  DEPT_ID,     /*부서식별자*/
+
+  DEPT_CLSG_DSCD,     /*부서마감구분코드*/
+
+  CNTRCT_PRCSNG_FIN_YN,     /*센터컷처리완료여부*/
+
+  RGSTRN_STAFF_ID,     /*등록스태프식별자*/
+
+  RGSTRN_DT,     /*등록년월일*/
+
+  RGSTRN_HMS,     /*등록시각*/
+
+  RVCTN_STAFF_ID,     /*해제스태프식별자*/
+
+  RVCTN_DT,     /*해제년월일*/
+
+  RVCTN_HMS,     /*해제시각*/
+
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+
+  LAST_CHNG_GUID    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+  #{instCd},     /*기관코드*/
+
+  #{baseDt},     /*기준년월일*/
+
+  #{deptId},     /*부서식별자*/
+
+  #{deptClsgDscd},     /*부서마감구분코드*/
+
+  #{cntrctPrcsngFinYn},     /*센터컷처리완료여부*/
+
+  #{rgstrnStaffId},     /*등록스태프식별자*/
+
+  #{rgstrnDt},     /*등록년월일*/
+
+  #{rgstrnHms},     /*등록시각*/
+
+  #{rvctnStaffId},     /*해제스태프식별자*/
+
+  #{rvctnDt},     /*해제년월일*/
+
+  #{rvctnHms},     /*해제시각*/
+
+  #{lastChngTmstmp},     /*최종변경일시*/
+
+  #{lastChngGuid}    /*최종변경GUID*/
+
+)
+
+</insert>
+
+</mapper>
+

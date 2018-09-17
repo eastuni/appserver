@@ -1,0 +1,111 @@
+<div class="modal-wrap fix-h">
+    {{#if cacheNm}}
+    <h2 class="bw-tt a-center add-bd2-b clr-mg-b">{{bxMsg 'trx-setting.cache-edit'}}</h2>
+    {{/if}}
+    {{#unless cacheNm}}
+    <h2 class="bw-tt a-center add-bd2-b clr-mg-b">{{bxMsg 'trx-setting.cache-add'}}</h2>
+    {{/unless}}
+    <div class="bxm-detail-wrap bx-no-draggable large-popup-scrollable">
+        <section class="search-wrap clr fix-h">
+            <div class="sub-section">
+                <h4 class="a-left">{{bxMsg 'trx-setting.cache-basic-detail'}}</h4>
+                <ul class="clr">
+                    <li class="w-33">
+                        <div class="input-wrap asterisk clr">
+                            {{#if cacheNm}}
+                            <label class="bw-label w-40">{{bxMsg 'trx-setting.cache-nm'}}</label>
+                            <input type="text" class="bw-input w-60" data-form-param="cacheNm" readonly/>
+                            {{/if}}
+                            {{#unless cacheNm}}
+                            <label class="bw-label w-40">{{bxMsg 'trx-setting.cache-nm'}}</label>
+                            <input type="text" class="bw-input w-60" data-form-param="cacheNm"/>
+                            {{/unless}}
+                        </div>
+                    </li>
+                    <li class="w-33">
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">{{bxMsg 'trx-setting.table-nm'}}</label>
+                            <input type="text" class="bw-input w-60" data-form-param="tableNm"/>
+                        </div>
+                    </li>
+                    <li class="w-33">
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.useYn'}}</label>
+                            <select class="bw-input ipt-select w-60" data-form-param="useYn">
+                                <option value="Y">Y</option>
+                                <option value="N">N</option>
+                            </select>
+                        </div>
+                    </li>
+                    
+                    <li class="w-33">
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">{{bxMsg 'trx-setting.bxm-app-id'}}</label>
+                            <input type="text" class="bw-input w-60" data-form-param="bxmAppId"/>
+                        </div>
+                    </li>
+                    <li class="w-33">
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">{{bxMsg 'trx-setting.dto-nm'}}</label>
+                            <input type="text" class="bw-input w-60" data-form-param="dtoNm"/>
+                        </div>
+                    </li>
+                    <li class="w-33"></li>
+                    
+                    <li class="w-66">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-20">{{bxMsg 'trx-setting.cache-desc'}}</label>
+                        <input type="text" class="bw-input w-80" data-form-param="description"/>
+                    </div>
+                </li>
+                </ul>
+            </div>
+
+            <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'trx-setting.cache-exec-detail'}}</h4>
+            <ul class="clr">
+                <li class="w-33">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'trx-setting.init-load-yn'}}</label>
+                        <select class="bw-input ipt-select w-60" data-form-param="initLoadYn">
+                                <option value="Y">Y</option>
+                                <option value="N">N</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="w-66">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-20">{{bxMsg 'trx-setting.select-cndt'}}</label>
+                        <input type="text" class="bw-input w-80" data-form-param="selectCndt"/>
+                    </div>
+                </li>
+            </ul>
+            <ul class="clr">
+                <li class="w-100">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-13">{{bxMsg 'trx-setting.cache-config'}}</label>
+                        <input type="text" class="bw-input w-87" data-form-param="cacheConfig"/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+            <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'trx-setting.cache-manager-detail'}}</h4>
+            <ul class="col-3 clr">
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'trx-setting.cache-manager-id'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="modifyUserId"/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        </section>
+    </div>
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on save-btn">{{bxMsg 'common.save'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

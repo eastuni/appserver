@@ -1,0 +1,9 @@
+#Repository_1(development server)
+ip = 192.168.10.206
+port = 22
+id = cbpdev
+pw = cbp!
+path = /home/bankware/bxm/app
+
+#Repository_2(SVN server 'svnserver' hosts file alias )
+svn_url = svn://192.168.0.94/PetStore/dist

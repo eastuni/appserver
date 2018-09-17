@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.igjointnetwork.dao.XpIgCityGiroNbrHst">
+<!--Generated Wed Jul 19 17:41:26 KST 2017-->
+<select id="selectIgCityGiroNbrList" parameterType="bankware.corebanking.externalproxy.igjointnetwork.dao.dto.XpIgCityGiroNbrHstIO" resultType="bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.IgCityGiroNbrIFOutSub">
+SELECT DISTINCT LCLT_SLGV_NM as localGvrnmntNm, 
+           ISSUE_INST_Dscd as issueInstDscd
+FROM XP_IG_CITY_GIRO_NBR_M
+WHERE INRN_GIRO_PYMNT_BKDW_MGMT_CD=#{intrntGiroPymntHstMgmtCd}
+AND USE_YN='Y'
+AND TO_CHAR(SYSDATE,'YYYYMMDD') BETWEEN EFCTV_START_DT AND EFCTV_END_DT
+ORDER BY  ISSUE_INST_Dscd
+</select>
+<select id="selectIgCityGiroNbrList2" parameterType="bankware.corebanking.externalproxy.igjointnetwork.dao.dto.XpIgCityGiroNbrHstIO" resultType="bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.IgCityGiroNbrIFOutSub">
+SELECT LCLT_SLGV_NM as localGvrnmntNm,
+           UTL_INST_NM as useInstNm1, 
+           ISSUE_INST_Dscd as issueInstDscd,
+           GIRO_NBR as giroNbr, 
+           LNP_SQNC as sortSeqNbr
+FROM XP_IG_CITY_GIRO_NBR_M
+WHERE  INRN_GIRO_PYMNT_BKDW_MGMT_CD=#{intrntGiroPymntHstMgmtCd}
+AND  ISSUE_INST_Dscd=#{issueInstDscd}
+AND  USE_YN='Y'
+AND  TO_CHAR(SYSDATE,'YYYYMMDD') BETWEEN EFCTV_START_DT AND EFCTV_END_DT
+ORDER BY  ISSUE_INST_Dscd, LNP_SQNC, UTL_INST_NM
+</select>
+</mapper>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.system.setting.dbio.CacheInfoDBIO">
+<!--Generated Tue Sep 05 14:12:30 KST 2017-->
+<select id="selectCacheInfo" parameterType="bxm.web.admin.system.setting.domain.CacheOMM" resultType="bxm.web.admin.system.setting.domain.CacheOMM">
+SELECT /* 캐시테이블 */ 
+       CACHE_NM AS cacheNm /*캐시명*/,
+       TABLE_NM AS tableNm /*테이블명*/,
+       BXM_APP_ID AS bxmAppId, /* 어플리케이션 ID */
+       DTO_NM AS dtoNm, /* DTO 이름 */
+       CACHE_CONFIG AS cacheConfig /*환경값*/,
+       SELECT_CNDT AS selectCndt /*조회조건*/,
+       DESCRIPTION AS description /*설명*/,
+       INIT_LOAD_YN AS initLoadYn /*초기적재여부*/,
+       USE_YN AS useYn /*사용여부*/,
+       MODIFY_USER_ID AS modifyUserId /*변경사용자ID*/,
+       MODIFY_DTTM AS modifyDttm /*변경일시*/
+  FROM bxm_cache
+ WHERE CACHE_NM = #{cacheNm, jdbcType=VARCHAR}
+</select>
+<select id="selectCacheList" resultType="bxm.web.admin.system.setting.domain.CacheOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* 캐시테이블 */ 
+       CACHE_NM AS cacheNm /*캐시명*/,
+       TABLE_NM AS tableNm /*테이블명*/,
+       CACHE_CONFIG AS cacheConfig /*환경값*/,
+       SELECT_CNDT AS selectCndt /*조회조건*/,
+       DESCRIPTION AS description /*설명*/,
+       INIT_LOAD_YN AS initLoadYn /*초기적재여부*/,
+       USE_YN AS useYn /*사용여부*/,
+       MODIFY_USER_ID AS modifyUserId /*변경사용자ID*/,
+       MODIFY_DTTM AS modifyDttm /*변경일시*/
+  FROM BXM_CACHE
+  <where>
+  	<if test="param.cacheNm != null and param.cacheNm != ''">
+  		and upper(CACHE_NM) like upper(#{param.cacheNm, jdbcType=VARCHAR})||'%'
+  	</if>
+  	<if test="param.tableNm != null and param.tableNm != ''">
+  		and upper(TABLE_NM) like upper(#{param.tableNm, jdbcType=VARCHAR})||'%'
+  	</if>
+  	</where>
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<insert id="insertCache" parameterType="bxm.web.admin.system.setting.domain.CacheOMM">
+INSERT INTO bxm_cache /* 캐시테이블 */
+(
+    CACHE_NM /*캐시명*/,
+    TABLE_NM /*테이블명*/,
+    BXM_APP_ID, /* 어플리케이션 ID */
+    DTO_NM, /* DTO 이름 */
+    CACHE_CONFIG /*환경값*/,
+    SELECT_CNDT /*조회조건*/,
+    DESCRIPTION /*설명*/,
+    INIT_LOAD_YN /*초기적재여부*/,
+    USE_YN /*사용여부*/,
+    MODIFY_USER_ID /*변경사용자ID*/,
+    MODIFY_DTTM /*변경일시*/ 
+)
+VALUES
+(
+    #{cacheNm, jdbcType=VARCHAR} /*캐시명*/,
+    #{tableNm, jdbcType=VARCHAR} /*테이블명*/,
+    #{bxmAppId}, /* 어플리케이션 ID */
+    #{dtoNm}, /* DTO 이름 */    
+    #{cacheConfig, jdbcType=VARCHAR} /*환경값*/,
+    #{selectCndt, jdbcType=VARCHAR} /*조회조건*/,
+    #{description, jdbcType=VARCHAR} /*설명*/,
+    #{initLoadYn, jdbcType=VARCHAR} /*초기적재여부*/,
+    #{useYn, jdbcType=VARCHAR} /*사용여부*/,
+    #{modifyUserId, jdbcType=VARCHAR} /*변경사용자ID*/,
+    #{modifyDttm, jdbcType=VARCHAR} /*변경일시*/ 
+)
+</insert>
+<update id="updateCache" parameterType="bxm.web.admin.system.setting.domain.CacheOMM">
+UPDATE bxm_cache /* 캐시테이블 */
+   SET TABLE_NM = #{tableNm, jdbcType=VARCHAR} /* 테이블명 */,
+   		BXM_APP_ID = #{bxmAppId}, /* 어플리케이션 ID */
+   		DTO_NM = #{dtoNm}, /* DTO 이름 */
+       CACHE_CONFIG = #{cacheConfig, jdbcType=VARCHAR} /* 환경값 */,
+       SELECT_CNDT = #{selectCndt, jdbcType=VARCHAR} /* 조회조건 */,
+       DESCRIPTION = #{description, jdbcType=VARCHAR} /* 설명 */,
+       INIT_LOAD_YN = #{initLoadYn, jdbcType=VARCHAR} /* 초기적재여부 */,
+       USE_YN = #{useYn, jdbcType=VARCHAR} /* 사용여부 */,
+       MODIFY_USER_ID = #{modifyUserId, jdbcType=VARCHAR} /* 변경사용자ID */,
+       MODIFY_DTTM = #{modifyDttm, jdbcType=VARCHAR} /* 변경일시 */
+ WHERE CACHE_NM = #{cacheNm, jdbcType=VARCHAR}
+</update>
+<delete id="deleteCache" parameterType="bxm.web.admin.system.setting.domain.CacheOMM">
+DELETE FROM bxm_cache /* 캐시테이블 */
+      WHERE CACHE_NM = #{cacheNm, jdbcType=VARCHAR}
+</delete>
+<select id="countTotalRow" resultType="java.lang.Integer">
+SELECT /* 캐시테이블 */ 
+	COUNT(1)
+  FROM BXM_CACHE
+  <where>
+  	<if test="param.cacheNm != null and param.cacheNm != ''">
+  		and upper(CACHE_NM) like upper(#{param.cacheNm})||'%'
+  	</if>
+  	<if test="param.tableNm != null and param.tableNm != ''">
+  		and upper(TABLE_NM) like upper(#{param.tableNm})||'%'
+  	</if>
+  	</where>
+</select>
+</mapper>

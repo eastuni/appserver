@@ -1,0 +1,22 @@
+OMM bxm.ccmainmng.online.dao.dto.SelectProcessStatusOut
+<description="">
+{
+	String domainId<length=20 description="도메인ID">;
+	String ccId<length=20 description="센터컷ID">;
+	String pcsnDt<length=20 description="처리일자">;
+	Integer acptNo<length=9 description="접수번호">;
+	Integer tnNo<length=9 description="회차번호">;
+	Integer execNo<length=9 description="실행번호">;
+	Integer pcsnStat<length=9 description="처리상태">;
+	Integer paraPrcsCnt<length=9 description="병렬프로세스수">;
+	String nodeAsgnMethCd<length=20 description="노드지정방식코드">;
+	Integer nodeNo<length=9 description="노드번호">;
+	String nodeType<length=20 description="노드타입">;
+	String nodeNm<length=20 description="노드명">;
+	Integer curPrcsCnt<length=9 description="활성프로세스수">;
+	Integer setPrcsCnt<length=9 description="설정프로세스수">;
+	BigDecimal nomlPcsnCnt<length=15 description="정상처리건수">;
+	BigDecimal nomlPcsnAmt<length=15 description="정상처리금액">;
+	BigDecimal errPcsnCnt<length=15 description="에러처리건수">;
+	BigDecimal errPcsnAmt<length=15 description="에러처리금액">;
+}

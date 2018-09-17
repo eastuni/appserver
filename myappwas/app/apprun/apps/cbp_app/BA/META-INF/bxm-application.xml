@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bxm-application xmlns="http://www.es-code.com/schema/application" xmlns:ns2="http://www.es-code.com/schema/common" name="BA" loglevel="Default" shared="true" reference-applications="AC,AR,AT,CM,CORE-intrfc,PD,SM,ST,SV,DC" type="online">
+    <description>BA application is the default config.</description>
+    <datasource>
+        <jndi-datasource name="CBB" jndi-datasource="CBBNXA" jndi-xadatasource="CBBXA"/>
+    </datasource>
+    <datasource>
+        <jdbc-datasource name="CBB" driver-classname="${driver-classname}" uri="${uri}" username="${username}" enc-password="${password}" maxActive="10" maxIdle="10" validationQuery="select 1 from dual" validationQueryTimeout="60"/>
+    </datasource>
+</bxm-application>

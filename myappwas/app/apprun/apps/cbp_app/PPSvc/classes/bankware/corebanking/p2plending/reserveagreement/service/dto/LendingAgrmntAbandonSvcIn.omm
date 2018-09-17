@@ -1,0 +1,5 @@
+OMM bankware.corebanking.p2plending.reserveagreement.service.dto.LendingAgrmntAbandonSvcIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String arrId<length=20 description="계약식별자">;
+}

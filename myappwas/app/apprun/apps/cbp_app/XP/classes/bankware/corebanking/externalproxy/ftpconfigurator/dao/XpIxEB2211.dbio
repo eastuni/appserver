@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpIxEB2211">
+<!--Generated Mon Sep 12 14:41:24 KST 2016-->
+<select id="selectListXpIxEB2211" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIxEB2211IO">
+SELECT 
+instCd,     /*기관코드*/
+txYm,     /*거래년월*/
+seqNbr,     /*일련번호*/
+fnclInstCd,     /*금융기관코드*/
+cntrprtFnclInstCd,     /*상대금융기관코드*/
+dsbrsmntFnclDpstCnt,     /*지급금융기관입금건수*/
+dsbrsmntFnclDpstAmt,     /*지급금융기관입금금액*/
+dsbrsmntFnclCnclCnt,     /*지급금융기관취소건수*/
+dsbrsmntFnclCnclAmt,     /*지급금융기관취소금액*/
+dsbrsmntFnclNrmlCnt,     /*지급금융기관정상건수*/
+dsbrsmntFnclNrmlAmt,     /*지급금융기관정상금액*/
+rqstFnclDpstCnt,     /*의뢰금융기관입금건수*/
+rqstFnclDpstAmt,     /*의뢰금융기관입금금액*/
+rqstFnclCnclCnt,     /*의뢰금융기관취소건수*/
+rqstFnclCnclAmt,     /*의뢰금융기관취소금액*/
+rqstFnclNrmlCnt,     /*의뢰금융기관정상건수*/
+rqstFnclNrmlAmt,     /*의뢰금융기관정상금액*/
+lastChngTmstmp,     /*최종변경일시*/
+lastChngGuid    /*최종변경GUID*/
+
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+A.instCd,     /*기관코드*/
+A.txYm,     /*거래년월*/
+A.seqNbr,     /*일련번호*/
+A.fnclInstCd,     /*금융기관코드*/
+A.cntrprtFnclInstCd,     /*상대금융기관코드*/
+A.dsbrsmntFnclDpstCnt,     /*지급금융기관입금건수*/
+A.dsbrsmntFnclDpstAmt,     /*지급금융기관입금금액*/
+A.dsbrsmntFnclCnclCnt,     /*지급금융기관취소건수*/
+A.dsbrsmntFnclCnclAmt,     /*지급금융기관취소금액*/
+A.dsbrsmntFnclNrmlCnt,     /*지급금융기관정상건수*/
+A.dsbrsmntFnclNrmlAmt,     /*지급금융기관정상금액*/
+A.rqstFnclDpstCnt,     /*의뢰금융기관입금건수*/
+A.rqstFnclDpstAmt,     /*의뢰금융기관입금금액*/
+A.rqstFnclCnclCnt,     /*의뢰금융기관취소건수*/
+A.rqstFnclCnclAmt,     /*의뢰금융기관취소금액*/
+A.rqstFnclNrmlCnt,     /*의뢰금융기관정상건수*/
+A.rqstFnclNrmlAmt,     /*의뢰금융기관정상금액*/
+A.lastChngTmstmp,     /*최종변경일시*/
+A.lastChngGuid    /*최종변경GUID*/
+    FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    
+        INST_CD AS instCd,     /*기관코드*/
+        TX_YM AS txYm,     /*거래년월*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        FNCL_INST_CD AS fnclInstCd,     /*금융기관코드*/
+        CNTRPRT_FNCL_INST_CD AS cntrprtFnclInstCd,     /*상대금융기관코드*/
+        DSBRSMNT_FNCL_DPST_CNT AS dsbrsmntFnclDpstCnt,     /*지급금융기관입금건수*/
+        DSBRSMNT_FNCL_DPST_AMT AS dsbrsmntFnclDpstAmt,     /*지급금융기관입금금액*/
+        DSBRSMNT_FNCL_CNCL_CNT AS dsbrsmntFnclCnclCnt,     /*지급금융기관취소건수*/
+        DSBRSMNT_FNCL_CNCL_AMT AS dsbrsmntFnclCnclAmt,     /*지급금융기관취소금액*/
+        DSBRSMNT_FNCL_NRML_CNT AS dsbrsmntFnclNrmlCnt,     /*지급금융기관정상건수*/
+        DSBRSMNT_FNCL_NRML_AMT AS dsbrsmntFnclNrmlAmt,     /*지급금융기관정상금액*/
+        RQST_FNCL_DPST_CNT AS rqstFnclDpstCnt,     /*의뢰금융기관입금건수*/
+        RQST_FNCL_DPST_AMT AS rqstFnclDpstAmt,     /*의뢰금융기관입금금액*/
+        RQST_FNCL_CNCL_CNT AS rqstFnclCnclCnt,     /*의뢰금융기관취소건수*/
+        RQST_FNCL_CNCL_AMT AS rqstFnclCnclAmt,     /*의뢰금융기관취소금액*/
+        RQST_FNCL_NRML_CNT AS rqstFnclNrmlCnt,     /*의뢰금융기관정상건수*/
+        RQST_FNCL_NRML_AMT AS rqstFnclNrmlAmt,     /*의뢰금융기관정상금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_IX_EB2211_H
+ WHERE INST_CD = #{instCd}
+   AND TX_YM = #{txYm}
+ORDER BY INST_CD, TX_YM, SEQ_NBR
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectListXpIxEB2211Count" resultType="java.lang.Integer">
+SELECT    
+        count(1)
+  FROM  XP_IX_EB2211_H
+ WHERE INST_CD = #{instCd}
+   AND TX_YM = #{txYm}
+</select>
+</mapper>

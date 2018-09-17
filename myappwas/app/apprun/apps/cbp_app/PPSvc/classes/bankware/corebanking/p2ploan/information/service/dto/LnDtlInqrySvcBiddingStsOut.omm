@@ -1,0 +1,11 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.LnDtlInqrySvcBiddingStsOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String invstrId<length=100 description="투자자식별자">;
+	BigDecimal invstmntAmt<length=18 decimal=2 description="투자금액">;
+	BigDecimal invstmntRt<length=10 decimal=4 description="투자금리">;
+	String invstmntDt<length=8 description="투자일자">;
+	String biddingTmstmp<length=30 formatType=date format="yyyyMMdd HH:mm:ss" description="입찰일시 timestamp">;
+	String arrStsCd<length=2 description="계약상태코드">;
+	String prcsNm<length=100 description="계약상태명">;
+}

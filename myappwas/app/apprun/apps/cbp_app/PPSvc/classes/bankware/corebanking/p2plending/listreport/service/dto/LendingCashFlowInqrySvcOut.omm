@@ -1,0 +1,7 @@
+OMM bankware.corebanking.p2plending.listreport.service.dto.LendingCashFlowInqrySvcOut
+<description="Lending Cash Flow Output">
+{
+	BigDecimal expctdAmt<length=18 decimal=2 description="예상금액">;
+	BigDecimal txAmt<length=18 decimal=2 description="거래금액">;
+	bankware.corebanking.p2plending.listreport.service.dto.CashFlow cashFlwList<length=0 arrayReference="1000" description="현금흐름내역">;
+}

@@ -1,0 +1,26 @@
+OMM bankware.corebanking.systemcommon.batch.interfaces.dto.BatchJobExctnDtlInfoOut
+<description="배치작업실행상세정보출력">
+{
+	String instCd<length=14 description="기관코드">;
+	String batchJobId<length=100 description="배치작업식별자">;
+	String batchJobNm<length=100 description="배치작업명">;
+	String batchJobInstncId<length=100 description="배치작업인스턴스식별자">;
+	String exctnStaffId<length=100 description="실행스태프식별자">;
+	BigDecimal batchJobExctnNbr<length=20 description="배치작업실행번호">;
+	Integer stepCnt<length=4 description="스텝갯수">;
+	String batchJobCreatedHms<length=6 description="배치작업생성시간">;
+	String batchJobExctnStartHms<length=6 description="배치작업실행시작시간">;
+	String batchJobExctnEndHms<length=6 description="배치작업실행종료시간">;
+	String batchJobExctnStsCd<length=2 description="배치실행상태코드">;
+	String batchJobEndStsCd<length=2 description="배치실행종료코드">;
+	BigInteger commitCnt<length=20 description="Commit 건수">;
+	BigInteger rlbckCnt<length=20 description="Rollback 건수">;
+	BigInteger readCnt<length=20 description="Read 건수">;
+	BigInteger writeCnt<length=20 description="Write 건수">;
+	BigInteger filterCnt<length=20 description="Filter 건수">;
+	BigInteger readSkpCnt<length=20 description="Read Skip 건수">;
+	BigInteger writeSkpCnt<length=20 description="Write Skip 건수">;
+	BigInteger prcsSkpCnt<length=20 description="Process Skip 건수">;
+	String batchJobParm<length=4096 description="배치작업파라메타">;
+	bankware.corebanking.systemcommon.batch.interfaces.dto.BatchJobExctnStepInfo stepInfo<length=0 arrayReference="1000">;
+}

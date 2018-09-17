@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.systemcommon.deferred.dao.BxmDeferredHist">
+<!--Generated Thu Nov 10 10:32:39 KST 2016-->
+<select id="selectListMysql" resultType="bankware.corebanking.systemcommon.deferred.dao.dto.BxmDeferredHistIO">
+select bdh.deferred_id as deferredId /*후행ID*/
+     , bdh.biz_dt as bizDt /*영업일자*/
+     , bdh.node_no as nodeNo /*노드번호*/
+     , bdh.parll_proc_seq as parllProcSeq /*병렬처리일련번호*/
+     , bdh.deferred_status_cd as deferredStatusCd /*후행실행상태코드*/
+     , bdh.start_seq as startSeq /*시작일련번호*/
+     , bdh.end_seq as endSeq /*종료일련번호*/
+     , bdh.err_seq as errSeq /*에러일련번호*/
+     , bdh.start_dttm as startDttm /*시작일시*/
+     , bdh.end_dttm as endDttm /*종료일시*/
+     , bdh.err_cd as errCd /*에러코드*/
+     , bdh.err_msg_ctt as errMsgCtt /*에러메시지내용*/
+  from bxm_deferred_hist bdh
+<where>
+  <if test="deferredId != null and deferredId != ''">
+       deferred_id = #{deferredId}
+  </if>
+  <if test="bizDt != null and bizDt != ''">
+       and biz_dt = #{bizDt}
+  </if>
+  <if test="nodeNo != null and nodeNo != ''">
+       and node_no = #{nodeNo}
+  </if>
+</where>
+ order by biz_dt desc, deferred_id, node_no
+ limit #{pageOffset}, #{pageCount}
+</select>
+<select id="selectListOracle" resultType="bankware.corebanking.systemcommon.deferred.dao.dto.BxmDeferredHistIO">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+select bdh.deferred_id as deferredId /*후행ID*/
+     , bdh.biz_dt as bizDt /*영업일자*/
+     , bdh.node_no as nodeNo /*노드번호*/
+     , bdh.parll_proc_seq as parllProcSeq /*병렬처리일련번호*/
+     , bdh.deferred_status_cd as deferredStatusCd /*후행실행상태코드*/
+     , bdh.start_seq as startSeq /*시작일련번호*/
+     , bdh.end_seq as endSeq /*종료일련번호*/
+     , bdh.err_seq as errSeq /*에러일련번호*/
+     , bdh.start_dttm as startDttm /*시작일시*/
+     , bdh.end_dttm as endDttm /*종료일시*/
+     , bdh.err_cd as errCd /*에러코드*/
+     , bdh.err_msg_ctt as errMsgCtt /*에러메시지내용*/
+  from bxm_deferred_hist bdh
+<where>
+  <if test="deferredId != null and deferredId != ''">
+       deferred_id = #{deferredId, jdbcType=VARCHAR}
+  </if>
+  <if test="bizDt != null and bizDt != ''">
+       and biz_dt = #{bizDt, jdbcType=VARCHAR}
+  </if>
+  <if test="nodeNo != null and nodeNo != ''">
+       and node_no = #{nodeNo, jdbcType=NUMERIC}
+  </if>
+</where>
+ order by biz_dt desc, deferred_id, node_no
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select id="selectListCount" resultType="java.lang.Integer">
+select count(bdh.deferred_id) as totalCount /*전체건수*/
+  from bxm_deferred_hist bdh
+<where>
+  <if test="deferredId != null and deferredId != ''">
+       deferred_id = #{deferredId, jdbcType=VARCHAR}
+  </if>
+  <if test="bizDt != null and bizDt != ''">
+       and biz_dt = #{bizDt, jdbcType=VARCHAR}
+  </if>
+  <if test="nodeNo != null and nodeNo != ''">
+       and node_no = #{nodeNo, jdbcType=NUMERIC}
+  </if>
+</where>
+</select>
+</mapper>

@@ -1,0 +1,12 @@
+OMM bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpCmnctnMngrInfoDIO
+<description="">
+{
+	String instCd<length=14 description="기관코드">;
+	String extrnlInstCd<length=3 description="대외기관코드">;
+	String extrnlBizDscd<length=3 description="대외업무구분코드">;
+	String extrnlSubBizDscd<length=2 description="대외업무세부구분코드">;
+	String txDt<length=8 description="거래년월일">;
+	String cmnctnNetworkStsCd<length=2 description="통신망상태코드">;
+	Date lastChngTmstmp<length=20 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

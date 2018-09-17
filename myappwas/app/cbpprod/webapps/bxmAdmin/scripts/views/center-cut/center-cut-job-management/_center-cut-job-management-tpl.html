@@ -1,0 +1,261 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'centerCut.centerCutJobManagement'}}
+    <p class="desc">{{bxMsg 'centerCut.centerCutJobManagementMsg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i
+                class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i
+                class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap bxm-search-wrap">
+    <ul class="clr">
+        <li class="input-wrap w-33">
+            <label class="bw-label w-40">{{bxMsg 'centerCut.centerCutId'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="ccId"/>
+        </li>
+        <li class="input-wrap w-33">
+            <label class="bw-label w-40">{{bxMsg 'centerCut.centerCutName'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="ccIdNm"/>
+        </li>
+    </ul>
+</section>
+<!--/END SEARCH AREA-->
+<!--GRID AREA-->
+<section class="bxm-grid-wrap"></section>
+<!--/END GRID AREA-->
+
+<!-- DETAIL AREA -->
+<h3 class="bw-stt add-mg-t">
+    {{bxMsg 'centerCut.centerCutJobDetails'}}
+    <p class="desc bxm-detail-title"></p>
+</h3>
+<section class="bw-tool add-bd2-t bx-grid-header detail-search-wrap">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn edit-btn" title="{{bxMsg 'common.edit'}}"><i
+                class="bw-icon i-25 i-func-edit"></i></button>
+    </div>
+</section>
+<div class="bxm-detail-wrap bx-loding-wrap">
+    <section class="search-wrap clr fix-h">
+        <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'batch.base-info'}}</h4>
+            <ul class="col-2 clr">
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.centerCutId'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="ccId" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.centerCutName'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="ccIdNm" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.useYn'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="ccIdUseYn" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.centerCutDescription'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="ccIdExpl" readonly/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'centerCut.executionInfo'}}</h4>
+            <ul class="col-2 clr">
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.lv2ApplicationCode'}}</label>
+                        <input type="text" class="bw-input ipt-select w-60" data-form-param="appLv2Cd"
+                               data-code="BXMCC0013" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.lv3ApplicationCode'}}</label>
+                        <input type="text" class="bw-input ipt-select w-60" data-form-param="appLv3Cd"
+                               data-code="BXMCC0014" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.onlineServiceTransactionCode'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="onSvcTrxCd" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.procTrxCd'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="procTrxCd" readonly/>
+                    </div>
+                </li>
+                <li class="w-100">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-20">{{bxMsg 'centerCut.onlineServiceInputDto'}}</label>
+                        <input type="text" class="bw-input w-80" data-form-param="onSvcInptDto" readonly/>
+                    </div>
+                </li>
+                <!-- 
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.dataGenerateType'}}</label>
+                        <input type="text" class="bw-input ipt-select w-60" data-form-param="inptDataTpCd"
+                               data-code="BXMCC0003" readonly/>
+                    </div>
+                </li>
+                 -->
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.scheduleType'}}</label>
+                        <input type="text" class="bw-input ipt-select w-60" data-form-param="schdTpCd"
+                               data-code="BXMCC0004" readonly/>
+                    </div>
+                </li>
+                <!-- 
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.logLevel'}}</label>
+                        <input type="text" class="bw-input ipt-select w-60" data-form-param="logLv"
+                               data-code="BXMCC0008" readonly/>
+                    </div>
+                </li>
+                 -->
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.ccExecParam'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="ccExecParam" data-code="BXMCC0016" readonly/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'centerCut.advExecInfo'}}</h4>
+            <ul class="col-2 clr">
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.autoExecutionType'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="atmtExecClsfCd"
+                        	data-code="BXMCC0007" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.autoExecutionTime'}}</label>
+                        <input type="text" class="bw-input w-25" data-form-param="atmtExecSrtTime" readonly/>
+			            <input type="text" class="bw-input w-7" value="~" readonly/>
+                        <input type="text" class="bw-input w-25" data-form-param="atmtExecEndTime" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.postJobType'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="flwnWrkKnCd" 
+                        	data-code="BXMCC0009" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.postJobId'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="btchExecId" readonly/>
+                    </div>
+                </li>
+                <li class="w-100">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-20">{{bxMsg 'centerCut.postInputParameter'}}</label>
+                        <input type="text" class="bw-input w-80" data-form-param="inptParmCn" readonly/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'centerCut.errorReprocessSetting'}}</h4>
+            <ul class="col-2 clr">
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.totalExecutionCount'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="ttExecTn" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.errorTerminateYn'}}</label>
+                        <input type="text" class="bw-input ipt-select w-60" data-form-param="errStopYn"
+                               data-code="BXMCC0011" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.errorProcessMethod'}}</label>
+                        <input type="text" class="bw-input ipt-select w-60" data-form-param="errPcsnMethCd"
+                               data-code="BXMCC0010" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.reprocessWaitingTimeMin'}}</label>
+                        <input type="text" class="bw-input ipt-select w-60" data-form-param="rePcsnWaitEltm" readonly/>
+                    </div>
+                </li>
+                <li class="w-100">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-20">{{bxMsg 'centerCut.atmtReProcErrCd'}}</label>
+                        <input type="text" class="bw-input w-80" data-form-param="rePcsnErrCd" readonly/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'centerCut.parallelProcessInfo'}}</h4>
+            <ul class="col-2 clr">
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.parallelProcessCount'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="paraPrcsCnt" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-30">{{bxMsg 'centerCut.dataCount'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="schdCnt" readonly/>
+                    </div>
+                </li>
+            </ul>
+            <ul class="col-2 clr">
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'centerCut.parallelSelectionType'}}</label>
+                        <input type="text" class="bw-input ipt-select w-60" data-form-param="nodeAsgnMethCd"
+                               data-code="BXMCC0012" readonly/>
+                    </div>
+                </li>
+            </ul>
+            <ul class="clr">
+                <li class="w-100">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-19-7">{{bxMsg 'centerCut.processesPerNode'}}</label>
+                        <div class="bw-input w-80-3 processes-per-node"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+<!-- END DETAIL AREA -->

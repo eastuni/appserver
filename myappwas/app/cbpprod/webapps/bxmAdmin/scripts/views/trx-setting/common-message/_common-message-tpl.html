@@ -1,0 +1,95 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'trx-setting.common-message-setting'}}
+    <p class="desc">{{bxMsg 'trx-setting.common-message-setting-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap common-message-search">
+    <!--INPUT TYPE1 * 분할 없이 INLINE-->
+    <ul class="clr">
+        <li class="input-wrap w-30">
+            <label class="bw-label w-40">{{bxMsg 'trx-setting.message-id'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="msgId"/>
+        </li>
+        <li class="input-wrap w-35">
+            <label class="bw-label w-35">{{bxMsg 'trx-setting.default-message'}}</label>
+            <input type="text" class="bw-input w-65" data-form-param="basicMsgCtt"/>
+        </li>
+        <li class="input-wrap w-30">
+            <label class="bw-label w-40">{{bxMsg 'setting.language-code'}}</label>
+            <select class="bw-input ipt-select w-60" data-form-param="langCd"></select>
+        </li>
+    </ul>
+    <!--/END INPUT TYPE1-->
+</section>
+<!--/END SEARCH AREA-->
+<!--GRID AREA-->
+<section class="common-message-grid"></section>
+<!--/END GRID AREA-->
+<!--BW-SUB TITLE * 컨텐츠 서브타이틀-->
+<h3 class="bw-stt add-mg-t">{{bxMsg 'trx-setting.common-message-setting-detail'}}<p class="desc common-message-detail-title"></p></h3>
+<!--/END BW-SUB TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn edit edit-common-message-btn" title="{{bxMsg 'common.edit'}}"><i class="bw-icon i-25 i-func-edit"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--INFO AREA * 상세 영역-->
+<section class="search-wrap clr common-message-detail bx-loding-wrap">
+    <ul class="col-3 clr">
+        <li>
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-40">{{bxMsg 'trx-setting.message-id'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="msgId" readonly />
+            </div>
+        </li>
+    </ul>
+    <ul class="col-3 clr">
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'trx-setting.message-level'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="msgBizGrpId" data-code="BXMAD0005" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'trx-setting.message-type'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="msgTypeCd" data-code="BXMAD0006" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-40">{{bxMsg 'trx-setting.language-cd'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="langCd" data-code="BXMAD0003" readonly />
+            </div>
+        </li>
+    </ul>
+    <ul class="clr">
+        <li class="w-100">
+            <div class="input-wrap clr">
+                <label class="bw-label w-13">{{bxMsg 'trx-setting.default-message'}}</label>
+                <input type="text" class="bw-input w-87" data-form-param="basicMsgCtt" readonly />
+            </div>
+        </li>
+        <li class="w-100">
+            <div class="input-wrap fix-txtarea h-half p-rel clr">
+                <label class="bw-label w-13">{{bxMsg 'trx-setting.detail-message'}}</label>
+                <div class="txt-wrap2 fix-size w-87 f-r">
+                    <textarea class="bw-textarea" data-form-param="detailMsgCtt" readonly></textarea>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>
+<!--/END INFO AREA-->

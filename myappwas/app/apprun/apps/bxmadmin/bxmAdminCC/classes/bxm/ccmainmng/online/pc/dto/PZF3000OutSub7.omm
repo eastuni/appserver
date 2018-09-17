@@ -1,0 +1,9 @@
+OMM bxm.ccmainmng.online.pc.dto.PZF3000OutSub7
+<description="  ">
+{
+	String ccId<length=9 description="CCID">;
+	Integer acptNo<length=3 description="접수번호">;
+	Integer tnNo<length=2 description="회차번호">;
+	String logEltm<length=6 description="로그시간">;
+	String logCn<length=200 description="로그내용">;
+}

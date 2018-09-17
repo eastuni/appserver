@@ -1,0 +1,9 @@
+OMM bxm.web.admin.system.setting.domain.TestParamOMM
+<description="TestParamOMM">
+{
+	String testKeyTypeCd<length=1 description="테스트키타입코드">;
+	String testKeyId<length=64 description="테스트키ID">;
+	String testDt<length=8 description="테스트 일자">;
+	String testEaiId<length=128 description="테스트EAIID">;
+	String domainId<length=14 description="도메인ID">;
+}

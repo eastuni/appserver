@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.dictionary.dao.CmRefAtrbtM">
+<!--Generated Fri Jul 20 09:09:43 KST 2018-->
+<select id="select" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmRefAtrbtMIO" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmRefAtrbtMIO">
+SELECT
+
+       ref_obj_cd AS refObjCd
+
+     , ref_atrbt_nm AS refAtrbtNm
+
+     , ref_atrbt_desc_cntnt AS refAtrbtDescCntnt
+     , SITE_LBRTRY_DSCD AS siteLbrtryDscd /* 사이트연구소구분코드 */
+	, ACTV_STS_CD as actvStsCd
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM cm_ref_atrbt_m
+
+ WHERE 1=1
+<if test="refObjCd != null and refObjCd != '' "> 
+
+   AND ref_obj_cd LIKE CONCAT(CONCAT('%', #{refObjCd}), '%')
+
+</if>   
+
+<if test="refAtrbtNm != null and refAtrbtNm != '' ">   
+
+   AND ref_atrbt_nm LIKE CONCAT(CONCAT('%', #{refAtrbtNm}), '%')
+
+</if>
+<if test="actvStsCd != null and actvStsCd != '' ">   
+
+   AND ACTV_STS_CD =#{actvStsCd}
+
+</if>
+</select>
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmRefAtrbtMIO">
+INSERT INTO cm_ref_atrbt_m
+(
+       ref_obj_cd
+     , ref_atrbt_nm
+     , ref_atrbt_desc_cntnt
+     , SITE_LBRTRY_DSCD
+     , ACTV_STS_CD /* 활동상태코드 */
+     , last_chng_tmstmp
+     , LAST_CHNG_ID
+     , last_chng_guid
+)
+VALUES 
+(
+       #{refObjCd, jdbcType=VARCHAR}
+     , #{refAtrbtNm, jdbcType=VARCHAR}
+     , #{refAtrbtDescCntnt, jdbcType=VARCHAR}
+    , #{siteLbrtryDscd, jdbcType=VARCHAR}
+     , #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/
+     , #{lastChngTmstmp, jdbcType=TIMESTAMP}
+     , #{lastChngId,jdbcType=VARCHAR}
+     , #{lastChngGuid, jdbcType=VARCHAR}
+)
+</insert>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmRefAtrbtMIO">
+UPDATE cm_ref_atrbt_m
+   SET ref_atrbt_desc_cntnt = #{refAtrbtDescCntnt, jdbcType=VARCHAR}
+     , SITE_LBRTRY_DSCD = #{siteLbrtryDscd}
+     , ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}
+     , last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}
+     , LAST_CHNG_ID = #{lastChngId,jdbcType=VARCHAR}
+     , last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}
+ WHERE ref_obj_cd = #{refObjCd}
+   AND ref_atrbt_nm = #{refAtrbtNm}
+</update>
+<delete id="delete" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmRefAtrbtMIO">
+DELETE FROM cm_ref_atrbt_m
+
+ WHERE ref_obj_cd = #{refObjCd}
+
+   AND ref_atrbt_nm = #{refAtrbtNm}
+</delete>
+<select id="selectList" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmRefAtrbtMIO" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmRefAtrbtMIO">
+SELECT
+
+       ref_obj_cd AS refObjCd
+
+     , ref_atrbt_nm AS refAtrbtNm
+
+     , ref_atrbt_desc_cntnt AS refAtrbtDescCntnt
+     , SITE_LBRTRY_DSCD AS siteLbrtryDscd /* 사이트연구소구분코드 */
+
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM cm_ref_atrbt_m
+
+ WHERE 1=1
+
+    AND ACTV_STS_CD = '01'
+
+<if test="refObjCd != null and refObjCd != '' "> 
+
+   AND ref_obj_cd = #{refObjCd}
+
+</if>   
+
+<if test="refAtrbtNm != null and refAtrbtNm != '' ">   
+
+   AND ref_atrbt_nm LIKE CONCAT(CONCAT('%', #{refAtrbtNm}), '%')
+
+</if>
+
+<if test="refAtrbtDescCntnt != null and refAtrbtDescCntnt != '' ">   
+   AND ref_atrbt_desc_cntnt LIKE CONCAT(CONCAT('%', #{refAtrbtDescCntnt}), '%')
+</if>
+</select>
+</mapper>

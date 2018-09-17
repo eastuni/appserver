@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.arrangement.arrangementrelationship.dao.ArTxArrDeptRXtn">
+<!--Generated Thu Jan 18 14:45:04 KST 2018-->
+<select id="selectListTxalArrByArrStsOnArrStsChngPeriod" parameterType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrDeptRSelectListByCurArrStsAndPdInfoOnArrStsChngPeriodIO" resultType="bankware.corebanking.core.arrangement.arrangement.dao.dto.ArArrMIO">
+select a.INST_CD AS instCd,     /*기관코드*/
+
+        a.ARR_ID AS arrId,     /*계약식별자*/
+
+        a.TX_DT AS txDt,     /*거래년월일*/
+
+        a.TX_HMS AS txHms,     /*거래시각*/
+
+        a.BIZ_DSCD AS bizDscd,     /*업무구분코드*/
+
+        a.PD_TP_CD AS pdTpCd,     /*상품유형코드*/
+
+        a.PD_TMPLT_CD AS pdTmpltCd,     /*상품템플릿코드*/
+
+        a.PD_CD AS pdCd,     /*상품코드*/
+
+        a.ARR_KND_CD AS arrKndCd,     /*계약종류코드*/
+
+        a.ARR_STS_CD AS arrStsCd,     /*계약상태코드*/
+
+        a.ARR_STS_DT AS arrStsDt,     /*계약상태년월일*/
+
+        a.ARR_STS_HMS AS arrStsHms,     /*계약상태시각*/
+
+        a.ARR_STS_CHNG_RSN_CD AS arrStsChngRsnCd,     /*계약상태변경사유코드*/
+
+        a.ARR_OPN_DT AS arrOpnDt,     /*계약개설년월일*/
+
+        a.ARR_OPN_HMS AS arrOpnHms,     /*계약개설시각*/
+
+        a.ARR_LAST_AGRMNT_HMS AS arrLastAgrmntHms,     /*계약최종약정시각*/
+        a.ARR_LAST_AGRMNT_DT AS arrLastAgrmntDt,     /*계약최종약정년월일*/
+
+        a.ARR_MTRTY_DT AS arrMtrtyDt,     /*계약만기년월일*/
+
+        a.ARR_AGRMNT_CHNL_DSCD AS arrAgrmntChnlDscd,     /*계약약정채널구분코드*/
+
+        a.ACCT_NBR AS acctNbr,     /*계좌번호*/
+
+        a.CRNCY_CD AS crncyCd,     /*통화코드*/
+
+        a.MTHR_ARR_ID AS mthrArrId,     /*모계약식별자*/
+
+        a.MAIN_ARR_CUST_ID AS mainArrCustId,     /*주계약고객식별자*/
+
+        a.ACCTG_DEPT_ID AS acctgDeptId,     /*회계부서식별자*/
+
+        a.ARR_XTN_ATRBT_VAL_JSON AS arrXtnAtrbtValJson,     /*계약확장속성값제이슨*/
+
+        a.ARR_XTN_ATRBT_VAL_JSON2 AS arrXtnAtrbtValJson2,     /*계약확장속성값제이슨2*/
+
+        a.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+
+        a.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+
+from  ar_tx_arr_m a
+
+join ar_tx_arr_dept_r b
+
+  on a.ARR_ID = b.ARR_ID
+
+ and a.INST_CD = b.INST_CD
+
+<if test="currentArrStsCd != null and currentArrStsCd != '' ">
+
+ and a.ARR_STS_CD = #{currentArrStsCd}
+
+</if>
+
+<if test="bizDscd != null and bizDscd != '' ">
+
+  AND a.biz_dscd = #{bizDscd}
+
+</if>
+
+<if test="pdTpCd != null and pdTpCd != '' ">
+
+  AND  a.pd_tp_cd = #{pdTpCd}
+
+ </if>
+
+ <if test="pdTmpltCd != null and pdTmpltCd != '' ">
+
+  AND  a.pd_tmplt_cd = #{pdTmpltCd}
+
+ </if>
+
+ <if test="pdCd != null and pdCd != '' ">
+
+  AND  a.pd_cd = #{pdCd}
+
+ </if>
+
+ and a.ARR_STS_CD &lt;&gt; 'C' /*Calcnel*/
+
+ and a.ARR_KND_CD in ('03')
+
+ and b.INST_CD = #{instCd}
+
+ and b.DEPT_ID =  #{deptId}
+
+ and b.ARR_DEPT_REL_CD =  #{arrDeptRelCd}
+
+ and b.ARR_DEPT_REL_STS_CD in ('1','2')
+ AND b.rel_end_dt  &gt;  #{inqryStartDt}
+
+ AND b.rel_start_dt &lt;= #{inqryEndDt}
+
+ JOIN ar_tx_arr_sts_h d
+
+  ON a.INST_CD    = d.inst_cd
+
+ and a.arr_id     = d.arr_id
+
+ and d.arr_sts_CD = #{arrStsCd}
+
+ and d.cncl_yn = 'N'
+
+ and d.STS_START_DT BETWEEN #{inqryStartDt} AND #{inqryEndDt}
+
+
+
+GROUP by a.INST_CD,
+
+		        a.ARR_ID,
+
+		        a.TX_DT,
+
+		        a.TX_HMS,
+
+		        a.BIZ_DSCD,
+
+		        a.PD_TP_CD,
+
+		        a.PD_TMPLT_CD,
+
+		        a.PD_CD,
+
+		        a.ARR_KND_CD,
+
+		        a.ARR_STS_CD,
+
+		        a.ARR_STS_DT,
+
+		        a.ARR_STS_HMS,
+
+		        a.ARR_STS_CHNG_RSN_CD,
+
+		        a.ARR_OPN_DT,
+
+		        a.ARR_OPN_HMS,
+
+		        a.ARR_LAST_AGRMNT_HMS,
+		        a.ARR_LAST_AGRMNT_DT,
+
+		        a.ARR_MTRTY_DT,
+
+		        a.ARR_AGRMNT_CHNL_DSCD,
+
+		        a.ACCT_NBR,
+
+		        a.CRNCY_CD,
+
+		        a.MTHR_ARR_ID,
+
+		        a.MAIN_ARR_CUST_ID,
+
+		        a.ACCTG_DEPT_ID,
+
+		        a.ARR_XTN_ATRBT_VAL_JSON,
+
+		        a.ARR_XTN_ATRBT_VAL_JSON2,
+
+		        a.LAST_CHNG_TMSTMP,
+
+		        a.LAST_CHNG_GUID
+</select>
+</mapper>

@@ -1,0 +1,51 @@
+<div class="modal-wrap">
+    {{#if menuId}}<h2 class="bw-tt a-center">{{bxMsg 'setting.menu-edit'}}({{menuId}})</h2>{{/if}}
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t bx-no-draggable menu-setting-form">
+        <ul class="clr menu-setting-form">
+            <li class="w-33">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-43">{{bxMsg 'setting.menu-id'}}</label>
+                    {{#if menuId}}<input type="text" class="bw-input w-57" data-form-param="menuId" value="{{menuId}}" readonly/>{{/if}}
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-43">{{bxMsg 'setting.menu-nm'}}</label>
+                    <input type="text" class="bw-input w-57" data-form-param="menuNm" value="{{menuNm}}" />
+                </div>
+            </li>
+
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-43">{{bxMsg 'setting.use-yn'}}</label>
+                    <select class="bw-input ipt-select w-57" data-form-param="useYn">
+                        <option value="N" >N</option>
+                        <option value="Y" selected>Y</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+        <ul class="clr">
+            <li class="w-66">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-21">{{bxMsg 'setting.menu-desc'}}</label>
+                    <input type="text" class="bw-input w-79" data-form-param="menuDesc" value="{{menuDesc}}" />
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-43">{{bxMsg 'setting.menu-seq'}}</label>
+                    <input type="text" class="bw-input w-57" data-form-param="menuSeq" value="{{menuSeq}}" />
+                </div>
+            </li>
+        </ul>
+        <!--/END INPUT TPYE2-->
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on save-menu-btn">{{bxMsg 'common.save'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

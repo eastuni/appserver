@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bxm-application xmlns="http://www.es-code.com/schema/application" xmlns:ns2="http://www.es-code.com/schema/common" type="online" reference-applications="AC,AR,AT,CM,CORE-intrfc,PD,SM,ST,SV,DC,BA,CR" shared="true" loglevel="Default" name="PDSvc">
+    <description>PDSvc application is the default config.</description>
+    <datasource>
+        <jndi-datasource jndi-xadatasource="CBBXA" jndi-datasource="CBBNXA" name="CBB"/>
+    </datasource>
+    <datasource>
+        <jdbc-datasource validationQueryTimeout="60" validationQuery="select 1 from dual" maxIdle="10" maxActive="10" enc-password="${password}" username="${username}" uri="${uri}" driver-classname="${driver-classname}" name="CBB"/>
+    </datasource>
+    <preprocessor-bean order="1" bean="bankware.corebanking.servicemanagement.executor.business.PreServiceHandlerImpl"/>
+    <postprocessor-bean order="1" bean="bankware.corebanking.servicemanagement.executor.business.PostServiceHandlerImpl"/>
+</bxm-application>

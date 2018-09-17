@@ -1,0 +1,7 @@
+OMM bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.ExternalFileSndRcvLogListOut
+<description="대외파일송수신거래내역리스트 ">
+{
+	Integer cnt<length=0>;
+	bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.ExternalFileSndRcvLogOut externalFileSndRcvLogList<length=0 arrayReference="cnt">;
+	Integer totCnt<length=5 description="전체건수">;
+}

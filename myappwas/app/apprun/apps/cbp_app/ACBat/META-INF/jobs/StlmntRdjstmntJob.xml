@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+         http://www.es-code.com/schema/batchex http://www.es-code.com/schema/batchex/spring-batch-ex-2.1.xsd
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+    <import resource="classpath:JobConfig.xml"/>
+
+  	<!--
+	 *    작업명 : 결산재조정처리 배치
+	 *    설  명 : 결산재조정처리 배치
+	-->
+    <job id="StlmntRdjstmntJob" parent="parentJob" xmlns="http://www.es-code.com/schema/batchex">
+    	<!--
+		 *    스텝명 : 결산재조정처리 배치
+		 *    설  명 : 결산기준년월일의 결산정정명세를 조회하여 결산총계정원장에 반영하고 결산후잔액을 재산출한다.
+		-->
+        <step id="StlmntRdjstmntJob100" parent="parentStep">
+            <tasklet ref="StlmntRdjstmnt"/>
+        </step>
+        
+    </job>
+</beans>

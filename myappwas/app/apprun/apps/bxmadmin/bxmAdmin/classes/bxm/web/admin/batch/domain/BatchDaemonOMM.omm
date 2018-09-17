@@ -1,0 +1,21 @@
+OMM bxm.web.admin.batch.domain.BatchDaemonOMM
+<description="BatchDaemonOMM">
+{
+	String jobId<length=100 description="배치작업ID">;
+	String jobNm<length=256 description="배치작업명">;
+	String bxmAppId<length=32 description="BXM어플리케이션ID">;
+	String useYn<length=1 description="사용여부">;
+	String logLvNm<length=10 description="로그레벨명">;
+	String commitCfgList<length=1024 description="커밋설정목록">;
+	String execArgs<length=4000 description="실행아규먼트">;
+	Integer execIntervalSec<length=8 description="실행주기초">;
+	String cronExecCfgVal<length=100 description="CRON실행설정값">;
+	String parllExecYn<length=1 description="병렬실행여부">;
+	String errStopYn<length=1 description="에러중지여부">;
+	String regUserId<length=32 description="등록 사용자 ID">;
+	String regOccurDttm<length=23 description="등록 발생 일시">;
+	String modifyUserId<length=32 description="변경 사용자 ID">;
+	String modifyOccurDttm<length=23 description="변경 발생 일시">;
+	String execNodeNoList<length=100 description="실행노드번호리스트">;
+	String domainId<length=14 description="도메인 ID">;
+}

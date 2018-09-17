@@ -1,0 +1,6 @@
+OMM bxm.web.admin.setting.domain.CalendarCurrentPeriodOMM
+<description="">
+{
+	String firstDate<length=20>;
+	String lastDate<length=20>;
+}

@@ -1,0 +1,18 @@
+OMM bankware.corebanking.p2plending.reserveagreement.service.dto.LendingAgrmntSvcLendingAgrmntIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String arrDt<length=8 description="계약년월일">;
+	String mgmtDeptId<length=6 description="관리부점코드">;
+	String mgmtStaffId<length=8 description="관리사용자번호">;
+	String pdCd<length=20 description="상품코드">;
+	String custId<length=100 description="고객식별자">;
+	String mthrArrId<length=15 description="모계약식별번호">;
+	String aplctnNbr<length=15 description="신청번호">;
+	String termsAgrmntYn<length=1 description="약관동의여부">;
+	String txPswd<length=6 description="거래비밀번호">;
+	String whdrwlAcctNbr<length=15 description="출금계좌번호">;
+	bankware.corebanking.p2plending.reserveagreement.service.dto.LendingAgrmntSvcCndIn cndCdList<length=0 arrayReference="50" description="조건값목록">;
+	bankware.corebanking.p2plending.reserveagreement.service.dto.LendingAgrmntSvcXtnIn xtnList<length=0 arrayReference="20" description="확장값목록">;
+	bankware.corebanking.p2plending.reserveagreement.service.dto.LendingAgrmntSvcRelIn relList<length=0 arrayReference="10" description="관계값목록">;
+	String exstngInvstmntContainYn<length=1 description="기존투자포함여부">;
+}

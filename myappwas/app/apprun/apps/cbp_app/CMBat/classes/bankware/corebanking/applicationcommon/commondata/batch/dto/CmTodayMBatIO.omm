@@ -1,0 +1,14 @@
+OMM bankware.corebanking.applicationcommon.commondata.batch.dto.CmTodayMBatIO
+<description="당일기본배치IO">
+{
+	String instCd<length=14 description="기관코드">;
+	String sysOnlineModeCd<length=1 description="시스템온라인모드코드">;
+	String txDt<length=8 description="거래년월일">;
+	String bfBfBizDt<length=8 description="전전영업년월일">;
+	String bfBizDt<length=8 description="전영업년월일">;
+	String bizDt<length=8 description="당영업년월일">;
+	String nxtBizDt<length=8 description="익영업년월일">;
+	String nxtNxtBizDt<length=8 description="익익영업년월일">;
+	Date lastChngTmstmp<length=30 formatType=date format="yyyyMMdd HH:mm:ss" description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

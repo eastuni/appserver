@@ -1,0 +1,7 @@
+OMM bankware.corebanking.externalproxy.rejointnetwork.interfaces.dto.FundBillInqryIFOut
+<description="">
+{
+	Integer listCnt<length=8 description="목록건수">;
+	bankware.corebanking.externalproxy.rejointnetwork.interfaces.dto.FundBillInqryIFSub list<length=20 arrayReference="listCnt" description="자금청구대상리스트">;
+	Integer totCnt<length=8 description="전체건수">;
+}

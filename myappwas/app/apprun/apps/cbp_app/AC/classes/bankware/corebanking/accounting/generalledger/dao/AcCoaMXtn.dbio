@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.accounting.generalledger.dao.AcCoaMXtn">
+<!--Generated Tue Jul 18 15:02:30 KST 2017-->
+<select id="selectListDistr" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcCoaMIO">
+SELECT    /* 계정과목코드기본 */
+        INST_CD AS instCd,     /*기관코드*/
+        ACCTG_DSCD AS acctgDscd,     /*회계구분코드*/
+        ACCTG_ITM_CD AS acctgItmCd,     /*계정과목코드*/
+        DEBIT_CRDT_DSCD AS debitCrdtDscd,     /*차대변구분코드*/
+        BSIS_DSCD AS bsisDscd,     /*BSIS구분코드*/
+        TITL_ACCTG_CL_CD AS titlAcctgClCd,     /*계정과목분류코드*/
+        REAL_TITL_ACCTG_YN AS realTitlAcctgYn,     /*실계정과목여부*/
+        MINUS_BAL_ALLWNC_YN AS minusBalAllwncYn,     /*마이너스잔액허용여부*/
+        HQ_ACCTG_ITM_YN AS hqAcctgItmYn,     /*본부계정여부*/
+        PRCS_ABL_BRNCH_RGSTRN_YN AS prcsAblBrnchRgstrnYn,     /*처리가능부점등록여부*/
+        FRGN_TX_AMT_OCR_YN AS frgnTxAmtOcrYn,     /*외화거래발생여부*/
+        ACCTG_ITM_OUTP_SEQ_NBR AS acctgItmOutpSeqNbr,     /*계정출력순서번호*/
+        GL_OUTP_LVL_DSCD AS glOutpLvlDscd,     /*GL출력레벨구분코드*/
+        ACCTG_TITL_ACCTG_ABRVTN_NM AS acctgTitlAcctgAbrvtnNm,     /*계리계정과목약어명*/
+        ACCTG_ITM_NM AS acctgItmNm,     /*계정과목명*/
+        UP_ACCTG_ITM_CD AS upAcctgItmCd,     /*상위계정과목코드*/
+        BTSD_ACCTG_ITM_YN AS btsdAcctgItmYn,     /*양변계정여부*/
+        RLTD_ACCTG_ITM_CD AS rltdAcctgItmCd,     /*상대계정과목코드*/
+        MANUAL_ENTRY_PRMSN_DSCD AS manualEntryPrmsnDscd,     /*비온라인처리허용구분코드*/
+        ACCTG_DSTNCTN_NM AS acctgDstnctnNm,     /*계정구분명*/
+        APLY_START_DT AS aplyStartDt,     /*적용시작년월일*/
+        APLY_END_DT AS aplyEndDt,     /*적용종료년월일*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ac_coa_m
+ WHERE 1=1
+ <if test="instCd != null and instCd != ''">
+   AND INST_CD = #{instCd}
+</if>
+ <if test="acctgDscd != null and acctgDscd != ''">
+   AND ACCTG_DSCD = #{acctgDscd}
+</if>
+ <if test="acctgItmCd != null and acctgItmCd != ''">
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+</if>
+ <if test="bsisDscd != null and bsisDscd != ''">
+   AND BSIS_DSCD = #{bsisDscd}
+</if>
+<if test="titlAcctgClCd != null and titlAcctgClCd != '' and titlAcctgClCdEqulasYn !=null and titlAcctgClCdEqulasYn eq 'Y'.toString()">
+   AND TITL_ACCTG_CL_CD = #{titlAcctgClCd}
+</if>
+<if test="titlAcctgClCd != null and titlAcctgClCd != '' and titlAcctgClCdEqulasYn !=null and titlAcctgClCdEqulasYn eq 'N'.toString()">
+   AND TITL_ACCTG_CL_CD &lt;&gt; #{titlAcctgClCd}
+</if>
+</select>
+<select id="selectListCoaMysql" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcCoaMIO">
+SELECT
+
+   inst_cd   AS instCd   /*기관코드*/,
+
+   acctg_dscd   AS acctgDscd   /*회계구분코드*/,
+
+   acctg_itm_cd   AS acctgItmCd   /*계정과목코드*/,
+
+   debit_crdt_dscd   AS debitCrdtDscd   /*차대변구분코드*/,
+   bsis_dscd   AS bsisDscd   /*BSIS구분코드*/,
+
+   titl_acctg_cl_cd   AS titlAcctgClCd   /*계정과목분류코드*/,
+
+   real_titl_acctg_yn   AS realTitlAcctgYn   /*실계정과목여부*/,
+
+   minus_bal_allwnc_yn   AS minusBalAllwncYn   /*마이너스잔액허용여부*/,
+
+   hq_acctg_itm_yn   AS hqAcctgItmYn   /*본부계정여부*/,
+
+   prcs_abl_brnch_rgstrn_yn   AS prcsAblBrnchRgstrnYn   /*처리가능부점등록여부*/,
+
+   frgn_tx_amt_ocr_yn   AS frgnTxAmtOcrYn   /*외화거래발생여부*/,
+   acctg_itm_outp_seq_nbr   AS acctgItmOutpSeqNbr   /*계정출력순서번호*/,
+
+   gl_outp_lvl_dscd   AS glOutpLvlDscd   /*GL출력레벨구분코드*/,
+
+   acctg_titl_acctg_abrvtn_nm   AS acctgTitlAcctgAbrvtnNm   /*계리계정과목약어명*/,
+
+   acctg_itm_nm   AS acctgItmNm   /*계정과목명*/,
+
+   up_acctg_itm_cd   AS upAcctgItmCd   /*상위계정과목코드*/,
+
+   btsd_acctg_itm_yn   AS btsdAcctgItmYn   /*양변계정여부*/,
+
+   rltd_acctg_itm_cd   AS rltdAcctgItmCd   /*상대계정과목코드*/,
+   manual_entry_prmsn_dscd   AS manualEntryPrmsnDscd   /*비온라인처리허용구분코드*/,
+
+   acctg_dstnctn_nm   AS acctgDstnctnNm   /*회계구분명*/,
+
+   aply_start_dt   AS aplyStartDt   /*적용시작년월일*/,
+
+   aply_end_dt   AS aplyEndDt   /*적용종료년월일*/,
+
+   last_chng_tmstmp   AS lastChngTmstmp   /*최종변경일시*/,
+
+   last_chng_guid   AS lastChngGuid   /*최종변경GUID*/ 
+
+ FROM  ac_coa_m 
+
+ WHERE  inst_cd = #{a.instCd}
+
+<if test="a.acctgDscd != null and a.acctgDscd != ''">
+
+   AND acctg_dscd = #{a.acctgDscd}
+
+</if>
+
+<if test="a.acctgItmCd != null and a.acctgItmCd != ''">
+
+   AND acctg_itm_cd like concat(#{a.acctgItmCd}, '%')
+
+   AND real_titl_acctg_yn = 'Y'
+
+</if>
+
+<if test="a.acctgItmNm != null and a.acctgItmNm != ''">
+
+   AND  acctg_itm_nm like concat('%',#{a.acctgItmNm}, '%')
+
+   AND real_titl_acctg_yn = 'Y'
+
+</if>
+
+ order by TITL_ACCTG_CL_CD, ACCTG_ITM_OUTP_SEQ_NBR
+
+    LIMIT  #{pgOffset}, #{pgCnt}
+</select>
+<select id="selectListCoaOracle" resultType="bankware.corebanking.accounting.generalledger.dao.dto.AcCoaMIO">
+SELECT * FROM 
+
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+
+        (
+
+
+
+/* #### Original SQL [[ ################# */
+
+SELECT
+
+   inst_cd   AS instCd   /*기관코드*/,
+
+   acctg_dscd   AS acctgDscd   /*회계구분코드*/,
+
+   acctg_itm_cd   AS acctgItmCd   /*계정과목코드*/,
+
+   debit_crdt_dscd   AS debitCrdtDscd   /*차대변구분코드*/,
+   bsis_dscd   AS bsisDscd   /*BSIS구분코드*/,
+
+   titl_acctg_cl_cd   AS titlAcctgClCd   /*계정과목분류코드*/,
+
+   real_titl_acctg_yn   AS realTitlAcctgYn   /*실계정과목여부*/,
+
+   minus_bal_allwnc_yn   AS minusBalAllwncYn   /*마이너스잔액허용여부*/,
+
+   hq_acctg_itm_yn   AS hqAcctgItmYn   /*본부계정여부*/,
+
+   prcs_abl_brnch_rgstrn_yn   AS prcsAblBrnchRgstrnYn   /*처리가능부점등록여부*/,
+
+   frgn_tx_amt_ocr_yn   AS frgnTxAmtOcrYn   /*외화거래발생여부*/,
+   acctg_itm_outp_seq_nbr   AS acctgItmOutpSeqNbr   /*계정출력순서번호*/,
+
+   gl_outp_lvl_dscd   AS glOutpLvlDscd   /*GL출력레벨구분코드*/,
+
+   acctg_titl_acctg_abrvtn_nm   AS acctgTitlAcctgAbrvtnNm   /*계리계정과목약어명*/,
+
+   acctg_itm_nm   AS acctgItmNm   /*계정과목명*/,
+
+   up_acctg_itm_cd   AS upAcctgItmCd   /*상위계정과목코드*/,
+
+   btsd_acctg_itm_yn   AS btsdAcctgItmYn   /*양변계정여부*/,
+
+   rltd_acctg_itm_cd   AS rltdAcctgItmCd   /*상대계정과목코드*/,
+   manual_entry_prmsn_dscd   AS manualEntryPrmsnDscd   /*비온라인처리허용구분코드*/,
+
+   acctg_dstnctn_nm   AS acctgDstnctnNm   /*회계구분명*/,
+
+   aply_start_dt   AS aplyStartDt   /*적용시작년월일*/,
+
+   aply_end_dt   AS aplyEndDt   /*적용종료년월일*/,
+
+   last_chng_tmstmp   AS lastChngTmstmp   /*최종변경일시*/,
+
+   last_chng_guid   AS lastChngGuid   /*최종변경GUID*/ 
+
+ FROM  ac_coa_m 
+
+ WHERE  inst_cd = #{a.instCd}
+
+<if test="a.acctgDscd != null and a.acctgDscd != ''">
+
+   AND acctg_dscd = #{a.acctgDscd}
+
+</if>
+
+<if test="a.acctgItmCd != null and a.acctgItmCd != ''">
+
+   AND acctg_itm_cd like concat(#{a.acctgItmCd}, '%')
+
+   AND real_titl_acctg_yn = 'Y'
+
+</if>
+
+<if test="a.acctgItmNm != null and a.acctgItmNm != ''">
+
+   AND  acctg_itm_nm like concat(concat('%',#{a.acctgItmNm}),'%')
+
+   AND real_titl_acctg_yn = 'Y'
+
+</if>
+
+ order by TITL_ACCTG_CL_CD, ACCTG_ITM_OUTP_SEQ_NBR
+
+/* #### Original SQL ]] ################# */
+
+
+
+        ) A 
+
+    WHERE ROWNUM &lt;= (#{pgOffset}+#{pgCnt}) 
+    ) 
+
+WHERE ROW__NUM &gt; #{pgOffset}
+</select>
+</mapper>

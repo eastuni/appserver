@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonjointnetwork.dao.XpSndRcvL">
+<!--Generated Thu Oct 12 18:06:38 KST 2017-->
+<insert id="insertSendReceiveLog" parameterType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpSndRcvLIO">
+INSERT  
+  INTO  xp_snd_rcv_l    /* 대외송수신로그 */
+(
+  INST_CD,     /*기관코드*/
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드*/
+  TX_DT,     /*거래년월일*/
+  SND_RCV_TRACE_NBR,     /*전문추적번호*/
+  SND_RCV_FLAG_CD,     /*송수신Flag*/
+  TX_HMSS,     /*거래시각*/
+  GUID,     /*GUID*/
+  SYS_INTRFC_ID,     /*시스템인터페이스식별자*/
+  HDR_INFO_CNTNT,     /*헤더정보*/
+  MSG_CNTNT,     /*메시지내용*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID,     /*최종변경GUID*/
+  ORGNL_TX_YN
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{extrnlInstCd},     /*대외기관코드*/
+  #{extrnlBizDscd},     /*대외업무구분코드*/
+  #{txDt},     /*거래년월일*/
+  #{sndRcvTraceNbr},     /*전문추적번호*/
+  #{sndRcvFlagCd},     /*송수신Flag*/
+  #{txHmss},     /*거래시각*/
+  #{guid},     /*GUID*/
+  #{sysIntrfcId},     /*시스템인터페이스식별자*/
+  #{hdrInfoCntnt},     /*헤더정보*/
+  #{msgCntnt},     /*메시지내용1*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid},     /*최종변경GUID*/
+  #{orgnlTxYn}
+)
+</insert>
+<select id="selectSendReceiveLog" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpSndRcvLIO">
+SELECT    
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        SND_RCV_TRACE_NBR AS sndRcvTraceNbr,     /*전문추적번호*/
+        SND_RCV_FLAG_CD AS sndRcvFlagCd,     /*송수신Flag*/
+        TX_HMSS AS txHmss,     /*거래시각*/
+        GUID AS guid,     /*GUID*/
+        SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        HDR_INFO_CNTNT AS hdrInfoCntnt,     /*헤더정보*/
+        MSG_CNTNT AS msgCntnt,     /*메시지내용*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid,    /*최종변경GUID*/
+        ORGNL_TX_YN AS orgnlTxYn
+  FROM  xp_snd_rcv_l
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND SND_RCV_TRACE_NBR = #{sndRcvTraceNbr}
+   AND SND_RCV_FLAG_CD = #{sndRcvFlagCd}
+</select>
+<select id="selectListSendReceiveLog" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpSndRcvLIO">
+SELECT 
+
+instCd,     /*기관코드*/
+extrnlInstCd,     /*대외기관코드*/
+hangulInstNm, /*대외기관 명*/	
+extrnlBizDscd,     /*대외업무구분코드*/
+txDt,     /*거래년월일*/
+sndRcvTraceNbr,     /*전문추적번호*/
+sndRcvFlagCd,     /*송수신Flag*/
+txHmss,     /*거래시각*/
+guid,     /*GUID*/
+sysIntrfcId,     /*시스템인터페이스식별자*/
+sysIntrfcNm,
+hdrInfoCntnt,     /*헤더정보*/
+msgCntnt,     /*메시지내용*/
+lastChngTmstmp,     /*최종변경일시*/
+lastChngGuid,    /*최종변경GUID*/
+orgnlTxYn
+
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+
+A.instCd,     /*기관코드*/
+A.extrnlInstCd,     /*대외기관코드*/
+A.hangulInstNm, /*대외기관 명*/	
+A.extrnlBizDscd,     /*대외업무구분코드*/
+A.txDt,     /*거래년월일*/
+A.sndRcvTraceNbr,     /*전문추적번호*/
+A.sndRcvFlagCd,     /*송수신Flag*/
+A.txHmss,     /*거래시각*/
+A.guid,     /*GUID*/
+A.sysIntrfcId,     /*시스템인터페이스식별자*/
+A.sysIntrfcNm,     /*시스템인터페이스식별자*/
+A.hdrInfoCntnt,     /*헤더정보*/
+A.msgCntnt,     /*메시지내용*/
+A.lastChngTmstmp,     /*최종변경일시*/
+A.lastChngGuid,    /*최종변경GUID*/
+A.orgnlTxYn
+    
+    FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /*+ leading(B) use_hash(B L M) */
+        L.INST_CD AS instCd,     /*기관코드*/
+        L.EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        B.HANGUL_INST_NM AS hangulInstNm, /*대외기관 명*/	
+        L.EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        L.TX_DT AS txDt,     /*거래년월일*/
+        L.SND_RCV_TRACE_NBR AS sndRcvTraceNbr,     /*전문추적번호*/
+        L.SND_RCV_FLAG_CD AS sndRcvFlagCd,     /*송수신Flag*/
+        L.TX_HMSS AS txHmss,     /*거래시각*/
+        L.GUID AS guid,     /*GUID*/
+        L.SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        M.SYS_INTRFC_NM AS sysIntrfcNm,
+        L.HDR_INFO_CNTNT AS hdrInfoCntnt,     /*헤더정보*/
+        L.MSG_CNTNT AS msgCntnt,     /*메시지내용*/
+        L.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        L.LAST_CHNG_GUID AS lastChngGuid,    /*최종변경GUID*/
+        L.ORGNL_TX_YN AS orgnlTxYn
+  FROM  XP_SND_RCV_L L LEFT OUTER JOIN XP_EXTRNL_INST_INFO_M B 
+  ON L.EXTRNL_INST_CD = B.EXTRNL_INST_CD
+  INNER JOIN XP_SYS_INTRFC_M M
+  ON L.SYS_INTRFC_ID = M.SYS_INTRFC_ID  
+ WHERE L.INST_CD = #{instCd}
+   AND L.EXTRNL_INST_CD = #{extrnlInstCd}
+   AND L.EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND L.TX_DT = #{txDt}
+   <if test=" sndRcvTraceNbr != null and sndRcvTraceNbr != '' ">
+   AND L.SND_RCV_TRACE_NBR = #{sndRcvTraceNbr}
+   </if>
+   <if test=" guid != null and guid != '' ">
+   AND L.GUID = #{guid}
+   </if>
+   <if test=" rqstCd != null and rqstCd != '' ">
+   AND L.SND_RCV_FLAG_CD IN ( #{rqstCd}, #{rspnsCd})
+   </if>
+   ORDER BY L.INST_CD, L.EXTRNL_INST_CD, L.EXTRNL_BIZ_Dscd, L.TX_DT, L.LAST_CHNG_TMSTMP  DESC
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectSendReceiveLogFirstData" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpSndRcvLIO">
+SELECT    
+        snd.INST_CD AS instCd,     /*기관코드*/
+        snd.EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        snd.EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        snd.TX_DT AS txDt,     /*거래년월일*/
+        snd.SND_RCV_TRACE_NBR AS sndRcvTraceNbr,     /*전문추적번호*/
+        snd.SND_RCV_FLAG_CD AS sndRcvFlagCd,     /*송수신Flag*/
+        snd.TX_HMSS AS txHmss,     /*거래시각*/
+        snd.GUID AS guid,     /*GUID*/
+        snd.SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        snd.HDR_INFO_CNTNT AS hdrInfoCntnt,     /*헤더정보*/
+        snd.MSG_CNTNT AS msgCntnt,     /*메시지내용*/
+        snd.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        snd.LAST_CHNG_GUID AS lastChngGuid,    /*최종변경GUID*/
+        snd.ORGNL_TX_YN AS orgnlTxYn
+  FROM  xp_snd_rcv_l snd, xp_sync_tx_h sync
+ WHERE snd.INST_CD = #{instCd}
+    AND snd.EXTRNL_INST_CD = #{extrnlInstCd}
+    AND snd.EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+    AND snd.TX_DT = #{txDt}
+    AND snd.SND_RCV_TRACE_NBR = #{sndRcvTraceNbr}
+    AND snd.SND_RCV_FLAG_CD = #{sndRcvFlagCd}
+    AND snd.guid = sync.guid
+    AND sync.fin_yn_cd = '0'
+</select>
+<select id="selectSendReceiveLogOriginalData" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpSndRcvLIO">
+SELECT    
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        SND_RCV_TRACE_NBR AS sndRcvTraceNbr,     /*전문추적번호*/
+        SND_RCV_FLAG_CD AS sndRcvFlagCd,     /*송수신Flag*/
+        TX_HMSS AS txHmss,     /*거래시각*/
+        GUID AS guid,     /*GUID*/
+        SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        HDR_INFO_CNTNT AS hdrInfoCntnt,     /*헤더정보*/
+        MSG_CNTNT AS msgCntnt,     /*메시지내용*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid,    /*최종변경GUID*/
+        ORGNL_TX_YN AS orgnlTxYn
+  FROM  xp_snd_rcv_l
+ WHERE INST_CD = #{instCd}
+    AND EXTRNL_INST_CD = #{extrnlInstCd}
+    AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+    AND TX_DT = #{txDt}
+    AND SND_RCV_TRACE_NBR = #{sndRcvTraceNbr}
+    AND SND_RCV_FLAG_CD = #{sndRcvFlagCd}
+    AND  ORGNL_TX_YN = 'Y'
+</select>
+<select id="selectListSendReceiveLogCnt" resultType="java.lang.Integer">
+select count(inst_cd)
+  FROM  XP_SND_RCV_L A LEFT OUTER JOIN XP_EXTRNL_INST_INFO_M B ON A.EXTRNL_INST_CD = B.EXTRNL_INST_CD
+ WHERE A.INST_CD = #{instCd}
+   AND A.EXTRNL_INST_CD = #{extrnlInstCd}
+   AND A.EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND A.TX_DT = #{txDt}
+   <if test=" sndRcvTraceNbr != null and sndRcvTraceNbr != '' ">
+   AND A.SND_RCV_TRACE_NBR = #{sndRcvTraceNbr}
+   </if>
+   <if test=" guid != null and guid != '' ">
+   AND A.GUID = #{guid}
+   </if>
+   <if test=" rqstCd != null and rqstCd != '' ">
+   AND A.SND_RCV_FLAG_CD IN ( #{rqstCd}, #{rspnsCd})
+   </if>
+</select>
+<select id="selectMostRecentlySentLog" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpSndRcvLIO">
+SELECT    
+        a.INST_CD AS instCd,     /*기관코드*/
+        a.EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        a.EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        a.TX_DT AS txDt,     /*거래년월일*/
+        a.SND_RCV_TRACE_NBR AS sndRcvTraceNbr,     /*전문추적번호*/
+        a.SND_RCV_FLAG_CD AS sndRcvFlagCd,     /*송수신Flag*/
+        TX_HMSS AS txHmss,     /*거래시각*/
+        GUID AS guid,     /*GUID*/
+        SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        HDR_INFO_CNTNT AS hdrInfoCntnt,     /*헤더정보*/
+        MSG_CNTNT AS msgCntnt,     /*메시지내용*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid,    /*최종변경GUID*/
+        ORGNL_TX_YN AS orgnlTxYn
+  FROM  xp_snd_rcv_l a, 
+          (select inst_cd,
+                   extrnl_inst_cd,
+                   extrnl_biz_dscd,
+                   tx_dt,
+                   max(snd_rcv_trace_nbr) snd_rcv_trace_nbr,
+                   snd_rcv_flag_cd
+           from xp_snd_rcv_l         
+           WHERE INST_CD = #{instCd}
+			   AND EXTRNL_INST_CD = #{extrnlInstCd}
+			   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+			   AND TX_DT = #{txDt}
+			   AND SND_RCV_FLAG_CD = #{sndRcvFlagCd}
+		 ) b
+where a.INST_CD = b.INST_CD
+   and a.EXTRNL_INST_CD = b.EXTRNL_INST_CD
+   and a.EXTRNL_BIZ_Dscd = b.EXTRNL_BIZ_Dscd
+   and a.TX_DT = b.TX_DT
+   and a.SND_RCV_TRACE_NBR = b.SND_RCV_TRACE_NBR
+   and a.SND_RCV_FLAG_CD = b.SND_RCV_FLAG_CD
+</select>
+</mapper>

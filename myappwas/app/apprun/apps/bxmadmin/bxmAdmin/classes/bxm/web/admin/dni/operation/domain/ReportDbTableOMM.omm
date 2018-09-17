@@ -1,0 +1,7 @@
+OMM bxm.web.admin.dni.operation.domain.ReportDbTableOMM
+<description="">
+{
+	String tableNm<length=100 description="테이블 명">;
+	Integer childrenSize<length=9>;
+	bxm.web.admin.dni.operation.domain.ReportDbColumnOMM children<length=0 arrayReference="childrenSize">;
+}

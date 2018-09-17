@@ -1,0 +1,31 @@
+<div class="cnd-value-type3">
+    <div class="cnd-value-type3 default-condition-info">
+        <table class="bx-info-table default-condition-info">
+            <tr>
+                <th style="width:200px;">{{bxMsg 'frctnAplyCnt'}} / {{bxMsg 'AplyMethod'}}</th>
+                <td>
+                    <input type="text" data-form-param="frctnAplyCnt" class="bx-form-item bx-compoenent-small removeComma float0 input-align-right frctnAplyCnt" value="{{frctnAplyCnt}}">
+                    <select data-form-param="frctnAplyWayCd" class="bx-form-item bx-compoenent-small FrctnAplyWayCode" value="{{frctnAplyWayCd}}">
+                    	</select>
+                </td>
+            </tr>
+            <tr class="cnd-val-apply-way">
+                <th>{{bxMsg 'rateApplyWayCode'}}</th>
+                <!-- 금리적용방식코드 -->
+                <td>
+                    <select data-form-param="rateApplyWayCode" class="bx-form-item bx-compoenent-small ProductConditionInterestApplyTypeCode" value="{{rateApplyWayCode}}">
+                    	</select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="cnd-value-type3-info-tab" style="margin-top:10px;">
+        <div id="cnd-value-type3-tab" class="cnd-value-type3-tab"></div>
+        <div id="cnd-value-type3-tab-conts" class="cnd-value-type3-tab-conts">
+            <div id="fixed-info-panel" class="fixed-info"></div>
+            <div id="var-info-panel" class="var-info"></div>
+            <div id="ref-info-panel" class="ref-info"></div>
+        </div>
+    </div>
+</div>

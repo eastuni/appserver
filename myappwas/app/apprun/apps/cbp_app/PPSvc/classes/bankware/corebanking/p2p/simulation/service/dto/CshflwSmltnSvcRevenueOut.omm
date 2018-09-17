@@ -1,0 +1,16 @@
+OMM bankware.corebanking.p2p.simulation.service.dto.CshflwSmltnSvcRevenueOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	Integer rpymntCyclNbr<length=6 description="상환회차">;
+	Integer seqNbr<length=6 description="일련번호">;
+	String amtTpCd<length=5 description="금액유형코드">;
+	BigDecimal calcnBaseAmt<length=18 decimal=2 description="계산기준금액">;
+	String sctnStartDt<length=8 description="구간시작년월일">;
+	String sctnEndDt<length=8 description="구간종료년월일">;
+	BigDecimal aplyIntRt<length=18 decimal=2 description="적용금리">;
+	String rpymntSchdldDt<length=8 description="상환예정년월일">;
+	BigDecimal rpymntSchdldAmt<length=18 decimal=2 description="상환예정금액">;
+	BigDecimal prncpl<length=18 decimal=2 description="원금">;
+	BigDecimal intAmt<length=18 decimal=2 description="이자">;
+	String arrId<length=15 description="계약ID">;
+}

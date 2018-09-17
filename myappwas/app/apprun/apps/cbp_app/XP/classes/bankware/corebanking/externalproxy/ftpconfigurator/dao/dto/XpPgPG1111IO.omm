@@ -1,0 +1,21 @@
+OMM bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpPgPG1111IO
+<description="">
+{
+	String instCd<length=3 description="기관코드">;
+	String txDt<length=8 description="거래일자">;
+	String seqNbr<length=7 description="일련번호">;
+	String dpstAcctDt<length=8 description="입금일자">;
+	String whdrwlDt<length=8 description="출금일자">;
+	String dpstAcctNbr<length=44 description="입금계좌번호">;
+	BigDecimal mnyRcvdAmt<length=18 decimal=2 description="입금금액">;
+	String mnyRcvdAcctOwnrNm<length=44 description="입금계좌소유자명">;
+	String psbkCntnt<length=14 description="통자인자내용">;
+	String dpstInfoCntnt<length=10 description="입금정보">;
+	String useEntrprsAprvlNbr<length=8 description="이용업체승인번호">;
+	BigDecimal dpstBnkFeeAmt<length=13 description="입금은행수수료">;
+	String orgnlTxCntrMsgMgmtNbr<length=12 description="원거래센터전문관리번호">;
+	String orgnlWhdrwlDt<length=8 description="원출금일자">;
+	String cntrCtPrcsngRsltCd<length=2 description="센터컷처리결과코드">;
+	Date lastChngTmstmp<length=30 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

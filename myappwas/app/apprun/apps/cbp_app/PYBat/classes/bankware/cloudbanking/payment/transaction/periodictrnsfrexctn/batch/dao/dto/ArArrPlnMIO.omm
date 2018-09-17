@@ -1,0 +1,8 @@
+OMM bankware.cloudbanking.payment.transaction.periodictrnsfrexctn.batch.dao.dto.ArArrPlnMIO
+<description="">
+{
+	String arrId<length=40 description="계약식별자">;
+	BigDecimal plnSeqNbr<length=7 description="계획일련번호">;
+	String txDeptId<length=14 description="거래부점식별자">;
+	String arrSrvcTpCd<length=20 description="계약서비스유형코드">;
+}

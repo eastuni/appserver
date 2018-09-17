@@ -1,0 +1,13 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.CdMsg0800c
+<description="미사용 순채무한도 조회/소진확인">
+{
+	String startChrCntnt<length=3 description="개시문자">;
+	String msgHdrCntnt<length=9 description="전문헤더">;
+	String jointNetworkClCd<length=4 description="공동망종별코드">;
+	String prmryBitmapCntnt<length=16 description="Primary Bit Map">;
+	String scndryBitmapCntnt<length=16 description="Secondary Bit Map">;
+	String msgSndTmstmp1<length=10 description="전문전송일시">;
+	String msgTraceNbr<length=6 description="전문추적번호">;
+	String networkMgmtInfoCntnt1<length=3 description="통신망관리정보">;
+	String pureDebtLmtInqryInfoCntnt<length=318 description="순채무한도조회정보">;
+}

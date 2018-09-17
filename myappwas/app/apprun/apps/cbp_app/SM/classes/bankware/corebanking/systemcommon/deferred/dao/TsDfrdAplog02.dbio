@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.systemcommon.deferred.dao.TsDfrdAplog02">
+<!--Generated Wed Sep 21 20:11:27 KST 2016-->
+<select id="selectZeroNumberList" parameterType="bankware.corebanking.systemcommon.deferred.dao.dto.TsDfrdAplog02IO" resultType="bankware.corebanking.systemcommon.deferred.dao.dto.TsDfrdAplog02IO">
+select
+    uuid
+from ts_dfrd_aplog02
+where ifnull(seq_nbr,0) = 0
+and base_dt = #{baseDt, jdbcType=VARCHAR}
+order by last_chng_tmstmp
+limit 5000
+for update
+</select>
+<select id="selectMaxNumber" parameterType="bankware.corebanking.systemcommon.deferred.dao.dto.TsDfrdAplog02IO" resultType="bankware.corebanking.systemcommon.deferred.dao.dto.TsDfrdAplog02IO">
+select 
+    ifnull( max(seq_nbr), 0) seqNbr
+from ts_dfrd_aplog02
+where base_dt = #{baseDt}
+</select>
+<update id="updateSeqNumber" parameterType="bankware.corebanking.systemcommon.deferred.dao.dto.TsDfrdAplog02IO">
+update ts_dfrd_aplog02
+set seq_nbr = #{seqNbr}
+    ,last_chng_tmstmp = now()
+where uuid = #{uuid}
+</update>
+<select id="selectExecRangeNumber" resultType="bxm.deferred.data.io.DeferredExecIO">
+select 
+         ifnull( min( aa.seq_nbr), 0) as startSeq
+        ,ifnull( max( aa.seq_nbr), 0) as endSeq
+from (
+		select bb.seq_nbr
+		from ts_dfrd_aplog02 bb
+		where bb.memo = 'N'
+		  and bb.base_dt = #{bizDt}
+		  and bb.seq_nbr &gt; #{lastSeq}
+		order by bb.seq_nbr
+		limit #{fetchCnt}
+       ) aa
+</select>
+<update id="updateExecResult" parameterType="bankware.corebanking.systemcommon.deferred.dao.dto.TsDfrdAplog02IO">
+update ts_dfrd_aplog02
+set memo = 'Y'
+    ,last_chng_tmstmp = now()
+where base_dt = #{baseDt}
+and seq_nbr = #{seqNbr}
+and memo = #{memo}
+</update>
+<insert id="insertSimpleData" parameterType="bankware.corebanking.systemcommon.deferred.dao.dto.TsDfrdAplog02IO">
+INSERT  
+  INTO  TS_DFRD_APLOG02    /* 후행 Test APLog02 */
+(
+  UUID,     /*UUID*/
+  NODE_ID,     /*노드번호*/
+  BASE_DT,     /*기준일자*/
+  BIZ_DSCD,     /*업무구분코드*/
+  SEQ_NBR,     /*순번*/
+  SRVC_CD,     /*서비스코드*/
+  AMT,     /*금액*/
+  MEMO,     /*메모*/
+  LAST_CHNG_TMSTMP    /*최종변경일시*/
+)
+VALUES 
+(
+  #{uuid, jdbcType=VARCHAR},     /*UUID*/
+  #{nodeId, jdbcType=NUMERIC},     /*노드번호*/
+  #{baseDt, jdbcType=VARCHAR},     /*기준일자*/
+  #{bizDscd, jdbcType=VARCHAR},     /*업무구분코드*/
+  #{seqNbr, jdbcType=NUMERIC},     /*순번*/
+  #{srvcCd, jdbcType=VARCHAR},     /*서비스코드*/
+  #{amt, jdbcType=NUMERIC},     /*금액*/
+  #{memo, jdbcType=VARCHAR},     /*메모*/
+  now()    /*최종변경일시*/
+)
+</insert>
+<select id="selectIncompletionDataCnt" parameterType="bankware.corebanking.systemcommon.deferred.dao.dto.TsDfrdAplog02IO" resultType="java.lang.Long">
+select 
+    count(1) as "totalCount"
+from ts_dfrd_aplog02
+where ifnull(seq_nbr,0) != 0
+and memo != 'Y'
+and base_dt = #{baseDt}
+</select>
+<select id="selectIncompletionNumberingCnt" parameterType="bankware.corebanking.systemcommon.deferred.dao.dto.TsDfrdAplog02IO" resultType="java.lang.Long">
+select 
+    count(1) as "totalCount"
+from ts_dfrd_aplog02
+where ifnull(seq_nbr,0) = 0
+and base_dt = #{baseDt}
+</select>
+</mapper>

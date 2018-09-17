@@ -1,0 +1,7 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.RprsnRegt
+<description="관련인등록사항">
+{
+	String rprsnRlnmNbrDscd<length=1 description="관련인실명번호구분코드">;
+	String rprsnRlnmNbr<length=13 description="관련인실명번호">;
+	String rprsnRprsntnNm<length=20 description="관련인대표자명">;
+}

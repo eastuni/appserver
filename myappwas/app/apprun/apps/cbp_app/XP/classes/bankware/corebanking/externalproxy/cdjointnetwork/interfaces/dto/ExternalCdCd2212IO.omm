@@ -1,0 +1,26 @@
+OMM bankware.corebanking.externalproxy.cdjointnetwork.interfaces.dto.ExternalCdCd2212IO
+<description="결제원 월중 은행별 집계 XpCdCd2212IO Proxy">
+{
+	String instCd<length=14 description="기관코드">;
+	String txYm<length=6 description="거래년월">;
+	String seqNbr<length=12 description="일련번호">;
+	String txDscd<length=2 description="거래구분코드">;
+	String fnclInstCd<length=3 description="금융기관코드">;
+	BigDecimal opnInqryCnt<length=15 description="개설조회건수">;
+	BigDecimal opnIncmpltCnt<length=15 description="개설미완료건수">;
+	BigDecimal opnDsbrsmntCnt<length=15 description="개설지급건수">;
+	BigDecimal opnDsbrsmntCnclCnt<length=15 description="개설지급취소건수">;
+	BigDecimal hndlngInqryCnt<length=15 description="취급조회건수">;
+	BigDecimal hndlngDsbrsmntCnt<length=15 description="취급지급건수">;
+	BigDecimal hndlngDsbrsmntCnclCnt<length=15 description="취급지급취소건수">;
+	BigDecimal opnIncmpltAmt<length=18 decimal=2 description="개설미완료금액">;
+	BigDecimal opnDsbrsmntAmt<length=18 decimal=2 description="개설지급금액">;
+	BigDecimal opnDsbrsmntCnclAmt<length=18 decimal=2 description="개설지급취소금액">;
+	BigDecimal hndlngDsbrsmntAmt<length=18 decimal=2 description="취급지급금액">;
+	BigDecimal hndlngDsbrsmntCnclAmt<length=18 decimal=2 description="취급지급취소금액">;
+	Date lastChngTmstmp<length=30 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+	Integer pgNbr<length=9 description="페이지번호">;
+	Integer pgCnt<length=9 description="페이지건수">;
+	String totCntInqryYn<length=20 description="전체건수조회여부">;
+}

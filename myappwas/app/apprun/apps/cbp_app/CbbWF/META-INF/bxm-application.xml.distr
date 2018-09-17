@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bxm-application xmlns="http://www.es-code.com/schema/application" xmlns:ns2="http://www.es-code.com/schema/common" name="CbbWF" loglevel="Default" shared="true" reference-applications="CORE-intrfc,AR,PD,CM" type="online">
+    <description>CbbWF</description>
+    <datasource>
+        <jndi-datasource name="CBB" jndi-datasource="CBBNXA" jndi-xadatasource="CBBXA"/>
+    </datasource>
+</bxm-application>

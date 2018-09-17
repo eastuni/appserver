@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="filelog" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${logHome}/app.log"/>
+        <param name="DatePattern" value="'.'yyyyMMddHH"/>
+        <param name="Append" value="true"/>
+        <layout class="bxm.common.log4j.BxmPatternLayout">
+            <param name="ConversionPattern" value="[%d{yy/MM/dd HH:mm:ss,SSS}][%bxm{guid}][%p][%F:%L] %m%n" />
+        </layout>
+    </appender>
+		
+		<appender name="applogdb" class="bxm.dft.logging.DefaultAsyncTableAppender">
+			<!-- BufferSize만큼 차지 않으면 로그가 DB 에 저장되지 않으므로 적절한 값을 설정할 필요가 있음. -->
+			<param name="BufferSize" value="1"/>
+			<param name="jndiName" value="java:/comp/env/BXMNXA"/>
+			<layout class="org.apache.log4j.PatternLayout">
+					<param name="ConversionPattern" value="[%-5.5p][%d{HH:mm:ss.SSS}][%F:%L] %m%n" />
+			</layout>
+		</appender>
+
+    <logger name="java.sql.Connection">
+    	<level value="debug" />
+    </logger>
+     
+   <logger name="java.sql.PreparedStatement">
+    	<level value="debug" />
+    </logger>
+	 
+	 <logger name="bankware">
+        <level value="debug" />
+    </logger>
+
+    <logger name="com.atomikos">
+      <level value="warn" />
+    </logger>
+    <logger name="bxm.context.das">
+    	<level value="debug" />
+    </logger>
+
+    <root>
+        <priority value="info" />
+        <appender-ref ref="filelog" />
+        <appender-ref ref="applogdb" />
+    </root>
+</log4j:configuration>

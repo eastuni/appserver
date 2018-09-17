@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonjointnetwork.dao.XpNbrgMgmtM">
+<!--Generated Thu Sep 29 16:43:14 KST 2016-->
+<select id="selectXpNbrgMgmtM" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpNbrgMgmtMIO">
+SELECT    /* 채번관리기본 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        EXTRNL_SUB_BIZ_Dscd AS extrnlSubBizDscd,     /*대외업무세부구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  xp_nbrg_mgmt_m
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND EXTRNL_SUB_BIZ_Dscd = #{extrnlSubBizDscd}
+   AND TX_DT = #{txDt}
+   AND SEQ_NBR = #{seqNbr}
+</select>
+<insert id="insertXpNbrgMgmtM">
+INSERT  
+  INTO  xp_nbrg_mgmt_m    /* 채번관리기본 */
+(
+  INST_CD,     /*기관코드*/
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드*/
+  EXTRNL_SUB_BIZ_Dscd,     /*대외업무세부구분코드*/
+  TX_DT,     /*거래년월일*/
+  SEQ_NBR,     /*일련번호*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{extrnlInstCd},     /*대외기관코드*/
+  #{extrnlBizDscd},     /*대외업무구분코드*/
+  #{extrnlSubBizDscd},     /*대외업무세부구분코드*/
+  #{txDt},     /*거래년월일*/
+  #{seqNbr},     /*일련번호*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectXpNbrgMgmtMForUpdate" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpNbrgMgmtMIO">
+SELECT    /* 채번관리기본 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        EXTRNL_SUB_BIZ_Dscd AS extrnlSubBizDscd,     /*대외업무세부구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  xp_nbrg_mgmt_m
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND EXTRNL_SUB_BIZ_Dscd = #{extrnlSubBizDscd}
+   AND TX_DT = #{txDt}
+FOR UPDATE
+</select>
+<update id="updateForNumberingSameDate">
+UPDATE  
+        xp_nbrg_mgmt_m    /* 채번관리기본 */
+   SET  SEQ_NBR = SEQ_NBR + 1 /* 일련번호 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND EXTRNL_SUB_BIZ_Dscd = #{extrnlSubBizDscd}
+   AND TX_DT = #{txDt}
+</update>
+<update id="updateForNumberingDifferentDate">
+UPDATE  
+        xp_nbrg_mgmt_m    /* 채번관리기본 */
+   SET  TX_DT = #{txDt} /* 거래일자 */
+     , SEQ_NBR = 2 /* 일련번호 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND EXTRNL_SUB_BIZ_Dscd = #{extrnlSubBizDscd}
+</update>
+<select id="selectListXpNbrgMgmtM" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpNbrgMgmtMIO">
+SELECT    /* 채번관리기본 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        EXTRNL_SUB_BIZ_Dscd AS extrnlSubBizDscd,     /*대외업무세부구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  xp_nbrg_mgmt_m
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND TX_DT = #{txDt}
+</select>
+<select id="selectElMsgTraceNbrSeq" resultType="java.math.BigDecimal">
+select XP_EL_TLGR_TRACE_NBR_SEQ.nextval from dual
+</select>
+<select id="selectElTxUnqNbrSeq" resultType="java.math.BigDecimal">
+select XP_EL_TX_UNQ_NBR_SEQ.nextval from dual
+</select>
+</mapper>

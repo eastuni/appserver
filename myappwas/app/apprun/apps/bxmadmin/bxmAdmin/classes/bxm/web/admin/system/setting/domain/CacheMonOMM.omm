@@ -1,0 +1,12 @@
+OMM bxm.web.admin.system.setting.domain.CacheMonOMM
+<description="">
+{
+	String cacheNm<length=128 description="캐시명">;
+	String tableNm<length=100 description="테이블명">;
+	String nodeNm<length=128 description="노드명">;
+	String containerNm<length=128 description="컨테이너명">;
+	String status<length=512 description="상태">;
+	Integer cacheCount<length=9 description="적재건수">;
+	String mngSvcUrl<length=20 description="JMX Service URL">;
+	bxm.web.admin.system.setting.domain.CacheMonOMM children<length=0 arrayReference="1" description="tree children">;
+}

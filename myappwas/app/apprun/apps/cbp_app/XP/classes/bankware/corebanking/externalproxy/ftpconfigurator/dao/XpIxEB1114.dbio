@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpIxEB1114">
+<!--Generated Mon Sep 12 14:45:50 KST 2016-->
+<select id="selectListXpIxEB1114" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIxEB1114IO">
+SELECT 
+instCd,     /*기관코드*/
+txDt,     /*거래년월일*/
+seqNbr,     /*일련번호*/
+fnclInstCd,     /*금융기관코드*/
+txNetStlmntAmt,     /*거래차액*/
+fundsAdjstmntStlmntAmt,     /*자금조정정산금액*/
+stlmntAmt,     /*정산금액*/
+bfBizDtStlmntAmt,     /*전영업일정산금액*/
+fundsAdjstmntAmt,     /*자금조정금액*/
+lastChngTmstmp,     /*최종변경일시*/
+lastChngGuid    /*최종변경GUID*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+A.instCd,     /*기관코드*/
+A.txDt,     /*거래년월일*/
+A.seqNbr,     /*일련번호*/
+A.fnclInstCd,     /*금융기관코드*/
+A.txNetStlmntAmt,     /*거래차액*/
+A.fundsAdjstmntStlmntAmt,     /*자금조정정산금액*/
+A.stlmntAmt,     /*정산금액*/
+A.bfBizDtStlmntAmt,     /*전영업일정산금액*/
+A.fundsAdjstmntAmt,     /*자금조정금액*/
+A.lastChngTmstmp,     /*최종변경일시*/
+A.lastChngGuid    /*최종변경GUID*/
+     FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        FNCL_INST_CD AS fnclInstCd,     /*금융기관코드*/
+        TX_NET_STLMNT_AMT AS txNetStlmntAmt,     /*거래차액*/
+        FUNDS_ADJSTMNT_STLMNT_AMT AS fundsAdjstmntStlmntAmt,     /*자금조정정산금액*/
+        STLMNT_AMT AS stlmntAmt,     /*정산금액*/
+        BF_BIZ_DT_STLMNT_AMT AS bfBizDtStlmntAmt,     /*전영업일정산금액*/
+        FUNDS_ADJSTMNT_AMT AS fundsAdjstmntAmt,     /*자금조정금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_IX_EB1114_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+ORDER BY INST_CD, TX_DT, SEQ_NBR
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectListXpIxEB1114Count" resultType="java.lang.Integer">
+SELECT    
+        count(1)
+  FROM  XP_IX_EB1114_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+</select>
+</mapper>

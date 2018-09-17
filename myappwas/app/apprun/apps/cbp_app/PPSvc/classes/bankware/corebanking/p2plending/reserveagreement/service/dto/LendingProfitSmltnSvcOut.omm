@@ -1,0 +1,8 @@
+OMM bankware.corebanking.p2plending.reserveagreement.service.dto.LendingProfitSmltnSvcOut
+<description="Lending Profit Simulation Service Out">
+{
+	bankware.corebanking.p2p.simulation.service.dto.CshflwSmltnSvcRevenueOut revenueList<length=0 arrayReference="100" description="예상수익리스트">;
+	BigDecimal biddingAplctnFeeAmt<length=10 decimal=4 description="입찰신청수수료">;
+	BigDecimal biddingSucssFeeAmt<length=10 decimal=4 description="입찰성공수수료">;
+	bankware.corebanking.p2plending.reserveagreement.service.dto.LendingProfitSmltnSvcRevenueOut revenueListOld<length=0 arrayReference="100" description="예상수익리스트">;
+}

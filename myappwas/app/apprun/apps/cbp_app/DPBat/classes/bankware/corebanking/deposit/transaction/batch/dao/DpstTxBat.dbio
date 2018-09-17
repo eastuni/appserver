@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.deposit.transaction.batch.dao.DpstTxBat">
+<!--Generated Fri Apr 20 17:04:31 KST 2018-->
+<select id="selectDpstAccrualArrIdList" resultType="bankware.corebanking.deposit.transaction.batch.dao.dto.DpstTxBatIO">
+SELECT    
+        ARR_ID AS arrId    
+  FROM  AR_ARR_M
+ WHERE INST_CD = #{instCd}
+   AND ARR_STS_CD = #{arrStsCd}
+   AND BIZ_DSCD = '01' 
+   AND PD_TMPLT_CD != '0110001'
+</select>
+<select id="selectCountDpstAccrualArrIdList" resultType="java.lang.Integer">
+SELECT    
+        COUNT(1)  
+  FROM  AR_ARR_M
+ WHERE INST_CD = #{instCd}
+   AND ARR_STS_CD = #{arrStsCd}
+   AND BIZ_DSCD = '01' 
+   AND PD_TMPLT_CD = '0110001'
+</select>
+<select id="selectDpstAccrualForParallelArrIdList" resultType="bankware.corebanking.deposit.transaction.batch.dao.dto.DpstTxBatIO">
+SELECT    
+        ARR_ID AS arrId    
+  FROM  AR_ARR_M
+ WHERE INST_CD = #{instCd}
+   AND ARR_STS_CD = #{arrStsCd}
+   AND BIZ_DSCD = '01' 
+   AND PD_TMPLT_CD='0110001'
+ORDER BY ARR_ID
+Limit #{minVal}, #{maxVal}
+</select>
+<select id="selectListDpstAccrualForNotDemandArrId" resultType="bankware.corebanking.deposit.transaction.batch.dao.dto.DpstTxBatIO">
+SELECT    
+        ARR_ID AS arrId    
+  FROM  AR_ARR_M
+ WHERE INST_CD = #{instCd}
+   AND ARR_STS_CD = #{arrStsCd}
+   AND BIZ_DSCD = '01' 
+   AND PD_TMPLT_CD !='0110001'
+ORDER BY ARR_ID
+Limit #{minVal}, #{maxVal}
+</select>
+<select id="selectListDpstAccrualForDemandArrId" resultType="bankware.corebanking.deposit.transaction.batch.dao.dto.DpstTxBatIO">
+SELECT    
+        ARR_ID AS arrId    
+  FROM  AR_ARR_M
+ WHERE INST_CD = #{instCd}
+   AND ARR_STS_CD = #{arrStsCd}
+   AND BIZ_DSCD = '01' 
+   AND PD_TMPLT_CD ='0110001'
+ORDER BY ARR_ID
+Limit #{minVal}, #{maxVal}
+</select>
+<select id="selectCountDpstAccrualForNotDemandArrList" resultType="java.lang.Integer">
+SELECT    
+        COUNT(1)  
+  FROM  AR_ARR_M
+ WHERE INST_CD = #{instCd}
+   AND ARR_STS_CD = #{arrStsCd}
+   AND BIZ_DSCD = '01' 
+   AND PD_TMPLT_CD != '0110001'
+</select>
+<select id="selectTestListDpstAccrualArrId" resultType="bankware.corebanking.deposit.transaction.batch.dao.dto.DpstTxBatIO">
+SELECT    
+        ARR_ID AS arrId    
+  FROM  AR_ARR_M
+ WHERE INST_CD = #{instCd}
+   AND ARR_STS_CD = #{arrStsCd}
+   AND BIZ_DSCD = '01' 
+   AND PD_TMPLT_CD !='0110001'
+ORDER BY ARR_ID
+</select>
+</mapper>

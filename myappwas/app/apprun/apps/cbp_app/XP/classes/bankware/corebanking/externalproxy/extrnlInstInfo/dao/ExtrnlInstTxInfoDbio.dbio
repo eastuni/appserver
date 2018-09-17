@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.extrnlInstInfo.dao.ExtrnlInstTxInfoDbio">
+<!--Generated Wed Jun 14 09:34:18 KST 2017-->
+<select id="selectExtrnlInstTxInfo" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstTxInfoIFIn" resultType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstTxInfoIFOutSub">
+SELECT    /* 대외거래정보기본 */
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        (SELECT HANGUL_INST_NM FROM XP_EXTRNL_INST_INFO_M WHERE EXTRNL_INST_CD = A.EXTRNL_INST_CD) AS hangulInstNm, /*대외기관명*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        (SELECT EXTRNL_BIZ_NM FROM XP_EXTRNL_INST_BIZ_M WHERE EXTRNL_INST_CD = A.EXTRNL_INST_CD AND EXTRNL_BIZ_Dscd = A.EXTRNL_BIZ_Dscd) AS extrnlBizNm, /*대외업무명*/
+        EXTRNL_SUB_BIZ_Dscd AS extrnlSubBizDscd,     /*대외업무세부구분코드*/
+        (SELECT EXTRNL_SUB_BIZ_NM FROM XP_EXTRNL_INST_SUB_BIZ_M WHERE EXTRNL_INST_CD = A.EXTRNL_INST_CD AND EXTRNL_BIZ_Dscd = A.EXTRNL_BIZ_Dscd AND EXTRNL_SUB_BIZ_Dscd = A.EXTRNL_SUB_BIZ_Dscd) AS extrnlSubBizNm, /*대외세부업무명*/
+        JOINT_NETWORK_CL_CD AS jointNetworkClCd,     /*공동망종별코드*/
+        JOINT_NETWORK_TX_Dscd AS jointNetworkTxDscd,     /*공동망거래구분코드*/
+        JOINT_NETWORK_TX_NM AS jointNetworkTxNm,     /*공동망거래명*/
+        MSG_FORMAT_DTO_NM AS msgFormatDtoNm,     /*전문포맷DTO명*/
+        MSG_RSPNS_FORMAT_DTO_NM AS msgRspnsFormatDtoNm,     /*전문응답포맷DTO명*/
+        MSG_CHK_CLASS_NM AS msgChkClassNm,     /*전문검증클래스명*/
+        CNCL_MSG_CREATE_CLASS_NM AS cnclMsgCreateClassNm,     /*취소전문생성클래스명*/
+        RETRY_MSG_CREATE_CLASS_NM AS retryMsgCreateClassNm,     /*재처리전문생성클래스명*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_EXTRNL_TX_INFO_M A
+ WHERE EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND EXTRNL_SUB_BIZ_Dscd = #{extrnlSubBizDscd}
+</select>
+<insert id="insertExtrnlInstTxInfo" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstTxInfoIFIn">
+INSERT  
+  INTO  XP_EXTRNL_TX_INFO_M    /* 대외거래정보기본 */
+(
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드*/
+  EXTRNL_SUB_BIZ_Dscd,     /*대외업무세부구분코드*/
+  JOINT_NETWORK_CL_CD,     /*공동망종별코드*/
+  JOINT_NETWORK_TX_Dscd,     /*공동망거래구분코드*/
+  JOINT_NETWORK_TX_NM,     /*공동망거래명*/
+  MSG_FORMAT_DTO_NM,     /*전문포맷DTO명*/
+  MSG_RSPNS_FORMAT_DTO_NM,     /*전문응답포맷DTO명*/
+  MSG_CHK_CLASS_NM,     /*전문검증클래스명*/
+  CNCL_MSG_CREATE_CLASS_NM,     /*취소전문생성클래스명*/
+  RETRY_MSG_CREATE_CLASS_NM,     /*재처리전문생성클래스명*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{extrnlInstCd},     /*대외기관코드*/
+  #{extrnlBizDscd},     /*대외업무구분코드*/
+  #{extrnlSubBizDscd},     /*대외업무세부구분코드*/
+  #{jointNetworkClCd},     /*공동망종별코드*/
+  #{jointNetworkTxDscd},     /*공동망거래구분코드*/
+  #{jointNetworkTxNm},     /*공동망거래명*/
+  #{msgFormatDtoNm},     /*전문포맷DTO명*/
+  #{msgRspnsFormatDtoNm},     /*전문응답포맷DTO명*/
+  #{msgChkClassNm},     /*전문검증클래스명*/
+  #{cnclMsgCreateClassNm},     /*취소전문생성클래스명*/
+  #{retryMsgCreateClassNm},     /*재처리전문생성클래스명*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<delete id="deleteExtrnlInstTxInfo" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstTxInfoIFIn">
+DELETE  FROM  XP_EXTRNL_TX_INFO_M    /* 대외거래정보기본 */
+ WHERE  EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND EXTRNL_SUB_BIZ_Dscd = #{extrnlSubBizDscd}
+   AND JOINT_NETWORK_CL_CD = #{jointNetworkClCd}
+   AND JOINT_NETWORK_TX_Dscd = #{jointNetworkTxDscd}
+</delete>
+<update id="updateExtrnlInstTxInfo" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstTxInfoIFIn">
+UPDATE  
+        XP_EXTRNL_TX_INFO_M    /* 대외거래정보기본 */
+   SET  JOINT_NETWORK_TX_NM = #{jointNetworkTxNm}    /* 공동망거래명 */
+     , MSG_FORMAT_DTO_NM = #{msgFormatDtoNm}    /* 전문포맷DTO명 */
+     , MSG_RSPNS_FORMAT_DTO_NM = #{msgRspnsFormatDtoNm}    /* 전문응답포맷DTO명 */
+     , MSG_CHK_CLASS_NM = #{msgChkClassNm}    /* 전문검증클래스명 */
+     , CNCL_MSG_CREATE_CLASS_NM = #{cnclMsgCreateClassNm}    /* 취소전문생성클래스명 */
+     , RETRY_MSG_CREATE_CLASS_NM = #{retryMsgCreateClassNm}    /* 재처리전문생성클래스명 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND EXTRNL_SUB_BIZ_Dscd = #{extrnlSubBizDscd}
+   AND JOINT_NETWORK_CL_CD = #{jointNetworkClCd}
+   AND JOINT_NETWORK_TX_Dscd = #{jointNetworkTxDscd}
+</update>
+<select id="selectExtrnlInstTxInfoList" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstTxInfoIFIn" resultType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstTxInfoIFOutSub">
+SELECT 			extrnlInstCd,     /*대외기관코드*/
+			        extrnlBizDscd,     /*대외업무구분코드*/
+			        extrnlSubBizDscd,     /*대외업무세부구분코드*/
+			        jointNetworkClCd,     /*공동망종별코드*/
+			        jointNetworkTxDscd,     /*공동망거래구분코드*/
+			        jointNetworkTxNm,     /*공동망거래명*/
+			        msgFormatDtoNm,     /*전문포맷DTO명*/
+			        msgRspnsFormatDtoNm,     /*전문응답포맷DTO명*/
+			        msgChkClassNm,     /*전문검증클래스명*/
+			        cnclMsgCreateClassNm,     /*취소전문생성클래스명*/
+			        retryMsgCreateClassNm,     /*재처리전문생성클래스명*/
+			        lastChngTmstmp,     /*최종변경일시*/
+			        lastChngGuid    /*최종변경GUID*/
+FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+    				A.extrnlInstCd,     /*대외기관코드*/
+			        A.extrnlBizDscd,     /*대외업무구분코드*/
+			        A.extrnlSubBizDscd,     /*대외업무세부구분코드*/
+			        A.jointNetworkClCd,     /*공동망종별코드*/
+			        A.jointNetworkTxDscd,     /*공동망거래구분코드*/
+			        A.jointNetworkTxNm,     /*공동망거래명*/
+			        A.msgFormatDtoNm,     /*전문포맷DTO명*/
+			        A.msgRspnsFormatDtoNm,     /*전문응답포맷DTO명*/
+			        A.msgChkClassNm,     /*전문검증클래스명*/
+			        A.cnclMsgCreateClassNm,     /*취소전문생성클래스명*/
+			        A.retryMsgCreateClassNm,     /*재처리전문생성클래스명*/
+			        A.lastChngTmstmp,     /*최종변경일시*/
+			        A.lastChngGuid    /*최종변경GUID*/
+      FROM 
+        (
+			SELECT    /* 대외거래정보기본 */
+			        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+			        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+			        EXTRNL_SUB_BIZ_Dscd AS extrnlSubBizDscd,     /*대외업무세부구분코드*/
+			        JOINT_NETWORK_CL_CD AS jointNetworkClCd,     /*공동망종별코드*/
+			        JOINT_NETWORK_TX_Dscd AS jointNetworkTxDscd,     /*공동망거래구분코드*/
+			        JOINT_NETWORK_TX_NM AS jointNetworkTxNm,     /*공동망거래명*/
+			        MSG_FORMAT_DTO_NM AS msgFormatDtoNm,     /*전문포맷DTO명*/
+			        MSG_RSPNS_FORMAT_DTO_NM AS msgRspnsFormatDtoNm,     /*전문응답포맷DTO명*/
+			        MSG_CHK_CLASS_NM AS msgChkClassNm,     /*전문검증클래스명*/
+			        CNCL_MSG_CREATE_CLASS_NM AS cnclMsgCreateClassNm,     /*취소전문생성클래스명*/
+			        RETRY_MSG_CREATE_CLASS_NM AS retryMsgCreateClassNm,     /*재처리전문생성클래스명*/
+			        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+			        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+			  FROM  XP_EXTRNL_TX_INFO_M
+			 WHERE EXTRNL_INST_CD = #{extrnlInstCd}
+			   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+			   AND EXTRNL_SUB_BIZ_Dscd = #{extrnlSubBizDscd}   
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectExtrnlInstTxInfoTotCnt" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstTxInfoIFIn" resultType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstTxInfoIFOut">
+SELECT  count(1) as totCnt
+  FROM  XP_EXTRNL_TX_INFO_M
+ WHERE EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND EXTRNL_SUB_BIZ_Dscd = #{extrnlSubBizDscd}
+</select>
+<select id="selectCmMsgInfo" resultType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstTxInfoFileMsgOut">
+SELECT  /*bankware.corebanking.externalproxy.extrnlInstInfo.dao.ExtrnlInstInfoDbio.selectCmMsgInfo */
+	msg_cd AS msgCd
+   ,msg_cntnt AS msgCntnt
+FROM  CM_MSG_M
+WHERE  msg_cd = #{msgCd}
+AND  chnl_cd = 'COR'
+AND  lng_cd = 'ko'
+</select>
+</mapper>

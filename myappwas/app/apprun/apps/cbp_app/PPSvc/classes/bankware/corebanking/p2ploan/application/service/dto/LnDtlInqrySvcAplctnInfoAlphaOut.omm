@@ -1,0 +1,7 @@
+OMM bankware.corebanking.p2ploan.application.service.dto.LnDtlInqrySvcAplctnInfoAlphaOut
+<description="">
+{
+	String pdNm<length=100 description="상품명">;
+	String prcsNm<length=100 description="계약상태명">;
+	bankware.corebanking.p2ploan.information.service.dto.LnDtlInqrySvcAplctnInfoOut aplctnInfoCntnt<length=0 description="신청입력정보">;
+}

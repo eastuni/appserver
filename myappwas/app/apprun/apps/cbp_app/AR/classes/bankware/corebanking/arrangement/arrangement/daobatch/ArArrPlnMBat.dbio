@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bankware.corebanking.arrangement.arrangement.daobatch.ArArrPlnMBat">
+
+<!--Generated Thu Nov 05 17:24:27 KST 2015-->
+
+<select id="selectByPeriod" parameterType="bankware.corebanking.arrangement.arrangement.daobatch.dto.ArArrPlnInPeriod" resultType="bankware.corebanking.arrangement.arrangement.daobatch.dto.ArArrPlnOutStandard">
+
+SELECT    /* 계약계획기본 */
+
+       inst_cd AS instCd    /*기관코드*/
+
+     , arr_id AS arrId    /*계약식별자*/
+
+     , pln_seq_nbr AS plnSeqNbr    /*계획일련번호*/
+
+     , arr_srvc_tp_cd AS arrSrvcTpCd    /*계약서비스유형코드*/
+
+     , nxt_exctn_pln_dt AS nxtExctnPlnDt    /*다음실행예정년월일*/
+
+     , nxt_exctn_pln_hm AS nxtExctnPlnHm    /*다음실행예정시분*/
+  FROM ar_arr_pln_m
+
+ WHERE inst_cd = #{instCd}
+
+   AND arr_srvc_tp_cd = #{arrSrvcTpCd}
+
+   AND nxt_exctn_pln_dt &gt;= #{startDt}
+
+   AND nxt_exctn_pln_dt &lt;= #{endDt}
+
+   AND arr_pln_sts_cd = '1'
+
+   order by arrId
+
+</select>
+
+</mapper>
+

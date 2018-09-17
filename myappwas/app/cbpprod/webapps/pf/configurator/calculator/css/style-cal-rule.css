@@ -1,0 +1,419 @@
+.align-right {
+	float: right;
+}
+
+.pf-cal-compose-sub-tab .center-bg {
+	border-top: 1px solid #ebebeb;
+	margin-top: -1px;
+}
+
+.calculation-rule-detail-popup {
+	background: white;
+}
+
+.calculation-rule-detail-popup textarea {
+	text-align: center;
+	line-height: 4;
+}
+
+.calculation-rule-detail-popup .tab-title li.active a span.tab-bg {
+	top: 0px;
+}
+
+.calculation-rule-detail-popup .bx-info-table input[type="checkbox"] {
+	width: 15px !important;
+	height: 15px !important;
+}
+
+.calculation-rule-detail-container {
+	border: 1px solid #e3e3e3;
+	margin-bottom: 5px;
+}
+
+.calculation-rule-compose-container {
+	height: 465px;
+	display: flex;
+}
+
+.pf-cal-compose-sub-tab-conts .checkbox-wrapper {
+	margin-left: 20px;
+	float: left;
+	padding-top: 1px;
+}
+
+.pf-cal-compose-sub-tab-conts textarea {
+	width: 100% !important;
+}
+.pf-cal-compose-sub-tab-conts .bx-info-table input,
+.pf-cal-compose-sub-tab-conts .bx-info-table select {
+	width: 130px !important;
+}
+
+.calculation-rule-compose-detail-form-table {
+	table-layout: fixed;
+}
+
+.pf-cal-compose-sub-tab-conts .bx-info-table th {
+ 	padding-left: 10px !important;
+	overflow: hidden;
+	width: 100px;
+}
+
+.pf-cal-compose-sub-tab-conts .bx-info-table td {
+	padding-right: 30px !important;
+}
+
+.pf-cal-compose-sub-tab-conts .bx-info-table .small-input {
+	width: 100px !important;
+}
+
+.pf-cal-compose-sub-tab .header-group .base-date {
+	width: 100px !important;
+	margin: 0 10px;
+	padding: 0 4px;
+	outline: none;
+    background-color: white;
+    border-radius: 0px;
+}
+
+.reference-condition-name {
+	float: inherit !important;
+}
+
+.calculation-rule-compose-list {
+	display: none;
+	padding-top: 40px !important;
+	position: relative;
+	width: 15%;
+	height: 100%;
+	padding: 10px;
+	border: 1px solid #e3e3e3;
+	overflow-y: auto;
+}
+
+.calculation-rule-compose-list.focus  {
+	display: block;
+}
+
+.calculation-rule-compose-detail {
+	width: 100%;
+	padding: 10px;
+	flex: 1;
+	border: 1px solid #e3e3e3;
+}
+
+.calculation-rule-detail-container .calculation-rule-conversion-content {
+	height: 60px;
+	background: #f6f6f6;
+	text-align: center;
+	font-size: 14px !important;
+	line-height: 4.3;
+	overflow-y:auto; /* OHS20180315 추가 */
+}
+
+.calculation-rule-compose-detail .calculation-rule-content {
+	cursor: pointer;
+}
+
+.calculation-rule-compose-detail .reference-condition-code {
+	cursor: pointer;
+}
+
+.calculation-section {
+	margin-bottom: 10px;
+	background: #f9f9f9;
+	border: 1px solid #dfdfdf;
+}
+
+.calculation-rule-compose-footer,
+.calculation-rule-condition-footer {
+	border-top: 1px solid #cccccc;
+}
+
+.calculation-rule-compose-footer .bw-btn,
+.calculation-rule-condition-footer .bw-btn {
+	float: right;
+}
+
+.calculation-rule-compose-detail {
+	position: relative;
+}
+
+.toggle-btn  {
+	position: absolute;
+	top: 45%;
+	left: 0;
+	width: 12px;
+	height: 40px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #bbb;
+	border-left: none;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+	cursor: pointer;
+	background: url(/images/bx-ui/arrow-btm-pf-right.png) no-repeat;
+	background-size: 10px;
+	background-position: right;
+	background-position-x: center;
+	background-position-y: 10px;
+	font-size: 0px;
+}
+
+.toggle-btn.folded {
+	background: url(/images/bx-ui/arrow-btm-pf-left.png) no-repeat;
+	background-size: 10px;
+	background-position: right;
+	background-position-x: center;
+	background-position-y: 14px;
+}
+
+.calculation-rule-compose-detail-wrap,
+.calculation-rule-condition-wrap {
+	margin-left: 10px;
+}
+
+.has-error {
+	border-color: #a94442 !important;
+	background-color: #ffebee !important;
+}
+
+.has-success {
+	border-color: #3c763d !important;
+	background-color: #e8f5e9 !important;
+}
+
+.calculation-rule-compose-list-item  {
+	position: relative;
+	display: block;
+	width: 100%;
+	padding: 6px 6px;
+	margin: 10px auto;
+	text-align: center;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	border: 1px	solid transparent;
+	border-radius: 4px;
+	color: #333;
+	font-size: 12px;
+	line-height: 1.5;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.calculation-rule-compose-list-item:hover {
+	color: #333;
+	background-color: #e6e6e6;
+	border-color: #adadad;
+}
+
+.calculation-rule-compose-list-item:active {
+    color: #333;
+    background-color: #d4d4d4;
+    border-color: #8c8c8c
+}
+
+.calculation-rule-compose-list-item.active {
+    color: #333;
+    background-color: #d4d4d4;
+    border-color: #8c8c8c
+}
+
+.calculation-rule-compose-list-item span {
+	position: absolute;
+	top: 18px;
+	right: 1px;
+}
+
+.btn-right  {
+	display: none;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 20px;
+	height: 20px;
+	background: url(/images/bx-ui/arrow-btn-right.png) no-repeat;
+	background-size: 20px;
+	color: transparent;
+    cursor: pointer;
+}
+
+.btn-left  {
+	display: none;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 20px;
+	height: 20px;
+	background: url(/images/bx-ui/arrow-btn-left.png) no-repeat;
+	background-size: 20px;
+	color: transparent;
+    cursor: pointer;
+}
+
+.child-arrow-right {
+	width: 12px;
+	height: 12px;
+	background: url(/images/bx-ui/arrow-btn-right.png) no-repeat;
+	background-size: 12px;
+	color: transparent;
+}
+
+.child-arrow-left {
+	width: 12px;
+	height: 12px;
+	background: url(/images/bx-ui/arrow-btn-left.png) no-repeat;
+	background-size: 12px;
+	color: transparent;
+}
+
+/* calculation rule compose history */
+
+.calculation-rule-compose-history-grid {
+	height: 150px;
+}
+
+.calculation-rule-compose-detail-container {
+	margin-top: 15px;
+}
+
+.calculation-rule-compose-detail-container .bx-info-table th {
+ 	padding-left: 10px !important;
+	overflow: hidden;
+	width: 100px;
+}
+
+.calculation-rule-compose-detail-container .bx-info-table td {
+	padding-right: 30px !important;
+}
+
+.calculation-rule-compose-detail-container .bx-info-table .small-input {
+	width: 100px !important;
+}
+
+.calculation-rule-compose-detail-container .calculation-rule-compose-detail-wrap {
+    margin-left: 0;
+}
+
+
+
+
+/* condition */
+.calculation-rule-condition-container {
+	height: 465px;
+}
+
+.calculation-rule-condition-menu {
+	float:left;
+	width: 15%;
+	height: 100%;
+}
+
+.calculation-rule-condition-list {
+	padding-top: 40px !important;
+	height: 100%;
+	padding: 10px;
+	border: 1px solid #e3e3e3;
+	overflow-y: auto;
+}
+
+.calculation-rule-condition-list-item  {
+	display: block;
+	width: 100%;
+	padding: 6px 6px;
+	margin: 10px auto;
+	text-align: center;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	border: 1px	solid transparent;
+	border-radius: 4px;
+	color: #333;
+	font-size: 12px;
+	line-height: 1.5;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.calculation-rule-condition-list-item:hover {
+	color: #333;
+	background-color: #e6e6e6;
+	border-color: #adadad;
+}
+
+.calculation-rule-condition-list-item:active {
+    color: #333;
+    background-color: #d4d4d4;
+    border-color: #8c8c8c
+}
+
+.calculation-rule-condition-list-item.active {
+    color: #333;
+    background-color: #d4d4d4;
+    border-color: #8c8c8c
+}
+
+.calculation-rule-condition-detail {
+	float:left;
+	width: 85%;
+	height: 100%;
+	padding: 10px;
+	border: 1px solid #e3e3e3;
+}
+
+
+
+.calculation-rule-list-condition-grid {
+	margin-top: 30px;
+	height: 316px;
+}
+
+.sub-compose-grid {
+	height: 125px;
+}
+
+.sub-compose-grid-btn-group {
+	position: relative;
+}
+
+.calculation-grid-header {
+    float: left;
+    font-size: 12px;
+    position: absolute;
+    bottom: 3px;
+    left: 10px;
+}
+
+
+/* calculation rule condition history */
+.calculation-rule-condition-history-grid {
+	height: 150px;
+}
+
+.calculation-rule-condition-detail-container {
+	margin-top: 15px;
+	height: 250px;
+}
+
+.calculation-rule-condition-detail-container .calculation-rule-list-condition-grid {
+	height: 100%;
+	margin-top: 0;
+}
+
+.calculation-rule-condition-detail-container .calculation-rule-complex-condition-grid {
+	height: 100%;
+}
+
+.calculation-rule-compose-history-btn,
+.calculation-rule-condition-history-btn {
+	position: absolute;
+	top: 0;
+	right: 0;
+}

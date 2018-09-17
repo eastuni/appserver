@@ -1,0 +1,6 @@
+OMM bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpExtrnlInstCdMIO
+<description="대외기관코드">
+{
+	String extrnlInstCd<length=3 description="대외기관코드">;
+	String hangulInstNm<length=100 description="한글기관명">;
+}

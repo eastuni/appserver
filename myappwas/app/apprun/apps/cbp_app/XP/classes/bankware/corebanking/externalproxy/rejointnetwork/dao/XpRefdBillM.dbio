@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.rejointnetwork.dao.XpRefdBillM">
+<!--Generated Mon Aug 07 17:19:50 KST 2017-->
+<insert id="registerRefdBill" parameterType="bankware.corebanking.externalproxy.rejointnetwork.dao.dto.XpRefdBillMIO">
+INSERT  
+  INTO  XP_RE_BILL_REFUND_M    /* 자금청구반환원장 */
+(
+  TX_OCR_DT,     /*거래발생일자*/
+  BILL_REFUND_TX_Dscd,     /*청구반환거래구분코드*/
+  TX_UNQ_NBR,     /*거래고유번호*/
+  GUID,     /*GUID*/
+  HNDLNG_INST_CD,     /*취급기관코드*/
+  HNDLNG_INST_BRNCH_CD,     /*취급기관점별코드*/
+  OPN_INST_CD,     /*개설기관코드*/
+  OPN_INST_BRNCH_CD,     /*개설기관점별코드*/
+  ERR_MSG_CNTNT,     /*에러메시지*/
+  RSPNS_CD,     /*응답코드*/
+  BILL_REFUND_JOINT_NETWORK_CD,     /*청구반환공동망코드*/
+  ORGNL_TX_TX_Dscd,     /*원거래거래구분코드*/
+  ORGNL_TX_DT,     /*원거래일자*/
+  ORGNL_TX_UNQ_MGMT_NBR,     /*원거래고유관리번호*/
+  ORGNL_TX_RCPNT_ACCT_NBR,     /*원거래수취계좌번호*/
+  BILL_REFUND_AMT,     /*청구반환금액*/
+  HNDLNG_PROXY_COST_AMT,     /*취급대행비용금액*/
+  PROXY_COST_REFUND_INST_CD,     /*대행비용반환기관코드*/
+  BILL_REFUND_RSN_CD,     /*청구반환사유코드*/
+  BILL_REFUND_RSN_CNTNT,     /*청구반환사유내용*/
+  ORGNL_TX_MATCH_YN_CD,     /*원거래일치여부코드*/
+  RSPBL_PERSON_CTCPT_CNTNT,     /*담당자연락처*/
+  ONLINE_BILL_YN_CD,     /*온라인청구여부코드*/
+  BILL_DT,     /*청구일자*/
+  BILL_TX_UNQ_NBR,     /*청구거래고유번호*/
+  REFUND_YN_CD,     /*반환여부코드*/
+  REFUND_RJCT_RSN_CD,     /*반환거부사유코드*/
+  REFUND_RJCT_RSN_CNTNT,     /*반환거부사유내용*/
+  FUND_REFUND_DPST_ACCT_NBR,     /*자금반환입금계좌번호*/
+  OWN_BNK_HNDLNG_FEE_AMT,     /*당행취급수수료금액*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID,     /*최종변경GUID*/
+  ORGNL_TX_RCPNT_BNK_CD,    /*원거래수취은행코드*/
+  RQER_TEL_NBR	/*의뢰인전화번호*/
+)
+VALUES 
+(
+  #{txOcrDt, jdbcType=VARCHAR},     /*거래발생일자*/
+  #{billRefundTxDscd, jdbcType=VARCHAR},     /*청구반환거래구분코드*/
+  #{txUnqNbr, jdbcType=VARCHAR},     /*거래고유번호*/
+  #{guid, jdbcType=VARCHAR},     /*GUID*/
+  #{hndlngInstCd, jdbcType=VARCHAR},     /*취급기관코드*/
+  #{hndlngInstBrnchCd, jdbcType=VARCHAR},     /*취급기관점별코드*/
+  #{opnInstCd, jdbcType=VARCHAR},     /*개설기관코드*/
+  #{opnInstBrnchCd, jdbcType=VARCHAR},     /*개설기관점별코드*/
+  #{errMsgCntnt, jdbcType=VARCHAR},     /*에러메시지*/
+  #{rspnsCd, jdbcType=VARCHAR},     /*응답코드*/
+  #{billRefundJointNetworkCd, jdbcType=VARCHAR},     /*청구반환공동망코드*/
+  #{orgnlTxTxDscd, jdbcType=VARCHAR},     /*원거래거래구분코드*/
+  #{orgnlTxDt, jdbcType=VARCHAR},     /*원거래일자*/
+  #{orgnlTxUnqMgmtNbr, jdbcType=VARCHAR},     /*원거래고유관리번호*/
+  #{orgnlTxRcpntAcctNbr, jdbcType=VARCHAR},     /*원거래수취계좌번호*/
+  #{billRefundAmt, jdbcType=NUMERIC},     /*청구반환금액*/
+  #{hndlngProxyCostAmt, jdbcType=NUMERIC},     /*취급대행비용금액*/
+  #{proxyCostRefundInstCd, jdbcType=VARCHAR},     /*대행비용반환기관코드*/
+  #{billRefundRsnCd, jdbcType=VARCHAR},     /*청구반환사유코드*/
+  #{billRefundRsnCntnt, jdbcType=VARCHAR},     /*청구반환사유내용*/
+  #{orgnlTxMatchYnCd, jdbcType=VARCHAR},     /*원거래일치여부코드*/
+  #{rspblPersonCtcptCntnt, jdbcType=VARCHAR},     /*담당자연락처*/
+  #{onlineBillYnCd, jdbcType=VARCHAR},     /*온라인청구여부코드*/
+  #{billDt, jdbcType=VARCHAR},     /*청구일자*/
+  #{billTxUnqNbr, jdbcType=VARCHAR},     /*청구거래고유번호*/
+  #{refundYnCd, jdbcType=VARCHAR},     /*반환여부코드*/
+  #{refundRjctRsnCd, jdbcType=VARCHAR},     /*반환거부사유코드*/
+  #{refundRjctRsnCntnt, jdbcType=VARCHAR},     /*반환거부사유내용*/
+  #{fundRefundDpstAcctNbr, jdbcType=VARCHAR},     /*자금반환입금계좌번호*/
+  #{ownBnkHndlngFeeAmt, jdbcType=NUMERIC},     /*당행취급수수료금액*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR},     /*최종변경GUID*/
+  #{orgnlTxRcpntBnkCd, jdbcType=VARCHAR},    /*원거래수취은행코드*/
+  #{rqerTelNbr, jdbcType=VARCHAR}	/*의뢰인전화번호*/
+)
+</insert>
+<update id="updateRefdBill">
+UPDATE 
+	XP_RE_BILL_REFUND_M 
+SET 
+	HNDLNG_PROXY_COST_AMT = #{hndlngProxyCostAmt, jdbcType=NUMERIC}
+WHERE
+	TX_OCR_DT = #{txOcrDt, jdbcType=VARCHAR}
+	AND BILL_REFUND_TX_Dscd = #{billRefundTxDscd, jdbcType=VARCHAR}
+	AND TX_UNQ_NBR= #{txUnqNbr, jdbcType=VARCHAR}
+</update>
+<select id="selectBillHstList" resultType="bankware.corebanking.externalproxy.rejointnetwork.dao.dto.XpRefdBillMIO">
+SELECT 
+       TX_OCR_DT AS txOcrDt,     /*거래발생일자*/
+       BILL_REFUND_TX_Dscd AS billRefundTxDscd,     /*청구반환거래구분코드*/
+       TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+       GUID AS guid,     /*GUID*/
+       HNDLNG_INST_CD AS hndlngInstCd,     /*취급기관코드*/
+       HNDLNG_INST_BRNCH_CD AS hndlngInstBrnchCd,     /*취급기관점별코드*/
+       OPN_INST_CD AS opnInstCd,     /*개설기관코드*/
+       OPN_INST_BRNCH_CD AS opnInstBrnchCd,     /*개설기관점별코드*/
+       ERR_MSG_CNTNT AS errMsgCntnt,     /*에러메시지*/
+       RSPNS_CD AS rspnsCd,     /*응답코드*/
+       BILL_REFUND_JOINT_NETWORK_CD AS billRefundJointNetworkCd,     /*청구반환공동망코드*/
+       ORGNL_TX_TX_Dscd AS orgnlTxTxDscd,     /*원거래거래구분코드*/
+       ORGNL_TX_DT AS orgnlTxDt,     /*원거래일자*/
+       ORGNL_TX_UNQ_MGMT_NBR AS orgnlTxUnqMgmtNbr,     /*원거래고유관리번호*/
+       ORGNL_TX_RCPNT_ACCT_NBR AS orgnlTxRcpntAcctNbr,     /*원거래수취계좌번호*/
+       BILL_REFUND_AMT AS billRefundAmt,     /*청구반환금액*/
+       HNDLNG_PROXY_COST_AMT AS hndlngProxyCostAmt,     /*취급대행비용금액*/
+       PROXY_COST_REFUND_INST_CD AS proxyCostRefundInstCd,     /*대행비용반환기관코드*/
+       BILL_REFUND_RSN_CD AS billRefundRsnCd,     /*청구반환사유코드*/
+       BILL_REFUND_RSN_CNTNT AS billRefundRsnCntnt,     /*청구반환사유내용*/
+       ORGNL_TX_MATCH_YN_CD AS orgnlTxMatchYnCd,     /*원거래일치여부코드*/
+       RSPBL_PERSON_CTCPT_CNTNT AS rspblPersonCtcptCntnt,     /*담당자연락처*/
+       ONLINE_BILL_YN_CD AS onlineBillYnCd,     /*온라인청구여부코드*/
+       BILL_DT AS billDt,     /*청구일자*/
+       BILL_TX_UNQ_NBR AS billTxUnqNbr,     /*청구거래고유번호*/
+       REFUND_YN_CD AS refundYnCd,     /*반환여부코드*/
+       REFUND_RJCT_RSN_CD AS refundRjctRsnCd,     /*반환거부사유코드*/
+       REFUND_RJCT_RSN_CNTNT AS refundRjctRsnCntnt,     /*반환거부사유내용*/
+       FUND_REFUND_DPST_ACCT_NBR AS fundRefundDpstAcctNbr,     /*자금반환입금계좌번호*/
+       OWN_BNK_HNDLNG_FEE_AMT AS ownBnkHndlngFeeAmt,     /*당행취급수수료금액*/
+       LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+       LAST_CHNG_GUID AS lastChngGuid,     /*최종변경GUID*/
+       ORGNL_TX_RCPNT_BNK_CD AS orgnlTxRcpntBnkCd,     /*원거래수취은행코드*/
+       ORGNL_TX_AMT AS orgnlTxAmt,    /*원거래금액*/
+       RQER_TEL_NBR AS rqerTelNbr	/*의뢰인전화번호*/
+FROM 
+	XP_RE_BILL_REFUND_M 
+WHERE 
+	TX_OCR_DT BETWEEN #{txStartDt, jdbcType=VARCHAR} AND #{txEndDt, jdbcType=VARCHAR}
+<if test="billRefundTxDscd != null and billRefundTxDscd != ''">
+AND   BILL_REFUND_TX_Dscd = #{billRefundTxDscd, jdbcType=VARCHAR}
+</if>
+<if test="orgnlTxUnqMgmtNbr != null and orgnlTxUnqMgmtNbr != ''">
+AND   ORGNL_TX_UNQ_MGMT_NBR = #{orgnlTxUnqMgmtNbr, jdbcType=VARCHAR}
+</if>
+ORDER BY TX_OCR_DT DESC, TX_UNQ_NBR
+</select>
+<select id="selectBillRefdAmt" resultType="bankware.corebanking.externalproxy.rejointnetwork.dao.dto.XpRefdBillMIO">
+SELECT   /* 청구접수를 위해 청구 가능 잔액 확인 */
+         SUM(BILL_REFUND_AMT) AS billRefundAmt  /* 반환금액합계 */
+FROM
+         XP_RE_BILL_REFUND_M
+WHERE
+         BILL_REFUND_TX_Dscd = #{billRefundTxDscd}
+AND      ORGNL_TX_DT = #{orgnlTxDt}
+AND      ORGNL_TX_UNQ_MGMT_NBR = #{orgnlTxUnqMgmtNbr}
+AND      RSPNS_CD = '000'
+AND      REFUND_YN_CD = 'Y'
+</select>
+<select id="selectBillWithinThirtyDays" resultType="bankware.corebanking.externalproxy.rejointnetwork.dao.dto.XpRefdBillMIO">
+SELECT   /* 청구접수를 위해 청구 가능 잔액 확인 */
+         MAX(TX_OCR_DT) AS txOcrDt
+,        TX_UNQ_NBR AS txUnqNbr
+FROM
+         XP_RE_BILL_REFUND_M
+WHERE
+         BILL_REFUND_TX_Dscd = '300000'
+AND      ORGNL_TX_DT = #{orgnlTxDt, jdbcType=VARCHAR}
+AND      ORGNL_TX_UNQ_MGMT_NBR = #{orgnlTxUnqMgmtNbr, jdbcType=VARCHAR}
+AND     (RSPNS_CD = '000' OR RSPNS_CD = '430')
+GROUP BY TX_UNQ_NBR
+</select>
+<select id="selectRefdBill" resultType="bankware.corebanking.externalproxy.rejointnetwork.dao.dto.XpRefdBillMIO">
+SELECT    /* 자금청구반환원장 */
+         TX_OCR_DT AS txOcrDt,     /*거래발생일자*/
+         BILL_REFUND_TX_Dscd AS billRefundTxDscd,     /*청구반환거래구분코드*/
+         TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+         GUID AS guid,     /*GUID*/
+         HNDLNG_INST_CD AS hndlngInstCd,     /*취급기관코드*/
+         HNDLNG_INST_BRNCH_CD AS hndlngInstBrnchCd,     /*취급기관점별코드*/
+         OPN_INST_CD AS opnInstCd,     /*개설기관코드*/
+         OPN_INST_BRNCH_CD AS opnInstBrnchCd,     /*개설기관점별코드*/
+         ERR_MSG_CNTNT AS errMsgCntnt,     /*에러메시지*/
+         RSPNS_CD AS rspnsCd,     /*응답코드*/
+         BILL_REFUND_JOINT_NETWORK_CD AS billRefundJointNetworkCd,     /*청구반환공동망코드*/
+         ORGNL_TX_TX_Dscd AS orgnlTxTxDscd,     /*원거래거래구분코드*/
+         ORGNL_TX_DT AS orgnlTxDt,     /*원거래일자*/
+         ORGNL_TX_UNQ_MGMT_NBR AS orgnlTxUnqMgmtNbr,     /*원거래고유관리번호*/
+         ORGNL_TX_RCPNT_ACCT_NBR AS orgnlTxRcpntAcctNbr,     /*원거래수취계좌번호*/
+         BILL_REFUND_AMT AS billRefundAmt,     /*청구반환금액*/
+         HNDLNG_PROXY_COST_AMT AS hndlngProxyCostAmt,     /*취급대행비용금액*/
+         PROXY_COST_REFUND_INST_CD AS proxyCostRefundInstCd,     /*대행비용반환기관코드*/
+         BILL_REFUND_RSN_CD AS billRefundRsnCd,     /*청구반환사유코드*/
+         BILL_REFUND_RSN_CNTNT AS billRefundRsnCntnt,     /*청구반환사유내용*/
+         ORGNL_TX_MATCH_YN_CD AS orgnlTxMatchYnCd,     /*원거래일치여부코드*/
+         RSPBL_PERSON_CTCPT_CNTNT AS rspblPersonCtcptCntnt,     /*담당자연락처*/
+         ONLINE_BILL_YN_CD AS onlineBillYnCd,     /*온라인청구여부코드*/
+         BILL_DT AS billDt,     /*청구일자*/
+         BILL_TX_UNQ_NBR AS billTxUnqNbr,     /*청구거래고유번호*/
+         REFUND_YN_CD AS refundYnCd,     /*반환여부코드*/
+         REFUND_RJCT_RSN_CD AS refundRjctRsnCd,     /*반환거부사유코드*/
+         REFUND_RJCT_RSN_CNTNT AS refundRjctRsnCntnt,     /*반환거부사유내용*/
+         FUND_REFUND_DPST_ACCT_NBR AS fundRefundDpstAcctNbr,     /*자금반환입금계좌번호*/
+         OWN_BNK_HNDLNG_FEE_AMT AS ownBnkHndlngFeeAmt,     /*당행취급수수료금액*/
+         LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+         LAST_CHNG_GUID AS lastChngGuid,     /*최종변경GUID*/
+         ORGNL_TX_RCPNT_BNK_CD AS orgnlTxRcpntBnkCd,     /*원거래수취은행코드*/
+         ORGNL_TX_AMT AS orgnlTxAmt    /*원거래금액*/
+FROM
+         XP_RE_BILL_REFUND_M
+WHERE BILL_REFUND_TX_Dscd = '400000'
+AND   BILL_DT = #{billDt, jdbcType=VARCHAR}
+AND   BILL_TX_UNQ_NBR = #{billTxUnqNbr, jdbcType=VARCHAR}
+</select>
+<select id="selectBill" resultType="bankware.corebanking.externalproxy.rejointnetwork.dao.dto.XpRefdBillMIO">
+SELECT    /* 자금청구반환원장 */
+        TX_OCR_DT AS txOcrDt,     /*거래발생일자*/
+        BILL_REFUND_TX_Dscd AS billRefundTxDscd,     /*청구반환거래구분코드*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        GUID AS guid,     /*GUID*/
+        HNDLNG_INST_CD AS hndlngInstCd,     /*취급기관코드*/
+        HNDLNG_INST_BRNCH_CD AS hndlngInstBrnchCd,     /*취급기관점별코드*/
+        OPN_INST_CD AS opnInstCd,     /*개설기관코드*/
+        OPN_INST_BRNCH_CD AS opnInstBrnchCd,     /*개설기관점별코드*/
+        ERR_MSG_CNTNT AS errMsgCntnt,     /*에러메시지*/
+        RSPNS_CD AS rspnsCd,     /*응답코드*/
+        BILL_REFUND_JOINT_NETWORK_CD AS billRefundJointNetworkCd,     /*청구반환공동망코드*/
+        ORGNL_TX_TX_Dscd AS orgnlTxTxDscd,     /*원거래거래구분코드*/
+        ORGNL_TX_DT AS orgnlTxDt,     /*원거래일자*/
+        ORGNL_TX_UNQ_MGMT_NBR AS orgnlTxUnqMgmtNbr,     /*원거래고유관리번호*/
+        ORGNL_TX_RCPNT_ACCT_NBR AS orgnlTxRcpntAcctNbr,     /*원거래수취계좌번호*/
+        BILL_REFUND_AMT AS billRefundAmt,     /*청구반환금액*/
+        HNDLNG_PROXY_COST_AMT AS hndlngProxyCostAmt,     /*취급대행비용금액*/
+        PROXY_COST_REFUND_INST_CD AS proxyCostRefundInstCd,     /*대행비용반환기관코드*/
+        BILL_REFUND_RSN_CD AS billRefundRsnCd,     /*청구반환사유코드*/
+        BILL_REFUND_RSN_CNTNT AS billRefundRsnCntnt,     /*청구반환사유내용*/
+        ORGNL_TX_MATCH_YN_CD AS orgnlTxMatchYnCd,     /*원거래일치여부코드*/
+        RSPBL_PERSON_CTCPT_CNTNT AS rspblPersonCtcptCntnt,     /*담당자연락처*/
+        ONLINE_BILL_YN_CD AS onlineBillYnCd,     /*온라인청구여부코드*/
+        BILL_DT AS billDt,     /*청구일자*/
+        BILL_TX_UNQ_NBR AS billTxUnqNbr,     /*청구거래고유번호*/
+        REFUND_YN_CD AS refundYnCd,     /*반환여부코드*/
+        REFUND_RJCT_RSN_CD AS refundRjctRsnCd,     /*반환거부사유코드*/
+        REFUND_RJCT_RSN_CNTNT AS refundRjctRsnCntnt,     /*반환거부사유내용*/
+        FUND_REFUND_DPST_ACCT_NBR AS fundRefundDpstAcctNbr,     /*자금반환입금계좌번호*/
+        OWN_BNK_HNDLNG_FEE_AMT AS ownBnkHndlngFeeAmt,     /*당행취급수수료금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid,     /*최종변경GUID*/
+        ORGNL_TX_RCPNT_BNK_CD AS orgnlTxRcpntBnkCd,     /*원거래수취은행코드*/
+        ORGNL_TX_AMT AS orgnlTxAmt    /*원거래금액*/
+  FROM  XP_RE_BILL_REFUND_M
+ WHERE TX_OCR_DT = #{txOcrDt, jdbcType=VARCHAR}
+   AND BILL_REFUND_TX_Dscd = #{billRefundTxDscd, jdbcType=VARCHAR}
+   AND TX_UNQ_NBR = #{txUnqNbr, jdbcType=VARCHAR}
+</select>
+<select id="selectBillForRefd" parameterType="bankware.corebanking.externalproxy.rejointnetwork.dao.dto.XpRefdBillMIO" resultType="bankware.corebanking.externalproxy.rejointnetwork.dao.dto.XpRefdBillMIO">
+SELECT    /* 자금청구반환원장 */
+        TX_OCR_DT AS txOcrDt,     /*거래발생일자*/
+        BILL_REFUND_TX_Dscd AS billRefundTxDscd,     /*청구반환거래구분코드*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        GUID AS guid,     /*GUID*/
+        HNDLNG_INST_CD AS hndlngInstCd,     /*취급기관코드*/
+        HNDLNG_INST_BRNCH_CD AS hndlngInstBrnchCd,     /*취급기관점별코드*/
+        OPN_INST_CD AS opnInstCd,     /*개설기관코드*/
+        OPN_INST_BRNCH_CD AS opnInstBrnchCd,     /*개설기관점별코드*/
+        ERR_MSG_CNTNT AS errMsgCntnt,     /*에러메시지*/
+        RSPNS_CD AS rspnsCd,     /*응답코드*/
+        BILL_REFUND_JOINT_NETWORK_CD AS billRefundJointNetworkCd,     /*청구반환공동망코드*/
+        ORGNL_TX_TX_Dscd AS orgnlTxTxDscd,     /*원거래거래구분코드*/
+        ORGNL_TX_DT AS orgnlTxDt,     /*원거래일자*/
+        ORGNL_TX_UNQ_MGMT_NBR AS orgnlTxUnqMgmtNbr,     /*원거래고유관리번호*/
+        ORGNL_TX_RCPNT_ACCT_NBR AS orgnlTxRcpntAcctNbr,     /*원거래수취계좌번호*/
+        BILL_REFUND_AMT AS billRefundAmt,     /*청구반환금액*/
+        HNDLNG_PROXY_COST_AMT AS hndlngProxyCostAmt,     /*취급대행비용금액*/
+        PROXY_COST_REFUND_INST_CD AS proxyCostRefundInstCd,     /*대행비용반환기관코드*/
+        BILL_REFUND_RSN_CD AS billRefundRsnCd,     /*청구반환사유코드*/
+        BILL_REFUND_RSN_CNTNT AS billRefundRsnCntnt,     /*청구반환사유내용*/
+        ORGNL_TX_MATCH_YN_CD AS orgnlTxMatchYnCd,     /*원거래일치여부코드*/
+        RSPBL_PERSON_CTCPT_CNTNT AS rspblPersonCtcptCntnt,     /*담당자연락처*/
+        ONLINE_BILL_YN_CD AS onlineBillYnCd,     /*온라인청구여부코드*/
+        BILL_DT AS billDt,     /*청구일자*/
+        BILL_TX_UNQ_NBR AS billTxUnqNbr,     /*청구거래고유번호*/
+        REFUND_YN_CD AS refundYnCd,     /*반환여부코드*/
+        REFUND_RJCT_RSN_CD AS refundRjctRsnCd,     /*반환거부사유코드*/
+        REFUND_RJCT_RSN_CNTNT AS refundRjctRsnCntnt,     /*반환거부사유내용*/
+        FUND_REFUND_DPST_ACCT_NBR AS fundRefundDpstAcctNbr,     /*자금반환입금계좌번호*/
+        OWN_BNK_HNDLNG_FEE_AMT AS ownBnkHndlngFeeAmt,     /*당행취급수수료금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid,     /*최종변경GUID*/
+        ORGNL_TX_RCPNT_BNK_CD AS orgnlTxRcpntBnkCd,     /*원거래수취은행코드*/
+        ORGNL_TX_AMT AS orgnlTxAmt    /*원거래금액*/
+  FROM  XP_RE_BILL_REFUND_M
+ WHERE TX_OCR_DT = #{billDt, jdbcType=VARCHAR}
+   AND BILL_REFUND_TX_Dscd = #{billRefundTxDscd, jdbcType=VARCHAR}
+   AND TX_UNQ_NBR = #{billTxUnqNbr, jdbcType=VARCHAR}
+</select>
+<update id="updateTxResult" parameterType="bankware.corebanking.externalproxy.rejointnetwork.interfaces.dto.FundBillMIO">
+UPDATE  
+        XP_RE_BILL_REFUND_M    /* 자금청구반환원장 */
+   SET  ERR_MSG_CNTNT = #{errMsgCntnt, jdbcType=VARCHAR}    /* 에러메시지 */
+     , RSPNS_CD = #{rspnsCd, jdbcType=VARCHAR}    /* 응답코드 */
+     , HNDLNG_PROXY_COST_AMT = #{hndlngProxyCostAmt, jdbcType=NUMERIC}    /* 취급대행비용금액 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE TX_OCR_DT = #{txOcrDt, jdbcType=VARCHAR}
+   AND BILL_REFUND_TX_Dscd = #{billRefundTxDscd, jdbcType=VARCHAR}
+   AND TX_UNQ_NBR = #{txUnqNbr, jdbcType=VARCHAR}
+</update>
+<select id="selectBillTarget" resultType="bankware.corebanking.externalproxy.rejointnetwork.interfaces.dto.FundBillInqryIFSub">
+SELECT
+         BILL_REFUND_JOINT_NETWORK_CD AS billRefundJointNetworkCd      -- 청구반환공동망코드
+,        JOINT_NETWORK_TX_Dscd AS orgnlTxTxDscd     -- 원거래구분코드
+,        TX_DT AS orgnlTxDt                         -- 원거래일자
+,        TX_HMS AS txHms                            -- 거래시각
+,        TX_UNQ_NBR AS orgnlTxUnqMgmtNbr            -- 원거래고유관리번호
+,        TX_AMT AS billRefundAmt                      -- 청구반환금액
+,        FEE_AMT AS ownBnkHndlngFeeAmt                      -- 당행취급수수료금액
+,        OPN_FNCL_INST_CD AS opnInstCd             -- 개설기관코드
+,        RCPNT_ACCT_NBR AS orgnlTxRcpntAcctNbr      -- 원거래수취계좌번호
+,        WHDRWL_ACCT_NBR AS fundRefundDpstAcctNbr     -- 자금반환입금계좌번호
+,        EXTRNL_RSPNS_CD AS rspnsCd                 -- 대외응답코드(CD원거래결과참고용)
+,        RCPNT_ACCT_NBR AS hideRcpntAcctNbr         -- HIDE원거래수취계좌번호
+,        WHDRWL_ACCT_NBR AS hideWhdrwlAcctNbr       -- HIDE자금반환입금계좌번호
+FROM 
+    ( SELECT   ROWNUM AS ROW__NUM
+      ,        A.BILL_REFUND_JOINT_NETWORK_CD
+      ,        JOINT_NETWORK_TX_Dscd
+      ,        A.TX_DT
+      ,        A.TX_HMS
+      ,        A.TX_UNQ_NBR
+      ,        A.TX_AMT
+      ,        A.FEE_AMT
+      ,        A.OPN_FNCL_INST_CD
+      ,        A.RCPNT_ACCT_NBR
+      ,        A.WHDRWL_ACCT_NBR
+      ,        A.EXTRNL_RSPNS_CD
+      FROM
+        (
+/* #### Original SQL [[ ################# */
+SELECT   '02' AS BILL_REFUND_JOINT_NETWORK_CD
+,        CASE JOINT_NETWORK_TX_Dscd WHEN '010100' THEN '01' -- CD-현급지급
+                                    WHEN '400120' THEN '41' -- CD-입금이체
+                                    WHEN '402100' THEN '42' -- CD-출금이체
+                                    WHEN '404100' THEN '44' -- CD-3행이체
+         END AS JOINT_NETWORK_TX_Dscd
+,        TX_DT
+,        TX_HMS
+,        TX_UNQ_NBR
+,        TX_AMT
+,        FEE_AMT
+,        CASE WHEN JOINT_NETWORK_TX_Dscd = '010100' THEN HNDLNG_FNCL_INST_CD ELSE DPST_FNCL_INST_CD END AS OPN_FNCL_INST_CD
+,        CASE WHEN JOINT_NETWORK_TX_Dscd = '010100' THEN OWN_OR_OTHR_BNK_WHDRWL_ACCT_NBR ELSE OWN_OR_OTHR_BNK_DPST_ACCT_NBR END AS RCPNT_ACCT_NBR
+,        OWN_OR_OTHR_BNK_WHDRWL_ACCT_NBR AS WHDRWL_ACCT_NBR
+,        EXTRNL_RSPNS_CD
+FROM
+         XP_CD_TX_H
+WHERE
+         EXTRNL_RSPNS_CD IN ('00', 'N0', 'N1', 'N2', 'NU')
+AND      JOINT_NETWORK_TX_Dscd IN ('010100', '402100', '400120', '404100')
+AND      EXTRNL_INST_CD = '099'
+AND      WHDRWL_FNCL_INST_CD = '089'
+AND      TX_DT BETWEEN #{txStartDt, jdbcType=VARCHAR} AND #{txEndDt, jdbcType=VARCHAR}
+<if test="fundRefundDpstAcctNbr != null and fundRefundDpstAcctNbr != ''">
+AND      OWN_OR_OTHR_BNK_WHDRWL_ACCT_NBR = #{fundRefundDpstAcctNbr, jdbcType=VARCHAR}
+</if>
+UNION ALL
+SELECT   '03' AS BILL_REFUND_JOINT_NETWORK_CD
+,        JOINT_NETWORK_TX_Dscd
+,        TX_DT
+,        TX_HMS
+,        TX_UNQ_NBR
+,        TX_AMT
+,        FEE_AMT
+,        OPN_FNCL_INST_CD
+,        RCPNT_ACCT_NBR
+,        WHDRWL_ACCT_NBR
+,        EXTRNL_RSPNS_CD
+FROM
+         XP_EL_TX_H
+WHERE 1=1
+AND      JOINT_NETWORK_TX_Dscd = '400000'
+AND      HNDLNG_FNCL_INST_CD = '089'
+AND      OPN_FNCL_INST_CD != '089'
+AND      EXTRNL_RSPNS_CD = '000'
+AND      CNCL_Dscd = '0'
+AND      TX_DT BETWEEN #{txStartDt, jdbcType=VARCHAR} AND #{txEndDt, jdbcType=VARCHAR}
+<if test="fundRefundDpstAcctNbr != null and fundRefundDpstAcctNbr != ''">
+AND      WHDRWL_ACCT_NBR = #{fundRefundDpstAcctNbr, jdbcType=VARCHAR}
+</if>
+ORDER BY TX_DT DESC
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ORDER BY A.BILL_REFUND_JOINT_NETWORK_CD, A.JOINT_NETWORK_TX_Dscd, A.TX_UNQ_NBR
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectBillTargetAllCount" resultType="java.lang.Integer">
+SELECT   SUM(cnt) AS totalCount
+FROM (
+        SELECT   COUNT(1) as cnt
+        FROM
+                 XP_CD_TX_H
+        WHERE
+                 EXTRNL_RSPNS_CD IN ('00', 'N0', 'N1', 'N2', 'NU')
+        AND      JOINT_NETWORK_TX_Dscd IN ('010100', '402100', '400120', '404100')
+        AND      EXTRNL_INST_CD = '099'
+        AND      WHDRWL_FNCL_INST_CD = '089'
+		AND      TX_DT BETWEEN #{txStartDt, jdbcType=VARCHAR} AND #{txEndDt, jdbcType=VARCHAR}
+<if test="fundRefundDpstAcctNbr != null and fundRefundDpstAcctNbr != ''">
+        AND      OWN_OR_OTHR_BNK_WHDRWL_ACCT_NBR = #{fundRefundDpstAcctNbr, jdbcType=VARCHAR}
+</if>
+        UNION ALL
+        SELECT   COUNT(1) as cnt
+        FROM
+                 XP_EL_TX_H
+        WHERE 1=1
+        AND      JOINT_NETWORK_TX_Dscd = '400000'
+        AND      HNDLNG_FNCL_INST_CD = '089'
+        AND      OPN_FNCL_INST_CD != '089'
+        AND      EXTRNL_RSPNS_CD = '000'
+        AND      CNCL_Dscd = '0'
+		AND      TX_DT BETWEEN #{txStartDt, jdbcType=VARCHAR} AND #{txEndDt, jdbcType=VARCHAR}
+<if test="fundRefundDpstAcctNbr != null and fundRefundDpstAcctNbr != ''">
+        AND      WHDRWL_ACCT_NBR = #{fundRefundDpstAcctNbr, jdbcType=VARCHAR}
+</if>
+)
+</select>
+<select id="selectRefdBillList" resultType="bankware.corebanking.externalproxy.rejointnetwork.dao.dto.XpRefdBillMIO">
+SELECT orgnlTxDt            /*원거래일자*/
+      , txOcrDt     /*거래발생일자*/
+      , orgnlTxUnqMgMtNbr    /*원거래고유관리번호*/
+      , orgnlTxRcpntAcctNbr  /*원거래수취계좌번호*/
+      , billRefundAmt          /*청구반환금액*/
+      , bizDsNm
+      , txStsCdNm
+      , refundRjctRsnCntnt     /*반환거부사유내용*/
+      , rqerTelNbr
+      , billRefundRsnCntnt     /*청구반환사유내용*/
+FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+    A.orgnlTxDt            /*원거래일자*/
+      , A.txOcrDt     /*거래발생일자*/
+      , A.orgnlTxUnqMgMtNbr    /*원거래고유관리번호*/
+      , A.orgnlTxRcpntAcctNbr  /*원거래수취계좌번호*/
+      , A.billRefundAmt          /*청구반환금액*/
+      , A.bizDsNm
+      , A.txStsCdNm
+      , A.refundRjctRsnCntnt     /*반환거부사유내용*/
+      , A.rqerTelNbr
+      , A.billRefundRsnCntnt     /*청구반환사유내용*/
+     FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT ORGNL_TX_DT             AS orgnlTxDt            /*원거래일자*/
+     , TX_OCR_DT                     AS txOcrDt     /*거래발생일자*/
+     ,ORGNL_TX_UNQ_MGMT_NBR    AS orgnlTxUnqMgMtNbr    /*원거래고유관리번호*/
+     ,ORGNL_TX_RCPNT_ACCT_NBR  AS orgnlTxRcpntAcctNbr  /*원거래수취계좌번호*/
+     ,BILL_REFUND_AMT            AS billRefundAmt          /*청구반환금액*/
+     ,DECODE(SUBSTR(ORGNL_TX_UNQ_MGMT_NBR,1,3),'089','당행청구','청구반환')   AS  bizDsNm
+     ,DECODE(BILL_REFUND_TX_Dscd,'400000', DECODE(RSPNS_CD,'000','처리완료','미처리'),'미처리')  AS txStsCdNm
+     ,REFUND_RJCT_RSN_CNTNT      AS refundRjctRsnCntnt     /*반환거부사유내용*/
+     ,RQER_TEL_NBR             AS rqerTelNbr
+     ,BILL_REFUND_RSN_CNTNT      AS billRefundRsnCntnt     /*청구반환사유내용*/
+FROM XP_RE_BILL_REFUND_M  
+WHERE 1=1
+AND   ORGNL_TX_UNQ_MGMT_NBR||TO_CHAR(LAST_CHNG_TMSTMP,'YYYYMMDDHH24MISS') IN (SELECT MAX(ORGNL_TX_UNQ_MGMT_NBR||TO_CHAR(LAST_CHNG_TMSTMP,'YYYYMMDDHH24MISS')) FROM XP_RE_BILL_REFUND_M GROUP BY ORGNL_TX_UNQ_MGMT_NBR)
+AND   ORGNL_TX_DT between #{txStartDt}   and #{txEndDt}  --원거래일자 
+<if test="stsDscd != null and stsDscd != ''">
+AND  DECODE(BILL_REFUND_TX_Dscd,'400000', DECODE(RSPNS_CD,'000','0','1'),'1') = #{stsDscd}   --상태코드 
+</if>
+<if test="fundRefundDpstAcctNbr != null and fundRefundDpstAcctNbr != ''">
+AND  ORGNL_TX_RCPNT_ACCT_NBR = #{fundRefundDpstAcctNbr}   --수취계좌번호
+</if>
+ORDER BY  ORGNL_TX_DT, ORGNL_TX_UNQ_MGMT_NBR --원거래일자 정렬추가 SR-4943 문현희D요청
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectRefdBillListAllCount" resultType="java.lang.Integer">
+SELECT   SUM(cnt) AS totalCount
+FROM (
+        SELECT   COUNT(1) as cnt
+FROM XP_RE_BILL_REFUND_M  
+WHERE 1=1
+AND   ORGNL_TX_UNQ_MGMT_NBR||TO_CHAR(LAST_CHNG_TMSTMP,'YYYYMMDDHH24MISS') IN (SELECT MAX(ORGNL_TX_UNQ_MGMT_NBR||TO_CHAR(LAST_CHNG_TMSTMP,'YYYYMMDDHH24MISS')) FROM XP_RE_BILL_REFUND_M GROUP BY ORGNL_TX_UNQ_MGMT_NBR)
+AND   ORGNL_TX_DT between #{txStartDt}   and #{txEndDt}  --원거래일자 
+<if test="stsDscd != null and stsDscd != ''">
+AND  DECODE(BILL_REFUND_TX_Dscd,'400000', DECODE(RSPNS_CD,'000','0','1'),'1') = #{stsDscd}   --상태코드 
+</if>
+<if test="fundRefundDpstAcctNbr != null and fundRefundDpstAcctNbr != ''">
+AND  ORGNL_TX_RCPNT_ACCT_NBR = #{fundRefundDpstAcctNbr}   --수취계좌번호
+</if>
+)
+</select>
+</mapper>

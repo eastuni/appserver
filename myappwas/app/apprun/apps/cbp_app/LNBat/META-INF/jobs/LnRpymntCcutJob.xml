@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+         http://www.es-code.com/schema/batchex http://www.es-code.com/schema/batchex/spring-batch-ex-2.1.xsd
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+    <import resource="classpath:JobConfig.xml"/>
+<!-- 
+    <job-component xmlns="http://www.es-code.com/schema/batchex" id="jobcomp" with-dependon="true">
+        <base-package name="bankware.corebanking.loan.financialtransaction.batch">
+            <include name="LnRpymntCcut*"/>
+        </base-package>
+    </job-component>
+ -->
+ 
+	<!--
+	 *	작업명 : 원리금상환 센터컷 처리
+	 *	설명   : 원리금상환 대상을 조회하여 원리금상환을 처리하는 작업 
+	-->
+    <job id="LnRpymntCcutJob" parent="parentJob" xmlns="http://www.es-code.com/schema/batchex">
+		<!--
+		 *	스텝명 : 원리금상환 센터컷 처리대상 추출
+		 *	설명   : 원리금상환 센터컷 처리대상을 조회하여 결과파일 생성
+		-->
+        <step id="LnRpymntCcutJob_Step01" parent="parentStep" next="LnRpymntCcutJob_Step02">
+            <tasklet tm-datasource="BXM">
+                <chunk commit-interval="10" reader="LnRpymntCcutTrgtReader" processor="LnRpymntCcutTrgtProcessor" writer="LnRpymntCcutTrgtDlgtWriter"/>
+            </tasklet>
+        </step>
+
+		<!--
+		 *	스텝명 : 원리금상환 센터컷 처리
+		 *	설명   : STEP01에서 생성한 결과파일을 읽어서 센터컷 등록
+		-->
+        <step id="LnRpymntCcutJob_Step02" parent="parentStep">
+            <tasklet tm-datasource="BXM">
+                <chunk commit-interval="10" reader="LnRpymntCcutReader" processor="LnRpymntCcutProcessor"/>
+            </tasklet>
+        </step>
+    </job>
+    
+    <bean id="LnRpymntCcutTrgtDlgtWriter" class="bankware.corebanking.loan.financialtransaction.batch.LnRpymntCcutTrgtDlgtWriter" scope="step">
+    	<property name="delegates">
+    		<list>
+    			<ref bean="LnRpymntCcutTrgtNrmlWriter"/>
+    			<ref bean="LnRpymntCcutTrgtSkipWriter"/>
+    		</list>
+    	</property>
+    </bean>
+    
+    <bean id="LnRpymntCcutTrgtNrmlWriter" parent="WDelimited" scope="step">
+    	<property name="name" value="LnRpymntCcutTrgtWriter"/>
+    	<property name="resource" value="file://#{jobExecutionContext[outputFileTrgtNrml]}"/>
+    	<property name="encoding" value="UTF-8"/>
+    	<property name="lineAggregator">
+    		<bean class="bxm.batch.item.file.transform.LineOmmAggregator">
+    			<property name="encoding" value="UTF-8"/>
+    			<property name="delimiter" value=","/>
+    			<property name="targetType" value="bankware.corebanking.loan.financialtransaction.batch.dto.LnRpymntCcutTrgtIO"/>
+    		</bean>
+    	</property>
+    </bean>
+
+    <bean id="LnRpymntCcutTrgtSkipWriter" parent="WDelimited" scope="step">
+    	<property name="name" value="LnRpymntCcutTrgtWriter"/>
+    	<property name="resource" value="file://#{jobExecutionContext[outputFileTrgtSkip]}"/>
+    	<property name="encoding" value="UTF-8"/>
+    	<property name="lineAggregator">
+    		<bean class="bxm.batch.item.file.transform.LineOmmAggregator">
+    			<property name="encoding" value="UTF-8"/>
+    			<property name="delimiter" value=","/>
+    			<property name="targetType" value="bankware.corebanking.loan.financialtransaction.batch.dto.LnRpymntCcutTrgtIO"/>
+    		</bean>
+    	</property>
+    </bean>
+    
+    <bean id="LnRpymntCcutReader" parent="RDelimited" scope="step">
+    	<property name="name" value="LnRpymntCcutReader"/>
+    	<property name="resource" value="file://#{jobExecutionContext[outputFileTrgtNrml]}"/>
+    	<property name="encoding" value="UTF-8"/>
+    	<property name="lineMapper">
+    		<bean class="bxm.batch.item.file.mapping.LineOmmMapper">
+    			<property name="encoding" value="UTF-8"/>
+    			<property name="delimiter" value=","/>
+    			<property name="targetType" value="bankware.corebanking.loan.financialtransaction.batch.dto.LnRpymntCcutTrgtIO"/>
+    		</bean>
+    	</property>
+    </bean>
+</beans>

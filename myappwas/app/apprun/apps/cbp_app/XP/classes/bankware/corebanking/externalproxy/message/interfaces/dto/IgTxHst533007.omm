@@ -1,0 +1,12 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IgTxHst533007
+<description="지방 세입금 통합 전체납부 기간별 납부내역 간략조회(납부의무자별)">
+{
+	String issueInstDscd<length=2 description="발행기관분류코드">;
+	String giroNbr<length=7 description="지로번호">;
+	String totPymntUnqNbr<length=19 description="전체납부고유번호">;
+	String totPymntNtfctnCnt<length=6 description="전체납부총고지건수">;
+	String totPymntAlCnt<length=15 description="전체납부총납부금액">;
+	String pymntDt<length=8 description="납부일자">;
+	String pymntUseSysDscd<length=1 description="납부이용시스템">;
+	String rcvngBnkBrnchCd<length=7 description="수납은행점별코드">;
+}

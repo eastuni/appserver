@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpIgGr7724">
+<!--Generated Wed Mar 22 16:06:47 KST 2017-->
+<select id="selectGR7724InqryList" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIgGr7724IO">
+SELECT 
+	    instCd,
+    	txDt,
+    	seqNbr,
+    	fnclInstCd,
+    	rmtncDt,
+    	issueInstDscd,
+    	giroNbr,
+    	totPymntNbr,
+    	elctrncPymntNbr,
+    	fnclInstBizBrnchCd,
+    	pymntAmt,
+    	rcptDt,
+    	orgnlRcptDt,
+    	rcptDscd,
+    	lastChngTmstmp,
+    	lastChngGuid
+FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+    	instCd,
+    	txDt,
+    	seqNbr,
+    	fnclInstCd,
+    	rmtncDt,
+    	issueInstDscd,
+    	giroNbr,
+    	totPymntNbr,
+    	elctrncPymntNbr,
+    	fnclInstBizBrnchCd,
+    	pymntAmt,
+    	rcptDt,
+    	orgnlRcptDt,
+    	rcptDscd,
+    	lastChngTmstmp,
+    	lastChngGuid
+      FROM 
+        (
+/* #### Original SQL [[ ################# */
+		SELECT    /* 지방세 전체납부 처리내역 */
+		        INST_CD AS instCd,     /*기관코드*/
+		        TX_DT AS txDt,     /*거래일자*/
+		        SEQ_NBR AS seqNbr,     /*일련번호*/
+		        FNCL_INST_CD AS fnclInstCd,     /*금융기관코드*/
+		        TRNS_DT AS rmtncDt,     /*이체일자*/
+		        ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+		        GIRO_NBR AS giroNbr,     /*지로번호*/
+		        ALL_PYMNT_DS_NBR AS totPymntNbr,     /*전체납부구분번호*/
+		        ELCTRNC_PYMNT_NBR AS elctrncPymntNbr,     /*전자납부번호*/
+		        FNCL_INST_BSOP_BNK_BRH_CD AS fnclInstBizBrnchCd,     /*금융기관영업은행지점코드*/
+		        GIRO_PYMNT_AMT AS pymntAmt,     /*지로납부금액*/
+		        RCPT_DT AS rcptDt,     /*수납일자*/
+		        ORGNL_RCPT_DT AS orgnlRcptDt,     /*원수납일자*/
+		        RCPT_DS_CD AS rcptDscd,     /*수납구분코드*/
+		        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+		        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+		 FROM  XP_IG_GR7724
+		 WHERE INST_CD = '103'
+   		  AND TX_DT  BETWEEN #{startDt} AND #{endDt}
+/* #### Original SQL ]] ################# */
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectGR7724InqryCnt" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIgGr7724IO">
+SELECT    /* 지방세입금 처리내역 */
+	COUNT(1) AS totCnt
+  FROM  XP_IG_GR7724
+ WHERE INST_CD = '103'
+   AND TX_DT  BETWEEN #{startDt} AND #{endDt}
+</select>
+</mapper>

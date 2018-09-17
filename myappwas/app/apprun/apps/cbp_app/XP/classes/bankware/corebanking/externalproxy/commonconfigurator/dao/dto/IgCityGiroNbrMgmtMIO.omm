@@ -1,0 +1,13 @@
+OMM bankware.corebanking.externalproxy.commonconfigurator.dao.dto.IgCityGiroNbrMgmtMIO
+<description="">
+{
+	String intrntGiroPymntHstMgmtCd<length=2 description="인터넷지로납부내역관리코드">;
+	String issueInstDscd<length=2 description="발행기관분류코드">;
+	String giroNbr<length=7 description="지로번호">;
+	String localGvrnmntNm<length=30 description="지방자치명">;
+	String useInstNm1<length=30 description="이용기관명">;
+	String useYn<length=1 description="사용여부">;
+	String efctvStartDt<length=8 description="유효시작일">;
+	String efctvEndDt<length=8 description="유효종료일">;
+	BigDecimal sortSeqNbr<length=10 description="정렬순서">;
+}

@@ -1,0 +1,10 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.LcMsg0200Sub
+<description="0200/010000, 0200/020000">
+{
+	String instCd<length=3 description="한도정보기관코드">;
+	BigDecimal cntrLmtAmt<length=14 description="센터한도금액">;
+	BigDecimal pymntLmtResidualAmt<length=14 description="이체한도잔여금액">;
+	BigDecimal pymntLmtRt<length=5 description="이체한도소진율">;
+	BigDecimal maxUnstldAmt<length=14 description="최대미결제금액">;
+	BigDecimal maxUnstldAmtDt<length=14 description="최대미결제금액발생시각">;
+}

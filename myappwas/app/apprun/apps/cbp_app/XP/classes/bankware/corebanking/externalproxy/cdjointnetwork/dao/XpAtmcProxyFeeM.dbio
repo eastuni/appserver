@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.cdjointnetwork.dao.XpAtmcProxyFeeM">
+<!--Generated Tue Dec 27 17:57:22 KST 2016-->
+<select id="selectCdAtmcProxyFeeList" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpAtmcProxyFeeMIO">
+SELECT 
+		instCd,     /*기관코드*/
+        extrnlInstCd,     /*대외기관코드*/
+        extrnlBizDscd,     /*대외업무구분코드*/
+        brnchInsideOutsideDscd,     /*점내외구분코드*/
+        cdatmDscd,     /*CDATM구분코드*/
+        bizTmInsideAndOutsideDscd,     /*영업시간내외구분코드*/
+        hndlngProxyFeeDscd,     /*자동화기기거래구분코드*/
+        aplyStartDt,     /*적용시작일자*/
+        aplyEndDt,     /*적용종료일자*/
+        feeAmt,     /*제휴CDATM대행수수료*/
+        lastChngTmstmp,     /*최종변경일시*/
+        lastChngGuid    /*최종변경GUID*/ 
+FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+	        instCd,
+	        extrnlInstCd,     /*대외기관코드*/
+	        extrnlBizDscd,     /*대외업무구분코드*/
+	        brnchInsideOutsideDscd,     /*점내외구분코드*/
+	        cdatmDscd,     /*CDATM구분코드*/
+	        bizTmInsideAndOutsideDscd,     /*영업시간내외구분코드*/
+	        hndlngProxyFeeDscd,     /*자동화기기거래구분코드*/
+	        aplyStartDt,     /*적용시작일자*/
+	        aplyEndDt,     /*적용종료일자*/
+	        feeAmt,     /*제휴CDATM대행수수료*/
+	        lastChngTmstmp,     /*최종변경일시*/
+	        lastChngGuid    /*최종변경GUID*/ 
+      FROM
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* 자동화기기대행수수료관리원장 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        BRNCH_INSIDE_OUTSIDE_Dscd AS brnchInsideOutsideDscd,     /*점내외구분코드*/
+        CDATM_Dscd AS cdatmDscd,     /*CDATM구분코드*/
+        BIZ_TM_INSIDE_AND_OUTSIDE_Dscd AS bizTmInsideAndOutsideDscd,     /*영업시간내외구분코드*/
+        ATMTD_MACHINE_TX_Dscd AS hndlngProxyFeeDscd,     /*자동화기기거래구분코드*/
+        APLY_START_DT AS aplyStartDt,     /*적용시작일자*/
+        APLY_END_DT AS aplyEndDt,     /*적용종료일자*/
+        ALNC_CD_AUTO_TLR_MACHINE_FEE_AMT AS feeAmt,     /*제휴CDATM대행수수료*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_ATM_PROXY_FEE_M
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+<if test="brnchInsideOutsideDscd != null and brnchInsideOutsideDscd != ''">
+   AND BRNCH_INSIDE_OUTSIDE_Dscd = #{brnchInsideOutsideDscd}
+</if>
+<if test="cdatmDscd != null and cdatmDscd!=''">
+   AND CDATM_Dscd = #{cdatmDscd}
+</if>
+<if test="bizTmInsideAndOutsideDscd != null and bizTmInsideAndOutsideDscd != ''">
+   AND BIZ_TM_INSIDE_AND_OUTSIDE_Dscd = #{bizTmInsideAndOutsideDscd}
+</if>
+<if test="hndlngProxyFeeDscd != null and hndlngProxyFeeDscd !='' ">
+   AND ATMTD_MACHINE_TX_Dscd = #{hndlngProxyFeeDscd}
+</if>
+/* #### Original SQL ]] ################# */
+	ORDER BY BRNCH_INSIDE_OUTSIDE_Dscd DESC, CDATM_Dscd DESC, BIZ_TM_INSIDE_AND_OUTSIDE_Dscd ASC, ATMTD_MACHINE_TX_Dscd ASC, APLY_START_DT ASC
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectCdAtmcProxyFeeListTotCnt" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpAtmcProxyFeeMIO">
+SELECT    /* 자동화기기대행수수료관리원장 */
+	COUNT(1) as totCnt
+FROM XP_ATM_PROXY_FEE_M
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+<if test="brnchInsideOutsideDscd != null and brnchInsideOutsideDscd != ''">
+   AND BRNCH_INSIDE_OUTSIDE_Dscd = #{brnchInsideOutsideDscd}
+</if>
+<if test="cdatmDscd != null and cdatmDscd!=''">
+   AND CDATM_Dscd = #{cdatmDscd}
+</if>
+<if test="bizTmInsideAndOutsideDscd != null and bizTmInsideAndOutsideDscd != ''">
+   AND BIZ_TM_INSIDE_AND_OUTSIDE_Dscd = #{bizTmInsideAndOutsideDscd}
+</if>
+<if test="hndlngProxyFeeDscd != null and hndlngProxyFeeDscd !='' ">
+   AND ATMTD_MACHINE_TX_Dscd = #{hndlngProxyFeeDscd}
+</if>
+</select>
+<insert id="insertCdAtmProxyFeeInfo" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpAtmcProxyFeeMIO">
+INSERT  
+  INTO  XP_ATM_PROXY_FEE_M    /* 자동화기기대행수수료관리원장 */
+(
+  INST_CD,     /*기관코드*/
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드*/
+  BRNCH_INSIDE_OUTSIDE_Dscd,     /*점내외구분코드*/
+  CDATM_Dscd,     /*CDATM구분코드*/
+  BIZ_TM_INSIDE_AND_OUTSIDE_Dscd,     /*영업시간내외구분코드*/
+  ATMTD_MACHINE_TX_Dscd,     /*자동화기기거래구분코드*/
+  APLY_START_DT,     /*적용시작일자*/
+  APLY_END_DT,     /*적용종료일자*/
+  ALNC_CD_AUTO_TLR_MACHINE_FEE_AMT,     /*제휴CDATM대행수수료*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{extrnlInstCd},     /*대외기관코드*/
+  #{extrnlBizDscd},     /*대외업무구분코드*/
+  #{brnchInsideOutsideDscd},     /*점내외구분코드*/
+  #{cdatmDscd},     /*CDATM구분코드*/
+  #{bizTmInsideAndOutsideDscd},     /*영업시간내외구분코드*/
+  #{hndlngProxyFeeDscd},     /*자동화기기거래구분코드*/
+  #{aplyStartDt},     /*적용시작일자*/
+  #{aplyEndDt},     /*적용종료일자*/
+  #{feeAmt},     /*제휴CDATM대행수수료*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<delete id="deleteCdAtmProxyFeeInfo" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpAtmcProxyFeeMIO">
+DELETE  FROM  XP_ATM_PROXY_FEE_M    /* 자동화기기대행수수료관리원장 */
+ WHERE  INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND BRNCH_INSIDE_OUTSIDE_Dscd = #{brnchInsideOutsideDscd}
+   AND CDATM_Dscd = #{cdatmDscd}
+   AND BIZ_TM_INSIDE_AND_OUTSIDE_Dscd = #{bizTmInsideAndOutsideDscd}
+   AND ATMTD_MACHINE_TX_Dscd = #{hndlngProxyFeeDscd}
+   AND APLY_START_DT = #{aplyStartDt}
+   AND APLY_END_DT = #{aplyEndDt}
+</delete>
+<update id="updateCdAtmProxyFeeInfo" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpAtmcProxyFeeMIO">
+UPDATE  
+        XP_ATM_PROXY_FEE_M    /* 자동화기기대행수수료관리원장 */
+   SET  APLY_END_DT = #{aplyEndDt}    /* 적용종료일자 */
+     , ALNC_CD_AUTO_TLR_MACHINE_FEE_AMT = #{feeAmt}    /* 제휴CDATM대행수수료 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND BRNCH_INSIDE_OUTSIDE_Dscd = #{brnchInsideOutsideDscd}
+   AND CDATM_Dscd = #{cdatmDscd}
+   AND BIZ_TM_INSIDE_AND_OUTSIDE_Dscd = #{bizTmInsideAndOutsideDscd}
+   AND ATMTD_MACHINE_TX_Dscd = #{hndlngProxyFeeDscd}
+   AND APLY_START_DT = #{aplyStartDt}
+</update>
+<update id="updateCdAtmProxyFeeInfo2" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpAtmcProxyFeeMIO">
+UPDATE  
+        XP_ATM_PROXY_FEE_M    /* 자동화기기대행수수료관리원장 */
+   SET  APLY_START_DT = #{aplyEndDt}    /* 적용종료일자 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND BRNCH_INSIDE_OUTSIDE_Dscd = #{brnchInsideOutsideDscd}
+   AND CDATM_Dscd = #{cdatmDscd}
+   AND BIZ_TM_INSIDE_AND_OUTSIDE_Dscd = #{bizTmInsideAndOutsideDscd}
+   AND ATMTD_MACHINE_TX_Dscd = #{hndlngProxyFeeDscd}
+   AND APLY_START_DT = #{aplyStartDt}
+</update>
+</mapper>

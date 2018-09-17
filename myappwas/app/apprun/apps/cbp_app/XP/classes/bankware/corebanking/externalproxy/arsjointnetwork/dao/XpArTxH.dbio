@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.arsjointnetwork.dao.XpArTxH">
+<!--Generated Fri Jun 16 15:14:12 KST 2017-->
+<insert id="insertArsTransHistory" parameterType="bankware.corebanking.externalproxy.arsjointnetwork.dao.dto.XpArTxMIO">
+INSERT  
+  INTO  XP_AR_TX_M    /* 전자수납_ARS_기본 */
+(
+  INST_CD,     /*기관코드*/
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드*/
+  TX_DT,     /*거래일자*/
+  CNTR_TLGR_MGMT_NBR,     /*센터전문관리번호*/
+  WHDRWL_INST_MSG_MGMT_NBR,     /*출금기관전문관리번호*/
+  TLGR_CLS_CD,     /*전문종별코드*/
+  ELTRN_RCPT_TX_DS_CD,     /*전자수납거래구분코드*/
+  SND_RCV_FLAG_CD,     /*송수신플래그코드*/
+  ELTRN_RCPT_TLGR_SND_DTTM,     /*전자수납전문전송일시*/
+  MEDIA_DS_CD,     /*매체구분코드*/
+  WHDR_INST_TLGR_SND_DTTM,     /*출금기관전문전송일시*/
+  GIRO_NBR,     /*지로번호*/
+  CUST_INQRY_CUST_NBR,     /*고객조회고객번호*/
+  PYMNT_MTH_NTH_NBR,     /*납부월회차번호*/
+  WHDRWL_ACCT_NBR,     /*출금계좌번호*/
+  GIRO_PYMNT_AMT,     /*지로납부금액*/
+  GNRZ_PYMNT_CUST_NBR,     /*총괄납부고객번호*/
+  RGST_USER_ID,     /*등록사용자식별자*/
+  ACCT_OWNR_NM,     /*예금주명*/
+  PAYER_FULL_NM,     /*납부자성명*/
+  CNTCT_TEL_NBR,     /*연락전화번호*/
+  FEE_AMT,     /*수수료금액*/
+  ISSUE_INST_Dscd,     /*발행기관분류코드*/
+  DTL_MEDIA_DS_CD,     /*상세매체구분코드*/
+  PSBK_RPSN_CNTNT,     /*통장표시내용*/
+  TX_PST_BAL,     /*거래후잔액*/
+  MASK_RVCTN_ID_NBR,     /*마스킹해제주민등록번호*/
+  REQ_CNT,     /*요청건수*/
+  TRCK_3_CNTNT,     /*트랙3내용*/
+  IC_CARD_SEQ_NBR,     /*IC카드일련번호*/
+  IC_CARD_RLTD_INFO_CNTNT,     /*IC카드관련정보내용*/
+  ELTRN_RCPT_TX_MEDIA_DS_CD,     /*전자수납거래매체구분코드*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID,     /*최종변경GUID*/
+  GUID_ID,     /*GUID식별자*/
+  MSG_PRCS_RSLT_CD,     /*메시지처리결과코드*/
+  WHDRWL_BNK_CD,     /*출금은행코드*/
+  FNCL_INST_BRH_CD,     /*금융기관지점코드*/
+  EXTR_RSPNS_CD    /*대외응답코드*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR},     /*기관코드*/
+  #{extrnlInstCd, jdbcType=VARCHAR},     /*대외기관코드*/
+  #{extrnlBizDscd, jdbcType=VARCHAR},     /*대외업무구분코드*/
+  #{txDt, jdbcType=VARCHAR},     /*거래일자*/
+  #{cntrMsgMgmtNbr, jdbcType=VARCHAR},     /*센터전문관리번호*/
+  #{whdrwlInstMsgMgmtNbr, jdbcType=VARCHAR},     /*출금기관전문관리번호*/
+  #{msgPerTpCd, jdbcType=VARCHAR},     /*전문종별코드*/
+  #{elctrncRcptTxDscd, jdbcType=VARCHAR},     /*전자수납거래구분코드*/
+  #{sndRcvFlagCd, jdbcType=VARCHAR},     /*송수신플래그코드*/
+  #{elctrncRcptMsgSndDtm, jdbcType=VARCHAR},     /*전자수납전문전송일시*/
+  #{mediaDscd, jdbcType=VARCHAR},     /*매체구분코드*/
+  #{whdrwlInstMsgSndDtm, jdbcType=VARCHAR},     /*출금기관전문전송일시*/
+  #{giroNbr, jdbcType=VARCHAR},     /*지로번호*/
+  #{custInqryCustNbr, jdbcType=VARCHAR},     /*고객조회고객번호*/
+  #{pymntMonthlyNthNbr, jdbcType=VARCHAR},     /*납부월회차번호*/
+  #{whdrwlAcctNbr, jdbcType=VARCHAR},     /*출금계좌번호*/
+  #{giroPymntAmt, jdbcType=NUMERIC},     /*지로납부금액*/
+  #{clgtPymntCustNbr, jdbcType=VARCHAR},     /*총괄납부고객번호*/
+  #{rgstrnUserId, jdbcType=VARCHAR},     /*등록사용자식별자*/
+  #{acctOwnrNm, jdbcType=VARCHAR},     /*예금주명*/
+  #{payerFullNm, jdbcType=VARCHAR},     /*납부자성명*/
+  #{cntctTelNbr, jdbcType=VARCHAR},     /*연락전화번호*/
+  #{feeAmt, jdbcType=NUMERIC},     /*수수료금액*/
+  #{issueInstDscd, jdbcType=VARCHAR},     /*발행기관분류코드*/
+  #{dtlMediaDscd, jdbcType=VARCHAR},     /*상세매체구분코드*/
+  #{psbkDsplyCntnt, jdbcType=VARCHAR},     /*통장표시내용*/
+  #{TxAfBal1, jdbcType=NUMERIC},     /*거래후잔액*/
+  #{maskRvctnIdNbr, jdbcType=VARCHAR},     /*마스킹해제주민등록번호*/
+  #{demandCnt, jdbcType=NUMERIC},     /*요청건수*/
+  #{trackCntnt, jdbcType=VARCHAR},     /*트랙3내용*/
+  #{icCardSeqNbr, jdbcType=VARCHAR},     /*IC카드일련번호*/
+  #{icCardRltdInfoCntnt, jdbcType=VARCHAR},     /*IC카드관련정보내용*/
+  #{elctrncRcptTxMediaDscd, jdbcType=VARCHAR},     /*전자수납거래매체구분코드*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR},     /*최종변경GUID*/
+  #{guidId, jdbcType=VARCHAR},     /*GUID식별자*/
+  #{msgPrcsRsltCd, jdbcType=VARCHAR},     /*메시지처리결과코드*/
+  #{whdrwlBnkCd, jdbcType=VARCHAR},     /*출금은행코드*/
+  #{fnclInstBrnchCd, jdbcType=VARCHAR},     /*금융기관지점코드*/
+  #{extrnlRspnsCd, jdbcType=VARCHAR}    /*대외응답코드*/
+)
+</insert>
+<select id="selectArsTransHistoryInfoDupCheck" resultType="bankware.corebanking.externalproxy.arsjointnetwork.dao.dto.XpArTxMIO">
+SELECT    /* 전자수납_ARS_기본 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래일자*/
+        CNTR_TLGR_MGMT_NBR AS cntrMsgMgmtNbr,     /*센터전문관리번호*/
+        WHDRWL_INST_MSG_MGMT_NBR AS whdrwlInstMsgMgmtNbr,     /*출금기관전문관리번호*/
+        TLGR_CLS_CD AS msgPerTpCd,     /*전문종별코드*/
+        ELTRN_RCPT_TX_DS_CD AS elctrncRcptTxDscd,     /*전자수납거래구분코드*/
+        SND_RCV_FLAG_CD AS sndRcvFlagCd,     /*송수신플래그코드*/
+        ELTRN_RCPT_TLGR_SND_DTTM AS elctrncRcptMsgSndDtm,     /*전자수납전문전송일시*/
+        MEDIA_DS_CD AS mediaDscd,     /*매체구분코드*/
+        WHDR_INST_TLGR_SND_DTTM AS whdrwlInstMsgSndDtm,     /*출금기관전문전송일시*/
+        GIRO_NBR AS giroNbr,     /*지로번호*/
+        CUST_INQRY_CUST_NBR AS custInqryCustNbr,     /*고객조회고객번호*/
+        PYMNT_MTH_NTH_NBR AS pymntMonthlyNthNbr,     /*납부월회차번호*/
+        WHDRWL_ACCT_NBR AS whdrwlAcctNbr,     /*출금계좌번호*/
+        GIRO_PYMNT_AMT AS giroPymntAmt,     /*지로납부금액*/
+        GNRZ_PYMNT_CUST_NBR AS clgtPymntCustNbr,     /*총괄납부고객번호*/
+        RGST_USER_ID AS rgstrnUserId,     /*등록사용자식별자*/
+        ACCT_OWNR_NM AS acctOwnrNm,     /*예금주명*/
+        PAYER_FULL_NM AS payerFullNm,     /*납부자성명*/
+        CNTCT_TEL_NBR AS cntctTelNbr,     /*연락전화번호*/
+        FEE_AMT AS feeAmt,     /*수수료금액*/
+        ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+        DTL_MEDIA_DS_CD AS dtlMediaDscd,     /*상세매체구분코드*/
+        PSBK_RPSN_CNTNT AS psbkDsplyCntnt,     /*통장표시내용*/
+        TX_PST_BAL AS TxAfBal1,     /*거래후잔액*/
+        MASK_RVCTN_ID_NBR AS maskRvctnIdNbr,     /*마스킹해제주민등록번호*/
+        REQ_CNT AS demandCnt,     /*요청건수*/
+        TRCK_3_CNTNT AS trackCntnt,     /*트랙3내용*/
+        IC_CARD_SEQ_NBR AS icCardSeqNbr,     /*IC카드일련번호*/
+        IC_CARD_RLTD_INFO_CNTNT AS icCardRltdInfoCntnt,     /*IC카드관련정보내용*/
+        ELTRN_RCPT_TX_MEDIA_DS_CD AS elctrncRcptTxMediaDscd,     /*전자수납거래매체구분코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid,     /*최종변경GUID*/
+        GUID_ID AS guidId,     /*GUID식별자*/
+        MSG_PRCS_RSLT_CD AS msgPrcsRsltCd,     /*메시지처리결과코드*/
+        WHDRWL_BNK_CD AS whdrwlBnkCd,     /*출금은행코드*/
+        FNCL_INST_BRH_CD AS fnclInstBrnchCd,     /*금융기관지점코드*/
+        EXTR_RSPNS_CD AS extrnlRspnsCd    /*대외응답코드*/
+  FROM  XP_AR_TX_M
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND CNTR_TLGR_MGMT_NBR = #{cntrMsgMgmtNbr}
+   AND TLGR_CLS_CD = #{jointNetworkClCd}
+   AND ELTRN_RCPT_TX_DS_CD = #{jointNetworkTxDscd}
+</select>
+<select id="selectArsTransHistory" resultType="bankware.corebanking.externalproxy.arsjointnetwork.dao.dto.XpArTxHIO">
+SELECT    /* 전자수납_ARS_일괄내역 */
+        B.INST_CD AS instCd,     /*기관코드*/
+        B.EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        B.EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        B.TX_DT AS txDt,     /*거래일자*/
+        B.CNTR_TLGR_MGMT_NBR AS cntrMsgMgmtNbr,     /*센터전문관리번호*/
+        B.WHDRWL_INST_MSG_MGMT_NBR AS whdrwlInstMsgMgmtNbr,     /*출금기관전문관리번호*/
+        B.SEQ_NBR AS seqNbr,     /*일련번호*/
+        B.ELCTRNC_RCPT_GIRO_NBR AS elctrncRcptGiroNbr,     /*전자수납지로번호*/
+        B.CUST_INQRY_CUST_NBR AS custInqryCustNbr,     /*고객조회고객번호*/
+        B.PYMNT_MTH_NTH_NBR AS pymntMonthlyNth,     /*납부월회차*/
+        B.ELTRN_RCPT_PYMNT_AMT AS elctrncRcptPymntAmt,     /*전자수납납부금액*/
+        B.ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+        B.PSBK_RPSN_CNTNT AS psbkDsplyCntnt,     /*통장표시내용*/
+        B.TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        B.EXTR_RSPNS_CD AS extrnlRspnsCd,     /*대외응답코드*/
+        B.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        B.LAST_CHNG_GUID AS lastChngGuid,     /*최종변경GUID*/
+        B.ORGNL_TX_CNTR_MSG_SND_DTM AS orgnlTxCntrMsgSndDtm,     /*원거래센터전문전송일시*/
+        B.ORGNL_TX_WHDRWL_ACCT_NBR AS orgnlTxWhdrwlAcctNbr,     /*원거래출금계좌번호*/
+        B.ORGNL_TX_WHDRWL_AMT AS orgnlTxWhdrwlAmt,     /*원거래출금금액*/
+        B.CNCL_DS_CD AS cnclDscd,     /*취소구분코드*/
+        B.CNCL_TX_TMS AS cnclTxHms,     /*취소거래시각*/
+        B.CNCL_TX_CNTR_TLGR_MGMT_NBR AS cnclTxCntrMsgMgmtNbr,     /*취소거래전문추적번호*/
+        B.CNCL_TX_GUID AS cnclTxGuid,     /*취소거래GUID*/
+        B.ORGNL_TX_CNTR_MSG_MGMT_NBR AS orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+        B.GUID AS guid    /*GUID*/
+FROM XP_AR_TX_M A, XP_AR_TX_H B
+WHERE A.INST_CD =  #{instCd}
+   AND A.EXTRNL_INST_CD = #{extrnlInstCd}
+   AND A.EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND A.TX_DT = #{txDt}
+   AND A.TLGR_CLS_CD =#{jointNetworkClCd}
+   AND A.INST_CD = B.INST_CD
+   AND A.TX_DT=B.TX_DT
+   AND A.EXTRNL_INST_CD = B.EXTRNL_INST_CD 
+   AND A.EXTRNL_BIZ_Dscd= B.EXTRNL_BIZ_Dscd
+   AND A.CNTR_TLGR_MGMT_NBR = B.CNTR_TLGR_MGMT_NBR
+   AND B.TX_UNQ_NBR = #{txUnqNbr}
+</select>
+<insert id="insertArsTransAll" parameterType="bankware.corebanking.externalproxy.arsjointnetwork.dao.dto.XpArTxHIO">
+INSERT  
+  INTO  XP_AR_TX_H    /* 전자수납_ARS_일괄내역 */
+(
+  INST_CD,     /*기관코드*/
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드*/
+  TX_DT,     /*거래일자*/
+  CNTR_TLGR_MGMT_NBR,     /*센터전문관리번호*/
+  WHDRWL_INST_MSG_MGMT_NBR,     /*출금기관전문관리번호*/
+  SEQ_NBR,     /*일련번호*/
+  ELCTRNC_RCPT_GIRO_NBR,     /*전자수납지로번호*/
+  CUST_INQRY_CUST_NBR,     /*고객조회고객번호*/
+  PYMNT_MTH_NTH_NBR,     /*납부월회차*/
+  ELTRN_RCPT_PYMNT_AMT,     /*전자수납납부금액*/
+  ISSUE_INST_Dscd,     /*발행기관분류코드*/
+  PSBK_RPSN_CNTNT,     /*통장표시내용*/
+  TX_UNQ_NBR,     /*거래고유번호*/
+  EXTR_RSPNS_CD,     /*대외응답코드*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID,     /*최종변경GUID*/
+  ORGNL_TX_CNTR_MSG_SND_DTM,     /*원거래센터전문전송일시*/
+  ORGNL_TX_WHDRWL_ACCT_NBR,     /*원거래출금계좌번호*/
+  ORGNL_TX_WHDRWL_AMT,     /*원거래출금금액*/
+  CNCL_DS_CD,     /*취소구분코드*/
+  CNCL_TX_TMS,     /*취소거래시각*/
+  CNCL_TX_CNTR_TLGR_MGMT_NBR,     /*취소거래전문추적번호*/
+  CNCL_TX_GUID,     /*취소거래GUID*/
+  ORGNL_TX_CNTR_MSG_MGMT_NBR,     /*원거래센터전문관리번호*/
+  GUID    /*GUID*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR},     /*기관코드*/
+  #{extrnlInstCd, jdbcType=VARCHAR},     /*대외기관코드*/
+  #{extrnlBizDscd, jdbcType=VARCHAR},     /*대외업무구분코드*/
+  #{txDt, jdbcType=VARCHAR},     /*거래일자*/
+  #{cntrMsgMgmtNbr, jdbcType=VARCHAR},     /*센터전문관리번호*/
+  #{whdrwlInstMsgMgmtNbr, jdbcType=VARCHAR},     /*출금기관전문관리번호*/
+  #{seqNbr, jdbcType=VARCHAR},     /*일련번호*/
+  #{elctrncRcptGiroNbr, jdbcType=VARCHAR},     /*전자수납지로번호*/
+  #{custInqryCustNbr, jdbcType=VARCHAR},     /*고객조회고객번호*/
+  #{pymntMonthlyNth, jdbcType=VARCHAR},     /*납부월회차*/
+  #{elctrncRcptPymntAmt, jdbcType=NUMERIC},     /*전자수납납부금액*/
+  #{issueInstDscd, jdbcType=VARCHAR},     /*발행기관분류코드*/
+  #{psbkDsplyCntnt, jdbcType=VARCHAR},     /*통장표시내용*/
+  #{txUnqNbr, jdbcType=VARCHAR},     /*거래고유번호*/
+  #{extrnlRspnsCd, jdbcType=VARCHAR},     /*대외응답코드*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR},     /*최종변경GUID*/
+  #{orgnlTxCntrMsgSndDtm, jdbcType=VARCHAR},     /*원거래센터전문전송일시*/
+  #{orgnlTxWhdrwlAcctNbr, jdbcType=VARCHAR},     /*원거래출금계좌번호*/
+  #{orgnlTxWhdrwlAmt, jdbcType=NUMERIC},     /*원거래출금금액*/
+  #{cnclDscd, jdbcType=VARCHAR},     /*취소구분코드*/
+  #{cnclTxHms, jdbcType=VARCHAR},     /*취소거래시각*/
+  #{cnclTxCntrMsgMgmtNbr, jdbcType=VARCHAR},     /*취소거래센터전문관리번호*/
+  #{cnclTxGuid, jdbcType=VARCHAR},     /*취소거래GUID*/
+  #{orgnlTxCntrMsgMgmtNbr, jdbcType=VARCHAR},     /*원거래센터전문관리번호*/
+  #{guid, jdbcType=VARCHAR}    /*GUID*/
+)
+</insert>
+<update id="updateCdTransHistoryForCancelInfo">
+UPDATE  
+        XP_AR_TX_H    
+   SET   CNCL_DS_CD = #{cnclDscd, jdbcType=VARCHAR}    /* 취소여부 */
+   , CNCL_TX_TMS = #{cnclTxHms, jdbcType=VARCHAR}
+   , CNCL_TX_CNTR_TLGR_MGMT_NBR = #{cnclTxMsgTraceNbr, jdbcType=VARCHAR}
+   , CNCL_TX_GUID = #{cnclTxGuid, jdbcType=VARCHAR}
+   , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+   , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+   AND TX_DT = #{txDt, jdbcType=VARCHAR}
+   <if test="jointNetworkTxDscd = '408100'">
+   		AND TX_UNQ_NBR = #{txUnqNbr, jdbcType=VARCHAR}
+   </if> 
+   <if test="jointNetworkTxDscd != '408100'">
+   AND CNTR_TLGR_MGMT_NBR = #{cntrMsgMgmtNbr, jdbcType=VARCHAR}
+   </if>
+   AND EXTRNL_INST_CD = #{extrnlInstCd, jdbcType=VARCHAR}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd, jdbcType=VARCHAR}
+</update>
+<update id="updateArsTransHistoryPrcsResultCode" parameterType="bankware.corebanking.externalproxy.arsjointnetwork.dao.dto.XpArTxMIO">
+UPDATE  
+        XP_AR_TX_M    /* 전자수납_ARS_기본 */
+   SET  
+      MSG_PRCS_RSLT_CD = #{msgPrcsRsltCd, jdbcType=VARCHAR}
+     ,EXTR_RSPNS_CD = #{extrnlRspnsCd, jdbcType=VARCHAR}    /* 대외응답코드 */
+     , GIRO_PYMNT_AMT = #{giroPymntAmt, jdbcType=NUMERIC}    /* 지로납부금액 */
+     , FEE_AMT = #{feeAmt, jdbcType=NUMERIC}    /* 수수료금액 */
+     , TX_PST_BAL = #{TxAfBal1, jdbcType=NUMERIC}    /* 거래후잔액 */
+     , ACCT_OWNR_NM = #{acctOwnrNm, jdbcType=VARCHAR}    /* 예금주명 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */ 
+
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+   AND EXTRNL_INST_CD = #{extrnlInstCd, jdbcType=VARCHAR}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd, jdbcType=VARCHAR}
+   AND TX_DT = #{txDt, jdbcType=VARCHAR}
+   AND CNTR_TLGR_MGMT_NBR = #{cntrMsgMgmtNbr, jdbcType=VARCHAR}
+   AND WHDRWL_INST_MSG_MGMT_NBR = #{whdrwlInstMsgMgmtNbr, jdbcType=VARCHAR}
+</update>
+<select id="selectArsTransHistoryForCancel" resultType="bankware.corebanking.externalproxy.arsjointnetwork.dao.dto.XpArTxHIO">
+SELECT    /* 전자수납_ARS_일괄내역 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래일자*/
+        CNTR_TLGR_MGMT_NBR AS cntrMsgMgmtNbr,     /*센터전문관리번호*/
+        WHDRWL_INST_MSG_MGMT_NBR AS whdrwlInstMsgMgmtNbr,     /*출금기관전문관리번호*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        ELCTRNC_RCPT_GIRO_NBR AS elctrncRcptGiroNbr,     /*전자수납지로번호*/
+        CUST_INQRY_CUST_NBR AS custInqryCustNbr,     /*고객조회고객번호*/
+        ELTRN_RCPT_PYMNT_AMT AS elctrncRcptPymntAmt,     /*전자수납납부금액*/
+        ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+        PSBK_RPSN_CNTNT AS psbkDsplyCntnt,     /*통장표시내용*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        EXTR_RSPNS_CD AS extrnlRspnsCd,     /*대외응답코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid,     /*최종변경GUID*/
+        ORGNL_TX_CNTR_MSG_SND_DTM AS orgnlTxCntrMsgSndDtm,     /*원거래센터전문전송일시*/
+        ORGNL_TX_WHDRWL_ACCT_NBR AS orgnlTxWhdrwlAcctNbr,     /*원거래출금계좌번호*/
+        ORGNL_TX_WHDRWL_AMT AS orgnlTxWhdrwlAmt,     /*원거래출금금액*/
+        CNCL_DS_CD AS cnclDscd,     /*취소구분코드*/
+        CNCL_TX_TMS AS cnclTxHms,     /*취소거래시각*/
+        CNCL_TX_CNTR_TLGR_MGMT_NBR AS cnclTxCntrMsgMgmtNbr,     /*취소거래전문추적번호*/
+        CNCL_TX_GUID AS cnclTxGuid,     /*취소거래GUID*/
+        ORGNL_TX_CNTR_MSG_MGMT_NBR AS orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+        GUID AS guid,     /*GUID*/
+        PYMNT_MTH_NTH_NBR AS pymntMonthlyNthNbr    /*납부월회차번호*/
+  FROM  XP_AR_TX_H
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND CNTR_TLGR_MGMT_NBR = #{cntrMsgMgmtNbr}
+</select>
+<update id="updateArsTransHistoryAllResult" parameterType="bankware.corebanking.externalproxy.arsjointnetwork.dao.dto.XpArTxHIO">
+UPDATE  
+        XP_AR_TX_H    /* 전자수납_ARS_일괄내역 */
+   SET  
+       EXTR_RSPNS_CD = #{extrnlRspnsCd, jdbcType=VARCHAR}    /* 대외응답코드 */
+      ,GUID = #{guid, jdbcType=VARCHAR}
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+   AND EXTRNL_INST_CD = #{extrnlInstCd, jdbcType=VARCHAR}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd, jdbcType=VARCHAR}
+   AND TX_DT = #{txDt, jdbcType=VARCHAR}
+   AND CNTR_TLGR_MGMT_NBR = #{cntrMsgMgmtNbr, jdbcType=VARCHAR}
+   AND WHDRWL_INST_MSG_MGMT_NBR = #{whdrwlInstMsgMgmtNbr, jdbcType=VARCHAR}
+   AND TX_UNQ_NBR = #{txUnqNbr, jdbcType=VARCHAR}
+</update>
+<select id="selectArsList" resultType="bankware.corebanking.externalproxy.arsjointnetwork.interfaces.dto.ExternalArsGiroHOut">
+SELECT instCd,     /*기관코드*/
+			extrnlInstCd,     /*대외기관코드*/
+			extrnlBizDscd,     /*대외업무구분코드*/
+			txDt,     /*거래일자*/
+			cntrMsgMgmtNbr,     /*센터전문관리번호*/
+			whdrwlInstMsgMgmtNbr,     /*출금기관전문관리번호*/
+			msgPerTpCd,     /*전문종별코드*/
+	        elctrncRcptTxDscd,     /*전자수납거래구분코드*/
+	        sndRcvFlagCd,     /*송수신플래그코드*/
+	        elctrncRcptMsgSndDtm,     /*전자수납전문전송일시*/
+	        mediaDscd,     /*매체구분코드*/
+	        whdrwlInstMsgSndDtm,     /*출금기관전문전송일시*/
+	        elctrncRcptGiroNbr,     /*지로번호*/
+	        custInqryCustNbr,     /*고객조회고객번호*/
+	        pymntMonthlyNthNbr,     /*납부월회차번호*/
+	        whdrwlAcctNbr,     /*출금계좌번호*/
+	        elctrncRcptPymntAmt,     /*지로납부금액*/
+	        clgtPymntCustNbr,     /*총괄납부고객번호*/
+	        rgstrnUserId,     /*등록사용자식별자*/
+	        acctOwnrNm,     /*예금주명*/
+	        payerFullNm,     /*납부자성명*/
+	        cntctTelNbr,     /*연락전화번호*/
+	        feeAmt,     /*수수료금액*/
+	        issueInstDscd,     /*발행기관분류코드*/
+	        dtlMediaDscd,     /*상세매체구분코드*/
+	        psbkDsplyCntnt,     /*통장표시내용*/
+	        TxAfBal1,     /*거래후잔액*/
+	        maskRvctnIdNbr,     /*마스킹해제주민등록번호*/
+	        demandCnt,     /*요청건수*/
+	        trackCntnt,     /*트랙3내용*/
+	        icCardSeqNbr,     /*IC카드일련번호*/
+	        icCardRltdInfoCntnt,     /*IC카드관련정보내용*/
+	        elctrncRcptTxMediaDscd,     /*전자수납거래매체구분코드*/
+	        lastChngTmstmp,     /*최종변경일시*/
+	        lastChngGuid,     /*최종변경GUID*/
+	        msgPrcsRsltCd,     /*메시지처리결과코드*/
+	        extrnlRspnsCd,    /*대외응답코드*/
+	        txUnqNbr,     /*거래고유번호*/
+	        orgnlTxCntrMsgSndDtm ,   /*원거래센터전송시간*/
+	        orgnlTxWhdrwlAcctNbr,     /*원거래출금계좌번호*/
+	        orgnlTxWhdrwlAmt,     /*원거래출금금액*/
+	        cnclDscd,     /*취소구분코드*/
+	        cnclTxHms,     /*취소거래시각*/
+	        cnclTxMsgTraceNbr,     /*취소거래전문추적번호*/
+	        cnclTxGuid,     /*취소거래GUID*/
+	        orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+	        guid    /*GUID*/
+FROM (
+		SELECT   ROWNUM AS ROW__NUM,
+					instCd,     /*기관코드*/
+					extrnlInstCd,     /*대외기관코드*/
+					extrnlBizDscd,     /*대외업무구분코드*/
+					txDt,     /*거래일자*/
+					cntrMsgMgmtNbr,     /*센터전문관리번호*/
+					whdrwlInstMsgMgmtNbr,     /*출금기관전문관리번호*/
+					msgPerTpCd,     /*전문종별코드*/
+			        elctrncRcptTxDscd,     /*전자수납거래구분코드*/
+			        sndRcvFlagCd,     /*송수신플래그코드*/
+			        elctrncRcptMsgSndDtm,     /*전자수납전문전송일시*/
+			        mediaDscd,     /*매체구분코드*/
+			        whdrwlInstMsgSndDtm,     /*출금기관전문전송일시*/
+			        elctrncRcptGiroNbr,     /*지로번호*/
+			        custInqryCustNbr,     /*고객조회고객번호*/
+			        pymntMonthlyNthNbr,     /*납부월회차번호*/
+			        whdrwlAcctNbr,     /*출금계좌번호*/
+			        elctrncRcptPymntAmt,     /*지로납부금액*/
+			        clgtPymntCustNbr,     /*총괄납부고객번호*/
+			        rgstrnUserId,     /*등록사용자식별자*/
+			        acctOwnrNm,     /*예금주명*/
+			        payerFullNm,     /*납부자성명*/
+			        cntctTelNbr,     /*연락전화번호*/
+			        feeAmt,     /*수수료금액*/
+			        issueInstDscd,     /*발행기관분류코드*/
+			        dtlMediaDscd,     /*상세매체구분코드*/
+			        psbkDsplyCntnt,     /*통장표시내용*/
+			        TxAfBal1,     /*거래후잔액*/
+			        maskRvctnIdNbr,     /*마스킹해제주민등록번호*/
+			        demandCnt,     /*요청건수*/
+			        trackCntnt,     /*트랙3내용*/
+			        icCardSeqNbr,     /*IC카드일련번호*/
+			        icCardRltdInfoCntnt,     /*IC카드관련정보내용*/
+			        elctrncRcptTxMediaDscd,     /*전자수납거래매체구분코드*/
+			        lastChngTmstmp,     /*최종변경일시*/
+			        lastChngGuid,     /*최종변경GUID*/
+			        msgPrcsRsltCd,     /*메시지처리결과코드*/
+			        extrnlRspnsCd,    /*대외응답코드*/
+			        txUnqNbr,     /*거래고유번호*/
+			        orgnlTxCntrMsgSndDtm ,   /*원거래센터전송시간*/
+			        orgnlTxWhdrwlAcctNbr,     /*원거래출금계좌번호*/
+			        orgnlTxWhdrwlAmt,     /*원거래출금금액*/
+			        cnclDscd,     /*취소구분코드*/
+			        cnclTxHms,     /*취소거래시각*/
+			        cnclTxMsgTraceNbr,     /*취소거래전문추적번호*/
+			        cnclTxGuid,     /*취소거래GUID*/
+			        orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+			        guid    /*GUID*/
+        FROM 
+        (
+			/* #### Original SQL [[ ################# */
+			SELECT   /* 전자수납_ARS_일괄내역 */
+			        M.INST_CD AS instCd,     /*기관코드*/
+					M.EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+					M.EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+					M.TX_DT AS txDt,     /*거래일자*/
+					M.CNTR_TLGR_MGMT_NBR AS cntrMsgMgmtNbr,     /*센터전문관리번호*/
+					M.WHDRWL_INST_MSG_MGMT_NBR AS whdrwlInstMsgMgmtNbr,     /*출금기관전문관리번호*/
+					M.TLGR_CLS_CD AS msgPerTpCd,     /*전문종별코드*/
+			        M.ELTRN_RCPT_TX_DS_CD AS elctrncRcptTxDscd,     /*전자수납거래구분코드*/
+			        M.SND_RCV_FLAG_CD AS sndRcvFlagCd,     /*송수신플래그코드*/
+			        M.ELTRN_RCPT_TLGR_SND_DTTM AS elctrncRcptMsgSndDtm,     /*전자수납전문전송일시*/
+			        M.MEDIA_DS_CD AS mediaDscd,     /*매체구분코드*/
+			        M.WHDR_INST_TLGR_SND_DTTM AS whdrwlInstMsgSndDtm,     /*출금기관전문전송일시*/
+			        M.GIRO_NBR AS elctrncRcptGiroNbr,     /*지로번호*/
+			        M.CUST_INQRY_CUST_NBR AS custInqryCustNbr,     /*고객조회고객번호*/
+			        M.PYMNT_MTH_NTH_NBR AS pymntMonthlyNthNbr,     /*납부월회차번호*/
+			        M.WHDRWL_ACCT_NBR AS whdrwlAcctNbr,     /*출금계좌번호*/
+			        M.GIRO_PYMNT_AMT AS elctrncRcptPymntAmt,     /*지로납부금액*/
+			        M.GNRZ_PYMNT_CUST_NBR AS clgtPymntCustNbr,     /*총괄납부고객번호*/
+			        M.RGST_USER_ID AS rgstrnUserId,     /*등록사용자식별자*/
+			        M.ACCT_OWNR_NM AS acctOwnrNm,     /*예금주명*/
+			        M.PAYER_FULL_NM AS payerFullNm,     /*납부자성명*/
+			        M.CNTCT_TEL_NBR AS cntctTelNbr,     /*연락전화번호*/
+			        M.FEE_AMT AS feeAmt,     /*수수료금액*/
+			        M.ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+			        M.DTL_MEDIA_DS_CD AS dtlMediaDscd,     /*상세매체구분코드*/
+			        M.PSBK_RPSN_CNTNT AS psbkDsplyCntnt,     /*통장표시내용*/
+			        M.TX_PST_BAL AS TxAfBal1,     /*거래후잔액*/
+			        M.MASK_RVCTN_ID_NBR AS maskRvctnIdNbr,     /*마스킹해제주민등록번호*/
+			        M.REQ_CNT AS demandCnt,     /*요청건수*/
+			        M.TRCK_3_CNTNT AS trackCntnt,     /*트랙3내용*/
+			        M.IC_CARD_SEQ_NBR AS icCardSeqNbr,     /*IC카드일련번호*/
+			        M.IC_CARD_RLTD_INFO_CNTNT AS icCardRltdInfoCntnt,     /*IC카드관련정보내용*/
+			        M.ELTRN_RCPT_TX_MEDIA_DS_CD AS elctrncRcptTxMediaDscd,     /*전자수납거래매체구분코드*/
+			        M.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+			        M.LAST_CHNG_GUID AS lastChngGuid,     /*최종변경GUID*/
+			        M.MSG_PRCS_RSLT_CD AS msgPrcsRsltCd,     /*메시지처리결과코드*/
+			        M.EXTR_RSPNS_CD AS extrnlRspnsCd,    /*대외응답코드*/
+			        H.TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+			        DECODE(H.ORGNL_TX_CNTR_MSG_SND_DTM, null, '' , '20' || H.ORGNL_TX_CNTR_MSG_SND_DTM )  AS  orgnlTxCntrMsgSndDtm , /*원거래센터전송시간*/
+			        H.ORGNL_TX_WHDRWL_ACCT_NBR AS orgnlTxWhdrwlAcctNbr,     /*원거래출금계좌번호*/
+			        H.ORGNL_TX_WHDRWL_AMT AS orgnlTxWhdrwlAmt,     /*원거래출금금액*/
+			        H.CNCL_DS_CD AS cnclDscd,     /*취소구분코드*/
+			        H.CNCL_TX_TMS AS cnclTxHms,     /*취소거래시각*/
+			        H.CNCL_TX_CNTR_TLGR_MGMT_NBR AS cnclTxMsgTraceNbr,     /*취소거래전문추적번호*/
+			        H.CNCL_TX_GUID AS cnclTxGuid,     /*취소거래GUID*/
+			        H.ORGNL_TX_CNTR_MSG_MGMT_NBR AS orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+			        H.GUID AS guid    /*GUID*/
+			  FROM  XP_AR_TX_M M, XP_AR_TX_H H
+			 WHERE M.INST_CD = #{instCd}
+			   AND M.TX_DT &gt;= #{txStartDt}
+			   AND M.TX_DT &lt;= #{txEndDt}
+			   AND H.SEQ_NBR = '0'
+			   AND M.INST_CD = H.INST_CD
+			   AND M.EXTRNL_INST_CD = H.EXTRNL_INST_CD
+			   AND M.EXTRNL_BIZ_Dscd = H.EXTRNL_BIZ_Dscd
+			   AND M.TX_DT = H.TX_DT
+			   AND M.CNTR_TLGR_MGMT_NBR = H.CNTR_TLGR_MGMT_NBR
+			   AND M.WHDRWL_INST_MSG_MGMT_NBR = H.WHDRWL_INST_MSG_MGMT_NBR
+			    <if test="cntrMsgMgmtNbr != null and cntrMsgMgmtNbr != ''">
+			   		AND M.CNTR_TLGR_MGMT_NBR = #{cntrMsgMgmtNbr}
+			   </if>
+			    <if test="cnclDscd != null and cnclDscd != ''">
+			   		AND H.CNCL_DS_CD = #{cnclDscd}
+			   </if>
+			    <if test="elctrncRcptGiroNbr != null and elctrncRcptGiroNbr != ''">
+			  		 AND H.ELCTRNC_RCPT_GIRO_NBR = #{elctrncRcptGiroNbr}
+			   </if>
+			   <if test="extrnlInstCd != null and extrnlInstCd != ''">
+			   		AND M.EXTRNL_INST_CD = #{extrnlInstCd}
+			   </if> 
+			   <if test="extrnlBizDscd != null and extrnlBizDscd != ''">
+			   		AND M.EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+			   </if>    
+			    <if test="whdrwlAcctNbr != null and whdrwlAcctNbr != ''">
+			  		 AND M.WHDRWL_ACCT_NBR = #{whdrwlAcctNbr}
+			   </if>
+			   /* #### Original SQL ]] ################# */
+			ORDER BY M.TX_DT desc, M.LAST_CHNG_TMSTMP desc
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectArsAllList" resultType="bankware.corebanking.externalproxy.arsjointnetwork.interfaces.dto.ExternalArsGiroHOut">
+SELECT instCd,/*기관코드*/
+extrnlInstCd,/*대외기관코드*/
+extrnlBizDscd,/*대외업무구분코드*/
+txDt,/*거래일자*/
+cntrMsgMgmtNbr,/*센터전문관리번호*/
+whdrwlInstMsgMgmtNbr,/*출금기관전문관리번호*/
+seqNbr,/*일련번호*/
+elctrncRcptGiroNbr,/*전자수납지로번호*/
+custInqryCustNbr,/*고객조회고객번호*/
+pymntMonthlyNthNbr,/*납부월회차*/
+elctrncRcptPymntAmt,/*전자수납납부금액*/
+issueInstDscd,/*발행기관분류코드*/
+psbkDsplyCntnt,/*통장표시내용*/
+txUnqNbr,/*거래고유번호*/
+extrnlRspnsCd,/*대외응답코드*/
+lastChngTmstmp,/*최종변경일시*/
+lastChngGuid,/*최종변경GUID*/
+orgnlTxCntrMsgSndDtm,/*원거래센터전문전송일시*/
+orgnlTxWhdrwlAcctNbr,/*원거래출금계좌번호*/
+orgnlTxWhdrwlAmt,/*원거래출금금액*/
+cnclDscd,/*취소구분코드*/
+cnclTxHms,/*취소거래시각*/
+cnclTxMsgTraceNbr,/*취소거래전문추적번호*/
+cnclTxGuid,/*취소거래GUID*/
+orgnlTxCntrMsgMgmtNbr,/*원거래센터전문관리번호*/
+guid/*GUID*/
+FROM (
+SELECT   ROWNUM AS ROW__NUM,
+instCd,/*기관코드*/
+extrnlInstCd,/*대외기관코드*/
+extrnlBizDscd,/*대외업무구분코드*/
+txDt,/*거래일자*/
+cntrMsgMgmtNbr,/*센터전문관리번호*/
+whdrwlInstMsgMgmtNbr,/*출금기관전문관리번호*/
+seqNbr,/*일련번호*/
+elctrncRcptGiroNbr,/*전자수납지로번호*/
+custInqryCustNbr,/*고객조회고객번호*/
+pymntMonthlyNthNbr,/*납부월회차*/
+elctrncRcptPymntAmt,/*전자수납납부금액*/
+issueInstDscd,/*발행기관분류코드*/
+psbkDsplyCntnt,/*통장표시내용*/
+txUnqNbr,/*거래고유번호*/
+extrnlRspnsCd,/*대외응답코드*/
+lastChngTmstmp,/*최종변경일시*/
+lastChngGuid,/*최종변경GUID*/
+orgnlTxCntrMsgSndDtm,/*원거래센터전문전송일시*/
+orgnlTxWhdrwlAcctNbr,/*원거래출금계좌번호*/
+orgnlTxWhdrwlAmt,/*원거래출금금액*/
+cnclDscd,/*취소구분코드*/
+cnclTxHms,/*취소거래시각*/
+cnclTxMsgTraceNbr,/*취소거래전문추적번호*/
+cnclTxGuid,/*취소거래GUID*/
+orgnlTxCntrMsgMgmtNbr,/*원거래센터전문관리번호*/
+guid/*GUID*/
+        FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+
+SELECT   /* 전자수납_ARS_일괄내역 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래일자*/
+        CNTR_TLGR_MGMT_NBR AS cntrMsgMgmtNbr,     /*센터전문관리번호*/
+        WHDRWL_INST_MSG_MGMT_NBR AS whdrwlInstMsgMgmtNbr,     /*출금기관전문관리번호*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        ELCTRNC_RCPT_GIRO_NBR AS elctrncRcptGiroNbr,     /*전자수납지로번호*/
+        CUST_INQRY_CUST_NBR AS custInqryCustNbr,     /*고객조회고객번호*/
+        PYMNT_MTH_NTH_NBR AS pymntMonthlyNthNbr,     /*납부월회차*/
+        ELTRN_RCPT_PYMNT_AMT AS elctrncRcptPymntAmt,     /*전자수납납부금액*/
+        ISSUE_INST_Dscd AS issueInstDscd,     /*발행기관분류코드*/
+        PSBK_RPSN_CNTNT AS psbkDsplyCntnt,     /*통장표시내용*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        EXTR_RSPNS_CD AS extrnlRspnsCd,     /*대외응답코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid,     /*최종변경GUID*/
+        ORGNL_TX_CNTR_MSG_SND_DTM AS orgnlTxCntrMsgSndDtm,     /*원거래센터전문전송일시*/
+        ORGNL_TX_WHDRWL_ACCT_NBR AS orgnlTxWhdrwlAcctNbr,     /*원거래출금계좌번호*/
+        ORGNL_TX_WHDRWL_AMT AS orgnlTxWhdrwlAmt,     /*원거래출금금액*/
+        CNCL_DS_CD AS cnclDscd,     /*취소구분코드*/
+        CNCL_TX_TMS AS cnclTxHms,     /*취소거래시각*/
+        CNCL_TX_CNTR_TLGR_MGMT_NBR AS cnclTxMsgTraceNbr,     /*취소거래전문추적번호*/
+        CNCL_TX_GUID AS cnclTxGuid,     /*취소거래GUID*/
+        ORGNL_TX_CNTR_MSG_MGMT_NBR AS orgnlTxCntrMsgMgmtNbr,     /*원거래센터전문관리번호*/
+        GUID AS guid    /*GUID*/
+  FROM  XP_AR_TX_H
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND  SEQ_NBR != '0'
+    <if test="cntrMsgMgmtNbr != null and cntrMsgMgmtNbr != ''">
+   AND CNTR_TLGR_MGMT_NBR = #{cntrMsgMgmtNbr}
+   </if>
+    <if test="cnclDscd != null and cnclDscd != ''">
+   AND CNCL_DS_CD = #{cnclDscd}
+   </if>
+
+   /* #### Original SQL ]] ################# */
+		ORDER BY TX_DT desc, LAST_CHNG_TMSTMP desc, SEQ_NBR
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectArsTotCnt" resultType="bankware.corebanking.externalproxy.arsjointnetwork.interfaces.dto.ExternalArsGiroHOut">
+SELECT   COUNT(1) as totCnt
+FROM  XP_AR_TX_M M, XP_AR_TX_H H
+ WHERE M.INST_CD = #{instCd}
+   AND M.TX_DT &gt;= #{txStartDt}
+   AND M.TX_DT &lt;= #{txEndDt}
+   AND H.SEQ_NBR = '0'
+   AND M.INST_CD = H.INST_CD
+   AND M.EXTRNL_INST_CD = H.EXTRNL_INST_CD
+   AND M.EXTRNL_BIZ_Dscd = H.EXTRNL_BIZ_Dscd
+   AND M.TX_DT = H.TX_DT
+   AND M.CNTR_TLGR_MGMT_NBR = H.CNTR_TLGR_MGMT_NBR
+   AND M.WHDRWL_INST_MSG_MGMT_NBR = H.WHDRWL_INST_MSG_MGMT_NBR
+    <if test="cntrMsgMgmtNbr != null and cntrMsgMgmtNbr != ''">
+   		AND M.CNTR_TLGR_MGMT_NBR = #{cntrMsgMgmtNbr}
+   </if>
+    <if test="cnclDscd != null and cnclDscd != ''">
+   		AND H.CNCL_DS_CD = #{cnclDscd}
+   </if>
+    <if test="elctrncRcptGiroNbr != null and elctrncRcptGiroNbr != ''">
+  		 AND H.ELCTRNC_RCPT_GIRO_NBR = #{elctrncRcptGiroNbr}
+   </if>
+   <if test="extrnlInstCd != null and extrnlInstCd != ''">
+   		AND M.EXTRNL_INST_CD = #{extrnlInstCd}
+   </if> 
+   <if test="extrnlBizDscd != null and extrnlBizDscd != ''">
+   		AND M.EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   </if>
+     <if test="whdrwlAcctNbr != null and whdrwlAcctNbr != ''">
+			  		 AND M.WHDRWL_ACCT_NBR = #{whdrwlAcctNbr}
+    </if>
+</select>
+<update id="updateArsTransHistoryAllResultCode" parameterType="bankware.corebanking.externalproxy.arsjointnetwork.dao.dto.XpArTxHIO">
+UPDATE  
+        XP_AR_TX_H    /* 전자수납_ARS_일괄내역 */
+   SET  
+       EXTR_RSPNS_CD = #{extrnlRspnsCd}    /* 대외응답코드 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND CNTR_TLGR_MGMT_NBR = #{cntrMsgMgmtNbr}
+   AND WHDRWL_INST_MSG_MGMT_NBR = #{whdrwlInstMsgMgmtNbr}
+   AND TX_UNQ_NBR = #{txUnqNbr}
+</update>
+</mapper>

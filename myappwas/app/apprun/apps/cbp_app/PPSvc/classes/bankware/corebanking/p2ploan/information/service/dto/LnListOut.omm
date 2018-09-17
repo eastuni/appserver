@@ -1,0 +1,50 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.LnListOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String arrStsCd<length=2 description="계약상태코드">;
+	String prgrsStsCd<length=20 description="진행상태">;
+	String arrId<length=15 description="계약식별자">;
+	String aplctnDt<length=8 description="신청년월일">;
+	String custId<length=100 description="고객식별자">;
+	String custNm<length=20 description="고객명">;
+	String loinIdNbr<length=100 description="고객로그인아이디">;
+	BigDecimal aplctnAmt<length=18 decimal=2 description="신청금액">;
+	String pdCd<length=20 description="상품코드">;
+	String pdNm<length=20 description="상품명">;
+	String aplctnNbr<length=20 description="신청번호">;
+	BigDecimal lonAprvlTrmCnt<length=18 description="대출승인기간">;
+	BigDecimal rtrnOfIntRt<length=10 decimal=4 description="제시금리">;
+	BigDecimal residualClctnAmt<length=18 decimal=2 description="잔여모금액">;
+	BigDecimal intRt<length=10 decimal=4 description="금리">;
+	String crncyCd<length=3 description="통화코드">;
+	String subArrId<length=15 description="부계약식별자">;
+	BigDecimal invstmntAmt<length=18 decimal=2 description="투자금액">;
+	BigDecimal invstmntRt<length=10 decimal=4 description="투자금리">;
+	String invstmntDt<length=8 description="투자일자">;
+	String childPdCd<length=20 description="자식상품코드">;
+	BigDecimal biddingPrgrsRt<length=10 decimal=2 description="입찰진척율">;
+	BigDecimal biddingCnt<length=10 description="입찰자수">;
+	String lnPurposeCd<length=2 description="대출목적코드">;
+	String lnPurposeNm<length=40 description="대출목적명">;
+	String p2pInvstmntRatingCd<length=2 description="P2P투자등급코드">;
+	String p2pInvstmntRatingNm<length=40 description="P2P투자등급명">;
+	String exctnDt<length=8 description="실행일자">;
+	String arrMtrtyDt<length=8 description="계약만기일자">;
+	String rpymntWayCd<length=2 description="상환방법코드">;
+	String rpymntWayNm<length=40 description="상환방법명">;
+	String biddingClsgTmstmp<length=20 description="입찰마감일시">;
+	String desiredAmtExcsBidAcceptYn<length=1 description="희망금액초과낙찰수용여부">;
+	BigDecimal desiredAmtExcsPrmsnMaxAmt<length=18 decimal=2 description="희망금액초과허용최대금액">;
+	BigDecimal lnAplctnFeeAmt<length=18 decimal=2 description="대출신청수수료">;
+	BigDecimal arrBal<length=18 decimal=2 description="계약잔액금액">;
+	BigDecimal invstmntProfitAmt<length=18 decimal=2 description="투자수익금액">;
+	BigDecimal rtrnOnInvstmntRt<length=5 decimal=2 description="투자회수율">;
+	String biddingMthdCdVal<length=20 description="경매방식">;
+	String biddingMthdCd<length=2 description="경매방식 코드">;
+	BigDecimal invstmntExpctdProfitRmndAmt<length=18 decimal=2 description="투자예상수익잔존금액">;
+	String lnRsnCntnt<length=2000 description="대출사유내용">;
+	String arrStsChngDt<length=8 description="계약상태변경일">;
+	BigDecimal aprvlAmt<length=18 decimal=2 description="승인금액">;
+	BigDecimal lnAplctnIntRt<length=10 decimal=4 description="신청금리">;
+	BigDecimal aprvlAplctnIntRt<length=10 decimal=4 description="승인금리">;
+}

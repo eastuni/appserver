@@ -1,0 +1,20 @@
+OMM bankware.corebanking.externalproxy.cdjointnetwork.interfaces.dto.ExternalCdCd1114IO
+<description="결제원자금조정근거표 XpCdCd1114IO Proxy">
+{
+	String instCd<length=14 description="기관코드">;
+	String txDt<length=8 description="거래년월일">;
+	String seqNbr<length=7 description="일련번호">;
+	String txDscd<length=2 description="거래구분코드">;
+	String fnclInstCd<length=3 description="금융기관코드">;
+	BigDecimal txNetStlmntAmt<length=18 decimal=2 description="거래차액">;
+	BigDecimal fundAdjstmntBaseIntRt<length=18 decimal=2 description="자금조정기준금리">;
+	BigDecimal stlmntAmt<length=18 decimal=2 description="기준금리 적용일">;
+	BigDecimal fundsAdjstmntAmt<length=18 decimal=2 description="자금조정금액">;
+	Date lastChngTmstmp<length=30 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+	Integer pgNbr<length=9 description="페이지번호">;
+	Integer pgCnt<length=9 description="페이지건수">;
+	String totCntInqryYn<length=20 description="전체건수조회여부">;
+	String txStartDt<length=8 description="조회시작일자">;
+	String txEndDt<length=8 description="조회종료일자">;
+}

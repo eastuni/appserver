@@ -1,0 +1,6 @@
+OMM bxm.web.admin.batch.domain.BatchJobControlResultOMM
+<description="">
+{
+	Boolean controlResult<length=20>;
+	Integer responseCode<length=9>;
+}

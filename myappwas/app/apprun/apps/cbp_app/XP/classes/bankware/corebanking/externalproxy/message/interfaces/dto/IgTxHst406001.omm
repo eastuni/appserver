@@ -1,0 +1,12 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IgTxHst406001
+<description="일반지로일괄납부결과통지">
+{
+	String custInqryCustNbr<length=20 description="고객조회고객번호">;
+	String impstnYm<length=6 description="부과년월">;
+	String ntfctnFormCd<length=1 description="고지형태코드">;
+	String giroIssueFormCd<length=1 description="발행형태코드">;
+	String etcCd<length=2 description="기타">;
+	BigDecimal pymntAmt<length=15 description="납부금액">;
+	String txUnqNbr<length=12 description="거래고유번호">;
+	String prcsRspnsCd<length=3 description="처리응답코드">;
+}

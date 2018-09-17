@@ -1,0 +1,6 @@
+OMM bankware.corebanking.p2plending.bidding.service.dto.BiddingRsltExecuteSvcIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String biddingStsCd<length=10 description="Bidding Status">;
+	String arrId<length=15 description="Arrangement Identification">;
+}

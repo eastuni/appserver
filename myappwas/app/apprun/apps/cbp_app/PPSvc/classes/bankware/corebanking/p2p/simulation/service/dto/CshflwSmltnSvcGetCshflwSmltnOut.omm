@@ -1,0 +1,5 @@
+OMM bankware.corebanking.p2p.simulation.service.dto.CshflwSmltnSvcGetCshflwSmltnOut
+<description="">
+{
+	bankware.corebanking.p2p.simulation.service.dto.CshflwSmltnSvcRevenueOut cshflwList<length=0 arrayReference="100" description="Cashflow List">;
+}

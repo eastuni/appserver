@@ -1,0 +1,11 @@
+OMM bxm.web.admin.online.domain.TrxGroupMemberOMM
+<description="">
+{
+	String trxGrpId<length=40 description="거래그룹ID">;
+	String trxGrpNm<length=128 description="거래그룹명">;
+	String useYn<length=1 description="사용여부">;
+	String bxmAppId<length=40 description="BXM어플리케이션ID">;
+	String svcNm<length=512 description="서비스명">;
+	String opNm<length=512 description="오퍼레이션명">;
+	String trxCd<length=12 description="거래코드">;
+}

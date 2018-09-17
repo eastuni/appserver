@@ -1,0 +1,40 @@
+OMM bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpTxParmMIO
+<description="">
+{
+	String extrnlTxCd<length=14 description="대외거래코드">;
+	String sysIntrfcNm<length=200 description="시스템인터페이스명">;
+	String stsCd<length=2 description="상태코드">;
+	String aplyStartDt<length=8 description="적용시작년월일">;
+	String extrnlInstCd<length=14 description="대외기관코드">;
+	String extrnlBizDscd<length=3 description="대외업무구분코드">;
+	String extrnlSubBizDscd<length=2 description="대외업무세부구분코드">;
+	String jointNetworkClCd<length=4 description="공동망종별코드">;
+	String jointNetworkTxDscd<length=6 description="공동망거래구분코드">;
+	String hndlngOpnDscd<length=1 description="취급개설구분코드">;
+	String txDscd<length=1 description="거래구분코드">;
+	String dpstWhdrwlDscd<length=1 description="입출구분코드">;
+	String srvcCallBfAfHstCreateCd<length=1 description="서비스호출전후저널생성코드">;
+	String srvcCallBfAfCommitCd<length=1 description="서비스호출전후커밋코드">;
+	String safCreateCd<length=1 description="SAF생성코드">;
+	String safUpdtYn<length=1 description="SAF변경여부">;
+	String timeoutRgstrnYn<length=1 description="타이머등록여부">;
+	Integer timeoutScnd<length=7 description="타이머대기시간(초)">;
+	String cnclOrgnlTxChkYn<length=1 description="취소시원거래검증여부">;
+	String cnclOrgnlTxUpdtCd<length=1 description="취소시원거래반영코드">;
+	String extrnlMsngNbrChkYn<length=1 description="대외결번검증여부">;
+	String extrnlDplctnChkYn<length=1 description="대외중복검증여부">;
+	String opnMgmtMsgPrcsngYn<length=1 description="개설관리전문반영여부">;
+	String hndlngMgmtMsgPrcsngYn<length=1 description="취급관리전문반영여부">;
+	Date lastChngTmstmp<length=30 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+	String xtnParmYn1<length=10 description="확장속성1">;
+	String xtnParmYn2<length=10 description="확장속성2">;
+	String xtnParmYn3<length=10 description="확장속성3">;
+	String xtnParmYn4<length=10 description="확장속성4">;
+	String xtnParmYn5<length=10 description="확장속성5">;
+	String xtnParmYn6<length=10 description="확장속성6">;
+	String xtnParmYn7<length=10 description="확장속성7">;
+	String xtnParmYn8<length=10 description="확장속성8">;
+	String xtnParmYn9<length=10 description="확장속성9">;
+	String xtnParmYn10<length=10 description="확장속성10">;
+}

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.resourcelibrary.dao.CmInstApldClassD">
+<!--Generated Thu Aug 10 02:01:42 KST 2017-->
+<update id="merge" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmInstApldClassDIO">
+MERGE  INTO CM_INST_APLD_CLASS_D    /*기관별클래스적용명세*/
+USING DUAL
+
+ON(
+
+        most_up_parnt_class_nm = #{mostUpParntClassNm} 
+   AND  inst_cd = #{instCd}
+
+   AND aply_class_nm = #{aplyClassNm} 
+)
+
+
+
+WHEN MATCHED THEN
+
+    UPDATE  SET
+
+      aply_start_dt = #{aplyStartDt}   /*적용시작년월일*/, 
+
+      last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */, 
+
+      last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+
+     WHERE  #{aplyStartDt}  &gt;= to_char(sysdate, 'YYYYMMDD') AND aply_start_dt &gt; #{aplyStartDt}
+
+
+WHEN NOT MATCHED THEN
+
+    INSERT      
+
+    (    
+
+      most_up_parnt_class_nm    /*최상위부모클래스명*/, 
+      inst_cd    /*기관코드*/, 
+
+      aply_start_dt    /*적용시작년월일*/, 
+
+      aply_class_nm    /*적용클래스명*/, 
+      aply_end_dt    /*적용종료년월일*/, 
+
+      last_chng_tmstmp    /*최종변경일시*/, 
+
+      last_chng_guid    /*최종변경GUID*/
+
+    )    
+
+    VALUES     
+
+    (    
+
+      #{mostUpParntClassNm}    /*최상위부모클래스명*/, 
+      #{instCd}    /*기관코드*/, 
+
+      #{aplyStartDt}    /*적용시작년월일*/, 
+
+      #{aplyClassNm}    /*적용클래스명*/, 
+      '@'    /*적용종료년월일*/, 
+
+      #{lastChngTmstmp}    /*최종변경일시*/, 
+
+      #{lastChngGuid}    /*최종변경GUID*/
+
+    )
+
+	WHERE  #{aplyStartDt}  &gt;= to_char(sysdate, 'YYYYMMDD')
+</update>
+<select id="selectByCnd" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmInstApldClassDIO" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmInstApldClassDIO">
+SELECT  /* 기관별클래스적용명세 */
+
+        most_up_parnt_class_nm AS mostUpParntClassNm    /*최상위부모클래스명*/, 
+        inst_cd AS instCd    /*기관코드*/, 
+
+        aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        aply_class_nm AS aplyClassNm    /*적용클래스명*/, 
+        aply_end_dt AS aplyEndDt    /*적용종료년월일*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_inst_apld_class_d
+ WHERE  most_up_parnt_class_nm = #{mostUpParntClassNm} 
+   AND  inst_cd = #{instCd}
+
+   AND aply_class_nm = #{aplyClassNm}
+</select>
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmInstApldClassDIO">
+INSERT      
+
+INTO CM_INST_APLD_CLASS_D
+    (    
+
+      most_up_parnt_class_nm    /*최상위부모클래스명*/, 
+      inst_cd    /*기관코드*/, 
+
+      aply_start_dt    /*적용시작년월일*/, 
+
+      aply_class_nm    /*적용클래스명*/, 
+      aply_end_dt    /*적용종료년월일*/, 
+
+      last_chng_tmstmp    /*최종변경일시*/, 
+
+      last_chng_guid    /*최종변경GUID*/
+
+    )    
+
+    VALUES     
+
+    (    
+
+      #{mostUpParntClassNm}    /*최상위부모클래스명*/, 
+      #{instCd}    /*기관코드*/, 
+
+      #{aplyStartDt}    /*적용시작년월일*/, 
+
+      #{aplyClassNm}    /*적용클래스명*/, 
+      '@'    /*적용종료년월일*/, 
+
+      #{lastChngTmstmp}    /*최종변경일시*/, 
+
+      #{lastChngGuid}    /*최종변경GUID*/
+
+    )
+</insert>
+<select id="selectMysql" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmInstApldClassDIO">
+SELECT  /* 기관별클래스적용명세 */
+
+        most_up_parnt_class_nm AS mostUpParntClassNm    /*최상위부모클래스명*/, 
+        inst_cd AS instCd    /*기관코드*/, 
+
+        aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        aply_class_nm AS aplyClassNm    /*적용클래스명*/, 
+        aply_end_dt AS aplyEndDt    /*적용종료년월일*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_inst_apld_class_d
+ WHERE  inst_cd = #{instCd} 
+
+ AND aply_end_dt &gt; DATE_FORMAT(NOW(),'%Y%m%d')
+
+ ORDER BY aply_start_dt
+</select>
+<select id="selectOracle" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmInstApldClassDIO">
+SELECT  /* 기관별클래스적용명세 */
+
+        most_up_parnt_class_nm AS mostUpParntClassNm    /*최상위부모클래스명*/, 
+        inst_cd AS instCd    /*기관코드*/, 
+
+        aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        aply_class_nm AS aplyClassNm    /*적용클래스명*/, 
+        aply_end_dt AS aplyEndDt    /*적용종료년월일*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_inst_apld_class_d
+ WHERE  inst_cd = #{instCd} 
+
+ AND aply_end_dt &gt; TO_CHAR(sysdate,'yyyymmdd')
+ ORDER BY aply_start_dt
+</select>
+<update id="updateMysql" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmInstApldClassDIO">
+UPDATE CM_INST_APLD_CLASS_D
+SET
+
+	aply_start_dt = #{aplyStartDt}   /*적용시작년월일*/, 
+
+    last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */, 
+
+    last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+
+WHERE  most_up_parnt_class_nm = #{mostUpParntClassNm} 
+    AND  inst_cd = #{instCd}
+
+    AND aply_class_nm = #{aplyClassNm} 
+	AND #{aplyStartDt}  &gt;= DATE_FORMAT(NOW(), '%Y%m%d') 
+
+	AND aply_start_dt &gt; #{aplyStartDt}
+</update>
+<update id="updateOracle" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmInstApldClassDIO">
+UPDATE CM_INST_APLD_CLASS_D
+SET
+
+	aply_start_dt = #{aplyStartDt}   /*적용시작년월일*/, 
+
+    last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */, 
+
+    last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+
+WHERE  most_up_parnt_class_nm = #{mostUpParntClassNm} 
+    AND  inst_cd = #{instCd}
+
+    AND aply_class_nm = #{aplyClassNm} 
+	AND #{aplyStartDt}  &gt;= TO_CHAR(sysdate,'yyyymmdd')
+	AND aply_start_dt &gt; #{aplyStartDt}
+</update>
+</mapper>

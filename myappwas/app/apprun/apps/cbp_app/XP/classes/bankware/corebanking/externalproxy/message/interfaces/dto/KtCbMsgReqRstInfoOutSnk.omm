@@ -1,0 +1,20 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.KtCbMsgReqRstInfoOutSnk
+<description="KT CB정보 응답-반복부(결과정보) Out">
+{
+	String pdGrpCd<length=1 description="상품군코드">;
+	String srvcCntrctNbr<length=11 description="서비스계약번호">;
+	String sbscrbStsCd<length=1 description="가입상태코드">;
+	String sbscrbDt<length=8 description="가입일자">;
+	String ovrduYn<length=20 description="연체여부">;
+	String ovrduAmt<length=20 description="연체금액(원)">;
+	String stopCnt<length=4 description="일시정지횟수">;
+	String stopDayCnt<length=6 description="일시정지일수">;
+	String phoneBillYn<length=1 description="휴대폰소액결제이용여부">;
+	String phoneBillAmt<length=20 align=right fill="0" description="휴대폰소액결제이용금액(원)">;
+	bankware.corebanking.externalproxy.message.interfaces.dto.KtCbMsgReqCustTheftInfoOutSnk cust_theft_info<length=0 arrayReference="100" description="명의도용정보">;
+	String trmntCnt<length=3 description="직권해지차수">;
+	String trmntnYn<length=1 description="직권해지여부">;
+	String trmntRsnCd<length=4 description="직권해지사유코드">;
+	bankware.corebanking.externalproxy.message.interfaces.dto.KtCbMsgReqAllotInfoOutSnk allot_info<length=20 arrayReference="100" description="단말기정보리스트">;
+	String baseDt<length=8 description="기준일자">;
+}

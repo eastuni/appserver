@@ -1,0 +1,11 @@
+OMM bxm.web.admin.batch.domain.BatchJobUserLogOMM
+<description="">
+{
+	Integer logSeq<length=9 description="로그일련번호">;
+	BigDecimal jobExecutionId<length=19 description="배치작업 실행 아이디">;
+	String jobId<length=100 description="배치작업ID">;
+	BigDecimal stepExecutionId<length=19 description="배치스텝 아이디">;
+	String stepName<length=100 description="배치스텝 이름">;
+	String logOccurDttm<length=14 description="로그발생일시">;
+	String appLogCtt<length=4000 description="사용자로그내용">;
+}

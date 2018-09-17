@@ -1,0 +1,16 @@
+OMM bxm.web.admin.online.domain.ErrorLogSimpleOMM
+<description="">
+{
+	String logOccurDttm<length=20 description="발생시간">;
+	String trxCd<length=20 description="거래코드">;
+	String guid<length=20 description="GUID">;
+	String linkSeq<length=20 description="연동일련번호">;
+	String sysCd<length=20 description="시스템코드">;
+	String nodeName<length=20 description="노드명">;
+	String sendUserIp<length=20 description="송신자IP">;
+	String msgType<length=20 description="전문유형">;
+	String bizDt<length=20 description="영업일자">;
+	String errCd<length=9 description="에러코드">;
+	String sqlErrCd<length=20 description="SQL에러코드">;
+	String chlTypeCd<length=20 description="채널타입코드">;
+}

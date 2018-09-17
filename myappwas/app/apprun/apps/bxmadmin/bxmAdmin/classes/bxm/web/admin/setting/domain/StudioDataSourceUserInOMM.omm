@@ -1,0 +1,10 @@
+OMM bxm.web.admin.setting.domain.StudioDataSourceUserInOMM
+<description="">
+{
+	String domainId<length=14 description="도메인 ID">;
+	String accessUseDatabase<length=20 description="커넥션 명">;
+	String userId<length=32 description="사용자ID">;
+	String userNm<length=50 description="사용자명">;
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+}

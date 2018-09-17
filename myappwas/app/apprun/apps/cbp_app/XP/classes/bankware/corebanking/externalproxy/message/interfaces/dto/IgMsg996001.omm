@@ -1,0 +1,28 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IgMsg996001
+<description="공통 일괄(선택) 납부 (재)취소 표준전문">
+{
+	String msgLen<length=4 description="전문길이">;
+	String extrnlBizDscd<length=3 description="대외업무구분코드">;
+	String extrnlInstCd<length=3 description="기관대표코드">;
+	String jointNetworkClCd<length=4 description="전문종별코드">;
+	String jointNetworkTxDscd<length=6 description="거래구분코드">;
+	String stsCntnt<length=3 description="상태코드">;
+	String sndRcvFlagCntnt<length=1 description="송수신FLAG">;
+	String extrnlRspnsCd<length=3 description="응답코드">;
+	String msgSndTmstmp<length=12 description="전문전송일시">;
+	String cntrMsgMgmtNbr<length=20 description="센터전문관리번호">;
+	String whdrwlFnclInstMsgMgmtNbr<length=12 description="출금금융기관전문관리번호">;
+	String issueInstDscd<length=2 description="발행기관분류코드">;
+	String giroNbr<length=7 description="지로번호">;
+	String fillerCntnt02<length=2 description="fillerCntnt02">;
+	String whdrwlBnkBrnchCd<length=7 description="출금은행점코드">;
+	String maskRvctnIdNbr<length=13 description="마스킹해제주민등록번호" encrypt="AES256">;
+	String fillerCntnt12<length=12 description="fillerCntnt12">;
+	String orgnlTxCntrMsgSndDt<length=12 description="원거래센터전문전송일시">;
+	String orgnlTxWhdrwlAcctNbr<length=16 description="원거래출금계좌번호" encrypt="AES256">;
+	String txCnclRsnCd<length=1 description="취소사유코드">;
+	String orgnlTxPymntFormDscd<length=1 description="원거래납부형태구분코드">;
+	String fillerCntnt10<length=10 description="fillerCntnt10">;
+	Integer demandCnt1<length=2 description="요청건수1">;
+	bankware.corebanking.externalproxy.message.interfaces.dto.IgTxHst996001 txHst996001<length=0 arrayReference="demandCnt1" description="거래내역(996001)">;
+}

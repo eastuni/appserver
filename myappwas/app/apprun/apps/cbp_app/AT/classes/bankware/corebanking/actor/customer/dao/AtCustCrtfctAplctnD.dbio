@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.actor.customer.dao.AtCustCrtfctAplctnD">
+<!--Generated Thu Feb 09 10:23:21 KST 2017-->
+<insert id="insert" parameterType="bankware.corebanking.actor.customer.dao.dto.AtCustCrtfctAplctnDIO">
+INSERT 
+
+  INTO at_cust_crtfct_aplctn_d
+
+     ( inst_cd
+
+     , aplctn_dt
+
+     , aplctn_seq_nbr
+
+     , cust_id
+
+     , doc_id
+
+     , doc_issue_id
+     , crtfct_aplctn_sts_cd
+
+     , issue_cnt
+     , aplctn_hms
+     , issue_base_dt
+     , crtfct_aplctn_chnl_dscd
+
+     , crtfct_use_tp_cd
+
+     , crtfct_use_purpose_cntnt
+
+     , crtfct_rcv_way_cd
+
+     , rcv_dept_id
+
+     , addr_hrarcy_cd
+
+     , addr_id
+
+     , dtl_addr_cntnt
+
+     , rcpnt_dept_cntnt
+
+     , rcpnt_nm
+
+     , rcpnt_tel_nbr
+
+     , last_chng_tmstmp
+
+     , last_chng_guid
+
+     )
+
+VALUES
+
+     ( #{instCd,jdbcType=VARCHAR}
+
+     , #{aplctnDt,jdbcType=VARCHAR}
+
+     , #{aplctnSeqNbr}
+
+     , #{custId,jdbcType=VARCHAR}
+
+     , #{docId,jdbcType=VARCHAR}
+
+     , #{docIssueId,jdbcType=VARCHAR}
+     , #{crtfctAplctnStsCd,jdbcType=VARCHAR}
+
+     , #{issueCnt,jdbcType=VARCHAR}
+     , #{aplctnHms,jdbcType=VARCHAR}
+     , #{issueBaseDt,jdbcType=VARCHAR}
+     , #{crtfctAplctnChnlDscd,jdbcType=VARCHAR}
+
+     , #{crtfctUseTpCd,jdbcType=VARCHAR}
+
+     , #{crtfctUsePurposeCntnt,jdbcType=VARCHAR}
+
+     , #{crtfctRcvWayCd,jdbcType=VARCHAR}
+
+     , #{rcvDeptId,jdbcType=VARCHAR}
+
+     , #{addrHrarcyCd,jdbcType=VARCHAR}
+
+     , #{addrId,jdbcType=VARCHAR}
+
+     , #{dtlAddrCntnt,jdbcType=VARCHAR}
+
+     , #{rcpntDeptCntnt,jdbcType=VARCHAR}
+
+     , #{rcpntNm,jdbcType=VARCHAR}
+
+     , #{rcpntTelNbr,jdbcType=VARCHAR}
+
+     , #{lastChngTmstmp}
+
+     , #{lastChngGuid}
+
+     )
+</insert>
+<select id="select" resultType="bankware.corebanking.actor.customer.dao.dto.AtCustCrtfctAplctnDIO">
+SELECT inst_cd as instCd
+
+     , aplctn_dt as aplctnDt
+
+     , aplctn_seq_nbr as aplctnSeqNbr
+
+     , cust_id as custId
+
+     , doc_id as docId
+
+     , doc_issue_id as docIssueId
+     , crtfct_aplctn_sts_cd as crtfctAplctnStsCd
+
+     , issue_cnt as issueCnt
+     , aplctn_hms as aplctnHms
+     , issue_base_dt as issueBaseDt
+     , crtfct_aplctn_chnl_dscd as crtfctAplctnChnlDscd
+
+     , crtfct_use_tp_cd as crtfctUseTpCd
+
+     , crtfct_use_purpose_cntnt as crtfctUsePurposeCntnt
+
+     , crtfct_rcv_way_cd as crtfctRcvWayCd
+
+     , rcv_dept_id as rcvDeptId
+
+     , addr_hrarcy_cd as addrHrarcyCd
+
+     , addr_id as addrId
+
+     , dtl_addr_cntnt as dtlAddrCntnt
+
+     , rcpnt_dept_cntnt as rcpntDeptCntnt
+
+     , rcpnt_nm as rcpntNm
+
+     , rcpnt_tel_nbr as rcpntTelNbr
+
+     , last_chng_tmstmp as lastChngTmstmp
+
+     , last_chng_guid as lastChngGuid
+
+  FROM at_cust_crtfct_aplctn_d
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND aplctn_dt = #{aplctnDt,jdbcType=VARCHAR}
+
+   AND aplctn_seq_nbr = #{aplctnSeqNbr}
+</select>
+<update id="updateCrtfctAplctnSts" parameterType="bankware.corebanking.actor.customer.dao.dto.AtCustCrtfctAplctnDIO">
+UPDATE at_cust_crtfct_aplctn_d
+
+   SET crtfct_aplctn_sts_cd = #{crtfctAplctnStsCd,jdbcType=VARCHAR}
+
+     , last_chng_tmstmp = #{lastChngTmstmp}
+
+     , last_chng_guid = #{lastChngGuid}
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND aplctn_dt = #{aplctnDt,jdbcType=VARCHAR}
+
+   AND aplctn_seq_nbr = #{aplctnSeqNbr}
+</update>
+<select id="selectList" resultType="bankware.corebanking.actor.customer.dao.dto.AtCustCrtfctAplctnDIO">
+SELECT inst_cd as instCd
+
+     , aplctn_dt as aplctnDt
+
+     , aplctn_seq_nbr as aplctnSeqNbr
+
+     , cust_id as custId
+
+     , doc_id as docId
+
+     , doc_issue_id as docIssueId
+     , crtfct_aplctn_sts_cd as crtfctAplctnStsCd
+
+     , issue_cnt as issueCnt
+     , aplctn_hms as aplctnHms
+     , issue_base_dt as issueBaseDt
+     , crtfct_aplctn_chnl_dscd as crtfctAplctnChnlDscd
+
+     , crtfct_use_tp_cd as crtfctUseTpCd
+
+     , crtfct_use_purpose_cntnt as crtfctUsePurposeCntnt
+
+     , crtfct_rcv_way_cd as crtfctRcvWayCd
+
+     , rcv_dept_id as rcvDeptId
+
+     , addr_hrarcy_cd as addrHrarcyCd
+
+     , addr_id as addrId
+
+     , dtl_addr_cntnt as dtlAddrCntnt
+
+     , rcpnt_dept_cntnt as rcpntDeptCntnt
+
+     , rcpnt_nm as rcpntNm
+
+     , rcpnt_tel_nbr as rcpntTelNbr
+
+     , last_chng_tmstmp as lastChngTmstmp
+
+     , last_chng_guid as lastChngGuid
+
+  FROM at_cust_crtfct_aplctn_d
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND cust_id = #{custId,jdbcType=VARCHAR}
+</select>
+<select id="selectListByAplcnRcvAndCust" resultType="bankware.corebanking.actor.customer.dao.dto.AtCustCrtfctAplctnDIO">
+SELECT accad.inst_cd as instCd
+
+     , accad.aplctn_dt as aplctnDt
+
+     , accad.aplctn_seq_nbr as aplctnSeqNbr
+
+     , accad.cust_id as custId
+
+     , accad.doc_id as docId
+
+     , accad.doc_issue_id as docIssueId
+     , accad.crtfct_aplctn_sts_cd as crtfctAplctnStsCd
+
+     , accad.issue_cnt as issueCnt
+     , accad.aplctn_hms as aplctnHms
+     , accad.issue_base_dt as issueBaseDt
+     , accad.crtfct_aplctn_chnl_dscd as crtfctAplctnChnlDscd
+
+     , accad.crtfct_use_tp_cd as crtfctUseTpCd
+
+     , accad.crtfct_use_purpose_cntnt as crtfctUsePurposeCntnt
+
+     , accad.crtfct_rcv_way_cd as crtfctRcvWayCd
+
+     , accad.rcv_dept_id as rcvDeptId
+
+     , accad.rcv_email_addr as rcvEmailAddr
+     , accad.addr_hrarcy_cd as addrHrarcyCd
+
+     , accad.addr_id as addrId
+
+     , accad.dtl_addr_cntnt as dtlAddrCntnt
+
+     , accad.rcpnt_dept_cntnt as rcpntDeptCntnt
+
+     , accad.rcpnt_nm as rcpntNm
+
+     , accad.rcpnt_tel_nbr as rcpntTelNbr
+
+     , aand.actor_nm as actorNm
+
+  FROM at_cust_crtfct_aplctn_d accad
+
+     , at_cust_m acm
+
+     , at_actor_nm_d aand 
+
+ WHERE accad.inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND accad.aplctn_dt BETWEEN #{inqryStartDt,jdbcType=VARCHAR} AND #{inqryEndDt,jdbcType=VARCHAR}
+
+
+
+<if test="rcvDeptId != null &amp;&amp; rcvDeptId != ''">
+
+   AND accad.rcv_dept_id = #{rcvDeptId,jdbcType=VARCHAR}
+
+</if>
+
+
+
+<if test="custId != null &amp;&amp; custId != ''">
+
+   AND accad.cust_id = #{custId,jdbcType=VARCHAR}
+
+</if>
+
+
+
+   AND accad.inst_cd = acm.inst_cd
+
+   AND accad.cust_id = acm.cust_id
+
+   AND acm.inst_cd = aand.inst_cd
+
+   AND acm.actor_id = aand.actor_id
+   
+   AND acm.cust_sts_cd &lt;&gt; #{ignoreStsCd}
+
+   AND aand.actor_nm_tp_cd = #{actorNmTpCd}
+
+   AND aand.efctv_start_dt &lt;= #{txDt,jdbcType=VARCHAR} 
+
+   AND aand.efctv_end_dt &gt;= #{txDt,jdbcType=VARCHAR}
+   
+   AND aand.actor_nm_sts_cd = #{infoStsCd}
+</select>
+<select id="selectNextAplctnSeqNbrMySQL" resultType="java.lang.Integer">
+SELECT IFNULL(MAX(aplctn_seq_nbr), 0) + 1 as aplctnSeqNbr
+
+  FROM at_cust_crtfct_aplctn_d
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND aplctn_dt = #{aplctnDt,jdbcType=VARCHAR}
+</select>
+<select id="selectNextAplctnSeqNbrOracle" resultType="java.lang.Integer">
+SELECT NVL(MAX(aplctn_seq_nbr), 0) + 1 as aplctnSeqNbr
+
+  FROM at_cust_crtfct_aplctn_d
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND aplctn_dt = #{aplctnDt,jdbcType=VARCHAR}
+</select>
+</mapper>

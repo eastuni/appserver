@@ -1,0 +1,6 @@
+OMM bxm.web.admin.error.mgmt.domain.TopErrCdOMM
+<description="">
+{
+	String errCd<length=9 description="에러코드">;
+	Integer errOccurCnt<length=4 description="에러발생건수">;
+}

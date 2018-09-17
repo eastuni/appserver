@@ -1,0 +1,16 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.ElMsg0800a
+<description="0800/0810 : 일반통신망">
+{
+	String sysId<length=3 description="System ID">;
+	String jointNetworkClCd<length=4 description="전문종별코드">;
+	String jointNetworkTxDscd<length=6 description="거래구분코드">;
+	String sndRcvFlagCntnt<length=1 description="송수신FLAG">;
+	String stsCntnt<length=3 description="STATUS">;
+	String rspnsCd<length=3 description="응답코드">;
+	String msgSndDt<length=8 description="전문전송일">;
+	String msgSndTmstmp1<length=6 description="전문전송시간">;
+	String msgTraceNbr<length=8 description="전문추적번호">;
+	String txDt<length=8 description="거래발생일">;
+	String bnkCd<length=3 description="은행코드">;
+	String obstclRcvryBnkCd<length=3 description="장애회복은행코드">;
+}

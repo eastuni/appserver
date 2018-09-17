@@ -1,0 +1,16 @@
+OMM bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpNetStlmMIO
+<description="차액결제내역">
+{
+	String txDt<length=8 description="거래일자">;
+	String jointNetworkDscd<length=3 description="공동망구분코드">;
+	BigDecimal kftcRcpntAmt<length=18 decimal=2 description="금융결제원수취금액">;
+	BigDecimal kftcDsbrsAmt<length=18 decimal=2 description="금융결제원지급금액">;
+	BigDecimal ownCmpnyRcpntAmt<length=18 decimal=2 description="당사수취금액">;
+	BigDecimal ownCmpnyRcpntFeeAmt<length=18 decimal=2 description="당사수취수수료금액">;
+	BigDecimal ownCmpnyDsbrsAmt<length=18 decimal=2 description="당사지급금액">;
+	BigDecimal ownCmpnyDsbrsFeeAmt<length=18 decimal=2 description="당사지급수수료금액">;
+	BigDecimal fundAdjstmntRcpntAmt<length=18 decimal=2 description="자금조정수취금액">;
+	BigDecimal fundAdjstmntDsbrsAmt<length=18 decimal=2 description="자금조정지급금액">;
+	Date lastChngTmstmp<length=30 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

@@ -1,0 +1,11 @@
+.select-calculation-rule-popup span {
+    float: initial;
+}
+
+.select-calculation-rule-popup .pf-cal-search-grid {
+	height: 220px;
+}
+
+.select-calculation-rule-popup input {
+    width: 100% !important;
+}

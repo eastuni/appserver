@@ -1,0 +1,6 @@
+OMM bxm.web.admin.online.domain.TrxGroupListOMM
+<description="">
+{
+	bxm.web.admin.online.domain.TrxGroupOMM trxGroupList<length=0 arrayReference="1">;
+	Integer totalPage<length=9>;
+}

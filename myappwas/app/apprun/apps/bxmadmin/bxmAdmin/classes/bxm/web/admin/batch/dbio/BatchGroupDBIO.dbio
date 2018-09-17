@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.batch.dbio.BatchGroupDBIO">
+<!--Generated Thu Nov 30 14:08:42 KST 2017-->
+<select id="selectGroupInfo" resultType="bxm.web.admin.batch.domain.BatchGroupOMM">
+SELECT /* BXM 배치 작업 그룹 */ 
+       JOB_GRP_ID AS jobGrpId,/*배치작업그룹ID*/ 
+       JOB_GRP_NM AS jobGrpNm,/*배치작업그룹명*/ 
+       USE_YN AS useYn,/*사용여부*/ 
+       NODE_MAX_EXEC_CNT AS nodeMaxExecCnt,/*NODE 최대 실행 수*/ 
+       NODE_MAX_EXEC_VALID_YN AS nodeMaxExecValidYn,
+       SYS_MAX_EXEC_CNT AS sysMaxExecCnt,/*시스템 최대 실행 수*/ 
+       SYS_MAX_EXEC_VALID_YN AS sysMaxExecValidYn
+  FROM BXM_JOB_GRP
+ WHERE JOB_GRP_ID = #{groupRelation.jobGrpId}
+   AND DOMAIN_ID = #{domainId}
+</select>
+<select id="selectGroupList" resultType="bxm.web.admin.batch.domain.BatchGroupOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* BXM 배치 작업 그룹 */ 
+       JOB_GRP_ID AS jobGrpId,/*배치작업그룹ID*/ 
+       JOB_GRP_NM AS jobGrpNm,/*배치작업그룹명*/ 
+       USE_YN AS useYn,/*사용여부*/ 
+       NODE_MAX_EXEC_CNT AS nodeMaxExecCnt,/*NODE 최대 실행 수*/ 
+       SYS_MAX_EXEC_CNT AS sysMaxExecCnt /*시스템 최대 실행 수*/
+  FROM BXM_JOB_GRP
+  WHERE DOMAIN_ID = #{domainId}
+	  <if test="searchCondition.jobGrpId != '' and searchCondition.jobGrpId != null">
+	  	and upper(JOB_GRP_ID) like upper(#{searchCondition.jobGrpId, jdbcType=VARCHAR})||'%'
+	  </if>
+	  <if test="searchCondition.jobGrpNm != '' and searchCondition.jobGrpNm != null">
+	  	and upper(JOB_GRP_NM) like upper(#{searchCondition.jobGrpNm, jdbcType=VARCHAR})||'%'
+	  </if>
+	ORDER BY JOB_GRP_ID
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectGroupList" resultType="bxm.web.admin.batch.domain.BatchGroupOMM">
+SELECT /* BXM 배치 작업 그룹 */ 
+       JOB_GRP_ID AS jobGrpId,/*배치작업그룹ID*/ 
+       JOB_GRP_NM AS jobGrpNm,/*배치작업그룹명*/ 
+       USE_YN AS useYn,/*사용여부*/ 
+       NODE_MAX_EXEC_CNT AS nodeMaxExecCnt,/*NODE 최대 실행 수*/ 
+       SYS_MAX_EXEC_CNT AS sysMaxExecCnt /*시스템 최대 실행 수*/
+  FROM BXM_JOB_GRP
+  WHERE DOMAIN_ID = #{domainId}
+	  <if test="searchCondition.jobGrpId != '' and searchCondition.jobGrpId != null">
+	  	and upper(JOB_GRP_ID) like CONCAT(upper(#{searchCondition.jobGrpId}), '%')
+	  </if>
+	  <if test="searchCondition.jobGrpNm != '' and searchCondition.jobGrpNm != null">
+	  	and upper(JOB_GRP_NM) like CONCAT(upper(#{searchCondition.jobGrpNm}), '%')
+	  </if>
+	ORDER BY JOB_GRP_ID
+LIMIT #{pageNum}, #{pageCount}
+</select>
+<insert id="insertGroup" parameterType="bxm.web.admin.batch.domain.BatchGroupOMM">
+INSERT INTO BXM_JOB_GRP/* BXM 배치 작업 그룹 */
+(
+	DOMAIN_ID, /* 도메인 ID */
+    JOB_GRP_ID,/*배치작업그룹ID*/ 
+    JOB_GRP_NM,/*배치작업그룹명*/ 
+    USE_YN,/*사용여부*/ 
+    NODE_MAX_EXEC_VALID_YN,/*NODE 최대 실행 검증 여부*/ 
+    NODE_MAX_EXEC_CNT,/*NODE 최대 실행 수*/ 
+    SYS_MAX_EXEC_VALID_YN,/*시스템 최대 실행 검증 여부*/ 
+    SYS_MAX_EXEC_CNT /*시스템 최대 실행 수*/ 
+)
+VALUES
+(
+	#{domainId}, /* 도메인 ID */
+    #{jobGrpId},/*배치작업그룹ID*/ 
+    #{jobGrpNm},/*배치작업그룹명*/ 
+    #{useYn},/*사용여부*/ 
+    #{nodeMaxExecValidYn},/*NODE 최대 실행 검증 여부*/ 
+    #{nodeMaxExecCnt},/*NODE 최대 실행 수*/ 
+    #{sysMaxExecValidYn},/*시스템 최대 실행 검증 여부*/
+    #{sysMaxExecCnt} /*시스템 최대 실행 수*/ 
+)
+</insert>
+<delete id="deleteGroup" parameterType="bxm.web.admin.batch.domain.BatchGroupOMM">
+DELETE FROM BXM_JOB_GRP /* BXM 배치 작업 그룹 */
+      WHERE JOB_GRP_ID = #{jobGrpId}
+      AND DOMAIN_ID = #{domainId}
+</delete>
+<update id="updateGroup" parameterType="bxm.web.admin.batch.domain.BatchGroupOMM">
+UPDATE BXM_JOB_GRP /* BXM 배치 작업 그룹 */
+   SET JOB_GRP_NM = #{jobGrpNm} /* 배치작업그룹명 */,
+       USE_YN = #{useYn} /* 사용여부 */,
+       NODE_MAX_EXEC_VALID_YN = #{nodeMaxExecValidYn} /* NODE 최대 실행 검증 여부 */,
+       NODE_MAX_EXEC_CNT = #{nodeMaxExecCnt} /* NODE 최대 실행 수 */,
+       SYS_MAX_EXEC_VALID_YN = #{sysMaxExecValidYn} /* 시스템 최대 실행 검증 여부 */,
+       SYS_MAX_EXEC_CNT = #{sysMaxExecCnt} /* 시스템 최대 실행 수 */
+ WHERE JOB_GRP_ID = #{jobGrpId}
+ AND DOMAIN_ID = #{domainId}
+</update>
+<insert id="insertGroupRelation" parameterType="bxm.web.admin.batch.domain.BatchGroupRelOMM">
+INSERT INTO BXM_JOB_GRP_REL /* BXM 배치작업그룹 관계 */
+(
+	DOMAIN_ID, /* 도메인 ID */
+    JOB_GRP_ID,/*배치작업그룹ID*/
+    JOB_ID /*배치작업ID*/ 
+)
+VALUES
+(
+	#{domainId}, /* 도메인 ID */
+    #{jobGrpId},/*배치작업그룹ID*/
+    #{jobId} /*배치작업ID*/ 
+)
+</insert>
+<delete id="deleteGroupRelation" parameterType="bxm.web.admin.batch.domain.BatchGroupRelOMM">
+DELETE FROM BXM_JOB_GRP_REL /* BXM 배치작업그룹 관계 */
+      WHERE JOB_GRP_ID = #{jobGrpId}
+        AND JOB_ID = #{jobId}
+        AND DOMAIN_ID = #{domainId}
+</delete>
+<select id="selectGroupNJob" resultType="bxm.web.admin.batch.domain.BatchJobOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* BXM 배치 작업 정보 */ 
+	   a.JOB_GRP_ID AS jobGrpId,
+       b.JOB_ID AS jobId,/*배치작업ID*/ 
+       b.JOB_NM AS jobNm,/*배치작업명*/ 
+       b.BXM_APP_ID AS bxmAppId/*BXM어플리케이션ID*/ 
+  FROM BXM_JOB_GRP_REL a
+  LEFT OUTER JOIN BXM_JOB_INFO b
+  ON a.JOB_ID = b.JOB_ID AND a.DOMAIN_ID = b.DOMAIN_ID
+ WHERE a.JOB_GRP_ID = #{batch.jobGrpId, jdbcType=VARCHAR}
+ AND a.DOMAIN_ID = #{domainId}
+ ORDER BY b.JOB_ID
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectGroupNJob" resultType="bxm.web.admin.batch.domain.BatchJobOMM">
+SELECT /* BXM 배치 작업 정보 */ 
+	   a.JOB_GRP_ID AS jobGrpId,
+       b.JOB_ID AS jobId,/*배치작업ID*/ 
+       b.JOB_NM AS jobNm,/*배치작업명*/ 
+       b.BXM_APP_ID AS bxmAppId/*BXM어플리케이션ID*/ 
+  FROM BXM_JOB_GRP_REL a
+  LEFT OUTER JOIN BXM_JOB_INFO b
+  ON a.JOB_ID = b.JOB_ID AND a.DOMAIN_ID = b.DOMAIN_ID
+ WHERE a.JOB_GRP_ID = #{batch.jobGrpId}
+ AND a.DOMAIN_ID = #{domainId}
+ ORDER BY b.JOB_ID
+LIMIT #{pageNum}, #{pageCount}
+</select>
+<select id="countTotalPage" resultType="java.lang.Integer">
+SELECT 
+	COUNT(*)
+FROM BXM_JOB_GRP
+  WHERE DOMAIN_ID = #{domainId}
+	  <if test="searchCondition.jobGrpId != '' and searchCondition.jobGrpId != null">
+	  	and upper(JOB_GRP_ID) like #{searchCondition.jobGrpId} || '%'
+	  </if>
+	  <if test="searchCondition.jobGrpNm != '' and searchCondition.jobGrpNm != null">
+	  	and upper(JOB_GRP_NM) like #{searchCondition.jobGrpNm} || '%'
+	  </if>
+</select>
+<select databaseId="mysql" id="countTotalPage" resultType="java.lang.Integer">
+SELECT 
+	COUNT(*)
+FROM BXM_JOB_GRP
+  WHERE DOMAIN_ID = #{domainId}
+	  <if test="searchCondition.jobGrpId != '' and searchCondition.jobGrpId != null">
+	  	and upper(JOB_GRP_ID) like CONCAT( #{searchCondition.jobGrpId} , '%')
+	  </if>
+	  <if test="searchCondition.jobGrpNm != '' and searchCondition.jobGrpNm != null">
+	  	and upper(JOB_GRP_NM) like CONCAT( #{searchCondition.jobGrpNm} , '%')
+	  </if>
+</select>
+<select id="selectJobRelList" resultType="bxm.web.admin.batch.domain.BatchJobOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+select 
+  a.JOB_ID AS jobId,
+  a.JOB_NM AS jobNm,
+  a.BXM_APP_ID AS bxmAppId
+  from bxm_job_info a
+  left join (select * from bxm_job_grp_rel where job_grp_id = #{jobGroup.jobGrpId}) b
+  on a.JOB_ID = b.JOB_ID AND a.DOMAIN_ID = b.DOMAIN_ID
+  where b.JOB_ID is null
+  AND a.DOMAIN_ID = #{jobGroup.domainId}
+  
+	  <if test="jobGroup.jobId != '' and jobGroup.jobId != null">
+	  	and upper(a.JOB_ID) like upper(#{jobGroup.jobId})||'%'
+	  </if>
+	  <if test="jobGroup.jobNm != '' and jobGroup.jobNm != null">
+	  	and upper(a.JOB_NM) like upper(#{jobGroup.jobNm})||'%'
+	  </if>
+  
+  order by a.JOB_ID
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectJobRelList" resultType="bxm.web.admin.batch.domain.BatchJobOMM">
+select 
+  a.JOB_ID AS jobId,
+  a.JOB_NM AS jobNm,
+  a.BXM_APP_ID AS bxmAppId
+  from BXM_JOB_INFO a
+  left join (select * from BXM_JOB_GRP_REL where JOB_GRP_ID = #{jobGroup.jobGrpId}) b
+  on a.JOB_ID = b.JOB_ID AND a.DOMAIN_ID = b.DOMAIN_ID
+  where b.JOB_ID is null
+  AND a.DOMAIN_ID = #{jobGroup.domainId}
+  
+	  <if test="jobGroup.jobId != '' and jobGroup.jobId != null">
+	  	and upper(a.JOB_ID) like CONCAT(upper(#{jobGroup.jobId}), '%')
+	  </if>
+	  <if test="jobGroup.jobNm != '' and jobGroup.jobNm != null">
+	  	and upper(a.JOB_NM) like CONCAT(upper(#{jobGroup.jobNm}), '%')
+	  </if>
+  
+  order by a.JOB_ID
+limit #{pageNum}, #{pageCount}
+</select>
+<select id="countJobPage" resultType="java.lang.Integer">
+SELECT COUNT(*)
+  FROM BXM_JOB_GRP_REL
+ WHERE JOB_GRP_ID = #{groupRelation.jobGrpId}
+ AND DOMAIN_ID = #{domainId}
+</select>
+<select id="countPopupPage" parameterType="bxm.web.admin.batch.domain.BatchGroupRelOMM" resultType="java.lang.Integer">
+select COUNT(*)
+  from bxm_job_info a
+  left join (
+  select * from BXM_JOB_GRP_REL where job_grp_id = #{jobGrpId}
+  ) b
+  on a.JOB_ID = b.JOB_ID AND a.DOMAIN_ID = b.DOMAIN_ID
+  where b.JOB_ID is null AND a.DOMAIN_ID = #{domainId}
+	  <if test="jobId != '' and jobId != null">
+	  	and upper(a.JOB_ID) like upper(#{jobId})||'%'
+	  </if>
+	  <if test="jobNm != '' and jobNm != null">
+	  	and upper(a.JOB_NM) like upper(#{jobNm})||'%'
+	  </if>
+</select>
+<select databaseId="mysql" id="countPopupPage" parameterType="bxm.web.admin.batch.domain.BatchGroupRelOMM" resultType="java.lang.Integer">
+select COUNT(*)
+  from BXM_JOB_INFO a
+  left join (
+  select * from BXM_JOB_GRP_REL where JOB_GRP_ID = #{jobGrpId}
+  ) b
+  on a.JOB_ID = b.JOB_ID AND a.DOMAIN_ID = b.DOMAIN_ID
+  where b.JOB_ID is null AND a.DOMAIN_ID = #{domainId}
+	  <if test="jobId != '' and jobId != null">
+	  	and upper(a.JOB_ID) like CONCAT(upper(#{jobId}), '%')
+	  </if>
+	  <if test="jobNm != '' and jobNm != null">
+	  	and upper(a.JOB_NM) like CONCAT(upper(#{jobNm}), '%')
+	  </if>
+</select>
+<delete id="deleteGroupRelAll">
+DELETE FROM BXM_JOB_GRP_REL /* BXM 배치작업그룹 관계 */
+      WHERE JOB_GRP_ID = #{jobGrpId}
+      AND DOMAIN_ID = #{domainId}
+</delete>
+<select id="selectJobInfoForControl" resultType="bxm.web.admin.batch.domain.ControlInfoOMM">
+select
+	a.FRM_INSTANCE_ID as frmInstanceId,
+	b.JOB_INSTANCE_ID as jobInstanceId
+from F_BATCH_JOB_EXECUTION a
+inner join F_BATCH_JOB_INSTANCE b
+on a.DOMAIN_ID = b.DOMAIN_ID and a.JOB_INSTANCE_ID = b.JOB_INSTANCE_ID
+where a.DOMAIN_ID = #{domainId} and b.JOB_NAME = #{jobId}
+</select>
+</mapper>

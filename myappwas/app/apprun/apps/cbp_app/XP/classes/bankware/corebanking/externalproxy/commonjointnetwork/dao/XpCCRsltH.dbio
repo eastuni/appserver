@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonjointnetwork.dao.XpCCRsltH">
+<!--Generated Wed May 24 09:36:28 KST 2017-->
+<select id="selectCCRsltList" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpCCRsltHIO">
+SELECT /* bankware.corebanking.externalproxy.commonjointnetwork.dao.XpCCRsltH.selectCCRsltList */
+	tblId,
+	txDt,
+	cntrCtPrcsngRsltCd,
+	whdrwlAcctNbr,
+	dpstAcctNbr,
+	txAmt,
+	feeAmt,
+	txUnqNbr,
+	rmtrNm,
+	mnyRcvdPersonNm,
+	lastChngGuid,
+	lastChngTmstmp
+FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+			tblId,
+			txDt,
+			cntrCtPrcsngRsltCd,
+			whdrwlAcctNbr,
+			dpstAcctNbr,
+			txAmt,
+			feeAmt,
+			txUnqNbr,
+			rmtrNm,
+			mnyRcvdPersonNm,
+			lastChngGuid,
+			lastChngTmstmp    
+     FROM 
+        (
+/* #### Original SQL [[ ################# */
+		SELECT 'CD0022' AS tblId,
+		       TX_DT AS txDt,
+		       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+		       ACCT_NBR AS whdrwlAcctNbr,
+		         ''    AS dpstAcctNbr,
+		       TX_AMT  AS txAmt ,
+		       0      AS feeAmt,
+		       TX_UNQ_NBR AS txUnqNbr,
+		       ''       AS rmtrNm,
+		       ''       AS mnyRcvdPersonNm,
+		       LAST_CHNG_GUID AS lastChngGuid,
+		       LAST_CHNG_TMSTMP AS lastChngTmstmp
+		FROM
+		  XP_CD_CD0022_H
+		WHERE  INST_CD = '103'
+		AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+		/*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+		AND ( ( #{prcsDscd} = '01'
+		           AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+		           OR ( #{prcsDscd} = '02'
+		           AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+		UNION ALL
+		SELECT 'CD0055' AS tblId,
+		       TX_DT AS txDt,
+		       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+		       WHDRWL_ACCT_NBR AS whdrwlAcctNbr,
+		       RCPNT_ACCT_NBR AS dpstAcctNbr,
+		       TX_AMT  AS txAmt ,
+		       FEE_AMT AS feeAmt,
+		       TX_UNQ_NBR AS txUnqNbr,
+		       BNFCRY_NM AS rmtrNm,
+		       RMTNC_PERSON_REAL_NM AS mnyRcvdPersonNm,
+		       LAST_CHNG_GUID AS lastChngGuid,
+		       LAST_CHNG_TMSTMP AS lastChngTmstmp
+		FROM
+		  XP_CD_CD0055_H
+		WHERE  INST_CD = '103'
+		AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+		/*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+		AND ( ( #{prcsDscd} = '01'
+		         AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+		         OR ( #{prcsDscd} = '02'
+		         AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+		UNION ALL
+		SELECT 'EB1111' AS tblId,
+		       TX_DT AS txDt,
+		       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+		       ACCT_NBR AS whdrwlAcctNbr,
+		       ' '     AS dpstAcctNbr,
+		       TOT_AMT AS txAmt,
+		       0      AS feeAmt,
+		       INTRMDRY_MSG_MGMT_NBR AS txUnqNbr,
+		       RQER_NM AS rmtrNm,
+		       RMTNC_PERSON_REAL_NM AS mnyRcvdPersonNm,
+		       LAST_CHNG_GUID AS lastChngGuid,
+		       LAST_CHNG_TMSTMP AS lastChngTmstmp
+		FROM
+		  XP_IX_EB1111_H
+		WHERE  INST_CD = '103'
+		AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+		/*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+		AND ( ( #{prcsDscd} = '01'
+		          AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+		          OR ( #{prcsDscd} = '02'
+		          AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+		UNION ALL
+		SELECT 'EL0022' AS tblId,
+		       TX_DT AS txDt,
+		       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+		       ACCT_NBR AS whdrwlAcctNbr,
+		       ' '    AS dpstAcctNbr,
+		       TX_AMT  AS txAmt ,
+		       0     AS feeAmt,
+		       TX_UNQ_NBR AS txUnqNbr,
+		       WHDRWL_NM AS rmtrNm,
+		       RMTNC_PERSON_REAL_NM AS mnyRcvdPersonNm,
+		       LAST_CHNG_GUID AS lastChngGuid,
+		       LAST_CHNG_TMSTMP AS lastChngTmstmp
+		FROM
+		  XP_EL_EL0022_H
+		WHERE  INST_CD = '103'
+		       AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+		       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+		       AND ( ( #{prcsDscd} = '01'
+		               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+		               OR ( #{prcsDscd} = '02'
+		               AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+		UNION ALL
+		SELECT 'EL0027' AS tblId,
+		       TX_DT AS txDt,
+		       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+		       ' '    AS whdrwlAcctNbr,
+		       RCPNT_ACCT_NBR AS dpstAcctNbr,
+		       TX_AMT  AS txAmt ,
+		       0    AS feeAmt,
+		       TX_UNQ_NBR AS txUnqNbr,
+		       WHDRWL_NM AS rmtrNm,
+		       RMTNC_PERSON_REAL_NM AS mnyRcvdPersonNm,
+		       LAST_CHNG_GUID AS lastChngGuid,
+		       LAST_CHNG_TMSTMP AS lastChngTmstmp
+		FROM
+		  XP_EL_EL0027_H
+		WHERE  INST_CD = '103'
+		       AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+		       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+		       AND ( ( #{prcsDscd} = '01'
+		               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+		               OR ( #{prcsDscd} = '02'
+		               AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+		UNION ALL
+		SELECT 'PG1111' AS tblId,
+		       TX_DT AS txDt,
+		       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+		       ''  AS whdrwlAcctNbr,
+		       DPST_ACCT_NBR AS dpstAcctNbr,
+		       MNY_RCVD_AMT AS txAmt,
+		       0  AS feeAmt,
+		       USE_ENTRPRS_APRVL_NBR AS txUnqNbr,
+		       MNY_RCVD_ACCT_OWNR_NM AS rmtrNm,
+		       ' '  AS mnyRcvdPersonNm,
+		       LAST_CHNG_GUID AS lastChngGuid,
+		       LAST_CHNG_TMSTMP AS lastChngTmstmp
+		FROM
+		  XP_PG_PG1111_H
+		WHERE  INST_CD = '103'
+		       AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+		       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+		       AND ( ( #{prcsDscd} = '01'
+		               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+		               OR ( #{prcsDscd} = '02'
+		               AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+		UNION ALL
+		SELECT 'PG1113' AS tblId,
+		       TX_DT AS txDt,
+		       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+		       ORGNL_TX_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,
+		       ' '      AS dpstAcctNbr,
+		       ORGNL_TX_WHDRWL_AMT AS txAmt,
+		       ORGNL_TX_WHDRWL_FEE_AMT AS feeAmt,
+		       ORGNL_TX_CNTR_MSG_MGMT_NBR AS txUnqNbr,
+		       PSBK_CNTNT AS rmtrNm,
+		       ' '      AS mnyRcvdPersonNm,
+		       LAST_CHNG_GUID AS lastChngGuid,
+		       LAST_CHNG_TMSTMP AS lastChngTmstmp
+		FROM
+		  XP_PG_PG1113_H
+		WHERE  INST_CD = '103'
+		       AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+		       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+		       AND ( ( #{prcsDscd} = '01'
+		               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+		               OR ( #{prcsDscd} = '02'
+		               AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+		UNION ALL
+		SELECT 'PG1116' AS tblId,
+		       TX_DT AS txDt,
+		       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+		       ORGNL_TX_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,
+		       ' '      AS dpstAcctNbr,
+		       ORGNL_TX_WHDRWL_AMT AS txAmt,
+		       ORGNL_TX_WHDRWL_FEE_AMT AS feeAmt,
+		       ORGNL_TX_CNTR_MSG_MGMT_NBR AS txUnqNbr,
+		       PSBK_CNTNT AS rmtrNm,
+		       ' '      AS mnyRcvdPersonNm,
+		       LAST_CHNG_GUID AS lastChngGuid,
+		       LAST_CHNG_TMSTMP AS lastChngTmstmp
+		FROM
+		  XP_PG_PG1116_H
+		WHERE  INST_CD = '103'
+		       AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+		       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+		       AND ( ( #{prcsDscd} = '01'
+		               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+		               OR ( #{prcsDscd} = '02'
+		               AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+		UNION ALL
+		SELECT 'PG1117' AS tblId,
+		       TX_DT AS txDt,
+		       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+		       ' ' AS whdrwlAcctNbr,
+		       DPST_ACCT_NBR     AS dpstAcctNbr,
+		       MNY_RCVD_AMT AS txAmt,
+		       0       AS feeAmt,
+		       ORGNL_TX_CNTR_MSG_MGMT_NBR AS txUnqNbr,
+		       PSBK_CNTNT AS rmtrNm,
+		       ' '      AS mnyRcvdPersonNm,
+		       LAST_CHNG_GUID AS lastChngGuid,
+		       LAST_CHNG_TMSTMP AS lastChngTmstmp
+		FROM
+		  XP_PG_PG1117_H
+		WHERE  INST_CD = '103'
+		       AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+		       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+		       AND ( ( #{prcsDscd} = '01'
+		               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+		               OR ( #{prcsDscd} = '02'
+		               AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+		UNION ALL
+		SELECT 'RE0002' AS tblId,
+		       TX_OCR_DT AS txDt,
+		       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+		       ' '     AS whdrwlAcctNbr,
+		       ORGNL_TX_RCPNT_ACCT_NBR AS dpstAcctNbr,
+		       BILL_REFUND_AMT AS txAmt,
+		       0      AS feeAmt,
+		       TX_UNQ_NBR AS txUnqNbr,
+		       ' '     AS rmtrNm,
+		       ' '     AS mnyRcvdPersonNm,
+		       LAST_CHNG_GUID AS lastChngGuid,
+		       LAST_CHNG_TMSTMP AS lastChngTmstmp
+		FROM
+		  XP_RE_RE0002_H
+		WHERE  TX_OCR_DT  BETWEEN #{startTxDt} AND #{endTxDt}
+		       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+		       AND ( ( #{prcsDscd} = '01'
+		               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+		               OR ( #{prcsDscd} = '02'
+		               AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+		UNION ALL
+		SELECT 'CD0088' AS tblId,
+			TX_DT AS txDt,
+			CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+			CARD_ACCT_NBR AS whdrwlAcctNbr,
+			'' AS dpstAcctNbr,
+			AMT AS txAmt ,
+			0 AS feeAmt,
+			TX_UNQ_NBR AS txUnqNbr,
+			'' AS rmtrNm,
+			'' AS mnyRcvdPersonNm,
+			LAST_CHNG_GUID AS lastChngGuid,
+			LAST_CHNG_TMSTMP AS lastChngTmstmp
+		FROM
+		  XP_CD_CD0088
+		WHERE  INST_CD = '103'
+		       AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+		       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+		       AND ( (  #{prcsDscd} = '01'
+		               AND NVL(CNTR_CT_PRCSNG_RSLT_CD,'99') &lt;&gt; '09' )
+		               OR ( #{prcsDscd} = '02'
+		               AND NVL(CNTR_CT_PRCSNG_RSLT_CD,'99') = '09' ) ) 
+		UNION ALL                   
+		SELECT 'AR2211' AS tblId,
+			TX_DT AS txDt,
+			ELCTRNC_RCPT_PRCS_RSLT_CD AS cntrCtPrcsngRsltCd,
+			ORGNL_TX_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,
+			'' AS dpstAcctNbr,
+			ORGNL_TX_WHDRWL_AMT AS txAmt ,
+			0 AS feeAmt,
+			ORGNL_TX_CNTR_MSG_MGMT_NBR AS txUnqNbr,
+			'' AS rmtrNm,
+			'' AS mnyRcvdPersonNm,
+			LAST_CHNG_GUID AS lastChngGuid,
+			LAST_CHNG_TMSTMP AS lastChngTmstmp
+		FROM
+		  XP_AR_AR2211_H
+		WHERE  INST_CD = '103'
+			   AND MSG_DATA_Dscd='22'
+		       AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+		       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+		       AND ( ( #{prcsDscd} = '01'
+		               AND NVL(ELCTRNC_RCPT_PRCS_RSLT_CD,'99') &lt;&gt; '09' )
+		               OR ( #{prcsDscd} = '02'
+		               AND NVL(ELCTRNC_RCPT_PRCS_RSLT_CD,'99') = '09' ) )		 
+		UNION ALL
+		SELECT 'GR9111' AS tblId,
+			TX_DT AS txDt,
+			CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+			OTHR_BNK_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,
+			'' AS dpstAcctNbr,
+			RCPT_AMT AS txAmt ,
+			0 AS feeAmt,
+			APLCTN_NBR AS txUnqNbr,
+			'' AS rmtrNm,
+			'' AS mnyRcvdPersonNm,
+			LAST_CHNG_GUID AS lastChngGuid,
+			LAST_CHNG_TMSTMP AS lastChngTmstmp
+		FROM
+		  XP_AR_GR9111_H
+		WHERE  INST_CD = '103'
+			   AND MSG_DATA_Dscd='22'
+		       AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+		       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+		       AND ( ( #{prcsDscd} = '01'
+		               AND NVL(CNTR_CT_PRCSNG_RSLT_CD,'99') &lt;&gt; '09' )
+		               OR ( #{prcsDscd} = '02'
+		               AND NVL(CNTR_CT_PRCSNG_RSLT_CD,'99') = '09' ) )	  
+ORDER BY txDt DESC	, lastChngTmstmp DESC 	                                                                    
+/* #### Original SQL ]] ################# */
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+ORDER BY txDt DESC
+</select>
+<select id="selectCCRsltTotCnt" resultType="bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.ExtrnlCCRsltHIO">
+SELECT COUNT(*) as totCnt
+FROM
+  (SELECT 'CD0022' AS GUBUN,
+          TX_DT,
+          CNTR_CT_PRCSNG_RSLT_CD,
+          ACCT_NBR,
+          ''       AS RCPNT_ACCT_NBR,
+          TX_AMT,
+          0        AS FEE_AMT,
+          TX_UNQ_NBR,
+          ''       AS BNFCRY_NM,
+          ''       AS RMTNC_PERSON_REAL_NM
+   FROM
+     XP_CD_CD0022_H
+   WHERE  INST_CD = '103'
+          AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+          /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+          AND ( ( #{prcsDscd} = '01'
+                  AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+                 OR ( #{prcsDscd} = '02'
+                      AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+   UNION ALL
+   SELECT 'CD0055' AS GUBUN,
+          TX_DT,
+          CNTR_CT_PRCSNG_RSLT_CD,
+          WHDRWL_ACCT_NBR,
+          RCPNT_ACCT_NBR,
+          TX_AMT,
+          FEE_AMT,
+          TX_UNQ_NBR,
+          BNFCRY_NM,
+          RMTNC_PERSON_REAL_NM
+   FROM
+     XP_CD_CD0055_H
+   WHERE  INST_CD = '103'
+          AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+          /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+          AND ( ( #{prcsDscd} = '01'
+                  AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+                 OR ( #{prcsDscd} = '02'
+                      AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+   UNION ALL
+   SELECT 'EB1111' AS GUBUN,
+          TX_DT,
+          CNTR_CT_PRCSNG_RSLT_CD,
+          ACCT_NBR,
+          ' '      RCPNT_ACCT_NBR,
+          TOT_AMT,
+          0        FEE_AMT,
+          INTRMDRY_MSG_MGMT_NBR,
+          RQER_NM,
+          RMTNC_PERSON_REAL_NM
+   FROM
+     XP_IX_EB1111_H
+   WHERE  INST_CD = '103'
+          AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+          /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+          AND ( ( #{prcsDscd} = '01'
+                  AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+                 OR ( #{prcsDscd} = '02'
+                      AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+   UNION ALL
+   SELECT 'EL0022' AS GUBUN,
+          TX_DT,
+          CNTR_CT_PRCSNG_RSLT_CD,
+          ACCT_NBR,
+          ' '      RCPNT_ACCT_NBR,
+          TX_AMT,
+          0        FEE_AMT,
+          TX_UNQ_NBR,
+          WHDRWL_NM,
+          RMTNC_PERSON_REAL_NM
+   FROM
+     XP_EL_EL0022_H
+   WHERE  INST_CD = '103'
+          AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+          /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+          AND ( ( #{prcsDscd} = '01'
+                  AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+                 OR ( #{prcsDscd} = '02'
+                      AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+   UNION ALL
+   SELECT 'EL0027' AS GUBUN,
+          TX_DT,
+          CNTR_CT_PRCSNG_RSLT_CD,
+          ' '      ACCT_NBR,
+          RCPNT_ACCT_NBR,
+          TX_AMT,
+          0        FEE_AMT,
+          TX_UNQ_NBR,
+          WHDRWL_NM,
+          RMTNC_PERSON_REAL_NM
+   FROM
+     XP_EL_EL0027_H
+   WHERE  INST_CD = '103'
+          AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+          /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+          AND ( ( #{prcsDscd} = '01'
+                  AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+                 OR ( #{prcsDscd} = '02'
+                      AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+   UNION ALL
+   SELECT 'PG1111' AS GUBUN,
+          TX_DT,
+          CNTR_CT_PRCSNG_RSLT_CD,
+          DPST_ACCT_NBR,
+          ' '      RCPNT_ACCT_NBR,
+          MNY_RCVD_AMT,
+          0        FEE_AMT,
+          USE_ENTRPRS_APRVL_NBR,
+          MNY_RCVD_ACCT_OWNR_NM,
+          ' '      RMTNC_PERSON_REAL_NM
+   FROM
+     XP_PG_PG1111_H
+   WHERE  INST_CD = '103'
+          AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+          /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+          AND ( ( #{prcsDscd} = '01'
+                  AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+                 OR ( #{prcsDscd} = '02'
+                      AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+   UNION ALL
+   SELECT 'PG1113' AS GUBUN,
+          TX_DT,
+          CNTR_CT_PRCSNG_RSLT_CD,
+          ORGNL_TX_WHDRWL_ACCT_NBR,
+          ' '      RCPNT_ACCT_NBR,
+          ORGNL_TX_WHDRWL_AMT,
+          ORGNL_TX_WHDRWL_FEE_AMT,
+          ORGNL_TX_CNTR_MSG_MGMT_NBR,
+          PSBK_CNTNT,
+          ' '      RMTNC_PERSON_REAL_NM
+   FROM
+     XP_PG_PG1113_H
+   WHERE  INST_CD = '103'
+          AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+          /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+          AND ( ( #{prcsDscd} = '01'
+                  AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+                 OR ( #{prcsDscd} = '02'
+                      AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+   UNION ALL
+   SELECT 'PG1116' AS GUBUN,
+          TX_DT,
+          CNTR_CT_PRCSNG_RSLT_CD,
+          ORGNL_TX_WHDRWL_ACCT_NBR,
+          ' '      RCPNT_ACCT_NBR,
+          ORGNL_TX_WHDRWL_AMT,
+          ORGNL_TX_WHDRWL_FEE_AMT,
+          ORGNL_TX_CNTR_MSG_MGMT_NBR,
+          PSBK_CNTNT,
+          ' '      RMTNC_PERSON_REAL_NM
+   FROM
+     XP_PG_PG1116_H
+   WHERE  INST_CD = '103'
+          AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+          /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+          AND ( ( #{prcsDscd} = '01'
+                  AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+                 OR ( #{prcsDscd} = '02'
+                      AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+   UNION ALL
+   SELECT 'PG1117' AS GUBUN,
+          TX_DT,
+          CNTR_CT_PRCSNG_RSLT_CD,
+          DPST_ACCT_NBR,
+          ' '      RCPNT_ACCT_NBR,
+          MNY_RCVD_AMT,
+          0        FEE_AMT,
+          ORGNL_TX_CNTR_MSG_MGMT_NBR,
+          PSBK_CNTNT,
+          ' '      RMTNC_PERSON_REAL_NM
+   FROM
+     XP_PG_PG1117_H
+   WHERE  INST_CD = '103'
+          AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+          /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+          AND ( ( #{prcsDscd} = '01'
+                  AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+                 OR ( #{prcsDscd} = '02'
+                      AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+   UNION ALL
+   SELECT 'RE0002' AS GUBUN,
+          TX_OCR_DT,
+          CNTR_CT_PRCSNG_RSLT_CD,
+          ' '      ACCT_NBR,
+          ORGNL_TX_RCPNT_ACCT_NBR,
+          BILL_REFUND_AMT,
+          0        FEE_AMT,
+          TX_UNQ_NBR,
+          ' '      PSBK_CNTNT,
+          ' '      RMTNC_PERSON_REAL_NM
+   FROM
+     XP_RE_RE0002_H
+   WHERE  TX_OCR_DT BETWEEN #{startTxDt} AND #{endTxDt}
+          /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+          AND ( ( #{prcsDscd} = '01'
+                  AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+                 OR ( #{prcsDscd} = '02'
+                      AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+	UNION ALL
+	SELECT 'CD0088' AS GUBUN,
+		TX_DT,
+		CNTR_CT_PRCSNG_RSLT_CD,
+		CARD_ACCT_NBR,
+		''  DPST_ACCT_NBR,
+		AMT ,
+		0  FEE_AMT,
+		TX_UNQ_NBR ,
+		''  WHDRWL_NM,
+		''  RMTNC_PERSON_REAL_NM
+	FROM
+	  XP_CD_CD0088
+	WHERE  INST_CD = '103'
+	       AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+	       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+	       AND ( ( #{prcsDscd} = '01'
+	               AND NVL(CNTR_CT_PRCSNG_RSLT_CD,'99') &lt;&gt; '09' )
+	               OR ( #{prcsDscd} = '02'
+	               AND NVL(CNTR_CT_PRCSNG_RSLT_CD,'99') = '09' ) ) 
+	UNION ALL                   
+	SELECT 'AR2211' AS GUBUN,
+		TX_DT,
+		ELCTRNC_RCPT_PRCS_RSLT_CD,
+		ORGNL_TX_WHDRWL_ACCT_NBR,
+		'' DPST_ACCT_NBR,
+		ORGNL_TX_WHDRWL_AMT,
+		0 FEE_AMT,
+		ORGNL_TX_CNTR_MSG_MGMT_NBR AS txUnqNbr,
+		''  WHDRWL_NM,
+		''  RMTNC_PERSON_REAL_NM
+	FROM
+	  XP_AR_AR2211_H
+	WHERE  INST_CD = '103'
+		   AND MSG_DATA_Dscd='22'
+	       AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+	       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+	       AND ( ( #{prcsDscd} = '01'
+	               AND NVL(ELCTRNC_RCPT_PRCS_RSLT_CD,'99') &lt;&gt; '09' )
+	               OR ( #{prcsDscd} = '02'
+	               AND NVL(ELCTRNC_RCPT_PRCS_RSLT_CD,'99') = '09' ) )		 
+	UNION ALL
+	SELECT 'GR9111' AS GUBUN,
+		TX_DT,
+		CNTR_CT_PRCSNG_RSLT_CD,
+		OTHR_BNK_WHDRWL_ACCT_NBR,
+		'' DPST_ACCT_NBR,
+		RCPT_AMT,
+		0 FEE_AMT,
+		APLCTN_NBR AS txUnqNbr,
+		''  WHDRWL_NM,
+		''  RMTNC_PERSON_REAL_NM
+	FROM
+	  XP_AR_GR9111_H
+	WHERE  INST_CD = '103'
+		   AND MSG_DATA_Dscd='22'
+	       AND TX_DT BETWEEN #{startTxDt} AND #{endTxDt}
+	       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+	       AND ( ( #{prcsDscd} = '01'
+	               AND NVL(CNTR_CT_PRCSNG_RSLT_CD,'99') &lt;&gt; '09' )
+	               OR ( #{prcsDscd} = '02'
+	               AND NVL(CNTR_CT_PRCSNG_RSLT_CD,'99') = '09' ) )	                        
+)
+</select>
+<select id="selectCCRsltDtl" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpCCRsltHIO">
+SELECT 
+			tblId,
+			txDt,
+			cntrCtPrcsngRsltCd,
+			whdrwlAcctNbr,
+			dpstAcctNbr,
+			txAmt,
+			feeAmt,
+			txUnqNbr,
+			rmtrNm,
+			mnyRcvdPersonNm,
+			lastChngGuid    
+     FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT 'CD0022' AS tblId,
+       TX_DT AS txDt,
+       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+       ACCT_NBR AS whdrwlAcctNbr,
+         ''    AS dpstAcctNbr,
+       TX_AMT  AS txAmt ,
+       0      AS feeAmt,
+       TX_UNQ_NBR AS txUnqNbr,
+       ''       AS rmtrNm,
+       ''       AS mnyRcvdPersonNm,
+       LAST_CHNG_GUID AS lastChngGuid
+FROM
+  XP_CD_CD0022_H
+WHERE  INST_CD = '103'
+       AND TX_DT = #{txDt}
+       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+       AND ( ( #{prcsDscd} = '01'
+               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+              OR ( #{prcsDscd} = '02'
+                   AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+UNION ALL
+SELECT 'CD0055' AS tblId,
+       TX_DT AS txDt,
+       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+       WHDRWL_ACCT_NBR AS whdrwlAcctNbr,
+       RCPNT_ACCT_NBR AS dpstAcctNbr,
+       TX_AMT  AS txAmt ,
+       FEE_AMT AS feeAmt,
+       TX_UNQ_NBR AS txUnqNbr,
+       BNFCRY_NM AS rmtrNm,
+       RMTNC_PERSON_REAL_NM AS mnyRcvdPersonNm,
+       LAST_CHNG_GUID AS lastChngGuid
+FROM
+  XP_CD_CD0055_H
+WHERE  INST_CD = '103'
+       AND TX_DT = #{txDt}
+       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+       AND ( ( #{prcsDscd} = '01'
+               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+              OR ( #{prcsDscd} = '02'
+                   AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+UNION ALL
+SELECT 'EB1111' AS tblId,
+       TX_DT AS txDt,
+       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+       ACCT_NBR AS whdrwlAcctNbr,
+       ' '     AS dpstAcctNbr,
+       TOT_AMT AS txAmt,
+       0      AS feeAmt,
+       INTRMDRY_MSG_MGMT_NBR AS txUnqNbr,
+       RQER_NM AS rmtrNm,
+       RMTNC_PERSON_REAL_NM AS mnyRcvdPersonNm,
+       LAST_CHNG_GUID AS lastChngGuid
+FROM
+  XP_IX_EB1111_H
+WHERE  INST_CD = '103'
+       AND TX_DT = #{txDt}
+       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+       AND ( ( #{prcsDscd} = '01'
+               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+              OR ( #{prcsDscd} = '02'
+                   AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+UNION ALL
+SELECT 'EL0022' AS tblId,
+       TX_DT AS txDt,
+       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+       ACCT_NBR AS whdrwlAcctNbr,
+       ' '    AS dpstAcctNbr,
+       TX_AMT  AS txAmt ,
+       0     AS feeAmt,
+       TX_UNQ_NBR AS txUnqNbr,
+       WHDRWL_NM AS rmtrNm,
+       RMTNC_PERSON_REAL_NM AS mnyRcvdPersonNm,
+       LAST_CHNG_GUID AS lastChngGuid
+FROM
+  XP_EL_EL0022_H
+WHERE  INST_CD = '103'
+       AND TX_DT = #{txDt}
+       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+       AND ( ( #{prcsDscd} = '01'
+               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+              OR ( #{prcsDscd} = '02'
+                   AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+UNION ALL
+SELECT 'EL0027' AS tblId,
+       TX_DT AS txDt,
+       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+       ' '    AS whdrwlAcctNbr,
+       RCPNT_ACCT_NBR AS dpstAcctNbr,
+       TX_AMT  AS txAmt ,
+       0    AS feeAmt,
+       TX_UNQ_NBR AS txUnqNbr,
+       WHDRWL_NM AS rmtrNm,
+       RMTNC_PERSON_REAL_NM AS mnyRcvdPersonNm,
+       LAST_CHNG_GUID AS lastChngGuid
+FROM
+  XP_EL_EL0027_H
+WHERE  INST_CD = '103'
+       AND TX_DT = #{txDt}
+       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+       AND ( ( #{prcsDscd} = '01'
+               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+              OR ( #{prcsDscd} = '02'
+                   AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+UNION ALL
+SELECT 'PG1111' AS tblId,
+       TX_DT AS txDt,
+       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+       ''  AS whdrwlAcctNbr,
+       DPST_ACCT_NBR AS dpstAcctNbr,
+       MNY_RCVD_AMT AS txAmt,
+       0  AS feeAmt,
+       USE_ENTRPRS_APRVL_NBR AS txUnqNbr,
+       MNY_RCVD_ACCT_OWNR_NM AS rmtrNm,
+       ' '  AS mnyRcvdPersonNm,
+       LAST_CHNG_GUID AS lastChngGuid
+FROM
+  XP_PG_PG1111_H
+WHERE  INST_CD = '103'
+       AND TX_DT = #{txDt}
+       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+       AND ( ( #{prcsDscd} = '01'
+               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+              OR ( #{prcsDscd} = '02'
+                   AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+UNION ALL
+SELECT 'PG1113' AS tblId,
+       TX_DT AS txDt,
+       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+       ORGNL_TX_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,
+       ' '      AS dpstAcctNbr,
+       ORGNL_TX_WHDRWL_AMT AS txAmt,
+       ORGNL_TX_WHDRWL_FEE_AMT AS feeAmt,
+       ORGNL_TX_CNTR_MSG_MGMT_NBR AS txUnqNbr,
+       PSBK_CNTNT AS rmtrNm,
+       ' '      AS mnyRcvdPersonNm,
+       LAST_CHNG_GUID AS lastChngGuid
+FROM
+  XP_PG_PG1113_H
+WHERE  INST_CD = '103'
+       AND TX_DT = #{txDt}
+       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+       AND ( ( #{prcsDscd} = '01'
+               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+              OR ( #{prcsDscd} = '02'
+                   AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+UNION ALL
+SELECT 'PG1116' AS tblId,
+       TX_DT AS txDt,
+       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+       ORGNL_TX_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,
+       ' '      AS dpstAcctNbr,
+       ORGNL_TX_WHDRWL_AMT AS txAmt,
+       ORGNL_TX_WHDRWL_FEE_AMT AS feeAmt,
+       ORGNL_TX_CNTR_MSG_MGMT_NBR AS txUnqNbr,
+       PSBK_CNTNT AS rmtrNm,
+       ' '      AS mnyRcvdPersonNm,
+       LAST_CHNG_GUID AS lastChngGuid
+FROM
+  XP_PG_PG1116_H
+WHERE  INST_CD = '103'
+       AND TX_DT = #{txDt}
+       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+       AND ( ( #{prcsDscd} = '01'
+               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+              OR ( #{prcsDscd} = '02'
+                   AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+UNION ALL
+SELECT 'PG1117' AS tblId,
+       TX_DT AS txDt,
+       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+       ' ' AS whdrwlAcctNbr,
+       DPST_ACCT_NBR     AS dpstAcctNbr,
+       MNY_RCVD_AMT AS txAmt,
+       0       AS feeAmt,
+       ORGNL_TX_CNTR_MSG_MGMT_NBR AS txUnqNbr,
+       PSBK_CNTNT AS rmtrNm,
+       ' '      AS mnyRcvdPersonNm,
+       LAST_CHNG_GUID AS lastChngGuid
+FROM
+  XP_PG_PG1117_H
+WHERE  INST_CD = '103'
+       AND TX_DT = #{txDt}
+       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+       AND ( ( #{prcsDscd} = '01'
+               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+              OR ( #{prcsDscd} = '02'
+                   AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+UNION ALL
+SELECT 'RE0002' AS tblId,
+       TX_OCR_DT AS txDt,
+       CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+       ' '     AS whdrwlAcctNbr,
+       ORGNL_TX_RCPNT_ACCT_NBR AS dpstAcctNbr,
+       BILL_REFUND_AMT AS txAmt,
+       0      AS feeAmt,
+       TX_UNQ_NBR AS txUnqNbr,
+       ' '     AS rmtrNm,
+       ' '     AS mnyRcvdPersonNm,
+       LAST_CHNG_GUID AS lastChngGuid
+FROM
+  XP_RE_RE0002_H
+WHERE  TX_OCR_DT  = #{txDt}
+       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+       AND ( ( #{prcsDscd} = '01'
+               AND CNTR_CT_PRCSNG_RSLT_CD &lt;&gt; '09' )
+              OR ( #{prcsDscd} = '02'
+                   AND CNTR_CT_PRCSNG_RSLT_CD = '09' ) )
+	UNION ALL
+	SELECT 'CD0088' AS tblId,
+		TX_DT AS txDt,
+		CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+		CARD_ACCT_NBR AS whdrwlAcctNbr,
+		'' AS dpstAcctNbr,
+		AMT AS txAmt ,
+		0 AS feeAmt,
+		TX_UNQ_NBR AS txUnqNbr,
+		'' AS rmtrNm,
+		'' AS mnyRcvdPersonNm,
+		LAST_CHNG_GUID AS lastChngGuid
+	FROM
+	  XP_CD_CD0088
+	WHERE  INST_CD = '103'
+	       AND TX_DT = #{txDt}
+	       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+	       AND ( ( #{prcsDscd} = '01'
+	               AND NVL(CNTR_CT_PRCSNG_RSLT_CD,'99') &lt;&gt; '09' )
+	               OR ( #{prcsDscd} = '02'
+	               AND NVL(CNTR_CT_PRCSNG_RSLT_CD,'99') = '09' ) ) 
+	UNION ALL                   
+	SELECT 'AR2211' AS tblId,
+		TX_DT AS txDt,
+		ELCTRNC_RCPT_PRCS_RSLT_CD AS cntrCtPrcsngRsltCd,
+		ORGNL_TX_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,
+		'' AS dpstAcctNbr,
+		ORGNL_TX_WHDRWL_AMT AS txAmt ,
+		0 AS feeAmt,
+		ORGNL_TX_CNTR_MSG_MGMT_NBR AS txUnqNbr,
+		'' AS rmtrNm,
+		'' AS mnyRcvdPersonNm,
+		LAST_CHNG_GUID AS lastChngGuid
+	FROM
+	  XP_AR_AR2211_H
+	WHERE  INST_CD = '103'
+		   AND MSG_DATA_Dscd='22'
+	       AND TX_DT = #{txDt}
+	       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+	       AND ( ( #{prcsDscd} = '01'
+	               AND NVL(ELCTRNC_RCPT_PRCS_RSLT_CD,'99') &lt;&gt; '09' )
+	               OR ( #{prcsDscd} = '02'
+	               AND NVL(ELCTRNC_RCPT_PRCS_RSLT_CD,'99') = '09' ) )		 
+	UNION ALL
+	SELECT 'GR9111' AS tblId,
+		TX_DT AS txDt,
+		CNTR_CT_PRCSNG_RSLT_CD AS cntrCtPrcsngRsltCd,
+		OTHR_BNK_WHDRWL_ACCT_NBR AS whdrwlAcctNbr,
+		'' AS dpstAcctNbr,
+		RCPT_AMT AS txAmt ,
+		0 AS feeAmt,
+		APLCTN_NBR AS txUnqNbr,
+		'' AS rmtrNm,
+		'' AS mnyRcvdPersonNm,
+		LAST_CHNG_GUID AS lastChngGuid
+	FROM
+	  XP_AR_GR9111_H
+	WHERE  INST_CD = '103'
+		   AND MSG_DATA_Dscd='22'
+	       AND TX_DT = #{txDt}
+	       /*  01 null 미처리 &amp; 오류   02 null 처리완료  */
+	       AND ( ( #{prcsDscd} = '01'
+	               AND NVL(CNTR_CT_PRCSNG_RSLT_CD,'99') &lt;&gt; '09' )
+	               OR ( #{prcsDscd} = '02'
+	               AND NVL(CNTR_CT_PRCSNG_RSLT_CD,'99') = '09' ) )	       
+ ) 
+WHERE  tblId= #{tblId}
+AND txUnqNbr = #{txUnqNbr}
+</select>
+</mapper>

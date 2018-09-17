@@ -1,0 +1,13 @@
+OMM bankware.corebanking.customer.open.batch.dto.CustCrdtInfoXtrctnTrgtIO
+<description="파일 입출력">
+{
+	Integer seqNbr<length=5 description="일련번호">;
+	String instCd<length=3 description="기관코드">;
+	String cmnCd<length=2 description="공통코드">;
+	String cmnNm<length=10 description="공통명">;
+	String cmnClndr1<length=8 description="공통달력1">;
+	String cmnClndr2<length=8 description="공톧달력2">;
+	String cmnChk<length=1 description="공통체크">;
+	String cmnRd<length=1 description="공통라디오">;
+	BigDecimal cmnAmt<length=10 description="공통금액">;
+}

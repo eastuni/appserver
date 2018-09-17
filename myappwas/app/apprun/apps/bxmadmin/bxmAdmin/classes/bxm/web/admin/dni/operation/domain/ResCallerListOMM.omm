@@ -1,0 +1,6 @@
+OMM bxm.web.admin.dni.operation.domain.ResCallerListOMM
+<description="">
+{
+	Integer size<length=9>;
+	bxm.web.admin.dni.operation.domain.ResCallerOutOMM callerList<length=0 arrayReference="size">;
+}

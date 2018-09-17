@@ -1,0 +1,9 @@
+OMM bxm.web.admin.dni.operation.domain.ReportDbCalleeOMM
+<description="">
+{
+	String methodId<length=100 description="메소드 ID">;
+	String pkgNm<length=512 description="패키지 명">;
+	String classNm<length=512 description="클래스 명">;
+	String methodExecTypeCd<length=1 description="실행 타입 코드">;
+	String methodNm<length=512 description="메소드 명">;
+}

@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.resourcelibrary.dao.CmTblXtnAtrXtnAtrValD">
+<!--Generated Fri Jul 20 20:20:40 KST 2018-->
+<select id="select" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrXtnAtrValDIO" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrXtnAtrValDIO">
+SELECT    /* 테이블확장속성확장속성값명세 */
+        INST_CD AS instCd,     /*기관코드*/
+        TBL_NM AS tblNm,     /*테이블명*/
+        XTN_ATRBT_NM AS xtnAtrbtNm,     /*확장속성명*/
+        XTN_ATRBT_XTN_ATRBT_NM AS xtnAtrbtXtnAtrbtNm,     /*확장속성확장속성명*/
+        JSON_KEY_VAL_CNTNT AS jsonKeyValCntnt,     /*제이슨키값내용*/
+        XTN_ATRBT_CNTNT AS xtnAtrbtCntnt,     /*확장속성내용*/
+        SITE_LBRTRY_DSCD AS siteLbrtryDscd,     /*사이트연구소구분코드*/
+        ACTV_STS_CD AS actvStsCd,     /*활동상태코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  cm_tbl_xtn_atr_xtn_atr_val_d
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+   AND TBL_NM = #{tblNm, jdbcType=VARCHAR}
+   AND XTN_ATRBT_NM = #{xtnAtrbtNm, jdbcType=VARCHAR}
+   AND XTN_ATRBT_XTN_ATRBT_NM = #{xtnAtrbtXtnAtrbtNm, jdbcType=VARCHAR}
+   AND JSON_KEY_VAL_CNTNT = #{jsonKeyValCntnt, jdbcType=VARCHAR}
+</select>
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrXtnAtrValDIO">
+INSERT INTO cm_tbl_xtn_atr_xtn_atr_val_d    /* 테이블확장속성확장속성값명세 */
+(
+       inst_cd    /*기관코드*/
+     , tbl_nm    /*테이블명*/
+     , xtn_atrbt_nm    /*확장속성명*/
+     , xtn_atrbt_xtn_atrbt_nm    /*확장속성확장속성명*/
+     , json_key_val_cntnt    /*제이슨키값내용*/
+     , xtn_atrbt_cntnt    /*확장속성내용*/
+     , SITE_LBRTRY_DSCD /* 사이트연구소구분코드 */
+     , ACTV_STS_CD /* 활동상태코드 */
+     , last_chng_tmstmp    /*최종변경일시*/
+     , last_chng_guid    /*최종변경GUID*/
+)
+VALUES 
+(
+       #{instCd}    /*기관코드*/
+     , #{tblNm}    /*테이블명*/
+     , #{xtnAtrbtNm}    /*확장속성명*/
+     , #{xtnAtrbtXtnAtrbtNm}    /*확장속성확장속성명*/
+     , #{jsonKeyValCntnt, jdbcType=VARCHAR}    /*제이슨키값내용*/
+     , #{xtnAtrbtCntnt, jdbcType=VARCHAR}    /*확장속성내용*/
+     , #{siteLbrtryDscd, jdbcType=VARCHAR} /*사이트연구소구분코드*/
+     , #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/
+     , #{lastChngTmstmp}    /*최종변경일시*/
+     , #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrXtnAtrValDIO">
+UPDATE cm_tbl_xtn_atr_xtn_atr_val_d    /* 테이블확장속성확장속성값명세 */
+   SET xtn_atrbt_xtn_atrbt_nm = #{xtnAtrbtXtnAtrbtNm}    /* 확장속성확장속성명 */
+     , xtn_atrbt_cntnt = #{xtnAtrbtCntnt}    /* 확장속성내용 */
+     , site_lbrtry_dscd = #{siteLbrtryDscd, jdbcType=VARCHAR}
+     , ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/
+     , last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE inst_cd = #{instCd}
+   AND tbl_nm = #{tblNm}
+   AND xtn_atrbt_nm = #{xtnAtrbtNm}
+   AND xtn_atrbt_xtn_atrbt_nm = #{xtnAtrbtXtnAtrbtNm}
+   AND json_key_val_cntnt = #{jsonKeyValCntnt}
+</update>
+<delete id="delete" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrXtnAtrValDIO">
+DELETE FROM cm_tbl_xtn_atr_xtn_atr_val_d    /* 테이블확장속성확장속성값명세 */
+ WHERE inst_cd = #{instCd}
+
+   AND tbl_nm = #{tblNm}
+   AND xtn_atrbt_nm = #{xtnAtrbtNm}
+
+   AND xtn_atrbt_xtn_atrbt_nm = #{xtnAtrbtXtnAtrbtNm}
+</delete>
+<select id="selectListXtnAtrbtXtnAtrbtByCmpsCd" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrXtnAtrValDSelectListXtnAtrbtXtnArtbtByCmpsCdIn" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrXtnAtrValDSelectListXtnAtrbtXtnArtbtByCmpsCdOut">
+/* case1 : specific instCd */
+
+SELECT instCd AS instCd
+
+     , tblNm AS tblNm
+     , xtnAtrbtNm AS xtnAtrbtNm
+
+     , MAX(mndtryYn) AS mndtryYn
+
+     , MAX(scrnInpYn) AS scrnInpYn
+
+     , MAX(scrnChngAblYn) AS scrnChngAblYn
+
+     , MAX(custInqryTrgtYn) AS custInqryTrgtYn
+
+     , MAX(intrnlInqryTrgtYn) AS intrnlInqryTrgtYn
+
+     , CASE WHEN b.atrbt_vldtn_way_cd = 'C' THEN b.atrbt_vldtn_rule_cntnt ELSE '' END AS cdNbr
+     , CASE WHEN b.atrbt_vldtn_way_cd = 'T' THEN b.atrbt_vldtn_rule_cntnt ELSE '' END AS clHrarcyId
+     , b.atrbt_tp_cd AS atrbtTpCd
+
+  FROM
+
+(  
+
+SELECT inst_cd AS instCd
+
+     , tbl_nm AS tblNm
+     , xtn_atrbt_nm AS xtnAtrbtNm
+
+     , xtn_atrbt_cntnt AS xtnAtrbtCntnt
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'mndtryYn' THEN xtn_atrbt_cntnt END AS mndtryYn
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'scrnInpYn' THEN xtn_atrbt_cntnt END AS scrnInpYn
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'scrnChngAblYn' THEN xtn_atrbt_cntnt END AS scrnChngAblYn
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'custInqryTrgtYn' THEN xtn_atrbt_cntnt END AS custInqryTrgtYn
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'intrnlInqryTrgtYn' THEN xtn_atrbt_cntnt END AS intrnlInqryTrgtYn
+
+  FROM cm_tbl_xtn_atr_xtn_atr_val_d
+ WHERE inst_cd = #{instCd}
+
+   AND tbl_nm = #{tblNm}
+   AND ACTV_STS_CD = '01'
+
+<if test="xtnAtrbtVrtnCmpsCd != null and xtnAtrbtVrtnCmpsCd != '' ">
+
+   AND json_key_val_cntnt IN
+
+	<foreach close=")" collection="jsonKeyValCntnt" item="item" open="(" separator=",">
+
+		#{item}
+
+	</foreach>
+
+</if>
+
+) a, cm_std_atr_m b
+
+ WHERE a.xtnAtrbtNm = b.atrbt_nm
+
+GROUP BY instCd, tblNm, xtnAtrbtNm, b.atrbt_vldtn_way_cd, b.atrbt_vldtn_way_cd, b.atrbt_vldtn_rule_cntnt, b.atrbt_tp_cd
+
+
+UNION ALL
+
+/* case2 : all instCd */
+
+SELECT instCd AS instCd
+
+     , tblNm AS tblNm
+     , xtnAtrbtNm AS xtnAtrbtNm
+
+     , MAX(mndtryYn) AS mndtryYn
+
+     , MAX(scrnInpYn) AS scrnInpYn
+
+     , MAX(scrnChngAblYn) AS scrnChngAblYn
+
+     , MAX(custInqryTrgtYn) AS custInqryTrgtYn
+
+     , MAX(intrnlInqryTrgtYn) AS intrnlInqryTrgtYn
+
+     , CASE WHEN b.atrbt_vldtn_way_cd = 'C' THEN b.atrbt_vldtn_rule_cntnt ELSE '' END AS cdNbr
+     , CASE WHEN b.atrbt_vldtn_way_cd = 'T' THEN b.atrbt_vldtn_rule_cntnt ELSE '' END AS clHrarcyId
+     , b.atrbt_tp_cd AS atrbtTpCd
+
+  FROM
+
+(  
+
+SELECT inst_cd AS instCd 
+
+     , tbl_nm AS tblNm
+     , xtn_atrbt_nm AS xtnAtrbtNm
+
+     , xtn_atrbt_cntnt AS xtnAtrbtCntnt
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'mndtryYn' THEN xtn_atrbt_cntnt END AS mndtryYn
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'scrnInpYn' THEN xtn_atrbt_cntnt END AS scrnInpYn
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'scrnChngAblYn' THEN xtn_atrbt_cntnt END AS scrnChngAblYn
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'custInqryTrgtYn' THEN xtn_atrbt_cntnt END AS custInqryTrgtYn
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'intrnlInqryTrgtYn' THEN xtn_atrbt_cntnt END AS intrnlInqryTrgtYn
+
+  FROM cm_tbl_xtn_atr_xtn_atr_val_d a
+ WHERE inst_cd = 'STDA'
+
+   AND a.ACTV_STS_CD = '01'
+
+   AND tbl_nm = #{tblNm}
+<if test="xtnAtrbtVrtnCmpsCd != null and xtnAtrbtVrtnCmpsCd != '' ">   
+
+   AND json_key_val_cntnt IN
+
+	<foreach close=")" collection="jsonKeyValCntnt" item="item" open="(" separator=",">
+
+		#{item}
+
+	</foreach>
+
+</if>
+
+   AND NOT EXISTS (
+
+SELECT 1
+
+  FROM cm_tbl_xtn_atr_xtn_atr_val_d b
+ WHERE b.inst_cd = #{instCd}
+
+   AND a.tbl_nm = b.tbl_nm
+   AND a.xtn_atrbt_nm = b.xtn_atrbt_nm
+
+   AND a.xtn_atrbt_xtn_atrbt_nm = b.xtn_atrbt_xtn_atrbt_nm
+
+)
+
+) a, cm_std_atr_m b
+
+ WHERE a.xtnAtrbtNm = b.atrbt_nm
+
+     AND b.ACTV_STS_CD = '01'
+
+GROUP BY instCd, tblNm, xtnAtrbtNm, b.atrbt_vldtn_way_cd, b.atrbt_vldtn_way_cd, b.atrbt_vldtn_rule_cntnt, b.atrbt_tp_cd
+</select>
+<select id="selectListDtlXtnAtrbt" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrXtnAtrValDIO">
+SELECT    /* 테이블확장속성확장속성값명세 */
+        INST_CD AS instCd,     /*기관코드*/
+        TBL_NM AS tblNm,     /*테이블명*/
+        XTN_ATRBT_NM AS xtnAtrbtNm,     /*확장속성명*/
+        XTN_ATRBT_XTN_ATRBT_NM AS xtnAtrbtXtnAtrbtNm,     /*확장속성확장속성명*/
+        JSON_KEY_VAL_CNTNT AS jsonKeyValCntnt,     /*제이슨키값내용*/
+        XTN_ATRBT_CNTNT AS xtnAtrbtCntnt,     /*확장속성내용*/
+        SITE_LBRTRY_DSCD AS siteLbrtryDscd,     /*사이트연구소구분코드*/
+        ACTV_STS_CD AS actvStsCd,     /*활동상태코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  cm_tbl_xtn_atr_xtn_atr_val_d
+ WHERE inst_cd = #{instCd}
+ 
+ <if test="tblNm != null and tblNm != '' ">
+      AND tbl_nm = #{tblNm}
+</if>
+ <if test="atrbtNm != null and atrbtNm != '' ">
+      AND XTN_ATRBT_NM = #{atrbtNm}
+</if>
+
+   AND ACTV_STS_CD = '01'
+
+   order by INST_CD, TBL_NM, XTN_ATRBT_NM, JSON_KEY_VAL_CNTNT
+</select>
+<update id="updateActvStsCd" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrXtnAtrValDIO">
+UPDATE cm_tbl_xtn_atr_xtn_atr_val_d    /* 테이블확장속성확장속성값명세 */
+   SET ACTV_STS_CD = #{actvStsCd}  /*활동상태코드*/
+     , site_lbrtry_dscd = #{siteLbrtryDscd}
+     , last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE inst_cd = #{instCd}
+   AND tbl_nm = #{tblNm}
+   AND xtn_atrbt_nm = #{xtnAtrbtNm}
+   AND xtn_atrbt_xtn_atrbt_nm = #{xtnAtrbtXtnAtrbtNm}
+
+<if test="jsonKeyValCntnt != null and jsonKeyValCntnt != '' ">
+   AND json_key_val_cntnt = #{jsonKeyValCntnt}
+</if>
+</update>
+<select id="selectListXtnAtrbtXtnAtrbtByCmpsCdVal" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrXtnAtrValDSelectListXtnAtrbtXtnArtbtByCmpsCdIn" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrXtnAtrValDSelectListXtnAtrbtXtnArtbtByCmpsCdOut">
+/* case1 : specific instCd */
+
+SELECT instCd AS instCd
+
+     , tblNm AS tblNm
+     , xtnAtrbtNm AS xtnAtrbtNm
+
+     , MAX(mndtryYn) AS mndtryYn
+
+     , MAX(scrnInpYn) AS scrnInpYn
+
+     , MAX(scrnChngAblYn) AS scrnChngAblYn
+
+     , MAX(custInqryTrgtYn) AS custInqryTrgtYn
+
+     , MAX(intrnlInqryTrgtYn) AS intrnlInqryTrgtYn
+
+  FROM
+
+(  
+
+SELECT inst_cd AS instCd
+
+     , tbl_nm AS tblNm
+     , xtn_atrbt_nm AS xtnAtrbtNm
+
+     , xtn_atrbt_cntnt AS xtnAtrbtCntnt
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'mndtryYn' THEN xtn_atrbt_cntnt END AS mndtryYn
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'scrnInpYn' THEN xtn_atrbt_cntnt END AS scrnInpYn
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'scrnChngAblYn' THEN xtn_atrbt_cntnt END AS scrnChngAblYn
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'custInqryTrgtYn' THEN xtn_atrbt_cntnt END AS custInqryTrgtYn
+
+     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'intrnlInqryTrgtYn' THEN xtn_atrbt_cntnt END AS intrnlInqryTrgtYn
+
+  FROM cm_tbl_xtn_atr_xtn_atr_val_d
+ WHERE inst_cd = #{instCd}
+
+   AND tbl_nm = #{tblNm}
+   AND ACTV_STS_CD = '01'
+
+<if test="xtnAtrbtVrtnCmpsCd != null and xtnAtrbtVrtnCmpsCd != '' ">
+
+   AND json_key_val_cntnt IN
+
+	<foreach close=")" collection="jsonKeyValCntnt" item="item" open="(" separator=",">
+
+		#{item}
+
+	</foreach>
+
+</if>
+
+) a
+
+GROUP BY instCd, tblNm, xtnAtrbtNm
+
+
+UNION ALL
+
+/* case2 : all instCd */
+
+SELECT instCd AS instCd
+
+     , tblNm AS tblNm
+     , xtnAtrbtNm AS xtnAtrbtNm
+
+     , MAX(mndtryYn) AS mndtryYn
+
+     , MAX(scrnInpYn) AS scrnInpYn
+
+     , MAX(scrnChngAblYn) AS scrnChngAblYn
+
+     , MAX(custInqryTrgtYn) AS custInqryTrgtYn
+
+     , MAX(intrnlInqryTrgtYn) AS intrnlInqryTrgtYn
+
+  FROM
+
+(  
+		SELECT inst_cd AS instCd 		
+		     		, tbl_nm AS tblNm
+		     		, xtn_atrbt_nm AS xtnAtrbtNm		
+		    		, xtn_atrbt_cntnt AS xtnAtrbtCntnt
+		    		, CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'mndtryYn' THEN xtn_atrbt_cntnt END AS mndtryYn
+		     		, CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'scrnInpYn' THEN xtn_atrbt_cntnt END AS scrnInpYn
+		     		, CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'scrnChngAblYn' THEN xtn_atrbt_cntnt END AS scrnChngAblYn
+		    		 , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'custInqryTrgtYn' THEN xtn_atrbt_cntnt END AS custInqryTrgtYn
+				     , CASE WHEN xtn_atrbt_xtn_atrbt_nm = 'intrnlInqryTrgtYn' THEN xtn_atrbt_cntnt END AS intrnlInqryTrgtYn
+		
+		  FROM cm_tbl_xtn_atr_xtn_atr_val_d a
+		 WHERE inst_cd = 'STDA'		
+		   AND a.ACTV_STS_CD = '01'		
+		   AND tbl_nm = #{tblNm}
+		   
+		<if test="xtnAtrbtVrtnCmpsCd != null and xtnAtrbtVrtnCmpsCd != '' ">   		
+		   AND json_key_val_cntnt IN		
+			<foreach close=")" collection="jsonKeyValCntnt" item="item" open="(" separator=",">		
+				#{item}		
+			</foreach>
+</if>
+
+   AND NOT EXISTS (
+								SELECT 1								
+								  FROM cm_tbl_xtn_atr_xtn_atr_val_d b
+								 WHERE b.inst_cd = #{instCd}								
+								   AND a.tbl_nm = b.tbl_nm
+								   AND a.xtn_atrbt_nm = b.xtn_atrbt_nm								
+								   AND a.xtn_atrbt_xtn_atrbt_nm = b.xtn_atrbt_xtn_atrbt_nm
+								
+								)
+
+) a
+GROUP BY instCd, tblNm, xtnAtrbtNm
+</select>
+<select id="selectList" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrXtnAtrValDIO" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrXtnAtrValDIO">
+SELECT    /* 테이블확장속성확장속성값명세 */
+        INST_CD AS instCd,     /*기관코드*/
+        TBL_NM AS tblNm,     /*테이블명*/
+        XTN_ATRBT_NM AS xtnAtrbtNm,     /*확장속성명*/
+        XTN_ATRBT_XTN_ATRBT_NM AS xtnAtrbtXtnAtrbtNm,     /*확장속성확장속성명*/
+        JSON_KEY_VAL_CNTNT AS jsonKeyValCntnt,     /*제이슨키값내용*/
+        XTN_ATRBT_CNTNT AS xtnAtrbtCntnt,     /*확장속성내용*/
+        SITE_LBRTRY_DSCD AS siteLbrtryDscd,     /*사이트연구소구분코드*/
+        ACTV_STS_CD AS actvStsCd,     /*활동상태코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  cm_tbl_xtn_atr_xtn_atr_val_d
+ WHERE INST_CD = #{instCd}
+   AND TBL_NM = #{tblNm}
+   AND XTN_ATRBT_NM = #{xtnAtrbtNm}
+   AND XTN_ATRBT_XTN_ATRBT_NM = #{xtnAtrbtXtnAtrbtNm}
+   <if test="jsonKeyValCntnt != null and jsonKeyValCntnt != '' ">
+   AND json_key_val_cntnt = #{jsonKeyValCntnt}
+</if>
+</select>
+</mapper>

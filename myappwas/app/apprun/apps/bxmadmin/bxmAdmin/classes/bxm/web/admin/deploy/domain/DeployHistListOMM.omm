@@ -1,0 +1,11 @@
+OMM bxm.web.admin.deploy.domain.DeployHistListOMM
+<description="">
+{
+	String deployId<length=40 description="배포 ID">;
+	String preDeployValidIpList<length=1024 description="선배포검증IP목록">;
+	BigDecimal preDeployTimeoutMills<length=22 description="PRE DEPLOY 타임아웃 밀리초">;
+	String regUserId<length=32 description="등록 사용자 ID">;
+	Integer appListSize<length=9>;
+	bxm.web.admin.deploy.domain.PredeployAppDetailOMM appList<length=0 arrayReference="appListSize">;
+	Boolean isConnected<length=20>;
+}

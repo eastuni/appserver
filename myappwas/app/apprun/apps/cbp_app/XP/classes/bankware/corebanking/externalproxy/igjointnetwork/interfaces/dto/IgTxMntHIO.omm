@@ -1,0 +1,50 @@
+OMM bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.IgTxMntHIO
+<description="인터넷지로납부원장">
+{
+	String custId<length=15 description="고객식별자">;
+	String txDt<length=8 description="거래일자">;
+	String extrnlBizDscd<length=3 description="대외업무구분코드">;
+	String cntrMsgMgmtNbr<length=13 description="센터전문관리번호">;
+	String txUnqNbr<length=20 description="거래고유번호">;
+	String txHmss1<length=6 description="거래시각">;
+	String msgPerTpCd<length=4 description="전문종별코드">;
+	String elctrncRcptTxDscd<length=6 description="전자수납거래구분코드">;
+	String issueInstDscd<length=2 description="발행기관분류코드">;
+	String useInstGiroNbr<length=7 description="이용기관지로번호">;
+	String intrntGiroPymntHstMgmtCd<length=2 description="인터넷지로납부내역관리코드">;
+	String whdrwlAcctNbr<length=24 description="출금계좌번호">;
+	BigDecimal giroPymntAmt<length=22 decimal=2 description="지로납부금액">;
+	String payerFullNm<length=30 description="납부자성명">;
+	String acctOwnrNm<length=200 description="예금주명">;
+	String payerNbr<length=20 description="납부자번호">;
+	String giroNbr<length=7 description="지로번호">;
+	String entrprsNm<length=100 description="업체명">;
+	String impstnYm1<length=6 description="부과년월1">;
+	String cnclYn<length=1 description="취소여부">;
+	String cnclTxDt<length=8 description="취소거래일자">;
+	String cnclTxHms<length=6 description="취소거래시각">;
+	String cnclTxCntrMsgMgmtNbr<length=20 description="취소거래센터전문관리번호">;
+	String giroCnclDscd<length=1 description="지로취소구분코드">;
+	String rltdMsgTxDscd<length=6 description="관련전문거래구분코드">;
+	String stsDscd<length=1 description="상태구분코드">;
+	String elctrncPymntNbr<length=20 description="전자납부번호">;
+	String pymntOblgtrIdNbr<length=24 description="납부의무자주민등록번호">;
+	String custInqryCustNbr<length=20 description="고객조회고객번호">;
+	String impstnYm2<length=6 description="부과년월2">;
+	String issueFormCd<length=1 description="발행형태코드">;
+	Integer etcCnt<length=2 description="기타건수">;
+	String ntfctnFormCd<length=1 description="고지형태코드">;
+	String pymntFormDscd<length=1 description="납부형태구분코드">;
+	String prdDt1<length=8 description="납기일자">;
+	Integer pymntSeq<length=3 description="납부순번">;
+	String arrearsStartYm<length=6 description="체납시작년월">;
+	String arrearsEndYm<length=6 description="체납종료년월">;
+	Integer arrearsMnthNth<length=3 description="체납월수">;
+	String rmkNm<length=200 description="적요명">;
+	String pymntDt<length=8 description="납부일자">;
+	String rsrvtnStsCd<length=1 description="예약상태코드">;
+	String rsrvtnAplctnNbr<length=13 description="예약신청번호">;
+	String giroWhdrwlRsltCd<length=2 description="지로출금결과코드">;
+	String prdDscd<length=1 description="납기내후구분코드">;
+	String simplePymntNbr<length=15 description="간편납부번호">;
+}

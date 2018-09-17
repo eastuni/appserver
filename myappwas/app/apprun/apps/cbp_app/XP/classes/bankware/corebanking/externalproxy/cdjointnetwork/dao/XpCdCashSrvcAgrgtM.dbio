@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.cdjointnetwork.dao.XpCdCashSrvcAgrgtM">
+<!--Generated Wed Jan 11 10:29:38 KST 2017-->
+<update id="updateCashServiceAggregateCancel">
+UPDATE  /* CD현금서비스집계기본 */
+        xp_cd_cash_srvc_agrgt_m
+   SET  CNCL_CNT = CNCL_CNT + 1    /* 취소건수 */
+     , CNCL_AMT = CNCL_AMT + #{txAmt}    /* 취소금액 */
+     , CNCL_FEE_AMT = CNCL_FEE_AMT + #{txFee}    /* 취소수수료 */
+     , CNCL_OPN_PROXY_FEE_AMT = CNCL_OPN_PROXY_FEE_AMT + #{cnclOpnProxyFeeAmt}    /* 취소개설대행수수료 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND FNCL_INST_CD = #{fnclInstCd}
+   AND TX_DT = #{txDt}
+   AND HNDLNG_OPN_Dscd = #{hndlngOpnDscd}
+</update>
+<update id="updateCashServiceAggregateNormal">
+UPDATE  /* CD현금서비스집계기본 */
+        xp_cd_cash_srvc_agrgt_m
+   SET  NRML_CNT = NRML_CNT + 1    /* 정상건수 */
+     , NRML_AMT = NRML_AMT + #{txAmt}    /* 정상금액 */
+     , NRML_FEE_AMT = NRML_FEE_AMT + #{txFee}    /* 정상수수료 */
+     , NRML_OPN_PROXY_FEE_AMT = #{nrmlOpnProxyFeeAmt}    /* 정상개설대행수수료 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND FNCL_INST_CD = #{fnclInstCd}
+   AND TX_DT = #{txDt}
+   AND HNDLNG_OPN_Dscd = #{hndlngOpnDscd}
+</update>
+<insert id="insertCashServiceAggregate" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCashSrvcAgrgtMIO">
+INSERT INTO xp_cd_cash_srvc_agrgt_m    /* CD현금서비스집계기본 */
+(
+       inst_cd    /*기관코드*/
+     , fncl_inst_cd    /*금융기관코드*/
+     , tx_dt    /*거래년월일*/
+     , hndlng_opn_Dscd    /*취급개설구분코드*/
+     , nrml_cnt    /*정상건수*/
+     , nrml_amt    /*정상금액*/
+     , nrml_fee_amt    /*정상수수료*/
+     , nrml_opn_proxy_fee_amt    /*정상개설대행수수료*/
+     , cncl_cnt    /*취소건수*/
+     , cncl_amt    /*취소금액*/
+     , cncl_fee_amt    /*취소수수료*/
+     , cncl_opn_proxy_fee_amt    /*취소개설대행수수료*/
+     , adjstmnt_cnt    /*조정건수*/
+     , adjstmnt_amt    /*조정금액*/
+     , adjstmnt_fee_amt    /*조정수수료*/
+     , adjstmnt_opn_proxy_fee_amt    /*조정개설대행수수료*/
+     , last_chng_tmstmp    /*최종변경일시*/
+     , last_chng_guid    /*최종변경GUID*/
+)
+VALUES 
+(
+       #{instCd}    /*기관코드*/
+     , #{fnclInstCd}    /*금융기관코드*/
+     , #{txDt}    /*거래년월일*/
+     , #{hndlngOpnDscd}    /*취급개설구분코드*/
+     , #{nrmlCnt}    /*정상건수*/
+     , #{nrmlAmt}    /*정상금액*/
+     , #{nrmlFeeAmt}    /*정상수수료*/
+     , #{nrmlOpnProxyFeeAmt}    /*정상개설대행수수료*/
+     , #{cnclCnt}    /*취소건수*/
+     , #{cnclAmt}    /*취소금액*/
+     , #{cnclFeeAmt}    /*취소수수료*/
+     , #{cnclOpnProxyFeeAmt}    /*취소개설대행수수료*/
+     , #{adjstmntCnt}    /*조정건수*/
+     , #{adjstmntAmt}    /*조정금액*/
+     , #{adjstmntFeeAmt}    /*조정수수료*/
+     , #{adjstmntOpnProxyFeeAmt}    /*조정개설대행수수료*/
+     , #{lastChngTmstmp}    /*최종변경일시*/
+     , #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectCashServiceAggregate" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCashSrvcAgrgtMIO">
+SELECT    /* CD현금서비스집계기본 */
+       inst_cd AS instCd    /*기관코드*/
+     , fncl_inst_cd AS fnclInstCd    /*금융기관코드*/
+     , tx_dt AS txDt    /*거래년월일*/
+     , hndlng_opn_Dscd AS hndlngOpnDscd    /*취급개설구분코드*/
+     , nrml_cnt AS nrmlCnt    /*정상건수*/
+     , nrml_amt AS nrmlAmt    /*정상금액*/
+     , nrml_fee_amt AS nrmlFeeAmt    /*정상수수료*/
+     , nrml_opn_proxy_fee_amt AS nrmlOpnProxyFeeAmt    /*정상개설대행수수료*/
+     , cncl_cnt AS cnclCnt    /*취소건수*/
+     , cncl_amt AS cnclAmt    /*취소금액*/
+     , cncl_fee_amt AS cnclFeeAmt    /*취소수수료*/
+     , cncl_opn_proxy_fee_amt AS cnclOpnProxyFeeAmt    /*취소개설대행수수료*/
+     , adjstmnt_cnt AS adjstmntCnt    /*조정건수*/
+     , adjstmnt_amt AS adjstmntAmt    /*조정금액*/
+     , adjstmnt_fee_amt AS adjstmntFeeAmt    /*조정수수료*/
+     , adjstmnt_opn_proxy_fee_amt AS adjstmntOpnProxyFeeAmt    /*조정개설대행수수료*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_cd_cash_srvc_agrgt_m
+ WHERE inst_cd = #{instCd}
+   AND fncl_inst_cd = #{fnclInstCd}
+   AND tx_dt = #{txDt}
+   AND hndlng_opn_Dscd = #{hndlngOpnDscd}
+</select>
+<select id="selectCashServiceAggregateList" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCashSrvcAgrgtMIO">
+SELECT    /* CD현금서비스집계기본 */
+       inst_cd AS instCd    /*기관코드*/
+     , fncl_inst_cd AS fnclInstCd    /*금융기관코드*/
+     , tx_dt AS txDt    /*거래년월일*/
+     , hndlng_opn_Dscd AS hndlngOpnDscd    /*취급개설구분코드*/
+     , nrml_cnt AS nrmlCnt    /*정상건수*/
+     , nrml_amt AS nrmlAmt    /*정상금액*/
+     , nrml_fee_amt AS nrmlFeeAmt    /*정상수수료*/
+     , nrml_opn_proxy_fee_amt AS nrmlOpnProxyFeeAmt    /*정상개설대행수수료*/
+     , cncl_cnt AS cnclCnt    /*취소건수*/
+     , cncl_amt AS cnclAmt    /*취소금액*/
+     , cncl_fee_amt AS cnclFeeAmt    /*취소수수료*/
+     , cncl_opn_proxy_fee_amt AS cnclOpnProxyFeeAmt    /*취소개설대행수수료*/
+     , adjstmnt_cnt AS adjstmntCnt    /*조정건수*/
+     , adjstmnt_amt AS adjstmntAmt    /*조정금액*/
+     , adjstmnt_fee_amt AS adjstmntFeeAmt    /*조정수수료*/
+     , adjstmnt_opn_proxy_fee_amt AS adjstmntOpnProxyFeeAmt    /*조정개설대행수수료*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_cd_cash_srvc_agrgt_m
+ WHERE inst_cd = #{instCd}
+   AND tx_dt between #{txStartDt} and #{txEndDt}
+<if test="fnclInstCd != null and fnclInstCd != ''">
+   AND fncl_inst_cd = #{fnclInstCd}
+</if>
+<if test="hndlngOpnDscd != null and hndlngOpnDscd != ''">
+   AND hndlng_opn_Dscd = #{hndlngOpnDscd}
+</if>
+</select>
+</mapper>

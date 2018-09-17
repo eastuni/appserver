@@ -1,0 +1,5 @@
+OMM bxm.web.admin.deferred.domain.DfrdErrLog02IO
+<description="">
+{
+	String errProcStatusCd<length=1>;
+}

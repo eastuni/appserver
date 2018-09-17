@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonconfigurator.dao.XpTxBrnchOffInfoD">
+<!--Generated Mon Sep 12 15:05:13 KST 2016-->
+<select id="selectTxBranchOffInfo" resultType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpTxBrnchOffInfoDIO">
+SELECT    /* 대외거래분기정보명세 */
+       extrnl_inst_cd AS extrnlInstCd    /*대외기관코드*/
+     , brnch_off_nm AS brnchNm    /*분기명*/
+     , seq_nbr AS seqNbr    /*일련번호*/
+     , brnch_off_biz_cd AS brnchBizCd    /*분기업무코드*/
+     , start_chr AS startChrCntnt1    /*개시문자*/
+     , mtchng_data AS mtchngDataCntnt    /*매칭데이터*/
+     , brnch_off_info_start_pstn AS brnchInfoStartPstnCntnt    /*분기정보시작위치*/
+     , brnch_off_info_len AS brnchInfoLen    /*분기정보길이*/
+     , intrfc_id AS intrfcId    /*인터페이스식별자*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_tx_brnch_off_info_d
+ WHERE extrnl_inst_cd = #{extrnlInstCd}
+   AND brnch_off_nm = #{brnchNm}
+   AND seq_nbr = #{seqNbr}
+</select>
+<insert id="insertTxBranchOffInfo" parameterType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpTxBrnchOffInfoDIO">
+INSERT INTO xp_tx_brnch_off_info_d    /* 대외거래분기정보명세 */
+(
+       extrnl_inst_cd    /*대외기관코드*/
+     , brnch_off_nm    /*분기명*/
+     , seq_nbr    /*일련번호*/
+     , brnch_off_biz_cd    /*분기업무코드*/
+     , start_chr    /*개시문자*/
+     , mtchng_data    /*매칭데이터*/
+     , brnch_off_info_start_pstn    /*분기정보시작위치*/
+     , brnch_off_info_len    /*분기정보길이*/
+     , intrfc_id    /*인터페이스식별자*/
+     , last_chng_tmstmp    /*최종변경일시*/
+     , last_chng_guid    /*최종변경GUID*/
+)
+VALUES 
+(
+       #{extrnlInstCd}    /*대외기관코드*/
+     , #{brnchNm}    /*분기명*/
+     , #{seqNbr}    /*일련번호*/
+     , #{brnchBizCd}    /*분기업무코드*/
+     , #{startChrCntnt1}    /*개시문자*/
+     , #{mtchngDataCntnt}    /*매칭데이터*/
+     , #{brnchInfoStartPstnCntnt}    /*분기정보시작위치*/
+     , #{brnchInfoLen}    /*분기정보길이*/
+     , #{intrfcId}    /*인터페이스식별자*/
+     , #{lastChngTmstmp}    /*최종변경일시*/
+     , #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<update id="updateTxBranchOffInfo" parameterType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpTxBrnchOffInfoDIO">
+UPDATE xp_tx_brnch_off_info_d    /* 대외거래분기정보명세 */
+   SET brnch_off_biz_cd = #{brnchBizCd}    /* 분기업무코드 */
+     , start_chr = #{startChrCntnt1}    /* 개시문자 */
+     , mtchng_data = #{mtchngDataCntnt}    /* 매칭데이터 */
+     , brnch_off_info_start_pstn = #{brnchInfoStartPstnCntnt}    /* 분기정보시작위치 */
+     , brnch_off_info_len = #{brnchInfoLen}    /* 분기정보길이 */
+     , intrfc_id = #{intrfcId}    /*인터페이스식별자*/
+     , last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE extrnl_inst_cd = #{extrnlInstCd}
+   AND brnch_off_nm = #{brnchNm}
+   AND seq_nbr = #{seqNbr}
+</update>
+<delete id="deleteTxBranchOffInfo">
+DELETE FROM xp_tx_brnch_off_info_d    /* 대외거래분기정보명세 */
+ WHERE extrnl_inst_cd = #{extrnlInstCd}
+   AND brnch_off_nm = #{brnchNm}
+   AND seq_nbr = #{seqNbr}
+</delete>
+<select id="selectLastSequenceNumber" resultType="java.math.BigDecimal">
+SELECT    /* 대외거래분기정보명세 */
+     MAX(seq_nbr) AS seqNbr    /*일련번호*/
+  FROM xp_tx_brnch_off_info_d
+ WHERE extrnl_inst_cd = #{extrnlInstCd}
+   AND brnch_off_nm = #{brnchNm}
+</select>
+<select id="selectTxBranchOffInfoList" resultType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpTxBrnchOffInfoDIO">
+SELECT 
+extrnlInstCd    /*대외기관코드*/
+, brnchNm    /*분기명*/
+, seqNbr    /*일련번호*/
+, brnchBizCd    /*분기업무코드*/
+, startChrCntnt1    /*개시문자*/
+, mtchngDataCntnt    /*매칭데이터*/
+, brnchInfoStartPstnCntnt    /*분기정보시작위치*/
+, brnchInfoLen    /*분기정보길이*/
+, intrfcId    /*인터페이스식별자*/
+, lastChngTmstmp    /*최종변경일시*/
+, lastChngGuid    /*최종변경GUID*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM,
+A.extrnlInstCd    /*대외기관코드*/
+, A.brnchNm    /*분기명*/
+, A.seqNbr    /*일련번호*/
+, A.brnchBizCd    /*분기업무코드*/
+, A.startChrCntnt1    /*개시문자*/
+, A.mtchngDataCntnt    /*매칭데이터*/
+, A.brnchInfoStartPstnCntnt    /*분기정보시작위치*/
+, A.brnchInfoLen    /*분기정보길이*/
+, A.intrfcId    /*인터페이스식별자*/
+, A.lastChngTmstmp    /*최종변경일시*/
+, A.lastChngGuid    /*최종변경GUID*/
+     FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* 대외거래분기정보명세 */
+       extrnl_inst_cd AS extrnlInstCd    /*대외기관코드*/
+     , brnch_off_nm AS brnchNm    /*분기명*/
+     , seq_nbr AS seqNbr    /*일련번호*/
+     , brnch_off_biz_cd AS brnchBizCd    /*분기업무코드*/
+     , start_chr AS startChrCntnt1    /*개시문자*/
+     , mtchng_data AS mtchngDataCntnt    /*매칭데이터*/
+     , brnch_off_info_start_pstn AS brnchInfoStartPstnCntnt    /*분기정보시작위치*/
+     , brnch_off_info_len AS brnchInfoLen    /*분기정보길이*/
+     , intrfc_id AS intrfcId    /*인터페이스식별자*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_tx_brnch_off_info_d
+  WHERE 1=1
+<if test="extrnlInstCd != null and extrnlInstCd != ''">   
+   and extrnl_inst_cd = #{extrnlInstCd}
+</if> 
+<if test="brnchNm != null and brnchNm != ''">   
+   and brnch_off_nm = #{brnchNm}
+</if> 
+<if test="brnchBizCd != null and brnchBizCd != ''">   
+   and brnch_off_biz_cd = #{brnchBizCd}
+</if>
+<if test="intrfcId != null and intrfcId != ''">   
+   and intrfc_id = #{intrfcId}
+</if>
+order by extrnl_inst_cd, brnch_off_nm, seq_nbr
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectListByBrnchOffNm" resultType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpTxBrnchOffInfoDIO">
+SELECT    /* 대외거래분기정보명세 */
+       extrnl_inst_cd AS extrnlInstCd    /*대외기관코드*/
+     , brnch_off_nm AS brnchNm    /*분기명*/
+     , seq_nbr AS seqNbr    /*일련번호*/
+     , brnch_off_biz_cd AS brnchBizCd    /*분기업무코드*/
+     , start_chr AS startChrCntnt1    /*개시문자*/
+     , mtchng_data AS mtchngDataCntnt    /*매칭데이터*/
+     , brnch_off_info_start_pstn AS brnchInfoStartPstnCntnt    /*분기정보시작위치*/
+     , brnch_off_info_len AS brnchInfoLen    /*분기정보길이*/
+     , intrfc_id AS intrfcId    /*인터페이스식별자*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_tx_brnch_off_info_d
+ WHERE extrnl_inst_cd = #{extrnlInstCd}
+   AND brnch_off_nm = #{brnchNm}
+</select>
+</mapper>

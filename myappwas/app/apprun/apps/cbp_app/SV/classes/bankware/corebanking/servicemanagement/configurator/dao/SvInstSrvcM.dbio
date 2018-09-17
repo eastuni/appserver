@@ -1,0 +1,1612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.configurator.dao.SvInstSrvcM">
+<!--Generated Thu Aug 16 18:52:09 KST 2018-->
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO">
+INSERT  
+
+  INTO  sv_inst_srvc_m    /* 기관별서비스기본 */
+
+(
+
+  inst_cd    /*기관코드*/, 
+
+  srvc_cd    /*서비스코드*/, 
+
+  aply_start_dt    /*적용시작년월일*/, 
+
+  last_chng_tmstmp    /*최종변경일시*/, 
+
+  last_chng_guid    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+  #{instCd}    /*기관코드*/, 
+
+  #{srvcCd}    /*서비스코드*/, 
+
+  #{aplyStartDt}    /*적용시작년월일*/, 
+
+  #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경일시*/, 
+
+  #{lastChngGuid}    /*최종변경GUID*/
+
+)
+</insert>
+<delete id="delete" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO">
+DELETE  FROM  sv_inst_srvc_m    /* 기관별서비스기본 */
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  srvc_cd = #{srvcCd}
+</delete>
+<select id="selectListForSrvcPrfl" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMSelectListForSrvcPrfl" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+SELECT t2.srvc_cd           AS srvcCd
+
+     , t2.aply_start_dt     AS aplyStartDt
+
+     , t2.srvc_nm           AS srvcNm
+
+     , t2.srvc_ftr_cntnt    AS srvcFtrCntnt
+
+     , t2.cmpnt_cd          AS cmpntCd
+
+     , t2.srvc_class_nm     AS srvcClassNm
+     , t2.oprtn_nm          AS oprtnNm
+
+     , t2.inp_dto_nm        AS inpDtoNm
+
+     , t2.outp_dto_nm       AS outpDtoNm
+
+     , t2.last_chng_tmstmp  AS lastChngTmstmp
+
+     , t2.last_chng_guid    AS lastChngGuid
+
+  FROM sv_inst_srvc_m t1
+
+     , sv_srvc_m      t2
+
+ WHERE 1=1     
+
+   AND t1.srvc_cd = t2.srvc_cd
+
+   AND t1.inst_cd = #{instCd}
+
+   AND t1.aply_start_dt &lt;= #{aplyStartDt}
+
+   AND t2.aply_start_dt &lt;= #{aplyStartDt}
+
+<if test="srvcStsCd != null and srvcStsCd != ''">
+
+   AND t2.srvc_sts_cd = #{srvcStsCd}
+
+</if>
+
+<if test="cmpntCd != null and cmpntCd != ''">
+
+   AND t2.cmpnt_cd = #{cmpntCd}
+
+</if>
+
+<if test="srvcCd != null and srvcCd != ''">
+
+   AND t2.srvc_cd LIKE CONCAT(CONCAT('%', #{srvcCd}), '%')
+
+</if>
+
+
+
+<if test="srvcNm != null and srvcNm != ''">
+
+   AND EXISTS (
+
+   SELECT 1
+
+     FROM cm_mlt_lng_trnsltn_d c
+
+    WHERE c.trnsfr_knd_cd = 'SRVC_NAME'
+      AND c.trnsfr_origin_key_val = t2.srvc_cd
+
+      AND c.lng_cd = #{lngCd}
+
+      AND c.trnsfr_rslt_val LIKE CONCAT(CONCAT('%', #{srvcNm}), '%')
+
+   )
+
+</if>
+
+
+
+<if test="srvcPrflAtrbtNm != '' or srvcPrflCntnt != ''">
+
+   AND EXISTS (
+
+SELECT 1
+
+  FROM sv_srvc_prfl_d t3
+
+     , sv_inst_srvc_prfl_d t4
+
+ WHERE 1=1     
+
+   AND t3.srvc_cd            = t4.srvc_cd
+
+   AND t3.srvc_prfl_atrbt_nm = t4.srvc_prfl_atrbt_nm
+
+   AND t4.inst_cd            = t1.inst_cd
+
+   AND t4.srvc_cd            = t1.srvc_cd
+
+<if test="srvcPrflAtrbtNm != null and srvcPrflAtrbtNm != ''">
+
+   AND t3.srvc_prfl_atrbt_nm LIKE CONCAT(CONCAT('%', #{srvcPrflAtrbtNm}), '%')
+
+</if>
+
+<if test="srvcPrflCntnt != null and srvcPrflCntnt != ''">
+
+   AND t3.srvc_prfl_cntnt LIKE CONCAT(CONCAT('%', #{srvcPrflCntnt}), '%')
+
+</if>
+
+UNION ALL
+
+SELECT 1
+
+  FROM sv_srvc_prfl_d t3
+
+ WHERE 1=1     
+
+   AND t3.srvc_cd = t1.srvc_cd
+
+<if test="srvcPrflAtrbtNm != null and srvcPrflAtrbtNm != ''">
+
+   AND t3.srvc_prfl_atrbt_nm LIKE CONCAT(CONCAT('%', #{srvcPrflAtrbtNm}), '%')
+
+</if>
+
+<if test="srvcPrflCntnt != null and srvcPrflCntnt != ''">
+
+   AND t3.srvc_prfl_cntnt LIKE CONCAT(CONCAT('%', #{srvcPrflCntnt}), '%')
+
+</if>
+
+   AND NOT EXISTS (
+
+SELECT 1
+
+  FROM sv_inst_srvc_prfl_d t4
+
+ WHERE t3.srvc_cd = t4.srvc_cd   
+
+   AND t3.srvc_prfl_atrbt_nm = t4.srvc_prfl_atrbt_nm
+
+)
+
+)
+
+</if>
+
+ORDER BY t2.srvc_cd
+</select>
+<update id="update" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO">
+UPDATE  
+
+        sv_inst_srvc_m    /* 기관별서비스기본 */
+
+   SET  aply_start_dt = #{aplyStartDt}    /* 적용시작년월일 */, 
+
+        last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */, 
+
+        last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  srvc_cd = #{srvcCd}
+</update>
+<delete id="deleteListBySrvcCd">
+DELETE FROM sv_inst_srvc_m
+
+ WHERE srvc_cd = #{srvcCd}
+</delete>
+<select id="selectAll" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO">
+SELECT  /* 기관별서비스기본 */
+
+        inst_cd AS instCd    /*기관코드*/, 
+
+        srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_inst_srvc_m
+
+ WHERE  aply_start_dt &lt;= #{txDt}
+</select>
+<select id="selectListByCmpntCd" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO">
+SELECT  /* 서비스기본 */
+
+        t1.srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        t1.aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        t1.srvc_nm AS srvcNm    /*서비스명*/, 
+
+        t1.srvc_ftr_cntnt AS srvcFtrCntnt    /*서비스특성내용*/, 
+
+        t1.cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        t1.srvc_class_nm AS srvcClassNm    /*서비스클래스명*/, 
+        t1.oprtn_nm AS oprtnNm    /*오퍼레이션명*/, 
+
+        t1.inp_dto_nm AS inpDtoNm    /*입력DTO명*/, 
+
+        t1.outp_dto_nm AS outpDtoNm    /*출력DTO명*/, 
+
+        t2.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        t2.last_chng_guid AS lastChngGuid    /*최종변경GUID*/,
+
+        t2.inst_cd AS instCd /*기관코드*/
+
+  FROM  sv_srvc_m t1
+
+     ,  sv_inst_srvc_m t2
+
+ WHERE  t1.srvc_cd = t2.srvc_cd
+
+   AND  t1.srvc_sts_cd = '01'
+
+   AND  t2.inst_cd = #{instCd}
+
+   AND  t1.cmpnt_cd = #{cmpntCd}
+
+   AND  t1.aply_start_dt &lt;= #{aplyStartDt}
+
+   AND  t2.aply_start_dt &lt;= #{aplyStartDt}
+
+ ORDER  BY t1.srvc_cd
+</select>
+<select id="select" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO">
+SELECT  
+
+        inst_cd AS instCd
+
+     ,  srvc_cd AS srvcCd
+
+     ,  aply_start_dt AS aplyStartDt
+
+  FROM  sv_inst_srvc_m
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  srvc_cd = #{srvcCd}
+</select>
+<select id="selectListAllSrvcByInstCdMysql" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMselectListAllSrvcByInstCdIO">
+SELECT #{svInstIO.instCd} as instCd
+
+     , a.cmpnt_cd as cmpntCd
+
+     , a.srvc_cd as srvcCd
+
+     , a.srvc_nm as srvcNm
+
+     , CASE WHEN b.srvc_cd IS NULL THEN 'N' ELSE 'Y' END as useYn
+
+     , IFNULL(b.last_chng_guid, ' ') as lastChngGuid
+
+     , IFNULL(b.aply_start_dt, ' ') as aplyStartDt
+
+     , a.SRVC_STS_CD as srvcStsCd
+
+     , a.INP_DTO_NM as inpDtoNm
+
+     , CASE WHEN C.SRVC_CD IS NULL THEN 'N' ELSE 'Y' END as txBlckngYn
+
+  FROM sv_srvc_m a 
+
+   LEFT OUTER JOIN sv_inst_srvc_m b
+
+    ON a.srvc_cd = b.srvc_cd
+
+   AND #{svInstIO.instCd} = b.inst_cd
+
+
+
+   LEFT OUTER JOIN SV_INST_SRVC_RSTRCTN_D C
+
+    ON #{svInstIO.instCd} = C.inst_cd
+
+    AND a.srvc_cd = c.srvc_cd
+
+       <if test="svInstIO.aplyStartDt != null and svInstIO.aplyStartDt != ''">
+
+    AND #{svInstIO.aplyStartDt} between C.SRVC_RSTRCTN_START_dtm and C.SRVC_RSTRCTN_END_dtm
+
+    </if>  
+
+
+
+
+
+ WHERE 1=1
+
+   <if test="svInstIO.aplyStartDt != null and svInstIO.aplyStartDt != ''">
+
+       AND a.aply_start_dt &lt;= #{svInstIO.aplyStartDt}
+
+    </if>
+
+    <if test="svInstIO.cmpntCd != null and svInstIO.cmpntCd != ''">
+
+       AND a.cmpnt_cd = #{svInstIO.cmpntCd}
+
+    </if>
+
+    <if test="svInstIO.srvcCd != null and svInstIO.srvcCd != ''">
+
+       AND a.srvc_cd like CONCAT(CONCAT('%', #{svInstIO.srvcCd}), '%')
+
+    </if>
+
+    <if test="svInstIO.srvcNm != null and svInstIO.srvcNm != ''">
+
+       AND EXISTS (
+
+       SELECT 1
+
+         FROM cm_mlt_lng_trnsltn_d c
+
+        WHERE c.trnsfr_knd_cd = 'SRVC_NAME' 
+          AND c.trnsfr_origin_key_val = a.srvc_cd
+
+          AND c.lng_cd = #{svInstIO.lngCd}
+
+          AND c.trnsfr_rslt_val LIKE CONCAT(CONCAT('%', #{svInstIO.srvcNm}), '%')
+
+          )
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd != null and svInstIO.srvcStsCd != ''">
+
+       AND a.SRVC_STS_CD = #{svInstIO.srvcStsCd}
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd == null or svInstIO.srvcStsCd == ''">
+
+       AND a.SRVC_STS_CD = '01'
+
+    </if>
+
+
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'Y'.toString())">
+
+       AND  b.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'N'.toString())">
+
+       AND  b.srvc_cd is null
+
+    </if>    
+
+
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'Y'.toString())">
+
+       AND  C.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'N'.toString())">
+
+       AND  C.srvc_cd is null
+
+    </if>   
+
+    <if test="svInstIO.srvcRstrctnCd != null and svInstIO.srvcRstrctnCd != ''">
+
+       AND  c.SRVC_RSTRCTN_CD in (#{svInstIO.srvcRstrctnCd})
+
+    </if>   
+
+GROUP BY a.cmpnt_cd, a.srvc_cd, a.srvc_nm, b.srvc_cd, b.last_chng_guid, b.aply_start_dt, a.SRVC_STS_CD, a.INP_DTO_NM, C.SRVC_CD    
+
+ORDER BY a.cmpnt_cd, a.srvc_cd
+</select>
+<select id="selectListAllSrvcByInstCdOracle" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMselectListAllSrvcByInstCdIO">
+SELECT #{svInstIO.instCd} as instCd
+
+     , a.cmpnt_cd as cmpntCd
+
+     , a.srvc_cd as srvcCd
+
+     , a.srvc_nm as srvcNm
+
+     ,  CASE WHEN b.srvc_cd IS NULL THEN 'N' ELSE 'Y' END as useYn
+
+     , NVL(b.last_chng_guid, ' ') as lastChngGuid
+
+     , NVL(b.aply_start_dt, ' ') as aplyStartDt
+
+     , a.SRVC_STS_CD as srvcStsCd
+
+     , a.INP_DTO_NM as inpDtoNm
+
+     , CASE WHEN C.SRVC_CD IS NULL THEN 'N' ELSE 'Y' END as txBlckngYn
+
+  FROM sv_srvc_m a LEFT OUTER JOIN sv_inst_srvc_m b
+
+    ON a.srvc_cd = b.srvc_cd
+
+   AND #{svInstIO.instCd} = b.inst_cd
+
+
+
+ LEFT OUTER JOIN SV_INST_SRVC_RSTRCTN_D C
+
+    ON #{svInstIO.instCd} = C.inst_cd
+
+    AND a.srvc_cd = c.srvc_cd
+
+      <if test="svInstIO.aplyStartDt != null and svInstIO.aplyStartDt != ''">
+
+    AND #{svInstIO.aplyStartDt} between C.SRVC_RSTRCTN_START_dtm and C.SRVC_RSTRCTN_END_dtm
+
+    </if>    
+
+ WHERE 1=1
+
+   <if test="svInstIO.aplyStartDt != null and svInstIO.aplyStartDt != ''">
+
+       AND a.aply_start_dt &lt;= #{svInstIO.aplyStartDt}
+
+    </if>
+
+    <if test="svInstIO.cmpntCd != null and svInstIO.cmpntCd != ''">
+
+       AND a.cmpnt_cd = #{svInstIO.cmpntCd}
+
+    </if>
+
+    <if test="svInstIO.srvcCd != null and svInstIO.srvcCd != ''">
+
+       AND a.srvc_cd like '%' ||#{svInstIO.srvcCd} ||'%'
+
+    </if>
+
+    <if test="svInstIO.srvcNm != null and svInstIO.srvcNm != ''">
+
+       AND EXISTS (
+
+       SELECT 1
+
+         FROM cm_mlt_lng_trnsltn_d c
+
+        WHERE c.trnsfr_knd_cd = 'SRVC_NAME' 
+          AND c.trnsfr_origin_key_val = a.srvc_cd
+
+          <if test="svInstIO.lngCd != null and svInstIO.lngCd != ''">
+
+          AND c.lng_cd = #{svInstIO.lngCd}
+
+          </if>
+
+          AND c.trnsfr_rslt_val LIKE  '%' ||#{svInstIO.srvcNm} ||'%' 
+
+          ) 
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd != null and svInstIO.srvcStsCd != ''">
+
+       AND a.SRVC_STS_CD = #{svInstIO.srvcStsCd}
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd == null or svInstIO.srvcStsCd == ''">
+
+       AND a.SRVC_STS_CD = '01'
+
+    </if>
+
+
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'Y'.toString())">
+
+       AND  b.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'N'.toString())">
+
+       AND  b.srvc_cd is null
+
+    </if>    
+
+
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'Y'.toString())">
+
+       AND  C.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'N'.toString())">
+
+       AND  C.srvc_cd is null
+
+    </if>   
+
+GROUP BY a.cmpnt_cd, a.srvc_cd, a.srvc_nm, b.srvc_cd, b.last_chng_guid, b.aply_start_dt, a.SRVC_STS_CD, a.INP_DTO_NM, C.SRVC_CD    
+
+ORDER BY a.cmpnt_cd, a.srvc_cd
+</select>
+<select id="selectBySrvcCd" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO">
+SELECT  
+
+        inst_cd AS instCd
+
+     ,  srvc_cd AS srvcCd
+
+     ,  aply_start_dt AS aplyStartDt
+
+  FROM  sv_inst_srvc_m
+
+	 WHERE srvc_cd = #{srvcCd}
+</select>
+<select id="selectCountAll" resultType="java.lang.Integer">
+SELECT  count(1) totCnt
+  FROM sv_srvc_m a 
+
+   LEFT OUTER JOIN sv_inst_srvc_m b
+
+    ON a.srvc_cd = b.srvc_cd
+
+   AND #{svInstIO.instCd} = b.inst_cd
+
+
+
+   LEFT OUTER JOIN SV_INST_SRVC_RSTRCTN_D C
+
+    ON #{svInstIO.instCd} = C.inst_cd
+
+    AND a.srvc_cd = c.srvc_cd
+
+
+
+ WHERE 1=1
+</select>
+<select id="selectListAllSrvcByInstCdPgMysql" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMselectListAllSrvcByInstCdIO">
+SELECT #{svInstIO.instCd} as instCd
+
+     , a.cmpnt_cd as cmpntCd
+
+     , a.srvc_cd as srvcCd
+
+     , a.srvc_nm as srvcNm
+
+     , CASE WHEN b.srvc_cd IS NULL THEN 'N' ELSE 'Y' END as useYn
+
+     , IFNULL(b.last_chng_guid, ' ') as lastChngGuid
+
+     , IFNULL(b.aply_start_dt, ' ') as aplyStartDt
+
+     , a.SRVC_STS_CD as srvcStsCd
+
+     , a.INP_DTO_NM as inpDtoNm
+
+     , CASE WHEN C.SRVC_CD IS NULL THEN 'N' ELSE 'Y' END as txBlckngYn
+
+  FROM sv_srvc_m a 
+
+   LEFT OUTER JOIN sv_inst_srvc_m b
+
+    ON a.srvc_cd = b.srvc_cd
+
+   AND #{svInstIO.instCd} = b.inst_cd
+
+
+
+   LEFT OUTER JOIN SV_INST_SRVC_RSTRCTN_D C
+
+    ON #{svInstIO.instCd} = C.inst_cd
+
+    AND a.srvc_cd = c.srvc_cd
+
+    AND #{svInstIO.aplyStartDt} between C.SRVC_RSTRCTN_START_dtm and C.SRVC_RSTRCTN_END_dtm
+
+
+
+ WHERE 1=1
+
+  AND a.aply_start_dt &lt;= #{svInstIO.aplyStartDt}
+
+    <if test="svInstIO.cmpntCd != null and svInstIO.cmpntCd != ''">
+
+       AND a.cmpnt_cd = #{svInstIO.cmpntCd}
+
+    </if>
+
+    <if test="svInstIO.srvcCd != null and svInstIO.srvcCd != ''">
+
+       AND a.srvc_cd like CONCAT(CONCAT('%', #{svInstIO.srvcCd}), '%')
+
+    </if>
+
+    <if test="svInstIO.srvcNm != null and svInstIO.srvcNm != ''">
+
+       AND EXISTS (
+
+       SELECT 1
+
+         FROM cm_mlt_lng_trnsltn_d c
+
+        WHERE c.trnsfr_knd_cd = 'SRVC_NAME' 
+          AND c.trnsfr_origin_key_val = a.srvc_cd
+
+          AND c.lng_cd = #{svInstIO.lngCd}
+
+          AND c.trnsfr_rslt_val LIKE CONCAT(CONCAT('%', #{svInstIO.srvcNm}), '%')
+
+          )
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd != null and svInstIO.srvcStsCd != ''">
+
+       AND a.SRVC_STS_CD = #{svInstIO.srvcStsCd}
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd == null or svInstIO.srvcStsCd == ''">
+
+       AND a.SRVC_STS_CD = '01'
+
+    </if>
+
+
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'Y'.toString())">
+
+       AND  b.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'N'.toString())">
+
+       AND  b.srvc_cd is null
+
+    </if>    
+
+
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'Y'.toString())">
+
+       AND  C.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'N'.toString())">
+
+       AND  C.srvc_cd is null
+
+    </if>   
+
+    <if test="svInstIO.srvcRstrctnCd != null and svInstIO.srvcRstrctnCd != ''">
+
+       AND  c.SRVC_RSTRCTN_CD in (#{svInstIO.srvcRstrctnCd})
+
+    </if>   
+
+GROUP BY a.cmpnt_cd, a.srvc_cd, a.srvc_nm, b.srvc_cd, b.last_chng_guid, b.aply_start_dt, a.SRVC_STS_CD, a.INP_DTO_NM, C.SRVC_CD    
+
+ORDER BY a.cmpnt_cd, a.srvc_cd  limit #{pgNbr}, #{pgCnt}
+</select>
+<select id="selectListAllSrvcByInstCdPgOracle" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMselectListAllSrvcByInstCdIO">
+SELECT * FROM 
+
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+
+        (
+
+
+
+/* #### Original SQL [[ ################# */
+
+SELECT #{svInstIO.instCd} as instCd
+
+     , a.cmpnt_cd as cmpntCd
+
+     , a.srvc_cd as srvcCd
+
+     , a.srvc_nm as srvcNm
+
+     ,  CASE WHEN b.srvc_cd IS NULL THEN 'N' ELSE 'Y' END as useYn
+
+     , NVL(b.last_chng_guid, ' ') as lastChngGuid
+
+     , NVL(b.aply_start_dt, ' ') as aplyStartDt
+
+     , a.SRVC_STS_CD as srvcStsCd
+
+     , a.INP_DTO_NM as inpDtoNm
+
+     , CASE WHEN C.SRVC_CD IS NULL THEN 'N' ELSE 'Y' END as txBlckngYn
+
+  FROM sv_srvc_m a LEFT OUTER JOIN sv_inst_srvc_m b
+
+    ON a.srvc_cd = b.srvc_cd
+
+   AND #{svInstIO.instCd} = b.inst_cd
+
+
+
+ LEFT OUTER JOIN SV_INST_SRVC_RSTRCTN_D C
+
+    ON #{svInstIO.instCd} = C.inst_cd
+
+    AND a.srvc_cd = c.srvc_cd
+
+    AND #{svInstIO.aplyStartDt} between C.SRVC_RSTRCTN_START_DTM and C.SRVC_RSTRCTN_END_DTM
+
+ WHERE 1=1
+
+   AND a.aply_start_dt &lt;= #{svInstIO.aplyStartDt}
+
+    <if test="svInstIO.cmpntCd != null and svInstIO.cmpntCd != ''">
+
+       AND a.cmpnt_cd = #{svInstIO.cmpntCd}
+
+    </if>
+
+    <if test="svInstIO.srvcCd != null and a.srvcCd != ''">
+
+       AND a.srvc_cd like   '%' ||#{svInstIO.srvcCd} || '%'
+
+
+    </if>
+
+    <if test="svInstIO.srvcNm != null and svInstIO.srvcNm != ''">
+
+       AND EXISTS (
+
+       SELECT 1
+
+         FROM cm_mlt_lng_trnsltn_d c
+
+        WHERE c.trnsfr_knd_cd = 'SRVC_NAME' 
+          AND c.trnsfr_origin_key_val = a.srvc_cd
+
+          AND c.lng_cd = #{svInstIO.lngCd}
+
+          AND c.trnsfr_rslt_val LIKE  '%' ||#{svInstIO.srvcNm} || '%'
+
+          ) 
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd != null and svInstIO.srvcStsCd != ''">
+
+       AND a.SRVC_STS_CD = #{svInstIO.srvcStsCd}
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd == null or svInstIO.srvcStsCd == ''">
+
+       AND a.SRVC_STS_CD = '01'
+
+    </if>
+
+
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'Y'.toString())">
+
+       AND  b.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'N'.toString())">
+
+       AND  b.srvc_cd is null
+
+    </if>    
+
+
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'Y'.toString())">
+
+       AND  C.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'N'.toString())">
+
+       AND  C.srvc_cd is null
+
+    </if>   
+
+GROUP BY a.cmpnt_cd, a.srvc_cd, a.srvc_nm, b.srvc_cd, b.last_chng_guid, b.aply_start_dt, a.SRVC_STS_CD, a.INP_DTO_NM, C.SRVC_CD    
+
+ORDER BY a.cmpnt_cd, a.srvc_cd
+
+
+
+/* #### Original SQL [[ ################# */
+
+
+
+    WHERE ROWNUM &lt;= #{pgNbr} + #{pgCnt}
+
+    ) 
+
+WHERE ROW__NUM &gt; #{pgNbr}
+</select>
+<select id="selectListAllSrvcByInstCdMysqlDistr" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMselectListAllSrvcByInstCdIO">
+SELECT #{svInstIO.instCd} as instCd
+
+     , a.cmpnt_cd as cmpntCd
+
+     , a.srvc_cd as srvcCd
+
+     , a.srvc_nm as srvcNm
+
+     , CASE WHEN b.srvc_cd IS NULL THEN 'N' ELSE 'Y' END as useYn
+
+     , IFNULL(b.last_chng_guid, ' ') as lastChngGuid
+
+     , IFNULL(b.aply_start_dt, ' ') as aplyStartDt
+
+     , a.SRVC_STS_CD as srvcStsCd
+
+     , a.INP_DTO_NM as inpDtoNm
+
+     , CASE WHEN C.SRVC_CD IS NULL THEN 'N' ELSE 'Y' END as txBlckngYn
+
+  FROM sv_srvc_m a 
+
+   LEFT OUTER JOIN sv_inst_srvc_m b
+
+    ON a.srvc_cd = b.srvc_cd
+
+   AND #{svInstIO.instCd} = b.inst_cd
+
+
+
+   LEFT OUTER JOIN SV_INST_SRVC_RSTRCTN_D C
+
+    ON #{svInstIO.instCd} = C.inst_cd
+
+    AND a.srvc_cd = c.srvc_cd
+
+       <if test="svInstIO.aplyStartDt != null and svInstIO.aplyStartDt != ''">
+
+    AND #{svInstIO.aplyStartDt} between C.SRVC_RSTRCTN_START_dtm and C.SRVC_RSTRCTN_END_dtm
+
+    </if>  
+
+
+
+
+
+ WHERE 1=1
+
+   <if test="svInstIO.aplyStartDt != null and svInstIO.aplyStartDt != ''">
+
+       AND a.aply_start_dt &lt;= #{svInstIO.aplyStartDt}
+
+    </if>
+
+    <if test="svInstIO.cmpntCd != null and svInstIO.cmpntCd != ''">
+
+       AND a.cmpnt_cd = #{svInstIO.cmpntCd}
+
+    </if>
+
+    <if test="svInstIO.srvcCd != null and svInstIO.srvcCd != ''">
+
+       AND a.srvc_cd like CONCAT(CONCAT('%', #{svInstIO.srvcCd}), '%')
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd != null and svInstIO.srvcStsCd != ''">
+
+       AND a.SRVC_STS_CD = #{svInstIO.srvcStsCd}
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd == null or svInstIO.srvcStsCd == ''">
+
+       AND a.SRVC_STS_CD = '01'
+
+    </if>
+
+
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'Y'.toString())">
+
+       AND  b.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'N'.toString())">
+
+       AND  b.srvc_cd is null
+
+    </if>    
+
+
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'Y'.toString())">
+
+       AND  C.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'N'.toString())">
+
+       AND  C.srvc_cd is null
+
+    </if>   
+
+    <if test="svInstIO.srvcRstrctnCd != null and svInstIO.srvcRstrctnCd != ''">
+
+       AND  c.SRVC_RSTRCTN_CD in (#{svInstIO.srvcRstrctnCd})
+
+    </if>   
+
+GROUP BY a.cmpnt_cd, a.srvc_cd, a.srvc_nm, b.srvc_cd, b.last_chng_guid, b.aply_start_dt, a.SRVC_STS_CD, a.INP_DTO_NM, C.SRVC_CD    
+
+ORDER BY a.cmpnt_cd, a.srvc_cd
+</select>
+<select id="selectListAllSrvcByInstCdOracleDistr" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMselectListAllSrvcByInstCdIO">
+SELECT #{svInstIO.instCd} as instCd
+
+     , a.cmpnt_cd as cmpntCd
+
+     , a.srvc_cd as srvcCd
+
+     , a.srvc_nm as srvcNm
+
+     ,  CASE WHEN b.srvc_cd IS NULL THEN 'N' ELSE 'Y' END as useYn
+
+     , NVL(b.last_chng_guid, ' ') as lastChngGuid
+
+     , NVL(b.aply_start_dt, ' ') as aplyStartDt
+
+     , a.SRVC_STS_CD as srvcStsCd
+
+     , a.INP_DTO_NM as inpDtoNm
+
+     , CASE WHEN C.SRVC_CD IS NULL THEN 'N' ELSE 'Y' END as txBlckngYn
+
+  FROM sv_srvc_m a LEFT OUTER JOIN sv_inst_srvc_m b
+
+    ON a.srvc_cd = b.srvc_cd
+
+   AND #{svInstIO.instCd} = b.inst_cd
+
+
+
+ LEFT OUTER JOIN SV_INST_SRVC_RSTRCTN_D C
+
+    ON #{svInstIO.instCd} = C.inst_cd
+
+    AND a.srvc_cd = c.srvc_cd
+
+      <if test="svInstIO.aplyStartDt != null and svInstIO.aplyStartDt != ''">
+
+    AND #{svInstIO.aplyStartDt} between C.SRVC_RSTRCTN_START_DTM and C.SRVC_RSTRCTN_END_DTM
+
+    </if>    
+
+ WHERE 1=1
+
+   <if test="svInstIO.aplyStartDt != null and svInstIO.aplyStartDt != ''">
+
+       AND a.aply_start_dt &lt;= #{svInstIO.aplyStartDt}
+
+    </if>
+
+    <if test="svInstIO.cmpntCd != null and svInstIO.cmpntCd != ''">
+
+       AND a.cmpnt_cd = #{svInstIO.cmpntCd}
+
+    </if>
+
+    <if test="svInstIO.srvcCd != null and svInstIO.srvcCd != ''">
+
+       AND a.srvc_cd like CONCAT(CONCAT('%', #{svInstIO.srvcCd}), '%')
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd != null and svInstIO.srvcStsCd != ''">
+
+       AND a.SRVC_STS_CD = #{svInstIO.srvcStsCd}
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd == null or svInstIO.srvcStsCd == ''">
+
+       AND a.SRVC_STS_CD = '01'
+
+    </if>
+
+
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'Y'.toString())">
+
+       AND  b.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'N'.toString())">
+
+       AND  b.srvc_cd is null
+
+    </if>    
+
+
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'Y'.toString())">
+
+       AND  C.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'N'.toString())">
+
+       AND  C.srvc_cd is null
+
+    </if>   
+
+GROUP BY a.cmpnt_cd, a.srvc_cd, a.srvc_nm, b.srvc_cd, b.last_chng_guid, b.aply_start_dt, a.SRVC_STS_CD, a.INP_DTO_NM, C.SRVC_CD    
+
+ORDER BY a.cmpnt_cd, a.srvc_cd
+</select>
+<select id="selectListAllSrvcByInstCdPgMysqlDistr" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMselectListAllSrvcByInstCdIO">
+SELECT #{svInstIO.instCd} as instCd
+
+     , a.cmpnt_cd as cmpntCd
+
+     , a.srvc_cd as srvcCd
+
+     , a.srvc_nm as srvcNm
+
+     , CASE WHEN b.srvc_cd IS NULL THEN 'N' ELSE 'Y' END as useYn
+
+     , IFNULL(b.last_chng_guid, ' ') as lastChngGuid
+
+     , IFNULL(b.aply_start_dt, ' ') as aplyStartDt
+
+     , a.SRVC_STS_CD as srvcStsCd
+
+     , a.INP_DTO_NM as inpDtoNm
+
+     , CASE WHEN C.SRVC_CD IS NULL THEN 'N' ELSE 'Y' END as txBlckngYn
+
+  FROM sv_srvc_m a 
+
+   LEFT OUTER JOIN sv_inst_srvc_m b
+
+    ON a.srvc_cd = b.srvc_cd
+
+   AND #{svInstIO.instCd} = b.inst_cd
+
+
+
+   LEFT OUTER JOIN SV_INST_SRVC_RSTRCTN_D C
+
+    ON #{svInstIO.instCd} = C.inst_cd
+
+    AND a.srvc_cd = c.srvc_cd
+
+    AND #{svInstIO.aplyStartDt} between C.SRVC_RSTRCTN_START_DTM and C.SRVC_RSTRCTN_END_DTM
+
+
+
+ WHERE 1=1
+
+  AND a.aply_start_dt &lt;= #{svInstIO.aplyStartDt}
+
+    <if test="svInstIO.cmpntCd != null and svInstIO.cmpntCd != ''">
+
+       AND a.cmpnt_cd = #{svInstIO.cmpntCd}
+
+    </if>
+
+    <if test="svInstIO.srvcCd != null and svInstIO.srvcCd != ''">
+
+            AND a.srvc_cd IN		
+			<foreach close=")" collection="svInstIO.tblNm" item="item" open="(" separator=",">		
+				#{item}		
+			</foreach>
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd != null and svInstIO.srvcStsCd != ''">
+
+       AND a.SRVC_STS_CD = #{svInstIO.srvcStsCd}
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd == null or svInstIO.srvcStsCd == ''">
+
+       AND a.SRVC_STS_CD = '01'
+
+    </if>
+
+
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'Y'.toString())">
+
+       AND  b.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'N'.toString())">
+
+       AND  b.srvc_cd is null
+
+    </if>    
+
+
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'Y'.toString())">
+
+       AND  C.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'N'.toString())">
+
+       AND  C.srvc_cd is null
+
+    </if>   
+
+    <if test="svInstIO.srvcRstrctnCd != null and svInstIO.srvcRstrctnCd != ''">
+
+       AND  c.SRVC_RSTRCTN_CD in (#{svInstIO.srvcRstrctnCd})
+
+    </if>   
+
+GROUP BY a.cmpnt_cd, a.srvc_cd, a.srvc_nm, b.srvc_cd, b.last_chng_guid, b.aply_start_dt, a.SRVC_STS_CD, a.INP_DTO_NM, C.SRVC_CD    
+
+ORDER BY a.cmpnt_cd, a.srvc_cd  limit #{pgNbr}, #{pgCnt}
+</select>
+<select id="selectListAllSrvcByInstCdPgOracleDistr" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMselectListAllSrvcByInstCdIO">
+SELECT * FROM 
+
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+
+        (
+
+
+
+/* #### Original SQL [[ ################# */
+
+SELECT #{svInstIO.instCd} as instCd
+
+     , a.cmpnt_cd as cmpntCd
+
+     , a.srvc_cd as srvcCd
+
+     , a.srvc_nm as srvcNm
+
+     ,  CASE WHEN b.srvc_cd IS NULL THEN 'N' ELSE 'Y' END as useYn
+
+     , NVL(b.last_chng_guid, ' ') as lastChngGuid
+
+     , NVL(b.aply_start_dt, ' ') as aplyStartDt
+
+     , a.SRVC_STS_CD as srvcStsCd
+
+     , a.INP_DTO_NM as inpDtoNm
+
+     , CASE WHEN C.SRVC_CD IS NULL THEN 'N' ELSE 'Y' END as txBlckngYn
+
+  FROM sv_srvc_m a LEFT OUTER JOIN sv_inst_srvc_m b
+
+    ON a.srvc_cd = b.srvc_cd
+
+   AND #{svInstIO.instCd} = b.inst_cd
+
+
+
+ LEFT OUTER JOIN SV_INST_SRVC_RSTRCTN_D C
+
+    ON #{svInstIO.instCd} = C.inst_cd
+
+    AND a.srvc_cd = c.srvc_cd
+
+    AND #{svInstIO.aplyStartDt} between C.SRVC_RSTRCTN_START_DTM and C.SRVC_RSTRCTN_END_DTM
+
+ WHERE 1=1
+
+   AND a.aply_start_dt &lt;= #{svInstIO.aplyStartDt}
+
+    <if test="svInstIO.cmpntCd != null and svInstIO.cmpntCd != ''">
+
+       AND a.cmpnt_cd = #{svInstIO.cmpntCd}
+
+    </if>
+
+    <if test="svInstIO.srvcCd != null and a.srvcCd != ''">
+            AND a.srvc_cd IN		
+			<foreach close=")" collection="svInstIO.tblNm" item="item" open="(" separator=",">		
+				#{item}		
+			</foreach>
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd != null and svInstIO.srvcStsCd != ''">
+
+       AND a.SRVC_STS_CD = #{svInstIO.srvcStsCd}
+
+    </if>
+
+    <if test="svInstIO.srvcStsCd == null or svInstIO.srvcStsCd == ''">
+
+       AND a.SRVC_STS_CD = '01'
+
+    </if>
+
+
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'Y'.toString())">
+
+       AND  b.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.useYn != null and (svInstIO.useYn eq 'N'.toString())">
+
+       AND  b.srvc_cd is null
+
+    </if>    
+
+
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'Y'.toString())">
+
+       AND  C.srvc_cd is not null
+
+    </if>
+
+    <if test="svInstIO.txBlckngYn != null and (svInstIO.txBlckngYn eq 'N'.toString())">
+
+       AND  C.srvc_cd is null
+
+    </if>   
+
+GROUP BY a.cmpnt_cd, a.srvc_cd, a.srvc_nm, b.srvc_cd, b.last_chng_guid, b.aply_start_dt, a.SRVC_STS_CD, a.INP_DTO_NM, C.SRVC_CD    
+
+ORDER BY a.cmpnt_cd, a.srvc_cd
+
+
+
+/* #### Original SQL [[ ################# */
+
+
+
+    WHERE ROWNUM &lt;= #{pgNbr} + #{pgCnt}
+
+    ) 
+
+WHERE ROW__NUM &gt; #{pgNbr}
+</select>
+<select id="selectExistTrnsfrRsltValBySrvcNm" resultType="java.lang.Integer">
+SELECT COUNT(1)
+  FROM cm_mlt_lng_trnsltn_d c
+  WHERE c.trnsfr_knd_cd = 'SRVC_NAME' 
+     AND c.trnsfr_origin_key_val = #{srvcCd}
+     AND c.lng_cd = #{lngCd}
+     AND c.trnsfr_rslt_val LIKE CONCAT(CONCAT('%', #{srvcNm}), '%')
+</select>
+<select id="selectListSrvcCdBySrvcNm" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMselectListAllSrvcByInstCdIO">
+SELECT TRNSFR_ORIGIN_KEY_VAL AS srvcCd
+  FROM cm_mlt_lng_trnsltn_d c
+  WHERE c.trnsfr_knd_cd = 'SRVC_NAME' 
+     AND c.lng_cd = #{lngCd}
+     AND c.trnsfr_rslt_val LIKE #{srvcNm}
+</select>
+<select id="selectListForSrvcPrflDistr" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMSelectListForSrvcPrfl" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+SELECT t2.srvc_cd           AS srvcCd
+
+     , t2.aply_start_dt     AS aplyStartDt
+
+     , t2.srvc_nm           AS srvcNm
+
+     , t2.srvc_ftr_cntnt    AS srvcFtrCntnt
+
+     , t2.cmpnt_cd          AS cmpntCd
+
+     , t2.srvc_class_nm     AS srvcClassNm
+     , t2.oprtn_nm          AS oprtnNm
+
+     , t2.inp_dto_nm        AS inpDtoNm
+
+     , t2.outp_dto_nm       AS outpDtoNm
+
+     , t2.last_chng_tmstmp  AS lastChngTmstmp
+
+     , t2.last_chng_guid    AS lastChngGuid
+
+  FROM sv_inst_srvc_m t1
+
+     , sv_srvc_m      t2
+
+ WHERE 1=1     
+
+   AND t1.srvc_cd = t2.srvc_cd
+
+   AND t1.inst_cd = #{instCd}
+
+   AND t1.aply_start_dt &lt;= #{aplyStartDt}
+
+   AND t2.aply_start_dt &lt;= #{aplyStartDt}
+
+<if test="srvcStsCd != null and srvcStsCd != ''">
+
+   AND t2.srvc_sts_cd = #{srvcStsCd}
+
+</if>
+
+<if test="cmpntCd != null and cmpntCd != ''">
+
+   AND t2.cmpnt_cd = #{cmpntCd}
+
+</if>
+
+<if test="srvcCd != null and srvcCd != ''">
+
+   AND t2.srvc_cd LIKE CONCAT(CONCAT('%', #{srvcCd}), '%')
+
+</if>
+
+<if test="srvcPrflAtrbtNm != '' or srvcPrflCntnt != ''">
+
+   AND EXISTS (
+
+SELECT 1
+
+  FROM sv_srvc_prfl_d t3
+
+     , sv_inst_srvc_prfl_d t4
+
+ WHERE 1=1     
+
+   AND t3.srvc_cd            = t4.srvc_cd
+
+   AND t3.srvc_prfl_atrbt_nm = t4.srvc_prfl_atrbt_nm
+
+   AND t4.inst_cd            = t1.inst_cd
+
+   AND t4.srvc_cd            = t1.srvc_cd
+
+<if test="srvcPrflAtrbtNm != null and srvcPrflAtrbtNm != ''">
+
+   AND t3.srvc_prfl_atrbt_nm LIKE CONCAT(CONCAT('%', #{srvcPrflAtrbtNm}), '%')
+
+</if>
+
+<if test="srvcPrflCntnt != null and srvcPrflCntnt != ''">
+
+   AND t3.srvc_prfl_cntnt LIKE CONCAT(CONCAT('%', #{srvcPrflCntnt}), '%')
+
+</if>
+
+UNION ALL
+
+SELECT 1
+
+  FROM sv_srvc_prfl_d t3
+
+ WHERE 1=1     
+
+   AND t3.srvc_cd = t1.srvc_cd
+
+<if test="srvcPrflAtrbtNm != null and srvcPrflAtrbtNm != ''">
+
+   AND t3.srvc_prfl_atrbt_nm LIKE CONCAT(CONCAT('%', #{srvcPrflAtrbtNm}), '%')
+
+</if>
+
+<if test="srvcPrflCntnt != null and srvcPrflCntnt != ''">
+
+   AND t3.srvc_prfl_cntnt LIKE CONCAT(CONCAT('%', #{srvcPrflCntnt}), '%')
+
+</if>
+
+   AND NOT EXISTS (
+
+SELECT 1
+
+  FROM sv_inst_srvc_prfl_d t4
+
+ WHERE t3.srvc_cd = t4.srvc_cd   
+
+   AND t3.srvc_prfl_atrbt_nm = t4.srvc_prfl_atrbt_nm
+
+)
+
+)
+
+</if>
+
+ORDER BY t2.srvc_cd
+</select>
+<select id="selectListSrvcInfoDistr" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO">
+<if test="instCd != null and instCd != ''">
+
+  	  SELECT  
+
+	      srvc.srvc_cd AS srvcCd
+
+	     ,  srvc.srvc_nm AS srvcNm
+
+	     ,  srvc.cmpnt_cd AS cmpntCd
+
+    FROM sv_srvc_m srvc
+
+    WHERE ( srvc.srvc_cd like #{srchBaseCntnt}
+    			OR srvc.srvc_nm like #{srchBaseCntnt}
+    		   )     
+     GROUP BY srvc.srvc_cd 
+
+</if>
+
+<if test="instCd == null or instCd == ''">
+
+  SELECT  
+	     srvc.srvc_cd AS srvcCd
+	     ,  srvcM.cmpnt_cd AS cmpntCd
+
+	  FROM  sv_inst_srvc_m srvc
+	  LEFT OUTER JOIN sv_srvc_m srvcM
+	    ON srvc.srvc_cd = srvcM.srvc_cd
+    WHERE ( srvc.srvc_cd like #{srchBaseCntnt}
+    			OR srvcM.srvc_nm like #{srchBaseCntnt}
+    		   )     
+	    GROUP BY srvc.srvc_cd 
+</if>
+</select>
+<select id="selectSrvcNmByTrnsfrRsltVal" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO">
+SELECT  
+   mlt.trnsfr_rslt_val AS srvcNm
+ FROM cm_mlt_lng_trnsltn_d mlt
+WHERE mlt.trnsfr_knd_cd = 'SRVC_NAME' 
+
+   AND  ( mlt.trnsfr_origin_key_val like  concat( #{srchBaseCntnt}, '%' )  OR 
+    		           mlt.trnsfr_rslt_val like  concat( #{srchBaseCntnt}, '%' )
+    		) 
+   AND mlt.lng_cd =#{lngCd}
+   AND  mlt.trnsfr_origin_key_val = #{srvcCd}
+</select>
+<select id="selectListSrvcInfoMySql" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO">
+<if test="instCd != null and instCd != ''">
+  	  SELECT  
+	      srvc.srvc_cd AS srvcCd
+	     ,  srvc.srvc_nm AS srvcNm
+	     ,  srvc.cmpnt_cd AS cmpntCd
+	     ,  srvc.srvc_sts_cd AS srvcStsCd
+    FROM sv_srvc_m srvc
+    WHERE ( srvc.srvc_cd like concat(concat('%',#{srchBaseCntnt}),'%')  
+    			OR srvc.srvc_nm like concat(concat('%',#{srchBaseCntnt}),'%')
+    		   ) 
+     GROUP BY srvc.srvc_cd , srvc.srvc_nm ,srvc.cmpnt_cd 
+</if>
+ 
+<if test="instCd == null or instCd == ''">
+      	  SELECT  
+	     srvc.srvc_cd AS srvcCd
+	     ,  mlt.trnsfr_rslt_val AS srvcNm
+	     ,  srvcM.cmpnt_cd AS cmpntCd
+	     ,  srvcM.srvc_sts_cd AS srvcStsCd
+	  FROM  sv_inst_srvc_m srvc
+	  LEFT OUTER JOIN cm_mlt_lng_trnsltn_d mlt
+	    ON srvc.srvc_cd = mlt.trnsfr_origin_key_val
+	   AND mlt.trnsfr_knd_cd = 'SRVC_NAME' 
+	  LEFT OUTER JOIN sv_srvc_m srvcM
+	    ON srvc.srvc_cd = srvcM.srvc_cd
+    WHERE ( mlt.trnsfr_origin_key_val  =#{srchBaseCntnt}
+    			OR trnsfr_rslt_val like concat(concat('%',#{srchBaseCntnt}),'%')
+    		   ) 
+	   AND mlt.lng_cd =#{lngCd}
+	    GROUP BY srvc.srvc_cd ,mlt.trnsfr_rslt_val,srvcM.cmpnt_cd
+</if>
+</select>
+<select id="selectListSrvcInfoOracle" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO">
+<if test="instCd != null and instCd != ''">
+    SELECT  
+	       srvc.srvc_cd AS srvcCd
+	     , srvc.srvc_nm AS srvcNm
+	     , srvc.cmpnt_cd AS cmpntCd
+	     , srvc.srvc_sts_cd AS srvcStsCd
+    FROM sv_srvc_m srvc
+    WHERE ( srvc.srvc_cd like #{srchBaseCntnt}  OR srvc.srvc_nm like #{srchBaseCntnt} ) 
+    GROUP BY srvc.srvc_cd, srvc.srvc_nm, srvc.cmpnt_cd, srvc.srvc_sts_cd
+</if>
+
+<if test="instCd == null or instCd == ''">
+    SELECT  
+	       srvc.srvc_cd AS srvcCd
+	     , mlt.trnsfr_rslt_val AS srvcNm
+	     , srvcM.cmpnt_cd AS cmpntCd
+	     , srvcM.srvc_sts_cd AS srvcStsCd
+	  FROM  sv_inst_srvc_m srvc
+	  LEFT OUTER JOIN cm_mlt_lng_trnsltn_d mlt
+	          ON srvc.srvc_cd = mlt.trnsfr_origin_key_val
+	         AND mlt.trnsfr_knd_cd = 'SRVC_NAME' 
+	  LEFT OUTER JOIN sv_srvc_m srvcM
+	          ON srvc.srvc_cd = srvcM.srvc_cd
+	 WHERE (mlt.trnsfr_origin_key_val like '%' || #{srchBaseCntnt} || '%'
+ 		    OR trnsfr_rslt_val like '%' || #{srchBaseCntnt} || '%') 
+	   AND mlt.lng_cd =#{lngCd}
+     GROUP BY srvc.srvc_cd, mlt.trnsfr_rslt_val, srvcM.cmpnt_cd, srvcM.srvc_sts_cd
+</if>
+</select>
+<select id="selectListByInstCdAndBaseDt" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO">
+SELECT  /* 서비스기본 */
+
+        t1.srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        t1.aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        t1.srvc_nm AS srvcNm    /*서비스명*/, 
+
+        t1.srvc_ftr_cntnt AS srvcFtrCntnt    /*서비스특성내용*/, 
+
+        t1.cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        t1.srvc_class_nm AS srvcClassNm    /*서비스클래스명*/, 
+        t1.oprtn_nm AS oprtnNm    /*오퍼레이션명*/, 
+
+        t1.inp_dto_nm AS inpDtoNm    /*입력DTO명*/, 
+
+        t1.outp_dto_nm AS outpDtoNm    /*출력DTO명*/, 
+
+        t2.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        t2.last_chng_guid AS lastChngGuid    /*최종변경GUID*/,
+
+        t2.inst_cd AS instCd /*기관코드*/
+
+  FROM  sv_srvc_m t1
+
+     ,  sv_inst_srvc_m t2
+
+ WHERE  t1.srvc_cd = t2.srvc_cd
+
+   AND  t1.srvc_sts_cd = '01'
+
+   AND  t1.aply_start_dt &lt;= #{baseDt}
+
+   AND  t2.inst_cd = #{instCd}
+
+   AND  t2.aply_start_dt &lt;= #{baseDt}
+
+ORDER BY t1.cmpnt_cd , t1.srvc_cd
+</select>
+<select id="selectListByInstCd" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcMIO">
+SELECT  /* 기관별서비스기본 */
+        inst_cd AS instCd    /*기관코드*/, 
+        srvc_cd AS srvcCd    /*서비스코드*/, 
+        aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM  sv_inst_srvc_m
+ WHERE  inst_cd = #{instCd}
+</select>
+</mapper>

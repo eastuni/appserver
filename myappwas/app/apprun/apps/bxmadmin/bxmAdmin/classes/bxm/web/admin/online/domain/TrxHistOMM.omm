@@ -1,0 +1,46 @@
+OMM bxm.web.admin.online.domain.TrxHistOMM
+<description="">
+{
+	String domainId<length=14 description="도메인ID">;
+	String bxmAppId<length=32 description="BXM어플리케이션ID">;
+	String svcNm<length=512 description="서비스명">;
+	String opNm<length=512 description="오퍼레이션명">;
+	String modifyOccurDttm<length=23 description="변경 발생 일시">;
+	String modifyTypeCd<length=1 description="변경구분코드">;
+	String trxCd<length=12 description="거래코드">;
+	String trxNm<length=256 description="거래명">;
+	String frcdTranYn<length=1 description="강제트랜잭션여부">;
+	BigDecimal frcdTimeoutMills<length=22 description="강제타임아웃밀리초">;
+	Integer outputMsgMaxLen<length=8 description="출력전문최대길이">;
+	String logLvNm<length=10 description="로그레벨명">;
+	String logfTypeCd<length=1 description="로그강제변경타입코드">;
+	String logfLogLvNm<length=10 description="로그강제변경로그레벨명">;
+	String logfIp<length=30 description="로그강제변경IP">;
+	String logfBranchNo<length=4 description="로그강제변경지점번호">;
+	String logfTerminalNo<length=4 description="로그강제변경단말번호">;
+	String daySuspStartTime<length=6 description="일별 중단시작시간">;
+	String daySuspEndTime<length=6 description="일별 중단종료시간">;
+	String trxCtrlCd<length=1 description="거래제어코드">;
+	String trxCtrlStartDttm<length=14 description="거래제어시작일시">;
+	String trxCtrlEndDttm<length=14 description="거래 제어 종료 일시">;
+	String chlCtrlListTypeCd<length=1 description="채널 제어목록 구분코드">;
+	String chlCtrlList<length=1024 description="채널 제어목록">;
+	String branchCtrlListTypeCd<length=1 description="지점 제어목록 구분코드">;
+	String branchCtrlList<length=1024 description="지점 제어목록">;
+	String userCtrlListTypeCd<length=1 description="조작자 제어목록 구분코드">;
+	String userCtrlList<length=1024 description="조작자 제어목록">;
+	String hdayTrxUseYn<length=1 description="휴일거래허용여부">;
+	String edayTrxUseYn<length=1 description="마감후 거래허용여부">;
+	String linkTrxUseYn<length=1 description="연동거래허용여부">;
+	String dtchgCtrlSkipYn<length=1 description="일자변경제어SKIP여부">;
+	String imgLogSkipYn<length=1 description="이미지로그SKIP여부">;
+	String trxLogSkipYn<length=1 description="거래로그SKIP여부">;
+	String regUserId<length=32 description="등록 사용자 ID">;
+	String regOccurDttm<length=23 description="등록 발생 일시">;
+	String modifyUserId<length=32 description="변경 사용자 ID">;
+	String ipCtrlListTypeCd<length=1 description="IP 제어목록 구분코드">;
+	String ipCtrlList<length=1024 description="IP 제어목록">;
+	String bizLogTrxTypeCd<length=20 description="업무로그거래유형코드">;
+	String linkTrxTypeCd<length=20 description="연동거래구분코드">;
+	String linkCtrlFqn<length=1024 description="연동제어FQN">;
+}

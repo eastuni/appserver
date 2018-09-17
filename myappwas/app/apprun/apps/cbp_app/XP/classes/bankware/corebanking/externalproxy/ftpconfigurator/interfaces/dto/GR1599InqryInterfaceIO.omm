@@ -1,0 +1,17 @@
+OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.GR1599InqryInterfaceIO
+<description="">
+{
+	String instCd<length=14 description="기관코드">;
+	String txYm<length=6 description="거래년월">;
+	String seqNbr<length=20 description="일련번호">;
+	String baseDt<length=8 description="기준일자">;
+	String fnclInstBizBrnchCd<length=7 description="금융기관영업은행지점코드">;
+	String useInstClCd<length=2 description="이용기관분류코드">;
+	String useInstSeqNbr<length=7 description="이용기관구분번호">;
+	String acctNbr<length=24 description="계좌번호">;
+	String useInstNm<length=100 description="이용기관명">;
+	String rprsntnBzmanNm<length=100 description="대표자명">;
+	String aprvDt<length=8 description="승인일자">;
+	Integer mnthUseCnt<length=7 description="월이용건수">;
+	BigDecimal mnthUseAmt<length=21 decimal=2 description="월이용금액">;
+}

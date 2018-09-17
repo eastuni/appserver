@@ -1,0 +1,7 @@
+OMM bxm.web.admin.dni.operation.domain.ColumnOMM
+<description="">
+{
+	String columnNm<length=100 description="컬럼 명">;
+	String comments<length=512 description="커맨드">;
+	Boolean isUsed<length=20 description="사용 여부">;
+}

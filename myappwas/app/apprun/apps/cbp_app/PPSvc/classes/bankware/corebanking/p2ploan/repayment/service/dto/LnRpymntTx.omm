@@ -1,0 +1,14 @@
+OMM bankware.corebanking.p2ploan.repayment.service.dto.LnRpymntTx extends bankware.corebanking.dto.CbbIOmmObject
+<description="Loan Repayment Transaction">
+{
+	String arrId<length=20 description="계약식별자">;
+	Integer rpymntCyclNbr<length=5 description="상환회차번호">;
+	String rpymntSchdldDt<length=8 description="상환예정일">;
+	BigDecimal rpymntAmt<length=18 decimal=2 description="상환금액">;
+	BigDecimal rpymntPrncpl<length=18 decimal=2 description="상환원금금액">;
+	BigDecimal intAmt<length=18 decimal=2 description="이자금액">;
+	BigDecimal totOvrduIntAmt<length=18 decimal=2 description="총연체이자금액">;
+	BigDecimal totPrncplOvrduIntAmt<length=18 decimal=2 description="총원금연체이자">;
+	BigDecimal totIntOvrduIntAmt<length=18 decimal=2 description="총이자연체이자">;
+	BigDecimal erlyTrmntnFeeAmt<length=18 decimal=2 description="조기상환수수료">;
+}

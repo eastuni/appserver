@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+         http://www.es-code.com/schema/batchex http://www.es-code.com/schema/batchex/spring-batch-ex-2.1.xsd
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+    <import resource="classpath:JobConfig.xml"/>
+ 
+	<!--
+	 *	작업명 : SCF 결제 센터컷 처리
+	 *	설명   : SCF 매매내역 결제 대상을 추출하여 결제를 처리하는 작업 
+	-->
+    <job id="ScfPaymentCcutJob" parent="parentJob" xmlns="http://www.es-code.com/schema/batchex">
+		<!--
+		 *	스텝명 : SCF 결제 센터컷 처리대상 추출
+		 *	설명   : SCF 결제 센터컷 처리대상을 조회하여 결과파일 생성
+		-->
+        <step id="ScfPaymentCcutJob_Step01" parent="parentStep" next="ScfPaymentCcutJob_Step02">
+            <tasklet tm-datasource="BXM">
+                <chunk commit-interval="10" reader="ScfPaymentCcutTrgtReader" processor="ScfPaymentCcutTrgtProcessor" writer="ScfPaymentCcutTrgtWriter"/>
+            </tasklet>
+        </step>
+
+		<!--
+		 *	스텝명 : SCF 결제 센터컷 처리
+		 *	설명   : STEP01에서 생성한 결과파일을 읽어서 센터컷 등록
+		-->
+        <step id="ScfPaymentCcutJob_Step02" parent="parentStep">
+            <tasklet tm-datasource="BXM">
+                <chunk commit-interval="10" reader="ScfPaymentCcutReader" processor="ScfPaymentCcutProcessor"/>
+            </tasklet>
+        </step>
+    </job>
+    
+    <bean id="ScfPaymentCcutTrgtWriter" parent="WDelimited" scope="step">
+        <property name="name" value="ScfPaymentCcutTrgtWriter" />
+        <property name="resource" value="file://#{jobExecutionContext[outputFileTrgtNrml]}" />
+        <property name="encoding" value="UTF-8" />
+        <property name="lineAggregator">
+            <bean class="bxm.batch.item.file.transform.LineOmmAggregator">
+                <property name="encoding" value="UTF-8" />
+                <property name="delimiter" value="," />
+                <property name="targetType" value="bankware.corebanking.supplychain.financialtransaction.batch.dto.ScfPaymentCcutTrgtIO" />
+            </bean>
+        </property>
+    </bean>
+    
+    <bean id="ScfPaymentCcutReader" parent="RDelimited" scope="step">
+    	<property name="name" value="ScfPaymentCcutReader"/>
+    	<property name="resource" value="file://#{jobExecutionContext[outputFileTrgtNrml]}"/>
+    	<property name="encoding" value="UTF-8"/>
+    	<property name="lineMapper">
+    		<bean class="bxm.batch.item.file.mapping.LineOmmMapper">
+    			<property name="encoding" value="UTF-8"/>
+    			<property name="delimiter" value=","/>
+    			<property name="targetType" value="bankware.corebanking.supplychain.financialtransaction.batch.dto.ScfPaymentCcutTrgtIO"/>
+    		</bean>
+    	</property>
+    </bean>
+</beans>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.extrnlInstInfo.dao.ExtrnlInstBizInfoDbio">
+<!--Generated Tue Dec 27 15:15:51 KST 2016-->
+<select id="selectExtrnlInstBizInfo" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstBizInfoIFIn" resultType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstBizInfoIFOutSub">
+SELECT    /* 대외기관별업무기본 */
+        A.EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        A.EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        A.STS_CD AS stsCd,     /*상태코드*/
+        A.APLY_START_DT AS aplyStartDt,     /*적용시작년월일*/
+        A.EXTRNL_BIZ_NM AS extrnlBizNm,     /*대외업무명*/
+        A.DEPT_NM AS deptNm,     /*부서명*/
+        A.RSPBL_PERSON_NM AS rspblPersonNm1,     /*담당자명*/
+        A.MOBILE_TEL_NBR AS mobileTelNbr,     /*휴대전화번호*/
+        A.TEL_NBR AS telNbr1,    /*전화번호*/
+        B.TIMEOUT_SRVC_CD AS timeoutSrvcCd,
+        B.EXTRNL_INCMPLT_SRVC_CD as extrnlIncmpltSrvcCd,
+        B.CORE_INCMPLT_SRVC_CD as coreIncmpltSrvcCd
+  FROM  XP_EXTRNL_INST_BIZ_M A LEFT OUTER JOIN XP_INST_EXTRNL_BIZ_M B ON A.EXTRNL_INST_CD = B.EXTRNL_INST_CD AND A.EXTRNL_BIZ_Dscd = B.EXTRNL_BIZ_Dscd
+ WHERE A.EXTRNL_INST_CD = #{extrnlInstCd}
+       AND A.EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+</select>
+<insert id="insertExtrnlInstBizInfo" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstBizInfoIFIn">
+INSERT  
+  INTO  XP_EXTRNL_INST_BIZ_M    /* 대외기관별업무기본 */
+(
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드*/
+  STS_CD,     /*상태코드*/
+  APLY_START_DT,     /*적용시작년월일*/
+  EXTRNL_BIZ_NM,     /*대외업무명*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID,     /*최종변경GUID*/
+  DEPT_NM,     /*부서명*/
+  RSPBL_PERSON_NM,     /*담당자명*/
+  MOBILE_TEL_NBR,     /*휴대전화번호*/
+  TEL_NBR    /*전화번호*/
+)
+VALUES 
+(
+  #{extrnlInstCd},     /*대외기관코드*/
+  #{extrnlBizDscd},     /*대외업무구분코드*/
+  #{stsCd},     /*상태코드*/
+  #{aplyStartDt},     /*적용시작년월일*/
+  #{extrnlBizNm},     /*대외업무명*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid},     /*최종변경GUID*/
+  #{deptNm},     /*부서명*/
+  #{rspblPersonNm1},     /*담당자명*/
+  #{mobileTelNbr},     /*휴대전화번호*/
+  #{telNbr1}    /*전화번호*/
+)
+</insert>
+<update id="updateExtrnlInstBizInfo" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstBizInfoIFIn">
+UPDATE  
+        XP_EXTRNL_INST_BIZ_M    /* 대외기관별업무기본 */
+   SET  STS_CD = #{stsCd}    /* 상태코드 */
+     , APLY_START_DT = #{aplyStartDt}    /* 적용시작년월일 */
+     , EXTRNL_BIZ_NM = #{extrnlBizNm}    /* 대외업무명 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+     , DEPT_NM = #{deptNm}    /* 부서명 */
+     , RSPBL_PERSON_NM = #{rspblPersonNm1}    /* 담당자명 */
+     , MOBILE_TEL_NBR = #{mobileTelNbr}    /* 휴대전화번호 */
+     , TEL_NBR = #{telNbr1}    /* 전화번호 */
+ WHERE EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+</update>
+<select id="selectExtrnlInstBizInfoList" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstBizInfoIFIn" resultType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstBizInfoIFOutSub">
+SELECT 						A.extrnlInstCd,     /*대외기관코드*/
+						        A.extrnlBizDscd,     /*대외업무구분코드*/
+						        A.stsCd,     /*상태코드*/
+						        A.aplyStartDt,     /*적용시작년월일*/
+						        A.extrnlBizNm,     /*대외업무명*/
+						        A.deptNm,     /*부서명*/
+						        A.rspblPersonNm1,     /*담당자명*/
+						        A.mobileTelNbr,     /*휴대전화번호*/
+						        A.telNbr1,    /*전화번호*/
+						        A.timeoutSrvcCd,
+						        A.extrnlIncmpltSrvcCd,
+						        A.coreIncmpltSrvcCd
+FROM 
+    ( 
+    	SELECT 				ROWNUM AS ROW__NUM,
+    							A.extrnlInstCd,     /*대외기관코드*/
+						        A.extrnlBizDscd,     /*대외업무구분코드*/
+						        A.stsCd,     /*상태코드*/
+						        A.aplyStartDt,     /*적용시작년월일*/
+						        A.extrnlBizNm,     /*대외업무명*/
+						        A.deptNm,     /*부서명*/
+						        A.rspblPersonNm1,     /*담당자명*/
+						        A.mobileTelNbr,     /*휴대전화번호*/
+						        A.telNbr1,    /*전화번호*/
+						        A.timeoutSrvcCd,
+						        A.extrnlIncmpltSrvcCd,
+						        A.coreIncmpltSrvcCd
+    	FROM   (
+        
+						SELECT    /* 대외기관별업무기본 */
+						        A.EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+						        A.EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+						        A.STS_CD AS stsCd,     /*상태코드*/
+						        A.APLY_START_DT AS aplyStartDt,     /*적용시작년월일*/
+						        A.EXTRNL_BIZ_NM AS extrnlBizNm,     /*대외업무명*/
+						        A.DEPT_NM AS deptNm,     /*부서명*/
+						        A.RSPBL_PERSON_NM AS rspblPersonNm1,     /*담당자명*/
+						        A.MOBILE_TEL_NBR AS mobileTelNbr,     /*휴대전화번호*/
+						        A.TEL_NBR AS telNbr1,    /*전화번호*/
+						        B.TIMEOUT_SRVC_CD AS timeoutSrvcCd,
+						        B.EXTRNL_INCMPLT_SRVC_CD as extrnlIncmpltSrvcCd,
+						        B.CORE_INCMPLT_SRVC_CD as coreIncmpltSrvcCd
+						  FROM  XP_EXTRNL_INST_BIZ_M A LEFT OUTER JOIN XP_INST_EXTRNL_BIZ_M B ON A.EXTRNL_INST_CD = B.EXTRNL_INST_CD AND A.EXTRNL_BIZ_Dscd = B.EXTRNL_BIZ_Dscd
+						 WHERE A.EXTRNL_INST_CD = #{extrnlInstCd}
+   
+                    ) A 
+		WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) A
+WHERE A.ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<delete id="deleteExtrnlInstBizInfo" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstBizInfoIFIn">
+DELETE  FROM  XP_EXTRNL_INST_BIZ_M    /* 대외기관별업무기본 */
+ WHERE  EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+</delete>
+<select id="selectExtrnlInstBizInfoTotCnt" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstBizInfoIFIn" resultType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstBizInfoIFOut">
+SELECT    count(1) as totCnt
+  FROM  XP_EXTRNL_INST_BIZ_M
+ WHERE EXTRNL_INST_CD = #{extrnlInstCd}
+</select>
+</mapper>

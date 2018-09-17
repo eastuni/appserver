@@ -1,0 +1,30 @@
+OMM bankware.corebanking.systemcommon.deferred.dao.dto.BxmDeferredMainIO
+<description="후행 MAIN DBIO IO">
+{
+	String deferredId<length=20 description="후행ID">;
+	String trxCd<length=12 description="거래코드">;
+	String bxmAppId<length=40 description="BXM어플리케이션ID">;
+	String svcNm<length=512 description="서비스명">;
+	String opNm<length=512 description="오퍼레이션명">;
+	String deferredNm<length=100 description="후행명">;
+	String useYn<length=1 description="사용여부">;
+	String errStopYn<length=1 description="에러중지여부">;
+	String errSkipYn<length=1 description="에러SKIP여부">;
+	String nodeExecYn<length=1 description="노드별실행여부">;
+	String startTypeCd<length=1 description="시작유형코드">;
+	String svcProcCd<length=1 description="서비스처리코드">;
+	String deferredTranCd<length=1 description="후행트랜잭션코드">;
+	Integer execIntervalSec<length=8 description="실행주기초">;
+	Integer delayIntervalSec<length=8 description="지연주기초">;
+	Integer fetchCnt<length=5 description="FETCH건수">;
+	Long parllExecCnt<length=10 description="병렬실행수">;
+	String targetTableNm<length=100 description="대상테이블명">;
+	String dayTableYn<length=1 description="일별테이블여부">;
+	String targetColumnNm<length=100 description="대상컬럼명">;
+	String tableReaderBeanNm<length=100 description="테이블리더빈명">;
+	String tableNumberingUseYn<length=1 description="테이블채번사용여부">;
+	String tableNumberingBeanNm<length=100 description="테이블채번빈명">;
+	String orgCd<length=15 description="기관코드">;
+	String modifyUserId<length=32 description="변경사용자ID">;
+	String modifyOccurDttm<length=23 description="변경발생일시">;
+}

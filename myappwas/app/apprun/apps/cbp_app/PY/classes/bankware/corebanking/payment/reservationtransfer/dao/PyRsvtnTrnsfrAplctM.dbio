@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.payment.reservationtransfer.dao.PyRsvtnTrnsfrAplctM">
+<!--Generated Tue Dec 06 13:19:01 KST 2016-->
+<insert id="insertCntrCtAplctM" parameterType="bankware.corebanking.payment.reservationtransfer.dao.dto.PyRsvtnTrnsfrAplctMIO">
+INSERT  
+  INTO  py_rsvtn_trnsfr_aplct_m    /* Kor) 예약이체의 정보 기본 Eng) Reservation Transfer Information Maste */
+(
+  INST_CD,     /*기관코드*/
+  TRNSFR_BIZ_KND_CD,     /*이체업무종류코드*/
+  DPST_ACCT,     /*입금계좌번호*/
+  AUTO_TRNSFR_WHDRWL_ACCT,     /*자동이체출금계좌번호*/
+  TRNSFR_APLCTN_SEQ_NBR,     /*이체신청일련번호*/
+  TRNSFR_APLCTN_KND_CD,     /*이체신청구분코드*/
+  TRNSFR_STS_CD,     /*이체상태코드*/
+  CUST_ARR_ID,     /*고객계약식별자*/
+  BNK_CD,     /*은행코드*/
+  TRNSFR_AMT,     /*이체금액*/
+  TRNSFR_FEE_AMT,     /*이체수수료*/
+  EXMPTN_AMT,     /*면제금액*/
+  APLY_FEE,     /*적용수수료*/
+  TRNSFR_REGT_MEDIA_CD,     /*이체등록매체코드*/
+  TX_DT,     /*거래년월일*/
+  TX_HMS,     /*거래시각*/
+  TX_BRNCH_CD,     /*거래부점코드*/
+  TX_TRMNL_NBR,     /*거래단말번호*/
+  OPRTR_NBR,     /*조작자번호*/
+  ELCTRNC_FNCL_MGMT_USER_ID,     /*E금융관리사용자ID*/
+  RGSTRN_DT,     /*등록년월일*/
+  RGSTRN_HMS,     /*등록시각*/
+  RGSTRN_BRNCH_CD,     /*등록부점코드*/
+  RGSTRN_TRMNL_NBR,     /*등록단말번호*/
+  RGSTRN_EMPL_NBR,     /*등록직원번호*/
+  ELCTRNC_BANKING_KND_CD,     /*E뱅킹구분코드*/
+  ELCTRNC_FNCL_USER_ID,     /*E금융사용자ID*/
+  ELCTRNC_FNCL_ASSET_CNTNT,     /*E금융자금내용*/
+  TEL_NBR,     /*연락처전화번호*/
+  RMTNC_SCHDLD_HMS,     /*송금예정시각*/
+  TRNSFR_MSG_CNTNT,     /*이체메시지내용*/
+  WHDRWL_RMK_CNTNT,     /*출금통장인자내용*/
+  DPST_RMK_CNTNT,     /*입금통장인자내용*/
+  WHDRWL_ACCT,     /*제2출금계좌번호*/
+  DPST_ACCT_OWNR,     /*입금계좌예금주명*/
+  CC_ID,     /*센터컷처리식별자*/
+  STS_CHNG_DT,     /*변경년월일*/
+  STS_CHNG_HMS,     /*변경시각*/
+  STS_CHNG_BRNCH_CODE,     /*변경부점코드*/
+  STS_CHNG_TRMNL_NBR,     /*변경단말번호*/
+  STATUS_CHNG_STAFF_ID,     /*변경직원번호*/
+  RQST_CHNL_DSCD,     /*요청채널유형구분코드*/
+  TRMNTN_DSBRSMNT_TRNSFR_APLCTN_DSCD,     /*해지지급이체신청구분코드*/
+  TRMNTN_DSCD,     /*해지구분코드*/
+  TRNSFR_PRCSNG_ECLUD_YN,     /*이체처리제외여부*/
+  ORGNL_STD_MSG_GUID,     /*원표준전문GUID*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{trnsfrBizKndCd},     /*이체업무종류코드*/
+  #{dpstAcctNbr},     /*입금계좌번호*/
+  #{autoTrnsfrWhdrwlAcct},     /*자동이체출금계좌번호*/
+  #{trnsfrAplctnSeqNbr},     /*이체신청일련번호*/
+  #{trnsfrAplctnKndCd},     /*이체신청구분코드*/
+  #{trnsfrStsCd},     /*이체상태코드*/
+  #{custArrId},     /*고객계약식별자*/
+  #{bnkCd},     /*은행코드*/
+  #{trnsfrAmt},     /*이체금액*/
+  #{trnsfrFeeAmt},     /*이체수수료*/
+  #{exmptnAmt},     /*면제금액*/
+  #{aplyFee},     /*적용수수료*/
+  #{trnsfrRegtMediaCd},     /*이체등록매체코드*/
+  #{txDt},     /*거래년월일*/
+  #{txHms},     /*거래시각*/
+  #{txBrnchCd},     /*거래부점코드*/
+  #{txTrmnlNbr},     /*거래단말번호*/
+  #{oprtrNbr},     /*조작자번호*/
+  #{elctrncFnclMgmtUserId},     /*E금융관리사용자ID*/
+  #{rgstrnDt},     /*등록년월일*/
+  #{rgstrnHms},     /*등록시각*/
+  #{rgstrnBrnchCd},     /*등록부점코드*/
+  #{rgstrnTrmnlNbr},     /*등록단말번호*/
+  #{rgstrnEmplNbr},     /*등록직원번호*/
+  #{elctrncBankingKndCd},     /*E뱅킹구분코드*/
+  #{elctrncFnclUserId},     /*E금융사용자ID*/
+  #{elctrncFnclAssetCntnt},     /*E금융자금내용*/
+  #{telNbr},     /*연락처전화번호*/
+  #{rmtncSchdldHms},     /*송금예정시각*/
+  #{trnsfrMsgCntnt},     /*이체메시지내용*/
+  #{whdrwlRmkCntnt},     /*출금통장인자내용*/
+  #{dpstRmkCntnt},     /*입금통장인자내용*/
+  #{whdrwlAcct},     /*제2출금계좌번호*/
+  #{dpstAcctOwnr},     /*입금계좌예금주명*/
+  #{ccId},     /*센터컷처리식별자*/
+  #{stsChngDt},     /*변경년월일*/
+  #{stsChngHms},     /*변경시각*/
+  #{stsChngBrnchCode},     /*변경부점코드*/
+  #{stsChngTrmnlNbr},     /*변경단말번호*/
+  #{statusChngStaffId},     /*변경직원번호*/
+  #{rqstChnlDscd},     /*요청채널유형구분코드*/
+  #{trmntnDsbrsmntTrnsfrAplctnDscd},     /*해지지급이체신청구분코드*/
+  #{trmntnDscd},     /*해지구분코드*/
+  #{trnsfrPrcsngEcludYn},     /*이체처리제외여부*/
+  #{orgnlStdMsgGuid},     /*원표준전문GUID*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<update id="updateCntrCtAplctM" parameterType="bankware.corebanking.payment.reservationtransfer.dao.dto.PyRsvtnTrnsfrAplctMIO">
+UPDATE  
+        py_rsvtn_trnsfr_aplct_m    /* Kor) 예약이체의 정보 기본 Eng) Reservation Transfer Information Maste */
+   SET  TRNSFR_APLCTN_KND_CD = #{trnsfrAplctnKndCd}    /* 이체신청구분코드 */
+     , TRNSFR_STS_CD = #{trnsfrStsCd}    /* 이체상태코드 */
+     , CUST_ARR_ID = #{custArrId}    /* 고객계약식별자 */
+     , BNK_CD = #{bnkCd}    /* 은행코드 */
+     , TRNSFR_AMT = #{trnsfrAmt}    /* 이체금액 */
+     , TRNSFR_FEE_AMT = #{trnsfrFeeAmt}    /* 이체수수료 */
+     , EXMPTN_AMT = #{exmptnAmt}    /* 면제금액 */
+     , APLY_FEE = #{aplyFee}    /* 적용수수료 */
+     , TRNSFR_REGT_MEDIA_CD = #{trnsfrRegtMediaCd}    /* 이체등록매체코드 */
+     , TX_DT = #{txDt}    /* 거래년월일 */
+     , TX_HMS = #{txHms}    /* 거래시각 */
+     , TX_BRNCH_CD = #{txBrnchCd}    /* 거래부점코드 */
+     , TX_TRMNL_NBR = #{txTrmnlNbr}    /* 거래단말번호 */
+     , OPRTR_NBR = #{oprtrNbr}    /* 조작자번호 */
+     , ELCTRNC_FNCL_MGMT_USER_ID = #{elctrncFnclMgmtUserId}    /* E금융관리사용자ID */
+     , RGSTRN_DT = #{rgstrnDt}    /* 등록년월일 */
+     , RGSTRN_HMS = #{rgstrnHms}    /* 등록시각 */
+     , RGSTRN_BRNCH_CD = #{rgstrnBrnchCd}    /* 등록부점코드 */
+     , RGSTRN_TRMNL_NBR = #{rgstrnTrmnlNbr}    /* 등록단말번호 */
+     , RGSTRN_EMPL_NBR = #{rgstrnEmplNbr}    /* 등록직원번호 */
+     , ELCTRNC_BANKING_KND_CD = #{elctrncBankingKndCd}    /* E뱅킹구분코드 */
+     , ELCTRNC_FNCL_USER_ID = #{elctrncFnclUserId}    /* E금융사용자ID */
+     , ELCTRNC_FNCL_ASSET_CNTNT = #{elctrncFnclAssetCntnt}    /* E금융자금내용 */
+     , TEL_NBR = #{telNbr}    /* 연락처전화번호 */
+     , RMTNC_SCHDLD_HMS = #{rmtncSchdldHms}    /* 송금예정시각 */
+     , TRNSFR_MSG_CNTNT = #{trnsfrMsgCntnt}    /* 이체메시지내용 */
+     , WHDRWL_RMK_CNTNT = #{whdrwlRmkCntnt}    /* 출금통장인자내용 */
+     , DPST_RMK_CNTNT = #{dpstRmkCntnt}    /* 입금통장인자내용 */
+     , WHDRWL_ACCT = #{whdrwlAcct}    /* 제2출금계좌번호 */
+     , DPST_ACCT_OWNR = #{dpstAcctOwnr}    /* 입금계좌예금주명 */
+     , CC_ID = #{ccId}    /* 센터컷처리식별자 */
+     , STS_CHNG_DT = #{stsChngDt}    /* 변경년월일 */
+     , STS_CHNG_HMS = #{stsChngHms}    /* 변경시각 */
+     , STS_CHNG_BRNCH_CODE = #{stsChngBrnchCode}    /* 변경부점코드 */
+     , STS_CHNG_TRMNL_NBR = #{stsChngTrmnlNbr}    /* 변경단말번호 */
+     , STATUS_CHNG_STAFF_ID = #{statusChngStaffId}    /* 변경직원번호 */
+     , RQST_CHNL_DSCD = #{rqstChnlDscd}    /* 요청채널유형구분코드 */
+     , TRMNTN_DSBRSMNT_TRNSFR_APLCTN_DSCD = #{trmntnDsbrsmntTrnsfrAplctnDscd}    /* 해지지급이체신청구분코드 */
+     , TRMNTN_DSCD = #{trmntnDscd}    /* 해지구분코드 */
+     , TRNSFR_PRCSNG_ECLUD_YN = #{trnsfrPrcsngEcludYn}    /* 이체처리제외여부 */
+     , ORGNL_STD_MSG_GUID = #{orgnlStdMsgGuid}    /* 원표준전문GUID */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND TRNSFR_BIZ_KND_CD = #{trnsfrBizKndCd}
+   AND DPST_ACCT = #{dpstAcctNbr}
+   AND AUTO_TRNSFR_WHDRWL_ACCT = #{autoTrnsfrWhdrwlAcct}
+   AND TRNSFR_APLCTN_SEQ_NBR = #{trnsfrAplctnSeqNbr}
+</update>
+</mapper>

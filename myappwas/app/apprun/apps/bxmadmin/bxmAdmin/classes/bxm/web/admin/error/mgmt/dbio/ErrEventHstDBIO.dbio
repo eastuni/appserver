@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.error.mgmt.dbio.ErrEventHstDBIO">
+<!--Generated Wed Nov 29 16:50:46 KST 2017-->
+<select id="selectListPage" resultType="bxm.web.admin.error.mgmt.domain.ErrEventHstOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT 
+       EVENT_OCCUR_DTTM AS eventOccurDttm /*이벤트발생일시*/,
+       CNDT_UID AS cndtUid /*조건UID*/
+  FROM bxm_err_event_hst
+  WHERE DOMAIN_ID = #{domainId}
+  	<if test="AA.cndtUid != null and AA.cndtUid != ''">
+ 		and cndt_uid = #{AA.cndtUid, jdbcType=VARCHAR}
+ 	</if>
+ 	<if test="AA.occurDt != null and AA.occurDt != ''">
+ 		and EVENT_OCCUR_DTTM like '%' ||  #{AA.occurDt, jdbcType=VARCHAR} || '%'
+ 	</if>
+ 	<if test="AA.bizDt != null and AA.bizDt != ''">
+ 		and BIZ_DT like '%' ||  #{AA.bizDt, jdbcType=VARCHAR} || '%'
+ 	</if>
+ 	ORDER BY EVENT_OCCUR_DTTM DESC
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectListPage" resultType="bxm.web.admin.error.mgmt.domain.ErrEventHstOMM">
+SELECT 
+       EVENT_OCCUR_DTTM AS eventOccurDttm /*이벤트발생일시*/,
+       CNDT_UID AS cndtUid /*조건UID*/
+  FROM BXM_ERR_EVENT_HST
+  WHERE DOMAIN_ID = #{domainId}
+  	<if test="AA.cndtUid != null and AA.cndtUid != ''">
+ 		and cndt_uid = #{AA.cndtUid}
+ 	</if>
+ 	<if test="AA.occurDt != null and AA.occurDt != ''">
+ 		and EVENT_OCCUR_DTTM like CONCAT('%',  #{AA.occurDt}, '%')
+ 	</if>
+ 	<if test="AA.bizDt != null and AA.bizDt != ''">
+ 		and BIZ_DT like CONCAT('%',  #{AA.bizDt}, '%')
+ 	</if>
+ 	ORDER BY EVENT_OCCUR_DTTM DESC
+	LIMIT #{pageNum}, #{pageCount}
+</select>
+<select id="count" parameterType="bxm.web.admin.error.mgmt.domain.SearchBaseOMM" resultType="java.lang.Integer">
+SELECT 
+	count(*) as totalRowCnt
+FROM bxm_err_event_hst
+WHERE DOMAIN_ID = #{domainId}
+	<if test="cndtUid != null and cndtUid != ''">
+ 		and cndt_uid = #{cndtUid, jdbcType=VARCHAR}
+ 	</if>
+ 	<if test="occurDt != null and occurDt != ''">
+ 		and EVENT_OCCUR_DTTM like '%' ||  #{occurDt, jdbcType=VARCHAR} || '%'
+ 	</if>
+ 	<if test="bizDt != null and bizDt != ''">
+ 		and BIZ_DT like '%' ||  #{bizDt, jdbcType=VARCHAR} || '%'
+ 	</if>
+</select>
+<select databaseId="mysql" id="count" parameterType="bxm.web.admin.error.mgmt.domain.SearchBaseOMM" resultType="java.lang.Integer">
+SELECT 
+	count(*) as totalRowCnt
+FROM BXM_ERR_EVENT_HST
+WHERE DOMAIN_ID = #{domainId}
+	<if test="cndtUid != null and cndtUid != ''">
+ 		and cndt_uid = #{cndtUid}
+ 	</if>
+ 	<if test="occurDt != null and occurDt != ''">
+ 		and EVENT_OCCUR_DTTM like CONCAT('%',  #{occurDt}, '%')
+ 	</if>
+ 	<if test="bizDt != null and bizDt != ''">
+ 		and BIZ_DT like CONCAT('%',  #{bizDt}, '%')
+ 	</if>
+</select>
+<select id="selectList" parameterType="bxm.web.admin.error.mgmt.domain.SearchBaseOMM" resultType="bxm.web.admin.error.mgmt.domain.ErrEventHstOMM">
+SELECT 
+       EVENT_OCCUR_DTTM AS eventOccurDttm /*이벤트발생일시*/,
+       CNDT_UID AS cndtUid /*조건UID*/
+  FROM BXM_ERR_EVENT_HST
+  WHERE 1=1
+  	<if test="cndtUid != null and cndtUid != ''">
+ 		and cndt_uid = #{cndtUid, jdbcType=VARCHAR}
+ 	</if>
+ 	<if test="occurDt != null and occurDt != ''">
+ 		and EVENT_OCCUR_DTTM like '%' ||  #{occurDt, jdbcType=VARCHAR} || '%'
+ 	</if>
+ 	<if test="bizDt != null and bizDt != ''">
+ 		and BIZ_DT like '%' ||  #{bizDt, jdbcType=VARCHAR} || '%'
+ 	</if>
+</select>
+<select databaseId="mysql" id="selectList" parameterType="bxm.web.admin.error.mgmt.domain.SearchBaseOMM" resultType="bxm.web.admin.error.mgmt.domain.ErrEventHstOMM">
+SELECT 
+       EVENT_OCCUR_DTTM AS eventOccurDttm /*이벤트발생일시*/,
+       CNDT_UID AS cndtUid /*조건UID*/
+  FROM BXM_ERR_EVENT_HST
+  WHERE 1=1
+  	<if test="cndtUid != null and cndtUid != ''">
+ 		and cndt_uid = #{cndtUid}
+ 	</if>
+ 	<if test="occurDt != null and occurDt != ''">
+ 		and EVENT_OCCUR_DTTM like CONCAT('%',  #{occurDt}, '%')
+ 	</if>
+ 	<if test="bizDt != null and bizDt != ''">
+ 		and BIZ_DT like CONCAT('%',  #{bizDt}, '%')
+ 	</if>
+</select>
+</mapper>

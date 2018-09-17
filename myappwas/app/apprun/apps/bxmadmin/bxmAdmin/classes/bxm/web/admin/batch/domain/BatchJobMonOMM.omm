@@ -1,0 +1,38 @@
+OMM bxm.web.admin.batch.domain.BatchJobMonOMM
+<description="BatchJobMonOMM">
+{
+	BigDecimal jobExecutionId<length=19 description="배치작업 실행 아이디">;
+	BigDecimal version<length=19 description="배치작업 실행버전">;
+	BigDecimal jobInstanceId<length=19 description="배치작업 인스턴스 아이디">;
+	String frmInstanceId<length=40 description="배치작업 실행 프레임워크 인스턴스 아이디">;
+	String createTime<length=30 description="배치작업 생성시각">;
+	String startTime<length=40 description="배치작업 시작시각">;
+	String endTime<length=40 description="배치작업 종료 시각">;
+	Long elapsedMinutes<length=9 description="수행시간(분)">;
+	Long elapsedSeconds<length=20 description="수행시간(초)">;
+	String status<length=10 description="배치작업 실행상태">;
+	String exitCode<length=100 description="배치작업 종료 구분">;
+	String exitMessage<length=2500 description="배치작업 종료 메시지">;
+	Integer suspended<length=1 description="배치일시정지여부">;
+	String lastUpdated<length=40 description="배치작업 상태 업데이트 시각">;
+	String jobId<length=100 description="배치작업 명(배치작업ID)">;
+	Integer stepCount<length=9 description="Step 개수">;
+	String execParamList<length=2500 description="실행 파라미터 확인(리스트)">;
+	String command<length=20 description="배치 잡 실행 명령어">;
+	String jobTypeCd<length=20 description="배치 실행 타입">;
+	String jobNm<length=256 description="배치작업 명">;
+	BigDecimal stepExecutionId<length=19 description="배치스텝 아이디">;
+	String stepName<length=100 description="배치스텝 이름">;
+	String stepStartTime<length=30 description="배치스텝 시작시각">;
+	String stepEndTime<length=30 description="배치스텝 종료시각">;
+	String stepStatus<length=10 description="배치스텝 상태">;
+	BigDecimal commitCount<length=19 description="배치스텝 커밋카운트">;
+	BigDecimal readCount<length=19 description="배치스텝 READ 카운트">;
+	BigDecimal writeCount<length=19 description="배치스텝 WRITE 카운트">;
+	String dupExecUseYn<length=1 description="중복실행여부">;
+	String nodeName<length=20 description="노드 명">;
+	Long cpuUseTime<length=15 description="CPU 사용시간">;
+	Long cpuElapsedMinutes<length=18 description="CPU 사용시간(분)">;
+	Long cpuElapsedSeconds<length=18 description="CPU 사용시간(초)">;
+	String domainId<length=20 description="도메인ID">;
+}

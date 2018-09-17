@@ -1,0 +1,19 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.LnListInqrySvcLnListOutIncludeSmryInfoOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	BigDecimal lnAplctnCnt<length=18 decimal=2 description="대출신청건수">;
+	BigDecimal lnAplctnSumAmt<length=18 decimal=2 description="대출신청합계금액">;
+	BigDecimal lnOpnCnt<length=18 decimal=2 description="대출실행건수">;
+	BigDecimal lnOpnSumAmt<length=18 decimal=2 description="대출실행합계금액">;
+	BigDecimal lnBiddingCnt<length=18 decimal=2 description="대출입찰건수">;
+	BigDecimal lnBiddingSumAmt<length=18 decimal=2 description="대출입찰합계금액">;
+	BigDecimal lnFailrBidCnt<length=18 decimal=2 description="대출유찰건수">;
+	BigDecimal lnFailrBidSumAmt<length=18 decimal=2 description="대출유찰합계금액">;
+	BigDecimal lnRpymntCnt<length=18 decimal=2 description="대출상환건수">;
+	BigDecimal lnRpymntSumAmt<length=18 decimal=2 description="대출상환합계금액">;
+	BigDecimal lnTrmntCnt<length=18 decimal=2 description="대출종료건수">;
+	BigDecimal lnTrmntSumAmt<length=18 decimal=2 description="대출종료합계금액">;
+	String lnAplctnPrcsDscd<length=1 description="여신신청진행구분코드">;
+	String custId<length=100 description="고객식별자">;
+	bankware.corebanking.p2ploan.information.service.dto.LnListOut loanList<length=0 arrayReference="1000" description="대출리스트">;
+}

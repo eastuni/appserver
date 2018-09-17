@@ -1,0 +1,16 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IgMsg401005IO extends bankware.corebanking.externalproxy.message.interfaces.dto.IgComm
+<description="일반지로 고지내역 간략조회 표준전문  ">
+{
+	String inqryDscd<length=1 description="조회구분코드">;
+	String elctrncPymntNbr<length=17 description="전자납부번호">;
+	String fillerCntnt13<length=13 description="fillerCntnt13">;
+	String payerFullNm<length=30 description="납부자성명">;
+	String giroUseInstCntnt<length=34 description="지로이용기관">;
+	Integer totNtfctnCnt<length=3 description="고지총건수">;
+	Integer dsgntnNbr<length=3 description="지정번호">;
+	Integer demandCnt<length=2 description="요청건수1">;
+	bankware.corebanking.externalproxy.message.interfaces.dto.IgMsg401005Hst txHst1<length=0 arrayReference="demandCnt" description="거래내역(401005)">;
+	String dfltStartMnth<length=6 description="체납시작월" defaultValue="000000">;
+	String dfltEndMnth<length=6 description="체납종료월" defaultValue="000000">;
+	Integer dfltMnthCnt<length=3 description="체납개월수">;
+}

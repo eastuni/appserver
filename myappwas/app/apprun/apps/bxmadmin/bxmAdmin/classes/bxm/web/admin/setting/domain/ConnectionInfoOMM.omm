@@ -1,0 +1,5 @@
+OMM bxm.web.admin.setting.domain.ConnectionInfoOMM
+<description="">
+{
+	String connectionName<length=20 description="커넥션 명">;
+}

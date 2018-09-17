@@ -1,0 +1,48 @@
+<div class="pf-cp-base-rel-product-add-popup">
+	<div class="bx-info-table-wrap" style="margin-left: 35px;">
+		<table class="bx-info-table rel-product-search-form">
+			<tr>
+				<th>{{bxMsg 'category'}}</th>
+				<td><select data-form-param="businessDistinctionCode"
+					class="bx-form-item bx-compoenent-small first-category-select">
+				</select></td>
+				<td><select data-form-param="productTypeCode"
+					class="bx-form-item bx-compoenent-small second-category-select">
+				</select></td>
+				<td><select data-form-param="productTemplateCode"
+					class="bx-form-item bx-compoenent-small third-category-select">
+				</select></td>
+			</tr>
+			<tr>
+				<th>{{name}}</th>
+				<td colspan="3"><input type="text"
+					class="bx-form-item bx-compoenent-small product-name-search"
+					data-form-param="name">
+					<button class="bw-btn search-btn"
+						icon-tooltip='{{bxMsg "ButtonBottomString4"}}'>
+						<i class="bw-icon i-25 i-search"></i>
+					</button></td>
+			</tr>
+		</table>
+
+		<table class="bx-info-table rel-service-fixed-input-form"
+			style="width: 665px; border-top: 1px solid #dcdcdc; margin-top: 10px; margin-left: -30px; vertical-align: middle;">
+			<tr>
+				<th>{{bxMsg 'DPP0109String1'}}</th>
+				<td style="padding-bottom: 0px;"><select
+					class="bx-form-item bx-compoenent-small serviceRelationTypeCode">
+				</select></td>
+				<th>{{bxMsg 'DPP0127String6'}}</th>
+				<td style="padding-bottom: 0px;"><input type="text"
+					class="bx-form-item bx-compoenent-small calendar start-date"
+					style="width: 155px;"></td>
+				<th>{{bxMsg 'DPP0127String7'}}</th>
+				<td style="padding-bottom: 0px;"><input type="text"
+					class="bx-form-item bx-compoenent-small calendar end-date"
+					style="width: 155px;"></td>
+			</tr>
+		</table>
+
+	</div>
+	<div class="product-grid"></div>
+</div>

@@ -1,0 +1,24 @@
+OMM bankware.corebanking.accounting.generalledger.batch.dto.GlAcctVldtnTrgtIO
+<description="총계정원장계리 대상 IO">
+{
+	String instCd<length=14 description="기관코드">;
+	String brnchCd<length=14 description="부점코드">;
+	String baseDt<length=8 description="기준년월일">;
+	String acctgDscd<length=2 description="회계구분코드">;
+	String acctgItmCd<length=13 description="계정과목코드">;
+	String debitCrdtDscd<length=2 description="차대변구분코드">;
+	String crncyCd<length=3 description="통화코드">;
+	BigDecimal acctgBal<length=22 decimal=2 description="계리잔액">;
+	BigDecimal blkMnyRcvdAmt<length=22 decimal=2 description="흑서입금금액">;
+	BigDecimal blkWhdrwlAmt<length=22 decimal=2 description="흑서출금금액">;
+	BigDecimal redMnyRcvdAmt<length=22 decimal=2 description="적서입금금액">;
+	BigDecimal redWhdrwlAmt<length=22 decimal=2 description="적서출금금액">;
+	BigDecimal dmnthMnyRcvdAcmltdAmt<length=22 decimal=2 description="월중입금적수">;
+	BigDecimal dmnthWhdrwlAcmltdAmt<length=22 decimal=2 description="월중출금적수">;
+	BigDecimal dtrmMnyRcvdAcmltdAmt<length=22 decimal=2 description="기중입금적수">;
+	BigDecimal dtrmWhdrwlAcmltdAmt<length=22 decimal=2 description="기중출금적수">;
+	BigDecimal acctgDmnthAcmltdAmt<length=22 decimal=2 description="계리월중적수">;
+	BigDecimal acctgDtrmAcmltdAmt<length=22 decimal=2 description="계리기중적수">;
+	Date lastChngTmstmp<length=30 formatType=date format="yyyyMMdd HH:mm:ss" description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

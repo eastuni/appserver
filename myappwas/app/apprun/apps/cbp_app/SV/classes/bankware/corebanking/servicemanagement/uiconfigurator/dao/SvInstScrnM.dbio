@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.uiconfigurator.dao.SvInstScrnM">
+<!--Generated Fri May 04 12:53:35 KST 2018-->
+<select id="selectAllScrnByInstCd" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvInstScrnMSelectAllScrnByInstCdIO" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvInstScrnMSelectAllScrnByInstCdIO">
+SELECT #{instCd} AS instCd
+
+      , a.biz_cmpnt_cd AS bizCmpntCd
+
+      , a.scrn_id AS scrnId
+
+      , a.scrn_nm AS scrnNm
+
+      , a.menu_trgt_scrn_yn AS menuTrgtScrnYn
+
+      , a.SCRN_URL_ADDR as scrnUrlAddr
+
+      , CASE WHEN b.scrn_id IS NULL THEN 'N' ELSE 'Y' END AS useYn
+
+      , CASE WHEN c.scrn_id IS NULL THEN 'N' ELSE 'Y' END AS srvcUseYn
+
+      , CASE WHEN a.POPUP_SCRN_YN IS NULL THEN 'N' ELSE 'Y' END AS popupScrnYn
+      , b.aply_start_dt AS aplyStartDt
+
+  FROM  sv_scrn_m a
+
+<if test="scrnNm != null and scrnNm != ''">
+
+  JOIN cm_mlt_lng_trnsltn_d d
+
+  ON(a.scrn_id = d.trnsfr_origin_key_val)
+
+</if>
+
+  LEFT OUTER JOIN sv_inst_scrn_m b
+
+  ON(a.scrn_id = b.scrn_id AND b.inst_cd = #{instCd})
+
+  LEFT OUTER JOIN(
+
+        SELECT scrn_id
+
+          FROM sv_scrn_srvc_d c1
+
+         WHERE EXISTS( SELECT 1
+
+                         FROM sv_inst_srvc_m c2
+
+                        WHERE c2.inst_cd = #{instCd}
+
+                          AND c2.srvc_cd = c1.srvc_cd
+
+                          AND c2.aply_start_dt &lt;= #{aplyStartDt})
+
+        GROUP BY scrn_id
+
+        ) c
+
+  ON(a.scrn_id = c.scrn_id)
+
+
+
+where a.ACTV_STS_CD = '01'
+
+
+
+  <if test="bizCmpntCd != null and bizCmpntCd != ''">
+
+   AND  a.biz_cmpnt_cd = #{bizCmpntCd}
+
+</if>
+
+<if test="scrnId != null and scrnId != ''">
+
+   AND  a.scrn_id LIKE CONCAT(CONCAT('%', #{scrnId}), '%')
+
+</if>
+
+<if test="scrnNm != null and scrnNm != ''">
+
+   AND d.trnsfr_rslt_val LIKE CONCAT(CONCAT('%', #{scrnNm}), '%')
+
+   AND d.lng_cd = #{lngCd}
+
+</if>
+
+
+
+<if test="useYn != null and (useYn eq 'Y'.toString())">
+
+   AND b.scrn_id IS NOT NULL
+
+</if>
+
+<if test="staffId !=null and staffId != ''">
+
+	AND a.scrn_id in (select scrn_id
+							from cm_role_scrn_r
+							where role_id in(select role_id 
+													from at_staff_role_d
+													where inst_cd=#{instCd}
+													and staff_id=#{staffId}
+													and efctv_start_dt&lt;=#{aplyStartDt}
+													and efctv_end_dt&gt;#{aplyStartDt}
+													and staff_role_sts_cd='2'
+													)
+							)
+</if>
+
+ORDER BY a.biz_cmpnt_cd,a.scrn_id
+</select>
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvInstScrnMIO">
+INSERT  
+
+  INTO  sv_inst_scrn_m    /* 기관별화면명세 */
+
+(
+
+  INST_CD,     /*기관코드*/
+
+  SCRN_ID,     /*화면식별자*/
+
+  APLY_START_DT,     /*적용시작년월일*/
+
+  SCRN_URL_ADDR,     /*화면URL주소*/
+
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+
+  LAST_CHNG_GUID    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+  #{instCd, jdbcType=VARCHAR},     /*기관코드*/
+
+  #{scrnId, jdbcType=VARCHAR},     /*화면식별자*/
+
+  #{aplyStartDt, jdbcType=VARCHAR},     /*적용시작년월일*/
+
+  #{scrnUrlAddr, jdbcType=VARCHAR},     /*화면URL주소*/
+
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+
+)
+</insert>
+<delete id="delete" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvInstScrnMIO">
+DELETE  FROM  sv_inst_scrn_m    /* 기관별화면명세 */
+
+ WHERE  inst_cd = #{instCd, jdbcType=VARCHAR}
+
+   AND  scrn_id = #{scrnId, jdbcType=VARCHAR}
+</delete>
+<select id="select" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvInstScrnMIO" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvInstScrnMIO">
+SELECT  /* 기관별화면명세 */
+
+        inst_cd AS instCd    /*기관코드*/, 
+
+        scrn_id AS scrnId    /*화면식별자*/, 
+
+        aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_inst_scrn_m
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  scrn_id = #{scrnId}
+</select>
+<delete id="deleteListByScrnId">
+DELETE FROM sv_inst_scrn_m
+
+ WHERE scrn_id = #{scrnId, jdbcType=VARCHAR}
+</delete>
+<select id="selectListScrnForInst" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO">
+SELECT
+
+	    a.scrn_id AS scrnId    /*화면식별자*/, 
+
+        a.scrn_nbr AS scrnNbr    /*화면번호*/, 
+
+        a.scrn_nm AS scrnNm    /*화면명*/, 
+
+        a.biz_cmpnt_cd AS bizCmpntCd    /*비지니스컴포넌트코드*/, 
+
+        a.menu_trgt_scrn_yn AS menuTrgtScrnYn    /*메뉴대상화면여부*/, 
+
+        a.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        a.last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_scrn_m a,
+
+        sv_Inst_scrn_m b
+
+ WHERE  a.scrn_id = b.scrn_id
+
+   AND  b.inst_cd= #{instCd}
+
+   AND a.ACTV_STS_CD = '01'
+
+ORDER BY a.biz_cmpnt_cd,a.scrn_id
+</select>
+<select id="selectListScrnForInstMenu" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO">
+SELECT
+
+	    a.scrn_id AS scrnId    /*화면식별자*/, 
+
+        a.scrn_nbr AS scrnNbr    /*화면번호*/, 
+
+        a.scrn_nm AS scrnNm    /*화면명*/, 
+
+        a.biz_cmpnt_cd AS bizCmpntCd    /*비지니스컴포넌트코드*/, 
+
+        a.menu_trgt_scrn_yn AS menuTrgtScrnYn    /*메뉴대상화면여부*/, 
+
+        a.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        a.last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_scrn_m a,
+
+        sv_Inst_scrn_m b
+
+  WHERE a.scrn_id = b.scrn_id
+
+  	AND b.inst_cd= #{instCd}
+
+  	AND a.menu_trgt_scrn_yn = 'Y' 
+
+  	AND a.ACTV_STS_CD = '01'
+
+ORDER BY a.biz_cmpnt_cd,a.scrn_id
+</select>
+<select id="selectScrnForInstBizCmpntCd" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvInstCdBizCmpntCdIO" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO">
+SELECT
+
+	    a.scrn_id AS scrnId    /*화면식별자*/, 
+
+        a.scrn_nbr AS scrnNbr    /*화면번호*/, 
+
+        a.scrn_nm AS scrnNm    /*화면명*/, 
+
+        a.biz_cmpnt_cd AS bizCmpntCd    /*비지니스컴포넌트코드*/, 
+
+        a.menu_trgt_scrn_yn AS menuTrgtScrnYn    /*메뉴대상화면여부*/, 
+
+        a.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        a.last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_scrn_m a,
+
+        sv_Inst_scrn_m b
+
+ WHERE  a.scrn_id = b.scrn_id
+
+   AND  b.inst_cd= #{instCd}
+   
+<if test="bizCmpntCd != null and bizCmpntCd != ''">
+   AND a.biz_cmpnt_cd=#{bizCmpntCd}
+</if>
+   AND a.ACTV_STS_CD = '01'
+
+ORDER BY a.biz_cmpnt_cd,a.scrn_id
+</select>
+<update id="update" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvInstScrnMIO">
+UPDATE  
+
+        sv_inst_scrn_m    /* 기관별화면명세 */
+
+   SET  APLY_START_DT = #{aplyStartDt, jdbcType=VARCHAR}    /* 적용시작년월일 */
+
+     , SCRN_URL_ADDR = #{scrnUrlAddr, jdbcType=VARCHAR}    /* 화면URL주소 */
+
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+
+   AND SCRN_ID = #{scrnId, jdbcType=VARCHAR}
+</update>
+<select id="selectList" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvInstScrnMIO" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvInstScrnMIO">
+SELECT    /* 기관별화면명세 */
+        INST_CD AS instCd,     /*기관코드*/
+        SCRN_ID AS scrnId,     /*화면식별자*/
+        APLY_START_DT AS aplyStartDt,     /*적용시작년월일*/
+        SCRN_URL_ADDR AS scrnUrlAddr,     /*화면URL주소*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  sv_inst_scrn_m
+ WHERE 1=1
+ <if test="scrnId != null and scrnId != ''">
+   AND scrn_id = #{scrnId}
+</if>
+ <if test="instCd != null and instCd != ''">
+   AND INST_CD = #{instCd}
+</if>
+</select>
+</mapper>

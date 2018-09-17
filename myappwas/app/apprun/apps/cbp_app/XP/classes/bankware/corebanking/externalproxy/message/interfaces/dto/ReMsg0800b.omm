@@ -1,0 +1,17 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.ReMsg0800b
+<description="0800 기간상태확인 전문">
+{
+	String sysId<length=3 description="System ID">;
+	String jointNetworkClCd<length=4 description="전문종별코드">;
+	String jointNetworkTxDscd<length=6 description="거래구분코드">;
+	String sndRcvFlagCntnt<length=1 description="송수신FLAG">;
+	String stsCntnt<length=3 description="STATUS">;
+	String rspnsCd<length=3 description="응답코드">;
+	String msgSndDt<length=8 description="전문전송일">;
+	String msgSndTmstmp1<length=6 description="전문전송시간">;
+	String msgTraceNbr<length=8 description="전문추적번호">;
+	String fillerCntnt<length=20 description="FILLER">;
+	String prtcptnBnkCnt<length=3 description="참가은행수">;
+	bankware.corebanking.externalproxy.message.interfaces.dto.ReMsg0800bSub list<length=0 arrayReference="100" description="은행리스트">;
+	String fillerCntnt2<length=35 description="FILLER2">;
+}

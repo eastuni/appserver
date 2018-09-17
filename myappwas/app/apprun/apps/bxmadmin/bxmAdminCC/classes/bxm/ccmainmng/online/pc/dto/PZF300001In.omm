@@ -1,0 +1,5 @@
+OMM bxm.ccmainmng.online.pc.dto.PZF300001In
+<description="  ">
+{
+	String pcsnDt<length=8 description="처리일자">;
+}

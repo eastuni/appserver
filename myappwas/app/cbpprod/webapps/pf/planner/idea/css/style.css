@@ -1,0 +1,68 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for idea
+ * 아이디어 CSS 
+ */
+.pf-pi .pf-page-conts {
+    margin: 10px auto; }
+.pf-pi th {
+    width: 90px;
+    text-align: left; }
+.pf-pi .idea-query-table td {
+    line-height: 29px; }
+.pf-pi .idea-query-table td input, .pf-pi .idea-query-table td select {
+    width: 227px; }
+.pf-pi .idea-query-table td .user-id {
+    width: 84px; }
+.pf-pi .idea-query-table td .user-name {
+    width: 140px; }
+.pf-pi .idea-query-table td .calendar {
+    width: 109px; }
+.pf-pi .idea-query-table tr {
+    margin-bottom: 10px;
+    height: 35px; }
+.pf-pi .middle-grid {
+    height: 350px; }
+.pf-pi-idea-master-form .idea-info-table {
+    margin-bottom: 30px; }
+/*팝업의 input default 크기는 180px임*/
+.pf-pi-idea-master-form td input {
+    width: 100% !important; }
+.pf-pi-idea-master-form th {
+    width: 95px;
+    text-align: left; }
+.pf-pi-idea-master-form .second-th {
+    padding-left: 10px; }
+.pf-pi-idea-master-form select {
+    width: 170px; }
+.pf-pi-idea-master-form .bx-info-table > tr > td textarea, .pf-pi-idea-master-form .bx-info-table > tbody > tr > td textarea {
+    width: 100%;
+    height: 100px;
+    margin: 4px 0; }
+.pf-pi-idea-master-form h3 {
+    margin: 10px 0 5px 0; }
+.pf-pi-idea-master-form .dev-proposal-register-table input.calendar {
+    width: 170px; }
+.pf-pi-idea-master-form .panel {
+    border: none;
+    box-shadow: none; }
+.pf-pi-idea-master-form .product-info-box {
+    margin-top: 10px;}
+.pf-pi-idea-master-form .attachment-list-grid {
+    height: 95px;
+    margin-top: 35px;}
+.pf-pi-idea-master-form .idea-file {
+    float: right;
+    margin-bottom: 5px;
+}
+/*파일추가버튼 css*/
+.uploadfile-btn {
+    line-height: 24px;
+    display: inline-block;
+    height: 24px;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #bbbbbb;
+    width: 60px;
+    cursor: pointer;
+}

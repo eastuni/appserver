@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.ccmainmng.share.dao.BXM_CC_SERVICE_CONTROL">
+<!--Generated Tue Nov 21 10:43:13 KST 2017-->
+<delete id="deleteBxmCCServiceControl01B" parameterType="bxm.centercut.dto.CcutBasicInfo">
+DELETE  FROM  BXM_CC_SERVICE_CONTROL    /* 센터컷 서비스관리 */
+ WHERE  domain_id = #{domainId} AND cc_id = #{ccId}
+   AND  pcsn_dt = #{pcsnDt}
+   AND  acpt_no = #{acptNo}
+   AND  tn_no = #{tnNo}
+</delete>
+<insert id="insertBxmCCServiceControl01A" parameterType="bxm.ccmainmng.share.dto.BxmCCServiceControlIO">
+INSERT INTO BXM_CC_SERVICE_CONTROL /* 센터컷 서비스 관리 */
+(
+     DOMAIN_ID /*도메인ID*/,
+    CC_ID /*센터컷ID*/,
+    PCSN_DT /*처리일자*/,
+    ACPT_NO /*접수번호*/,
+    TN_NO /*회차번호*/,
+    EXEC_NO /*실행번호*/,
+    SRVR_SQNO /*서버일련번호*/,
+    PCSN_SEQ_NO /*처리순서번호*/,
+    PCSN_NODE_NO /*처리노드번호*/,
+    PCSN_STAT /*처리상태*/,
+    SERI_PCSN_KEY /*순차처리키*/,
+    SRT_SQNO /*시작일련번호*/,
+    END_SQNO /*종료일련번호*/,
+    CPLN_SQNO /*완료일련번호*/,
+    NOML_PCSN_CNT /*정상처리건수*/,
+    NOML_PCSN_AMT /*정상처리금액*/,
+    ERR_PCSN_CNT /*오류처리건수*/,
+    ERR_PCSN_AMT /*오류처리금액*/,
+    SRT_DTTM /*시작시간*/,
+    CNNT_URL /*연결URL*/,
+    MODIFY_USER_ID /*변경사용자ID*/,
+    MODIFY_OCCUR_DTTM /*변경발생일시*/ 
+)
+VALUES
+(
+    #{domainId, jdbcType=VARCHAR} /*도메인ID*/,
+    #{ccId, jdbcType=VARCHAR} /*센터컷ID*/,
+    #{pcsnDt, jdbcType=VARCHAR} /*처리일자*/,
+    #{acptNo, jdbcType=NUMERIC} /*접수번호*/,
+    #{tnNo, jdbcType=NUMERIC} /*회차번호*/,
+    #{execNo, jdbcType=NUMERIC} /*실행번호*/,
+    #{srvrSqno, jdbcType=NUMERIC} /*서버일련번호*/,
+    #{pcsnSeqNo, jdbcType=NUMERIC} /*처리순서번호*/,
+    #{pcsnNodeNo, jdbcType=NUMERIC} /*처리노드번호*/,
+    #{pcsnStat, jdbcType=NUMERIC} /*처리상태*/,
+    #{seriPcsnKey, jdbcType=VARCHAR} /*순차처리키*/,
+    #{srtSqno, jdbcType=NUMERIC} /*시작일련번호*/,
+    #{endSqno, jdbcType=NUMERIC} /*종료일련번호*/,
+    #{cplnSqno, jdbcType=NUMERIC} /*완료일련번호*/,
+    #{nomlPcsnCnt, jdbcType=NUMERIC} /*정상처리건수*/,
+    #{nomlPcsnAmt, jdbcType=NUMERIC} /*정상처리금액*/,
+    #{errPcsnCnt, jdbcType=NUMERIC} /*오류처리건수*/,
+    #{errPcsnAmt, jdbcType=NUMERIC} /*오류처리금액*/,
+    #{srtDttm, jdbcType=VARCHAR} /*시작시간*/,
+    #{cnntUrl, jdbcType=VARCHAR} /*연결URL*/,
+    #{modifyUserId, jdbcType=VARCHAR} /*변경사용자ID*/,
+    #{modifyOccurDttm, jdbcType=VARCHAR} /*변경발생일시*/ 
+)
+</insert>
+<select id="selectBxmCCServiceControl01A" parameterType="bxm.ccmainmng.share.dto.BxmCCServiceControlIO" resultType="bxm.ccmainmng.share.dto.BxmCCServiceControlIO">
+SELECT /* 센터컷 서비스 관리 */ 
+       DOMAIN_ID AS domainId /*도메인ID*/,
+       CC_ID AS ccId /*센터컷ID*/,
+       PCSN_DT AS pcsnDt /*처리일자*/,
+       ACPT_NO AS acptNo /*접수번호*/,
+       TN_NO AS tnNo /*회차번호*/,
+       EXEC_NO AS execNo /*실행번호*/,
+       SRVR_SQNO AS srvrSqno /*서버일련번호*/,
+       PCSN_SEQ_NO AS pcsnSeqNo /*처리순서번호*/,
+       PCSN_NODE_NO AS pcsnNodeNo /*처리노드번호*/,
+       PCSN_STAT AS pcsnStat /*처리상태*/,
+       SERI_PCSN_KEY AS seriPcsnKey /*순차처리키*/,
+       SRT_SQNO AS srtSqno /*시작일련번호*/,
+       END_SQNO AS endSqno /*종료일련번호*/,
+       CPLN_SQNO AS cplnSqno /*완료일련번호*/,
+       NOML_PCSN_CNT AS nomlPcsnCnt /*정상처리건수*/,
+       NOML_PCSN_AMT AS nomlPcsnAmt /*정상처리금액*/,
+       ERR_PCSN_CNT AS errPcsnCnt /*오류처리건수*/,
+       ERR_PCSN_AMT AS errPcsnAmt /*오류처리금액*/,
+       SRT_DTTM AS srtDttm /*시작시간*/,
+       CNNT_URL AS cnntUrl /*연결URL*/,
+       MODIFY_USER_ID AS modifyUserId /*변경사용자ID*/,
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경발생일시*/
+  FROM BXM_CC_SERVICE_CONTROL
+ WHERE DOMAIN_ID = #{domainId}
+   AND CC_ID = #{ccId}
+   AND PCSN_DT = #{pcsnDt}
+   AND ACPT_NO = #{acptNo}
+   AND TN_NO = #{tnNo}
+   AND EXEC_NO = #{execNo}
+   AND SRVR_SQNO = #{srvrSqno}
+   AND PCSN_SEQ_NO = 0
+</select>
+<select id="selectBxmCCServiceControl01B" parameterType="bxm.ccmainmng.share.dto.BxmCCServiceControlIO" resultType="bxm.ccmainmng.share.dto.BxmCCServiceControlIO">
+SELECT  /* 센터컷 서비스관리 */
+        pcsn_stat AS pcsnStat    /*처리상태*/ 
+  FROM  BXM_CC_SERVICE_CONTROL
+ WHERE  domain_id = #{domainId} AND cc_id = #{ccId}
+   AND  pcsn_dt = #{pcsnDt}
+   AND  acpt_no = #{acptNo}
+   AND  exec_no = #{execNo}
+   AND  tn_no = #{tnNo}
+   AND  srvr_sqno = #{srvrSqno}
+   AND  pcsn_seq_no = 0
+</select>
+<select id="selectBxmCCServiceControl01C" parameterType="bxm.ccmainmng.share.dto.BxmCCServiceControlIO" resultType="bxm.ccmainmng.share.dto.BxmCCServiceControlIO">
+SELECT  /* 센터컷 서비스관리 */
+        min(srt_sqno) AS srtSqno    /*시작일련번호*/
+  FROM  BXM_CC_SERVICE_CONTROL
+ WHERE  domain_id = #{domainId} AND cc_id = #{ccId}
+   AND  pcsn_dt = #{pcsnDt}
+   AND  acpt_no = #{acptNo}
+   AND  exec_no = #{execNo}
+   AND  tn_no = #{tnNo}
+</select>
+<update id="updateBxmCCServiceControl01A" parameterType="bxm.ccmainmng.share.dto.BxmCCServiceControlIO">
+UPDATE  
+        BXM_CC_SERVICE_CONTROL    /* 센터컷 서비스관리 */
+   SET  pcsn_node_no = #{pcsnNodeNo}    /* 처리노드번호 */, 
+        srt_sqno = #{srtSqno}    /* 시작일련번호 */, 
+        end_sqno = #{endSqno}    /* 종료일련번호 */, 
+        cpln_sqno = #{cplnSqno}    /* 완료일련번호 */, 
+        noml_pcsn_cnt = #{nomlPcsnCnt}    /* 정상처리건수 */, 
+        noml_pcsn_amt = #{nomlPcsnAmt}    /* 정상처리금액 */, 
+        err_pcsn_cnt = #{errPcsnCnt}    /* 오류처리건수 */, 
+        err_pcsn_amt = #{errPcsnAmt}    /* 오류처리금액 */ 
+ WHERE  domain_id = #{domainId} AND cc_id = #{ccId}
+   AND  pcsn_dt = #{pcsnDt}
+   AND  acpt_no = #{acptNo}
+   AND  exec_no = #{execNo}
+   AND  tn_no = #{tnNo}
+   AND  srvr_sqno = #{srvrSqno}
+   AND  pcsn_seq_no = 0
+</update>
+<delete id="deleteBxmCCServiceControl01C" parameterType="bxm.ccmainmng.share.dto.BxmCCServiceControlIO">
+DELETE  FROM  BXM_CC_SERVICE_CONTROL    /* 센터컷 서비스관리 */
+ WHERE  domain_id = #{domainId} and cc_id = #{ccId}
+   AND  pcsn_dt = #{pcsnDt}
+   AND  acpt_no = #{acptNo}
+   AND  tn_no = #{tnNo}
+   AND  srvr_sqno = #{srvrSqno}
+</delete>
+<select id="selectProcessCnt" parameterType="bxm.centercut.bean.CcutMainInput" resultType="bxm.ccmainmng.share.dao.dto.SvcCntlProcCnt">
+SELECT 
+  A.NODE_NO AS nodeNo
+  , A.NODE_NM AS nodeNm
+  , A.USE_YN AS useYn
+  , B.PCSN_CNT AS pcsnCnt
+FROM BXM_CC_NODE A
+LEFT OUTER JOIN (
+select 
+  PCSN_NODE_NO
+  , COUNT(PCSN_NODE_NO) AS PCSN_CNT
+from BXM_CC_SERVICE_CONTROL
+WHERE domain_id = #{domainId}
+GROUP BY PCSN_NODE_NO) B
+ON A.NODE_NO = B.PCSN_NODE_NO
+INNER JOIN (
+SELECT 
+  NODE_NO
+  , NODE_TYPE
+FROM BXM_CC_PROCESS_STATUS
+WHERE DOMAIN_ID = #{domainId} AND CC_ID = #{ccId}
+AND PCSN_DT = #{pcsnDt} AND ACPT_NO = #{acptNo} AND TN_NO = #{tnNo}
+) C
+ON A.NODE_NO = C.NODE_NO AND A.NODE_TYPE = C.NODE_TYPE
+WHERE A.NODE_TYPE = 'P' AND A.USE_YN = 'Y'
+ORDER BY A.NODE_NO ASC
+</select>
+<select id="selectProcessCntPerJob" parameterType="bxm.centercut.bean.CcutMainInput" resultType="bxm.ccmainmng.share.dao.dto.SvcCntlProcCnt">
+SELECT 
+  A.NODE_NO AS nodeNo
+  , A.NODE_NM AS nodeNm
+  , A.USE_YN AS useYn
+  , B.PCSN_CNT AS pcsnCnt
+FROM BXM_CC_NODE A
+LEFT OUTER JOIN (
+select 
+  PCSN_NODE_NO
+  , COUNT(PCSN_NODE_NO) AS PCSN_CNT
+from BXM_CC_SERVICE_CONTROL
+WHERE DOMAIN_ID = #{domainId} AND CC_ID = #{ccId} AND PCSN_DT = #{pcsnDt}
+	AND ACPT_NO = #{acptNo} AND TN_NO = #{tnNo}
+GROUP BY PCSN_NODE_NO) B
+ON A.NODE_NO = B.PCSN_NODE_NO
+INNER JOIN (
+SELECT 
+  NODE_NO
+  , NODE_TYPE
+FROM BXM_CC_PROCESS_STATUS
+WHERE DOMAIN_ID = #{domainId} AND CC_ID = #{ccId}
+AND PCSN_DT = #{pcsnDt} AND ACPT_NO = #{acptNo} AND TN_NO = #{tnNo}
+) C
+ON A.NODE_NO = C.NODE_NO AND A.NODE_TYPE = C.NODE_TYPE
+WHERE A.NODE_TYPE = 'P'
+ORDER BY A.NODE_NO ASC
+</select>
+</mapper>

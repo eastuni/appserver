@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BXM WEB ADMIN</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <link rel="shortcut icon" href="styles/images/favicon.ico">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="libs/jquery/jquery-ui.min.css" type="text/css"/>
+    <link rel="stylesheet" href="libs/sweet-alert/sweetalert.css" type="text/css">
+    <link rel="stylesheet" href="styles/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="styles/css/admin.css" type="text/css" />
+</head>
+
+<body>
+
+<!--LOGIN-->
+<div class="login-wrap bx-loding-wrap"></div>
+<!--/END LOGIN-->
+
+<!-- 로그인 화면에서 아이디, 패스워드 기본 셋팅 -->
+<!-- <li><input name="userId" type="text" class="bw-input ipt-login" placeholder="{{bxMsg 'login.id'}}" value="sysadmin"/></li> -->
+<!-- <li><input name="userPwd" type="password" class="bw-input ipt-login" placeholder="{{bxMsg 'login.pwd'}}" value="sysadmin"/></li> -->
+<script type="text/x-handlebars-template" id="login-container">
+    <section class="login-container" style="display: none;">
+        <h1>bxm Admin</h1>
+        <form id="login-form" class="login">
+            <ul>
+                
+				<li><input name="userId" type="text" class="bw-input ipt-login" placeholder="{{bxMsg 'login.id'}}" /></li>
+                <li><input name="userPwd" type="password" class="bw-input ipt-login" placeholder="{{bxMsg 'login.pwd'}}" /></li>
+				<li class="domain-selection"><select name="domain" class="bw-input ipt-select"></select></li>
+                <li class="language-selection"><select name="lang" class="bw-input ipt-select"></select></li>
+                <li><button id="login-btn" type="submit" class="bw-btn-txt">{{bxMsg 'login.login'}}</button></li>
+            </ul>
+        </form>
+        <p class="bw-copyright">2016 © BankwareGlobal</p>
+    </section>
+</script>
+
+<script src="libs/jquery/jquery-1.10.2.min.js"></script>
+<script src="libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script src="libs/jquery/jquery.cookie.min.js"></script>
+<script src="libs/jquery/jquery-ui.min.js"></script>
+<script src="libs/underscore/underscore-1.5.2.min.js"></script>
+<script src="libs/backbone/backbone-yg-1.1.0.min.js"></script>
+<script src="libs/handlebars/handlebars-1.1.2.min.js"></script>
+<script src="libs/sweet-alert/sweetalert.min.js"></script>
+<script src="libs/xDate/xdate.min.js"></script>
+<script src="libs/bxjs/bxMsg.js"></script>
+<script data-main="scripts/index" src="libs/require/require-2.1.9.min.js"></script>
+</body>

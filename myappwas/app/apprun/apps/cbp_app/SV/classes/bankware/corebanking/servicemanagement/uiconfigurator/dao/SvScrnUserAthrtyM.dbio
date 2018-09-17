@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.uiconfigurator.dao.SvScrnUserAthrtyM">
+<!--Generated Fri May 04 12:54:40 KST 2018-->
+<select id="select" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnUserAthrtyMIO">
+SELECT    
+
+        a.INST_CD AS instCd,     /*Kor)다중 금융기관서비스를 위한 속성으로 동일 시스템을 사용하는 각 금융기관마다 부여된 코드 Eng)Code that distinguishes each financial entity when one system operates multi-entity*/
+
+        a.CMPNT_CD AS cmpntCd,     /*Kor)코드의 관리 컴포넌트 Eng)component that manages this code number*/
+
+        a.SCRN_ID AS scrnId,     /*Kor)해당 거래를 실행한 화면식별자. 화면식별자가 없는 채널(센터컷, 배치, 외부기관, ARS 등)에서는 널값. Eng)specifies the screen id that invoke this transaction. null in channel like centercut, batch, external network, ars etc.*/
+
+        a.GUEST_USER_YN AS guestUserYn,     /*kor)게스트사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether for a guest if the user can use the screen*/
+
+        a.INCTV_USER_YN AS inctvUserYn,     /*kor)비활동사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether for inactivity if the user can use the screen*/
+
+        a.ACTV_USER_YN AS actvUserYn,     /*kor)활동사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether active users on the screen, if available*/
+
+        a.LAST_CHNG_ID AS lastChngId,     /*Kor)최종 변경자의 식별자 Eng)Identifier who has changed the record finally*/
+
+        a.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+
+        a.LAST_CHNG_GUID AS lastChngGuid,    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+
+        b.TRNSFR_RSLT_VAL AS scrnNm
+
+  FROM  SV_SCRN_USER_ATHRTY_M a
+
+  ,  cm_mlt_lng_trnsltn_d b
+
+  where A.SCRN_ID = b.TRNSFR_ORIGIN_KEY_VAL
+
+    AND b.trnsfr_knd_cd = 'SCRN_NAME'
+   AND a.INST_CD = #{instCd}
+
+   AND a.CMPNT_CD = #{cmpntCd}
+
+   AND a.SCRN_ID = #{scrnId}
+
+   AND b.LNG_CD = #{lngCd}
+</select>
+<select id="selectList" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnUserAthrtyMIO">
+SELECT    
+
+        a.INST_CD AS instCd,     /*Kor)다중 금융기관서비스를 위한 속성으로 동일 시스템을 사용하는 각 금융기관마다 부여된 코드 Eng)Code that distinguishes each financial entity when one system operates multi-entity*/
+
+        a.CMPNT_CD AS cmpntCd,     /*Kor)코드의 관리 컴포넌트 Eng)component that manages this code number*/
+
+        a.SCRN_ID AS scrnId,     /*Kor)해당 거래를 실행한 화면식별자. 화면식별자가 없는 채널(센터컷, 배치, 외부기관, ARS 등)에서는 널값. Eng)specifies the screen id that invoke this transaction. null in channel like centercut, batch, external network, ars etc.*/
+
+        a.GUEST_USER_YN AS guestUserYn,     /*kor)게스트사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether for a guest if the user can use the screen*/
+
+        a.INCTV_USER_YN AS inctvUserYn,     /*kor)비활동사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether for inactivity if the user can use the screen*/
+
+        a.ACTV_USER_YN AS actvUserYn,     /*kor)활동사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether active users on the screen, if available*/
+
+        a.LAST_CHNG_ID AS lastChngId,     /*Kor)최종 변경자의 식별자 Eng)Identifier who has changed the record finally*/
+
+        a.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+
+        a.LAST_CHNG_GUID AS lastChngGuid,
+
+        b.TRNSFR_RSLT_VAL AS scrnNm
+
+  FROM  SV_SCRN_USER_ATHRTY_M A
+
+     ,  cm_mlt_lng_trnsltn_d b
+
+  WHERE A.SCRN_ID = b.TRNSFR_ORIGIN_KEY_VAL
+
+    AND b.trnsfr_knd_cd = 'SCRN_NAME'
+    AND a.INST_CD = #{instCd}
+
+    AND b.LNG_CD = #{lngCd}
+
+<if test="cmpntCd != null and cmpntCd != ''">
+
+   AND  a.CMPNT_CD = #{cmpntCd}
+
+</if>
+
+<if test="scrnId != null and scrnId != ''">
+
+   AND  a.SCRN_ID like CONCAT(CONCAT('%', #{scrnId}), '%')
+
+</if>
+
+<if test="scrnNm != null and scrnNm != ''">
+
+   AND  b.TRNSFR_RSLT_VAL like CONCAT(CONCAT('%', #{scrnNm}), '%')
+
+</if>
+</select>
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnUserAthrtyMIO">
+INSERT  
+
+  INTO  SV_SCRN_USER_ATHRTY_M
+
+(
+
+  INST_CD,     /*Kor)다중 금융기관서비스를 위한 속성으로 동일 시스템을 사용하는 각 금융기관마다 부여된 코드 Eng)Code that distinguishes each financial entity when one system operates multi-entity*/
+
+  CMPNT_CD,     /*Kor)코드의 관리 컴포넌트 Eng)component that manages this code number*/
+
+  SCRN_ID,     /*Kor)해당 거래를 실행한 화면식별자. 화면식별자가 없는 채널(센터컷, 배치, 외부기관, ARS 등)에서는 널값. Eng)specifies the screen id that invoke this transaction. null in channel like centercut, batch, external network, ars etc.*/
+
+  GUEST_USER_YN,     /*kor)게스트사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether for a guest if the user can use the screen*/
+
+  INCTV_USER_YN,     /*kor)비활동사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether for inactivity if the user can use the screen*/
+
+  ACTV_USER_YN,     /*kor)활동사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether active users on the screen, if available*/
+
+  LAST_CHNG_ID,     /*Kor)최종 변경자의 식별자 Eng)Identifier who has changed the record finally*/
+
+  LAST_CHNG_TMSTMP,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+
+  LAST_CHNG_GUID    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+
+)
+
+VALUES 
+
+(
+
+  #{instCd, jdbcType=VARCHAR},     /*Kor)다중 금융기관서비스를 위한 속성으로 동일 시스템을 사용하는 각 금융기관마다 부여된 코드 Eng)Code that distinguishes each financial entity when one system operates multi-entity*/
+
+  #{cmpntCd, jdbcType=VARCHAR},     /*Kor)코드의 관리 컴포넌트 Eng)component that manages this code number*/
+
+  #{scrnId, jdbcType=VARCHAR},     /*Kor)해당 거래를 실행한 화면식별자. 화면식별자가 없는 채널(센터컷, 배치, 외부기관, ARS 등)에서는 널값. Eng)specifies the screen id that invoke this transaction. null in channel like centercut, batch, external network, ars etc.*/
+
+  #{guestUserYn, jdbcType=VARCHAR},     /*kor)게스트사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether for a guest if the user can use the screen*/
+
+  #{inctvUserYn, jdbcType=VARCHAR},     /*kor)비활동사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether for inactivity if the user can use the screen*/
+
+  #{actvUserYn, jdbcType=VARCHAR},     /*kor)활동사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether active users on the screen, if available*/
+
+  #{lastChngId, jdbcType=VARCHAR},     /*Kor)최종 변경자의 식별자 Eng)Identifier who has changed the record finally*/
+
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+
+  #{lastChngGuid, jdbcType=VARCHAR}    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+
+)
+</insert>
+<update id="update" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnUserAthrtyMIO">
+UPDATE  
+
+        SV_SCRN_USER_ATHRTY_M
+
+   SET  GUEST_USER_YN = #{guestUserYn, jdbcType=VARCHAR}    /* kor)게스트사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether for a guest if the user can use the screen */
+
+     , INCTV_USER_YN = #{inctvUserYn, jdbcType=VARCHAR}    /* kor)비활동사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether for inactivity if the user can use the screen */
+
+     , ACTV_USER_YN = #{actvUserYn, jdbcType=VARCHAR}    /* kor)활동사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether active users on the screen, if available */
+
+     , LAST_CHNG_ID = #{lastChngId, jdbcType=VARCHAR}    /* Kor)최종 변경자의 식별자 Eng)Identifier who has changed the record finally */
+
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record. */
+
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record */
+
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+
+   AND CMPNT_CD = #{cmpntCd, jdbcType=VARCHAR}
+
+   AND SCRN_ID = #{scrnId, jdbcType=VARCHAR}
+</update>
+<delete id="delete">
+DELETE  FROM  SV_SCRN_USER_ATHRTY_M    /* Kor)다이렉트뱅킹 사용자가 화면에 대한 권한을 정의 한다. Eng)Direct Banking users d */
+
+ WHERE  INST_CD = #{instCd, jdbcType=VARCHAR}
+
+   AND CMPNT_CD = #{cmpntCd, jdbcType=VARCHAR}
+
+   AND SCRN_ID = #{scrnId, jdbcType=VARCHAR}
+</delete>
+<select id="selectOne" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnUserAthrtyMIO">
+SELECT    
+
+        INST_CD AS instCd,     /*Kor)다중 금융기관서비스를 위한 속성으로 동일 시스템을 사용하는 각 금융기관마다 부여된 코드 Eng)Code that distinguishes each financial entity when one system operates multi-entity*/
+
+        CMPNT_CD AS cmpntCd,     /*Kor)코드의 관리 컴포넌트 Eng)component that manages this code number*/
+
+        SCRN_ID AS scrnId,     /*Kor)해당 거래를 실행한 화면식별자. 화면식별자가 없는 채널(센터컷, 배치, 외부기관, ARS 등)에서는 널값. Eng)specifies the screen id that invoke this transaction. null in channel like centercut, batch, external network, ars etc.*/
+
+        GUEST_USER_YN AS guestUserYn,     /*kor)게스트사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether for a guest if the user can use the screen*/
+
+        INCTV_USER_YN AS inctvUserYn,     /*kor)비활동사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether for inactivity if the user can use the screen*/
+
+        ACTV_USER_YN AS actvUserYn,     /*kor)활동사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether active users on the screen, if available*/
+
+        LAST_CHNG_ID AS lastChngId,     /*Kor)최종 변경자의 식별자 Eng)Identifier who has changed the record finally*/
+
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+
+        LAST_CHNG_GUID AS lastChngGuid    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+
+  FROM  SV_SCRN_USER_ATHRTY_M
+  where INST_CD = #{instCd}
+   AND CMPNT_CD = #{cmpntCd}
+   AND SCRN_ID = #{scrnId}
+</select>
+<select id="selectListByInstCd" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnUserAthrtyMIO">
+SELECT    
+
+        INST_CD AS instCd,     /*Kor)다중 금융기관서비스를 위한 속성으로 동일 시스템을 사용하는 각 금융기관마다 부여된 코드 Eng)Code that distinguishes each financial entity when one system operates multi-entity*/
+
+        CMPNT_CD AS cmpntCd,     /*Kor)코드의 관리 컴포넌트 Eng)component that manages this code number*/
+
+        SCRN_ID AS scrnId,     /*Kor)해당 거래를 실행한 화면식별자. 화면식별자가 없는 채널(센터컷, 배치, 외부기관, ARS 등)에서는 널값. Eng)specifies the screen id that invoke this transaction. null in channel like centercut, batch, external network, ars etc.*/
+
+        GUEST_USER_YN AS guestUserYn,     /*kor)게스트사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether for a guest if the user can use the screen*/
+
+        INCTV_USER_YN AS inctvUserYn,     /*kor)비활동사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether for inactivity if the user can use the screen*/
+
+        ACTV_USER_YN AS actvUserYn,     /*kor)활동사용자가 화면을 사용할수 있을지에 대한 여부 Eng)Whether active users on the screen, if available*/
+
+        LAST_CHNG_ID AS lastChngId,     /*Kor)최종 변경자의 식별자 Eng)Identifier who has changed the record finally*/
+
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+
+        LAST_CHNG_GUID AS lastChngGuid
+
+
+  FROM  SV_SCRN_USER_ATHRTY_M
+
+  WHERE INST_CD = #{instCd}
+</select>
+</mapper>

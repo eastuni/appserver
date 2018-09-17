@@ -1,0 +1,11 @@
+OMM bankware.corebanking.systemcommon.batch.dao.dto.SvBatchJobMIO
+<description="">
+{
+	String batchJobId<length=100 description="배치작업식별자">;
+	String batchJobNm<length=100 description="배치작업명">;
+	String batchJobDesc<length=1000 description="배치작업설명">;
+	String batchJobTpCd<length=2 description="배치작업유형코드">;
+	String batchAplctnNm<length=100 description="배치어플리케이션명">;
+	Date lastChngTmstmp<length=20 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

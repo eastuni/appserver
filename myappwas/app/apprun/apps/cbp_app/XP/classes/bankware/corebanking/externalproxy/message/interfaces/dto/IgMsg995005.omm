@@ -1,0 +1,11 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IgMsg995005 extends bankware.corebanking.externalproxy.message.interfaces.dto.IgComm
+<description="지로 이용기관 조회(전자수납기관용) 표준전문 ">
+{
+	String useIssueInstDscd<length=2 description="이용기관발행기관분류코드 ">;
+	String useInstGiroNbr<length=7 description="이용기관지로번호">;
+	String fillerCntnt05<length=5 description="fillerCntnt05">;
+	String useInstNm<length=34 description="이용기관명" encrypt="KSC5601">;
+	String sheetDscd<length=1 description="장표종류코드">;
+	String elctrncPymntAblYn<length=1 description="전자납부가능여부">;
+	String fillerCntnt20<length=20 description="fillerCntnt20">;
+}

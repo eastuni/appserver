@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.addition.before.image.dbio.BeforeImageDBIO">
+<!--Generated Wed May 31 14:49:58 KST 2017-->
+<select id="selectBeforeImageList" resultType="bxm.web.admin.addition.before.image.domain.BeforeImageOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* BXM Before Image 로그 테이블 */ 
+       TABLE_NM AS tableNm /*테이블명*/,
+       TRX_DT AS trxDt /*거래일자*/,
+       PROC_DTTM AS procDttm /*처리일시*/,
+       SQL_TYPE_CD AS sqlTypeCd /*SQL타입코드*/,
+       DATA_BEF_AFT_TYPE_CD AS dataBefAftTypeCd /*데이터전후구분코드*/,
+       ROW_ID AS orclRowId,
+       TRX_CD AS trxCd /*거래 코드*/,
+       GUID AS guid /*GUID*/,
+       REVERT_RESULT_CD AS revertResultCd /*보정결과코드*/
+  FROM bxm_before_img_log
+  <where>
+  	<if test="befimg.tableNm != null and befimg.tableNm !=''">
+ 		and TABLE_NM like #{befimg.tableNm, jdbcType=VARCHAR}|| '%'
+  	</if>
+  	<if test="befimg.trxDt != null and befimg.trxDt != ''">
+  		and TRX_DT = #{befimg.trxDt}
+  	</if>
+  	<if test=" revertResultCds != null and revertResultCds.size() != 0">
+	AND REVERT_RESULT_CD IN
+	<foreach close=")" collection="revertResultCds" index="index" item="item" open="(" separator=",">
+		#{item}
+	</foreach>
+	</if>
+  </where>
+  ORDER BY NANO_PROC_DTTM DESC
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select id="selectBeforeImageInfo" parameterType="bxm.web.admin.addition.before.image.domain.BeforeImageOMM" resultType="bxm.web.admin.addition.before.image.domain.BeforeImageOMM">
+SELECT /* BXM Before Image 로그 테이블 */ 
+       TABLE_NM AS tableNm /*테이블명*/,
+       TRX_DT AS trxDt /*거래일자*/,
+       PROC_DTTM AS procDttm /*처리일시*/,
+       SQL_TYPE_CD AS sqlTypeCd /*SQL타입코드*/,
+       DATA_BEF_AFT_TYPE_CD AS dataBefAftTypeCd /*데이터전후구분코드*/,
+       ROW_ID AS orclRowId /*ROWID*/,
+       PK_COLUMN_NM_LIST AS pkColumnNmList /*PK컬럼명목록*/,
+       ALL_COLUMN_NM_LIST AS allColumnNmList /*전체컬럼명목록*/,
+       MODIFY_BEF_DATA AS modifyBefData /*변경 전 데이터*/,
+       MODIFY_AFT_DATA AS modifyAftData /*변경후데이터*/,
+       SQL_INPUT_DATA AS sqlInputData /*SQL 입력 데이터 */,
+       TRX_CD AS trxCd /*거래 코드*/,
+       GUID AS guid /*GUID*/,
+       REVERT_RESULT_CD AS revertResultCd /*보정결과코드*/
+  FROM bxm_before_img_log 
+  WHERE TABLE_NM = #{tableNm, jdbcType=VARCHAR}
+  	AND TRX_DT = #{trxDt, jdbcType=VARCHAR}
+  	AND PROC_DTTM = #{procDttm, jdbcType=VARCHAR}
+  	AND SQL_TYPE_CD = #{sqlTypeCd, jdbcType=VARCHAR}
+  	AND DATA_BEF_AFT_TYPE_CD = #{dataBefAftTypeCd, jdbcType=VARCHAR}
+  	AND ROW_ID = #{orclRowId, jdbcType=VARCHAR}
+</select>
+<select id="countStatsForRevertCode" resultType="bxm.web.admin.addition.before.image.domain.StatisticsData">
+SELECT
+	REVERT_RESULT_CD AS	statsValue
+	,COUNT(REVERT_RESULT_CD) AS statsCount
+FROM BXM_BEFORE_IMG_LOG
+WHERE TRX_DT=#{trxDt, jdbcType=VARCHAR}
+GROUP BY REVERT_RESULT_CD
+</select>
+<select id="countStatsForTable" resultType="bxm.web.admin.addition.before.image.domain.StatisticsData">
+SELECT
+	TABLE_NM as statsValue
+	,COUNT(TABLE_NM) as statsCount
+FROM BXM_BEFORE_IMG_LOG
+WHERE TRX_DT =#{trxDt, jdbcType=VARCHAR}
+GROUP BY TABLE_NM
+ORDER BY COUNT(TABLE_NM) DESC
+</select>
+<select id="countStatsForAllData" resultType="java.lang.Integer">
+SELECT
+	COUNT(1) as totalCount
+FROM BXM_BEFORE_IMG_LOG
+WHERE TRX_DT = #{trxDt, jdbcType=VARCHAR}
+</select>
+<select id="countStatsForList" resultType="bxm.web.admin.addition.before.image.domain.StatisticsDataForList">
+SELECT
+  TABLE_NM as tableNm
+  ,REVERT_RESULT_CD as revertResultCd
+  ,COUNT(1) as count
+FROM BXM_BEFORE_IMG_LOG
+WHERE TRX_DT = #{trxDt, jdbcType=VARCHAR}
+GROUP BY TABLE_NM, REVERT_RESULT_CD
+ORDER BY TABLE_NM, REVERT_RESULT_CD
+</select>
+<select id="countTotalPage" parameterType="bxm.web.admin.addition.before.image.domain.BeforeImageSearchOMM" resultType="java.lang.Integer">
+SELECT /* BXM Before Image 로그 테이블 */ 
+       Count(*)
+  FROM bxm_before_img_log
+  <where>
+  	<if test="tableNm != null and tableNm !=''">
+ 		and TABLE_NM like #{tableNm, jdbcType=VARCHAR}|| '%'
+  	</if>
+  	<if test="trxDt != null and trxDt != ''">
+  		and TRX_DT = #{trxDt, jdbcType=VARCHAR}
+  	</if>
+  </where>
+</select>
+</mapper>

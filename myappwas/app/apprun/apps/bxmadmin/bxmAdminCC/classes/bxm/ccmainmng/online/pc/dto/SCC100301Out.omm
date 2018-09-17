@@ -1,0 +1,7 @@
+OMM bxm.ccmainmng.online.pc.dto.SCC100301Out
+<description="  ">
+{
+	Integer rowCnt<length=6>;
+	bxm.ccmainmng.online.pc.dto.SCC1003OutSub1 listSCC1003Out<length=0 arrayReference="rowCnt">;
+	Integer totalPage<length=9>;
+}

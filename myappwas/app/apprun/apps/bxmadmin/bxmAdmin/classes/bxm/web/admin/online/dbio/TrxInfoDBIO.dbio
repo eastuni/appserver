@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.online.dbio.TrxInfoDBIO">
+<!--Generated Fri Nov 24 17:42:39 KST 2017-->
+<select id="selectTrxInfoList" resultType="bxm.web.admin.online.domain.TrxInfoOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* BXM온라인거래정보 */ 
+       BXM_APP_ID AS bxmAppId,/*BXM어플리케이션ID*/ 
+       SVC_NM AS svcNm,/*서비스명*/ 
+       OP_NM AS opNm,/*오퍼레이션명*/ 
+       TRX_CD AS trxCd,/*거래코드*/ 
+       TRX_NM AS trxNm,/*거래명*/ 
+       FRCD_TRAN_YN AS frcdTranYn,/*강제트랜잭션여부*/ 
+       FRCD_TIMEOUT_MILLS AS frcdTimeoutMills,/*강제타임아웃밀리초*/ 
+       OUTPUT_MSG_MAX_LEN AS outputMsgMaxLen,/*출력전문최대길이*/ 
+       LOG_LV_NM AS logLvNm,/*로그레벨명*/ 
+       LOGF_TYPE_CD AS logfTypeCd,/*로그강제변경타입코드*/ 
+       LOGF_LOG_LV_NM AS logfLogLvNm,/*로그강제변경로그레벨명*/ 
+       LOGF_IP AS logfIp,/*로그강제변경IP*/ 
+       LOGF_BRANCH_NO AS logfBranchNo,/*로그강제변경지점번호*/ 
+       LOGF_TERMINAL_NO AS logfTerminalNo,/*로그강제변경단말번호*/ 
+       DAY_SUSP_START_TIME AS daySuspStartTime,/*일별 중단시작시간*/ 
+       DAY_SUSP_END_TIME AS daySuspEndTime,/*일별 중단종료시간*/ 
+       TRX_CTRL_CD AS trxCtrlCd,/*거래제어코드*/ 
+       TRX_CTRL_START_DTTM AS trxCtrlStartDttm,/*거래제어시작일시*/ 
+       TRX_CTRL_END_DTTM AS trxCtrlEndDttm,/*거래 제어 종료 일시*/ 
+       CHL_CTRL_LIST_TYPE_CD AS chlCtrlListTypeCd,/*채널 제어목록 구분코드*/ 
+       CHL_CTRL_LIST AS chlCtrlList,/*채널 제어목록*/ 
+       BRANCH_CTRL_LIST_TYPE_CD AS branchCtrlListTypeCd,/*지점 제어목록 구분코드*/ 
+       BRANCH_CTRL_LIST AS branchCtrlList,/*지점 제어목록*/ 
+       USER_CTRL_LIST_TYPE_CD AS userCtrlListTypeCd,/*조작자 제어목록 구분코드*/ 
+       USER_CTRL_LIST AS userCtrlList,/*조작자 제어목록*/ 
+       HDAY_TRX_USE_YN AS hdayTrxUseYn,/*휴일거래허용여부*/ 
+       EDAY_TRX_USE_YN AS edayTrxUseYn,/*마감후 거래허용여부*/ 
+       LINK_TRX_USE_YN AS linkTrxUseYn,/*연동거래허용여부*/ 
+       DTCHG_CTRL_SKIP_YN AS dtchgCtrlSkipYn,/*일자변경제어SKIP여부*/ 
+       IMG_LOG_SKIP_YN AS imgLogSkipYn,/*이미지로그SKIP여부*/ 
+       TRX_LOG_SKIP_YN AS trxLogSkipYn,/*거래로그SKIP여부*/ 
+       REG_USER_ID AS regUserId,/*등록 사용자 ID*/ 
+       REG_OCCUR_DTTM AS regOccurDttm,/*등록 발생 일시*/ 
+       MODIFY_USER_ID AS modifyUserId,/*변경 사용자 ID*/ 
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경 발생 일시*/,
+       IP_CTRL_LIST_TYPE_CD AS ipCtrlListTypeCd /*IP 제어목록 구분코드*/,
+       IP_CTRL_LIST AS ipCtrlList /*IP 제어목록*/,
+       BIZ_LOG_TRX_TYPE_CD AS bizLogTrxTypeCd
+	FROM BXM_TRX_INFO
+	WHERE
+	DOMAIN_ID = #{trxInfo.domainId}
+  	<if test="trxInfo.trxNm != null and trxInfo.trxNm != ''">
+		and upper(trx_nm) like upper(#{trxInfo.trxNm, jdbcType=VARCHAR})||'%'
+	</if>
+  	<if test="trxInfo.trxCd != null and trxInfo.trxCd != ''">
+		and upper(trx_cd) like upper(#{trxInfo.trxCd, jdbcType=VARCHAR})||'%'
+	</if>
+	<if test="trxInfo.bxmAppId != null and trxInfo.bxmAppId != ''">
+		and upper(bxm_app_id) like upper(#{trxInfo.bxmAppId, jdbcType=VARCHAR})||'%'
+	</if>	
+	<if test="trxInfo.svcNm != null and trxInfo.svcNm != ''">
+		and upper(svc_nm) like upper(#{trxInfo.svcNm, jdbcType=VARCHAR})||'%'
+	</if>	
+	<if test="trxInfo.opNm != null and trxInfo.opNm != ''">
+		and upper(op_nm) like upper(#{trxInfo.opNm, jdbcType=VARCHAR})||'%'
+	</if>
+	ORDER BY TRX_CD, BXM_APP_ID, SVC_NM, OP_NM
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectTrxInfoList" resultType="bxm.web.admin.online.domain.TrxInfoOMM">
+SELECT /* BXM온라인거래정보 */ 
+       BXM_APP_ID AS bxmAppId,/*BXM어플리케이션ID*/ 
+       SVC_NM AS svcNm,/*서비스명*/ 
+       OP_NM AS opNm,/*오퍼레이션명*/ 
+       TRX_CD AS trxCd,/*거래코드*/ 
+       TRX_NM AS trxNm,/*거래명*/ 
+       FRCD_TRAN_YN AS frcdTranYn,/*강제트랜잭션여부*/ 
+       FRCD_TIMEOUT_MILLS AS frcdTimeoutMills,/*강제타임아웃밀리초*/ 
+       OUTPUT_MSG_MAX_LEN AS outputMsgMaxLen,/*출력전문최대길이*/ 
+       LOG_LV_NM AS logLvNm,/*로그레벨명*/ 
+       LOGF_TYPE_CD AS logfTypeCd,/*로그강제변경타입코드*/ 
+       LOGF_LOG_LV_NM AS logfLogLvNm,/*로그강제변경로그레벨명*/ 
+       LOGF_IP AS logfIp,/*로그강제변경IP*/ 
+       LOGF_BRANCH_NO AS logfBranchNo,/*로그강제변경지점번호*/ 
+       LOGF_TERMINAL_NO AS logfTerminalNo,/*로그강제변경단말번호*/ 
+       DAY_SUSP_START_TIME AS daySuspStartTime,/*일별 중단시작시간*/ 
+       DAY_SUSP_END_TIME AS daySuspEndTime,/*일별 중단종료시간*/ 
+       TRX_CTRL_CD AS trxCtrlCd,/*거래제어코드*/ 
+       TRX_CTRL_START_DTTM AS trxCtrlStartDttm,/*거래제어시작일시*/ 
+       TRX_CTRL_END_DTTM AS trxCtrlEndDttm,/*거래 제어 종료 일시*/ 
+       CHL_CTRL_LIST_TYPE_CD AS chlCtrlListTypeCd,/*채널 제어목록 구분코드*/ 
+       CHL_CTRL_LIST AS chlCtrlList,/*채널 제어목록*/ 
+       BRANCH_CTRL_LIST_TYPE_CD AS branchCtrlListTypeCd,/*지점 제어목록 구분코드*/ 
+       BRANCH_CTRL_LIST AS branchCtrlList,/*지점 제어목록*/ 
+       USER_CTRL_LIST_TYPE_CD AS userCtrlListTypeCd,/*조작자 제어목록 구분코드*/ 
+       USER_CTRL_LIST AS userCtrlList,/*조작자 제어목록*/ 
+       HDAY_TRX_USE_YN AS hdayTrxUseYn,/*휴일거래허용여부*/ 
+       EDAY_TRX_USE_YN AS edayTrxUseYn,/*마감후 거래허용여부*/ 
+       LINK_TRX_USE_YN AS linkTrxUseYn,/*연동거래허용여부*/ 
+       DTCHG_CTRL_SKIP_YN AS dtchgCtrlSkipYn,/*일자변경제어SKIP여부*/ 
+       IMG_LOG_SKIP_YN AS imgLogSkipYn,/*이미지로그SKIP여부*/ 
+       TRX_LOG_SKIP_YN AS trxLogSkipYn,/*거래로그SKIP여부*/ 
+       REG_USER_ID AS regUserId,/*등록 사용자 ID*/ 
+       REG_OCCUR_DTTM AS regOccurDttm,/*등록 발생 일시*/ 
+       MODIFY_USER_ID AS modifyUserId,/*변경 사용자 ID*/ 
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경 발생 일시*/,
+       IP_CTRL_LIST_TYPE_CD AS ipCtrlListTypeCd /*IP 제어목록 구분코드*/,
+       IP_CTRL_LIST AS ipCtrlList /*IP 제어목록*/,
+       BIZ_LOG_TRX_TYPE_CD AS bizLogTrxTypeCd
+	FROM BXM_TRX_INFO
+	WHERE
+	DOMAIN_ID = #{trxInfo.domainId}
+  	<if test="trxInfo.trxNm != null and trxInfo.trxNm != ''">
+		and upper(TRX_NM) like CONCAT(upper(#{trxInfo.trxNm}),'%')
+	</if>
+  	<if test="trxInfo.trxCd != null and trxInfo.trxCd != ''">
+		and upper(TRX_CD) like CONCAT(upper(#{trxInfo.trxCd}),'%')
+	</if>
+	<if test="trxInfo.bxmAppId != null and trxInfo.bxmAppId != ''">
+		and upper(BXM_APP_ID) like CONCAT(upper(#{trxInfo.bxmAppId}),'%')
+	</if>	
+	<if test="trxInfo.svcNm != null and trxInfo.svcNm != ''">
+		and upper(SVC_NM) like CONCAT(upper(#{trxInfo.svcNm}),'%')
+	</if>	
+	<if test="trxInfo.opNm != null and trxInfo.opNm != ''">
+		and upper(OP_NM) like CONCAT(upper(#{trxInfo.opNm}),'%')
+	</if>
+	ORDER BY TRX_CD, BXM_APP_ID, SVC_NM, OP_NM
+	LIMIT #{pageNum}, #{pageCount}
+</select>
+<select id="selectTrxInfo" parameterType="bxm.web.admin.online.domain.TrxInfoOMM" resultType="bxm.web.admin.online.domain.TrxInfoOMM">
+SELECT /* BXM온라인거래정보 */ 
+	   DOMAIN_ID AS domainId,
+       BXM_APP_ID AS bxmAppId /*BXM어플리케이션ID*/,
+       SVC_NM AS svcNm /*서비스명*/,
+       OP_NM AS opNm /*오퍼레이션명*/,
+       TRX_CD AS trxCd /*거래코드*/,
+       TRX_NM AS trxNm /*거래명*/,
+       FRCD_TRAN_YN AS frcdTranYn /*강제트랜잭션여부*/,
+       FRCD_TIMEOUT_MILLS AS frcdTimeoutMills /*강제타임아웃밀리초*/,
+       OUTPUT_MSG_MAX_LEN AS outputMsgMaxLen /*출력전문최대길이*/,
+       LOG_LV_NM AS logLvNm /*로그레벨명*/,
+       LOGF_TYPE_CD AS logfTypeCd /*로그강제변경타입코드*/,
+       LOGF_LOG_LV_NM AS logfLogLvNm /*로그강제변경로그레벨명*/,
+       LOGF_IP AS logfIp /*로그강제변경IP*/,
+       LOGF_BRANCH_NO AS logfBranchNo /*로그강제변경지점번호*/,
+       LOGF_TERMINAL_NO AS logfTerminalNo /*로그강제변경단말번호*/,
+       DAY_SUSP_START_TIME AS daySuspStartTime /*일별 중단시작시간*/,
+       DAY_SUSP_END_TIME AS daySuspEndTime /*일별 중단종료시간*/,
+       TRX_CTRL_CD AS trxCtrlCd /*거래제어코드*/,
+       TRX_CTRL_START_DTTM AS trxCtrlStartDttm /*거래제어시작일시*/,
+       LINK_TRX_TYPE_CD AS linkTrxTypeCd,
+       LINK_CTRL_FQN AS linkCtrlFqn,
+       TRX_CTRL_END_DTTM AS trxCtrlEndDttm /*거래 제어 종료 일시*/,
+       CHL_CTRL_LIST_TYPE_CD AS chlCtrlListTypeCd /*채널 제어목록 구분코드*/,
+       CHL_CTRL_LIST AS chlCtrlList /*채널 제어목록*/,
+       BRANCH_CTRL_LIST_TYPE_CD AS branchCtrlListTypeCd /*지점 제어목록 구분코드*/,
+       BRANCH_CTRL_LIST AS branchCtrlList /*지점 제어목록*/,
+       USER_CTRL_LIST_TYPE_CD AS userCtrlListTypeCd /*조작자 제어목록 구분코드*/,
+       USER_CTRL_LIST AS userCtrlList /*조작자 제어목록*/,
+       HDAY_TRX_USE_YN AS hdayTrxUseYn /*휴일거래허용여부*/,
+       EDAY_TRX_USE_YN AS edayTrxUseYn /*마감후 거래허용여부*/,
+       LINK_TRX_USE_YN AS linkTrxUseYn /*연동거래허용여부*/,
+       DTCHG_CTRL_SKIP_YN AS dtchgCtrlSkipYn /*일자변경제어SKIP여부*/,
+       IMG_LOG_SKIP_YN AS imgLogSkipYn /*이미지로그SKIP여부*/,
+       TRX_LOG_SKIP_YN AS trxLogSkipYn /*거래로그SKIP여부*/,
+       REG_USER_ID AS regUserId /*등록 사용자 ID*/,
+       REG_OCCUR_DTTM AS regOccurDttm /*등록 발생 일시*/,
+       MODIFY_USER_ID AS modifyUserId /*변경 사용자 ID*/,
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경 발생 일시*/,
+       IP_CTRL_LIST_TYPE_CD AS ipCtrlListTypeCd /*IP 제어목록 구분코드*/,
+       IP_CTRL_LIST AS ipCtrlList /*IP 제어목록*/,
+       BIZ_LOG_TRX_TYPE_CD AS bizLogTrxTypeCd 
+  FROM BXM_TRX_INFO
+ WHERE BXM_APP_ID = #{bxmAppId}
+   AND SVC_NM = #{svcNm}
+   AND OP_NM = #{opNm}
+   AND TRX_CD = #{trxCd}
+   AND DOMAIN_ID = #{domainId}
+</select>
+<insert id="insertTrxInfo" parameterType="bxm.web.admin.online.domain.TrxInfoOMM">
+INSERT INTO BXM_TRX_INFO /* BXM온라인거래정보 */
+(
+	DOMAIN_ID,
+    BXM_APP_ID /*BXM어플리케이션ID*/,
+    SVC_NM /*서비스명*/,
+    OP_NM /*오퍼레이션명*/,
+    TRX_CD /*거래코드*/,
+    TRX_NM /*거래명*/,
+    FRCD_TRAN_YN /*강제트랜잭션여부*/,
+    FRCD_TIMEOUT_MILLS /*강제타임아웃밀리초*/,
+    OUTPUT_MSG_MAX_LEN /*출력전문최대길이*/,
+    LOG_LV_NM /*로그레벨명*/,
+    LOGF_TYPE_CD /*로그강제변경타입코드*/,
+    LOGF_LOG_LV_NM /*로그강제변경로그레벨명*/,
+    LOGF_IP /*로그강제변경IP*/,
+    LOGF_BRANCH_NO /*로그강제변경지점번호*/,
+    LOGF_TERMINAL_NO /*로그강제변경단말번호*/,
+    DAY_SUSP_START_TIME /*일별 중단시작시간*/,
+    DAY_SUSP_END_TIME /*일별 중단종료시간*/,
+    TRX_CTRL_CD /*거래제어코드*/,
+    TRX_CTRL_START_DTTM /*거래제어시작일시*/,
+    TRX_CTRL_END_DTTM /*거래제어종료일시*/,
+    LINK_TRX_TYPE_CD /*연동거래 구분코드*/,
+    LINK_CTRL_FQN /*연동제어 FQN*/,
+    CHL_CTRL_LIST_TYPE_CD /*채널 제어목록 구분코드*/,
+    CHL_CTRL_LIST /*채널 제어목록*/,
+    BRANCH_CTRL_LIST_TYPE_CD /*지점 제어목록 구분코드*/,
+    BRANCH_CTRL_LIST /*지점 제어목록*/,
+    USER_CTRL_LIST_TYPE_CD /*조작자 제어목록 구분코드*/,
+    USER_CTRL_LIST /*조작자 제어목록*/,
+    IP_CTRL_LIST_TYPE_CD /*IP 제어목록 구분코드*/,
+    IP_CTRL_LIST /*IP 제어목록*/,
+    HDAY_TRX_USE_YN /*휴일거래허용여부*/,
+    EDAY_TRX_USE_YN /*마감후 거래허용여부*/,
+    LINK_TRX_USE_YN /*연동거래허용여부*/,
+    DTCHG_CTRL_SKIP_YN /*일자변경제어SKIP여부*/,
+    IMG_LOG_SKIP_YN /*이미지로그SKIP여부*/,
+    TRX_LOG_SKIP_YN /*거래로그SKIP여부*/,
+    REG_USER_ID /*등록 사용자 ID*/,
+    REG_OCCUR_DTTM /*등록 발생 일시*/,
+    MODIFY_USER_ID /*변경 사용자 ID*/,
+    MODIFY_OCCUR_DTTM /*변경 발생 일시*/,
+    BIZ_LOG_TRX_TYPE_CD /*업무로그거래유형코드*/
+)
+VALUES
+(
+	#{domainId, jdbcType=VARCHAR},
+    #{bxmAppId, jdbcType=VARCHAR} /*BXM어플리케이션ID*/,
+    #{svcNm, jdbcType=VARCHAR} /*서비스명*/,
+    #{opNm, jdbcType=VARCHAR} /*오퍼레이션명*/,
+    #{trxCd, jdbcType=VARCHAR} /*거래코드*/,
+    #{trxNm, jdbcType=VARCHAR} /*거래명*/,
+    #{frcdTranYn, jdbcType=VARCHAR} /*강제트랜잭션여부*/,
+    #{frcdTimeoutMills, jdbcType=NUMERIC} /*강제타임아웃밀리초*/,
+    #{outputMsgMaxLen, jdbcType=NUMERIC} /*출력전문최대길이*/,
+    #{logLvNm, jdbcType=VARCHAR} /*로그레벨명*/,
+    #{logfTypeCd, jdbcType=VARCHAR} /*로그강제변경타입코드*/,
+    #{logfLogLvNm, jdbcType=VARCHAR} /*로그강제변경로그레벨명*/,
+    #{logfIp, jdbcType=VARCHAR} /*로그강제변경IP*/,
+    #{logfBranchNo, jdbcType=VARCHAR} /*로그강제변경지점번호*/,
+    #{logfTerminalNo, jdbcType=VARCHAR} /*로그강제변경단말번호*/,
+    #{daySuspStartTime, jdbcType=VARCHAR} /*일별 중단시작시간*/,
+    #{daySuspEndTime, jdbcType=VARCHAR} /*일별 중단종료시간*/,
+    #{trxCtrlCd, jdbcType=VARCHAR} /*거래제어코드*/,
+    #{trxCtrlStartDttm, jdbcType=VARCHAR} /*거래제어시작일시*/,
+    #{trxCtrlEndDttm, jdbcType=VARCHAR} /*거래제어종료일시*/,
+    #{linkTrxTypeCd, jdbcType=VARCHAR} /*연동거래 구분코드*/,
+    #{linkCtrlFqn, jdbcType=VARCHAR} /*연동제어 FQN*/,
+    #{chlCtrlListTypeCd, jdbcType=VARCHAR} /*채널 제어목록 구분코드*/,
+    #{chlCtrlList, jdbcType=VARCHAR} /*채널 제어목록*/,
+    #{branchCtrlListTypeCd, jdbcType=VARCHAR} /*지점 제어목록 구분코드*/,
+    #{branchCtrlList, jdbcType=VARCHAR} /*지점 제어목록*/,
+    #{userCtrlListTypeCd, jdbcType=VARCHAR} /*조작자 제어목록 구분코드*/,
+    #{userCtrlList, jdbcType=VARCHAR} /*조작자 제어목록*/,
+    #{ipCtrlListTypeCd, jdbcType=VARCHAR} /*IP 제어목록 구분코드*/,
+    #{ipCtrlList, jdbcType=VARCHAR} /*IP 제어목록*/,
+    #{hdayTrxUseYn, jdbcType=VARCHAR} /*휴일거래허용여부*/,
+    #{edayTrxUseYn, jdbcType=VARCHAR} /*마감후 거래허용여부*/,
+    #{linkTrxUseYn, jdbcType=VARCHAR} /*연동거래허용여부*/,
+    #{dtchgCtrlSkipYn, jdbcType=VARCHAR} /*일자변경제어SKIP여부*/,
+    #{imgLogSkipYn, jdbcType=VARCHAR} /*이미지로그SKIP여부*/,
+    #{trxLogSkipYn, jdbcType=VARCHAR} /*거래로그SKIP여부*/,
+    #{regUserId, jdbcType=VARCHAR} /*등록 사용자 ID*/,
+    #{regOccurDttm, jdbcType=VARCHAR} /*등록 발생 일시*/,
+    #{modifyUserId, jdbcType=VARCHAR} /*변경 사용자 ID*/,
+    #{modifyOccurDttm, jdbcType=VARCHAR} /*변경 발생 일시*/,
+    #{bizLogTrxTypeCd, jdbcType=VARCHAR} /*업무로그거래유형코드*/
+)
+</insert>
+<insert id="insertTrxHist">
+INSERT INTO BXM_TRX_HIST /* BXM 온라인거래 정보 변경이력 */
+(
+	DOMAIN_ID,
+    BXM_APP_ID /*BXM어플리케이션ID*/,
+    SVC_NM /*서비스명*/,
+    OP_NM /*오퍼레이션명*/,
+    MODIFY_OCCUR_DTTM /*변경 발생 일시*/,
+    MODIFY_TYPE_CD /*변경구분코드*/,
+    TRX_CD /*거래코드*/,
+    TRX_NM /*거래명*/,
+    FRCD_TRAN_YN /*강제트랜잭션여부*/,
+    FRCD_TIMEOUT_MILLS /*강제타임아웃밀리초*/,
+    OUTPUT_MSG_MAX_LEN /*출력전문최대길이*/,
+    LOG_LV_NM /*로그레벨명*/,
+    LOGF_TYPE_CD /*로그강제변경타입코드*/,
+    LOGF_LOG_LV_NM /*로그강제변경로그레벨명*/,
+    LOGF_IP /*로그강제변경IP*/,
+    LOGF_BRANCH_NO /*로그강제변경지점번호*/,
+    LOGF_TERMINAL_NO /*로그강제변경단말번호*/,
+    DAY_SUSP_START_TIME /*일별 중단시작시간*/,
+    DAY_SUSP_END_TIME /*일별 중단종료시간*/,
+    TRX_CTRL_CD /*거래제어코드*/,
+    TRX_CTRL_START_DTTM /*거래제어시작일시*/,
+    TRX_CTRL_END_DTTM /*거래제어종료일시*/,
+    LINK_TRX_TYPE_CD /*연동거래 구분코드*/,
+    LINK_CTRL_FQN /*연동제어 FQN*/,
+    CHL_CTRL_LIST_TYPE_CD /*채널 제어목록 구분코드*/,
+    CHL_CTRL_LIST /*채널 제어목록*/,
+    BRANCH_CTRL_LIST_TYPE_CD /*지점 제어목록 구분코드*/,
+    BRANCH_CTRL_LIST /*지점 제어목록*/,
+    USER_CTRL_LIST_TYPE_CD /*조작자 제어목록 구분코드*/,
+    USER_CTRL_LIST /*조작자 제어목록*/,
+    IP_CTRL_LIST_TYPE_CD /*IP 제어목록 구분코드*/,
+    IP_CTRL_LIST /*IP 제어목록*/,
+    HDAY_TRX_USE_YN /*휴일거래허용여부*/,
+    EDAY_TRX_USE_YN /*마감후 거래허용여부*/,
+    LINK_TRX_USE_YN /*연동거래허용여부*/,
+    DTCHG_CTRL_SKIP_YN /*일자변경제어SKIP여부*/,
+    IMG_LOG_SKIP_YN /*이미지로그SKIP여부*/,
+    TRX_LOG_SKIP_YN /*거래로그SKIP여부*/,
+    REG_USER_ID /*등록 사용자 ID*/,
+    REG_OCCUR_DTTM /*등록 발생 일시*/,
+    MODIFY_USER_ID /*변경 사용자 ID*/,
+    BIZ_LOG_TRX_TYPE_CD /*업무로그거래유형코드*/
+)
+VALUES
+(
+	#{param.domainId, jdbcType=VARCHAR},
+    #{param.bxmAppId, jdbcType=VARCHAR} /*BXM어플리케이션ID*/,
+    #{param.svcNm, jdbcType=VARCHAR} /*서비스명*/,
+    #{param.opNm, jdbcType=VARCHAR} /*오퍼레이션명*/,
+    #{param.modifyOccurDttm, jdbcType=VARCHAR} /*변경 발생 일시*/,
+    #{modifyTypeCd, jdbcType=VARCHAR} /*변경구분코드*/,
+    #{param.trxCd, jdbcType=VARCHAR} /*거래코드*/,
+    #{param.trxNm, jdbcType=VARCHAR} /*거래명*/,
+    #{param.frcdTranYn, jdbcType=VARCHAR} /*강제트랜잭션여부*/,
+    #{param.frcdTimeoutMills, jdbcType=NUMERIC} /*강제타임아웃밀리초*/,
+    #{param.outputMsgMaxLen, jdbcType=NUMERIC} /*출력전문최대길이*/,
+    #{param.logLvNm, jdbcType=VARCHAR} /*로그레벨명*/,
+    #{param.logfTypeCd, jdbcType=VARCHAR} /*로그강제변경타입코드*/,
+    #{param.logfLogLvNm, jdbcType=VARCHAR} /*로그강제변경로그레벨명*/,
+    #{param.logfIp, jdbcType=VARCHAR} /*로그강제변경IP*/,
+    #{param.logfBranchNo, jdbcType=VARCHAR} /*로그강제변경지점번호*/,
+    #{param.logfTerminalNo, jdbcType=VARCHAR} /*로그강제변경단말번호*/,
+    #{param.daySuspStartTime, jdbcType=VARCHAR} /*일별 중단시작시간*/,
+    #{param.daySuspEndTime, jdbcType=VARCHAR} /*일별 중단종료시간*/,
+    #{param.trxCtrlCd, jdbcType=VARCHAR} /*거래제어코드*/,
+    #{param.trxCtrlStartDttm, jdbcType=VARCHAR} /*거래제어시작일시*/,
+    #{param.trxCtrlEndDttm, jdbcType=VARCHAR} /*거래제어종료일시*/,
+    #{param.linkTrxTypeCd, jdbcType=VARCHAR} /*연동거래 구분코드*/,
+    #{param.linkCtrlFqn, jdbcType=VARCHAR} /*연동제어 FQN*/,
+    #{param.chlCtrlListTypeCd, jdbcType=VARCHAR} /*채널 제어목록 구분코드*/,
+    #{param.chlCtrlList, jdbcType=VARCHAR} /*채널 제어목록*/,
+    #{param.branchCtrlListTypeCd, jdbcType=VARCHAR} /*지점 제어목록 구분코드*/,
+    #{param.branchCtrlList, jdbcType=VARCHAR} /*지점 제어목록*/,
+    #{param.userCtrlListTypeCd, jdbcType=VARCHAR} /*조작자 제어목록 구분코드*/,
+    #{param.userCtrlList, jdbcType=VARCHAR} /*조작자 제어목록*/,
+    #{param.ipCtrlListTypeCd, jdbcType=VARCHAR} /*IP 제어목록 구분코드*/,
+    #{param.ipCtrlList, jdbcType=VARCHAR} /*IP 제어목록*/,
+    #{param.hdayTrxUseYn, jdbcType=VARCHAR} /*휴일거래허용여부*/,
+    #{param.edayTrxUseYn, jdbcType=VARCHAR} /*마감후 거래허용여부*/,
+    #{param.linkTrxUseYn, jdbcType=VARCHAR} /*연동거래허용여부*/,
+    #{param.dtchgCtrlSkipYn, jdbcType=VARCHAR} /*일자변경제어SKIP여부*/,
+    #{param.imgLogSkipYn, jdbcType=VARCHAR} /*이미지로그SKIP여부*/,
+    #{param.trxLogSkipYn, jdbcType=VARCHAR} /*거래로그SKIP여부*/,
+    #{param.regUserId, jdbcType=VARCHAR} /*등록 사용자 ID*/,
+    #{param.regOccurDttm, jdbcType=VARCHAR} /*등록 발생 일시*/,
+    #{param.modifyUserId, jdbcType=VARCHAR} /*변경 사용자 ID*/,
+    #{param.bizLogTrxTypeCd, jdbcType=VARCHAR} /*업무로그거래유형코드*/
+)
+</insert>
+<update id="updateTrxInfo" parameterType="bxm.web.admin.online.domain.TrxInfoOMM">
+UPDATE BXM_TRX_INFO /* BXM온라인거래정보 */
+   SET TRX_CD = #{trxCd, jdbcType=VARCHAR} /* 거래코드 */,
+       TRX_NM = #{trxNm, jdbcType=VARCHAR} /* 거래명 */,
+       FRCD_TRAN_YN = #{frcdTranYn, jdbcType=VARCHAR} /* 강제트랜잭션여부 */,
+       FRCD_TIMEOUT_MILLS = #{frcdTimeoutMills, jdbcType=NUMERIC} /* 강제타임아웃밀리초 */,
+       OUTPUT_MSG_MAX_LEN = #{outputMsgMaxLen, jdbcType=NUMERIC} /* 출력전문최대길이 */,
+       LOG_LV_NM = #{logLvNm, jdbcType=VARCHAR} /* 로그레벨명 */,
+       LOGF_TYPE_CD = #{logfTypeCd, jdbcType=VARCHAR} /* 로그강제변경타입코드 */,
+       LOGF_LOG_LV_NM = #{logfLogLvNm, jdbcType=VARCHAR} /* 로그강제변경로그레벨명 */,
+       LOGF_IP = #{logfIp, jdbcType=VARCHAR} /* 로그강제변경IP */,
+       LOGF_BRANCH_NO = #{logfBranchNo, jdbcType=VARCHAR} /* 로그강제변경지점번호 */,
+       LOGF_TERMINAL_NO = #{logfTerminalNo, jdbcType=VARCHAR} /* 로그강제변경단말번호 */,
+       DAY_SUSP_START_TIME = #{daySuspStartTime, jdbcType=VARCHAR} /* 일별 중단시작시간 */,
+       DAY_SUSP_END_TIME = #{daySuspEndTime, jdbcType=VARCHAR} /* 일별 중단종료시간 */,
+       TRX_CTRL_CD = #{trxCtrlCd, jdbcType=VARCHAR} /* 거래제어코드 */,
+       TRX_CTRL_START_DTTM = #{trxCtrlStartDttm, jdbcType=VARCHAR} /* 거래제어시작일시 */,
+       TRX_CTRL_END_DTTM = #{trxCtrlEndDttm, jdbcType=VARCHAR} /* 거래제어종료일시 */,
+       LINK_TRX_TYPE_CD = #{linkTrxTypeCd, jdbcType=VARCHAR} /* 연동거래 구분코드 */,
+       LINK_CTRL_FQN = #{linkCtrlFqn, jdbcType=VARCHAR} /* 연동제어 FQN */,
+       CHL_CTRL_LIST_TYPE_CD = #{chlCtrlListTypeCd, jdbcType=VARCHAR} /* 채널 제어목록 구분코드 */,
+       CHL_CTRL_LIST = #{chlCtrlList, jdbcType=VARCHAR} /* 채널 제어목록 */,
+       BRANCH_CTRL_LIST_TYPE_CD = #{branchCtrlListTypeCd, jdbcType=VARCHAR} /* 지점 제어목록 구분코드 */,
+       BRANCH_CTRL_LIST = #{branchCtrlList, jdbcType=VARCHAR} /* 지점 제어목록 */,
+       USER_CTRL_LIST_TYPE_CD = #{userCtrlListTypeCd, jdbcType=VARCHAR} /* 조작자 제어목록 구분코드 */,
+       USER_CTRL_LIST = #{userCtrlList, jdbcType=VARCHAR} /* 조작자 제어목록 */,
+       IP_CTRL_LIST_TYPE_CD = #{ipCtrlListTypeCd, jdbcType=VARCHAR} /* IP 제어목록 구분코드 */,
+       IP_CTRL_LIST = #{ipCtrlList, jdbcType=VARCHAR} /* IP 제어목록 */,
+       HDAY_TRX_USE_YN = #{hdayTrxUseYn, jdbcType=VARCHAR} /* 휴일거래허용여부 */,
+       EDAY_TRX_USE_YN = #{edayTrxUseYn, jdbcType=VARCHAR} /* 마감후 거래허용여부 */,
+       LINK_TRX_USE_YN = #{linkTrxUseYn, jdbcType=VARCHAR} /* 연동거래허용여부 */,
+       DTCHG_CTRL_SKIP_YN = #{dtchgCtrlSkipYn, jdbcType=VARCHAR} /* 일자변경제어SKIP여부 */,
+       IMG_LOG_SKIP_YN = #{imgLogSkipYn, jdbcType=VARCHAR} /* 이미지로그SKIP여부 */,
+       TRX_LOG_SKIP_YN = #{trxLogSkipYn, jdbcType=VARCHAR} /* 거래로그SKIP여부 */,
+       MODIFY_USER_ID = #{modifyUserId, jdbcType=VARCHAR} /* 변경 사용자 ID */,
+       MODIFY_OCCUR_DTTM = #{modifyOccurDttm, jdbcType=VARCHAR} /* 변경 발생 일시 */,
+       BIZ_LOG_TRX_TYPE_CD = #{bizLogTrxTypeCd, jdbcType=VARCHAR} /* 업무로그거래유형코드 */
+ WHERE BXM_APP_ID = #{bxmAppId, jdbcType=VARCHAR}
+   AND SVC_NM = #{svcNm, jdbcType=VARCHAR}
+   AND OP_NM = #{opNm, jdbcType=VARCHAR}
+   AND TRX_CD = #{trxCd, jdbcType=VARCHAR}
+   AND DOMAIN_ID = #{domainId, jdbcType=VARCHAR}
+</update>
+<delete id="deleteTrxInfo" parameterType="bxm.web.admin.online.domain.TrxInfoOMM">
+DELETE FROM BXM_TRX_INFO /* BXM온라인거래정보 */
+      WHERE BXM_APP_ID = #{bxmAppId}
+        AND SVC_NM = #{svcNm}
+        AND OP_NM = #{opNm}
+        AND TRX_CD = #{trxCd}
+        AND DOMAIN_ID = #{domainId}
+</delete>
+<select id="countTableRow" parameterType="bxm.web.admin.online.domain.TrxInfoSearchConditionOMM" resultType="java.lang.Integer">
+SELECT count(*) FROM bxm_trx_info
+WHERE DOMAIN_ID = #{domainId}
+  	<if test="trxNm != null and trxNm != ''">
+		and upper(trx_nm) like upper(#{trxNm})||'%'
+	</if>
+  	<if test="trxCd != null and trxCd != ''">
+		and upper(trx_cd) like upper(#{trxCd})||'%'
+	</if>
+	<if test="bxmAppId != null and bxmAppId != ''">
+		and upper(bxm_app_id) like upper(#{bxmAppId})||'%'
+	</if>	
+	<if test="svcNm != null and svcNm != ''">
+		and upper(svc_nm) like upper(#{svcNm})||'%'
+	</if>	
+	<if test="opNm != null and opNm != ''">
+		and upper(op_nm) like upper(#{opNm})||'%'
+	</if>
+</select>
+<select databaseId="mysql" id="countTableRow" parameterType="bxm.web.admin.online.domain.TrxInfoSearchConditionOMM" resultType="java.lang.Integer">
+SELECT count(*) FROM BXM_TRX_INFO
+WHERE DOMAIN_ID = #{domainId}
+  	<if test="trxNm != null and trxNm != ''">
+		and upper(TRX_NM) like CONCAT(upper(#{trxNm}),'%')
+	</if>
+  	<if test="trxCd != null and trxCd != ''">
+		and upper(TRX_CD) like COCNAT(upper(#{trxCd}),'%')
+	</if>
+	<if test="bxmAppId != null and bxmAppId != ''">
+		and upper(BXM_APP_ID) like CONCAT(upper(#{bxmAppId}),'%')
+	</if>	
+	<if test="svcNm != null and svcNm != ''">
+		and upper(SVC_NM) like CONCAT(upper(#{svcNm}),'%')
+	</if>	
+	<if test="opNm != null and opNm != ''">
+		and upper(OP_NM) like CONCAT(upper(#{opNm}),'%')
+	</if>
+</select>
+<select id="selectTrxInfoAllList" resultType="bxm.web.admin.online.domain.TrxInfoOMM">
+SELECT /* BXM온라인거래정보 */ 
+       DOMAIN_ID AS domainId /*도메인ID*/,
+       BXM_APP_ID AS bxmAppId /*BXM어플리케이션ID*/,
+       SVC_NM AS svcNm /*서비스명*/,
+       OP_NM AS opNm /*오퍼레이션명*/,
+       TRX_CD AS trxCd /*거래코드*/,
+       TRX_NM AS trxNm /*거래명*/,
+       FRCD_TRAN_YN AS frcdTranYn /*강제트랜잭션여부*/,
+       FRCD_TIMEOUT_MILLS AS frcdTimeoutMills /*강제타임아웃밀리초*/,
+       OUTPUT_MSG_MAX_LEN AS outputMsgMaxLen /*출력전문최대길이*/,
+       LOG_LV_NM AS logLvNm /*로그레벨명*/,
+       LOGF_TYPE_CD AS logfTypeCd /*로그강제변경타입코드*/,
+       LOGF_LOG_LV_NM AS logfLogLvNm /*로그강제변경로그레벨명*/,
+       LOGF_IP AS logfIp /*로그강제변경IP*/,
+       LOGF_BRANCH_NO AS logfBranchNo /*로그강제변경지점번호*/,
+       LOGF_TERMINAL_NO AS logfTerminalNo /*로그강제변경단말번호*/,
+       DAY_SUSP_START_TIME AS daySuspStartTime /*일별 중단시작시간*/,
+       DAY_SUSP_END_TIME AS daySuspEndTime /*일별 중단종료시간*/,
+       TRX_CTRL_CD AS trxCtrlCd /*거래제어코드*/,
+       TRX_CTRL_START_DTTM AS trxCtrlStartDttm /*거래제어시작일시*/,
+       TRX_CTRL_END_DTTM AS trxCtrlEndDttm /*거래제어종료일시*/,
+       LINK_TRX_TYPE_CD AS linkTrxTypeCd /*연동거래 구분코드*/,
+       LINK_CTRL_FQN AS linkCtrlFqn /*연동제어 FQN*/,
+       CHL_CTRL_LIST_TYPE_CD AS chlCtrlListTypeCd /*채널 제어목록 구분코드*/,
+       CHL_CTRL_LIST AS chlCtrlList /*채널 제어목록*/,
+       BRANCH_CTRL_LIST_TYPE_CD AS branchCtrlListTypeCd /*지점 제어목록 구분코드*/,
+       BRANCH_CTRL_LIST AS branchCtrlList /*지점 제어목록*/,
+       USER_CTRL_LIST_TYPE_CD AS userCtrlListTypeCd /*조작자 제어목록 구분코드*/,
+       USER_CTRL_LIST AS userCtrlList /*조작자 제어목록*/,
+       IP_CTRL_LIST_TYPE_CD AS ipCtrlListTypeCd /*IP 제어목록 구분코드*/,
+       IP_CTRL_LIST AS ipCtrlList /*IP 제어목록*/,
+       BIZ_LOG_TRX_TYPE_CD AS bizLogTrxTypeCd /*업무로그거래유형코드*/,
+       HDAY_TRX_USE_YN AS hdayTrxUseYn /*휴일거래허용여부*/,
+       EDAY_TRX_USE_YN AS edayTrxUseYn /*마감후 거래허용여부*/,
+       LINK_TRX_USE_YN AS linkTrxUseYn /*연동거래허용여부*/,
+       DTCHG_CTRL_SKIP_YN AS dtchgCtrlSkipYn /*일자변경제어SKIP여부*/,
+       IMG_LOG_SKIP_YN AS imgLogSkipYn /*이미지로그SKIP여부*/,
+       TRX_LOG_SKIP_YN AS trxLogSkipYn /*거래로그SKIP여부*/,
+       REG_USER_ID AS regUserId /*등록 사용자 ID*/,
+       REG_OCCUR_DTTM AS regOccurDttm /*등록 발생 일시*/,
+       MODIFY_USER_ID AS modifyUserId /*변경 사용자 ID*/,
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경 발생 일시*/
+  FROM BXM_TRX_INFO
+ WHERE DOMAIN_ID = #{domainId}
+ ORDER BY TRX_CD ASC, BXM_APP_ID ASC, SVC_NM ASC, OP_NM ASC
+</select>
+<select id="selectInfMapping" resultType="bxm.web.admin.online.domain.InfMappingOMM">
+SELECT /* 인터페이스맵핑 */ 
+       TRX_CD AS trxCd /*거래코드*/,
+       CHL_TYPE_CD AS chlTypeCd /*채널타입코드*/,
+       OUTPUT_MAPPING_RULE_TYPE AS outputMappingRuleType /*출력맵핑룰구분*/,
+       OUTPUT_MAP_ID AS outputMapId /*출력맵ID*/,
+       OUTPUT_CLASS_NM AS outputClassNm /*출력클래스명*/,
+       INPUT_MAPPING_RULE_TYPE AS inputMappingRuleType /*입력맵핑룰구분*/,
+       INPUT_MAP_ID AS inputMapId /*입력맵ID*/,
+       INPUT_CLASS_NM AS inputClassNm /*입력클래스명*/
+  FROM BXM_INF_MAPPING
+ WHERE TRX_CD = #{trxCd, jdbcType=VARCHAR} AND DOMAIN_ID = #{domainId, jdbcType=VARCHAR}
+ order by CHL_TYPE_CD
+</select>
+<insert id="insertInfMapping" parameterType="bxm.web.admin.online.domain.InfMappingOMM">
+INSERT INTO BXM_INF_MAPPING /* 인터페이스맵핑 */
+(
+	DOMAIN_ID,
+    TRX_CD /*거래코드*/,
+    CHL_TYPE_CD /*채널타입코드*/,
+    OUTPUT_MAPPING_RULE_TYPE /*출력맵핑룰구분*/,
+    OUTPUT_MAP_ID /*출력맵ID*/,
+    OUTPUT_CLASS_NM /*출력클래스명*/,
+    INPUT_MAPPING_RULE_TYPE /*입력맵핑룰구분*/,
+    INPUT_MAP_ID /*입력맵ID*/,
+    INPUT_CLASS_NM /*입력클래스명*/ 
+)
+VALUES
+(
+	#{domainId, jdbcType=VARCHAR},
+    #{trxCd, jdbcType=VARCHAR} /*거래코드*/,
+    #{chlTypeCd, jdbcType=VARCHAR} /*채널타입코드*/,
+    #{outputMappingRuleType, jdbcType=VARCHAR} /*출력맵핑룰구분*/,
+    #{outputMapId, jdbcType=VARCHAR} /*출력맵ID*/,
+    #{outputClassNm, jdbcType=VARCHAR} /*출력클래스명*/,
+    #{inputMappingRuleType, jdbcType=VARCHAR} /*입력맵핑룰구분*/,
+    #{inputMapId, jdbcType=VARCHAR} /*입력맵ID*/,
+    #{inputClassNm, jdbcType=VARCHAR} /*입력클래스명*/ 
+)
+</insert>
+<delete id="deleteInfMapping">
+DELETE FROM BXM_INF_MAPPING /* 인터페이스맵핑 */
+      WHERE TRX_CD = #{trxCd} AND DOMAIN_ID = #{domainId}
+</delete>
+<select id="checkTrxCode" resultType="java.lang.String">
+select
+	TRX_CD as trxCd
+from BXM_TRX_INFO
+where TRX_CD = #{trxCd, jdbcType=VARCHAR}
+</select>
+</mapper>

@@ -1,0 +1,51 @@
+OMM bankware.corebanking.externalproxy.systeminterfaceexecutor.interfaces.dto.SystemHeader
+<description="SystemHeader">
+{
+	Integer msgLen<length=8 description="전문 길이">;
+	String stdMsgVersionCntnt<length=3 description="표준전문 버전">;
+	String encrptnAplyYn<length=1 description="암호화적용여부">;
+	String guid<length=32 description="Global ID">;
+	String orgnlTxGuid1<length=32 description="원거래 Global ID">;
+	String ttlUseYn<length=1 description="TTL 사용 여부">;
+	String frstStartTmstmp<length=6 description="최초 시작시간">;
+	Integer mntncTmstmp<length=3 description="유지 시간">;
+	String msgTpDscd<length=1 description="메시지 유형 구분코드">;
+	String scrnId<length=12 description="화면 ID">;
+	String natCd<length=2 description="국가 코드">;
+	String lngDscd<length=2 description="언어 구분코드">;
+	String crctnCnclDscd<length=1 description="정정취소 구분코드">;
+	Integer bizOpnYn<length=1 description="업무개시 여부">;
+	Integer clsgAfTxYn<length=1 description="마감후거래 여부">;
+	String mciIntrfcId<length=16 description="MCI 인터페이스 ID">;
+	String rcvdSrvcCd<length=13 description="수신 서비스 코드">;
+	String rsltRcvdSrvcCd<length=13 description="결과 수신 서비스 코드">;
+	String eaiIntrfcId<length=15 description="EAI 인터페이스 ID">;
+	String syncDscd<length=1 description="동기 구분코드">;
+	String asyncAtrbtDscd<length=1 description="Async 속성 구분코드">;
+	String rqstRspnsDscd<length=1 description="요청 응답 구분코드">;
+	String xaTxDscd<length=1 description="XA거래 구분코드">;
+	String exctnModeDscd<length=1 description="실행모드 구분코드">;
+	String chnlDscd<length=3 description="채널 구분코드">;
+	String ipAddr<length=32 description="IP 주소">;
+	String macAddr<length=12 description="MAC 주소">;
+	String mciNodeNbr<length=1 description="MCI 노드번호">;
+	String mciInstncNbr<length=1 description="MCI 인스턴스번호">;
+	String mciSesnNbr<length=32 description="MCI 세션ID 번호">;
+	String extrnlInstCd<length=3 description="대외기관 코드">;
+	String extrnlBizDscd<length=3 description="대외업무 구분코드">;
+	String extrnlBizDtlsDscd<length=2 description="대외업무 세부구분코드">;
+	String jointNetworkClCd<length=10 description="공동망 종별코드">;
+	String jointNetworkTxDscd<length=10 description="공동망 거래구분코드">;
+	String sysIntrfcId<length=23 description="시스템인터페이스 식별자">;
+	String linkMsgTraceNbr<length=20 description="연계전문 추적번호">;
+	String linkSndRcvDscd<length=1 description="연계 송신수신 구분코드">;
+	String custId<length=20 description="고객 식별자">;
+	String custRprsnId<length=15 description="고객관련인 식별자">;
+	String deptId<length=14 description="부서 식별자">;
+	String staffId<length=20 description="스태프 식별자">;
+	String msgRspnsTmstmp<length=14 description="전문응답 일시">;
+	String prcsngRsltDscd<length=1 description="처리결과 구분코드">;
+	String outpMsgTpCd<length=1 description="출력전문 유형코드">;
+	String msgSeqNbr<length=2 description="전문 연속번호">;
+	String fillerCntnt<length=92 description="전체 Filler">;
+}

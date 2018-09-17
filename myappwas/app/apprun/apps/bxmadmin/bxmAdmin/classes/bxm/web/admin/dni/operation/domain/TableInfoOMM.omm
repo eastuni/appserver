@@ -1,0 +1,7 @@
+OMM bxm.web.admin.dni.operation.domain.TableInfoOMM
+<description="">
+{
+	String tableNm<length=100 description="테이블 명">;
+	String sqlTypeCd<length=1 description="SQL 타입 코드">;
+	String comments<length=512 description="커맨드">;
+}

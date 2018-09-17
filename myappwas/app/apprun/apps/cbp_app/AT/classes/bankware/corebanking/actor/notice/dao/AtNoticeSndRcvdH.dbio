@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.actor.notice.dao.AtNoticeSndRcvdH">
+<!--Generated Wed Apr 26 10:39:49 KST 2017-->
+<insert id="insert" parameterType="bankware.corebanking.actor.notice.dao.dto.AtNoticeSndRcvdHIO">
+INSERT  
+  INTO  at_notice_snd_rcvd_h    /* 통지발송수신이력 */
+(
+  INST_CD,     /*기관코드*/
+  NOTICE_ID,     /*통지식별자*/
+  SEQ_NBR,     /*일련번호*/
+  SND_RCVD_DSCD,     /*송신수신구분코드*/
+  SND_RCVD_TMSTMP,     /*송신수신일시*/
+  RCVD_RSLT_CD,     /*수신결과코드*/
+  RCVD_ERR_CD,     /*수신에러코드*/
+  CNTCT_MTHD_TP_CD,     /*연락방식유형코드*/
+  CTCPT_TP_CD,     /*연락처위치유형코드*/
+  RCVR_CTCPT_CNTNT,     /*수신자연락처내용*/
+  SNDR_CTCPT_CNTNT,     /*발신자연락처내용*/
+  RCVR_TEL_NBR,     /*수신자전화번호*/
+  SNDR_TEL_NBR,     /*발신자전화번호*/
+  TELECOMCARR_ID,     /*통신사업자식별자*/
+  EMAIL_ADDR,     /*이메일주소*/
+  RTRN_RSN_CD,     /*반송사유코드*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR},     /*기관코드*/
+  #{noticeId, jdbcType=VARCHAR},     /*통지식별자*/
+  #{seqNbr, jdbcType=DECIMAL},     /*일련번호*/
+  #{sndRcvdDscd, jdbcType=VARCHAR},     /*송신수신구분코드*/
+  #{sndRcvdTmstmp, jdbcType=TIMESTAMP},     /*송신수신일시*/
+  #{rcvdRsltCd, jdbcType=VARCHAR},     /*수신결과코드*/
+  #{rcvdErrCd, jdbcType=VARCHAR},     /*수신에러코드*/
+  #{cntctMthdTpCd, jdbcType=VARCHAR},     /*연락방식유형코드*/
+  #{ctcptTpCd, jdbcType=VARCHAR},     /*연락처위치유형코드*/
+  #{rcvrCtcptCntnt, jdbcType=VARCHAR},     /*수신자연락처내용*/
+  #{sndrCtcptCntnt, jdbcType=VARCHAR},     /*발신자연락처내용*/
+  #{rcvrTelNbr, jdbcType=VARCHAR},     /*수신자전화번호*/
+  #{sndrTelNbr, jdbcType=VARCHAR},     /*발신자전화번호*/
+  #{telecomcarrId, jdbcType=VARCHAR},     /*통신사업자식별자*/
+  #{emailAddr, jdbcType=VARCHAR},     /*이메일주소*/
+  #{rtrnRsnCd, jdbcType=VARCHAR},     /*반송사유코드*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectList" resultType="bankware.corebanking.actor.notice.dao.dto.AtNoticeSndRcvdHIO">
+SELECT    /* 통지발송수신이력 */
+        INST_CD AS instCd,     /*기관코드*/
+        NOTICE_ID AS noticeId,     /*통지식별자*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        SND_RCVD_DSCD AS sndRcvdDscd,     /*송신수신구분코드*/
+        SND_RCVD_TMSTMP AS sndRcvdTmstmp,     /*송신수신일시*/
+        RCVD_RSLT_CD AS rcvdRsltCd,     /*수신결과코드*/
+        RCVD_ERR_CD AS rcvdErrCd,     /*수신에러코드*/
+        CNTCT_MTHD_TP_CD AS cntctMthdTpCd,     /*연락방식유형코드*/
+        CTCPT_TP_CD AS ctcptTpCd,     /*연락처위치유형코드*/
+        RCVR_CTCPT_CNTNT AS rcvrCtcptCntnt,     /*수신자연락처내용*/
+        SNDR_CTCPT_CNTNT AS sndrCtcptCntnt,     /*발신자연락처내용*/
+        RCVR_TEL_NBR AS rcvrTelNbr,     /*수신자전화번호*/
+        SNDR_TEL_NBR AS sndrTelNbr,     /*발신자전화번호*/
+        TELECOMCARR_ID AS telecomcarrId,     /*통신사업자식별자*/
+        EMAIL_ADDR AS emailAddr,     /*이메일주소*/
+        RTRN_RSN_CD AS rtrnRsnCd,     /*반송사유코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  at_notice_snd_rcvd_h
+ WHERE inst_cd = #{instCd}
+   AND notice_id = #{noticeId}
+ ORDER BY seq_nbr
+</select>
+<select id="selectNextSeqNbrOracle" resultType="java.lang.Integer">
+SELECT NVL(MAX(seq_nbr), 0) + 1 as seqNbr
+
+  FROM at_notice_snd_rcvd_h
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND notice_id = #{noticeId,jdbcType=VARCHAR}
+</select>
+<select id="selectNextSeqNbrMysql" resultType="java.lang.Integer">
+SELECT IFNULL(MAX(seq_nbr), 0) + 1 as seqNbr
+
+  FROM at_notice_snd_rcvd_h
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND notice_id = #{noticeId,jdbcType=VARCHAR}
+</select>
+</mapper>

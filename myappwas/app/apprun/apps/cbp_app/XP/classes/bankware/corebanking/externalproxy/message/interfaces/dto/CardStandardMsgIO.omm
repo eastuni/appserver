@@ -1,0 +1,31 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.CardStandardMsgIO
+<description="카드공동망 표준전문">
+{
+	String hndlngRprsntnInstCd<length=3 description="취급대표기관코드">;
+	String hndlngFnclInstCd<length=3 description="취급금융기관코드">;
+	String hndlngFnclInstBrnchCd<length=4 description="취급금융기관부점코드">;
+	String opnRprsntvInstCd<length=3 description="개설대표기관코드">;
+	String opnFnclInstCd<length=3 description="개설금융기관코드">;
+	String opnFnclInstBrnchCd<length=4 description="개설금융기관부점코드">;
+	String rcpntAcctNbr<length=24 description="수취계좌번호" encrypt="AES256">;
+	String whdrwlAcctNbr<length=24 description="출금계좌번호" encrypt="AES256">;
+	String txDt<length=8 description="거래년월일">;
+	BigDecimal txAmt<length=14 description="거래금액">;
+	String orgnlTxGuid<length=40 description="원거래GUID">;
+	String orgnlTxDt<length=8 description="원거래발생년월일">;
+	String cardNbr<length=50 description="카드번호">;
+	String dpstRmkDscd<length=3 description="수신적요구분코드">;
+	String acctgItmCd<length=13 description="계정과목코드">;
+	String dpstWhdrwlDscd<length=1 description="입출구분코드">;
+	String nrmlCnclCrctnDscd<length=1 description="정상취소정정구분코드">;
+	String rqerInfoCntnt<length=32 description="의뢰인정보">;
+	String whdrwlNm<length=20 description="출금인명">;
+	String txCnclRsnCd<length=2 description="거래취소사유코드">;
+	String guid<length=32 description="GUID">;
+	String msgCd<length=10 description="메시지코드">;
+	String txDeptId<length=14 description="거래부서식별자">;
+	String mgmtDeptId<length=14 description="관리부서식별자">;
+	String txStaffId<length=15 description="거래스태프식별자">;
+	String cardTxDt<length=8 description="카드거래요청일 - 카드계용.중복거래검증용">;
+	String cardOrgnlTxNbr<length=20 description="카드거래원거래번호 - 카드계용.중복거래검증용">;
+}

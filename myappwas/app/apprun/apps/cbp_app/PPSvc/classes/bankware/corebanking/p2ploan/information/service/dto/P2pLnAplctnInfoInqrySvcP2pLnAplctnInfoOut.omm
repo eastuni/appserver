@@ -1,0 +1,26 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.P2pLnAplctnInfoInqrySvcP2pLnAplctnInfoOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String aplctnNbr<length=20 description="Application Number">;
+	String aplctnDt<length=8 description="신청년월일">;
+	BigDecimal aplctnAmt<length=18 decimal=2 description="신청금액">;
+	String pdNm<length=20 description="상품명">;
+	String rpymntWayNm<length=100 description="상환방법명">;
+	String arrId<length=40 description="계약식별자">;
+	String arrStsCd<length=2 description="여신신청상태">;
+	String arrStsCdNm<length=2 description="여신신청상태이름">;
+	bankware.corebanking.underexamination.consultationapplication.service.dto.AplctnDocOut adtnlDocList<length=0 arrayReference="100" description="추가제출서류리스트">;
+	bankware.corebanking.core.document.document.interfaces.dto.DocIssueIO efctvDocList<length=0 arrayReference="100" description="Effective Document List">;
+	BigDecimal lnIntRt<length=30 description="Loan Interest Rate">;
+	String lonAprvlTrmCnt<length=2 description="Loan Approval Term">;
+	String lnAplctnFeeAmt<length=3 description="Loan Application Fee">;
+	String lnDesiredMaxAmt<length=10 description="Loan Desired Maximum Amount">;
+	String biddingTrmCnt<length=3 description="Bidding Duration">;
+	String desiredAmtExcsBidAcceptYn<length=1 description="Desired Amount Excess Bid Accept Yn">;
+	String prtlBidAcceptYn<length=1 description="Partial Bid Accept Yn">;
+	String lnPurposeCd<length=10 description="Loan Purpose Code">;
+	String lnRsnCntnt<length=2000 description="Loan Reason Content">;
+	String crncyCd<length=3 description="Currency Code">;
+	String biddingMthdCd<length=10 description="Bidding Method">;
+	String acctNbr<length=15 description="Account Number">;
+}

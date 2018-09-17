@@ -1,0 +1,8 @@
+OMM bankware.corebanking.p2plending.listreport.service.dto.LendingSmryInfoInqrySvcLendingSmryInfoIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String custId<length=20 description="고객식별자">;
+	String inqryStartDt<length=8 description="조회시작년월일">;
+	String inqryEndDt<length=8 description="조회종료년월일">;
+	String arrStsCd<length=1 description="계약상태코드">;
+}

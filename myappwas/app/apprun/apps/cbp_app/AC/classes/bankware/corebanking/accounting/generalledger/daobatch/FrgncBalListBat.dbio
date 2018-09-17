@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.accounting.generalledger.daobatch.FrgncBalListBat">
+<!--Generated Thu May 18 17:45:54 KST 2017-->
+<insert id="insert" parameterType="bankware.corebanking.accounting.generalledger.daobatch.dto.AcFrgncEvltnDBatIO">
+INSERT  
+  INTO  ac_frgnc_evltn_d    /* 외화평가명세 */
+(
+  INST_CD,     /*기관코드*/
+  BASE_DT,     /*기준년월일*/
+  DEPT_ID,     /*부서식별자*/
+  CRNCY_CD,     /*통화코드*/
+  ACCTG_DSCD,     /*회계구분코드*/
+  ACCTG_ITM_CD,     /*계정과목코드*/
+  EVLTN_NTH_NBR,     /*평가회차번호*/
+  APLY_BASE_EX_RT,     /*적용기준환율*/
+  GL_BAL,     /*총계정잔액*/
+  EVLTN_BF_BAL,     /*평가전잔액*/
+  EVLTN_AF_BAL,     /*평가후잔액*/
+  EVLTN_LOSS_AMT,     /*평가손실금액*/
+  EVLTN_PROFIT_AMT,     /*평가이익금액*/
+  LAST_CHNG_TMSTMP,     /*최종변경타임스탬프*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{baseDt},     /*기준년월일*/
+  #{deptId},     /*부서식별자*/
+  #{crncyCd},     /*통화코드*/
+  #{acctgDscd},     /*회계구분코드*/
+  #{acctgItmCd},     /*계정과목코드*/
+  #{evltnNthNbr},     /*평가회차번호*/
+  #{aplyBaseExRt},     /*적용기준환율*/
+  #{glBal},     /*총계정잔액*/
+  #{evltnBfBal},     /*평가전잔액*/
+  #{evltnAfBal},     /*평가후잔액*/
+  #{evltnLossAmt},     /*평가손실금액*/
+  #{evltnProfitAmt},     /*평가이익금액*/
+  #{lastChngTmstmp},     /*최종변경타임스탬프*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectEvltnNthNbr" resultType="java.math.BigDecimal">
+SELECT    /* Kor)외화계정 평가내역을 관리 Eng)Manage information of foreign CoA eval */
+        max(EVLTN_NTH_NBR) AS evltnNthNbr     /*평가회차번호*/
+  FROM  ac_frgnc_evltn_d
+ WHERE INST_CD = #{instCd}
+ 	AND DEPT_ID = #{deptId}
+ 	AND BASE_DT = #{baseDt}
+</select>
+<select id="select" resultType="bankware.corebanking.accounting.generalledger.daobatch.dto.AcFrgncEvltnDBatIO">
+SELECT    /* 외화평가명세 */
+        INST_CD AS instCd,     /*기관코드*/
+        BASE_DT AS baseDt,     /*기준년월일*/
+        DEPT_ID AS deptId,     /*부서식별자*/
+        CRNCY_CD AS crncyCd,     /*통화코드*/
+        ACCTG_DSCD AS acctgDscd,     /*회계구분코드*/
+        ACCTG_ITM_CD AS acctgItmCd,     /*계정과목코드*/
+        EVLTN_NTH_NBR AS evltnNthNbr,     /*평가회차번호*/
+        APLY_BASE_EX_RT AS aplyBaseExRt,     /*적용기준환율*/
+        GL_BAL AS glBal,     /*총계정잔액*/
+        EVLTN_BF_BAL AS evltnBfBal,     /*평가전잔액*/
+        EVLTN_AF_BAL AS evltnAfBal,     /*평가후잔액*/
+        EVLTN_LOSS_AMT AS evltnLossAmt,     /*평가손실금액*/
+        EVLTN_PROFIT_AMT AS evltnProfitAmt,     /*평가이익금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ac_frgnc_evltn_d
+ WHERE INST_CD = #{instCd}
+   AND BASE_DT = #{baseDt}
+   AND DEPT_ID = #{deptId}
+  <if test="crncyCd != null and crncyCd != ''">
+   AND CRNCY_CD = #{crncyCd}
+   </if>
+  <if test="acctgDscd != null and acctgDscd != ''">
+   AND ACCTG_DSCD = #{acctgDscd}
+   </if>
+  <if test="acctgItmCd != null and acctgItmCd != ''">
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+   </if>   
+  <if test="evltnNthNbr != null and evltnNthNbr != ''">
+   AND EVLTN_NTH_NBR = #{evltnNthNbr}
+   </if>   
+   <if test="lastChngGuid != null and lastChngGuid != ''">
+   AND last_chng_guid = #{lastChngGuid}
+   </if>
+</select>
+<update id="updateEvltnAfBal" parameterType="bankware.corebanking.accounting.generalledger.daobatch.dto.AcFrgncEvltnDBatIO">
+UPDATE  
+        ac_frgnc_evltn_d    /* 외화평가명세 */
+   SET  APLY_BASE_EX_RT = #{aplyBaseExRt}    /* 적용기준환율 */
+     , GL_BAL = #{glBal}    /* 총계정잔액 */
+     , EVLTN_BF_BAL = #{evltnBfBal}    /* 평가전잔액 */
+     , EVLTN_AF_BAL = #{evltnAfBal}    /* 평가후잔액 */
+     , EVLTN_LOSS_AMT = #{evltnLossAmt}    /* 평가손실금액 */
+     , EVLTN_PROFIT_AMT = #{evltnProfitAmt}    /* 평가이익금액 */
+ WHERE INST_CD = #{instCd}
+   AND BASE_DT = #{baseDt}
+   AND DEPT_ID = #{deptId}
+   AND CRNCY_CD = #{crncyCd}
+   AND ACCTG_DSCD = #{acctgDscd}
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+   AND EVLTN_NTH_NBR = #{evltnNthNbr}
+</update>
+<select id="selectEvltnPlSum" parameterType="bankware.corebanking.accounting.generalledger.daobatch.dto.AcFrgncEvltnDBatIO" resultType="bankware.corebanking.accounting.generalledger.daobatch.dto.AcFrgncEvltnDBatIO">
+SELECT  
+        INST_CD AS instCd,     /*기관코드*/
+        BASE_DT AS baseDt,     /*기준년월일*/
+        DEPT_ID AS deptId,     /*부서식별자*/  
+        SUM(EVLTN_LOSS_AMT) AS evltnLossAmt,     /*평가손실금액*/
+        SUM(EVLTN_PROFIT_AMT) AS evltnProfitAmt     /*평가이익금액*/
+  FROM  ac_frgnc_evltn_d
+ WHERE INST_CD = #{instCd}
+   AND BASE_DT = #{baseDt}
+   AND DEPT_ID = #{deptId}
+<if test="crncyCd != null and crncyCd != ''">
+   AND CRNCY_CD = #{crncyCd}
+</if>   
+   AND ACCTG_DSCD = #{acctgDscd}
+<if test="acctgItmCd != null and acctgItmCd != ''">
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+</if>
+   AND EVLTN_NTH_NBR = #{evltnNthNbr}
+</select>
+<select id="selectList" resultType="bankware.corebanking.accounting.generalledger.daobatch.dto.AcFrgncEvltnDBatIO">
+SELECT    /* 외화평가명세 */
+        INST_CD AS instCd,     /*기관코드*/
+        BASE_DT AS baseDt,     /*기준년월일*/
+        DEPT_ID AS deptId,     /*부서식별자*/
+        CRNCY_CD AS crncyCd,     /*통화코드*/
+        ACCTG_DSCD AS acctgDscd,     /*회계구분코드*/
+        ACCTG_ITM_CD AS acctgItmCd,     /*계정과목코드*/
+        EVLTN_NTH_NBR AS evltnNthNbr,     /*평가회차번호*/
+        APLY_BASE_EX_RT AS aplyBaseExRt,     /*적용기준환율*/
+        GL_BAL AS glBal,     /*총계정잔액*/
+        EVLTN_BF_BAL AS evltnBfBal,     /*평가전잔액*/
+        EVLTN_AF_BAL AS evltnAfBal,     /*평가후잔액*/
+        EVLTN_LOSS_AMT AS evltnLossAmt,     /*평가손실금액*/
+        EVLTN_PROFIT_AMT AS evltnProfitAmt,     /*평가이익금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ac_frgnc_evltn_d
+ WHERE INST_CD = #{instCd}
+   AND BASE_DT = #{baseDt}
+   AND DEPT_ID = #{deptId}
+  <if test="crncyCd != null and crncyCd != ''">
+   AND CRNCY_CD = #{crncyCd}
+   </if>
+  <if test="acctgDscd != null and acctgDscd != ''">
+   AND ACCTG_DSCD = #{acctgDscd}
+   </if>
+  <if test="acctgItmCd != null and acctgItmCd != ''">
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+   </if>   
+  <if test="evltnNthNbr != null and evltnNthNbr != ''">
+   AND EVLTN_NTH_NBR = #{evltnNthNbr}
+   </if>   
+   <if test="lastChngGuid != null and lastChngGuid != ''">
+   AND last_chng_guid = #{lastChngGuid}
+   </if>
+</select>
+</mapper>

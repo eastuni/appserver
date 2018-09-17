@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.accounting.cash.dao.AcTlrTxSumnDXtn">
+<!--Generated Wed May 02 14:59:39 KST 2018-->
+<select id="selectUnmatchedTransferList" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcTlrTxSumnDXtnIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcTlrTxSumnDXtnIO">
+SELECT
+
+   inst_cd AS instCd  /*기관코드*/
+
+  , base_dt AS baseDt  /*기준년월일*/
+
+  , dept_id AS deptId  /*부서식별자*/
+
+  , staff_id AS staffId  /*스태프식별자*/
+
+  , clsg_bfaf_dscd   AS clsgBfafDscd   /*마감전후구분코드*/
+
+  , crncy_cd   AS crncyCd   /*통화코드*/
+
+  , SUM(trnsfr_rcvd_amt)   AS trnsfrRcvdAmt   /*대체입금금액*/
+  , SUM(trnsfr_whdrwl_amt)   AS trnsfrWhdrwlAmt   /*대체출금금액*/
+  , SUM(rcv_trnsfr_amt)   AS rcvTrnsfrAmt   /*인수대체금액*/
+  , SUM(snd_trnsfr_amt)   AS sndTrnsfrAmt   /*인도대체금액*/
+  , SUM(dfrnc_adjstmnt_amt)   AS dfrncAdjstmntAmt   /*차액조정금액*/
+  , SUM(trnsfr_rcvd_dmstc_amt)   AS trnsfrRcvdDmstcAmt   /*대체입금국내금액*/
+ FROM  ac_tlr_tx_sumn_d
+ WHERE  INST_CD = #{instCd}   /*기관코드*/
+
+      AND  BASE_DT = #{baseDt}   /*기준년월일*/
+
+      AND  DEPT_ID = #{deptId}   /*부서식별자*/
+
+GROUP BY INST_CD, BASE_DT,DEPT_ID,STAFF_ID,CLSG_BFAF_DSCD,CRNCY_CD
+</select>
+<select id="selectBizDtCrncyAmt" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcTlrTxSumnDXtnIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcTlrTxSumnDXtnIO">
+SELECT
+
+   inst_cd   AS instCd   /*기관코드*/,
+
+   base_dt   AS baseDt   /*기준년월일*/,
+
+   dept_id   AS deptId   /*부서식별자*/,
+
+   staff_id   AS staffId   /*스태프식별자*/,
+
+   crncy_cd   AS crncyCd   /*통화코드*/,
+
+   SUM(biz_dt_crncy_amt)   AS bizDtCrncyAmt   /*금영업일통화금액*/
+ FROM  ac_tlr_tx_sumn_d
+ WHERE  INST_CD = #{instCd}   /*기관코드*/
+
+      AND  BASE_DT = #{baseDt}   /*기준년월일*/
+
+      AND  DEPT_ID = #{deptId}   /*부서식별자*/
+
+<if test="staffId != null and staffId != ''">  
+
+       AND  STAFF_ID = #{staffId}   /*스태프식별자*/
+
+</if>
+
+ GROUP BY INST_CD,BASE_DT,DEPT_ID,STAFF_ID,CRNCY_CD
+</select>
+<select id="selectMaxBaseDt" resultType="java.lang.String">
+SELECT
+   max(base_dt)   AS baseDt   /*기준년월일*/
+ FROM  ac_tlr_tx_sumn_d
+WHERE  INST_CD = #{instCd}   /*기관코드*/
+    AND  DEPT_ID = #{deptId}  /*부서식별자*/
+ <if test="staffId != null and staffId != ''">   
+    AND  STAFF_ID = #{staffId}   /*스태프식별자*/
+ </if>
+  <if test="baseDt != null and baseDt != ''">   
+    AND  BASE_DT &lt;= #{baseDt}   /*스태프식별자*/
+ </if>
+</select>
+<select id="selectTlrTxSheet" resultType="bankware.corebanking.accounting.cash.dao.dto.AcTlrTxSheetOut">
+select 
+
+a.inst_cd as instCd
+
+,a.base_dt as baseDt
+
+,a.staff_id as staffId
+
+,a.dept_id as deptId
+
+,a.crncy_cd as crncyCd
+
+,b.TLR_CLSG_DSCD as tlrClsgDscd
+
+,sum(case a.clsg_bfaf_dscd when '1' then a.cash_rcvd_amt else 0 end) as bfCashRcvdAmt
+,sum(case a.clsg_bfaf_dscd when '2' then a.cash_rcvd_amt else 0 end) as afCashRcvdAmt
+,sum(case a.clsg_bfaf_dscd when '1' then a.cash_whdrwl_amt else 0 end) as bfCashWhdrwlAmt
+,sum(case a.clsg_bfaf_dscd when '2' then a.cash_whdrwl_amt else 0 end) as afCashWhdrwlAmt
+,sum(a.biz_dt_chk_amt) as bizDtChkAmt
+,sum(a.biz_dt_crncy_amt) as bizDtCrncyAmt
+from ac_tlr_tx_sumn_d a, ac_tlr_clsg_d b
+where a.inst_cd=#{instCd}
+
+and a.dept_id=#{deptId}
+
+and a.base_dt=#{baseDt}
+
+and a.INST_CD=b.inst_cd
+
+and a.DEPT_ID=b.DEPT_ID
+
+and a.BASE_DT=b.BASE_DT
+
+and a.STAFF_ID=b.STAFF_ID
+
+group by a.inst_cd, a.base_dt, a.dept_id, a.staff_id, a.crncy_cd, b.TLR_CLSG_DSCD
+</select>
+<select id="selectByTeller" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcTlrTxSumnDXtnIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcTlrTxSumnDXtnIO">
+SELECT
+
+   inst_cd   AS instCd   /*기관코드*/,
+
+   base_dt   AS baseDt   /*기준년월일*/,
+
+   dept_id   AS deptId   /*부서식별자*/,
+
+   staff_id   AS staffId   /*스태프식별자*/,
+
+   crncy_cd   AS crncyCd   /*통화코드*/,
+
+   clsg_bfaf_dscd   AS clsgBfafDscd   /*마감전후구분코드*/,
+
+   SUM(bf_biz_dt_crncy_amt)   AS bfBizDtCrncyAmt   /*전영업일통화금액*/,
+   SUM(bf_biz_dt_chk_amt)   AS bfBizDtChkAmt   /*전영업일타점금액*/,
+   SUM(biz_dt_crncy_amt)   AS bizDtCrncyAmt   /*금영업일통화금액*/,
+   SUM(biz_dt_chk_amt)   AS bizDtChkAmt   /*금영업일타점금액*/,
+   SUM(cash_rcvd_slip_cnt)   AS cashRcvdSlipCnt   /*현금입금전표매수*/,
+   SUM(cash_rcvd_amt)   AS cashRcvdAmt   /*현금입금금액*/,
+   SUM(cash_whdrwl_slip_cnt)   AS cashWhdrwlSlipCnt   /*현금출금전표매수*/,
+   SUM(cash_whdrwl_amt)   AS cashWhdrwlAmt   /*현금출금금액*/,
+   SUM(chk_rcvd_amt)   AS chkRcvdAmt   /*자기앞수표입금금액*/,
+   SUM(chk_whdrwl_amt)   AS chkWhdrwlAmt   /*자기앞수표출금금액*/,
+   SUM(othr_chk_rcvd_amt)   AS othrChkRcvdAmt   /*기타타점권입금금액*/,
+   SUM(othr_chk_whdrwl_amt)   AS othrChkWhdrwlAmt   /*기타타점권출금금액*/,
+   SUM(trnsfr_rcvd_slip_cnt)   AS trnsfrRcvdSlipCnt   /*대체입금전표매수*/,
+   SUM(trnsfr_rcvd_amt)   AS trnsfrRcvdAmt   /*대체입금금액*/,
+   SUM(trnsfr_whdrwl_slip_cnt)   AS trnsfrWhdrwlSlipCnt   /*대체출금전표매수*/,
+   SUM(trnsfr_whdrwl_amt)   AS trnsfrWhdrwlAmt   /*대체출금금액*/,
+   SUM(trnsfr_rcvd_dmstc_amt)   AS trnsfrRcvdDmstcAmt   /*대체입금국내금액*/,
+   SUM(trnsfr_whdrwl_dmstc_amt)   AS trnsfrWhdrwlDmstcAmt   /*대체출금국내금액*/,
+   SUM(dfrnc_adjstmnt_amt)   AS dfrncAdjstmntAmt   /*차액조정금액*/,
+   SUM(snd_cash_amt)   AS sndCashAmt   /*인도현금금액*/,
+   SUM(snd_trnsfr_amt)   AS sndTrnsfrAmt   /*인도대체금액*/,
+   SUM(snd_chk_cnt)   AS sndChkCnt   /*인도타점매수*/,
+   SUM(snd_chk_amt)   AS sndChkAmt   /*인도타점권금액*/,
+   SUM(rcv_cash_amt)   AS rcvCashAmt   /*인수현금금액*/,
+   SUM(rcv_trnsfr_amt)   AS rcvTrnsfrAmt   /*인수대체금액*/,
+   SUM(rcv_chk_cnt)   AS rcvChkCnt   /*인수타점권매수*/,
+   SUM(rcv_chk_amt)   AS rcvChkAmt   /*인수타점권금액*/
+ FROM  ac_tlr_tx_sumn_d
+ WHERE  INST_CD = #{instCd}   /*기관코드*/
+
+      AND  BASE_DT = #{baseDt}   /*기준년월일*/
+
+<if test="deptId != null and deptId != ''">   
+
+      AND  DEPT_ID = #{deptId}   /*부서식별자*/
+
+</if>
+
+<if test="staffId != null and staffId != ''">   
+
+      AND  STAFF_ID = #{staffId}   /*스태프식별자*/
+
+</if>
+
+<if test="crncyCd!= null and crncyCd != ''">
+
+      AND  CRNCY_CD = #{crncyCd}   /*통화코드*/
+
+</if>
+
+<if test="clsgBfafDscd!= null and clsgBfafDscd != ''">
+
+      AND  CLSG_BFAF_DSCD = #{clsgBfafDscd}   /*마감전후구분코드*/
+
+</if>
+
+ GROUP BY INST_CD,BASE_DT,DEPT_ID,STAFF_ID,CRNCY_CD, clsg_bfaf_dscd
+</select>
+<select id="selectByBranch" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcTlrTxSumnDXtnIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcTlrTxSumnDXtnIO">
+SELECT
+
+   crncy_cd   AS crncyCd   /*통화코드*/,
+
+   clsg_bfaf_dscd   AS clsgBfafDscd   /*마감전후구분코드*/,
+
+   SUM(bf_biz_dt_crncy_amt)   AS bfBizDtCrncyAmt   /*전영업일통화금액*/,
+   SUM(bf_biz_dt_chk_amt)   AS bfBizDtChkAmt   /*전영업일타점금액*/,
+   SUM(biz_dt_crncy_amt)   AS bizDtCrncyAmt   /*금영업일통화금액*/,
+   SUM(biz_dt_chk_amt)   AS bizDtChkAmt   /*금영업일타점금액*/,
+   SUM(cash_rcvd_slip_cnt)   AS cashRcvdSlipCnt   /*현금입금전표매수*/,
+   SUM(cash_rcvd_amt)   AS cashRcvdAmt   /*현금입금금액*/,
+   SUM(cash_whdrwl_slip_cnt)   AS cashWhdrwlSlipCnt   /*현금출금전표매수*/,
+   SUM(cash_whdrwl_amt)   AS cashWhdrwlAmt   /*현금출금금액*/,
+   SUM(chk_rcvd_amt)   AS chkRcvdAmt   /*자기앞수표입금금액*/,
+   SUM(chk_whdrwl_amt)   AS chkWhdrwlAmt   /*자기앞수표출금금액*/,
+   SUM(othr_chk_rcvd_amt)   AS othrChkRcvdAmt   /*기타타점권입금금액*/,
+   SUM(othr_chk_whdrwl_amt)   AS othrChkWhdrwlAmt   /*기타타점권출금금액*/,
+   SUM(trnsfr_rcvd_slip_cnt)   AS trnsfrRcvdSlipCnt   /*대체입금전표매수*/,
+   SUM(trnsfr_rcvd_amt)   AS trnsfrRcvdAmt   /*대체입금금액*/,
+   SUM(trnsfr_whdrwl_slip_cnt)   AS trnsfrWhdrwlSlipCnt   /*대체출금전표매수*/,
+   SUM(trnsfr_whdrwl_amt)   AS trnsfrWhdrwlAmt   /*대체출금금액*/,
+   SUM(trnsfr_rcvd_dmstc_amt)   AS trnsfrRcvdDmstcAmt   /*대체입금국내금액*/,
+   SUM(trnsfr_whdrwl_dmstc_amt)   AS trnsfrWhdrwlDmstcAmt   /*대체출금국내금액*/,
+   SUM(dfrnc_adjstmnt_amt)   AS dfrncAdjstmntAmt   /*차액조정금액*/,
+   SUM(snd_cash_amt)   AS sndCashAmt   /*인도현금금액*/,
+   SUM(snd_trnsfr_amt)   AS sndTrnsfrAmt   /*인도대체금액*/,
+   SUM(snd_chk_cnt)   AS sndChkCnt   /*인도타점매수*/,
+   SUM(snd_chk_amt)   AS sndChkAmt   /*인도타점권금액*/,
+   SUM(rcv_cash_amt)   AS rcvCashAmt   /*인수현금금액*/,
+   SUM(rcv_trnsfr_amt)   AS rcvTrnsfrAmt   /*인수대체금액*/,
+   SUM(rcv_chk_cnt)   AS rcvChkCnt   /*인수타점권매수*/,
+   SUM(rcv_chk_amt)   AS rcvChkAmt   /*인수타점권금액*/
+ FROM  ac_tlr_tx_sumn_d
+ WHERE  INST_CD = #{instCd}   /*기관코드*/
+
+      AND  BASE_DT = #{baseDt}   /*기준년월일*/
+
+      AND  DEPT_ID = #{deptId}   /*부서식별자*/
+
+<if test="crncyCd != null and crncyCd != ''">   
+
+      AND  CRNCY_CD = #{crncyCd}   /*통화코드*/
+
+</if>
+
+<if test="clsgBfafDscd != null and clsgBfafDscd != ''">   
+
+      AND  CLSG_BFAF_DSCD = #{clsgBfafDscd}   
+
+</if>
+
+GROUP BY INST_CD, BASE_DT, DEPT_ID, CRNCY_CD, CLSG_BFAF_DSCD
+</select>
+<select id="selectSumAmtList" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcTlrTxSumnDXtnIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcTlrTxSumnDXtnIO">
+SELECT
+
+a.inst_cd   AS instCd   /*기관코드*/,
+
+a.base_dt   AS baseDt   /*기준년월일*/,
+
+a.dept_id   AS deptId   /*부서식별자*/,
+
+a.staff_id   AS staffId   /*스태프식별자*/,
+
+b.tlr_clsg_dscd   AS clsgBfafDscd   /*마감전후구분코드*/,
+
+sum(biz_dt_crncy_amt+biz_dt_chk_amt+cash_rcvd_amt + cash_whdrwl_amt + chk_rcvd_amt + chk_whdrwl_amt + othr_chk_rcvd_amt + othr_chk_whdrwl_amt +
+trnsfr_rcvd_amt + trnsfr_whdrwl_amt + trnsfr_rcvd_dmstc_amt + trnsfr_whdrwl_dmstc_amt + dfrnc_adjstmnt_amt + snd_cash_amt + 
+snd_trnsfr_amt + snd_chk_amt + rcv_cash_amt + rcv_trnsfr_amt + rcv_chk_amt) AS sumAmt 	/*시재금액합계*/
+
+ FROM  ac_tlr_tx_sumn_d a, ac_tlr_clsg_d b
+
+ WHERE  a.INST_CD = #{instCd}   /*기관코드*/
+
+	AND  a.BASE_DT = #{baseDt}   /*기준년월일*/
+
+<if test="deptId != null and deptId != ''">   
+	AND  a.DEPT_ID = #{deptId}   /*부서식별자*/
+</if>
+
+<if test="staffId != null and staffId != ''">   
+	AND  a.STAFF_ID = #{staffId}   /*스태프식별자*/
+</if>
+
+<if test="clsgBfafDscd!= null and clsgBfafDscd != ''">
+	AND  b.TLR_CLSG_DSCD = #{clsgBfafDscd}   /*마감전후구분코드*/
+</if>
+
+	AND a.INST_CD = b.INST_CD
+
+	AND a.BASE_DT = b.BASE_DT
+
+	AND a.DEPT_ID = b.DEPT_ID
+
+	AND a.STAFF_ID = b.STAFF_ID
+
+ GROUP BY a.INST_CD, a.BASE_DT, a.DEPT_ID, a.STAFF_ID, a.CLSG_BFAF_DSCD, 
+b.tlr_clsg_dscd
+ HAVING sum(biz_dt_crncy_amt+biz_dt_chk_amt+cash_rcvd_amt + cash_whdrwl_amt + chk_rcvd_amt + chk_whdrwl_amt + othr_chk_rcvd_amt + othr_chk_whdrwl_amt +
+trnsfr_rcvd_amt + trnsfr_whdrwl_amt + trnsfr_rcvd_dmstc_amt + trnsfr_whdrwl_dmstc_amt + dfrnc_adjstmnt_amt + snd_cash_amt +
+snd_trnsfr_amt + snd_chk_amt + rcv_cash_amt + rcv_trnsfr_amt + rcv_chk_amt) &lt;&gt; 0
+</select>
+</mapper>

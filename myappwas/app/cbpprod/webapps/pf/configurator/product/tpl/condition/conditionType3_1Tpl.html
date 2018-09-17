@@ -1,0 +1,43 @@
+<!-- 우대금리 연결 -->
+<div class="pf-panel pf-cp-product-condition-panel">
+    <div class="pf-panel-header">
+        <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+        <h2 class="pf-panel-title">{{bxMsg 'productConditionInfoMgmt'}}</h2>
+
+        <div class="header-btn-group">
+            <!--<button class="bx-btn bx-btn-small pf-cp-condition-view-history-btn">{{bxMsg 'ButtonGrayString3'}}</button>-->
+            <button type="button" class="bw-btn pf-cp-condition-view-history-btn" icon-tooltip="{{bxMsg 'ButtonGrayString3'}}">
+                    <i class="bw-icon i-25 i-func-history"></i>
+                </button>
+        </div>
+    </div>
+    <div class="pf-panel-body">
+        <div class="pref-int-table-wrap">
+            <table class="bx-info-table">
+                <tr>
+                    <th>{{bxMsg 'DPS0121String4'}} <span class="red-notice">*</span></th>
+                    <td>
+                        <input name="start" data-form-param="applyStart" class="bx-form-item bx-compoenent-small calendar start-date" value="{{applyStart}}" type="text"> -
+                        <input name="end" data-form-param="applyEnd" class="bx-form-item bx-compoenent-small calendar end-date" value="{{applyEnd}}" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <th>{{bxMsg 'MTM0100String4'}}</th>
+                    <td>
+                        <select data-form-param="relationInformationStatus" value="{{relationInformationStatus}}" class="bx-form-item bx-compoenent-small relationInformationStatus" disabled>
+                            </select>
+                    </td>
+                </tr>
+            </table>
+            <footer class="pf-panel-footer">
+                <button type="button" class="bw-btn pf-cp-product-pref-int-delete-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString2'}}">
+                        <i class="bw-icon i-30 i-func-trash"></i>
+                    </button>
+
+                <button type="button" class="bw-btn pf-cp-product-pref-int-save-btn write-btn" data-status="{{status}}" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+                        <i class="bw-icon i-30 i-func-save"></i>
+                    </button>
+            </footer>
+        </div>
+    </div>
+</div>

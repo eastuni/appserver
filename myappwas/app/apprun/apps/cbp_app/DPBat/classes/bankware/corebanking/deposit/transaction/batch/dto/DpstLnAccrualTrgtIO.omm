@@ -1,0 +1,6 @@
+OMM bankware.corebanking.deposit.transaction.batch.dto.DpstLnAccrualTrgtIO
+<description="Accrual대상추출입출력 ">
+{
+	String arrId<length=40 description="계약식별자">;
+	String bizDscd<length=2 description="업무구분코드">;
+}

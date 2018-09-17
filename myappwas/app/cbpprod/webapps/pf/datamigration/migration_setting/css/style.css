@@ -1,0 +1,53 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for data migration setting
+ * 데이터이행설정 CSS 
+ */
+.pf-migration-setting .pf-page-conts {
+    margin: 10px auto; }
+.pf-migration-setting th {
+    width: 100px;
+    text-align: left; }
+/*데이터이행단계설정*/
+.pf-migration-setting .migration-step-query-table td {
+    line-height: 29px; }
+.pf-migration-setting .migration-step-query-table td input {
+    width: 351px; }
+.pf-migration-setting .migration-step-query-table tr {
+    margin-bottom: 10px;
+    height: 35px; }
+/*데이터이행클래스설정*/
+.pf-migration-setting .migration-class-query-table td {
+    line-height: 29px; }
+.pf-migration-setting .migration-class-query-table td input {
+    width: 351px; }
+.pf-migration-setting .migration-class-query-table tr {
+    margin-bottom: 10px;
+    height: 35px; }
+.pf-migration-setting .middle-grid {
+    height: 350px; }
+.pf-migration-step-form td input {
+    width: 100% !important; }
+.pf-migration-step-form th {
+    width: 130px;
+    text-align: left; }
+.pf-migration-step-form .second-th {
+    padding-left: 10px; }
+.pf-migration-step-form select {
+    width: 170px; }
+.pf-migration-step-form h3 {
+    margin: 10px 0 5px 0; }
+.pf-migration-step-form .grid-btn-box {
+    margin-top: 5px;
+    text-align: right; }
+.pf-migration-step-form .dev-proposal-register-table input.calendar {
+    width: 170px; }
+.pf-migration-step-form .panel {
+    border: none;
+    box-shadow: none; }
+.pf-migration-step-form .pf-migration-table-grid {
+    margin-top: 10px;
+    height: 180px; }
+.pf-ptc-publish-target-table-popup .publish-target-table-grid {
+          height: 420px; 
+}

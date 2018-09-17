@@ -1,0 +1,8 @@
+OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.GR9111InqryIFIn
+<description="GR9111-전자수납-예약납부 출금 요청 결과 조회 조회 INPUT">
+{
+	String inqryStartDt<length=8 description="조회시작일자">;
+	String inqryEndDt<length=8 description="조회종료일자">;
+	Integer pgNbr<length=5 description="페이지번호">;
+	Integer pgCnt<length=5 description="페이지건수">;
+}

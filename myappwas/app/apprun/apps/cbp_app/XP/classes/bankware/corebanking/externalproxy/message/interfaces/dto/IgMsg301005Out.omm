@@ -1,0 +1,18 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IgMsg301005Out
+<description="4대징수기관공통 전기전화 고지내역간략조회 OUT(응답용)">
+{
+	String inqryDscd<length=1 description="조회구분코드">;
+	String elctrncPymntNbr<length=17 description="전자납부번호">;
+	String pymntOblgtrIdNbr<length=13 description="납부의무자주민등록번호" encrypt="AES256">;
+	Integer totNtfctnCnt<length=3 description="고지총건수">;
+	Integer dsgntnNbr<length=3 description="지정번호">;
+	Integer demandCnt<length=2 description="요청건수">;
+	String payerFullNm<length=30 description="납부자성명" encrypt="KSC5601">;
+	bankware.corebanking.externalproxy.message.interfaces.dto.IgTxHst301005Out outList<length=0 arrayReference="totNtfctnCnt" description="결과리스트">;
+	String dfltStartMnth<length=6 description="체납시작월">;
+	String dfltEndMnth<length=6 description="체납종료월">;
+	Integer dfltMnthCnt<length=3 description="체납개월수">;
+	Integer pgNbr<length=3 description="페이지번호">;
+	Integer pgCnt<length=2 description="페이지당건수">;
+	Integer totCnt<length=3 description="전체건수">;
+}

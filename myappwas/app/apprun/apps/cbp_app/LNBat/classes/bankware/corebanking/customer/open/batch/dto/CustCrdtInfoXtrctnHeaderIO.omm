@@ -1,0 +1,6 @@
+OMM bankware.corebanking.customer.open.batch.dto.CustCrdtInfoXtrctnHeaderIO
+<description="파일 입출력">
+{
+	String txDscd<length=1 description="거래구분코드">;
+	String txDt<length=8 description="거래년월일">;
+}

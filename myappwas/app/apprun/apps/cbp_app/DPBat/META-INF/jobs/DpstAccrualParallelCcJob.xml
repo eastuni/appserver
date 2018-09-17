@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="          http://www.es-code.com/schema/batchex http://www.es-code.com/schema/batchex/spring-batch-ex-2.1.xsd          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+  <import resource="classpath:JobConfig.xml"/>
+  <job-component xmlns="http://www.es-code.com/schema/batchex" id="jobcomp" with-dependon="true">
+    <base-package name="bankware.corebanking.deposit.transaction.batch">
+      <include name="DpstAccrualCcProcessor"/>
+      <include name="DpstAccrualParallelCcReader"/>
+      <include name="DpstAccrualPartitioner"/>
+      <include name="DpstAccrualCcTasklet"/>
+    </base-package>
+  </job-component>
+  
+  <job xmlns="http://www.es-code.com/schema/batchex" id="DpstAccrualParallelCcJob">
+    <step xmlns="http://www.es-code.com/schema/batchex" id="DpstAccrualParallelCcJob_Step01" next="DpstAccrualParallelCcJob_Step02">
+      <tasklet tm-datasource="CBB" ref="dpstAccrualCcTasklet"/>
+    </step>
+    <step xmlns="http://www.es-code.com/schema/batchex" id="DpstAccrualParallelCcJob_Step02">
+    <partition step="DpstAccrualParallelCcJob_Step02_l" partitioner="partitioner">
+      <handler grid-size="3" task-executor="taskExecutor"/>
+    </partition>
+  </step>
+  </job>
+  
+  <bean id="partitioner" class="bankware.corebanking.deposit.transaction.batch.DpstAccrualPartitioner" scope="step">
+    <property name="instCd" value="#{jobParameters['instCd']}" />
+  </bean>
+  
+  <bean class="org.springframework.core.task.SimpleAsyncTaskExecutor" id="taskExecutor"/>
+  
+  <bean id="dpstAccrualCcTasklet" class="bankware.corebanking.deposit.transaction.batch.DpstAccrualCcTasklet"/>
+  
+  <step xmlns="http://www.es-code.com/schema/batchex" id="DpstAccrualParallelCcJob_Step02_l">
+    <tasklet tm-datasource="CBB">
+      <chunk commit-interval="1000" processor="DpstAccrualCcProcessor" reader="DpstAccrualParallelCcReader"/>
+    </tasklet>
+  </step>
+
+</beans>

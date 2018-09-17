@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bankware.corebanking.applicationcommon.commondata.dao.CmKrRoadAddrM">
+<!--Generated Tue Jan 12 12:50:22 KST 2016-->
+
+<select id="select" resultType="bankware.corebanking.applicationcommon.commondata.dao.dto.CmKrRoadAddrMIO">
+SELECT ADDR_HRARCY_CD       AS addrHrarcyCd     
+
+     , ADDR_ID              AS addrId           
+
+     , BLDG_MGMT_NBR        AS bldgMgmtNbr      
+
+     , CITY_PRVNC_ADDR      AS cityPrvncAddr    
+
+     , CITY_GUN_GU_ADDR     AS cityGunGuAddr    
+
+     , EMDONG_ADDR          AS emdongAddr       
+
+     , adri_addr              AS adriAddr           
+     , MUNTN_NBR_ADDR_DSCD  AS muntnNbrAddrDscd 
+
+     , NBR_ADDR_NBR         AS nbrAddrNbr       
+
+     , HOUSEHLD_NBR         AS househldNbr      
+
+     , ROAD_CD              AS roadCd           
+
+     , ROAD_NM              AS roadNm           
+
+     , UNDGRND_DSCD         AS undgrndDscd      
+
+     , BLDG_MAIN_NBR        AS bldgMainNbr      
+
+     , BLDG_SUB_NBR         AS bldgSubNbr       
+
+     , BLDG_NM              AS bldgNm           
+
+     , DTL_BLDG_NM          AS dtlBldgNm        
+
+     , STUT_DONG_CD         AS stutDongCd       
+
+     , EMDONG_DSCD          AS emdongDscd       
+
+     , ADMIN_DONG_CD        AS adminDongCd      
+
+     , ADMIN_DONG_NM        AS adminDongNm      
+
+     , ZIP_CD               AS zipCd            
+
+     , ZIP_CD_SEQ_NBR       AS zipCdSeqNbr      
+
+     , MUCH_DLVRY_REGION_NM AS muchDlvryRegionNm
+
+     , MOVE_RSN_CD          AS moveRsnCd        
+
+     , ANCMNT_DT            AS ancmntDt         
+
+     , BF_CHNG_ROAD_NM      AS bfChngRoadNm     
+
+     , CITY_GUN_GU_BLDG_NM  AS cityGunGuBldgNm  
+
+     , joint_house_dscd     AS jointHouseDscd   
+     , FNDTN_REGION_NBR     AS fndtnRegionNbr   
+
+     , dtl_addr_dscd        AS dtlAddrDscd      
+     , RMK_CNTNT            AS rmkCntnt         
+     , SUPPL_RMK_CNTNT      AS supplRmkCntnt    
+     , LAST_CHNG_TMSTMP     AS lastChngTmstmp
+
+     , LAST_CHNG_GUID       AS lastChgnGuid
+
+  FROM cm_kr_road_addr_m
+
+ WHERE ADDR_HRARCY_CD = #{addrHrarcyCd}
+
+   AND ADDR_ID = #{addrId}
+
+</select>
+
+<select id="selectByRoad" resultType="bankware.corebanking.applicationcommon.commondata.dao.dto.CmKrRoadAddrMIO">
+SELECT ADDR_HRARCY_CD       AS addrHrarcyCd     
+
+     , ADDR_ID              AS addrId           
+
+     , BLDG_MGMT_NBR        AS bldgMgmtNbr      
+
+     , CITY_PRVNC_ADDR      AS cityPrvncAddr    
+
+     , CITY_GUN_GU_ADDR     AS cityGunGuAddr    
+
+     , EMDONG_ADDR          AS emdongAddr       
+
+     , adri_addr              AS adriAddr           
+     , MUNTN_NBR_ADDR_DSCD  AS muntnNbrAddrDscd 
+
+     , NBR_ADDR_NBR         AS nbrAddrNbr       
+
+     , HOUSEHLD_NBR         AS househldNbr      
+
+     , ROAD_CD              AS roadCd           
+
+     , ROAD_NM              AS roadNm           
+
+     , UNDGRND_DSCD         AS undgrndDscd      
+
+     , BLDG_MAIN_NBR        AS bldgMainNbr      
+
+     , BLDG_SUB_NBR         AS bldgSubNbr       
+
+     , BLDG_NM              AS bldgNm           
+
+     , DTL_BLDG_NM          AS dtlBldgNm        
+
+     , STUT_DONG_CD         AS stutDongCd       
+
+     , EMDONG_DSCD          AS emdongDscd       
+
+     , ADMIN_DONG_CD        AS adminDongCd      
+
+     , ADMIN_DONG_NM        AS adminDongNm      
+
+     , ZIP_CD               AS zipCd            
+
+     , ZIP_CD_SEQ_NBR       AS zipCdSeqNbr      
+
+     , MUCH_DLVRY_REGION_NM AS muchDlvryRegionNm
+
+     , MOVE_RSN_CD          AS moveRsnCd        
+
+     , ANCMNT_DT            AS ancmntDt         
+
+     , BF_CHNG_ROAD_NM      AS bfChngRoadNm     
+
+     , CITY_GUN_GU_BLDG_NM  AS cityGunGuBldgNm  
+
+     , joint_house_dscd     AS jointHouseDscd   
+     , FNDTN_REGION_NBR     AS fndtnRegionNbr   
+
+     , dtl_addr_dscd        AS dtlAddrDscd      
+     , RMK_CNTNT            AS rmkCntnt         
+     , SUPPL_RMK_CNTNT      AS supplRmkCntnt    
+     , LAST_CHNG_TMSTMP     AS lastChngTmstmp
+
+     , LAST_CHNG_GUID       AS lastChgnGuid
+
+  FROM cm_kr_road_addr_m 
+
+ WHERE ADDR_HRARCY_CD = #{addrHrarcyCd, jdbcType=VARCHAR}
+
+   AND CITY_PRVNC_ADDR = #{cityPrvncAddr, jdbcType=VARCHAR}
+
+   AND CITY_GUN_GU_ADDR = #{cityGunGuAddr, jdbcType=VARCHAR}
+
+   AND ROAD_NM LIKE concat(#{roadNm, jdbcType=VARCHAR}, '%')
+
+<if test="bldgMainNbr != null">
+
+   AND  BLDG_MAIN_NBR = #{bldgMainNbr, jdbcType=NUMERIC}
+
+</if>
+
+<if test="bldgSubNbr != null">
+
+   AND  BLDG_SUB_NBR = #{bldgSubNbr, jdbcType=NUMERIC}
+
+</if>
+
+</select>
+
+<select id="selectByBuildingName" resultType="bankware.corebanking.applicationcommon.commondata.dao.dto.CmKrRoadAddrMIO">
+SELECT ADDR_HRARCY_CD       AS addrHrarcyCd     
+
+     , ADDR_ID              AS addrId           
+
+     , BLDG_MGMT_NBR        AS bldgMgmtNbr      
+
+     , CITY_PRVNC_ADDR      AS cityPrvncAddr    
+
+     , CITY_GUN_GU_ADDR     AS cityGunGuAddr    
+
+     , EMDONG_ADDR          AS emdongAddr       
+
+     , adri_addr              AS adriAddr           
+     , MUNTN_NBR_ADDR_DSCD  AS muntnNbrAddrDscd 
+
+     , NBR_ADDR_NBR         AS nbrAddrNbr       
+
+     , HOUSEHLD_NBR         AS househldNbr      
+
+     , ROAD_CD              AS roadCd           
+
+     , ROAD_NM              AS roadNm           
+
+     , UNDGRND_DSCD         AS undgrndDscd      
+
+     , BLDG_MAIN_NBR        AS bldgMainNbr      
+
+     , BLDG_SUB_NBR         AS bldgSubNbr       
+
+     , BLDG_NM              AS bldgNm           
+
+     , DTL_BLDG_NM          AS dtlBldgNm        
+
+     , STUT_DONG_CD         AS stutDongCd       
+
+     , EMDONG_DSCD          AS emdongDscd       
+
+     , ADMIN_DONG_CD        AS adminDongCd      
+
+     , ADMIN_DONG_NM        AS adminDongNm      
+
+     , ZIP_CD               AS zipCd            
+
+     , ZIP_CD_SEQ_NBR       AS zipCdSeqNbr      
+
+     , MUCH_DLVRY_REGION_NM AS muchDlvryRegionNm
+
+     , MOVE_RSN_CD          AS moveRsnCd        
+
+     , ANCMNT_DT            AS ancmntDt         
+
+     , BF_CHNG_ROAD_NM      AS bfChngRoadNm     
+
+     , CITY_GUN_GU_BLDG_NM  AS cityGunGuBldgNm  
+
+     , joint_house_dscd     AS jointHouseDscd   
+     , FNDTN_REGION_NBR     AS fndtnRegionNbr   
+
+     , dtl_addr_dscd        AS dtlAddrDscd      
+     , RMK_CNTNT            AS rmkCntnt         
+     , SUPPL_RMK_CNTNT      AS supplRmkCntnt    
+     , LAST_CHNG_TMSTMP     AS lastChngTmstmp
+
+     , LAST_CHNG_GUID       AS lastChgnGuid
+
+  FROM cm_kr_road_addr_m 
+
+ WHERE ADDR_HRARCY_CD = #{addrHrarcyCd}
+
+   AND CITY_PRVNC_ADDR = #{cityPrvncAddr}
+
+   AND CITY_GUN_GU_ADDR = #{cityGunGuAddr}
+
+   AND BLDG_NM LIKE concat(#{bldgNm}, '%')
+
+</select>
+
+<select id="selectByAreaNumber" resultType="bankware.corebanking.applicationcommon.commondata.dao.dto.CmKrRoadAddrMIO">
+SELECT ADDR_HRARCY_CD       AS addrHrarcyCd     
+
+     , ADDR_ID              AS addrId           
+
+     , BLDG_MGMT_NBR        AS bldgMgmtNbr      
+
+     , CITY_PRVNC_ADDR      AS cityPrvncAddr    
+
+     , CITY_GUN_GU_ADDR     AS cityGunGuAddr    
+
+     , EMDONG_ADDR          AS emdongAddr       
+
+     , adri_addr              AS adriAddr           
+     , MUNTN_NBR_ADDR_DSCD  AS muntnNbrAddrDscd 
+
+     , NBR_ADDR_NBR         AS nbrAddrNbr       
+
+     , HOUSEHLD_NBR         AS househldNbr      
+
+     , ROAD_CD              AS roadCd           
+
+     , ROAD_NM              AS roadNm           
+
+     , UNDGRND_DSCD         AS undgrndDscd      
+
+     , BLDG_MAIN_NBR        AS bldgMainNbr      
+
+     , BLDG_SUB_NBR         AS bldgSubNbr       
+
+     , BLDG_NM              AS bldgNm           
+
+     , DTL_BLDG_NM          AS dtlBldgNm        
+
+     , STUT_DONG_CD         AS stutDongCd       
+
+     , EMDONG_DSCD          AS emdongDscd       
+
+     , ADMIN_DONG_CD        AS adminDongCd      
+
+     , ADMIN_DONG_NM        AS adminDongNm      
+
+     , ZIP_CD               AS zipCd            
+
+     , ZIP_CD_SEQ_NBR       AS zipCdSeqNbr      
+
+     , MUCH_DLVRY_REGION_NM AS muchDlvryRegionNm
+
+     , MOVE_RSN_CD          AS moveRsnCd        
+
+     , ANCMNT_DT            AS ancmntDt         
+
+     , BF_CHNG_ROAD_NM      AS bfChngRoadNm     
+
+     , CITY_GUN_GU_BLDG_NM  AS cityGunGuBldgNm  
+
+     , joint_house_dscd     AS jointHouseDscd   
+     , FNDTN_REGION_NBR     AS fndtnRegionNbr   
+
+     , dtl_addr_dscd        AS dtlAddrDscd      
+     , RMK_CNTNT            AS rmkCntnt         
+     , SUPPL_RMK_CNTNT      AS supplRmkCntnt    
+     , LAST_CHNG_TMSTMP     AS lastChngTmstmp
+
+     , LAST_CHNG_GUID       AS lastChgnGuid
+
+  FROM cm_kr_road_addr_m 
+
+ WHERE ADDR_HRARCY_CD = #{addrHrarcyCd}
+
+   AND CITY_PRVNC_ADDR = #{cityPrvncAddr}
+
+   AND CITY_GUN_GU_ADDR = #{cityGunGuAddr}
+
+   AND EMDONG_ADDR = #{emdongAddr}
+
+<if test="nbrAddrNbr != null">
+
+   AND  NBR_ADDR_NBR = #{nbrAddrNbr}
+
+</if>
+
+<if test="househldNbr != null">
+
+   AND  HOUSEHLD_NBR = #{househldNbr}
+
+</if>
+
+</select>
+
+</mapper>
+

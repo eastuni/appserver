@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.CD0015Inqry">
+<!--Generated Mon Feb 06 15:51:56 KST 2017-->
+<select id="selectCD0015InqryList" parameterType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CD0015InqryIFIn" resultType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CD0015InqryIFOutSub">
+SELECT
+txDt,
+txDscd,     /*결제원거래구분코드*/
+seqNbr,     /*일련번호*/
+txUnqNbr,     /*거래고유번호*/
+jointNetworkClCd,     /*전문종별코드*/
+msgFnctnCd,     /*전문기능코드*/
+acctNbr,     /*계좌번호*/
+txAmt,     /*금액*/
+extrnlRspnsCd     /*응답코드*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM,
+A.txDt,
+A.txDscd,     /*결제원거래구분코드*/
+A.seqNbr,     /*일련번호*/
+A.txUnqNbr,     /*거래고유번호*/
+A.jointNetworkClCd,     /*전문종별코드*/
+A.msgFnctnCd,     /*전문기능코드*/
+A.acctNbr,     /*계좌번호*/
+A.txAmt,     /*금액*/
+A.extrnlRspnsCd     /*응답코드*/
+     FROM 
+        (
+        
+SELECT
+		TX_DT as txDt,
+        STLMNT_ORGNL_TX_Dscd AS txDscd,     /*결제원거래구분코드*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        TLGR_CLS_CD AS jointNetworkClCd,     /*전문종별코드*/
+        TLGR_FNCTN_CD AS msgFnctnCd,     /*전문기능코드*/
+        ACCT_NBR AS acctNbr,     /*계좌번호*/
+        AMT AS txAmt,     /*금액*/
+        RSPNS_CD AS extrnlRspnsCd     /*응답코드*/
+  FROM  XP_CD_CD0015
+ WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+order by TX_DT, SEQ_NBR
+        ) A 
+    WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectCD0015InqryTotalCnt" parameterType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CD0015InqryIFIn" resultType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CD0015InqryIFOut">
+SELECT count(1) as totalCount
+  FROM  XP_CD_CD0015
+ WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+</select>
+</mapper>

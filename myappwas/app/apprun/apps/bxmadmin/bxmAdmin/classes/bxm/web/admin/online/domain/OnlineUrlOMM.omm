@@ -1,0 +1,6 @@
+OMM bxm.web.admin.online.domain.OnlineUrlOMM
+<description="">
+{
+	String onlineUrl<length=100 description="URL">;
+	String onlineUrlDesc<length=100 description="URL설명">;
+}

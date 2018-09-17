@@ -1,0 +1,10 @@
+OMM bxm.ccmainmng.online.pc.dto.SCC1001OutSub1
+<description="  ">
+{
+	String ccId<length=9 description="CCID">;
+	String ccIdUseYn<length=1 description="CCID 사용여부">;
+	String ccIdNm<length=100 description="CCIID명">;
+	String ccIdExpl<length=100 description="CCID설명">;
+	String appLv2Cd<length=2 description="어플리케이션레벨2코드">;
+	String appLv3Cd<length=3 description="어플리케이션레벨3코드">;
+}

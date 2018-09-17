@@ -1,0 +1,8 @@
+OMM bxm.web.admin.setting.domain.CommonCodePwdOMM
+<description="CommonCodePwdOMM">
+{
+	String password<length=64 description="비밀번호">;
+	String cdId<length=9 description="코드ID">;
+	String cdVal<length=32 description="코드값">;
+	String langCd<length=20 description="언어코드">;
+}

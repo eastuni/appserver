@@ -1,0 +1,11 @@
+OMM bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.ExternalSyncTxHIO
+<description="">
+{
+	String guid<length=40 description="GUID">;
+	String msgTraceNbr<length=32 description="전문추적번호">;
+	String rspnsMappingClassNm<length=200 description="응답매핑클래스명">;
+	String finYnCd<length=1 description="완료여부코드">;
+	String msgCntnt<length=4000 description="메시지내용">;
+	Date lastChngTmstmp<length=20 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

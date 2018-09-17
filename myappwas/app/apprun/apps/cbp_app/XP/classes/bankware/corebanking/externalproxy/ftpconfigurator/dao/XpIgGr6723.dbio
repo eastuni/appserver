@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpIgGr6723">
+<!--Generated Thu Mar 23 17:21:02 KST 2017-->
+<select id="selectAR6723InqryList" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIgGr6723IO">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* 출금은행용 지방세입금 수납내역 */
+    INST_CD AS instCd,  /* 기관코드 */
+    TX_DT AS txDt, /*거래일자*/
+    SEQ_NBR AS seqNbr, /*일련번호*/
+    ISSUE_INST_Dscd AS issueInstDscd, /*발행기관분류코드*/
+    UTL_INST_GIRO_NBR AS useInstGiroNbr, /*이용기관지로번호*/
+    TRNS_DT AS rmtncDt, /*이체일자*/
+    WHDRWL_BNK_CD AS whdrwlBnkCd, /*출금은행코드*/
+    PYMNT_OBLGR_SS_NBR AS pymntOblgtrIdNbr, /*납부의무자주민등록번호*/
+    TXPYR_NBR AS taxPayerNbr, /*납세자번호*/
+    ELCTRNC_PYMNT_NBR AS elctrncPymntNbr, /*전자납부번호*/
+    RCPT_AMT AS rcptAmt, /*수납금액*/
+    FNCL_INST_BSOP_BNK_BRH_CD AS fnclInstBizBrnchCd, /*금융기관영업은행지점코드*/
+    PAYER_SS_NBR AS payerIdNbr, /*납부자주민등록번호*/
+    PYMNT_UTL_SYS_DS_CD AS pymntUseSysDscd2, /*납부이용시스템구분코드*/
+    PYMNT_FORM_DS_CD AS pymntFormDscd, /*납부형태구분코드*/
+    APRVL_NBR AS aprvlNbr, /*승인번호*/
+    INSL_NMM AS amrtztnMnthCnt, /*할부월수*/
+    TMPM_AMT AS prdAmt, /*납기금액*/
+    TMPM_PST_AMT AS afPrdAmt1, /*납기후금액*/
+    TMPM_DT AS prdDt1, /*납기일자*/
+    DTL_TAXIT_AMT1 AS dtlTaxNmAmt1, /*상세세목금액1*/
+    DTL_TAXIT_AMT2 AS dtlTaxNmAmt2, /*상세세목금액2*/
+    DTL_TAXIT_AMT3 AS dtlTaxNmAmt3, /*상세세목금액3*/
+    DTL_TAXIT_AMT4 AS dtlTaxNmAmt4, /*상세세목금액4*/
+    DTL_TAXIT_AMT5 AS dtlTaxNmAmt5, /*상세세목금액5*/
+    CHQ_INLS_YN AS chkContainYn, /*수표포함여부*/
+    ALL_PYMNT_DS_NBR AS alPymntDsNbr, /*전체납부구분번호*/
+    RCPT_DT AS rcptDt, /*수납일자*/
+    LAST_CHNG_TMSTMP AS lastChngTmstmp, /*최종변경일시*/
+    LAST_CHNG_GUID AS lastChngGuid /*최종변경GUID*/
+FROM XP_IG_GR6723
+ WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+   ORDER BY INST_CD, TX_DT desc, SEQ_NBR desc
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectAR6723InqryTotalCnt" resultType="java.lang.Integer">
+SELECT    /* 출금은행용 지방세입금 수납내역*/
+        COUNT(INST_CD)
+  FROM  XP_IG_GR6723
+ WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+</select>
+</mapper>

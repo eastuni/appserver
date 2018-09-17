@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.resourcelibrary.dao.CmDtoClassAtrD">
+<!--Generated Mon Apr 09 20:18:34 KST 2018-->
+<select id="select" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmDtoClassAtrDIO" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmDtoClassAtrDIO">
+SELECT  /* DTO속성명세 */
+
+        dto_class_nm AS dtoClassNm    /*DTO클래스명*/, 
+        atrbt_nm AS atrbtNm    /*속성명*/, 
+
+        atrbt_dto_class_nm AS atrbtDtoClassNm    /*속성DTO클래스명*/, 
+        iter_yn AS iterYn    /*반복여부*/, 
+
+        mndtry_yn AS mndtryYn    /*필수여부*/, 
+
+        std_atrbt_vldtn_use_yn AS stdAtrbtVldtnUseYn    /*표준속성검증사용여부*/, 
+
+        atrbt_vldtn_way_cd AS atrbtVldtnWayCd    /*속성검증방법코드*/, 
+
+        atrbt_vldtn_rule_cntnt AS atrbtVldtnRuleCntnt    /*속성검증규칙*/, 
+        atrbt_vldtn_xtn_rule_cntnt AS atrbtVldtnXtnRuleCntnt    /*속성검증확장규칙*/, 
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_dto_class_atr_d
+ WHERE  dto_class_nm = #{dtoClassNm}
+   AND  atrbt_nm = #{atrbtNm}
+
+   AND DTO_STS_CD = '01' /*DTO상태코드 활동01*/
+</select>
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmDtoClassAtrDIO">
+INSERT  
+
+  INTO  cm_dto_class_atr_d    /* DTO속성명세 */
+(
+
+  dto_class_nm    /*DTO클래스명*/, 
+  atrbt_nm    /*속성명*/, 
+
+  atrbt_dto_class_nm    /*속성DTO클래스명*/, 
+  iter_yn    /*반복여부*/, 
+
+  mndtry_yn    /*필수여부*/, 
+
+  std_atrbt_vldtn_use_yn    /*표준속성검증사용여부*/, 
+
+  atrbt_vldtn_way_cd    /*속성검증방법코드*/, 
+
+  atrbt_vldtn_rule_cntnt    /*속성검증규칙*/, 
+  atrbt_vldtn_xtn_rule_cntnt    /*속성검증확장규칙*/, 
+  DTO_STS_CD,
+
+  last_chng_tmstmp    /*최종변경일시*/, 
+
+  last_chng_guid    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+  #{dtoClassNm, jdbcType=VARCHAR}    /*DTO클래스명*/, 
+  #{atrbtNm, jdbcType=VARCHAR}    /*속성명*/, 
+
+  #{atrbtDtoClassNm, jdbcType=VARCHAR}    /*속성DTO클래스명*/, 
+  #{iterYn, jdbcType=VARCHAR}    /*반복여부*/, 
+
+  #{mndtryYn, jdbcType=VARCHAR}    /*필수여부*/, 
+
+  #{stdAtrbtVldtnUseYn, jdbcType=VARCHAR}    /*표준속성검증사용여부*/, 
+
+  #{atrbtVldtnWayCd, jdbcType=VARCHAR}    /*속성검증방법코드*/, 
+
+  #{atrbtVldtnRuleCntnt, jdbcType=VARCHAR}    /*속성검증규칙*/, 
+  #{atrbtVldtnXtnRuleCntnt, jdbcType=VARCHAR}    /*속성검증확장규칙*/, 
+  '01', /*DTO상태코드 활동 */
+
+  #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경일시*/, 
+
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+
+)
+</insert>
+<select id="selectList" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmDtoClassAtrDIO">
+SELECT  /* DTO속성명세 */
+
+        dto_class_nm AS dtoClassNm    /*DTO클래스명*/, 
+        atrbt_nm AS atrbtNm    /*속성명*/, 
+
+        atrbt_dto_class_nm AS atrbtDtoClassNm    /*속성DTO클래스명*/, 
+        iter_yn AS iterYn    /*반복여부*/, 
+
+        mndtry_yn AS mndtryYn    /*필수여부*/, 
+
+        std_atrbt_vldtn_use_yn AS stdAtrbtVldtnUseYn    /*표준속성검증사용여부*/, 
+
+        atrbt_vldtn_way_cd AS atrbtVldtnWayCd    /*속성검증방법코드*/, 
+
+        atrbt_vldtn_rule_cntnt AS atrbtVldtnRuleCntnt    /*속성검증규칙*/, 
+        atrbt_vldtn_xtn_rule_cntnt AS atrbtVldtnXtnRuleCntnt    /*속성검증확장규칙*/, 
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_dto_class_atr_d
+ WHERE  dto_class_nm = #{dtoClassNm}
+ AND DTO_STS_CD = '01' /*DTO상태코드 활동01*/
+</select>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmDtoClassAtrDIO">
+UPDATE  
+
+        cm_dto_class_atr_d    /* DTO속성명세 */
+   SET  atrbt_dto_class_nm = #{atrbtDtoClassNm, jdbcType=VARCHAR}    /* 속성DTO클래스명 */, 
+        iter_yn = #{iterYn, jdbcType=VARCHAR}    /* 반복여부 */, 
+
+        mndtry_yn = #{mndtryYn, jdbcType=VARCHAR}    /* 필수여부 */, 
+        std_atrbt_vldtn_use_yn = #{stdAtrbtVldtnUseYn, jdbcType=VARCHAR}    /* 표준속성검증사용여부 */, 
+        atrbt_vldtn_way_cd = #{atrbtVldtnWayCd, jdbcType=VARCHAR}    /* 속성검증방법코드 */, 
+
+        atrbt_vldtn_rule_cntnt = #{atrbtVldtnRuleCntnt, jdbcType=VARCHAR}    /* 속성검증규칙 */, 
+        atrbt_vldtn_xtn_rule_cntnt = #{atrbtVldtnXtnRuleCntnt, jdbcType=VARCHAR}    /* 속성검증확장규칙 */, 
+        dto_sts_cd = #{dtoStsCd, jdbcType=VARCHAR}     /*DTO상태코드 활동01*/,
+
+        last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */, 
+
+        last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+
+ WHERE  dto_class_nm = #{dtoClassNm}
+   AND  atrbt_nm = #{atrbtNm}
+</update>
+<delete id="delete_back_20160419" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmDtoClassAtrDIO">
+DELETE  FROM  cm_dto_class_atr_d    /* DTO속성명세 */
+ WHERE  dto_class_nm = #{dtoClassNm}
+   AND  atrbt_nm = #{atrbtNm}
+</delete>
+<select id="isAttributeExist" resultType="java.lang.String">
+select CASE WHEN COUNT(1) &gt; 0 THEN 'Y' ELSE 'N' END AS CNT from CM_DTO_CLASS_ATR_D
+where DTO_STS_CD = '01'
+
+AND ATRBT_NM = #{atrbtNm}
+</select>
+<select id="selectListAttributeExist" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmDtoClassAtrDIO">
+SELECT  /* DTO속성명세 */
+
+        dto_class_nm AS dtoClassNm    /*DTO클래스명*/, 
+        atrbt_nm AS atrbtNm    /*속성명*/, 
+
+        atrbt_dto_class_nm AS atrbtDtoClassNm    /*속성DTO클래스명*/, 
+        iter_yn AS iterYn    /*반복여부*/, 
+
+        mndtry_yn AS mndtryYn    /*필수여부*/, 
+
+        std_atrbt_vldtn_use_yn AS stdAtrbtVldtnUseYn    /*표준속성검증사용여부*/, 
+
+        atrbt_vldtn_way_cd AS atrbtVldtnWayCd    /*속성검증방법코드*/, 
+
+        atrbt_vldtn_rule_cntnt AS atrbtVldtnRuleCntnt    /*속성검증규칙*/, 
+        atrbt_vldtn_xtn_rule_cntnt AS atrbtVldtnXtnRuleCntnt    /*속성검증확장규칙*/, 
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_dto_class_atr_d
+ WHERE  atrbt_nm = #{atrbtNm}
+
+   AND DTO_STS_CD = '01' /*DTO상태코드 활동01*/
+</select>
+<delete id="updateStatus" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmDtoClassAtrDIO">
+UPDATE cm_dto_class_atr_d    /* DTO속성명세 */
+SET DTO_STS_CD = '02'
+
+   , LAST_CHNG_TMSTMP = #{lastChngTmstmp}
+
+   , LAST_CHNG_GUID = #{lastChngGuid}
+
+ WHERE  dto_class_nm = #{dtoClassNm}
+   AND  atrbt_nm = #{atrbtNm}
+</delete>
+<select id="selectIgnoreStatus" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmDtoClassAtrDIO" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmDtoClassAtrDIO">
+SELECT  /* DTO속성명세 */
+
+        dto_class_nm AS dtoClassNm    /*DTO클래스명*/, 
+        atrbt_nm AS atrbtNm    /*속성명*/, 
+
+        atrbt_dto_class_nm AS atrbtDtoClassNm    /*속성DTO클래스명*/, 
+        iter_yn AS iterYn    /*반복여부*/, 
+
+        mndtry_yn AS mndtryYn    /*필수여부*/, 
+
+        std_atrbt_vldtn_use_yn AS stdAtrbtVldtnUseYn    /*표준속성검증사용여부*/, 
+
+        atrbt_vldtn_way_cd AS atrbtVldtnWayCd    /*속성검증방법코드*/, 
+
+        atrbt_vldtn_rule_cntnt AS atrbtVldtnRuleCntnt    /*속성검증규칙*/, 
+        atrbt_vldtn_xtn_rule_cntnt AS atrbtVldtnXtnRuleCntnt    /*속성검증확장규칙*/, 
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_dto_class_atr_d
+ WHERE  dto_class_nm = #{dtoClassNm}
+   AND  atrbt_nm = #{atrbtNm}
+</select>
+</mapper>

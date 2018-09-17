@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.error.mgmt.dbio.LogErrDBIO">
+<!--Generated Wed Nov 29 16:53:50 KST 2017-->
+<select id="selectListPage" resultType="bxm.web.admin.error.mgmt.domain.LogErrOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+select 
+		A.log_occur_dttm AS logOccurDttm
+		, A.guid AS guid
+		, A.trx_cd AS trxCd
+		, A.err_cd AS errCd
+		, A.sql_err_cd AS sqlErrCd
+from ${logErr.tableName} A
+where DOMAIN_ID = #{logErr.domainId}
+	and A.LOG_OCCUR_DTTM like #{logErr.logOccurDttm} || '%'
+	<if test="logErr.trxCd != null and logErr.trxCd != ''">
+ 		and A.TRX_CD = #{logErr.trxCd, jdbcType=VARCHAR}
+ 	</if>
+ 	<if test="logErr.errCd != null and logErr.errCd != ''">
+ 		and A.ERR_CD = #{logErr.errCd, jdbcType=VARCHAR}
+ 	</if>
+	<if test="logErr.sqlErrCd != null and logErr.sqlErrCd != ''">
+ 		and A.SQL_ERR_CD = #{logErr.sqlErrCd, jdbcType=VARCHAR}
+ 	</if>
+	order by A.LOG_OCCUR_DTTM desc
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectListPage" resultType="bxm.web.admin.error.mgmt.domain.LogErrOMM">
+select 
+		A.log_occur_dttm AS logOccurDttm
+		, A.guid AS guid
+		, A.trx_cd AS trxCd
+		, A.err_cd AS errCd
+		, A.sql_err_cd AS sqlErrCd
+from ${logErr.tableName} A
+where DOMAIN_ID = #{logErr.domainId}
+	and A.LOG_OCCUR_DTTM like CONCAT(#{logErr.logOccurDttm}, '%')
+	<if test="logErr.trxCd != null and logErr.trxCd != ''">
+ 		and A.TRX_CD = #{logErr.trxCd}
+ 	</if>
+ 	<if test="logErr.errCd != null and logErr.errCd != ''">
+ 		and A.ERR_CD = #{logErr.errCd}
+ 	</if>
+	<if test="logErr.sqlErrCd != null and logErr.sqlErrCd != ''">
+ 		and A.SQL_ERR_CD = #{logErr.sqlErrCd}
+ 	</if>
+	order by A.LOG_OCCUR_DTTM desc
+limit #{pageNum}, #{pageCount}
+</select>
+<select id="count" resultType="java.lang.Integer">
+select 
+		COUNT(*)
+from ${logErr.tableName} A
+where DOMAIN_ID = #{domainId}
+	and A.LOG_OCCUR_DTTM like #{logErr.logOccurDttm} || '%'
+	<if test="logErr.trxCd != null and logErr.trxCd != ''">
+ 		and A.TRX_CD = #{logErr.trxCd, jdbcType=VARCHAR}
+ 	</if>
+ 	<if test="logErr.errCd != null and logErr.errCd != ''">
+ 		and A.ERR_CD = #{logErr.errCd, jdbcType=VARCHAR}
+ 	</if>
+	<if test="logErr.sqlErrCd != null and logErr.sqlErrCd != ''">
+ 		and A.SQL_ERR_CD = #{logErr.sqlErrCd, jdbcType=VARCHAR}
+ 	</if>
+</select>
+<select databaseId="mysql" id="count" resultType="java.lang.Integer">
+select 
+		COUNT(*)
+from ${logErr.tableName} A
+where DOMAIN_ID = #{domainId}
+	and A.LOG_OCCUR_DTTM like CONCAT(#{logErr.logOccurDttm}, '%')
+	<if test="logErr.trxCd != null and logErr.trxCd != ''">
+ 		and A.TRX_CD = #{logErr.trxCd}
+ 	</if>
+ 	<if test="logErr.errCd != null and logErr.errCd != ''">
+ 		and A.ERR_CD = #{logErr.errCd}
+ 	</if>
+	<if test="logErr.sqlErrCd != null and logErr.sqlErrCd != ''">
+ 		and A.SQL_ERR_CD = #{logErr.sqlErrCd}
+ 	</if>
+</select>
+</mapper>

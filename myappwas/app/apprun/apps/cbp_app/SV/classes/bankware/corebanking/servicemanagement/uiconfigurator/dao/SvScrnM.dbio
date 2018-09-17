@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.uiconfigurator.dao.SvScrnM">
+<!--Generated Thu Aug 02 14:08:51 KST 2018-->
+<select id="select" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO">
+SELECT  /* 화면기본 */
+        scrn_id AS scrnId    /*화면식별자*/, 
+        scrn_nbr AS scrnNbr    /*화면번호*/, 
+        scrn_nm AS scrnNm    /*화면명*/, 
+        biz_cmpnt_cd AS bizCmpntCd    /*비지니스컴포넌트코드*/, 
+        SCRN_URL_ADDR AS scrnUrlAddr,
+        
+        menu_trgt_scrn_yn AS menuTrgtScrnYn    /*메뉴대상화면여부*/, 
+        SITE_LBRTRY_DSCD AS siteLbrtryDscd  /*사이트연구소구분코드 */,
+        ACTV_STS_CD AS actvStsCd  /*활동상태코드*/,
+        popup_scrn_yn AS popupScrnYn    /*팝업화면여부*/, 
+        DSTB_TRGT_SCRN_YN AS dstbTrgtScrnYn  /*배포대상화면여부*/,
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+    FROM  sv_scrn_m
+ WHERE  scrn_id = #{scrnId}
+<if test="actvStsCd != null and actvStsCd != '' ">   
+   AND ACTV_STS_CD =#{actvStsCd}
+</if>
+</select>
+<select id="selectList" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO">
+SELECT  /* 화면기본 */
+
+        a.scrn_id AS scrnId    /*화면식별자*/, 
+
+        a.scrn_nbr AS scrnNbr    /*화면번호*/, 
+
+        a.scrn_nm AS scrnNm    /*화면명*/, 
+
+        a.biz_cmpnt_cd AS bizCmpntCd    /*비지니스컴포넌트코드*/, 
+
+        a.menu_trgt_scrn_yn AS menuTrgtScrnYn    /*메뉴대상화면여부*/, 
+
+        a.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        a.last_chng_guid AS lastChngGuid    /*최종변경GUID*/,
+
+        a.scrn_url_addr AS scrnUrlAddr
+
+  FROM  sv_scrn_m a
+
+<if test="scrnNm != null and scrnNm != ''">
+
+  JOIN cm_mlt_lng_trnsltn_d d
+
+  ON a.scrn_id = d.trnsfr_origin_key_val
+
+  AND d.trnsfr_knd_cd = 'SCRN_NAME'
+  AND d.lng_cd = #{lngCd}
+
+</if>
+
+
+
+<if test="scrnEngNm != null and scrnEngNm != ''">
+
+  JOIN cm_mlt_lng_trnsltn_d e
+
+  ON a.scrn_id = e.trnsfr_origin_key_val
+
+  AND e.trnsfr_knd_cd = 'SCRN_NAME'
+  AND e.LNG_CD = 'en'
+
+</if>
+
+
+
+WHERE a.ACTV_STS_CD = '01'
+
+  		<if test="scrnId != null and scrnId !=''">
+
+ 			AND a.scrn_id like CONCAT(CONCAT('%', #{scrnId}), '%')
+
+ 		</if>
+
+		<if test="scrnNm != null and scrnNm != ''">
+
+		   AND d.trnsfr_rslt_val LIKE CONCAT(CONCAT('%', #{scrnNm}), '%')
+
+		</if>
+
+ 		<if test="bizCmpntCd != null and bizCmpntCd !=''">
+
+ 			AND a.biz_cmpnt_cd =  #{bizCmpntCd}
+
+ 		</if>
+
+  		<if test="menuTrgtScrnYn != null and menuTrgtScrnYn !=''">
+
+ 			AND a.MENU_TRGT_SCRN_YN = #{menuTrgtScrnYn}
+
+ 		</if>
+
+  		<if test="scrnEngNm != null and scrnEngNm !=''">
+
+ 			AND e.trnsfr_rslt_val LIKE CONCAT(CONCAT('%', #{scrnEngNm}), '%')
+
+ 		</if>
+</select>
+<select id="selectListByBizCmpntCdNbrNm" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO">
+SELECT  /* 화면기본 */
+
+        scm.scrn_id AS scrnId    /*화면식별자*/,
+
+        scm.scrn_nbr AS scrnNbr    /*화면번호*/,
+
+        scm.scrn_nm AS scrnNm    /*화면명*/,
+
+        scm.biz_cmpnt_cd AS bizCmpntCd    /*비지니스컴포넌트코드*/,
+
+        scm.menu_trgt_scrn_yn AS menuTrgtScrnYn    /*메뉴대상화면여부*/
+
+
+
+  FROM  sv_scrn_m scm
+
+     ,  sv_inst_scrn_m sism
+
+ WHERE  scm.scrn_id = sism.scrn_id
+
+   AND  sism.inst_cd = #{instCd}
+
+   AND  scm.menu_trgt_scrn_yn = 'Y'
+
+   AND scm.ACTV_STS_CD = '01'
+
+<if test="bizCmpntCd != null and bizCmpntCd != ''">
+
+   AND  scm.biz_cmpnt_cd =#{bizCmpntCd}
+
+</if>
+
+<if test="scrnNbr != null and scrnNbr != ''">
+
+   AND  scm.scrn_nbr like CONCAT(CONCAT('%', #{scrnNbr}), '%')
+
+</if>
+
+<if test="scrnNm != null and scrnNm != ''">
+
+   AND EXISTS (
+
+   SELECT 1
+
+     FROM cm_mlt_lng_trnsltn_d c
+
+    WHERE c.trnsfr_knd_cd = 'SCRN_NAME'
+      AND c.trnsfr_origin_key_val = scm.scrn_id
+
+      AND c.lng_cd = #{lngCd}
+
+      AND c.trnsfr_rslt_val LIKE CONCAT(CONCAT('%', #{scrnNm}), '%')
+
+   )
+
+</if>
+
+ORDER BY scm.scrn_id ASC
+</select>
+<update id="update" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO">
+UPDATE  
+        sv_scrn_m
+   SET  scrn_nbr = #{scrnNbr, jdbcType=VARCHAR}    /* 화면번호 */
+     , scrn_nm = #{scrnNm, jdbcType=VARCHAR}    /* 화면명 */
+     , biz_cmpnt_cd = #{bizCmpntCd, jdbcType=VARCHAR}    /* 비지니스컴포넌트코드 */
+     , scrn_url_addr = #{scrnUrlAddr, jdbcType=VARCHAR}    /* 화면URL주소 */
+     , menu_trgt_scrn_yn = #{menuTrgtScrnYn, jdbcType=VARCHAR}    /* 메뉴대상화면여부 */
+     , SITE_LBRTRY_DSCD = #{siteLbrtryDscd, jdbcType=VARCHAR}   /*사이트연구소구분코드*/
+     , ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/
+     , popup_scrn_yn = #{popupScrnYn, jdbcType=VARCHAR}   /*팝업화면여부*/
+     , DSTB_TRGT_SCRN_YN = #{dstbTrgtScrnYn, jdbcType=VARCHAR}   /*배포대상화면여부*/
+     , last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE scrn_id = #{scrnId, jdbcType=VARCHAR}
+</update>
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO">
+INSERT  
+
+  INTO  sv_scrn_m
+
+(
+
+  scrn_id,     /*화면식별자*/
+
+  scrn_nbr,     /*화면번호*/
+
+  scrn_nm,     /*화면명*/
+
+  biz_cmpnt_cd,     /*비지니스컴포넌트코드*/
+
+  scrn_url_addr,     /*화면URL주소*/
+
+  menu_trgt_scrn_yn,     /*메뉴대상화면여부*/
+
+  SITE_LBRTRY_DSCD ,/* 사이트연구소구분코드 */
+
+  popup_scrn_yn, /*팝업화면여부*/
+  
+  ACTV_STS_CD  ,/* 활동상태코드 */
+  
+DSTB_TRGT_SCRN_YN , /* 활동상태코드 */
+
+  last_chng_tmstmp,     /*최종변경일시*/
+
+  last_chng_guid    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+  #{scrnId, jdbcType=VARCHAR},     /*화면식별자*/
+
+  #{scrnNbr, jdbcType=VARCHAR},     /*화면번호*/
+
+  #{scrnNm, jdbcType=VARCHAR},     /*화면명*/
+
+  #{bizCmpntCd, jdbcType=VARCHAR},     /*비지니스컴포넌트코드*/
+
+  #{scrnUrlAddr, jdbcType=VARCHAR},     /*화면URL주소*/
+
+  #{menuTrgtScrnYn, jdbcType=VARCHAR},     /*메뉴대상화면여부*/
+
+  #{siteLbrtryDscd, jdbcType=VARCHAR} /*사이트연구소구분코드*/, 
+
+  #{popupScrnYn, jdbcType=VARCHAR}, /*팝업화면여부*/
+  #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/, 
+  #{dstbTrgtScrnYn, jdbcType=VARCHAR}  /*배포대상화면여부*/, 
+
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+
+)
+</insert>
+<select id="selectByScrnAtrbtNm" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO">
+SELECT    
+
+       scrn_id AS scrnId    /*화면식별자*/
+
+     , scrn_nbr AS scrnNbr    /*화면번호*/
+
+     , scrn_nm AS scrnNm    /*화면명*/
+
+     , biz_cmpnt_cd AS bizCmpntCd    /*비지니스컴포넌트코드*/
+
+     , scrn_url_addr AS scrnUrlAddr    /*화면URL주소*/
+
+     , menu_trgt_scrn_yn AS menuTrgtScrnYn    /*메뉴대상화면여부*/
+
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM sv_scrn_m
+
+ WHERE scrn_atrbt_nm = #{scrnAtrbtNm}
+
+    AND ACTV_STS_CD = '01'
+</select>
+<select id="selectListForCa" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO">
+SELECT  /* 화면기본 */
+
+        a.scrn_id AS scrnId    /*화면식별자*/, 
+
+        a.scrn_nbr AS scrnNbr    /*화면번호*/, 
+
+        a.scrn_nm AS scrnNm    /*화면명*/, 
+
+        a.biz_cmpnt_cd AS bizCmpntCd    /*비지니스컴포넌트코드*/, 
+
+        a.menu_trgt_scrn_yn AS menuTrgtScrnYn    /*메뉴대상화면여부*/, 
+
+        a.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        a.last_chng_guid AS lastChngGuid    /*최종변경GUID*/,
+
+        a.scrn_url_addr AS scrnUrlAddr
+
+  FROM  sv_scrn_m a
+
+<if test="useLngScrnNm != null and useLngScrnNm != ''">
+
+  JOIN cm_mlt_lng_trnsltn_d d
+
+  ON a.scrn_id = d.trnsfr_origin_key_val
+
+  AND d.trnsfr_knd_cd = 'SCRN_NAME'
+  AND d.lng_cd = #{lngCd}
+
+</if>
+
+
+
+WHERE a.ACTV_STS_CD = '01'
+
+ 		<if test="bizCmpntCd != null and bizCmpntCd !=''">
+
+ 			AND a.biz_cmpnt_cd =  #{bizCmpntCd}
+
+ 		</if>
+
+  		<if test="scrnId != null and scrnId !=''">
+
+ 			AND a.scrn_id like CONCAT(CONCAT('%', #{scrnId}), '%')
+
+ 		</if>
+
+		<if test="scrnNm != null and scrnNm != ''">
+
+		   AND a.scrn_nm like CONCAT(CONCAT('%', #{scrnNm}), '%')
+
+		</if>
+
+  		<if test="useLngScrnNm != null and useLngScrnNm !=''">
+
+ 			AND e.trnsfr_rslt_val LIKE CONCAT(CONCAT('%', #{useLngScrnNm}), '%')
+
+ 		</if>
+
+  		<if test="menuTrgtScrnYn != null and menuTrgtScrnYn !=''">
+
+ 			AND a.MENU_TRGT_SCRN_YN = #{menuTrgtScrnYn}
+
+ 		</if>
+</select>
+<select id="selectListForCaTotalCount" resultType="java.lang.Integer">
+SELECT  /* 화면기본 */
+
+        COUNT(1) AS cnt
+
+  FROM  sv_scrn_m a
+
+<if test="useLngScrnNm != null and useLngScrnNm != ''">
+
+  JOIN cm_mlt_lng_trnsltn_d d
+
+  ON a.scrn_id = d.trnsfr_origin_key_val
+
+  AND d.trnsfr_knd_cd = 'SCRN_NAME'
+  AND d.lng_cd = #{lngCd}
+
+</if>
+
+
+
+WHERE a.ACTV_STS_CD = '01'
+
+ 		<if test="bizCmpntCd != null and bizCmpntCd !=''">
+
+ 			AND a.biz_cmpnt_cd =  #{bizCmpntCd}
+
+ 		</if>
+
+  		<if test="scrnId != null and scrnId !=''">
+
+ 			AND a.scrn_id like CONCAT(CONCAT('%', #{scrnId}), '%')
+
+ 		</if>
+
+		<if test="scrnNm != null and scrnNm != ''">
+
+		   AND a.scrn_nm like CONCAT(CONCAT('%', #{scrnNm}), '%')
+
+		</if>
+
+  		<if test="useLngScrnNm != null and useLngScrnNm !=''">
+
+ 			AND e.trnsfr_rslt_val LIKE CONCAT(CONCAT('%', #{useLngScrnNm}), '%')
+
+ 		</if>
+
+  		<if test="menuTrgtScrnYn != null and menuTrgtScrnYn !=''">
+
+ 			AND a.MENU_TRGT_SCRN_YN = #{menuTrgtScrnYn}
+
+ 		</if>
+</select>
+<select id="selectListByPortletsScrn" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO">
+SELECT        
+
+     D.scrn_id AS scrnId    /*화면식별자*/
+
+     , D.scrn_nbr AS scrnNbr    /*화면번호*/
+
+     , D.scrn_nm AS scrnNm    /*화면명*/
+
+     , D.biz_cmpnt_cd AS bizCmpntCd    /*비지니스컴포넌트코드*/
+
+     , D.scrn_url_addr AS scrnUrlAddr    /*화면URL주소*/
+
+     , D.menu_trgt_scrn_yn AS menuTrgtScrnYn    /*메뉴대상화면여부*/
+
+     , D.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+
+     , D.last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+     , C.ICON_NM AS iconNm /*아이콘*/
+
+     FROM SV_USER_GRP_MENU_M A, SV_MENU_M B , SV_MENU_D C, SV_SCRN_M D 
+
+   WHERE A.INST_CD = #{instCd}
+
+     AND B.MENU_ID = C.MENU_ID
+
+     AND A.MENU_ID = B.MENU_ID
+
+     AND C.SCRN_ID = D.SCRN_ID
+
+     AND C.MENU_PRCSNG_DSCD = 2
+
+     /* GROUP BY C.SCRN_ID */
+     
+     GROUP BY D.scrn_id
+     , D.scrn_nbr
+     , D.scrn_nm
+     , D.biz_cmpnt_cd
+     , D.scrn_url_addr
+     , D.menu_trgt_scrn_yn
+     , D.last_chng_tmstmp
+     , D.last_chng_guid
+     , C.ICON_NM
+</select>
+<select id="selectListDistr" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO">
+SELECT  /* 화면기본 */
+
+        scrn_id AS scrnId    /*화면식별자*/, 
+        scrn_nbr AS scrnNbr    /*화면번호*/, 
+        scrn_nm AS scrnNm    /*화면명*/, 
+        biz_cmpnt_cd AS bizCmpntCd    /*비지니스컴포넌트코드*/, 
+		menu_trgt_scrn_yn AS menuTrgtScrnYn    /*메뉴대상화면여부*/, 
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/,
+        scrn_url_addr AS scrnUrlAddr
+  FROM  sv_scrn_m
+WHERE ACTV_STS_CD = '01'
+<if test="scrnId != null and scrnId !=''">
+	AND scrn_id like CONCAT(CONCAT('%', #{scrnId}), '%')
+</if>
+
+ <if test="bizCmpntCd != null and bizCmpntCd !=''">
+ 	AND biz_cmpnt_cd =  #{bizCmpntCd}
+ </if>
+
+<if test="menuTrgtScrnYn != null and menuTrgtScrnYn !=''">
+	AND MENU_TRGT_SCRN_YN = #{menuTrgtScrnYn}
+</if>
+</select>
+<select id="selectListDistrByCmMltLngTrnsltnD" parameterType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO" resultType="bankware.corebanking.servicemanagement.uiconfigurator.dao.dto.SvScrnMIO">
+SELECT trnsfr_origin_key_val as scrnNm
+  FROM  cm_mlt_lng_trnsltn_d
+ WHERE 1=1
+<if test="scrnNm != null and scrnNm != ''">
+  AND trnsfr_origin_key_val =#{scrnId}
+  AND trnsfr_knd_cd = 'SCRN_NAME'
+  AND lng_cd = #{lngCd}
+  AND trnsfr_rslt_val LIKE CONCAT(CONCAT('%', #{scrnNm}), '%')
+</if>
+
+<if test="scrnEngNm != null and scrnEngNm != ''">
+  AND trnsfr_origin_key_val =#{scrnId}
+  AND trnsfr_knd_cd = 'SCRN_NAME'
+  AND lng_cd = 'en'
+  AND trnsfr_rslt_val LIKE CONCAT(CONCAT('%', #{scrnEngNm}), '%')
+</if>
+</select>
+</mapper>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.codelibrary.dao.CmInstSbstCdD">
+<!--Generated Thu Aug 10 02:00:12 KST 2017-->
+<select id="selectListByCondition" parameterType="bankware.corebanking.applicationcommon.codelibrary.dao.dto.CmInstSbstCdDIO" resultType="bankware.corebanking.applicationcommon.codelibrary.dao.dto.CmInstSbstCdDIO">
+SELECT    /* 기관별서브셋코드명세 */
+
+        CD_NBR AS cdNbr,     /*코드번호*/
+
+        INST_CD AS instCd,     /*기관코드*/
+
+        CD AS cd,     /*코드*/
+
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_inst_sbst_cd_d
+
+    where 1=1
+
+	<if test="cdNbr != null and cdNbr !=''">
+
+ 			AND CD_NBR =  #{cdNbr}
+
+ 		</if>
+
+ 		<if test="instCd != null and instCd !=''">
+
+ 			AND INST_CD = #{instCd}
+
+ 		</if>
+
+ 		<if test="cd != null and cd !=''">
+
+ 			AND CD = #{cd}
+
+ 		</if>
+ 		    <if test="actvStsCd != null and actvStsCd != ''"> 
+		     AND  ACTV_STS_CD = #{actvStsCd}
+		    </if>
+</select>
+<delete id="delete">
+DELETE  FROM  cm_inst_sbst_cd_d    /* 기관별서브셋코드명세 */
+
+ WHERE  CD_NBR = #{cdNbr}
+
+   AND INST_CD = #{instCd}
+</delete>
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.codelibrary.dao.dto.CmInstSbstCdDIO">
+INSERT INTO CM_INST_SBST_CD_D    /* 기관별서브셋코드명세 */
+
+(
+
+       CD_NBR    /*코드번호*/
+
+     , INST_CD    /*기관코드*/
+
+     , CD    /*코드*/
+
+     , ACTV_STS_CD /* 활동상태코드 */
+
+     , LAST_CHNG_TMSTMP    /*최종변경일시*/
+
+     , LAST_CHNG_ID
+
+     , LAST_CHNG_GUID    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+       #{cdNbr}    /*코드번호*/
+
+     , #{instCd}    /*기관코드*/
+
+     , #{cd}    /*코드*/
+
+     , #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/
+
+     , #{lastChngTmstmp}    /*최종변경일시*/
+
+     , #{lastChngId,jdbcType=VARCHAR}
+
+     , #{lastChngGuid}    /*최종변경GUID*/
+
+)
+</insert>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.codelibrary.dao.dto.CmInstSbstCdDIO">
+UPDATE CM_INST_SBST_CD_D
+
+      SET ACTV_STS_CD = #{actvStsCd}  /*활동상태코드*/
+
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /*최종변경일시*/
+
+     , LAST_CHNG_ID = #{lastChngId}
+
+     , LAST_CHNG_GUID = #{lastChngGuid}    /*최종변경GUID*/
+
+WHERE CD_NBR = #{cdNbr}    /*코드번호*/
+
+     AND INST_CD = #{instCd}    /*기관코드*/
+
+     AND CD = #{cd}    /*코드*/
+</update>
+<update id="updateActvStsCd" parameterType="bankware.corebanking.applicationcommon.codelibrary.dao.dto.CmInstSbstCdDIO">
+UPDATE CM_INST_SBST_CD_D
+
+      SET ACTV_STS_CD = #{actvStsCd}  /*활동상태코드*/
+
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /*최종변경일시*/
+
+     , LAST_CHNG_ID = #{lastChngId}
+
+     , LAST_CHNG_GUID = #{lastChngGuid}    /*최종변경GUID*/
+
+WHERE CD_NBR = #{cdNbr}    /*코드번호*/
+
+     AND INST_CD = #{instCd}    /*기관코드*/
+
+        <if test="cd != null and cd !=''">
+
+ 			AND CD = #{cd}
+
+ 		</if>
+</update>
+</mapper>

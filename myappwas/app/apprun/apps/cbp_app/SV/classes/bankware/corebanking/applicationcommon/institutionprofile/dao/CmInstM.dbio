@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.institutionprofile.dao.CmInstM">
+<!--Generated Mon Jul 23 20:29:30 KST 2018-->
+<select id="select" parameterType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstMIO" resultType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstMIO">
+SELECT  /* 기관기본 */
+        inst_cd AS instCd    /*기관코드*/, 
+        inst_nm AS instNm    /*기관명*/, 
+        inqry_seq AS inqrySeq /* 조회순서 */,
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM  cm_inst_m
+
+ WHERE  inst_cd = #{instCd}
+</select>
+<delete id="delete" parameterType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstMIO">
+DELETE  FROM  cm_inst_m    /* 기관기본 */
+
+ WHERE  inst_cd = #{instCd}
+</delete>
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstMIO">
+INSERT  
+  INTO  cm_inst_m    /* 기관기본 */
+(
+  inst_cd    /*기관코드*/, 
+  inst_nm    /*기관명*/, 
+  inqry_seq  /*조회순서*/,
+  last_chng_tmstmp    /*최종변경일시*/, 
+  last_chng_guid    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR}    /*기관코드*/, 
+  #{instNm, jdbcType=VARCHAR}    /*기관명*/, 
+  #{inqrySeq, jdbcType=NUMERIC}    /*기관명*/, 
+  #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경일시*/, 
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectList" resultType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstMIO">
+SELECT  /* 기관기본 */
+        inst_cd AS instCd    /*기관코드*/, 
+        inst_nm AS instNm    /*기관명*/, 
+        inqry_seq AS inqrySeq /* 조회순서 */,
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM  cm_inst_m
+ WHERE  1=1
+<if test="instCd != null and instCd != '' ">
+   AND  inst_cd like CONCAT(CONCAT('%', #{instCd}), '%')
+</if>
+<if test="instNm != null and instNm != '' ">
+   AND  inst_nm like CONCAT(CONCAT('%', #{instNm}), '%')
+</if> 
+<if test="instTp != null and instTp != '' ">
+   and inst_cd not between '000' and '009'
+</if>
+order by INQRY_SEQ
+</select>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.institutionprofile.dao.dto.CmInstMIO">
+UPDATE cm_inst_m
+   SET inst_nm = #{instNm, jdbcType=VARCHAR}
+     , inqry_seq = #{inqrySeq, jdbcType=NUMERIC}
+     , last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}
+     , last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}
+ WHERE inst_cd = #{instCd, jdbcType=VARCHAR}
+</update>
+</mapper>

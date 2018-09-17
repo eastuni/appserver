@@ -1,0 +1,10 @@
+OMM bankware.corebanking.p2p.creditinvestigation.service.dto.CrdtInvstgtnSvcGetGradeRuleOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String ruleCntnt<length=4000 description="Rule Content">;
+	String grade<length=3 description="Grade">;
+	String score<length=50 description="Score">;
+	Integer lmtAmt<length=9 description="Limit">;
+	String lnAblYn<length=1 description="Loan Able Yn">;
+	String bsicIntRt<length=50 description="Basic Interest Rate">;
+}

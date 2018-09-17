@@ -1,0 +1,7 @@
+OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.GR7734InqryIFOut
+<description="인터넷지로 지방세입금 수납 및 지급집계내역 월보">
+{
+	Integer cnt<length=9 description="출력건수">;
+	bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.GR7734InqryIFSubOut list<length=9 arrayReference="cnt" description="출력리스트">;
+	Integer totCnt<length=9 description="총건수">;
+}

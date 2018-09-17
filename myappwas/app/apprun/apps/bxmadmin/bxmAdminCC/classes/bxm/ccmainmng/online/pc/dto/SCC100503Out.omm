@@ -1,0 +1,5 @@
+OMM bxm.ccmainmng.online.pc.dto.SCC100503Out
+<description="  ">
+{
+	String oputCn<length=4000 description="출력내용">;
+}

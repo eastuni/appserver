@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpIgGr1535">
+<!--Generated Wed Apr 26 17:03:25 KST 2017-->
+<select id="selectAR1535InqryList" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIgGr1535IO">
+SELECT 		instCd,     /*기관코드*/
+		        txDt,     /*거래일자*/
+		        seqNbr,     /*일련번호*/
+		        rmtncDt,     /*이체일자*/
+		        fnclInstBizBrnchCd,     /*금융기관영업은행지점코드*/
+		        realRcptAmt,     /*실수납금액*/
+		        rcptProxyCostCnt,     /*수납대행비용건수*/
+		        rcptProxyCostAmt,     /*수납대행비용금액*/
+		        rcptCnt,     /*수납건수*/
+		        rcptAmt,     /*수납금액*/
+		        dsbrsmntCnt,     /*지급건수*/
+		        dsbrsmntAmt,     /*지급금액*/
+		        appendFeeCnt,     /*추가수수료건수*/
+		        appendFeeAmt,     /*추가수수료금액*/
+		        actualPymntCnt,     /*실지급건수*/
+		        actualPymntAmt,     /*실지급금액*/
+		        rcptDt,     /*수납일자*/
+		        feeDscd,     /*요금구분코드*/
+		        rcptDscd,     /*수납구분코드*/
+		        rcptProxyCostAdjstmntAmt,     /*수납대행비용조정금액*/
+		        supplFeeAdjstmntAmt,     /*추가수수료조정금액*/
+		        orgnlRcptDt,     /*원수납일자*/
+		        lastChngTmstmp,     /*최종변경일시*/
+		        lastChngGuid    /*최종변경GUID*/ 
+FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+    			A.instCd,     /*기관코드*/
+		        A.txDt,     /*거래일자*/
+		        A.seqNbr,     /*일련번호*/
+		        A.rmtncDt,     /*이체일자*/
+		        A.fnclInstBizBrnchCd,     /*금융기관영업은행지점코드*/
+		        A.realRcptAmt,     /*실수납금액*/
+		        A.rcptProxyCostCnt,     /*수납대행비용건수*/
+		        A.rcptProxyCostAmt,     /*수납대행비용금액*/
+		        A.rcptCnt,     /*수납건수*/
+		        A.rcptAmt,     /*수납금액*/
+		        A.dsbrsmntCnt,     /*지급건수*/
+		        A.dsbrsmntAmt,     /*지급금액*/
+		        A.appendFeeCnt,     /*추가수수료건수*/
+		        A.appendFeeAmt,     /*추가수수료금액*/
+		        A.actualPymntCnt,     /*실지급건수*/
+		        A.actualPymntAmt,     /*실지급금액*/
+		        A.rcptDt,     /*수납일자*/
+		        A.feeDscd,     /*요금구분코드*/
+		        A.rcptDscd,     /*수납구분코드*/
+		        A.rcptProxyCostAdjstmntAmt,     /*수납대행비용조정금액*/
+		        A.supplFeeAdjstmntAmt,     /*추가수수료조정금액*/
+		        A.orgnlRcptDt,     /*원수납일자*/
+		        A.lastChngTmstmp,     /*최종변경일시*/
+		        A.lastChngGuid    /*최종변경GUID*/ 
+    FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* 인터넷지로_요금종류별수납및지급집계내역 */
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래일자*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        TRNS_DT AS rmtncDt,     /*이체일자*/
+        FNCL_INST_BSOP_BNK_BRH_CD AS fnclInstBizBrnchCd,     /*금융기관영업은행지점코드*/
+        REAL_RCPT_AMT AS realRcptAmt,     /*실수납금액*/
+        RCPT_PROXY_COST_CNT AS rcptProxyCostCnt,     /*수납대행비용건수*/
+        RCPT_PROXY_COST_AMT AS rcptProxyCostAmt,     /*수납대행비용금액*/
+        RCPT_CNT AS rcptCnt,     /*수납건수*/
+        RCPT_AMT AS rcptAmt,     /*수납금액*/
+        DSBRS_CNT AS dsbrsmntCnt,     /*지급건수*/
+        DSBRS_AMT AS dsbrsmntAmt,     /*지급금액*/
+        SUPPL_FEE_CNT AS appendFeeCnt,     /*추가수수료건수*/
+        SUPPL_FEE_AMT AS appendFeeAmt,     /*추가수수료금액*/
+        REAL_DSBRS_CNT AS actualPymntCnt,     /*실지급건수*/
+        REAL_DSBRS_AMT AS actualPymntAmt,     /*실지급금액*/
+        RCPT_DT AS rcptDt,     /*수납일자*/
+        CHRG_DS_CD AS feeDscd,     /*요금구분코드*/
+        RCPT_DS_CD AS rcptDscd,     /*수납구분코드*/
+        RCPT_PROXY_COST_ADJST_AMT AS rcptProxyCostAdjstmntAmt,     /*수납대행비용조정금액*/
+        SUPPL_FEE_ADJST_AMT AS supplFeeAdjstmntAmt,     /*추가수수료조정금액*/
+        ORGNL_RCPT_DT AS orgnlRcptDt,     /*원수납일자*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_IG_GR1535
+  WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+   order by INST_CD, TX_DT desc, SEQ_NBR desc
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectAR1535InqryTotalCnt" resultType="java.lang.Integer">
+SELECT    /* 인터넷지로_요금종류별수납및지급집계내역 */
+        COUNT(INST_CD)
+  FROM  XP_IG_GR1535
+  WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+</select>
+</mapper>

@@ -1,0 +1,6 @@
+OMM bxm.web.admin.setting.domain.CalendarListOMM
+<description="">
+{
+	Boolean existData<length=20>;
+	bxm.web.admin.setting.domain.CalendarOMM calendarList<length=0 arrayReference="1">;
+}

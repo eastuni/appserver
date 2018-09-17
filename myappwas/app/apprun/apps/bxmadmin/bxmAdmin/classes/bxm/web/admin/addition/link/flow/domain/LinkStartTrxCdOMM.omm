@@ -1,0 +1,9 @@
+OMM bxm.web.admin.addition.link.flow.domain.LinkStartTrxCdOMM
+<description="">
+{
+	String linkStartTrxCd<length=12 description="연동기동 거래코드">;
+	String linkStartTrxNm<length=256 description="거래 명">;
+	String linkTrxTypeCd<length=1 description="연동거래 구분코드">;
+	String linkCtrlFqn<length=1024 description="연동제어 FQN">;
+	String linkMainCd<length=20 description="연동메인코드">;
+}

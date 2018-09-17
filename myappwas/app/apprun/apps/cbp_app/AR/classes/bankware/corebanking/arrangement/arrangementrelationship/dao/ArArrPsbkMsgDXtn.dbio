@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.arrangement.arrangementrelationship.dao.ArArrPsbkMsgDXtn">
+<!--Generated Sat Mar 31 12:40:20 KST 2018-->
+<select id="selectListByMsgId" resultType="bankware.corebanking.core.arrangement.arrangementcontrol.business.configuration.dao.dto.ArArrPsbkMsgDIO">
+SELECT    
+        a.INST_CD AS instCd,     /*기관코드*/
+        a.PSBK_MSG_ID AS psbkMsgId,     /*통장메시지식별자*/
+        a.PSBK_MSG_SEQ_NBR AS psbkMsgSeqNbr,     /*통장메시지일련번호*/
+        a.PSBK_MSG_CNTNT AS psbkMsgCntnt,     /*통장메시지내용*/
+        a.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        a.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ar_arr_psbk_msg_d a
+  LEFT JOIN  ar_arr_issmda_psbk_msg_r b
+    ON a.INST_CD = b.INST_CD
+   AND a.PSBK_MSG_ID = b.PSBK_MSG_ID
+ WHERE a.INST_CD = #{instCd}
+   AND a.PSBK_MSG_ID = #{psbkMsgId}
+   AND a.ACTV_STS_CD = '01'
+ ORDER BY b.PSBK_BKG_SEQ, a.PSBK_MSG_SEQ_NBR
+</select>
+<select id="select" resultType="bankware.corebanking.core.arrangement.arrangementcontrol.business.configuration.dao.dto.ArArrPsbkMsgDIO">
+SELECT    
+        INST_CD AS instCd,     /*기관코드*/
+        PSBK_MSG_ID AS psbkMsgId,     /*통장메시지템플릿식별자*/
+        PSBK_MSG_SEQ_NBR AS psbkMsgSeqNbr,     /*통장메시지일련번호*/
+        PSBK_MSG_CNTNT AS psbkMsgCntnt,     /*통장메시지내용*/
+        ACTV_STS_CD AS actvStsCd,     /*활동상태코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ar_arr_psbk_msg_d
+ WHERE INST_CD = #{instCd}
+   AND PSBK_MSG_ID = #{psbkMsgId}
+   AND PSBK_MSG_SEQ_NBR = #{psbkMsgSeqNbr}
+   AND ACTV_STS_CD = '01'
+</select>
+</mapper>

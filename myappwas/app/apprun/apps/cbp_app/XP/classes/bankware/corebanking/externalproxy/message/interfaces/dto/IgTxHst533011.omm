@@ -1,0 +1,18 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IgTxHst533011
+<description="지방 세입금 통합 납부내역 간략조회">
+{
+	String issueInstDscd<length=2 description="발행기관분류코드">;
+	String giroNbr<length=7 description="지로번호">;
+	String localTaxDpstDscd<length=1 description="지방세입금구분코드">;
+	String elctrncPymntNbr<length=19 description="전자납부번호">;
+	String taxNm<length=30 description="세목명" encrypt="KSC5601">;
+	String ntfctnDscd<length=1 description="고지구분코드">;
+	BigDecimal pymntAmt<length=15 description="납부금액">;
+	String pymntDt<length=8 description="납부일자">;
+	String pymntUseSysDscd<length=1 description="납부이용시스템">;
+	String rcvngBnkBrnchCd<length=7 description="수납은행점별코드">;
+	String rcvngOldNewDscd<length=1 description="수납신구구분코드">;
+	String oldLevyItmCd<length=6 description="구과목/세목">;
+	String oldTaxtnMnth<length=6 description="구과세년월">;
+	String oldQrtrCntnt<length=1 description="구기분">;
+}

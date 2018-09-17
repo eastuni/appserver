@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.cdjointnetwork.dao.XpCdCd2213">
+<!--Generated Tue Nov 22 14:33:25 KST 2016-->
+<delete id="deleteXpCdCd2213" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd2213IO">
+DELETE  FROM  XP_CD_CD2213_H
+ WHERE  INST_CD = #{instCd}
+   AND TX_YM = #{txYm}
+   AND SEQ_NBR = #{seqNbr}
+</delete>
+<insert id="insertXpCdCd2213" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd2213IO">
+INSERT  
+  INTO  XP_CD_CD2213_H
+(
+  INST_CD,     /*기관코드*/
+  TX_YM,     /*거래년월*/
+  SEQ_NBR,     /*일련번호*/
+  TX_Dscd,     /*거래구분코드*/
+  IMPTN_RSN_CD,     /*귀책사유코드*/
+  EXTRNL_RSPNS_CD,     /*대외응답코드*/
+  DSBRSMNT_CNT,     /*지급건수*/
+  INQRY_CNT,     /*조회건수*/
+  TX_INQRY_CNT,     /*거래조회건수*/
+  TOT_CNT,     /*합계건수*/
+  RT,     /*비율*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR},     /*기관코드*/
+  #{txYm, jdbcType=VARCHAR},     /*거래년월*/
+  #{seqNbr, jdbcType=NUMERIC},     /*일련번호*/
+  #{txDscd, jdbcType=VARCHAR},     /*거래구분코드*/
+  #{imptnRsnCd, jdbcType=VARCHAR},     /*귀책사유코드*/
+  #{extrnlRspnsCd, jdbcType=VARCHAR},     /*대외응답코드*/
+  #{dsbrsmntCnt, jdbcType=NUMERIC},     /*지급건수*/
+  #{inqryCnt, jdbcType=NUMERIC},     /*조회건수*/
+  #{txInqryCnt, jdbcType=NUMERIC},     /*거래조회건수*/
+  #{totCnt, jdbcType=NUMERIC},     /*합계건수*/
+  #{rt, jdbcType=NUMERIC},     /*비율*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectXpCdCd2213List" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd2213IO">
+SELECT    
+        INST_CD AS instCd,     /*기관코드*/
+        TX_YM AS txYm,     /*거래년월*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        TX_Dscd AS txDscd,     /*거래구분코드*/
+        IMPTN_RSN_CD AS imptnRsnCd,     /*귀책사유코드*/
+        EXTRNL_RSPNS_CD AS extrnlRspnsCd,     /*대외응답코드*/
+        EXTRNL_RSPNS_CD AS extrnlRspnsNm,     /*대외응답내용*/
+        DSBRSMNT_CNT AS dsbrsmntCnt,     /*지급건수*/
+        INQRY_CNT AS inqryCnt,     /*조회건수*/
+        TX_INQRY_CNT AS txInqryCnt,     /*거래조회건수*/
+        TOT_CNT AS totCnt,     /*합계건수*/
+        RT AS rt,     /*비율*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_CD_CD2213_H
+ WHERE INST_CD = #{instCd}
+   AND TX_YM = #{txYm}
+ORDER BY SEQ_NBR
+</select>
+<update id="updateXpCdCd2213" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd2213IO">
+UPDATE  
+        XP_CD_CD2213_H
+   SET  TX_Dscd = #{txDscd, jdbcType=VARCHAR}    /* 거래구분코드 */
+     , IMPTN_RSN_CD = #{imptnRsnCd, jdbcType=VARCHAR}    /* 귀책사유코드 */
+     , EXTRNL_RSPNS_CD = #{extrnlRspnsCd, jdbcType=VARCHAR}    /* 대외응답코드 */
+     , DSBRSMNT_CNT = #{dsbrsmntCnt, jdbcType=NUMERIC}    /* 지급건수 */
+     , INQRY_CNT = #{inqryCnt, jdbcType=NUMERIC}    /* 조회건수 */
+     , TX_INQRY_CNT = #{txInqryCnt, jdbcType=NUMERIC}    /* 거래조회건수 */
+     , TOT_CNT = #{totCnt, jdbcType=NUMERIC}    /* 합계건수 */
+     , RT = #{rt, jdbcType=NUMERIC}    /* 비율 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND TX_YM = #{txYm}
+   AND SEQ_NBR = #{seqNbr}
+</update>
+</mapper>

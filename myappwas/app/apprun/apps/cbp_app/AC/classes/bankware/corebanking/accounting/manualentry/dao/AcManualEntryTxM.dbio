@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.accounting.manualentry.dao.AcManualEntryTxM">
+<!--Generated Wed Apr 11 15:27:12 KST 2018-->
+<select id="select" parameterType="bankware.corebanking.accounting.manualentry.dao.dto.AcManualEntryTxMIO" resultType="bankware.corebanking.accounting.manualentry.dao.dto.AcManualEntryTxMIO">
+SELECT    /* 비온라인거래기본 */
+
+        INST_CD AS instCd,     /*기관코드*/
+
+        DEPT_ID AS deptId,     /*부서식별자*/
+
+        base_yr AS baseYr,     /*기준년도*/
+        LOG_SEQ_NBR AS logSeqNbr,     /*로그일련번호*/
+
+        CRNCY_CD AS crncyCd,     /*통화코드*/
+
+        ACCTG_DSCD AS acctgDscd,     /*회계구분코드*/
+
+        ACCTG_ITM_CD AS acctgItmCd,     /*계정과목코드*/
+
+        MANUAL_ENTRY_BAL AS manualEntryBal,     /*비온라인잔액*/
+
+        manual_entry_frgn_bal AS manualEntryFrgnBal,     /*비온라인외화잔액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  ac_manual_entry_tx_m
+
+ WHERE INST_CD = #{instCd}
+
+   AND DEPT_ID = #{deptId}
+
+   AND base_yr = #{baseYr}
+</select>
+<insert id="insert" parameterType="bankware.corebanking.accounting.manualentry.dao.dto.AcManualEntryTxMIO">
+INSERT  
+
+  INTO  ac_manual_entry_tx_m    /* 비온라인거래기본 */
+
+(
+
+  INST_CD,     /*기관코드*/
+
+  DEPT_ID,     /*부서식별자*/
+
+  base_yr,     /*기준년도*/
+  LOG_SEQ_NBR,     /*로그일련번호*/
+
+  CRNCY_CD,     /*통화코드*/
+
+  ACCTG_DSCD,     /*회계구분코드*/
+
+  ACCTG_ITM_CD,     /*계정과목코드*/
+
+  MANUAL_ENTRY_BAL,     /*비온라인잔액*/
+
+  manual_entry_frgn_bal,     /*비온라인외화잔액*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+
+  LAST_CHNG_GUID    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+  #{instCd},     /*기관코드*/
+
+  #{deptId},     /*부서식별자*/
+
+  #{baseYr},     /*기준년도*/
+  #{logSeqNbr},     /*로그일련번호*/
+
+  #{crncyCd},     /*통화코드*/
+
+  #{acctgDscd},     /*회계구분코드*/
+
+  #{acctgItmCd},     /*계정과목코드*/
+
+  #{manualEntryBal},     /*비온라인잔액*/
+
+  #{manualEntryFrgnBal},     /*비온라인외화잔액*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+
+  #{lastChngGuid}    /*최종변경GUID*/
+
+)
+</insert>
+<select id="selectTotalCount" parameterType="bankware.corebanking.accounting.manualentry.dao.dto.AcManualEntrySelectListIn" resultType="java.lang.Integer">
+SELECT COUNT(1) AS totCnt
+FROM ( SELECT DISTINCT inst_cd,dept_id,base_yr,crncy_cd,acctg_dscd,acctg_itm_cd
+             FROM  ac_manual_entry_tx_m
+
+            WHERE  inst_cd = #{instCd}
+
+            <if test="deptId != null and deptId != ''"> 
+
+                AND  dept_id = #{deptId}
+
+            </if>
+
+                AND base_yr BETWEEN substr(#{txDt1},1,4) AND substr(#{txDt2},1,4)
+                AND crncy_cd = #{crncyCd}
+
+            <if test="acctgDscd != null and acctgDscd != ''"> 
+
+                AND  acctg_dscd = #{acctgDscd}
+
+            </if>
+
+            <if test="acctgItmCd != null and acctgItmCd != ''"> 
+
+                AND  acctg_itm_cd = #{acctgItmCd}
+
+            </if>
+
+          ) a
+</select>
+<update id="update" parameterType="bankware.corebanking.accounting.manualentry.dao.dto.AcManualEntryTxMIO">
+UPDATE  ac_manual_entry_tx_m           /* 비온라인거래기본 */
+
+       SET MANUAL_ENTRY_BAL = MANUAL_ENTRY_BAL + #{manualEntryBal}    /*비온라인잔액*/
+
+            , manual_entry_frgn_bal = manual_entry_frgn_bal + #{manualEntryFrgnBal}       /*비온라인외화잔액*/
+           , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /*최종변경일시*/
+
+           , LAST_CHNG_GUID = #{lastChngGuid}             /*최종변경GUID*/
+
+ WHERE INST_CD = #{instCd}              /*기관코드*/
+
+     AND DEPT_ID = #{deptId}              /*부서식별자*/
+
+     AND base_yr = #{baseYr}                      /*기준년도*/
+     AND CRNCY_CD = #{crncyCd}              /*통화코드*/
+
+     AND ACCTG_DSCD = #{acctgDscd}       /*회계구분코드*/
+
+     AND ACCTG_ITM_CD = #{acctgItmCd}   /*계정과목코드*/
+</update>
+<select id="selectListMysql" resultType="bankware.corebanking.accounting.manualentry.dao.dto.AcManualEntrySelectListOut">
+SELECT
+
+   a.inst_cd   AS instCd   /*기관코드*/,
+
+   a.dept_id   AS deptId   /*부서식별자*/,
+
+   a.log_seq_nbr   AS logSeqNbr   /*로그일련번호*/,
+
+   a.base_yr   AS baseYr   /*기준년도*/,
+   a.crncy_cd   AS crncyCd   /*통화코드*/,
+
+   a.ACCTG_DSCD   AS acctgDscd   /*회계구분코드*/,
+
+   a.ACCTG_ITM_CD   AS acctgItmCd   /*계정과목코드*/,
+
+   a.MANUAL_ENTRY_BAL   AS manualEntryBal   /*비온라인잔액*/,
+
+   a.manual_entry_frgn_bal   AS manualEntryFrgnBal   /*비온라인외화잔액*/,
+   a.last_chng_tmstmp   AS lastChngTmstmp   /*최종변경일시*/,
+
+   a.last_chng_guid   AS lastChngGuid   /*최종변경GUID*/
+
+ FROM  ac_manual_entry_tx_m a, ac_manual_entry_tx_d b
+
+ WHERE  b.INST_CD = #{a.instCd}   /*기관코드*/
+
+      and a.base_yr = substr(b.tx_dt,1,4) 
+      and b.dtl_seq_nbr = 1
+
+<if test="a.acctgDscd != null and a.acctgDscd != ''">      
+
+   AND  a.acctg_dscd = #{a.acctgDscd}   /*회계구분코드*/
+
+</if>
+
+<if test="a.acctgItmCd != null and a.acctgItmCd != ''">      
+
+   AND  a.ACCTG_ITM_CD = #{a.acctgItmCd}   /*계정과목코드*/
+
+</if>
+
+<if test="a.txDt1 != null and a.txDt1 != ''">      
+
+   AND  b.TX_DT &gt;= #{a.txDt1}   /*조회시작일*/
+
+</if>
+
+<if test="a.txDt2 != null and a.txDt2 != ''">      
+
+   AND  b.TX_DT &lt;= #{a.txDt2}   /*조회종료일*/
+
+</if>      
+
+<if test="a.txStaffId != null and a.txStaffId != ''">      
+
+   AND  b.TX_STAFF_ID = #{a.txStaffId}   /*거래스태프식별자*/
+
+</if>
+
+<if test="a.crncyCd != null and a.crncyCd != ''">      
+
+   AND b.CRNCY_CD = #{a.crncyCd}   /*통화코드*/
+
+</if>
+
+<if test="a.deptId != null and a.deptId != ''">      
+
+   AND b.DEPT_ID = #{a.deptId}   /*부서식별자*/
+
+</if>
+
+<if test="a.rltdCustId != null and a.rltdCustId != ''">      
+
+   AND b.RLTD_CUST_ID = #{a.rltdCustId}   /*관련고객식별자*/
+
+</if>
+
+<if test="a.rltdAcctNbr != null and a.rltdAcctNbr != ''">      
+
+   AND b.RLTD_ACCT_NBR = #{a.rltdAcctNbr}   /*관련계좌번호*/
+
+</if> 
+
+and a.INST_CD=b.INST_CD
+
+and a.DEPT_ID=b.DEPT_ID
+
+and a.crncy_cd=b.crncy_cd    
+
+and a.acctg_itm_cd=b.acctg_itm_cd
+
+group by instCd, deptId, logSeqNbr, baseYr, crncyCd, acctgDscd, acctgItmCd, 
+manualEntryBal, lastChngTmstmp, lastChngGuid       
+
+LIMIT #{pgOffset}, #{pgCnt}
+</select>
+<select id="selectListOracle" resultType="bankware.corebanking.accounting.manualentry.dao.dto.AcManualEntrySelectListOut">
+SELECT 
+
+instCd,  
+
+deptId,  
+
+baseYr, 
+crncyCd, 
+
+acctgDscd, 
+
+acctgItmCd, 
+
+manualEntryBal, 
+
+manualEntryFrgnBal
+ FROM 
+
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+
+        (
+
+/* #### Original SQL [[ ################# */
+
+SELECT
+
+   inst_cd   AS instCd   /*기관코드*/,
+
+   dept_id   AS deptId   /*부서식별자*/,
+
+   base_yr   AS baseYr   /*기준년도*/,
+   crncy_cd   AS crncyCd   /*통화코드*/,
+
+   ACCTG_DSCD   AS acctgDscd   /*회계구분코드*/,
+
+   ACCTG_ITM_CD   AS acctgItmCd   /*계정과목코드*/,
+
+   SUM(MANUAL_ENTRY_BAL)   AS manualEntryBal   /*비온라인잔액*/,
+   SUM(MANUAL_ENTRY_FRGN_BAL)   AS manualEntryFrgnBal   /*비온라인외화잔액*/  
+ FROM  ac_manual_entry_tx_m a
+
+WHERE  
+
+ a.INST_CD = #{a.instCd}   /*기관코드*/      
+
+<if test="a.acctgDscd != null and a.acctgDscd != ''"> 
+
+AND  a.acctg_dscd = #{a.acctgDscd}   /*회계구분코드*/
+
+</if>
+
+<if test="a.acctgItmCd != null and a.acctgItmCd != ''">
+
+AND  a.ACCTG_ITM_CD = #{a.acctgItmCd}   /*계정과목코드*/
+
+</if>
+
+<if test="a.deptId != null and a.deptId != ''">
+
+AND  a.dept_id = #{a.deptId}
+
+</if>
+
+<if test="a.crncyCd != null and a.crncyCd != ''">
+
+and  a.crncy_cd = #{a.crncyCd}
+
+</if>
+
+<if test="a.txDt1 != null and a.txDt1 != ''">
+
+AND  a.base_yr &gt;= substr(#{a.txDt1},1,4) 
+</if>
+
+<if test="a.txDt2 != null and a.txDt2 != ''">
+
+AND  a.base_yr &lt;= substr(#{a.txDt2},1,4)
+</if>
+
+GROUP BY inst_cd, acctg_dscd, acctg_itm_cd, dept_id, crncy_cd , base_yr  
+/* #### Original SQL ]] ################# */
+
+        ) A 
+
+    WHERE ROWNUM &lt;= ((#{pgOffset}+1)*#{pgCnt}) 
+    ) 
+
+WHERE ROW__NUM &gt; ((#{pgOffset})*#{pgCnt})
+</select>
+<select id="selectMaxTxSeqNbrMysql" resultType="bankware.corebanking.accounting.manualentry.dao.dto.AcManualEntryTxMIO">
+SELECT
+
+IFNULL(MAX(log_seq_nbr),0) AS logSeqNbr  
+
+ FROM  ac_manual_entry_tx_m
+
+ WHERE  INST_CD = #{instCd}   /*기관코드*/
+
+      AND  base_yr = #{baseYr}   /*거래년월일*/
+</select>
+<select id="selectMaxTxSeqNbrOracle" resultType="bankware.corebanking.accounting.manualentry.dao.dto.AcManualEntryTxMIO">
+#{baseY}SELECT
+
+NVL(MAX(log_seq_nbr),0) AS logSeqNbr  
+
+ FROM  ac_manual_entry_tx_m
+
+ WHERE  INST_CD = #{instCd}   /*기관코드*/
+
+      AND  base_yr = #{baseYr}   /*거래년월일*/
+</select>
+</mapper>

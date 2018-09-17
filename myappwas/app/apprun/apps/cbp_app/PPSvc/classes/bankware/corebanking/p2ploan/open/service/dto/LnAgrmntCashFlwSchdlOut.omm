@@ -1,0 +1,5 @@
+OMM bankware.corebanking.p2ploan.open.service.dto.LnAgrmntCashFlwSchdlOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	bankware.corebanking.loan.query.service.dto.AcctRpymntSchdldOut rpymntSchdldList<length=0 arrayReference="100" description="상환스케줄리스트">;
+}

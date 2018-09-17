@@ -1,0 +1,5 @@
+OMM bankware.corebanking.p2ploan.open.service.dto.LnExctnSvcLnOpnIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String arrId<length=20 description="계약식별자">;
+}

@@ -1,0 +1,11 @@
+OMM bankware.corebanking.externalproxy.commonconfigurator.interfaces.dto.ExternalInstBizIO
+<description="">
+{
+	String extrnlInstCd<length=14 description="대외기관코드">;
+	String extrnlBizDscd<length=3 description="대외업무구분코드">;
+	String stsCd<length=2 description="상태코드">;
+	String aplyStartDt<length=8 description="적용시작년월일">;
+	String extrnlBizNm<length=100 description="대외업무명">;
+	Integer pgNbr<length=5 description="페이지번호">;
+	Integer pgCnt<length=5 description="페이지당건수">;
+}

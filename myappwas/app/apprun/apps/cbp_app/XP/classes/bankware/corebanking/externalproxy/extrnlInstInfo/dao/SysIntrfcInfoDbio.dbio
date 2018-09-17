@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.extrnlInstInfo.dao.SysIntrfcInfoDbio">
+<!--Generated Mon Oct 16 15:47:14 KST 2017-->
+<delete id="deleteSysIntrfcInfo" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.SysIntrfcInfoIFIn">
+DELETE  FROM  XP_SYS_INTRFC_M    /* 시스템인터페이스기본 */
+ WHERE  SYS_INTRFC_ID = #{sysIntrfcId}
+</delete>
+<insert id="insertSysIntrfcInfo" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.SysIntrfcInfoIFIn">
+INSERT  
+  INTO  XP_SYS_INTRFC_M    /* 시스템인터페이스기본 */
+(
+  SYS_INTRFC_ID,     /*ORIGINAL NAME:SYS_INTRFC_ID , 시스템인터페이스식별자*/
+  APLY_START_DT,     /*적용시작년월일*/
+  SYS_INTRFC_NM,     /*ORIGINAL NAME:SYS_INTRFC_NM , 시스템인터페이스명*/
+  SYS_INTRFC_STS_CD,     /*ORIGINAL NAME:SYS_INTRFC_STS_CD , 시스템인터페이스상태코드*/
+  CMPNT_CD,     /*컴포넌트코드*/
+  SND_SYS_ID,     /*송신시스템식별자*/
+  RCVD_SYS_ID,     /*수신시스템식별자*/
+  INTRMDRY_SYS_ID,     /*중계시스템식별자*/
+  SYS_INTRFC_MTHD_CD,     /*ORIGINAL NAME:SYS_INTRFC_MTHD_CD , 시스템인터페이스방식코드*/
+  ASYNC_TIMEOUT_SCND,     /*비동기타임아웃초*/
+  RCVD_SRVC_CD,     /*수신서비스코드*/
+  TIMEOUT_SRVC_CD,     /*타임아웃서비스코드*/
+  CNTRPRT_SYS_SRVC_CD_CNTNT,     /*상대시스템서비스코드내용*/
+  SND_QUEUE_ID,     /*송신큐식별자*/
+  TMPRY_QUEUE_ID,     /*임시큐식별자*/
+  TST_RSPNS_CRTN_CLASS_NM,     /*테스트응답생성클래스명*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{sysIntrfcId},     /*ORIGINAL NAME:SYS_INTRFC_ID , 시스템인터페이스식별자*/
+  #{aplyStartDt},     /*적용시작년월일*/
+  #{sysIntrfcNm},     /*ORIGINAL NAME:SYS_INTRFC_NM , 시스템인터페이스명*/
+  #{sysIntrfcStsCd},     /*ORIGINAL NAME:SYS_INTRFC_STS_CD , 시스템인터페이스상태코드*/
+  #{cmpntCd},     /*컴포넌트코드*/
+  #{sndSysId},     /*송신시스템식별자*/
+  #{rcvdSysId},     /*수신시스템식별자*/
+  #{intrmdrySysId},     /*중계시스템식별자*/
+  #{sysIntrfcMthdCd},     /*ORIGINAL NAME:SYS_INTRFC_MTHD_CD , 시스템인터페이스방식코드*/
+  #{asyncTimeoutScnd},     /*비동기타임아웃초*/
+  #{rcvdSrvcCd},     /*수신서비스코드*/
+  #{timeoutSrvcCd},     /*타임아웃서비스코드*/
+  #{cntrprtSysSrvcCdCntnt},     /*상대시스템서비스코드내용*/
+  #{sndQueueId},     /*송신큐식별자*/
+  #{tmpryQueueId},     /*임시큐식별자*/
+  #{tstRspnsCrtnClassNm},     /*테스트응답생성클래스명*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectSysIntrfcInfo" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.SysIntrfcInfoIFIn" resultType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.SysIntrfcInfoIFOut">
+SELECT    /* 시스템인터페이스기본 */
+        SYS_INTRFC_ID AS sysIntrfcId,     /*ORIGINAL NAME:SYS_INTRFC_ID , 시스템인터페이스식별자*/
+        APLY_START_DT AS aplyStartDt,     /*적용시작년월일*/
+        SYS_INTRFC_NM AS sysIntrfcNm,     /*ORIGINAL NAME:SYS_INTRFC_NM , 시스템인터페이스명*/
+        SYS_INTRFC_STS_CD AS sysIntrfcStsCd,     /*ORIGINAL NAME:SYS_INTRFC_STS_CD , 시스템인터페이스상태코드*/
+        CMPNT_CD AS cmpntCd,     /*컴포넌트코드*/
+        SND_SYS_ID AS sndSysId,     /*송신시스템식별자*/
+        RCVD_SYS_ID AS rcvdSysId,     /*수신시스템식별자*/
+        INTRMDRY_SYS_ID AS intrmdrySysId,     /*중계시스템식별자*/
+        SYS_INTRFC_MTHD_CD AS sysIntrfcMthdCd,     /*ORIGINAL NAME:SYS_INTRFC_MTHD_CD , 시스템인터페이스방식코드*/
+        ASYNC_TIMEOUT_SCND AS asyncTimeoutScnd,     /*비동기타임아웃초*/
+        RCVD_SRVC_CD AS rcvdSrvcCd,     /*수신서비스코드*/
+        TIMEOUT_SRVC_CD AS timeoutSrvcCd,     /*타임아웃서비스코드*/
+        CNTRPRT_SYS_SRVC_CD_CNTNT AS cntrprtSysSrvcCdCntnt,     /*상대시스템서비스코드내용*/
+        SND_QUEUE_ID AS sndQueueId,     /*송신큐식별자*/
+        TMPRY_QUEUE_ID AS tmpryQueueId,     /*임시큐식별자*/
+        TST_RSPNS_CRTN_CLASS_NM AS tstRspnsCrtnClassNm,     /*테스트응답생성클래스명*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_SYS_INTRFC_M
+ WHERE SYS_INTRFC_ID = #{sysIntrfcId}
+</select>
+<update id="updateSysIntrfcInfo" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.SysIntrfcInfoIFIn">
+UPDATE  
+        XP_SYS_INTRFC_M    /* 시스템인터페이스기본 */
+   SET  APLY_START_DT = #{aplyStartDt}    /* 적용시작년월일 */
+     , SYS_INTRFC_NM = #{sysIntrfcNm}    /* ORIGINAL NAME:SYS_INTRFC_NM , 시스템인터페이스명 */
+     , SYS_INTRFC_STS_CD = #{sysIntrfcStsCd}    /* ORIGINAL NAME:SYS_INTRFC_STS_CD , 시스템인터페이스상태코드 */
+     , CMPNT_CD = #{cmpntCd}    /* 컴포넌트코드 */
+     , SND_SYS_ID = #{sndSysId}    /* 송신시스템식별자 */
+     , RCVD_SYS_ID = #{rcvdSysId}    /* 수신시스템식별자 */
+     , INTRMDRY_SYS_ID = #{intrmdrySysId}    /* 중계시스템식별자 */
+     , SYS_INTRFC_MTHD_CD = #{sysIntrfcMthdCd}    /* ORIGINAL NAME:SYS_INTRFC_MTHD_CD , 시스템인터페이스방식코드 */
+     , ASYNC_TIMEOUT_SCND = #{asyncTimeoutScnd}    /* 비동기타임아웃초 */
+     , RCVD_SRVC_CD = #{rcvdSrvcCd}    /* 수신서비스코드 */
+     , TIMEOUT_SRVC_CD = #{timeoutSrvcCd}    /* 타임아웃서비스코드 */
+     , CNTRPRT_SYS_SRVC_CD_CNTNT = #{cntrprtSysSrvcCdCntnt}    /* 상대시스템서비스코드내용 */
+     , SND_QUEUE_ID = #{sndQueueId}    /* 송신큐식별자 */
+     , TMPRY_QUEUE_ID = #{tmpryQueueId}    /* 임시큐식별자 */
+     , TST_RSPNS_CRTN_CLASS_NM = #{tstRspnsCrtnClassNm}    /* 테스트응답생성클래스명 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE SYS_INTRFC_ID = #{sysIntrfcId}
+</update>
+<select id="selectSysIntrfcInfoList" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.SysIntrfcInfoIFIn" resultType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.SysIntrfcInfoIFOut">
+SELECT 
+        SYS_M.SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        SYS_M.APLY_START_DT AS aplyStartDt,     /*적용시작년월일*/
+        SYS_M.SYS_INTRFC_NM AS sysIntrfcNm,     /*시스템인터페이스명*/
+        SYS_M.SYS_INTRFC_STS_CD AS sysIntrfcStsCd,     /*시스템인터페이스상태코드*/
+        SYS_M.CMPNT_CD AS cmpntCd,     /*컴포넌트코드*/
+        SYS_M.SND_SYS_ID AS sndSysId,     /*송신시스템식별자*/
+        SYS_M.RCVD_SYS_ID AS rcvdSysId,     /*수신시스템식별자*/
+        SYS_M.INTRMDRY_SYS_ID AS intrmdrySysId,     /*중계시스템식별자*/
+        SYS_M.SYS_INTRFC_MTHD_CD AS sysIntrfcMthdCd,     /* 시스템인터페이스방식코드*/
+        SYS_M.ASYNC_TIMEOUT_SCND AS asyncTimeoutScnd,     /*비동기타임아웃초*/
+        SYS_M.RCVD_SRVC_CD AS rcvdSrvcCd,     /*수신서비스코드*/
+        SYS_M.TIMEOUT_SRVC_CD AS timeoutSrvcCd,     /*타임아웃서비스코드*/
+        SYS_M.CNTRPRT_SYS_SRVC_CD_CNTNT AS cntrprtSysSrvcCdCntnt,     /*상대시스템서비스코드내용*/
+        SYS_M.SND_QUEUE_ID AS sndQueueId,     /*송신큐식별자*/
+        SYS_M.TMPRY_QUEUE_ID AS tmpryQueueId,     /*임시큐식별자*/
+        SYS_M.TST_RSPNS_CRTN_CLASS_NM AS tstRspnsCrtnClassNm,     /*테스트응답생성클래스명*/
+        SYS_M.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        SYS_M.LAST_CHNG_GUID AS lastChngGuid,    /*최종변경GUID*/
+        EXTRNL_M.EXTRNL_TX_CD AS extrnlTxCd,     /*대외거래코드*/
+        EXTRNL_M.EXTRNL_SRVC_CD AS extrnlSrvcCd,     /*대외서비스코드*/
+        EXTRNL_M.EXTRNL_RCVD_SRVC_CD AS extrnlRcvdSrvcCd     /*대외수신서비스코드*/
+ FROM 
+ XP_SYS_INTRFC_M SYS_M,
+ XP_EXTRNL_SRVC_M EXTRNL_M
+ where SYS_M.SYS_INTRFC_ID LIKE 'Ext'||#{extrnlTxCd}|| '%'
+ and SYS_M.SYS_INTRFC_ID = EXTRNL_M.SYS_INTRFC_ID
+</select>
+<select id="selectSysIntrfcInfoListByMultiCondition" parameterType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.SysIntrfcInfoIFIn" resultType="bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.SysIntrfcInfoIFOut">
+SELECT 
+        SYS_M.SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        SYS_M.APLY_START_DT AS aplyStartDt,     /*적용시작년월일*/
+        SYS_M.SYS_INTRFC_NM AS sysIntrfcNm,     /*시스템인터페이스명*/
+        SYS_M.SYS_INTRFC_STS_CD AS sysIntrfcStsCd,     /*시스템인터페이스상태코드*/
+        SYS_M.CMPNT_CD AS cmpntCd,     /*컴포넌트코드*/
+        SYS_M.SND_SYS_ID AS sndSysId,     /*송신시스템식별자*/
+        SYS_M.RCVD_SYS_ID AS rcvdSysId,     /*수신시스템식별자*/
+        SYS_M.INTRMDRY_SYS_ID AS intrmdrySysId,     /*중계시스템식별자*/
+        SYS_M.SYS_INTRFC_MTHD_CD AS sysIntrfcMthdCd,     /* 시스템인터페이스방식코드*/
+        SYS_M.ASYNC_TIMEOUT_SCND AS asyncTimeoutScnd,     /*비동기타임아웃초*/
+        SYS_M.RCVD_SRVC_CD AS rcvdSrvcCd,     /*수신서비스코드*/
+        SYS_M.TIMEOUT_SRVC_CD AS timeoutSrvcCd,     /*타임아웃서비스코드*/
+        SYS_M.CNTRPRT_SYS_SRVC_CD_CNTNT AS cntrprtSysSrvcCdCntnt,     /*상대시스템서비스코드내용*/
+        SYS_M.SND_QUEUE_ID AS sndQueueId,     /*송신큐식별자*/
+        SYS_M.TMPRY_QUEUE_ID AS tmpryQueueId,     /*임시큐식별자*/
+        SYS_M.TST_RSPNS_CRTN_CLASS_NM AS tstRspnsCrtnClassNm,     /*테스트응답생성클래스명*/
+        SYS_M.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        SYS_M.LAST_CHNG_GUID AS lastChngGuid,    /*최종변경GUID*/
+        EXTRNL_M.EXTRNL_TX_CD AS extrnlTxCd,     /*대외거래코드*/
+        EXTRNL_M.EXTRNL_SRVC_CD AS extrnlSrvcCd,     /*대외서비스코드*/
+        EXTRNL_M.EXTRNL_RCVD_SRVC_CD AS extrnlRcvdSrvcCd     /*대외수신서비스코드*/
+ FROM 
+ XP_SYS_INTRFC_M SYS_M,
+ XP_EXTRNL_SRVC_M EXTRNL_M
+ where SYS_M.SYS_INTRFC_ID LIKE concat('Ext', #{extrnlTxCd}, '%')
+ <if test="sysIntrfcNm != null and sysIntrfcNm != ''">
+   AND SYS_M.SYS_INTRFC_NM LIKE concat('%', #{sysIntrfcNm}, '%')
+</if> 
+<if test="cmpntCd != null and cmpntCd != ''">
+   AND SYS_M.CMPNT_CD LIKE concat('%', #{cmpntCd}, '%')
+</if> 
+<if test="sndSysId != null and sndSysId != ''">
+   AND SYS_M.SND_SYS_ID LIKE concat('%', #{sndSysId}, '%')
+</if> 
+<if test="rcvdSysId != null and rcvdSysId != ''">
+   AND SYS_M.RCVD_SYS_ID LIKE concat('%', #{rcvdSysId}, '%')
+</if> 
+<if test="sysIntrfcMthdCd != null and sysIntrfcMthdCd != ''">
+   AND SYS_M.SYS_INTRFC_MTHD_CD LIKE concat('%', #{sysIntrfcMthdCd}, '%')
+</if> 
+ and SYS_M.SYS_INTRFC_ID = EXTRNL_M.SYS_INTRFC_ID
+</select>
+</mapper>

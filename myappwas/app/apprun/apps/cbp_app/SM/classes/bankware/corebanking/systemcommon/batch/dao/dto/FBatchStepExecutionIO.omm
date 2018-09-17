@@ -1,0 +1,21 @@
+OMM bankware.corebanking.systemcommon.batch.dao.dto.FBatchStepExecutionIO
+<description="프레임웍배치작업스템실행정보">
+{
+	BigInteger stepExecutionId<length=19 description="배치스텝 아이디">;
+	BigInteger version<length=19 description="배치스텝 실행버전">;
+	String stepName<length=100 description="배치스텝 이름">;
+	BigInteger jobExecutionId<length=19 description="배치작업 아이디">;
+	Date startTime<length=20 description="시작시간">;
+	Date endTime<length=20 description="종료시간">;
+	String status<length=10 description="배치스텝 상태">;
+	BigInteger commitCount<length=19 description="배치스텝 커밋카운트">;
+	BigInteger rollbackCount<length=19 description="배치스텝 ROLLBACK 카운트">;
+	BigInteger readCount<length=19 description="배치스텝 READ 카운트">;
+	BigInteger filterCount<length=19 description="배치스텝 FILTER 카운트">;
+	BigInteger writeCount<length=19 description="배치스텝 WRITE 카운트">;
+	BigInteger readSkipCount<length=19 description="배치스텝 READSKIP 카운트">;
+	BigInteger writeSkipCount<length=19 description="배치스텝 WRITESKIP 카운트">;
+	BigInteger processSkipCount<length=19 description="배치스텝 PROCESSSKIP 카운트">;
+	String exitCode<length=100 description="배치스텝 종료 구분">;
+	String exitMessage<length=2500 description="배치스텝 종료 메시지">;
+}

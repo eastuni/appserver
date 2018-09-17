@@ -1,0 +1,6 @@
+OMM bxm.web.admin.addition.before.image.domain.StatisticsData
+<description="">
+{
+	String statsValue<length=20 description="반영결과코드">;
+	Integer statsCount<length=9 description="개수">;
+}

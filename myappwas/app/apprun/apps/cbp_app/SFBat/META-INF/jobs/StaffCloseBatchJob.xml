@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+         http://www.es-code.com/schema/batchex http://www.es-code.com/schema/batchex/spring-batch-ex-2.1.xsd
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+    <import resource="classpath:JobConfig.xml"/>
+
+<!--     <job-component xmlns="http://www.es-code.com/schema/batchex" id="jobcomp" with-dependon="true">
+        <base-package name="bxm.batch.sample.bean">
+            <include name="SampleDBToDB01Batch"/>
+        </base-package>
+    </job-component> -->
+
+    <!--
+    - 배치잡 : DB To DB Chunked Batch Sample 
+    - 설명 : Chunked Batch에서 Read From DB, Write To DB 사용 예를 보이기 위한 샘플
+        Type   : Chunked Batch
+        input  : DB
+        output : DB
+    - 배치 입력 파라미터
+      * select_user_name : DB Select 조건
+      * insert_tag       : DB Insert를 위하여 PK 값 변경을 위해 덧붙이는 Tag 값
+    - 작성자 : bsy
+    - 변경 이력
+      * 2016.05.09 initial
+      * 2016.05.23 주석 추가
+    -->
+	<!--  
+	runJob.sh Usage 
+	runJob_userparam.sh ZSampleBat SampleDBToDB01Job SampleDBToDB01Job_001 STDA -u"select_user_name=테스터 insert_tag=_1"
+	-->
+    <job id="StaffCloseBatchJob" parent="parentJob" xmlns="http://www.es-code.com/schema/batchex">
+
+        <!-- 
+        - 스텝1 : Main
+        - 설명
+            Select DB
+            DB Insert시 Dup 에러를 피하기 위하여 PK 값에 Tag를 덧붙인다
+            Insert DB
+         -->
+        <step id="StaffCloseBatchJob_Step01" parent="parentStep">
+            <tasklet>
+                <chunk commit-interval="10" reader="StaffCloseBatch" processor="StaffCloseBatch" />
+            </tasklet>
+        </step>
+    
+    </job>
+    
+</beans>

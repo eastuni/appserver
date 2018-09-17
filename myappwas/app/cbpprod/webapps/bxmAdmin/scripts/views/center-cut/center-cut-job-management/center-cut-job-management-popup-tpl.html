@@ -1,0 +1,253 @@
+<div class="modal-wrap fix-h">
+    {{#if ccId}}
+    <h2 class="bw-tt a-center add-bd2-b clr-mg-b">{{bxMsg 'centerCut.editCenterCutJob'}}</h2>
+    {{/if}}
+    {{#unless ccId}}
+    <h2 class="bw-tt a-center add-bd2-b clr-mg-b">{{bxMsg 'centerCut.addCenterCutJob'}}</h2>
+    {{/unless}}
+    <div class="bxm-detail-wrap bx-no-draggable large-popup-scrollable">
+        <section class="search-wrap clr fix-h">
+            <div class="sub-section">
+                <h4 class="a-left">{{bxMsg 'batch.base-info'}}</h4>
+                <ul class="col-2 clr">
+                    <li>
+                        <div class="input-wrap asterisk clr">
+                            {{#if ccId}}
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.centerCutId'}}</label>
+                            <input type="text" class="bw-input w-60" data-form-param="ccId" readonly/>
+                            {{/if}}
+                            {{#unless ccId}}
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.centerCutId'}}</label>
+                            <input type="text" class="bw-input w-60" data-form-param="ccId"/>
+                            {{/unless}}
+                        </div>
+                    </li>
+                    <li>
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.centerCutName'}}</label>
+                            <input type="text" class="bw-input w-60" data-form-param="ccIdNm"/>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.useYn'}}</label>
+                            <select class="bw-input ipt-select w-60" data-form-param="ccIdUseYn">
+                                <option value="Y">Y</option>
+                                <option value="N">N</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.centerCutDescription'}}</label>
+                            <input type="text" class="bw-input w-60" data-form-param="ccIdExpl"/>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sub-section">
+                <h4 class="a-left">{{bxMsg 'centerCut.executionInfo'}}</h4>
+                <ul class="col-2 clr">
+                    <li>
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.lv2ApplicationCode'}}</label>
+                            <select class="bw-input ipt-select w-60" data-form-param="appLv2Cd"></select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.lv3ApplicationCode'}}</label>
+                            <select class="bw-input ipt-select w-60" data-form-param="appLv3Cd"></select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.onlineServiceTransactionCode'}}</label>
+                            <input type="text" class="bw-input w-60" data-form-param="onSvcTrxCd"/>
+                        </div>
+                    </li>
+	                <li>
+	                    <div class="input-wrap asterisk clr">
+	                        <label class="bw-label w-40">{{bxMsg 'centerCut.procTrxCd'}}</label>
+	                        <input type="text" class="bw-input w-60" data-form-param="procTrxCd"/>
+	                    </div>
+	                </li>
+                    <li class="w-100">
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-20">{{bxMsg 'centerCut.onlineServiceInputDto'}}</label>
+                            <input type="text" class="bw-input w-80" data-form-param="onSvcInptDto"/>
+                        </div>
+                    </li>
+                    <!-- 
+                    <li>
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.dataGenerateType'}}</label>
+                            <select class="bw-input ipt-select w-60" data-form-param="inptDataTpCd"></select>
+                        </div>
+                    </li>
+                     -->
+	                <li>
+	                    <div class="input-wrap clr">
+	                        <label class="bw-label w-40">{{bxMsg 'centerCut.scheduleType'}}</label>
+	                        <select class="bw-input ipt-select w-60" data-form-param="schdTpCd"></select>
+	                    </div>
+	                </li>
+	                <!-- 
+                    <li>
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.logLevel'}}</label>
+                            <select class="bw-input ipt-select w-60" data-form-param="logLv"></select>
+                        </div>
+                    </li>
+	                 -->
+                    <li>
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.ccExecParam'}}</label>
+                            <input type="text" class="bw-input w-60" data-form-param="ccExecParam"/>
+                            <!--<select class="bw-input ipt-select w-60" data-form-param="ccExecParam"></select>-->
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+	        <div class="sub-section">
+	            <h4 class="a-left">{{bxMsg 'centerCut.advExecInfo'}}</h4>
+	            <ul class="col-2 clr">
+	                <li>
+	                    <div class="input-wrap clr">
+	                        <label class="bw-label w-40">{{bxMsg 'centerCut.autoExecutionType'}}</label>
+	                        <select class="bw-input ipt-select w-60" data-form-param="atmtExecClsfCd"></select>
+	                    </div>
+	                </li>
+	                <li>
+	                    <div class="input-wrap clr auto-exec-time">
+	                        <label class="bw-label w-40">
+                                {{bxMsg 'centerCut.autoExecutionTime'}}
+                                <i class="fa fa-question-circle chr-c-yellow2" title="{{bxMsg 'centerCut.autoExecutionTimeAdvice'}}"></i>
+                            </label>
+	                        <input type="text" class="bw-input w-25 no-border-radius" data-form-param="atmtExecSrtTime" />
+                            <span type="text" class="bw-input w-10 no-border-radius">~</span>
+	                        <input type="text" class="bw-input w-25" data-form-param="atmtExecEndTime" />
+	                    </div>
+	                </li>
+	                <li>
+	                    <div class="input-wrap clr">
+	                        <label class="bw-label w-40">{{bxMsg 'centerCut.postJobType'}}</label>
+	                        <select class="bw-input ipt-select w-60" data-form-param="flwnWrkKnCd"></select>
+	                    </div>
+	                </li>
+	                <li>
+	                    <div class="input-wrap clr">
+	                        <label class="bw-label w-40">
+                                {{bxMsg 'centerCut.postJobId'}}
+                                <button type="button" class="bw-btn job-search-btn" title="{{bxMsg 'batch.batch-job-search'}}"><i class="bw-icon i-20 i-func-search"></i></button>
+                            </label>
+	                        <input type="text" class="bw-input w-55" data-form-param="btchExecId" readonly/>
+	                        <button type="button" class="bw-btn post-job-empty-btn" ><i class="fa fa-close"></i></button>
+	                    </div>
+	                </li>
+	                <li class="w-100">
+	                    <div class="input-wrap clr">
+	                        <label class="bw-label w-20">
+                                {{bxMsg 'centerCut.postInputParameter'}}
+                                <i class="fa fa-question-circle chr-c-yellow2" title="{{bxMsg 'centerCut.inputParamAdvice'}}"></i>
+                            </label>
+	                        <input type="text" class="bw-input w-80" data-form-param="inptParmCn" />
+	                    </div>
+	                </li>
+	            </ul>
+	        </div>
+
+            <div class="sub-section">
+                <h4 class="a-left">{{bxMsg 'centerCut.errorReprocessSetting'}}</h4>
+                <ul class="col-2 clr">
+                    <li>
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.totalExecutionCount'}}</label>
+                            {{#if ccId}}
+                            <input type="text" class="bw-input w-60" data-form-param="ttExecTn"/>
+                            {{/if}}
+                            {{#unless ccId}}
+                            <input type="text" class="bw-input w-60" data-form-param="ttExecTn" value="3"/>
+                            {{/unless}}
+                        </div>
+                    </li>
+                    <li>
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.errorTerminateYn'}}</label>
+                            <select class="bw-input ipt-select w-60" data-form-param="errStopYn"></select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.errorProcessMethod'}}</label>
+                            <select class="bw-input ipt-select w-60" data-form-param="errPcsnMethCd"></select>
+                        </div>
+                    </li>
+	                <li>
+	                    <div class="input-wrap clr">
+	                        <label class="bw-label w-40">{{bxMsg 'centerCut.reprocessWaitingTimeMin'}}</label>
+                            {{#if ccId}}
+	                        <input type="text" class="bw-input w-60 validate-number" data-form-param="rePcsnWaitEltm" />
+                            {{/if}}
+                            {{#unless ccId}}
+	                        <input type="text" class="bw-input w-60 validate-number" data-form-param="rePcsnWaitEltm" value="3"/>
+                            {{/unless}}
+	                    </div>
+	                </li>
+	                <li class="w-90">
+	                    <div class="input-wrap clr">
+	                        <label class="bw-label w-22">{{bxMsg 'centerCut.atmtReProcErrCd'}}</label>
+	                        <input type="text" class="bw-input w-78" data-form-param="rePcsnErrCd" readonly/>
+	                    </div>
+	                </li>
+                    <li class="w-10 auto-process-error-code">
+                        <div class="clr">
+                            <button type="button" class="bw-btn bw-btn-txt w-90 f-l error-code-select">{{bxMsg 'common.select'}}</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sub-section">
+                <h4 class="a-left">{{bxMsg 'centerCut.parallelProcessInfo'}}</h4>
+                <ul class="col-2 clr">
+                    <li>
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.parallelProcessCount'}}</label>
+                            <input type="text" class="bw-input w-60" data-form-param="paraPrcsCnt"/>
+                        </div>
+                    </li>
+	                <li>
+	                    <div class="input-wrap asterisk clr">
+	                        <label class="bw-label w-30">{{bxMsg 'centerCut.dataCount'}}</label>
+	                        <input type="text" class="bw-input w-60" data-form-param="schdCnt"/>
+	                    </div>
+	                </li>
+	                </ul>
+                <ul class="col-2 clr">
+                    <li>
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40">{{bxMsg 'centerCut.parallelSelectionType'}}</label>
+                            <select class="bw-input ipt-select w-60" data-form-param="nodeAsgnMethCd"></select>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="clr">
+                    <li class="w-100">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-19-7">{{bxMsg 'centerCut.processesPerNode'}}</label>
+                            <div class="bw-input w-80-3 processes-per-node"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on save-btn">{{bxMsg 'common.save'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

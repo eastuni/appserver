@@ -1,0 +1,36 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.HsMsg0210b
+<description="0210 : 이체, 수취조회">
+{
+	String startChrCntnt1<length=3 description="개시문자">;
+	String msgHdrCntnt<length=9 description="전문헤더">;
+	String jointNetworkClCd<length=4 description="공동망종별코드">;
+	String prmryBitmapCntnt<length=16 description="Primary Bit Map">;
+	String scndryBitmapCntnt<length=16 description="Secondary Bit Map">;
+	String jointNetworkTxDscd<length=6 description="공동망거래구분코드">;
+	String txAmt<length=12 description="거래금액">;
+	String msgSndTmstmp<length=10 description="전문전송일시">;
+	String msgTraceNbr<length=6 description="전문추적번호">;
+	String txStartHms<length=6 description="거래개시시간">;
+	String txStartDay<length=4 description="거래개시일">;
+	String cardSeqNbr<length=3 description="카드일련번호">;
+	String hndlngInstCd<length=9 description="취급기관점코드">;
+	String cardAcctNbrFrontInfoCntnt<length=8 description="출금계좌번호앞정보">;
+	String cardAcctNbr<length=12 description="출금계좌번호" encrypt="AES256">;
+	String cardAcctNbrBackInfoCntnt<length=5 description="출금계좌번호뒤정보">;
+	String txUnqNbr<length=13 description="거래고유번호">;
+	String rspnsCd<length=2 description="응답코드">;
+	String trmnlNbr<length=17 description="단말번호">;
+	String balAmt<length=27 description="잔액">;
+	String crncyCd<length=3 description="통화코드">;
+	String rcpntAcctNbrFrontInfoCntnt<length=8 description="수취계좌번호앞정보">;
+	String rcpntAcctNbr<length=14 description="수취계좌번호" encrypt="AES256">;
+	String rmtrNmLen<length=3 description="송금인명길이">;
+	String rmtrNm<length=20 description="송금인명" encrypt="KSC5601">;
+	String etcDataCntnt<length=10 description="기타data">;
+	String fldLen<length=3 description="권역및수수료(총길이142, 아래 수수료 암호화데이터 포함)">;
+	String feeAmt<length=11 description="수수료">;
+	String encrptnDataCntnt<length=128 description="암호화데이터">;
+	String rcpntNmLen<length=3 description="수취인명길이">;
+	String bnfcryNm<length=20 description="수취인명" encrypt="KSC5601">;
+	String dsbrsmntAcctNbr<length=16 description="지급계좌번호" encrypt="AES256">;
+}

@@ -1,0 +1,7 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.LnListInqryCndListIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String cndCd<length=5 description="조건코드">;
+	String inqryStartVal<length=12 description="조회시작값">;
+	String inqryEndVal<length=12 description="조회종료값">;
+}

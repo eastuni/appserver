@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonjointnetwork.dao.XpSnrcErrL">
+<!--Generated Mon Aug 07 13:25:28 KST 2017-->
+<insert id="insert" parameterType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpSnrcErrLIO">
+INSERT  
+  INTO  XP_SNRC_ERR_L    /* 대외송수신에러내역 */
+(
+  INST_CD,     /*기관코드*/
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대괴업무구분코드*/
+  TX_DT,     /*거래일자*/
+  SND_RCV_TRACE_NBR,     /*송수신전문번호*/
+  SND_RCV_FLAG_CD,     /*송수신플래그코드*/
+  GUID,     /*GUID*/
+  TX_HMSS,     /*거래시분초밀리초*/
+  SYS_INTRFC_ID,     /*시스템인터페이스식별자*/
+  HDR_INFO_CNTNT,     /*헤더정보*/
+  MSG_CNTNT,     /*메시지내용*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{extrnlInstCd},     /*대외기관코드*/
+  #{extrnlBizDscd},     /*대괴업무구분코드*/
+  #{txDt},     /*거래일자*/
+  #{sndRcvTraceNbr},     /*송수신전문번호*/
+  #{sndRcvFlagCd},     /*송수신플래그코드*/
+  #{guid},     /*GUID*/
+  #{txHmss},     /*거래시분초밀리초*/
+  #{sysIntrfcId},     /*시스템인터페이스식별자*/
+  #{hdrInfoCntnt},     /*헤더정보*/
+  #{msgCntnt},     /*메시지내용*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectList" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpSnrcErrLIO">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대괴업무구분코드*/
+        TX_DT AS txDt,     /*거래일자*/
+        SND_RCV_TRACE_NBR AS sndRcvTraceNbr,     /*송수신전문번호*/
+        SND_RCV_FLAG_CD AS sndRcvFlagCd,     /*송수신플래그코드*/
+        GUID AS guid,     /*GUID*/
+        TX_HMSS AS txHmss,     /*거래시분초밀리초*/
+        SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        HDR_INFO_CNTNT AS hdrInfoCntnt,     /*헤더정보*/
+        MSG_CNTNT AS msgCntnt,     /*메시지내용*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_SNRC_ERR_L
+ WHERE INST_CD = #{instCd}
+ <if test=" extrnlInstCd != null and extrnlInstCd != '' ">
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+</if>
+<if test=" extrnlBizDscd != null and extrnlBizDscd != '' ">
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+</if>
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+<if test=" sndRcvTraceNbr != null and sndRcvTraceNbr != '' ">
+   AND SND_RCV_TRACE_NBR = #{sndRcvTraceNbr}
+</if>
+<if test=" guid != null and guid != '' ">
+   AND GUID = #{guid}
+</if>
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectListCnt" resultType="java.lang.Integer">
+SELECT    
+        COUNT(INST_CD)
+  FROM  XP_SNRC_ERR_L
+ WHERE INST_CD = #{instCd}
+ <if test=" extrnlInstCd != null and extrnlInstCd != '' ">
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+</if>
+<if test=" extrnlBizDscd != null and extrnlBizDscd != '' ">
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+</if>
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+<if test=" sndRcvTraceNbr != null and sndRcvTraceNbr != '' ">
+   AND SND_RCV_TRACE_NBR = #{sndRcvTraceNbr}
+</if>
+<if test=" guid != null and guid != '' ">
+   AND GUID = #{guid}
+</if>
+</select>
+</mapper>

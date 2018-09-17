@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.dictionary.dao.CmDmnM">
+<!--Generated Thu Aug 02 14:39:34 KST 2018-->
+<select id="selectListDmnM" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmDmnMIO" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmDmnMIO">
+SELECT    /* Kor)CBP 도메인 정보 Eng)The Domain Information in CBP system */
+        ATRBT_DMN_NM AS atrbtDmnNm, 
+        ATRBT_DMN_ENG_NM AS atrbtDmnEngNm, 
+        ATRBT_DMN_HANGUL_NM AS atrbtDmnHangulNm,
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+        ATRBT_DMN_GRP_CD AS atrbtDmnGrpCd,     /*Kor)속성도메인에 대한 그룹 코드 Eng)abbreviation of Korea Domain Group Code*/
+        ACTV_STS_CD AS actvStsCd,     /*Kor)계약약정을 체결한 채널의 구분(창구 인터넷) Eng)code that distinguishes arrangement opening channels ( branch/internet .. )*/
+        SITE_LBRTRY_DSCD AS siteLbrtryDscd, /* Kor)사이트 구분코드  Eng) Site Distinction code */
+        LAST_CHNG_ID AS lastChngId,     /*Kor)최종으로 변경한 식별자를 관리 한다. Eng) It manages the end-to a change identifier.*/
+        LAST_CHNG_GUID AS lastChngGuid    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+  FROM  cm_dmn_m
+ WHERE 1=1
+ <if test="atrbtDmnEngNm != null and atrbtDmnEngNm != '' "> 
+   AND UPPER(ATRBT_DMN_ENG_NM)  = UPPER(#{atrbtDmnEngNm})
+</if>   
+ <if test="atrbtDmnNm != null and atrbtDmnNm != '' "> 
+   AND  UPPER(ATRBT_DMN_NM) = UPPER( #{atrbtDmnNm})
+</if>
+</select>
+<select id="selectListDmnItems" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmDmnMIO" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmDmnMIO">
+SELECT    /* Kor)CBP 도메인 정보 Eng)The Domain Information in CBP system */
+        ATRBT_DMN_NM AS atrbtDmnNm, 
+        ATRBT_DMN_ENG_NM AS atrbtDmnEngNm, 
+        ATRBT_DMN_HANGUL_NM AS atrbtDmnHangulNm,
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+        ATRBT_DMN_GRP_CD AS atrbtDmnGrpCd,     /*Kor)속성도메인에 대한 그룹 코드 Eng)abbreviation of Korea Domain Group Code*/
+        ACTV_STS_CD AS actvStsCd,     /*Kor)계약약정을 체결한 채널의 구분(창구 인터넷) Eng)code that distinguishes arrangement opening channels ( branch/internet .. )*/
+        LAST_CHNG_ID AS lastChngId,     /*Kor)최종으로 변경한 식별자를 관리 한다. Eng) It manages the end-to a change identifier.*/
+        LAST_CHNG_GUID AS lastChngGuid    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+  FROM  cm_dmn_m
+ WHERE 1=1
+  <if test="atrbtDmnEngNm != null and atrbtDmnEngNm != '' "> 
+   AND ATRBT_DMN_NM  = #{atrbtDmnNm}
+</if>   
+ <if test="atrbtDmnEngNm != null and atrbtDmnEngNm != '' "> 
+   AND ATRBT_DMN_ENG_NM  = #{atrbtDmnEngNm}
+</if>   
+ <if test="atrbtDmnGrpCd != null and atrbtDmnGrpCd != '' "> 
+   AND ATRBT_DMN_GRP_CD  = #{atrbtDmnGrpCd}
+</if>
+</select>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmDmnMIO">
+UPDATE  
+        cm_dmn_m    /* Kor)CBP 도메인 정보 Eng)The Domain Information in CBP system */
+   SET  LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record. */
+     , ATRBT_DMN_ENG_NM = #{atrbtDmnEngNm, jdbcType=VARCHAR}
+     , ATRBT_DMN_HANGUL_NM = #{atrbtDmnHangulNm, jdbcType=VARCHAR}
+     , ATRBT_DMN_GRP_CD = #{atrbtDmnGrpCd, jdbcType=VARCHAR}    /* Kor)속성도메인에 대한 그룹 코드 Eng)abbreviation of Korea Domain Group Code */
+     , ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}    /* Kor)계약약정을 체결한 채널의 구분(창구 인터넷) Eng)code that distinguishes arrangement opening channels ( branch/internet .. ) */
+     , LAST_CHNG_ID = #{lastChngId, jdbcType=VARCHAR}    /* Kor)최종으로 변경한 식별자를 관리 한다. Eng) It manages the end-to a change identifier. */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record */
+     , SITE_LBRTRY_DSCD =  #{siteLbrtryDscd, jdbcType=VARCHAR}
+ WHERE ATRBT_DMN_NM = #{atrbtDmnNm, jdbcType=VARCHAR}
+</update>
+<delete id="delete" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmDmnMIO">
+DELETE  FROM  cm_dmn_m    /* Kor)CBP 도메인 정보 Eng)The Domain Information in CBP system */
+ WHERE  ATRBT_DMN_NM = #{atrbtDmnNm}
+   AND ATRBT_DMN_ENG_NM = #{atrbtDmnEngNm}
+</delete>
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmDmnMIO">
+INSERT  
+  INTO  cm_dmn_m    /* Kor)CBP 도메인 정보 Eng)The Domain Information in CBP system */
+(
+  ATRBT_DMN_NM, 
+  ATRBT_DMN_ENG_NM, 
+  ATRBT_DMN_HANGUL_NM,
+  LAST_CHNG_TMSTMP,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+  ATRBT_DMN_GRP_CD, 
+  ACTV_STS_CD,     /*Kor)계약약정을 체결한 채널의 구분(창구 인터넷) Eng)code that distinguishes arrangement opening channels ( branch/internet .. )*/
+  LAST_CHNG_ID,     /*Kor)최종으로 변경한 식별자를 관리 한다. Eng) It manages the end-to a change identifier.*/
+  LAST_CHNG_GUID,     /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+  SITE_LBRTRY_DSCD
+)
+VALUES 
+(
+  #{atrbtDmnNm, jdbcType=VARCHAR}, 
+  #{atrbtDmnEngNm, jdbcType=VARCHAR}, 
+  #{atrbtDmnHangulNm, jdbcType=VARCHAR}, 
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+  #{atrbtDmnGrpCd, jdbcType=VARCHAR}, 
+  #{actvStsCd, jdbcType=VARCHAR},     /*Kor)계약약정을 체결한 채널의 구분(창구 인터넷) Eng)code that distinguishes arrangement opening channels ( branch/internet .. )*/
+  #{lastChngId, jdbcType=VARCHAR},     /*Kor)최종으로 변경한 식별자를 관리 한다. Eng) It manages the end-to a change identifier.*/
+  #{lastChngGuid, jdbcType=VARCHAR},     /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+  #{siteLbrtryDscd, jdbcType=VARCHAR}
+)
+</insert>
+<select id="selectListSrch" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmDmnMSelectListSrchIO" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmDmnMSelectListSrchIO">
+select A.atrbtDmnNm AS atrbtDmnNm
+     , A.atrbtDmnGrpCd AS atrbtDmnGrpCd
+     , MAX(A.atrbtDmnEngNm) AS atrbtDmnEngNm
+     , MAX(A.useLngWrdNm)  AS useLngWrdNm
+     , MAX(A.useLngWrdNm1) AS useLngWrdNm1
+     , MAX(A.useLngWrdNm2) AS useLngWrdNm2
+     , MAX(A.useLngWrdNm3) AS useLngWrdNm3
+from (
+		SELECT /* 복합약어기본 */ 
+		    sam.ATRBT_DMN_NM AS atrbtDmnNm /*복합영문약어명*/ 
+		    , sam.ATRBT_DMN_ENG_NM AS atrbtDmnEngNm /*변형영문약어명*/ 
+		    , sam.ATRBT_DMN_ENG_NM as engWrdNm
+	        , sam.ATRBT_DMN_GRP_CD as atrbtDmnGrpCd
+		    , case when mltd.LNG_CD = #{lngCd}  then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm
+		    , case when mltd.LNG_CD = #{lngCd1} then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm1
+		    , case when mltd.LNG_CD = #{lngCd2} then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm2
+		    , case when mltd.LNG_CD = #{lngCd3} then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm3
+		    , sam.last_chng_tmstmp AS lastChngTmstmp /*최종변경일시*/ 
+		    , sam.last_chng_guid AS lastChngGuid /*최종변경GUID*/ 
+		FROM cm_dmn_m sam LEFT OUTER JOIN ( select * 
+		         from cm_mlt_lng_trnsltn_d mltd 
+		         where mltd.trnsfr_knd_cd in ( 'DMN_NAME' ) /*다국어 약어기준*/ 
+		             ) mltd 
+		             ON(sam.ATRBT_DMN_NM = mltd.trnsfr_origin_key_val)
+		where sam.ACTV_STS_CD = '01'
+		    <if test="atrbtDmnEngNm != null and atrbtDmnEngNm != ''"> 
+		        and LOWER(sam.ATRBT_DMN_ENG_NM) like #{atrbtDmnEngNm}
+		    </if> 		    
+		     <if test="atrbtDmnGrpCd != null and atrbtDmnGrpCd != ''"> 
+		        and ATRBT_DMN_GRP_CD = #{atrbtDmnGrpCd}
+		    </if> 
+		    <if test="atrbtDmnNm != null and atrbtDmnNm != ''"> 
+		        and LOWER(sam.ATRBT_DMN_NM) like #{atrbtDmnNm}
+		    </if> 
+		    <if test="useLngWrdNm != null and useLngWrdNm != ''"> 
+		        and LOWER(mltd.trnsfr_rslt_val) like #{useLngWrdNm}
+		    </if>
+) A 
+GROUP BY   A.atrbtDmnNm,A.atrbtDmnGrpCd
+</select>
+<select id="select" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmDmnMIO" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmDmnMIO">
+SELECT /* 도메인관리기본 */ 
+        ATRBT_DMN_NM AS atrbtDmnNm, 
+        ATRBT_DMN_ENG_NM AS atrbtDmnEngNm, 
+        ATRBT_DMN_HANGUL_NM AS atrbtDmnHangulNm,
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+        ATRBT_DMN_GRP_CD AS atrbtDmnGrpCd,     /*Kor)속성도메인에 대한 그룹 코드 Eng)abbreviation of Korea Domain Group Code*/
+        SITE_LBRTRY_DSCD   AS siteLbrtryDscd,
+        ACTV_STS_CD AS actvStsCd,     /*Kor)계약약정을 체결한 채널의 구분(창구 인터넷) Eng)code that distinguishes arrangement opening channels ( branch/internet .. )*/
+        LAST_CHNG_ID AS lastChngId,     /*Kor)최종으로 변경한 식별자를 관리 한다. Eng) It manages the end-to a change identifier.*/
+        LAST_CHNG_GUID AS lastChngGuid    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+FROM   CM_DMN_M
+WHERE  UPPER(ATRBT_DMN_NM) = UPPER( #{atrbtDmnNm})
+</select>
+</mapper>

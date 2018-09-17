@@ -1,0 +1,359 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'online.online-log-search'}}
+    <p class="desc">{{bxMsg 'online.online-log-search-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap online-log-search"></section>
+<!--GRID AREA-->
+<section class="svc-log-grid"></section>
+<section class="img-log-grid" style="display: none"></section>
+<section class="trx-log-grid" style="display: none"></section>
+<section class="err-log-grid" style="display: none"></section>
+<!--/END GRID AREA-->
+<!--BW-SUB TITLE * 컨텐츠 서브타이틀-->
+<h3 class="bw-stt add-mg-t">{{bxMsg 'online.online-log-detail'}}
+    <p class="desc online-log-detail-title"></p>
+</h3>
+<!--/END BW-SUB TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t online-log-detail-btn">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn watch-svc-log-btn on" title="{{bxMsg 'online.watch-service-log'}}" disabled><i class="bw-icon i-25 i-log-service"></i></button>
+        <button type="button" class="bw-btn watch-img-log-btn on" title="{{bxMsg 'online.watch-image-log'}}" disabled><i class="bw-icon i-25 i-log-image"></i></button>
+        <button type="button" class="bw-btn watch-err-log-btn on" title="{{bxMsg 'online.watch-error-log'}}" disabled><i class="bw-icon i-25 i-log-error"></i></button>
+        <button type="button" class="bw-btn watch-trx-log-btn on" title="{{bxMsg 'online.watch-trx-log'}}" disabled><i class="bw-icon i-25 i-log-task"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<div class="online-log-detail bx-loding-wrap">
+    <!--SERVICE LOG DETAIL-->
+    <section class="search-wrap clr svc-log-detail">
+        <ul class="col-3 clr">
+            <li class="trx-code">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.trx-code'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="trxCd" readonly />
+                </div>
+            </li>
+            <li class="w-60">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-20">{{bxMsg 'online.guid'}}</label>
+                    <input type="text" class="bw-input w-80" data-form-param="guid" readonly />
+                </div>
+            </li>
+        </ul>
+        <ul class="col-3 clr">
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.application'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="bxmAppId" readonly />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.service'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="svcNm" readonly />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.operation'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="opNm" readonly />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.link-seq'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="linkSeq" readonly />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.occur-date'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="opOccurDttm" readonly />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.success-yn'}}</label>
+                    <span type="text" class="bw-input w-65 is-disabled" data-form-param="opErrYn"></span>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.elapsed-time-ms'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="opElapsedMills" readonly />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.cpu-use-time-ms'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="cpuProcMills" readonly />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.user-ip'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="sendUserIp" readonly />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.node'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="nodeName" readonly />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.container'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="containerNm" readonly />
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!--/END SERVICE LOG DETAIL-->
+    <!--IMAGE LOG DETAIL-->
+    <section class="search-wrap clr img-log-detail" style="display:none;">
+        <ul class="col-3 clr">
+            <li class="trx-code">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.trx-code'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="trxCd" readonly />
+                </div>
+            </li>
+            <li class="w-60">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-20">{{bxMsg 'online.guid'}}</label>
+                    <input type="text" class="bw-input w-80" data-form-param="guid" readonly />
+                </div>
+            </li>
+        </ul>
+        <ul class="col-3 clr">
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.application'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="bxmAppId" readonly />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.service'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="svcNm" readonly />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.operation'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="opNm" readonly />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.occur-date'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="logOccurDttm" readonly />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.msg-type'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="msgType" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.msg-encoding'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="msgEncodingCd" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.node'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="nodeName" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.container'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="containerNm" readonly />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.context'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="contextNm" readonly/>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!--/END IMAGE LOG DETAIL-->
+    <!--TRANSACTION LOG DETAIL-->
+    <section class="search-wrap clr trx-log-detail" style="display:none;">
+        <ul class="col-3 clr">
+            <li class="trx-code">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.trx-code'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="trxCd" readonly />
+                </div>
+            </li>
+            <li class="w-60">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-20">{{bxMsg 'online.guid'}}</label>
+                    <input type="text" class="bw-input w-80" data-form-param="guid" readonly />
+                </div>
+            </li>
+        </ul>
+        <ul class="col-3 clr">
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.link-seq'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="linkSeq" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.log-seq'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="logSeq" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.trx-type-code'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="trxTypeCd" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.system-code'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="sysCd" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.node-number'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="nodeNo" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.node'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="nodeName" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.channel-type-code'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="chlTypeCd" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.screen-id'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="screenId" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.sender-ip'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="sendUserIp" readonly/>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!--/END TRANSACTION LOG DETAIL-->
+    <!--ERROR LOG DETAIL-->
+    <section class="search-wrap clr err-log-detail" style="display:none;">
+        <ul class="col-3 clr">
+            <li class="trx-code">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.trx-code'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="trxCd" readonly />
+                </div>
+            </li>
+            <li class="w-60">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-20">{{bxMsg 'online.guid'}}</label>
+                    <input type="text" class="bw-input w-80" data-form-param="guid" readonly />
+                </div>
+            </li>
+        </ul>
+        <ul class="col-3 clr">
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.link-seq'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="linkSeq" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.log-seq'}}</label>
+                    <input type="text" class="bw-input w-65" data-form-param="logSeq" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.trx-type-code'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="trxTypeCd" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.system-code'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="sysCd" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.node-number'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="nodeNo" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.node'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="nodeName" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.channel-type-code-name'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="chlTypeCd" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.screen-id'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="screenId" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.sender-ip'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="sendUserIp" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.err-code'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="errCd" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-35">{{bxMsg 'online.sql-err-code'}}</label>
+                    <input type="text" class="bw-input w-l w-65" data-form-param="sqlErrCd" readonly/>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!--/END ERROR LOG DETAIL-->
+</div>

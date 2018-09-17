@@ -1,0 +1,27 @@
+OMM bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIgGr4411IO
+<description="">
+{
+	String instCd<length=14 description="기관코드">;
+	String txYm<length=6 description="거래년월">;
+	String seqNbr<length=20 description="일련번호">;
+	String fnclInstCd<length=3 description="금융기관코드">;
+	String duringTheMnthFrstTrnsfrDt<length=8 description="월중최초영업일자">;
+	String duringTheMnthLastTrnsfrDt<length=8 description="월중최종영업일자">;
+	String rprtngDscd<length=2 description="월보구분코드">;
+	Integer rcptCnt<length=8 description="수납건수">;
+	BigDecimal rcptAmt<length=21 decimal=2 description="수납금액">;
+	Integer rcptProxyCostCnt<length=8 description="수납대행비용건수">;
+	BigDecimal rcptProxyCostAmt<length=21 decimal=2 description="수납대행비용금액">;
+	Integer pymntCnt<length=8 description="지급건수">;
+	BigDecimal dsbrsmntAmt<length=21 decimal=2 description="지급금액">;
+	Integer appendFeeCnt<length=8 description="추가수수료건수">;
+	BigDecimal appendFeeAmt<length=21 decimal=2 description="추가수수료금액">;
+	Integer errCnt<length=8 description="에러건수">;
+	BigDecimal errAmt<length=21 decimal=2 description="에러금액">;
+	Integer mnyRcvdDsbldCnt<length=8 description="입금불능건수">;
+	BigDecimal dpstDsbldAmt<length=21 decimal=2 description="입금불능금액">;
+	Integer rcvdCnclCnt<length=8 description="입금취소건수">;
+	BigDecimal rcvdCnclAmt<length=21 decimal=2 description="입금취소금액">;
+	Date lastChngTmstmp<length=30 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

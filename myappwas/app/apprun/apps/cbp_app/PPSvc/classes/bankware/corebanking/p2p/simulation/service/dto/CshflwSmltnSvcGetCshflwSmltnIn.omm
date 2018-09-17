@@ -1,0 +1,11 @@
+OMM bankware.corebanking.p2p.simulation.service.dto.CshflwSmltnSvcGetCshflwSmltnIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String pdCd<length=20 description="Product Code">;
+	BigDecimal aplctnAmt<length=9 decimal=2 description="Application Amount">;
+	Integer lonAprvlTrmCnt<length=2 description="Loan Approval Term">;
+	BigDecimal bsicIntRt<length=2 decimal=2 description="Basic Interest Rate">;
+	String rpymntWayCd<length=10 description="Repayment Way Code">;
+	String prtlRpymntAfRpymntDscd<length=1 description="Partial Repayment After Repayment Distinctioncode">;
+	String arrDt<length=8 description="Arrangement Date">;
+}

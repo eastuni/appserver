@@ -1,0 +1,30 @@
+<div class="grid-list-item">
+    <table>
+        <tr>
+            <td>{{bxMsg 'app-deploy.instance'}}</td>
+            <td>{{bxmInstanceNm}}</td>
+        </tr>
+        <tr>
+            <td>{{bxMsg 'app-deploy.node'}}</td>
+            <td>{{node}}</td>
+        </tr>
+        <tr>
+            <td>{{bxMsg 'app-deploy.container'}}</td>
+            <td>{{container}}</td>
+        </tr>
+        <tr>
+            <td>{{bxMsg 'app-deploy.context'}}</td>
+            <td>{{context}}</td>
+        </tr>
+        <tr>
+            <td>{{bxMsg 'app-deploy.pre-deployed-ea'}}</td>
+            <td data-form-param="predeployCount" data-value="{{predeployCount}}">{{predeployCount}}</td>
+        </tr>
+        <tr>
+            <td>{{bxMsg 'app-deploy.application-ea'}}</td>
+            <td>{{deployedAppCount}}</td>
+        </tr>
+    </table>
+    <div class="check-btn"></div>
+    <div data-form-param="bxmInstanceId" data-value="{{bxmInstanceId}}" style="display: none;"></div>
+</div>

@@ -1,0 +1,18 @@
+OMM bxm.web.admin.deferred.domain.DfrdSeq01IO
+<description="">
+{
+	String domainId<length=10 description="도메인아이디">;
+	String deferredId<length=20 description="후행ID">;
+	String deferredNm<length=100 description="후행명">;
+	String bizDt<length=8 description="영업일자">;
+	Integer nodeNo<length=2 description="노드번호">;
+	BigDecimal lastProcLogSeq<length=19 description="최종처리로그일련번호">;
+	String firstProcStartDttm<length=14 description="최초처리시작일시">;
+	String currProcStartDttm<length=14 description="현재처리시작일시">;
+	String lastProcEndDttm<length=14 description="최종처리종료일시">;
+	BigDecimal procExecCnt<length=18 description="처리실행수">;
+	String procEndYn<length=1 description="처리종료여부">;
+	String procErrYn<length=1 description="처리에러여부">;
+	Integer pageNum<length=9 description="페이지숫자">;
+	Integer pageCount<length=9 description="페이지카운트">;
+}

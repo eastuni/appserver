@@ -1,0 +1,5 @@
+OMM bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.EAICallSvcSubMsgDto
+<description=" ">
+{
+	String subMsgCntnt<length=200 description="부가메시지">;
+}

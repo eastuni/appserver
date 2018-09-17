@@ -1,0 +1,8 @@
+OMM bxm.web.admin.dni.operation.domain.DepResToDbTreeListOMM
+<description="">
+{
+	Integer treeListSize<length=9>;
+	String treeList<length=9 arrayReference="treeListSize">;
+	Integer dbioListSize<length=9>;
+	String dbioList<length=9 arrayReference="dbioListSize">;
+}

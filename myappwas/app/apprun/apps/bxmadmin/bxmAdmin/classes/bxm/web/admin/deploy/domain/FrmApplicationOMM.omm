@@ -1,0 +1,11 @@
+OMM bxm.web.admin.deploy.domain.FrmApplicationOMM
+<description="">
+{
+	String name<length=20>;
+	String appType<length=20>;
+	String referenceApps<length=20>;
+	String serviceCount<length=20>;
+	String isShared<length=20>;
+	String isImageLogging<length=20>;
+	String createdTime<length=23>;
+}

@@ -1,0 +1,21 @@
+OMM bxm.ccmainmng.online.dto.BxmCCErrorIO
+<description=" ">
+{
+	String domainId<length=20 description="도메인ID">;
+	String ccId<length=9 description="CCID">;
+	String pcsnDt<length=8 description="처리일자">;
+	Integer acptNo<length=3 description="접수번호">;
+	Integer execNo<length=6 description="실행번호">;
+	Integer tnNo<length=2 description="회차번호">;
+	BigDecimal ccTrxSqno<length=15 description="CC거래일련번호">;
+	String seriPcsnKey<length=100 description="순차처리키">;
+	String pcsnEltm<length=6 description="처리시간">;
+	String reRegCd<length=2 description="재등록코드">;
+	String msgCd<length=8 description="메시지코드">;
+	String errPrgmId<length=12 description="오류프로그램ID">;
+	String oputMsg<length=4000 description="출력메시지">;
+	String chngDttm<length=30 description="변경일시">;
+	String chngUserId<length=20 description="변경사용자ID">;
+	Integer pageNum<length=4 description="페이지번호">;
+	Integer pageCount<length=9 description="페이지카운트">;
+}

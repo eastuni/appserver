@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonconfigurator.dao.XpErrorCdTrnsfrmM">
+<!--Generated Tue Nov 22 10:57:03 GMT+09:00 2016-->
+<insert id="insertErrorCodeTransform" parameterType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpErrorCdTrnsfrmMIO">
+INSERT INTO xp_error_cd_trnsfrm_m    /* 대외에러코드변환기본 */
+(
+       inst_cd    /*기관코드*/
+     , extrnl_inst_cd    /*대외기관코드*/
+     , extrnl_biz_Dscd    /*대외업무구분코드*/
+     , msg_cd    /*메시지코드*/
+     , extrnl_rspns_cd    /*대외응답코드*/
+     , msg_Dscd	/*메시지구분코드*/
+     , rprsntn_cd_yn    /*대표코드여부*/
+     , last_chng_tmstmp    /*최종변경일시*/
+     , last_chng_guid    /*최종변경GUID*/
+)
+VALUES 
+(
+       #{instCd, jdbcType=VARCHAR}    /*기관코드*/
+     , #{extrnlInstCd, jdbcType=VARCHAR}    /*대외기관코드*/
+     , #{extrnlBizDscd, jdbcType=VARCHAR}    /*대외업무구분코드*/
+     , #{msgCd, jdbcType=VARCHAR}    /*메시지코드*/
+     , #{extrnlRspnsCd, jdbcType=VARCHAR}    /*대외응답코드*/
+     , #{msgDscd, jdbcType=VARCHAR}		/*메시지구분코드*/
+     , #{rprsntnCdYn, jdbcType=VARCHAR}    /*대표코드여부*/
+     , #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경일시*/
+     , #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectErrorCodeTransform" resultType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpErrorCdTrnsfrmMIO">
+SELECT    /* 대외에러코드변환기본 */
+       inst_cd AS instCd    /*기관코드*/
+     , extrnl_inst_cd AS extrnlInstCd    /*대외기관코드*/
+     , extrnl_biz_Dscd AS extrnlBizDscd    /*대외업무구분코드*/
+     , msg_cd AS msgCd    /*메시지코드*/
+     , extrnl_rspns_cd AS extrnlRspnsCd    /*대외응답코드*/
+     , msg_Dscd AS msgDscd	/*메시지구분코드*/
+     , rprsntn_cd_yn AS rprsntnCdYn    /*대표코드여부*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_error_cd_trnsfrm_m
+ WHERE inst_cd = #{instCd}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+   AND extrnl_biz_Dscd = #{extrnlBizDscd}
+   AND msg_cd = #{msgCd}
+   AND extrnl_rspns_cd = #{extrnlRspnsCd}
+<if test="msgDscd != null and msgDscd != ''">
+   AND msg_Dscd = #{msgDscd}
+</if>
+</select>
+<delete id="deleteErrorCodeTransform">
+DELETE FROM xp_error_cd_trnsfrm_m    /* 대외에러코드변환기본 */
+ WHERE inst_cd = #{instCd}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+   AND extrnl_biz_Dscd = #{extrnlBizDscd}
+   AND msg_cd = #{msgCd}
+   AND extrnl_rspns_cd = #{extrnlRspnsCd}
+   AND msg_Dscd = #{msgDscd}
+</delete>
+<update id="updateErrorCodeTransform" parameterType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpErrorCdTrnsfrmMIO">
+UPDATE xp_error_cd_trnsfrm_m    /* 대외에러코드변환기본 */
+   SET rprsntn_cd_yn = #{rprsntnCdYn, jdbcType=VARCHAR}    /*대표코드여부*/
+     , msg_cd = #{msgCd, jdbcType=VARCHAR}		/*메시지코드*/
+     , extrnl_rspns_cd = #{extrnlRspnsCd, jdbcType=VARCHAR}		/*대외응답코드*/
+     , msg_Dscd = #{msgDscd, jdbcType=VARCHAR}		/*메시지구분코드*/
+     , last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE inst_cd = #{instCd, jdbcType=VARCHAR}
+   AND extrnl_inst_cd = #{extrnlInstCd, jdbcType=VARCHAR}
+   AND extrnl_biz_Dscd = #{extrnlBizDscd, jdbcType=VARCHAR}
+   AND msg_cd = #{bfMsgCd, jdbcType=VARCHAR}
+   AND extrnl_rspns_cd = #{bfExtrnlRspnsCd, jdbcType=VARCHAR}
+</update>
+<select id="selectErrorCodeTransformByMsgCd" resultType="java.lang.String">
+SELECT    /* 대외에러코드변환기본 */
+     extrnl_rspns_cd AS extrnlRspnsCd    /*대외응답코드*/
+  FROM xp_error_cd_trnsfrm_m
+ WHERE inst_cd = #{instCd}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+   AND extrnl_biz_Dscd = #{extrnlBizDscd}
+   AND msg_cd = #{msgCd}
+<if test="msgDscd != null and msgDscd != ''">
+   AND msg_Dscd = #{msgDscd}
+</if>
+</select>
+<select id="selectErrorCodeTransformByRspnCd" resultType="java.lang.String">
+SELECT    /* 대외에러코드변환기본 */
+     msg_cd AS msgCd    /*메시지코드*/
+  FROM xp_error_cd_trnsfrm_m
+ WHERE inst_cd = #{instCd}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+   AND extrnl_biz_Dscd = #{extrnlBizDscd}
+   AND extrnl_rspns_cd = #{extrnlRspnsCd}
+<if test="msgDscd != null and msgDscd != ''">
+   AND msg_Dscd = #{msgDscd}
+</if>
+   AND rprsntn_cd_yn = 'Y'
+</select>
+<select id="selectErrorCodeTransformByRspnCd2" resultType="java.lang.String">
+SELECT    /* 대외에러코드변환기본 */
+     msg_cd AS msgCd    /*메시지코드*/
+  FROM xp_error_cd_trnsfrm_m
+ WHERE inst_cd = #{instCd}
+   AND extrnl_inst_cd = #{extrnlInstCd}
+   AND extrnl_biz_Dscd = #{extrnlBizDscd}
+   AND extrnl_rspns_cd = #{extrnlRspnsCd}
+<if test="msgDscd != null and msgDscd != ''">
+   AND msg_Dscd = #{msgDscd}
+</if>
+   AND rprsntn_cd_yn != 'Y'
+</select>
+<select id="selectErrorCodeTransformList" resultType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpErrorCdTrnsfrmMIO">
+SELECT 
+instCd,    /*기관코드*/
+extrnlInstCd,   /*대외기관코드*/
+extrnlBizDscd,    /*대외업무구분코드*/
+msgCd,    /*메시지코드*/
+extrnlRspnsCd,   /*대외응답코드*/
+msgDscd,	/*메시지구분코드*/
+rprsntnCdYn,    /*대표코드여부*/
+lastChngTmstmp,    /*최종변경일시*/
+lastChngGuid    /*최종변경GUID*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+A.instCd,    /*기관코드*/
+A.extrnlInstCd,    /*대외기관코드*/
+A.extrnlBizDscd,    /*대외업무구분코드*/
+A.msgCd,    /*메시지코드*/
+A.extrnlRspnsCd,   /*대외응답코드*/
+A.msgDscd	,/*메시지구분코드*/
+A.rprsntnCdYn,    /*대표코드여부*/
+A.lastChngTmstmp,    /*최종변경일시*/
+A.lastChngGuid    /*최종변경GUID*/ 
+FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* 대외에러코드변환기본 */
+       inst_cd AS instCd    /*기관코드*/
+     , extrnl_inst_cd AS extrnlInstCd    /*대외기관코드*/
+     , extrnl_biz_Dscd AS extrnlBizDscd    /*대외업무구분코드*/
+     , msg_cd AS msgCd    /*메시지코드*/
+     , extrnl_rspns_cd AS extrnlRspnsCd    /*대외응답코드*/
+     , msg_Dscd AS msgDscd	/*메시지구분코드*/
+     , rprsntn_cd_yn AS rprsntnCdYn    /*대표코드여부*/
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM xp_error_cd_trnsfrm_m
+ WHERE inst_cd = #{instCd, jdbcType=VARCHAR}
+<if test="extrnlInstCd != null and extrnlInstCd != ''">
+   AND extrnl_inst_cd = #{extrnlInstCd, jdbcType=VARCHAR}
+</if>
+<if test="extrnlBizDscd != null and extrnlBizDscd != ''">
+   AND extrnl_biz_Dscd = #{extrnlBizDscd, jdbcType=VARCHAR}
+</if>
+<if test="msgCd != null and msgCd != ''">
+   AND msg_cd = #{msgCd, jdbcType=VARCHAR}
+</if>
+<if test="extrnlRspnsCd != null and extrnlRspnsCd != ''">
+   AND extrnl_rspns_cd = #{extrnlRspnsCd, jdbcType=VARCHAR}
+</if>
+<if test="msgDscd != null and msgDscd != ''">
+	<choose>
+		<when test="msgDscd == '9'.toString()">
+   AND msg_Dscd is null
+		</when>
+		<otherwise>
+   AND msg_Dscd = #{msgDscd}
+		</otherwise>
+	</choose>
+</if>
+ORDER BY extrnl_inst_cd, extrnl_biz_Dscd, extrnl_rspns_cd
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectAllCount" resultType="java.lang.Integer">
+SELECT COUNT(1) FROM xp_error_cd_trnsfrm_m
+ WHERE inst_cd = #{instCd, jdbcType=VARCHAR}
+<if test="extrnlInstCd != null and extrnlInstCd != ''">
+   AND extrnl_inst_cd = #{extrnlInstCd, jdbcType=VARCHAR}
+</if>
+<if test="extrnlBizDscd != null and extrnlBizDscd != ''">
+   AND extrnl_biz_Dscd = #{extrnlBizDscd, jdbcType=VARCHAR}
+</if>
+<if test="msgCd != null and msgCd != ''">
+   AND msg_cd = #{msgCd, jdbcType=VARCHAR}
+</if>
+<if test="extrnlRspnsCd != null and extrnlRspnsCd != ''">
+   AND extrnl_rspns_cd = #{extrnlRspnsCd, jdbcType=VARCHAR}
+</if>
+<if test="msgDscd != null and msgDscd != ''">
+	<choose>
+		<when test="msgDscd == '9'.toString()">
+   AND msg_Dscd is null
+		</when>
+		<otherwise>
+   AND msg_Dscd = #{msgDscd}
+		</otherwise>
+	</choose>
+</if>
+</select>
+<select id="selectDefaultCdYn" resultType="java.lang.Integer">
+SELECT   COUNT(1) FROM XP_ERROR_CD_TRNSFRM_M
+WHERE    INST_CD = #{instCd, jdbcType=VARCHAR}
+AND      EXTRNL_INST_CD = #{extrnlInstCd, jdbcType=VARCHAR}
+AND      EXTRNL_BIZ_Dscd = #{extrnlBizDscd, jdbcType=VARCHAR}
+AND      EXTRNL_RSPNS_CD = #{extrnlRspnsCd, jdbcType=VARCHAR}
+AND      RPRSNTN_CD_YN = 'Y'
+</select>
+</mapper>

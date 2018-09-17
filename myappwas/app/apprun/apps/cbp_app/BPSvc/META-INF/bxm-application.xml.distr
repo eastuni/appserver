@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bxm-application xmlns="http://www.es-code.com/schema/application" xmlns:ns2="http://www.es-code.com/schema/common" name="BPSvc" loglevel="Default" shared="true" reference-applications="AC,AR,AT,CM,CORE-intrfc,PD,SM,ST,SV,DC,DPSvc,LNSvc,BA" type="online">
+    <description>Bsusiness Partner</description>
+    <datasource>
+        <jndi-datasource name="CBB" jndi-datasource="CBBNXA" jndi-xadatasource="CBBXA"/>
+    </datasource>
+    <preprocessor-bean bean="bankware.corebanking.servicemanagement.executor.business.PreServiceHandlerImpl" order="1"/>
+    <postprocessor-bean bean="bankware.corebanking.servicemanagement.executor.business.PostServiceHandlerImpl" order="1"/>
+    <preloading-classes>
+        <include name=""/>
+    </preloading-classes>
+</bxm-application>

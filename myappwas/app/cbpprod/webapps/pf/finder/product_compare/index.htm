@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product Compare</title>
+    <link href="/libs/pfui/dpl.css" rel="stylesheet">
+    <link href="/libs/pfui/pfui.css" rel="stylesheet">
+    <link href="/libs/extjs/ext-theme-gray-all.css" rel="stylesheet">
+    <link href="/libs/date-picker/jquery.datetimepicker.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/pf_common/style/css/style.css" type="text/css" />
+    <script src="/libs/jquery/jquery-1.10.2.min.js"></script>
+
+    <script src="/libs/pfui/sea.js"></script>
+    <script src="/libs/pfui/config.js" data="true"></script>
+    <script src="/libs/extjs/ext-all.js"></script>
+    <script src="/libs/handlebars/handlebars-1.1.2.js"></script>
+    <script src="/libs/xDate/xdate.js"></script>
+    <script src="/libs/underscore/underscore.js"></script>
+    <script src="/libs/date-picker/jquery.datetimepicker.full.min.js"></script>
+
+    <script src="/pf_common/config/commonConfig.js"></script>
+    <script src="/pf_common/js/pf-common.js"></script>
+    <script src="/pf_common/js/pf-msg.js"></script>
+    <script src="/pf_common/js/pf-component.js"></script>
+    <script src="/pf_common/js/pf-validation.js"></script>
+
+    <script src="/pf_common/js/pf-default.js"></script>
+    <script src="/pf_common/js/pf-popup.js"></script>
+
+    <!-- import for product compare -->
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="js/common.js"></script>
+</head>
+<body class="theme-pf">
+
+<section class="tooltip"><p class="tooltip-message"></p></section>
+
+<div id="loading-dim" class="loading-dim" style="z-index:9999">
+    <i class="fa fa-spinner fa-pulse loading-dim-icon"></i>
+</div>
+
+<script type="text/javascript">
+</script>
+
+<div class="pf-page-layout pf-page-layout pf-pc">
+    <div class="pf-page-conts pf-container pf-conts">
+        <div class="pf-pc-info-wrap pf-detail-wrap" style="border-bottom: 1px solid #EEEEEE;height: 266px;">
+
+            <div class="sidebar-toggler">
+            </div>
+
+			<div class="pf-pc-query-area" style="position:relative;overflow-x: auto;overflow-y: hidden;z-index:100;">
+                <div class="pf-pc-product-list" style="display:inline-block;position:absolute;left:1105px;margin-left: 10px;width:350px;">
+                </div>
+                <div class="pf-pc-query-area-form" style="width:1115px;display:inline-block;border-right: 1px solid #ccc;">
+                </div>
+            </div>
+        </div>
+        <div class="pf-pc-info pf-detail" style="overflow-y: auto;height:62%; display: none;">
+        </div>
+        <div class="pf-detail-container">
+        </div>
+    </div>
+</div>
+
+<script id="cnd-tpl-popup" type="text/x-handlebars-template"></script>              <!-- 조건템플릿 조회 팝업 -->
+<script id="prov-cnd-add-info-popup" type="text/x-handlebars-template"></script>   <!-- 제공조건 부가정보 팝업 -->
+
+<!-- import for product compare -->
+<script src="js/main.js"></script>
+<script type="text/javascript" src="/pf_common/js/pf-event.js"></script>
+
+<!-- popup -->
+<script src="js/condition-popup.js"></script>
+<script src="/pf_common/popup/additional_info/js/popup.js"></script>
+</body>
+</html>

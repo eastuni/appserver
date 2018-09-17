@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+         http://www.es-code.com/schema/batchex http://www.es-code.com/schema/batchex/spring-batch-ex-2.1.xsd
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
+
+    <import resource="classpath:JobConfig.xml"/>
+
+<!--     <job-component xmlns="http://www.es-code.com/schema/batchex" id="jobcomp" with-dependon="true">
+        <base-package name="bankware.corebanking.deposit.transaction.batch">
+            <include name="DmndDpstAcmltd*"/>
+        </base-package>
+    </job-component> -->
+
+	<!--
+	 *	작업명 : 요구불 적수 산출 작업
+	 *	설명   : 요구불 적수 계산 배치 작업 
+	-->
+    <job id="DmndDpstAcmltdCalcnJob" parent="parentJob" xmlns="http://www.es-code.com/schema/batchex">
+        <!--
+		 *	스텝명 : 적수계산 대상계좌 추출 작업
+		 *	설명   : 요구불 적수계산 대상계좌 추출
+		-->
+        <step id="DmndDpstAcmltdCalcnJob_Step01" parent="parentStep" next="DmndDpstAcmltdCalcnJob_Step02">
+            <tasklet tm-datasource="BXM">
+                <chunk commit-interval="10" reader="DmndDpstAcmltdTrgtXtrctnReader" processor="DmndDpstAcmltdTrgtXtrctnProcessor" writer="DmndDpstAcmltdTrgtXtrctnWriter"/>
+            </tasklet>
+        </step>		
+        <!--
+		 *	스텝명 : 적수계산 처리 작업
+		 *	설명   : 대상계좌에 대한 적수계산 처리
+		-->
+        <step id="DmndDpstAcmltdCalcnJob_Step02" parent="parentStep">
+            <tasklet tm-datasource="BXM">
+                <chunk commit-interval="10" reader="DmndDpstAcmltdCalcnReader" processor="DmndDpstAcmltdCalcnProcessor" writer="DmndDpstAcmltdCalcnWriter"/>
+            </tasklet>
+        </step>        
+    </job>
+    
+	<bean id="DmndDpstAcmltdTrgtXtrctnWriter" parent="WDelimited" scope="step">
+        <property name="name" value="DmndDpstAcmltdTrgtXtrctnWriter" />
+        <property name="resource" value="file://#{jobParameters[outpFileTrgt]}" />
+        <property name="encoding" value="UTF-8" />
+        <property name="lineAggregator">
+            <bean class="bxm.batch.item.file.transform.LineOmmAggregator">
+                <property name="encoding" value="UTF-8" />
+                <property name="delimiter" value="," />
+                <property name="targetType" value="bankware.corebanking.deposit.transaction.batch.dto.DmndDpstAcmltdCalcnTrgtIO" />
+            </bean>
+        </property>
+	</bean>
+    <bean id="DmndDpstAcmltdCalcnReader" parent="RDelimited" scope="step">
+        <property name="name" value="DmndDpstAcmltdCalcnReader" />
+        <property name="resource" value="file://#{jobParameters[outpFileTrgt]}" />
+        <property name="encoding" value="UTF-8" />
+        <property name="lineMapper">
+            <bean class="bxm.batch.item.file.mapping.LineOmmMapper">
+            	<property name="encoding" value="UTF-8" />
+                <property name="delimiter" value="," />
+                <property name="targetType" value="bankware.corebanking.deposit.transaction.batch.dto.DmndDpstAcmltdCalcnTrgtIO" />
+            </bean>
+        </property>
+	</bean>
+</beans>

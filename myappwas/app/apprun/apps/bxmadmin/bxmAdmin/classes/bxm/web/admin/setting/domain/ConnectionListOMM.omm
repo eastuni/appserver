@@ -1,0 +1,5 @@
+OMM bxm.web.admin.setting.domain.ConnectionListOMM
+<description="">
+{
+	bxm.web.admin.setting.domain.ConnectionInfoOMM connectionList<length=9 arrayReference="1" description="커넥션 목록">;
+}

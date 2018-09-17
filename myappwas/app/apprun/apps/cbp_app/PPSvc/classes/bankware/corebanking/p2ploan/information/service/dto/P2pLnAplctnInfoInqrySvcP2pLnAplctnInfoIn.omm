@@ -1,0 +1,6 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.P2pLnAplctnInfoInqrySvcP2pLnAplctnInfoIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String custId<length=15 description="Customer Identification">;
+	String errYn<length=1 description="Error Yn">;
+}

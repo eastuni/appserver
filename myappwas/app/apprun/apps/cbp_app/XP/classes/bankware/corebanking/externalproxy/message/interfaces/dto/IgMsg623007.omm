@@ -1,0 +1,14 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IgMsg623007 extends bankware.corebanking.externalproxy.message.interfaces.dto.IgComm
+<description="건별 예약 현황 간략 조회(납부내역 상세 조회 연계용) 표준전문  ">
+{
+	String inqryDscd<length=1 description="조회구분코드">;
+	String inqryNbr1<length=16 description="조회번호1">;
+	String inqryNbr2<length=10 description="조회번호2">;
+	String fillerCntnt04<length=4 description="fillerCntnt04">;
+	String inqryStartDt<length=8 description="조회시작일자">;
+	String inqryEndDt<length=8 description="조회종료일자">;
+	Integer rsrvtnTotCnt<length=3 description="예약총건수">;
+	Integer dsgntnNbr<length=3 description="지정번호">;
+	Integer demandCnt<length=2 description="요청건수">;
+	bankware.corebanking.externalproxy.message.interfaces.dto.IgTxHst623007 txHst623007<length=0 arrayReference="demandCnt" description="거래내역(623007)">;
+}

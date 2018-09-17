@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.accounting.settlement.daobatch.AcStlmntCrctnDBat">
+<!--Generated Thu Oct 12 17:21:15 KST 2017-->
+<select id="select" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntCrctnDBatIO" resultType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntCrctnDBatIO">
+SELECT    /* 결산정정명세 */
+        INST_CD AS instCd,     /*기관코드*/
+        STLMNT_BASE_DT AS stlmntBaseDt,     /*결산기준년월일*/
+        DEPT_ID AS deptId,     /*부서식별자*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        CRNCY_CD AS crncyCd,     /*통화코드*/
+        ACCTG_DSCD AS acctgDscd,     /*회계구분코드*/
+        ACCTG_ITM_CD AS acctgItmCd,     /*계정과목코드*/
+        BASE_DT AS baseDt,     /*기준년월일*/
+        CRCTN_AMT AS crctnAmt,     /*정정금액*/
+        DEBIT_CRDT_DSCD AS debitCrdtDscd,     /*차대변구분코드*/
+        RMK_CNTNT AS rmkCntnt,     /*비고내용*/
+        TX_DEPT_ID AS txDeptId,     /*거래부서식별자*/
+        TX_STAFF_ID AS txStaffId,     /*거래스태프식별자*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ac_stlmnt_crctn_d
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT = #{stlmntBaseDt}
+   AND DEPT_ID = #{deptId}
+   AND SEQ_NBR = #{seqNbr}
+</select>
+<select id="selectList" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntCrctnDBatIO" resultType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntCrctnDBatIO">
+SELECT    /* 결산정정명세 */
+        INST_CD AS instCd,     /*기관코드*/
+        STLMNT_BASE_DT AS stlmntBaseDt,     /*결산기준년월일*/
+        DEPT_ID AS deptId,     /*부서식별자*/
+        SEQ_NBR AS seqNbr,     /*일련번호*/
+        CRNCY_CD AS crncyCd,     /*통화코드*/
+        ACCTG_DSCD AS acctgDscd,     /*회계구분코드*/
+        ACCTG_ITM_CD AS acctgItmCd,     /*계정과목코드*/
+        BASE_DT AS baseDt,     /*기준년월일*/
+        CRCTN_AMT AS crctnAmt,     /*정정금액*/
+        DEBIT_CRDT_DSCD AS debitCrdtDscd,     /*차대변구분코드*/
+        RMK_CNTNT AS rmkCntnt,     /*비고내용*/
+        TX_DEPT_ID AS txDeptId,     /*거래부서식별자*/
+        TX_STAFF_ID AS txStaffId,     /*거래스태프식별자*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ac_stlmnt_crctn_d
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT = #{stlmntBaseDt}
+<if test="deptId != null and deptId != ''">   
+   AND DEPT_ID = #{deptId}
+</if>
+<if test="seqNbr != null and seqNbr != ''">   
+   AND SEQ_NBR = #{seqNbr}
+</if>
+<if test="acctgDscd != null and acctgDscd != ''">  
+   AND ACCTG_DSCD = #{acctgDscd}
+</if>
+</select>
+</mapper>

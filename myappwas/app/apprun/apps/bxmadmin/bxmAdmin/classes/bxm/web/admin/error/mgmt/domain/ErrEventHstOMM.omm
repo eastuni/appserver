@@ -1,0 +1,6 @@
+OMM bxm.web.admin.error.mgmt.domain.ErrEventHstOMM
+<description="">
+{
+	String eventOccurDttm<length=23 description="이벤트발생일시">;
+	String cndtUid<length=40 description="조건UID">;
+}

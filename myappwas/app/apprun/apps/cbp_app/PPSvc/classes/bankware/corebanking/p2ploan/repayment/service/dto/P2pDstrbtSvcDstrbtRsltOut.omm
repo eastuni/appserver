@@ -1,0 +1,5 @@
+OMM bankware.corebanking.p2ploan.repayment.service.dto.P2pDstrbtSvcDstrbtRsltOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+
+}

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.commondata.batch.dao.CmKrRoadAddrMBat_KrRoadAddrRflctn">
+<!--Generated Fri Sep 01 09:43:03 KST 2017-->
+<delete id="delete" parameterType="bankware.corebanking.applicationcommon.commondata.batch.dto.KrRoadAddrRflctnIO">
+DELETE  FROM  cm_kr_road_addr_m    /* 한국도로주소기본 */
+ WHERE  ADDR_HRARCY_CD = #{addrHrarcyCd}
+   AND ADDR_ID = #{addrId}
+</delete>
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.commondata.batch.dto.KrRoadAddrRflctnIO">
+INSERT  
+  INTO  cm_kr_road_addr_m    /* 한국도로주소기본 */
+(
+  ADDR_HRARCY_CD,     /*Address Hierarchy Code*/
+  ADDR_ID,     /*Address Identification*/
+  BLDG_MGMT_NBR,     /*Building Management Number*/
+  CITY_PRVNC_ADDR,     /*City Provinces Address*/
+  CITY_GUN_GU_ADDR,     /*City Gu Gun Address*/
+  EMDONG_ADDR,     /*Eup Myon Dong Address*/
+  ADRI_ADDR,     /*Ri Address*/
+  MUNTN_NBR_ADDR_DSCD,     /*Mountain Number Of Address Distinction Code*/
+  NBR_ADDR_NBR,     /*DECIMAL address DECIMAL*/
+  HOUSEHLD_NBR,     /*호번호*/
+  ROAD_CD,     /*Road Code*/
+  ROAD_NM,     /*도로명*/
+  UNDGRND_DSCD,     /*지하구분코드*/
+  BLDG_MAIN_NBR,     /*건물본번호*/
+  BLDG_SUB_NBR,     /*건물부번호*/
+  BLDG_NM,     /*건물명*/
+  DTL_BLDG_NM,     /*상세건물명*/
+  STUT_DONG_CD,     /*법정동코드*/
+  EMDONG_DSCD,     /*읍면동구분코드*/
+  ADMIN_DONG_CD,     /*행정동코드*/
+  ADMIN_DONG_NM,     /*Administration Dong Name*/
+  ZIP_CD,     /*Zip Code*/
+  ZIP_CD_SEQ_NBR,     /*우편일련번호*/
+  MUCH_DLVRY_REGION_NM,     /*다량배달지역명*/
+  MOVE_RSN_CD,     /*이동사유코드*/
+  ANCMNT_DT,     /*고시년월일*/
+  BF_CHNG_ROAD_NM,     /*변경전도로명*/
+  CITY_GUN_GU_BLDG_NM,     /*시군구건물명*/
+  joint_house_dscd, 
+  FNDTN_REGION_NBR,     /*foundation Reason DECIMAL*/
+  DTL_ADDR_DSCD, 
+  RMK_CNTNT,     /*비고내용*/
+  SUPPL_RMK_CNTNT,     /*추가비고내용*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{addrHrarcyCd, jdbcType=VARCHAR},     /*Address Hierarchy Code*/
+  #{addrId, jdbcType=VARCHAR},     /*Address Identification*/
+  #{bldgMgmtNbr, jdbcType=VARCHAR},     /*Building Management Number*/
+  #{cityPrvncAddr, jdbcType=VARCHAR},     /*City Provinces Address*/
+  #{cityGunGuAddr, jdbcType=VARCHAR},     /*City Gu Gun Address*/
+  #{emdongAddr, jdbcType=VARCHAR},     /*Eup Myon Dong Address*/
+  #{adriAddr, jdbcType=VARCHAR},     /*Ri Address*/
+  #{muntnNbrAddrDscd, jdbcType=VARCHAR},     /*Mountain Number Of Address Distinction Code*/
+  #{nbrAddrNbr, jdbcType=NUMERIC},     /*DECIMAL address DECIMAL*/
+  #{househldNbr, jdbcType=NUMERIC},     /*호번호*/
+  #{roadCd, jdbcType=VARCHAR},     /*Road Code*/
+  #{roadNm, jdbcType=VARCHAR},     /*도로명*/
+  #{undgrndDscd, jdbcType=VARCHAR},     /*지하구분코드*/
+  #{bldgMainNbr, jdbcType=NUMERIC},     /*건물본번호*/
+  #{bldgSubNbr, jdbcType=NUMERIC},     /*건물부번호*/
+  #{bldgNm, jdbcType=VARCHAR},     /*건물명*/
+  #{dtlBldgNm, jdbcType=VARCHAR},     /*상세건물명*/
+  #{stutDongCd, jdbcType=VARCHAR},     /*법정동코드*/
+  #{emdongDscd, jdbcType=VARCHAR},     /*읍면동구분코드*/
+  #{adminDongCd, jdbcType=VARCHAR},     /*행정동코드*/
+  #{adminDongNm, jdbcType=VARCHAR},     /*Administration Dong Name*/
+  #{zipCd, jdbcType=VARCHAR},     /*Zip Code*/
+  #{zipCdSeqNbr, jdbcType=VARCHAR},     /*우편일련번호*/
+  #{muchDlvryRegionNm, jdbcType=VARCHAR},     /*다량배달지역명*/
+  #{moveRsnCd, jdbcType=VARCHAR},     /*이동사유코드*/
+  #{ancmntDt, jdbcType=VARCHAR},     /*고시년월일*/
+  #{bfChngRoadNm, jdbcType=VARCHAR},     /*변경전도로명*/
+  #{cityGunGuBldgNm, jdbcType=VARCHAR},     /*시군구건물명*/
+  #{jointHouseDscd, jdbcType=VARCHAR}, 
+  #{fndtnRegionNbr, jdbcType=VARCHAR},     /*foundation Reason DECIMAL*/
+  #{dtlAddrDscd, jdbcType=VARCHAR}, 
+  #{rmkCntnt, jdbcType=VARCHAR},     /*비고내용*/
+  #{supplRmkCntnt, jdbcType=VARCHAR},     /*추가비고내용*/
+  #{lastChngTmstmp, jdbcType=VARCHAR},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.commondata.batch.dto.KrRoadAddrRflctnIO">
+UPDATE  
+        cm_kr_road_addr_m    /* 한국도로주소기본 */
+   SET  BLDG_MGMT_NBR = #{bldgMgmtNbr, jdbcType=VARCHAR}    /* Building Management Number */
+     , CITY_PRVNC_ADDR = #{cityPrvncAddr, jdbcType=VARCHAR}    /* City Provinces Address */
+     , CITY_GUN_GU_ADDR = #{cityGunGuAddr, jdbcType=VARCHAR}    /* City Gu Gun Address */
+     , EMDONG_ADDR = #{emdongAddr, jdbcType=VARCHAR}    /* Eup Myon Dong Address */
+     , ADRI_ADDR = #{adriAddr, jdbcType=VARCHAR}    /* Ri Address */
+     , MUNTN_NBR_ADDR_DSCD = #{muntnNbrAddrDscd, jdbcType=VARCHAR}    /* Mountain Number Of Address Distinction Code */
+     , NBR_ADDR_NBR = #{nbrAddrNbr, jdbcType=DECIMAL}    /* DECIMAL address DECIMAL */
+     , HOUSEHLD_NBR = #{househldNbr, jdbcType=DECIMAL}    /* 호번호 */
+     , ROAD_CD = #{roadCd, jdbcType=VARCHAR}    /* Road Code */
+     , ROAD_NM = #{roadNm, jdbcType=VARCHAR}    /* 도로명 */
+     , UNDGRND_DSCD = #{undgrndDscd, jdbcType=VARCHAR}    /* 지하구분코드 */
+     , BLDG_MAIN_NBR = #{bldgMainNbr, jdbcType=DECIMAL}    /* 건물본번호 */
+     , BLDG_SUB_NBR = #{bldgSubNbr, jdbcType=DECIMAL}    /* 건물부번호 */
+     , BLDG_NM = #{bldgNm, jdbcType=VARCHAR}    /* 건물명 */
+     , DTL_BLDG_NM = #{dtlBldgNm, jdbcType=VARCHAR}    /* 상세건물명 */
+     , STUT_DONG_CD = #{stutDongCd, jdbcType=VARCHAR}    /* 법정동코드 */
+     , EMDONG_DSCD = #{emdongDscd, jdbcType=VARCHAR}    /* 읍면동구분코드 */
+     , ADMIN_DONG_CD = #{adminDongCd, jdbcType=VARCHAR}    /* 행정동코드 */
+     , ADMIN_DONG_NM = #{adminDongNm, jdbcType=VARCHAR}    /* Administration Dong Name */
+     , ZIP_CD = #{zipCd, jdbcType=VARCHAR}    /* Zip Code */
+     , ZIP_CD_SEQ_NBR = #{zipCdSeqNbr, jdbcType=VARCHAR}    /* 우편일련번호 */
+     , MUCH_DLVRY_REGION_NM = #{muchDlvryRegionNm, jdbcType=VARCHAR}    /* 다량배달지역명 */
+     , MOVE_RSN_CD = #{moveRsnCd, jdbcType=VARCHAR}    /* 이동사유코드 */
+     , ANCMNT_DT = #{ancmntDt, jdbcType=VARCHAR}    /* 고시년월일 */
+     , BF_CHNG_ROAD_NM = #{bfChngRoadNm, jdbcType=VARCHAR}    /* 변경전도로명 */
+     , CITY_GUN_GU_BLDG_NM = #{cityGunGuBldgNm, jdbcType=VARCHAR}    /* 시군구건물명 */
+     , joint_house_dscd = #{jointHouseDscd, jdbcType=VARCHAR}
+     , FNDTN_REGION_NBR = #{fndtnRegionNbr, jdbcType=VARCHAR}    /* foundation Reason DECIMAL */
+     , DTL_ADDR_DSCD = #{dtlAddrDscd, jdbcType=VARCHAR}
+     , RMK_CNTNT = #{rmkCntnt, jdbcType=VARCHAR}    /* 비고내용 */
+     , SUPPL_RMK_CNTNT = #{supplRmkCntnt, jdbcType=VARCHAR}    /* 추가비고내용 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE ADDR_HRARCY_CD = #{addrHrarcyCd}
+   AND ADDR_ID = #{addrId}
+</update>
+<select id="select" parameterType="bankware.corebanking.applicationcommon.commondata.batch.dto.KrRoadAddrRflctnIO" resultType="bankware.corebanking.applicationcommon.commondata.batch.dto.KrRoadAddrRflctnIO">
+SELECT    /* 한국도로주소기본 */
+        ADDR_HRARCY_CD AS addrHrarcyCd,     /*Address Hierarchy Code*/
+        ADDR_ID AS addrId,     /*Address Identification*/
+        BLDG_MGMT_NBR AS bldgMgmtNbr,     /*Building Management Number*/
+        CITY_PRVNC_ADDR AS cityPrvncAddr,     /*City Provinces Address*/
+        CITY_GUN_GU_ADDR AS cityGunGuAddr,     /*City Gu Gun Address*/
+        EMDONG_ADDR AS emdongAddr,     /*Eup Myon Dong Address*/
+        ADRI_ADDR AS adriAddr,     /*Ri Address*/
+        MUNTN_NBR_ADDR_DSCD AS muntnNbrAddrDscd,     /*Mountain Number Of Address Distinction Code*/
+        NBR_ADDR_NBR AS nbrAddrNbr,     /*DECIMAL address DECIMAL*/
+        HOUSEHLD_NBR AS househldNbr,     /*호번호*/
+        ROAD_CD AS roadCd,     /*Road Code*/
+        ROAD_NM AS roadNm,     /*도로명*/
+        UNDGRND_DSCD AS undgrndDscd,     /*지하구분코드*/
+        BLDG_MAIN_NBR AS bldgMainNbr,     /*건물본번호*/
+        BLDG_SUB_NBR AS bldgSubNbr,     /*건물부번호*/
+        BLDG_NM AS bldgNm,     /*건물명*/
+        DTL_BLDG_NM AS dtlBldgNm,     /*상세건물명*/
+        STUT_DONG_CD AS stutDongCd,     /*법정동코드*/
+        EMDONG_DSCD AS emdongDscd,     /*읍면동구분코드*/
+        ADMIN_DONG_CD AS adminDongCd,     /*행정동코드*/
+        ADMIN_DONG_NM AS adminDongNm,     /*Administration Dong Name*/
+        ZIP_CD AS zipCd,     /*Zip Code*/
+        ZIP_CD_SEQ_NBR AS zipCdSeqNbr,     /*우편일련번호*/
+        MUCH_DLVRY_REGION_NM AS muchDlvryRegionNm,     /*다량배달지역명*/
+        MOVE_RSN_CD AS moveRsnCd,     /*이동사유코드*/
+        ANCMNT_DT AS ancmntDt,     /*고시년월일*/
+        BF_CHNG_ROAD_NM AS bfChngRoadNm,     /*변경전도로명*/
+        CITY_GUN_GU_BLDG_NM AS cityGunGuBldgNm,     /*시군구건물명*/
+        joint_house_dscd AS jointHouseDscd, 
+        FNDTN_REGION_NBR AS fndtnRegionNbr,     /*foundation Reason DECIMAL*/
+        DTL_ADDR_DSCD AS dtlAddrDscd, 
+        RMK_CNTNT AS rmkCntnt,     /*비고내용*/
+        SUPPL_RMK_CNTNT AS supplRmkCntnt,     /*추가비고내용*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  cm_kr_road_addr_m
+ WHERE ADDR_HRARCY_CD = #{addrHrarcyCd}
+   AND ADDR_ID = #{addrId}
+</select>
+<select id="selectListKrRoadAddrCount" resultType="java.lang.Integer">
+SELECT    /* 한국도로주소기본 */
+      count(*)
+  FROM  cm_kr_road_addr_m
+</select>
+</mapper>

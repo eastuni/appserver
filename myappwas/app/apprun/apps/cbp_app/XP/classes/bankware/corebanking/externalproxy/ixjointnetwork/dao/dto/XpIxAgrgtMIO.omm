@@ -1,0 +1,27 @@
+OMM bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxAgrgtMIO
+<description="">
+{
+	String instCd<length=14 description="Kor)다중 금융기관서비스를 위한 속성으로 동일 시스템을 사용하는 각 금융기관마다 부여된 코드 Eng)Code that distinguishes each financial entity when one system operates multi-entity">;
+	String txDt<length=8 description="Kor)거래가 발생한 영업일자">;
+	String fnclInstCd<length=3 description="Kor)금융기관코드">;
+	BigDecimal opnCashDpstCnt<length=15 description="Kor)개설현금입금건수">;
+	BigDecimal opnCashDpstAmt<length=18 decimal=2 description="Kor)개설현금입금금액">;
+	BigDecimal opnCashCnclCnt<length=15 description="Kor)개설현금취소건수">;
+	BigDecimal opnCashCnclAmt<length=18 decimal=2 description="Kor)개설현금취소금액">;
+	BigDecimal opnCashDpstIncpbltyCnt<length=15 description="Kor)개설현금입금불능건수">;
+	BigDecimal opnCashDpstIncpbltyAmt<length=18 decimal=2 description="Kor)개설현금입금불능금액">;
+	BigDecimal opnBnkChkInqryCnt<length=15 description="Kor)개설자기앞수표조회건수">;
+	BigDecimal opnDfltWhdrwlTxCnt<length=15 description="Kor)개설부도출금거래건수">;
+	BigDecimal opnDfltWhdrwlTxAmt<length=18 decimal=2 description="Kor)개설부도출금거래금액">;
+	BigDecimal hndlngCashDpstCnt<length=15 description="Kor)취급현금입금건수">;
+	BigDecimal hndlngCashDpstAmt<length=18 decimal=2 description="Kor)취급현금입금금액">;
+	BigDecimal hndlngCashCnclCnt<length=15 description="Kor)취급현금취소건수">;
+	BigDecimal hndlngCashCnclAmt<length=18 decimal=2 description="Kor)취급현금취소금액">;
+	BigDecimal hndlngCashDpstIncpbltyCnt<length=15 description="Kor)취급현금입금불능건수">;
+	BigDecimal hndlngCashDpstIncpbltyAmt<length=18 decimal=2 description="Kor)취급현금입금불능금액">;
+	BigDecimal hndlngBnkChkInqryCnt<length=15 description="Kor)취급자기앞수표조회건수">;
+	BigDecimal hndlngDfltWhdrwlTxCnt<length=15 description="Kor)취급부도출금거래건수">;
+	BigDecimal hndlngDfltWhdrwlTxAmt<length=18 decimal=2 description="Kor)취급부도출금거래금액">;
+	Date lastChngTmstmp<length=30 description="Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.">;
+	String lastChngGuid<length=40 description="Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record">;
+}

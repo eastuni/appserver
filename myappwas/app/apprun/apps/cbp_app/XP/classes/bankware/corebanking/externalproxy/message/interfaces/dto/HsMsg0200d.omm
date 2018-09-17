@@ -1,0 +1,33 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.HsMsg0200d
+<description="0200/0201 : 현금입금, 현금입금수취조회, 현금입금결과조회">
+{
+	String startChrCntnt1<length=3 description="개시문자">;
+	String msgHdrCntnt<length=9 description="전문헤더">;
+	String jointNetworkClCd<length=4 description="공동망종별코드">;
+	String prmryBitmapCntnt<length=16 description="Primary Bit Map">;
+	String scndryBitmapCntnt<length=16 description="Secondary Bit Map">;
+	String jointNetworkTxDscd<length=6 description="공동망거래구분코드">;
+	String txAmt<length=12 description="거래금액">;
+	String msgSndTmstmp<length=10 description="전문전송일시">;
+	String msgTraceNbr<length=6 description="전문추적번호">;
+	String txStartHms<length=6 description="거래개시시간">;
+	String txStartDay<length=4 description="거래개시일">;
+	String cardSeqNbr<length=3 description="카드일련번호">;
+	String hndlngInstCd<length=9 description="취급기관점코드">;
+	String cardAcctNbrFrontInfoCntnt<length=8 description="카드계좌번호앞정보">;
+	String cardAcctNbr<length=12 description="카드계좌번호" encrypt="AES256">;
+	String cardAcctNbrBackInfoCntnt<length=5 description="카드계좌번호뒤정보">;
+	String txUnqNbr<length=13 description="거래고유번호">;
+	String trmnlNbr<length=17 description="단말번호">;
+	String crncyCd<length=3 description="통화코드">;
+	String cardInfoCntnt<length=16 description="카드관련정보">;
+	String chequeAmt<length=12 description="수표금액">;
+	String etcDataCntnt<length=10 description="기타data">;
+	String fldLen<length=3 description="권역및수수료(총길이142, 아래 수수료 암호화데이터 포함)">;
+	String feeAmt<length=11 description="수수료">;
+	String encrptnDataCntnt<length=64 description="암호화데이터">;
+	String mnyRcvdPersonNm<length=20 description="입금인" encrypt="KSC5601">;
+	String encrptnDataBackInfoCntnt<length=44 description="암호화데이터뒤정보">;
+	String icCardSeqNbr<length=82 description="IC카드일련번호">;
+	String rprtngAmt<length=12 description="고액현금거래보고금액">;
+}

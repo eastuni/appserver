@@ -1,0 +1,12 @@
+OMM bxm.web.admin.dni.deferred.domain.BxmDbioQueryOMM
+<description="">
+{
+	String guid<length=40 description="GUID">;
+	String namespace<length=256 description="NAMESPACE">;
+	String sqlId<length=512 description="SQLID">;
+	String sqlTypeCd<length=1 description="SQL구분코드">;
+	String dbioPath<length=512 description="DBIO경로">;
+	String bxmAppId<length=40 description="BXM어플리케이션ID">;
+	String execQuery<length=4000 description="실행쿼리">;
+	String modifyDttm<length=14 description="변경일시">;
+}

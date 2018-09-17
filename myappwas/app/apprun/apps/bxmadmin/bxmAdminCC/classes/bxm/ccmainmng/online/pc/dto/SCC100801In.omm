@@ -1,0 +1,10 @@
+OMM bxm.ccmainmng.online.pc.dto.SCC100801In
+<description="  ">
+{
+	String srvrId<length=4>;
+	String strtStat<length=1>;
+	Integer rowCnt<length=6>;
+	bxm.ccmainmng.online.pc.dto.SCC1008InSub1 listNodeInfo<length=0 arrayReference="rowCnt">;
+	Integer gridCnt<length=6>;
+	bxm.ccmainmng.online.pc.dto.SCC1008InSub2 listTaskInfo<length=0 arrayReference="gridCnt">;
+}

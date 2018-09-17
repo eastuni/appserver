@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonjointnetwork.dao.XpExtrnlTxH">
+<!--Generated Mon Nov 21 16:28:24 KST 2016-->
+<select id="selectExternalTransHistory" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlTxHIO">
+SELECT    /* 대외거래내역 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        MSG_TRACE_NBR AS msgTraceNbr,     /*거래추적번호*/
+        GUID AS guid,     /*GUID*/
+        TX_HMS AS txHms,     /*거래시각*/
+        TRMNL_NBR AS trmnlNbr,     /*단말번호*/
+        STAFF_ID AS staffId,     /*스태프식별자*/
+        JOINT_NETWORK_CL_CD AS jointNetworkClCd,     /*공동망종별코드*/
+        JOINT_NETWORK_TX_Dscd AS jointNetworkTxDscd,     /*공동망거래구분코드*/
+        SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        EXTRNL_TX_CD AS extrnlTxCd,     /*대외거래코드*/
+        HNDLNG_OPN_Dscd AS hndlngOpnDscd,     /*취급개설구분코드*/
+        BIZ_TX_KEY_CNTNT AS bizTxKeyCntnt,     /*업무거래키내용*/
+        SYS_INTRFC_BIZ_KEY_CNTNT AS sysIntrfcBizKeyCntnt,     /*시스템인터페이스업무키*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  xp_extrnl_tx_h
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND TX_UNQ_NBR = #{txUnqNbr}
+   AND MSG_TRACE_NBR = #{msgTraceNbr}
+</select>
+<insert id="insertExternalTransHistory" parameterType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlTxHIO">
+INSERT  
+  INTO  xp_extrnl_tx_h    /* 대외거래내역 */
+(
+  INST_CD,     /*기관코드*/
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드*/
+  TX_DT,     /*거래년월일*/
+  TX_UNQ_NBR,     /*거래고유번호*/
+  MSG_TRACE_NBR,     /*거래추적번호*/
+  GUID,     /*GUID*/
+  TX_HMS,     /*거래시각*/
+  TRMNL_NBR,     /*단말번호*/
+  STAFF_ID,     /*스태프식별자*/
+  JOINT_NETWORK_CL_CD,     /*공동망종별코드*/
+  JOINT_NETWORK_TX_Dscd,     /*공동망거래구분코드*/
+  SYS_INTRFC_ID,     /*시스템인터페이스식별자*/
+  EXTRNL_TX_CD,     /*대외거래코드*/
+  HNDLNG_OPN_Dscd,     /*취급개설구분코드*/
+  BIZ_TX_KEY_CNTNT,     /*업무거래키내용*/
+  SYS_INTRFC_BIZ_KEY_CNTNT,     /*시스템인터페이스업무키*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{extrnlInstCd},     /*대외기관코드*/
+  #{extrnlBizDscd},     /*대외업무구분코드*/
+  #{txDt},     /*거래년월일*/
+  #{txUnqNbr},     /*거래고유번호*/
+  #{msgTraceNbr},     /*거래추적번호*/
+  #{guid},     /*GUID*/
+  #{txHms},     /*거래시각*/
+  #{trmnlNbr, jdbcType=VARCHAR},     /*단말번호*/
+  #{staffId, jdbcType=VARCHAR},     /*스태프식별자*/
+  #{jointNetworkClCd},     /*공동망종별코드*/
+  #{jointNetworkTxDscd},     /*공동망거래구분코드*/
+  #{sysIntrfcId},     /*시스템인터페이스식별자*/
+  #{extrnlTxCd},     /*대외거래코드*/
+  #{hndlngOpnDscd},     /*취급개설구분코드*/
+  #{bizTxKeyCntnt},     /*업무거래키내용*/
+  #{sysIntrfcBizKeyCntnt, jdbcType=VARCHAR},     /*시스템인터페이스업무키*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectListExternalTransHistory" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlTxHIO">
+SELECT /* "bankware.corebanking.externalproxy.commonjointnetwork.dao.XpExtrnlTxH.selectListExternalTransHistory" */  						instCd,     /*기관코드*/
+						        extrnlInstCd,     /*대외기관코드*/
+						        extrnlBizDscd,     /*대외업무구분코드*/
+						        txDt,     /*거래년월일*/
+						        txUnqNbr,     /*거래고유번호*/
+						        msgTraceNbr,     /*거래추적번호*/
+						        guid,     /*GUID*/
+						        txHms,     /*거래시각*/
+						        trmnlNbr,     /*단말번호*/
+						        staffId,     /*스태프식별자*/
+						        jointNetworkClCd,     /*공동망종별코드*/
+						        jointNetworkTxDscd,     /*공동망거래구분코드*/
+						        sysIntrfcId,     /*시스템인터페이스식별자*/
+                    			sysIntrfcNm,
+						        extrnlTxCd,     /*대외거래코드*/
+						        hndlngOpnDscd,     /*취급개설구분코드*/
+						        bizTxKeyCntnt,     /*업무거래키내용*/
+						        sysIntrfcBizKeyCntnt,     /*시스템인터페이스업무키*/
+						        lastChngTmstmp,     /*최종변경일시*/
+						        lastChngGuid    /*최종변경GUID*/
+FROM 
+    ( 
+    	SELECT 				ROWNUM AS ROW__NUM,
+    							instCd,     /*기관코드*/
+						        extrnlInstCd,     /*대외기관코드*/
+						        extrnlBizDscd,     /*대외업무구분코드*/
+						        txDt,     /*거래년월일*/
+						        txUnqNbr,     /*거래고유번호*/
+						        msgTraceNbr,     /*거래추적번호*/
+						        guid,     /*GUID*/
+						        txHms,     /*거래시각*/
+						        trmnlNbr,     /*단말번호*/
+						        staffId,     /*스태프식별자*/
+						        jointNetworkClCd,     /*공동망종별코드*/
+						        jointNetworkTxDscd,     /*공동망거래구분코드*/
+						        sysIntrfcId,     /*시스템인터페이스식별자*/
+                    			sysIntrfcNm,
+						        extrnlTxCd,     /*대외거래코드*/
+						        hndlngOpnDscd,     /*취급개설구분코드*/
+						        bizTxKeyCntnt,     /*업무거래키내용*/
+						        sysIntrfcBizKeyCntnt,     /*시스템인터페이스업무키*/
+						        lastChngTmstmp,     /*최종변경일시*/
+						        lastChngGuid    /*최종변경GUID*/
+    	FROM   (
+						SELECT    /* 대외거래내역 */
+						        H.INST_CD AS instCd,     /*기관코드*/
+						        H.EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+						        H.EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+						        H.TX_DT AS txDt,     /*거래년월일*/
+						        H.TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+						        H.MSG_TRACE_NBR AS msgTraceNbr,     /*거래추적번호*/
+						        H.GUID AS guid,     /*GUID*/
+						        H.TX_HMS AS txHms,     /*거래시각*/
+						        H.TRMNL_NBR AS trmnlNbr,     /*단말번호*/
+						        H.STAFF_ID AS staffId,     /*스태프식별자*/
+						        H.JOINT_NETWORK_CL_CD AS jointNetworkClCd,     /*공동망종별코드*/
+						        H.JOINT_NETWORK_TX_Dscd AS jointNetworkTxDscd,     /*공동망거래구분코드*/
+						        H.SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+                    			M.SYS_INTRFC_NM AS sysIntrfcNm,     /*시스템인터페이스식별자명*/
+						        H.EXTRNL_TX_CD AS extrnlTxCd,     /*대외거래코드*/
+						        H.HNDLNG_OPN_Dscd AS hndlngOpnDscd,     /*취급개설구분코드*/
+						        H.BIZ_TX_KEY_CNTNT AS bizTxKeyCntnt,     /*업무거래키내용*/
+						        H.SYS_INTRFC_BIZ_KEY_CNTNT AS sysIntrfcBizKeyCntnt,     /*시스템인터페이스업무키*/
+						        H.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+						        H.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+						  FROM  xp_extrnl_tx_h H, XP_SYS_INTRFC_M M
+						 WHERE H.INST_CD = #{instCd}
+						   AND H.EXTRNL_INST_CD = #{extrnlInstCd}
+						   AND H.EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+						   AND H.TX_DT = #{txDt}
+						   AND H.TX_UNQ_NBR = NVL(#{txUnqNbr}, H.TX_UNQ_NBR)
+						   AND H.SYS_INTRFC_ID = M.SYS_INTRFC_ID
+						   <if test="startTmstmp != null and startTmstmp != ''">   
+							   AND H.TX_HMS &gt;= CONCAT(#{startTmstmp}, '0000')
+							</if> 
+						   <if test="endTmstmp != null and endTmstmp != ''">   
+							   AND CONCAT(#{endTmstmp}, '9999') &gt;= H.TX_HMS
+							</if> 
+				ORDER BY H.TX_HMS desc							
+      			) A 
+		WHERE ROWNUM &lt; ((#{pgNbr}*#{pgCnt})+1) 
+    ) A
+WHERE A.ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<update id="updateExternalTransHistory" parameterType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlTxHIO">
+UPDATE  
+        XP_EXTRNL_TX_H    /* 대외거래거래내역 */
+   SET  GUID = #{guid}
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND TX_UNQ_NBR = #{txUnqNbr}
+   AND MSG_TRACE_NBR = #{msgTraceNbr}
+</update>
+<select id="selectListExternalTransHistoryTotCnt" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlTxHIO">
+SELECT   count(1) as totCnt
+  FROM  xp_extrnl_tx_h
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND TX_UNQ_NBR = NVL(#{txUnqNbr},TX_UNQ_NBR)
+	<if test="startTmstmp != null and startTmstmp != ''">   
+   		AND TX_HMS &gt;= CONCAT(#{startTmstmp}, '0000')
+	</if> 
+  	<if test="endTmstmp != null and endTmstmp != ''">   
+   		AND CONCAT(#{endTmstmp}, '9999') &gt;= TX_HMS
+	</if>
+</select>
+<select id="selectExternalTransHistory2" resultType="bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.XpExtrnlTxHIO">
+SELECT    /* 대외거래내역 */
+        INST_CD AS instCd,     /*기관코드*/
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        MSG_TRACE_NBR AS msgTraceNbr,     /*거래추적번호*/
+        GUID AS guid,     /*GUID*/
+        TX_HMS AS txHms,     /*거래시각*/
+        TRMNL_NBR AS trmnlNbr,     /*단말번호*/
+        STAFF_ID AS staffId,     /*스태프식별자*/
+        JOINT_NETWORK_CL_CD AS jointNetworkClCd,     /*공동망종별코드*/
+        JOINT_NETWORK_TX_Dscd AS jointNetworkTxDscd,     /*공동망거래구분코드*/
+        SYS_INTRFC_ID AS sysIntrfcId,     /*시스템인터페이스식별자*/
+        EXTRNL_TX_CD AS extrnlTxCd,     /*대외거래코드*/
+        HNDLNG_OPN_Dscd AS hndlngOpnDscd,     /*취급개설구분코드*/
+        BIZ_TX_KEY_CNTNT AS bizTxKeyCntnt,     /*업무거래키내용*/
+        SYS_INTRFC_BIZ_KEY_CNTNT AS sysIntrfcBizKeyCntnt,     /*시스템인터페이스업무키*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  xp_extrnl_tx_h
+ WHERE INST_CD = #{instCd}
+   AND EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND TX_DT = #{txDt}
+   AND TX_UNQ_NBR = #{txUnqNbr}
+</select>
+</mapper>

@@ -1,0 +1,60 @@
+<div class="pf-panel-header">
+	<!-- 정보계 View 관리 -->
+	<i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+	<h2 class="pf-panel-title">{{bxMsg 'informationInterfaceManagement'}}</h2>
+
+</div>
+
+<div class="pf-panel-body bx-info-table-wrap">
+	<div class="information-view-grid-wrapper">
+		<div class="source-grid-area">
+			<div class="condition-grid-header grid-header">
+				<span class="grid-title"><strong>[{{bxMsg 'productCondition'}}]</strong></span> <input
+					type="text"
+					class="bx-form-item bx-compoenent-small condition-name search-box"
+					data-form-param="conditionName"
+					placeholder="{{bxMsg 'fillInCondition'}} " />
+			</div>
+			<div class="condition-grid"></div>
+			<div class="attribute-grid-header grid-header">
+				<span class="grid-title"><strong>[{{bxMsg 'productAttribute'}}]</strong></span> <input
+					type="text"
+					class="bx-form-item bx-compoenent-small attribute-name search-box"
+					data-form-param="attributeName"
+					placeholder="{{bxMsg 'fillInAttributeName'}} " />
+			</div>
+			<div class="attribute-grid"></div>
+		</div>
+		<div class="button-area">
+			<div class="button-wrapper">
+				<button class="select-btn condition-select-btn"></button>
+			</div>
+			<div class="button-wrapper">
+				<button class="select-btn attribute-select-btn"></button>
+			</div>
+		</div>
+		<div class="view-attribute-grid-area">
+			<div class="grid-header">
+				<span class="grid-title"><strong>[{{bxMsg 'viewAttribute'}}]</strong></span>
+				<button type="button" class="bw-btn reset-btn"
+					icon-tooltip="{{bxMsg 'reset'}}">
+					<i class="bw-icon i-25 i-func-reset"></i>
+				</button>
+				<button type="button" class="bw-btn search-btn"
+					icon-tooltip="{{bxMsg 'inquiry'}}">
+					<i class="bw-icon i-25 i-search"></i>
+				</button>
+			</div>
+			<div class="view-attribute-grid"></div>
+		</div>
+	</div>
+
+	<footer class="pf-panel-footer">
+		<button type="button"
+			class="bw-btn save-information-view-btn write-btn"
+			data-status="{{status}}"
+			icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+			<i class="bw-icon i-30 i-func-save"></i>
+		</button>
+	</footer>
+</div>

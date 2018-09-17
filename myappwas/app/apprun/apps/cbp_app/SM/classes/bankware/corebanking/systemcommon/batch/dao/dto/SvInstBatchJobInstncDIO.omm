@@ -1,0 +1,16 @@
+OMM bankware.corebanking.systemcommon.batch.dao.dto.SvInstBatchJobInstncDIO
+<description="">
+{
+	String instCd<length=14 description="기관코드">;
+	String batchJobInstncId<length=100 description="배치작업인스턴스식별자">;
+	String batchJobId<length=100 description="배치작업식별자">;
+	String batchJobNm<length=100 description="배치작업명">;
+	String batchJobTpCd<length=2 description="배치작업유형코드">;
+	String batchAplctnNm<length=100 description="배치어플리케이션명">;
+	String batchJobCyclCd<length=2 description="배치작업주기코드">;
+	String lgclExctnSysId<length=5 description="논리실행시스템식별자">;
+	String reExctnAblYn<length=1 description="재실행가능여부">;
+	String logLvlCd<length=1 description="로그레벨코드">;
+	Date lastChngTmstmp<length=20 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

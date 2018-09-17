@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.PyCmsFundStlmH">
+<!--Generated Thu Nov 03 19:36:36 GMT+09:00 2016-->
+<select id="selectListPyCmsFundStlmH" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.PyCmsFundStlmHIO">
+SELECT    /* CMS자금결제내역 */
+        T1.PRCSNG_DT AS prcsngDt,     /*처리일자*/
+        T1.FILE_DS_ID AS fileDsId,     /*파일구분식별자*/
+        T1.CMS_SEQ_NBR AS cmsSeqNbr,     /*CMS일련번호*/
+        T1.CMS_RECD_DS_CD AS cmsRecordDscd,     /*CMS레코드구분코드*/
+        T1.BNK_DSTG_NBR AS bnkIdNbr,     /*은행식별번호*/
+        T1.UTL_INST_DSTG_NBR AS useInstIdNbr,     /*이용기관식별번호*/
+        T1.FILE_ID AS fileId,     /*파일식별자*/
+        T1.STLM_DT AS stlmntDt,     /*결제일자*/
+        T1.STLM_INDT_DS_CD AS pymntDrctnDscd,     /*결제지시구분코드*/
+        T1.MNY_RCVD_AMT AS mnyRcvdAmt,     /*입금금액*/
+        T1.DPST_FEE AS dpstFeeAmt,     /*입금수수료*/
+        T1.DPST_INBL_AMT AS dpstDsbldAmt,     /*입금불능금액*/
+        T1.ALL_DPST_AMT AS alDpstAmt,     /*전체입금금액*/
+        T1.WHDRWL_AMT AS whdrwlAmt,     /*출금금액*/
+        T1.WHDR_FEE AS whdrwlFeeAmt,     /*출금수수료*/
+        T1.WHDR_INBL_AMT AS whdrwlDsbldAmt,     /*출금불능금액*/
+        T1.ALL_WHDR_AMT AS alWhdrwlAmt,     /*전체출금금액*/
+        T1.STLM_DS_CD AS stlmntDscd,     /*결제구분코드*/
+        T1.STLM_AMT AS stlmntAmt,     /*결제금액*/
+        T1.TOT_DATA_RECORD_CNT AS totDataRecordCnt,     /*총계데이터레코드건수*/
+        T1.TLGR_AUTH_VLDTN_CD_VAL AS msgAuthVldtnCdVal,     /*전문인증검증코드값*/
+        T1.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        T1.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  PY_CMS_FUND_STLM_H T1
+  LEFT  OUTER JOIN CM_BIZ_DAY_M T2
+    ON  T2.INST_CD = #{instCd, jdbcType=VARCHAR}
+   AND  T2.BASE_DT = #{prcsngDt, jdbcType=VARCHAR}
+ WHERE
+        T1.FILE_DS_ID = #{fileDsId, jdbcType=VARCHAR}
+   AND  T1.STLM_INDT_DS_CD = #{pymntDrctnDscd, jdbcType=VARCHAR}
+   AND  T1.PRCSNG_DT &gt; T2.BF_BIZ_DT
+   AND  T1.PRCSNG_DT &lt;= T2.BIZ_DT
+</select>
+</mapper>

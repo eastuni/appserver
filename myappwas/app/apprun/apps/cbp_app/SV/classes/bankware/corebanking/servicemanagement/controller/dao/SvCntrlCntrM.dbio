@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.controller.dao.SvCntrlCntrM">
+<!--Generated Fri May 04 09:57:09 KST 2018-->
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrMIO">
+INSERT  
+
+  INTO  sv_cntrl_cntr_m    /* 제어센터기본 */
+
+(
+
+  inst_cd    /*기관코드*/, 
+
+  cntrl_cntr_id    /*제어센터식별자*/, 
+  cntrl_cntr_tp_cd    /*제어센터유형코드*/, 
+
+  cntrl_cntr_nm    /*제어센터명*/, 
+
+  cntrl_chr_cd    /*제어성격코드*/, 
+
+  hldy_dscd    /*휴일구분코드*/, 
+  last_chng_tmstmp    /*최종변경일시*/, 
+
+  last_chng_guid    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+  #{instCd, jdbcType=VARCHAR}    /*기관코드*/, 
+
+  #{cntrlCntrId, jdbcType=VARCHAR}    /*제어센터식별자*/, 
+
+  #{cntrlCntrTpCd, jdbcType=VARCHAR}    /*제어센터유형코드*/, 
+
+  #{cntrlCntrNm, jdbcType=VARCHAR}    /*제어센터명*/, 
+
+  #{cntrlChrCd, jdbcType=VARCHAR}    /*제어성격코드*/, 
+
+  #{hldyDscd, jdbcType=VARCHAR}    /*휴일구분코드*/, 
+
+  #{lastChngTmstmp, jdbcType=TIMESTAMP}  /*최종변경일시*/, 
+
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+
+)
+</insert>
+<delete id="delete" parameterType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrMIO">
+DELETE  FROM  sv_cntrl_cntr_m    /* 제어센터기본 */
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  cntrl_cntr_id = #{cntrlCntrId}
+</delete>
+<select id="select" parameterType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrMIO" resultType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrMIO">
+SELECT  /* 제어센터기본 */
+
+        inst_cd AS instCd    /*기관코드*/, 
+
+        cntrl_cntr_id AS cntrlCntrId    /*제어센터식별자*/, 
+        cntrl_cntr_tp_cd AS cntrlCntrTpCd    /*제어센터유형코드*/, 
+
+        cntrl_cntr_nm AS cntrlCntrNm    /*제어센터명*/, 
+
+        cntrl_chr_cd AS cntrlChrCd    /*제어성격코드*/, 
+
+        hldy_dscd AS hldyDscd    /*휴일구분코드*/, 
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_cntrl_cntr_m
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  cntrl_cntr_id = #{cntrlCntrId}
+</select>
+<select id="selectList" parameterType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrMIO" resultType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrMIO">
+SELECT
+
+       a.cntrl_cntr_id as cntrlCntrId
+    ,  a.cntrl_cntr_nm as cntrlCntrNm
+
+    ,  a.cntrl_cntr_tp_cd as cntrlCntrTpCd
+
+    ,  a.cntrl_chr_cd as cntrlChrCd
+
+    ,  a.hldy_dscd as hldyDscd
+    ,  a.last_chng_tmstmp AS lastChngTmstmp
+
+ FROM  sv_cntrl_cntr_m a
+
+<if test="brnchCd != null and brnchCd != '' ">
+
+    ,  sv_cntrl_cntr_brnch_d b
+
+</if>
+
+<if test="trmnlNbr != null and trmnlNbr != '' ">
+
+    ,  sv_cntrl_cntr_trmnl_d c
+
+</if>
+
+<if test="srvcCd != null and srvcCd != '' ">
+
+    ,  sv_cntrl_cntr_srvc_d d
+
+</if>
+
+ WHERE a.inst_cd = #{instCd, jdbcType=VARCHAR}
+
+<if test="cntrlCntrId != null and cntrlCntrId != '' ">
+
+  AND a.cntrl_cntr_id =  #{cntrlCntrId, jdbcType=VARCHAR}
+</if>
+
+<if test="cntrlCntrNm != null and cntrlCntrNm != '' ">
+
+  AND a.cntrl_cntr_nm LIKE  CONCAT(CONCAT('%', #{cntrlCntrNm, jdbcType=VARCHAR}), '%')
+
+</if>
+
+<if test="cntrlCntrTpCd != null and cntrlCntrTpCd != '' ">
+
+  AND a.cntrl_cntr_tp_cd =  #{cntrlCntrTpCd, jdbcType=VARCHAR}
+
+</if>
+
+<if test="brnchCd != null and brnchCd != '' ">
+
+  AND a.inst_cd = b.inst_cd
+
+  AND a.cntrl_cntr_id = b.cntrl_cntr_id
+  AND b.dept_id = #{brnchCd, jdbcType=VARCHAR}
+
+</if>
+
+<if test="trmnlNbr != null and trmnlNbr != '' ">
+
+  AND a.inst_cd = c.inst_cd
+
+  AND a.cntrl_cntr_id = c.cntrl_cntr_id
+  AND c.trmnl_nbr = #{trmnlNbr, jdbcType=VARCHAR}
+
+</if>
+
+<if test="srvcCd != null and srvcCd != '' ">
+
+  AND a.inst_cd = d.inst_cd
+
+  AND a.cntrl_cntr_id = d.cntrl_cntr_id
+  AND d.srvc_cd = #{srvcCd, jdbcType=VARCHAR}
+
+</if>
+</select>
+<select id="selectListBySrvcCd" resultType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrMIO">
+SELECT
+      cntrl_cntr_id     as cntrlCntrId
+     , cntrl_cntr_nm     as cntrlCntrNm
+     , cntrl_cntr_tp_cd  as cntrlCntrTpCd
+     , cntrl_chr_cd      as cntrlChrCd
+     , hldy_dscd   as hldyDscd
+  FROM sv_cntrl_cntr_m
+ WHERE inst_cd       = #{instCd}
+</select>
+<select id="selectMaxCntrlCntrIdMysql" parameterType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrMIO" resultType="java.lang.String">
+SELECT IFNULL(MAX(SUBSTR(CNTRL_CNTR_ID,3,13)),0) + 1 as cntrlCntrId
+  FROM SV_CNTRL_CNTR_M
+
+ WHERE INST_CD = #{instCd}
+
+   AND CNTRL_CNTR_TP_CD = #{cntrlCntrTpCd}
+</select>
+<select id="selectMaxCntrlCntrIdOracle" parameterType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrMIO" resultType="java.lang.String">
+SELECT NVL(MAX(SUBSTR(CNTRL_CNTR_ID,3,13))+ 1,1)  as cntrlCntrId
+  FROM SV_CNTRL_CNTR_M
+
+ WHERE INST_CD = #{instCd}
+
+   AND CNTRL_CNTR_TP_CD = #{cntrlCntrTpCd}
+</select>
+<update id="update" parameterType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrMIO">
+UPDATE  
+
+        sv_cntrl_cntr_m    /* 제어센터기본 */
+
+   SET  cntrl_cntr_tp_cd = #{cntrlCntrTpCd, jdbcType=VARCHAR}    /* 제어센터유형코드 */, 
+
+        cntrl_cntr_nm = #{cntrlCntrNm, jdbcType=VARCHAR}    /* 제어센터명 */, 
+
+        cntrl_chr_cd = #{cntrlChrCd, jdbcType=VARCHAR}    /* 제어성격코드 */, 
+
+        hldy_dscd = #{hldyDscd, jdbcType=VARCHAR}    /* 휴일구분코드 */, 
+        last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */, 
+
+        last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+
+ WHERE  inst_cd = #{instCd, jdbcType=VARCHAR}
+
+   AND  cntrl_cntr_id = #{cntrlCntrId, jdbcType=VARCHAR}
+</update>
+<select id="selectListByCntrlCntrSrvcDistr" parameterType="bankware.corebanking.servicemanagement.controller.dao.dto.SelectListByCntrlCntrSrvcDistrIO" resultType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrMIO">
+SELECT
+      cntrl_cntr_id     as cntrlCntrId
+     , cntrl_cntr_nm     as cntrlCntrNm
+     , cntrl_cntr_tp_cd  as cntrlCntrTpCd
+     , cntrl_chr_cd      as cntrlChrCd
+     , hldy_dscd   as hldyDscd
+  FROM sv_cntrl_cntr_m
+ WHERE inst_cd       = #{instCd}
+   
+   <if test="tblNm != null">
+	    and cntrl_cntr_id in	
+		<foreach close=")" collection="tblNm" item="item" open="(" separator=",">		
+			#{item}
+		</foreach>
+	</if>
+</select>
+<select id="selectListBySrvcCdDistr" parameterType="bankware.corebanking.servicemanagement.controller.dao.dto.SelectListByCntrlCntrSrvcDistrIO" resultType="bankware.corebanking.servicemanagement.controller.dao.dto.SvCntrlCntrMIO">
+select cntrl_cntr_id     as cntrlCntrId
+  from sv_cntrl_cntr_srvc_d
+ where inst_cd = #{instCd}
+   and srvc_cd = #{srvcCd}
+   and #{txDt} between aply_start_dt and aply_end_dt
+</select>
+</mapper>

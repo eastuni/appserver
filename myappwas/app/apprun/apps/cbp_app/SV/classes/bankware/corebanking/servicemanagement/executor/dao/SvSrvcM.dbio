@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.executor.dao.SvSrvcM">
+<!--Generated Thu May 03 19:55:04 KST 2018-->
+<select id="select" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+SELECT  /* 서비스기본 */
+
+        srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        srvc_nm AS srvcNm    /*서비스명*/, 
+
+        srvc_ftr_cntnt AS srvcFtrCntnt    /*서비스특성내용*/, 
+
+        cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        srvc_class_nm AS srvcClassNm    /*서비스클래스명*/, 
+        oprtn_nm AS oprtnNm    /*오퍼레이션명*/, 
+
+        inp_dto_nm AS inpDtoNm    /*입력DTO명*/, 
+
+        outp_dto_nm AS outpDtoNm    /*출력DTO명*/, 
+
+        srvc_sts_cd AS srvcStsCd /*서비스상태코드*/,
+
+        log_lvl_cd AS logLvlCd /*로그레벨코드*/,
+
+        timeout_scnd AS timeoutScnd,
+        TX_YN AS txYn /*트랜잭션여부*/,
+
+        TX_ABL_START_HMS AS txAblStartHms,/*거래가능시작시간*/
+
+        TX_ABL_END_HMS AS txAblEndHms,/*거래가능종료시간*/
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_srvc_m
+
+ WHERE  srvc_cd = #{srvcCd}
+</select>
+<update id="update" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+UPDATE  
+        sv_srvc_m    /* 서비스기본 */
+   SET  aply_start_dt = #{aplyStartDt, jdbcType=VARCHAR}    /* 적용시작년월일 */, 
+        srvc_nm = #{srvcNm, jdbcType=VARCHAR}    /* 서비스명 */, 
+        srvc_ftr_cntnt = #{srvcFtrCntnt, jdbcType=VARCHAR}    /* 서비스특성내용 */, 
+        cmpnt_cd = #{cmpntCd, jdbcType=VARCHAR}    /* 컴포넌트코드 */, 
+        srvc_class_nm = #{srvcClassNm, jdbcType=VARCHAR}    /* 서비스클래스명 */, 
+        oprtn_nm = #{oprtnNm, jdbcType=VARCHAR}    /* 오퍼레이션명 */, 
+        inp_dto_nm = #{inpDtoNm, jdbcType=VARCHAR}    /* 입력DTO명 */, 
+        outp_dto_nm = #{outpDtoNm, jdbcType=VARCHAR}    /* 출력DTO명 */, 
+        timeout_scnd = #{timeoutScnd, jdbcType=NUMERIC}    /* 타임아웃초 */,
+		TX_YN = #{txYn, jdbcType=VARCHAR}    /* 타임아웃초 */,			
+        TX_ABL_START_HMS = #{txAblStartHms, jdbcType=VARCHAR}    /* 거래가능시작시간 */,
+        TX_ABL_END_HMS = #{txAblEndHms, jdbcType=VARCHAR}    /* 거래가능종료시간 */,
+        
+        SRVC_STS_CD = #{srvcStsCd, jdbcType=VARCHAR}    /* 서비스상태코드 */,
+        LOG_LVL_CD = #{logLvlCd, jdbcType=VARCHAR}    /* 로그레벨 */,
+        SRVC_TP_CD = #{srvcTpCd, jdbcType=VARCHAR}    /* 서비스구분코드 */,
+        
+        last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */, 
+        last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE  srvc_cd = #{srvcCd, jdbcType=VARCHAR}
+</update>
+<delete id="delete" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+DELETE  FROM  sv_srvc_m    /* 서비스기본 */
+
+ WHERE  srvc_cd = #{srvcCd, jdbcType=VARCHAR}
+</delete>
+<select id="selectListCmpntCd" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+SELECT  /* 서비스기본 */
+
+        srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        srvc_nm AS srvcNm    /*서비스명*/, 
+
+        srvc_ftr_cntnt AS srvcFtrCntnt    /*서비스특성내용*/, 
+
+        cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        srvc_class_nm AS srvcClassNm    /*서비스클래스명*/, 
+        oprtn_nm AS oprtnNm    /*오퍼레이션명*/, 
+
+        inp_dto_nm AS inpDtoNm    /*입력DTO명*/, 
+
+        outp_dto_nm AS outpDtoNm    /*출력DTO명*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_srvc_m
+
+ WHERE  cmpnt_cd = #{cmpntCd}
+
+   AND  aply_start_dt &lt;= #{aplyStartDt}
+
+   AND  srvc_sts_cd = '01'
+</select>
+<select id="selectListCmpntCdOrderBySrvcCd" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+SELECT  /* 서비스기본 */
+
+        srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        srvc_nm AS srvcNm    /*서비스명*/, 
+
+        srvc_ftr_cntnt AS srvcFtrCntnt    /*서비스특성내용*/, 
+
+        cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        srvc_class_nm AS srvcClassNm    /*서비스클래스명*/, 
+        oprtn_nm AS oprtnNm    /*오퍼레이션명*/, 
+
+        inp_dto_nm AS inpDtoNm    /*입력DTO명*/, 
+
+        outp_dto_nm AS outpDtoNm    /*출력DTO명*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_srvc_m
+
+ WHERE  cmpnt_cd = #{cmpntCd}
+
+   AND  aply_start_dt &lt;= #{aplyStartDt}
+
+
+
+    <if test="srvcStsCd != null and srvcStsCd !=''">
+
+		AND srvc_sts_cd = #{srvcStsCd}
+
+	</if>   
+
+   AND  SRVC_CD != ' '
+
+ORDER BY srvc_cd
+</select>
+<select id="selectListByScrnId" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+SELECT    
+
+        sv_srvc_m.srvc_cd AS srvcCd,     /*서비스코드*/
+
+        sv_srvc_m.srvc_nm AS srvcNm,     /*서비스명*/
+
+        sv_srvc_m.cmpnt_cd AS cmpntCd,     /*컴포넌트코드*/
+
+        sv_srvc_m.srvc_class_nm AS srvcClassNm,     /*서비스클래스명*/
+        sv_srvc_m.oprtn_nm AS oprtnNm,     /*오퍼레이션명*/
+
+        sv_srvc_m.srvc_sts_cd AS srvcStsCd     /*서비스상태코드*/
+
+  FROM  sv_srvc_m, sv_scrn_srvc_d, sv_scrn_m
+
+ WHERE  sv_scrn_m.scrn_id = sv_scrn_srvc_d.scrn_id
+
+   AND  sv_scrn_srvc_d.srvc_cd = sv_srvc_m.srvc_cd
+
+   AND  sv_scrn_m.scrn_id = #{scrnId}
+
+   AND  sv_scrn_m.ACTV_STS_CD = '01'
+</select>
+<select id="selectMltLng" resultType="java.lang.Integer">
+SELECT count(*) AS cnt
+
+  FROM sv_srvc_m a
+
+     , cm_mlt_lng_trnsltn_d b
+
+ WHERE a.srvc_cd = #{srvcCd}
+
+   AND b.trnsfr_knd_cd = 'SRVC_NAME' 
+   AND b.trnsfr_origin_key_val = a.srvc_cd
+</select>
+<update id="updateStsCd" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+UPDATE sv_srvc_m
+
+   SET aply_start_dt = #{aplyStartDt, jdbcType=VARCHAR}
+
+     , srvc_sts_cd = #{srvcStsCd, jdbcType=VARCHAR}
+
+     , log_lvl_cd = #{logLvlCd, jdbcType=VARCHAR}
+
+     , timeout_scnd = #{timeoutScnd, jdbcType=NUMERIC}
+
+
+     , TX_YN = #{txYn, jdbcType=VARCHAR}
+
+     , TX_ABL_START_HMS = #{txAblStartHms, jdbcType=VARCHAR}
+
+     , TX_ABL_END_HMS = #{txAblEndHms, jdbcType=VARCHAR}
+
+
+
+     , last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}
+
+     , last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}
+
+ WHERE srvc_cd = #{srvcCd, jdbcType=VARCHAR}
+</update>
+<select id="selectListCount" resultType="java.lang.Integer">
+SELECT  /* 서비스기본 */
+
+       COUNT(1) AS cnt
+
+  FROM  sv_srvc_m a, cm_mlt_lng_trnsltn_d b
+
+ WHERE  a.srvc_sts_cd = '01'
+
+   AND  a.aply_start_dt &lt;= #{aplyStartDt}
+
+   AND  trnsfr_knd_cd = 'SRVC_NAME'
+  		<if test="srvcCd != null and srvcCd !=''">
+
+ 			AND a.srvc_cd like CONCAT(#{srvcCd}, '%')
+
+ 		</if>
+
+ 		<if test="srvcNm != null and srvcNm !=''">
+
+ 			AND b.trnsfr_rslt_val like CONCAT(CONCAT('%', #{srvcNm}), '%')
+
+ 		</if>
+
+ 		 <if test="cmpntCd != null and cmpntCd !=''">
+
+ 			AND a.cmpnt_cd = #{cmpntCd}
+
+ 		</if>
+
+ 		AND b.lng_cd = #{lngCd} 
+
+ 		AND a.srvc_cd = b.trnsfr_origin_key_val
+</select>
+<select id="selectListMysql" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+SELECT  /* 서비스기본 */
+
+        a.srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        a.aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        b.trnsfr_rslt_val AS srvcNm    /*서비스명*/, 
+
+        a.srvc_ftr_cntnt AS srvcFtrCntnt    /*서비스특성내용*/, 
+
+        a.cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        a.srvc_class_nm AS srvcClassNm    /*서비스클래스명*/, 
+        a.oprtn_nm AS oprtnNm    /*오퍼레이션명*/, 
+
+        a.inp_dto_nm AS inpDtoNm    /*입력DTO명*/, 
+
+        a.outp_dto_nm AS outpDtoNm    /*출력DTO명*/, 
+
+        a.TX_YN AS txYn /*트랜잭션여부*/,
+
+        a.TX_ABL_START_HMS AS txAblStartHms,/*거래가능시작시간*/
+
+        a.TX_ABL_END_HMS AS txAblEndHms,/*거래가능종료시간*/
+
+        a.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        a.last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_srvc_m a, cm_mlt_lng_trnsltn_d b
+
+ WHERE  a.srvc_sts_cd = '01'
+
+   AND  a.aply_start_dt &lt;= #{aplyStartDt}
+
+   AND  trnsfr_knd_cd = 'SRVC_NAME'
+  		<if test="srvcCd != null and srvcCd !=''">
+
+ 			AND a.srvc_cd like CONCAT(#{srvcCd}, '%')
+
+ 		</if>
+
+ 		<if test="srvcNm != null and srvcNm !=''">
+
+ 			AND b.trnsfr_rslt_val like CONCAT(CONCAT('%', #{srvcNm}), '%')
+
+ 		</if>
+
+ 		 <if test="cmpntCd != null and cmpntCd !=''">
+
+ 			AND a.cmpnt_cd = #{cmpntCd}
+
+ 		</if>
+
+ 		AND b.lng_cd = #{lngCd} 
+
+ 		AND a.srvc_cd = b.trnsfr_origin_key_val
+
+limit #{startNbr}, #{pgCnt}
+</select>
+<select id="selectListOracle" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+/* #### Original SQL [[ ################# */
+
+SELECT  /* 서비스기본 */
+
+        srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        srvc_nm AS srvcNm    /*서비스명*/, 
+
+        srvc_ftr_cntnt AS srvcFtrCntnt    /*서비스특성내용*/, 
+
+        cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        srvc_class_nm AS srvcClassNm    /*서비스클래스명*/, 
+        oprtn_nm AS oprtnNm    /*오퍼레이션명*/, 
+
+        inp_dto_nm AS inpDtoNm    /*입력DTO명*/, 
+
+        outp_dto_nm AS outpDtoNm    /*출력DTO명*/, 
+
+        TX_YN AS txYn /*트랜잭션여부*/,
+
+        TX_ABL_START_HMS AS txAblStartHms,/*거래가능시작시간*/
+
+        TX_ABL_END_HMS AS txAblEndHms,/*거래가능종료시간*/
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_srvc_m
+
+ WHERE  srvc_sts_cd = '01'
+
+   AND  aply_start_dt &lt;= #{aplyStartDt}
+
+  		<if test="srvcCd != null and srvcCd !=''">
+
+ 			AND srvc_cd like CONCAT(#{srvcCd}, '%')
+
+ 		</if>
+
+ 		<if test="srvcNm != null and srvcNm !=''">
+
+ 			AND srvc_nm like CONCAT(CONCAT('%', #{srvcNm}), '%')
+
+ 		</if>
+
+ 		 <if test="cmpntCd != null and cmpntCd !=''">
+
+ 			AND cmpnt_cd = #{cmpntCd}
+
+ 		</if>
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNbr}*#{pageCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNbr}-1)*#{pageCnt}
+</select>
+<select id="selectListOrderByCmpntCdSrvcCdMysql" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+SELECT  /* 서비스기본 */
+
+        srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        srvc_nm AS srvcNm    /*서비스명*/, 
+
+        srvc_ftr_cntnt AS srvcFtrCntnt    /*서비스특성내용*/, 
+
+        cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        srvc_class_nm AS srvcClassNm    /*서비스클래스명*/, 
+        oprtn_nm AS oprtnNm    /*오퍼레이션명*/, 
+
+        inp_dto_nm AS inpDtoNm    /*입력DTO명*/, 
+
+        outp_dto_nm AS outpDtoNm    /*출력DTO명*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_srvc_m
+
+ WHERE  aply_start_dt &lt;= #{baseDt}
+
+
+
+    <if test="srvcStsCd != null and srvcStsCd !=''">
+
+		AND srvc_sts_cd = #{srvcStsCd}
+
+	</if>   
+
+   AND SRVC_CD != ' '
+
+ORDER BY cmpnt_cd , srvc_cd
+limit 1
+</select>
+<select id="selectListOrderByCmpntCdSrvcCdOracle" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+SELECT  /* 서비스기본 */
+
+        srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        srvc_nm AS srvcNm    /*서비스명*/, 
+
+        srvc_ftr_cntnt AS srvcFtrCntnt    /*서비스특성내용*/, 
+
+        cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        srvc_class_nm AS srvcClassNm    /*서비스클래스명*/, 
+        oprtn_nm AS oprtnNm    /*오퍼레이션명*/, 
+
+        inp_dto_nm AS inpDtoNm    /*입력DTO명*/, 
+
+        outp_dto_nm AS outpDtoNm    /*출력DTO명*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_srvc_m
+
+ WHERE  aply_start_dt &lt;= #{baseDt}
+
+
+
+    <if test="srvcStsCd != null and srvcStsCd !=''">
+
+		AND srvc_sts_cd = #{srvcStsCd}
+
+	</if>   
+
+   AND SRVC_CD != ' '
+
+ORDER BY cmpnt_cd , srvc_cd
+</select>
+<select id="selectListMysqlDistr" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+SELECT  /* 서비스기본 */
+
+        a.srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        a.aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        a.srvc_ftr_cntnt AS srvcFtrCntnt    /*서비스특성내용*/, 
+
+        a.cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        a.srvc_class_nm AS srvcClassNm    /*서비스클래스명*/, 
+        a.oprtn_nm AS oprtnNm    /*오퍼레이션명*/, 
+
+        a.inp_dto_nm AS inpDtoNm    /*입력DTO명*/, 
+
+        a.outp_dto_nm AS outpDtoNm    /*출력DTO명*/, 
+
+        a.TX_YN AS txYn /*트랜잭션여부*/,
+
+        a.TX_ABL_START_HMS AS txAblStartHms,/*거래가능시작시간*/
+
+        a.TX_ABL_END_HMS AS txAblEndHms,/*거래가능종료시간*/
+
+        a.last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        a.last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_srvc_m a
+
+ WHERE  a.srvc_sts_cd = '01'
+
+   AND  a.aply_start_dt &lt;= #{aplyStartDt}
+
+  		<if test="srvcCd != null and srvcCd !=''">
+
+ 			AND a.srvc_cd like CONCAT(#{srvcCd}, '%')
+
+ 		</if>
+ 		 <if test="cmpntCd != null and cmpntCd !=''">
+
+ 			AND a.cmpnt_cd = #{cmpntCd}
+
+ 		</if>
+
+limit #{startNbr}, #{pgCnt}
+</select>
+<select id="selectListOracleDistr" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+
+        (
+
+
+
+/* #### Original SQL [[ ################# */
+
+SELECT  /* 서비스기본 */
+
+        srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        aply_start_dt AS aplyStartDt    /*적용시작년월일*/, 
+
+        srvc_nm AS srvcNm    /*서비스명*/, 
+
+        srvc_ftr_cntnt AS srvcFtrCntnt    /*서비스특성내용*/, 
+
+        cmpnt_cd AS cmpntCd    /*컴포넌트코드*/, 
+
+        srvc_class_nm AS srvcClassNm    /*서비스클래스명*/, 
+        oprtn_nm AS oprtnNm    /*오퍼레이션명*/, 
+
+        inp_dto_nm AS inpDtoNm    /*입력DTO명*/, 
+
+        outp_dto_nm AS outpDtoNm    /*출력DTO명*/, 
+
+        TX_YN AS txYn /*트랜잭션여부*/,
+
+        TX_ABL_START_HMS AS txAblStartHms,/*거래가능시작시간*/
+
+        TX_ABL_END_HMS AS txAblEndHms,/*거래가능종료시간*/
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_srvc_m
+
+ WHERE  srvc_sts_cd = '01'
+
+   AND  aply_start_dt &lt;= #{aplyStartDt}
+
+  		<if test="srvcCd != null and srvcCd !=''">
+
+ 			AND srvc_cd like CONCAT(#{srvcCd}, '%')
+
+ 		</if>
+
+ 		<if test="srvcNm != null and srvcNm !=''">
+
+ 			AND srvc_nm like CONCAT(CONCAT('%', #{srvcNm}), '%')
+
+ 		</if>
+
+ 		 <if test="cmpntCd != null and cmpntCd !=''">
+
+ 			AND cmpnt_cd = #{cmpntCd}
+
+ 		</if>
+
+/* #### Original SQL ]] ################# */
+
+
+
+        ) A 
+
+    WHERE ROWNUM &lt;= ((#{startNbr}*#{pgCnt})+1) 
+    ) 
+
+WHERE ROW__NUM &gt; (#{startNbr}-1)*#{pgCnt}
+</select>
+<select id="selectMltLngDistr" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMDistrIO" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMDistrIO">
+SELECT trnsfr_rslt_val as srvcNm
+  FROM  cm_mlt_lng_trnsltn_d
+ WHERE trnsfr_knd_cd = 'SRVC_NAME' 
+    AND lng_cd = #{lngCd} 
+
+ <if test="tblNm != null">
+    AND trnsfr_origin_key_val IN
+		<foreach close=")" collection="tblNm" item="item" open="(" separator=",">		
+			#{item}
+		</foreach>
+</if>
+
+<if test="srvcNm != null and srvcNm !=''">
+	AND trnsfr_rslt_val like CONCAT(CONCAT('%', #{srvcNm}), '%')
+</if>
+</select>
+<select id="selectListCountDistr" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMDistrIO">
+SELECT  /* 서비스기본 */
+       a.srvc_cd as srvcCd
+  FROM  sv_srvc_m a
+
+ WHERE  a.srvc_sts_cd = '01'
+   AND  a.aply_start_dt &lt;= #{aplyStartDt}
+   
+<if test="srvcCd != null and srvcCd !=''">
+   AND a.srvc_cd like CONCAT(#{srvcCd}, '%')
+</if>
+
+<if test="srvcNm != null and srvcNm !=''">
+	AND b.trnsfr_rslt_val like CONCAT(CONCAT('%', #{srvcNm}), '%')
+</if>
+
+<if test="cmpntCd != null and cmpntCd !=''">
+	AND a.cmpnt_cd = #{cmpntCd}
+</if>
+</select>
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvSrvcMIO">
+INSERT  
+  INTO  sv_srvc_m    /* 서비스기본 */
+(
+  SRVC_CD,     /*Service Code*/
+  APLY_START_DT,     /*Apply Start Date*/
+  SRVC_NM,     /*Service Name*/
+  SRVC_FTR_CNTNT,     /*Transaction Feature Content*/
+  CMPNT_CD,     /*Component Code*/
+  SRVC_CLASS_NM,     /*Service Name*/
+  OPRTN_NM,     /*Operation Name*/
+  INP_DTO_NM,     /*Input Dto Name*/
+  OUTP_DTO_NM,     /*Output Dto Name*/
+  SRVC_STS_CD,     /*Service Status Code*/
+  SRVC_TP_CD, 
+  LOG_LVL_CD,     /*Log Level Code*/
+  TIMEOUT_SCND,     /*Time-out Second*/
+  TX_YN,     /*transaction yn*/
+  TX_ABL_START_HMS,     /*Transaction Able Start Hhmmss*/
+  TX_ABL_END_HMS,     /*Transaction Able End Hhmmss*/
+  LAST_CHNG_TMSTMP,     /*Last Change Timestamp*/
+  LAST_CHNG_GUID    /*Last Change Guid*/
+)
+VALUES 
+(
+  #{srvcCd, jdbcType=VARCHAR},     /*Service Code*/
+  #{aplyStartDt, jdbcType=VARCHAR},     /*Apply Start Date*/
+  #{srvcNm, jdbcType=VARCHAR},     /*Service Name*/
+  #{srvcFtrCntnt, jdbcType=VARCHAR},     /*Transaction Feature Content*/
+  #{cmpntCd, jdbcType=VARCHAR},     /*Component Code*/
+  #{srvcClassNm, jdbcType=VARCHAR},     /*Service Name*/
+  #{oprtnNm, jdbcType=VARCHAR},     /*Operation Name*/
+  #{inpDtoNm, jdbcType=VARCHAR},     /*Input Dto Name*/
+  #{outpDtoNm, jdbcType=VARCHAR},     /*Output Dto Name*/
+  #{srvcStsCd, jdbcType=VARCHAR},     /*Service Status Code*/
+  #{srvcTpCd, jdbcType=VARCHAR}, 
+  #{logLvlCd, jdbcType=VARCHAR},     /*Log Level Code*/
+  #{timeoutScnd, jdbcType=NUMERIC},     /*Time-out Second*/
+  #{txYn, jdbcType=VARCHAR},     /*transaction yn*/
+  #{txAblStartHms, jdbcType=VARCHAR},     /*Transaction Able Start Hhmmss*/
+  #{txAblEndHms, jdbcType=VARCHAR},     /*Transaction Able End Hhmmss*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*Last Change Timestamp*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*Last Change Guid*/
+)
+</insert>
+</mapper>

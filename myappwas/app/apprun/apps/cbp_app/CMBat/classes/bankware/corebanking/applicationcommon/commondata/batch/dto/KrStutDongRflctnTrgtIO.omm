@@ -1,0 +1,7 @@
+OMM bankware.corebanking.applicationcommon.commondata.batch.dto.KrStutDongRflctnTrgtIO
+<description="법정동주소 추출 배치IO">
+{
+	String stutDongCd<length=10 description="법정동코드">;
+	String stutDongAddrCntnt<length=4000 description="법정동주소">;
+	String yn<length=10 description="여부">;
+}

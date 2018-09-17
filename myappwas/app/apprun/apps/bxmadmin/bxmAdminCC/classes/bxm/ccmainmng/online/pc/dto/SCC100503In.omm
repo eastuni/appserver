@@ -1,0 +1,10 @@
+OMM bxm.ccmainmng.online.pc.dto.SCC100503In
+<description="  ">
+{
+	String ccId<length=9 description="CCID">;
+	String pcsnDt<length=8 description="처리일자">;
+	Integer acptNo<length=3 description="접수번호">;
+	Integer execNo<length=6 description="실행번호">;
+	Integer tnNo<length=2 description="회차번호">;
+	String ccTrxSqno<length=15 description="CC처리일련번호">;
+}

@@ -1,0 +1,7 @@
+OMM bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpTxParmCdMIO
+<description="대외기관거래구분용">
+{
+	String extrnlTxCd<length=14 description="대외거래코드">;
+	String sysIntrfcNm<length=100 description="시스템인터페이스명">;
+	String sysIntrfcId<length=40 description="시스템인터페이스식별자">;
+}

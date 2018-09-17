@@ -1,0 +1,44 @@
+<div class="pf-panel pf-fdi-panel">
+    <div class="pf-panel-header">
+        <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+        <h2 class="pf-panel-title">{{bxMsg 'integrationLimitInfo'}}</h2>
+        <!-- 통합한도정보 -->
+    </div>
+    <div class="pf-panel-body bx-info-table-wrap">
+        <table class="bx-info-table pf-fdi-rel-form">
+            <tr>
+                <th>{{bxMsg 'feeDiscountIntegrationLimitCode'}}</th>
+                <!-- 수수료할인통합한도코드 -->
+                <td>{{id}}</td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'feeDiscountIntegrationLimitName'}}</th>
+                <!-- 통합한도명 -->
+                <td>{{text}}</td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'feeDiscountIntegrationLimitContent'}}</th>
+                <!-- 통합한도설명 -->
+                <td>{{feeDiscountIntegrationLimitContent}}</td>
+            </tr>
+        </table>
+
+        <!-- 관계정보 -->
+        <div class="pf-fdi-rel-info">
+            <header class="cnd-tpl-grid-header prod-group-grid-header grid-extra-header">
+                <!--<span style="float:left;">{{bxMsg 'relationInfo'}}</span>-->
+
+                <button type="button" class="bw-btn add-fee-discount-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                        <i class="bw-icon i-25 i-func-add"></i>
+                    </button>
+            </header>
+            <div class="pf-fee-discount-grid"></div>
+        </div>
+        <footer class="pf-panel-footer">
+
+            <button type="button" class="bw-btn fee-dicount-rel-save-btn write-btn" data-status="{{status}}" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+                    <i class="bw-icon i-30 i-func-save"></i>
+                </button>
+        </footer>
+    </div>
+</div>

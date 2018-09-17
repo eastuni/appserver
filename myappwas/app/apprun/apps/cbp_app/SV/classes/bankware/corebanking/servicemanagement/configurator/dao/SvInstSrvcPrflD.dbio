@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.configurator.dao.SvInstSrvcPrflD">
+<!--Generated Wed Apr 04 18:36:25 KST 2018-->
+<select id="selectListSrvcPrfl" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcPrflDIO" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcPrflDSelectListSrvcPrfl">
+SELECT t2.inst_cd AS instCd
+
+     , t1.srvc_cd AS srvcCd
+
+     , t1.srvc_prfl_atrbt_nm AS srvcPrflAtrbtNm
+
+     , t1.srvc_prfl_cntnt AS srvcPrflCntnt
+
+     , t2.srvc_prfl_cntnt AS instSrvcPrflCntnt
+
+     , CASE
+
+        WHEN t2.srvc_cd IS NULL THEN t1.last_chng_tmstmp
+
+        ELSE t2.last_chng_tmstmp
+
+        END as lastChngTmstmp
+
+     , t3.srvc_prfl_nm AS srvcPrflNm
+
+  FROM sv_srvc_prfl_d t1 LEFT
+
+       OUTER JOIN sv_inst_srvc_prfl_d T2
+
+       ON(
+
+               t2.inst_cd = #{instCd}
+
+           AND t1.srvc_cd = t2.srvc_cd
+
+           AND t1.srvc_prfl_atrbt_nm = t2.srvc_prfl_atrbt_nm
+
+       )
+
+       INNER JOIN sv_srvc_prfl_atrbt_d t3
+
+       ON(
+
+         t1.srvc_prfl_atrbt_nm = t3.srvc_prfl_atrbt_nm
+
+       )
+
+ WHERE t1.srvc_cd = #{srvcCd}
+
+     AND t1.ACTV_STS_CD = '01'
+
+ORDER BY srvcPrflAtrbtNm
+</select>
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcPrflDIO">
+INSERT  
+
+  INTO  SV_INST_SRVC_PRFL_D    /* 기관별서비스프로파일변화명세 */
+
+(
+
+  INST_CD    /*기관코드*/, 
+
+  SRVC_CD    /*서비스코드*/, 
+
+  SRVC_PRFL_ATRBT_NM    /*서비스프로파일속성명*/, 
+
+  SRVC_PRFL_CNTNT    /*서비스프로파일내용*/, 
+
+  LAST_CHNG_TMSTMP    /*최종변경일시*/, 
+
+  LAST_CHNG_GUID    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+  #{instCd}    /*기관코드*/, 
+
+  #{srvcCd}    /*서비스코드*/, 
+
+  #{srvcPrflAtrbtNm}    /*서비스프로파일속성명*/, 
+
+  #{srvcPrflCntnt}    /*서비스프로파일내용*/, 
+
+  #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경일시*/, 
+
+  #{lastChngGuid}    /*최종변경GUID*/
+
+)
+</insert>
+<select id="select" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcPrflDIO" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcPrflDIO">
+SELECT  /* 기관별서비스프로파일변화명세 */
+
+        inst_cd AS instCd    /*기관코드*/, 
+
+        srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        srvc_prfl_atrbt_nm AS srvcPrflAtrbtNm    /*서비스프로파일속성명*/, 
+
+        srvc_prfl_cntnt AS srvcPrflCntnt    /*서비스프로파일내용*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_inst_srvc_prfl_d
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  srvc_cd = #{srvcCd}
+
+   AND  srvc_prfl_atrbt_nm = #{srvcPrflAtrbtNm}
+</select>
+<update id="update" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcPrflDIO">
+UPDATE  
+
+        sv_inst_srvc_prfl_d    /* 기관별서비스프로파일변화명세 */
+
+   SET  srvc_prfl_cntnt = #{srvcPrflCntnt}    /* 서비스프로파일내용 */, 
+
+        last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}   /* 최종변경일시 */, 
+
+        last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  srvc_cd = #{srvcCd}
+
+   AND  srvc_prfl_atrbt_nm = #{srvcPrflAtrbtNm}
+</update>
+<delete id="delete" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcPrflDIO">
+DELETE  FROM  sv_inst_srvc_prfl_d    /* 기관별서비스프로파일변화명세 */
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  srvc_cd = #{srvcCd}
+
+   AND  srvc_prfl_atrbt_nm = #{srvcPrflAtrbtNm}
+</delete>
+<select id="selectSrvcPrfl" parameterType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcPrflDIO" resultType="java.lang.String">
+select CASE
+       WHEN T1.instSrvcPrflCntnt IS NOT NULL THEN T1.instSrvcPrflCntnt
+       ELSE T1.defaultSrvcPrflCntnt
+       END AS srvcPrflCntnt 
+  from (
+			select 
+					(  
+					select sspd.SRVC_PRFL_CNTNT  as srvcPrflCntnt
+					  from SV_SRVC_PRFL_D         sspd,
+					       SV_SRVC_PRFL_ATRBT_D   sspad
+					 where sspd.SRVC_PRFL_ATRBT_NM = sspad.SRVC_PRFL_ATRBT_NM
+					   and sspd.SRVC_CD            = #{srvcCd}
+					   and sspd.SRVC_PRFL_ATRBT_NM = #{srvcPrflAtrbtNm}
+					) as defaultSrvcPrflCntnt,
+					(
+					select sispd.SRVC_PRFL_CNTNT as srvcPrflCntnt
+					  from SV_INST_SRVC_PRFL_D    sispd,
+					       SV_SRVC_PRFL_ATRBT_D   sspad
+					 where sispd.SRVC_PRFL_ATRBT_NM = sspad.SRVC_PRFL_ATRBT_NM
+					   and sispd.INST_CD            = #{instCd}
+					   and sispd.SRVC_CD            = #{srvcCd}
+					   and sispd.SRVC_PRFL_ATRBT_NM = #{srvcPrflAtrbtNm}
+					) as instSrvcPrflCntnt
+			from dual
+       ) T1
+</select>
+<delete id="deleteListBySrvcCd">
+DELETE FROM sv_inst_srvc_prfl_d
+
+ WHERE srvc_cd = #{srvcCd}
+</delete>
+<select id="selectListSrvcPrflJoin" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcPrflDSelectListSrvcPrfl">
+SELECT 
+
+     #{instCd} AS instCd
+
+     , #{srvcCd} AS srvcCd
+
+     , A.SRVC_PRFL_ATRBT_NM AS srvcPrflAtrbtNm
+
+     , A.SRVC_PRFL_NM AS srvcPrflNm 
+
+     , CASE WHEN C.SRVC_PRFL_CNTNT IS NULL THEN B.SRVC_PRFL_CNTNT ELSE C.SRVC_PRFL_CNTNT END AS srvcPrflCntnt
+
+     , C.SRVC_PRFL_CNTNT AS instSrvcPrflCntnt
+
+     , CASE WHEN B.LAST_CHNG_TMSTMP IS NULL THEN 
+
+            CASE WHEN C.LAST_CHNG_TMSTMP IS NULL THEN A.LAST_CHNG_TMSTMP ELSE C.LAST_CHNG_TMSTMP END
+
+       ELSE B.LAST_CHNG_TMSTMP END AS lastChngTmstmp
+
+FROM sv_srvc_prfl_atrbt_d A
+
+     LEFT OUTER JOIN sv_srvc_prfl_d B
+
+     ON A.SRVC_PRFL_ATRBT_NM = B.SRVC_PRFL_ATRBT_NM
+
+     AND B.SRVC_CD = #{srvcCd}
+
+     LEFT OUTER JOIN sv_inst_srvc_prfl_d C
+
+     ON A.SRVC_PRFL_ATRBT_NM = C.SRVC_PRFL_ATRBT_NM
+
+     AND C.INST_CD = #{instCd}
+
+     AND C.SRVC_CD = #{srvcCd}
+
+WHERE A.ACTV_STS_CD = '01'
+</select>
+<select id="selectListBySrvcCd" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcPrflDIO">
+SELECT 
+        inst_cd AS instCd    /*기관코드*/, 
+
+        srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        srvc_prfl_atrbt_nm AS srvcPrflAtrbtNm    /*서비스프로파일속성명*/, 
+
+        srvc_prfl_cntnt AS srvcPrflCntnt    /*서비스프로파일내용*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_inst_srvc_prfl_d
+ WHERE  srvc_cd = #{srvcCd}
+</select>
+<select id="selectListByInstCd" resultType="bankware.corebanking.servicemanagement.configurator.dao.dto.SvInstSrvcPrflDIO">
+SELECT 
+        inst_cd AS instCd    /*기관코드*/, 
+
+        srvc_cd AS srvcCd    /*서비스코드*/, 
+
+        srvc_prfl_atrbt_nm AS srvcPrflAtrbtNm    /*서비스프로파일속성명*/, 
+
+        srvc_prfl_cntnt AS srvcPrflCntnt    /*서비스프로파일내용*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  sv_inst_srvc_prfl_d
+ WHERE  inst_cd = #{instCd}
+</select>
+</mapper>

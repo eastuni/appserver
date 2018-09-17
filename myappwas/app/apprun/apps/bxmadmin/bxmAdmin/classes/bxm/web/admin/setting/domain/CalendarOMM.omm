@@ -1,0 +1,10 @@
+OMM bxm.web.admin.setting.domain.CalendarOMM
+<description="">
+{
+	String domainId<length=20 description="도메인ID">;
+	String stdYear<length=4 description="기준년">;
+	String stdMonth<length=2 description="기준월">;
+	String stdDay<length=2 description="기준일">;
+	Integer dtCd<length=1 description="일자코드">;
+	Integer dayOfTheWeek<length=9 description="요일">;
+}

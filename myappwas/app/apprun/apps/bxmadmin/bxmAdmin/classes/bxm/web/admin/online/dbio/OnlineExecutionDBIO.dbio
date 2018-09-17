@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.online.dbio.OnlineExecutionDBIO">
+<!--Generated Fri Sep 08 15:44:56 KST 2017-->
+<select id="selectUrlList" resultType="bxm.web.admin.online.domain.OnlineUrlOMM">
+SELECT
+	 BATCH_URL as onlineUrl
+	,BATCH_URL_DESC as onlineUrlDesc
+FROM BXM_BATCH_URL
+WHERE USE_YN = #{useYn}
+	AND URL_TYPE_CD = #{urlTypeCd}
+</select>
+<select id="selectImageLog" resultType="bxm.web.admin.online.domain.ImageLogOMM">
+SELECT /* BXM이미지로그(01일) */ 
+       A.GUID AS guid,/*GUID*/ 
+       A.TRX_CD AS trxCd,/*거래코드*/ 
+       A.NODE_NAME AS nodeName,/*NODE명*/ 
+       A.CONTAINER_NM AS containerNm,/*컨테이너명*/ 
+       A.CONTEXT_NM AS contextNm,/*컨텍스트명*/ 
+       A.BXM_APP_ID AS bxmAppId,/*BXM어플리케이션ID*/ 
+       A.SVC_NM AS svcNm,/*서비스명*/ 
+       A.OP_NM AS opNm,/*오퍼레이션명*/ 
+       A.OMM_FQN AS ommFqn,/*입력FQN*/ 
+       A.LOG_OCCUR_DTTM AS logOccurDttm,/*로그발생일시*/ 
+       A.MSG_ENCODING_CD AS msgEncodingCd,/*전문인코딩코드*/ 
+       A.MSG_TYPE_CD AS msgTypeCd,/*전문유형코드*/ 
+       CASE MSG_TYPE_CD WHEN '1' THEN 'FLD'
+                        WHEN '2' THEN 'XML'
+                        WHEN '3' THEN 'Serialized'
+                        WHEN '4' THEN 'BIN'
+                        WHEN '5' THEN 'JSON'
+                        WHEN '6' THEN 'ETC'
+       ELSE MSG_TYPE_CD END AS msgType,
+       A.MSG_LEN AS msgLen,/*전문길이*/ 
+       A.MSG_DATA AS msgData,/*전문데이터*/ 
+       A.DUP_GUID AS dupGuid,/*중복GUID*/ 
+       A.ERR_CD AS errCd,/*에러코드*/ 
+       A.ERR_MSG_CTT AS errMsgCtt, /*에러메시지내용*/
+       A.MSG_INOUT_CD AS msgInoutCd
+FROM ${tableName} A
+WHERE A.GUID = #{guid} 
+AND A.MSG_INOUT_CD = #{msgInoutCd}
+AND A.DOMAIN_ID = #{domainId}
+</select>
+</mapper>

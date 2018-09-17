@@ -1,0 +1,21 @@
+OMM bxm.web.admin.dni.deferred.domain.BxmDniAppStatsOMM
+<description="">
+{
+	String bxmAppId<length=40 description="BXM어플리케이션ID">;
+	String modifyDttm<length=23 description="변경 일시">;
+	BigDecimal totalPkgCnt<length=22 description="총 패키지 수">;
+	BigDecimal totalTypeCnt<length=22 description="총 타입 수">;
+	BigDecimal infTypeCnt<length=22 description="인터페이스 타입 수">;
+	BigDecimal enumTypeCnt<length=22 description="ENUM 타입 수">;
+	BigDecimal abstClassTypeCnt<length=22 description="추상 클래스 타입 수">;
+	BigDecimal classTypeCnt<length=22 description="클래스 타입 수">;
+	BigDecimal allMethodCnt<length=22 description="전체 메소드 수">;
+	BigDecimal totalFieldCnt<length=22 description="총 필드 수">;
+	BigDecimal bxmSvcClassCnt<length=22 description="BXM 서비스 클래스 수">;
+	BigDecimal bxmSvcOpCnt<length=22 description="BXM 서비스 오퍼레이션 수">;
+	BigDecimal bxmBatchClassCnt<length=22 description="BXM 배치 클래스 수">;
+	BigDecimal bxmBeanClassCnt<length=22 description="BXM 빈 클래스 수">;
+	BigDecimal bxmDbioClassCnt<length=22 description="BXM DBIO 클래스 수">;
+	BigDecimal bxmOmmClassCnt<length=22 description="BXM OMM 클래스 수">;
+	BigDecimal bxmTranOpCnt<length=22 description="BXM 트랜잭션 오퍼레이션 수">;
+}

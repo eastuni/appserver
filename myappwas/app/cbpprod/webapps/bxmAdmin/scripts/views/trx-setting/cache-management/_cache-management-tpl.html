@@ -1,0 +1,130 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'trx-setting.cache-management'}}
+    <p class="desc">{{bxMsg 'trx-setting.cache-management-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i
+                class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i
+                class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap bxm-search-wrap">
+    <ul class="clr">
+        <li class="input-wrap w-32">
+            <label class="bw-label w-40">{{bxMsg 'trx-setting.cache-nm'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="cacheNm"/>
+        </li>
+        <li class="input-wrap w-32">
+            <label class="bw-label w-40">{{bxMsg 'trx-setting.table-nm'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="tableNm"/>
+        </li>
+    </ul>
+</section>
+<!--/END SEARCH AREA-->
+<!--GRID AREA-->
+<section class="bxm-grid-wrap"></section>
+<!--/END GRID AREA-->
+
+<!-- DETAIL AREA -->
+<h3 class="bw-stt add-mg-t">
+    {{bxMsg 'trx-setting.cache-management-detail'}}
+    <p class="desc bxm-detail-title"></p>
+</h3>
+<section class="bw-tool add-bd2-t bx-grid-header detail-search-wrap">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn edit-btn" title="{{bxMsg 'common.edit'}}"><i
+                class="bw-icon i-25 i-func-edit"></i></button>
+    </div>
+</section>
+<div class="bxm-detail-wrap bx-loding-wrap">
+    <section class="search-wrap clr fix-h">
+        <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'trx-setting.cache-basic-detail'}}</h4>
+            <ul class="clr">
+                <li class="w-33">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'trx-setting.cache-nm'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="cacheNm" readonly/>
+                    </div>
+                </li>
+                <li class="w-33">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'trx-setting.table-nm'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="tableNm" readonly/>
+                    </div>
+                </li>
+                <li class="w-33">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'trx-setting.use-yn'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="useYn" readonly/>
+                    </div>
+                </li>
+                
+                 <li class="w-33">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40">{{bxMsg 'trx-setting.bxm-app-id'}}</label>
+                            <input type="text" class="bw-input w-60" data-form-param="bxmAppId"/>
+                        </div>
+                    </li>
+                    <li class="w-33">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40">{{bxMsg 'trx-setting.dto-nm'}}</label>
+                            <input type="text" class="bw-input w-60" data-form-param="dtoNm"/>
+                        </div>
+                    </li>
+                    <li class="w-33"></li>
+                
+                <li class="w-66">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-20">{{bxMsg 'trx-setting.cache-desc'}}</label>
+                        <input type="text" class="bw-input w-80" data-form-param="description" readonly/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'trx-setting.cache-exec-detail'}}</h4>
+            <ul class="clr">
+                <li class="w-33">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'trx-setting.init-load-yn'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="initLoadYn" readonly/>
+                    </div>
+                </li>
+                <li class="w-66">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-20">{{bxMsg 'trx-setting.select-cndt'}}</label>
+                        <input type="text" class="bw-input w-80" data-form-param="selectCndt" readonly/>
+                    </div>
+                </li>
+            </ul>
+            <ul class="clr">
+                <li class="w-100">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-13">{{bxMsg 'trx-setting.cache-config'}}</label>
+                        <input type="text" class="bw-input w-87" data-form-param="cacheConfig" readonly/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="sub-section">
+            <h4 class="a-left">{{bxMsg 'trx-setting.cache-manager-detail'}}</h4>
+            <ul class="col-3 clr">
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'trx-setting.cache-manager-id'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="modifyUserId" readonly/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
+<!-- END DETAIL AREA -->

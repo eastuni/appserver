@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.dictionary.dao.CmCmpxAbrvtnM">
+<!--Generated Fri Jul 20 09:26:28 KST 2018-->
+<select id="selectCmpxEngAbrvtnNm" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmCmpxAbrvtnMIO" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmCmpxAbrvtnMIO">
+SELECT    /* Kor)CBP 사전의 최소단위인 영문단어 및 예외적인 약어정보 Eng)records the English word and its Exception abbreviation that composes the smallest unit of terms in CBP system */
+        MAX(ENG_WRD_NM) AS engWrdNm,     /*kor)영문단어풀네임 eng)English word full name*/
+        MAX(CMPX_ENG_ABRVTN_NM) AS cmpxEngAbrvtnNm,     /*kor)영문단어에 대한 예외 약어 eng)abbreviation of English Exception word*/
+        MAX(VRTN_ENG_ABRVTN_NM) AS vrtnEngAbrvtnNm,     /*kor)미사용 eng)not used*/
+        MAX(LAST_CHNG_TMSTMP) AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+        MAX(SITE_LBRTRY_DSCD) AS siteLbrtryDscd,     /*Kor)사이트와 연구소를 구분 하기 위한 코드. Eng)Code for identification the Laboratory and site*/
+        MAX(ACTV_STS_CD) AS actvStsCd,     /*Kor)계약약정을 체결한 채널의 구분(창구 인터넷) Eng)code that distinguishes arrangement opening channels ( branch/internet .. )*/
+        MAX(LAST_CHNG_ID) AS lastChngId,     /*Kor)최종으로 변경한 식별자를 관리 한다. Eng) It manages the end-to a change identifier.*/
+        MAX(LAST_CHNG_GUID) AS lastChngGuid    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+  FROM  cm_cmpx_abrvtn_m
+ WHERE ACTV_STS_CD ='01'
+   AND CMPX_ENG_ABRVTN_NM =   #{cmpxEngAbrvtnNm}
+</select>
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmCmpxAbrvtnMIO">
+INSERT  
+  INTO  cm_cmpx_abrvtn_m    /* Kor)CBP 사전의 최소단위인 영문단어 및 예외적인 약어정보 Eng)records the English word and its Exception abbreviation that composes the smallest unit of terms in CBP system */
+(
+  ENG_WRD_NM,     /*kor)영문단어풀네임 eng)English word full name*/
+  CMPX_ENG_ABRVTN_NM,     /*kor)영문단어에 대한 복합 약어 eng)abbreviation of English Complex word*/
+  VRTN_ENG_ABRVTN_NM,     /*kor)미사용 eng)not used*/
+  LAST_CHNG_TMSTMP,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+  SITE_LBRTRY_DSCD,     /*Kor)사이트와 연구소를 구분 하기 위한 코드. Eng)Code for identification the Laboratory and site*/
+  ACTV_STS_CD,     /*Kor)계약약정을 체결한 채널의 구분(창구 인터넷) Eng)code that distinguishes arrangement opening channels ( branch/internet .. )*/
+  LAST_CHNG_ID,     /*Kor)최종으로 변경한 식별자를 관리 한다. Eng) It manages the end-to a change identifier.*/
+  LAST_CHNG_GUID    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+)
+VALUES 
+(
+  #{engWrdNm, jdbcType=VARCHAR},     /*kor)영문단어풀네임 eng)English word full name*/
+  #{cmpxEngAbrvtnNm, jdbcType=VARCHAR},     /*kor)영문단어에 대한 복합 약어 eng)abbreviation of English Complex word*/
+  #{vrtnEngAbrvtnNm, jdbcType=VARCHAR},     /*kor)미사용 eng)not used*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+  #{siteLbrtryDscd, jdbcType=VARCHAR},     /*Kor)사이트와 연구소를 구분 하기 위한 코드. Eng)Code for identification the Laboratory and site*/
+  #{actvStsCd, jdbcType=VARCHAR},     /*Kor)계약약정을 체결한 채널의 구분(창구 인터넷) Eng)code that distinguishes arrangement opening channels ( branch/internet .. )*/
+  #{lastChngId, jdbcType=VARCHAR},     /*Kor)최종으로 변경한 식별자를 관리 한다. Eng) It manages the end-to a change identifier.*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+)
+</insert>
+<delete id="delete">
+DELETE  FROM  cm_cmpx_abrvtn_m    /* Kor)CBP 사전의 최소단위인 영문단어 및 예외적인 약어정보 Eng)records the English word and its Exception abbreviation that composes the smallest unit of terms in CBP system */
+ WHERE  ENG_WRD_NM = #{engWrdNm}
+</delete>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmCmpxAbrvtnMIO">
+UPDATE  
+        cm_cmpx_abrvtn_m    /* Kor)CBP 사전의 최소단위인 영문단어 및 예외적인 약어정보 Eng)records the English word and its Exception abbreviation that composes the smallest unit of terms in CBP system */
+   SET  CMPX_ENG_ABRVTN_NM = #{cmpxEngAbrvtnNm, jdbcType=VARCHAR}    /* kor)영문단어에 대한 복합 약어 eng)abbreviation of English Complex word */
+     , VRTN_ENG_ABRVTN_NM = #{vrtnEngAbrvtnNm, jdbcType=VARCHAR}    /* kor)미사용 eng)not used */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record. */
+     , SITE_LBRTRY_DSCD = #{siteLbrtryDscd, jdbcType=VARCHAR}    /* Kor)사이트와 연구소를 구분 하기 위한 코드. Eng)Code for identification the Laboratory and site */
+     , ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}    /* Kor)계약약정을 체결한 채널의 구분(창구 인터넷) Eng)code that distinguishes arrangement opening channels ( branch/internet .. ) */
+     , LAST_CHNG_ID = #{lastChngId, jdbcType=VARCHAR}    /* Kor)최종으로 변경한 식별자를 관리 한다. Eng) It manages the end-to a change identifier. */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record */
+ WHERE ENG_WRD_NM = #{engWrdNm}
+</update>
+<select id="selectListSrchMysql" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmCmpxAbrvtnMSelectListSrchIO">
+select A.cmpxEngAbrvtnNm AS cmpxEngAbrvtnNm
+     , MAX(A.vrtnEngAbrvtnNm) AS vrtnEngAbrvtnNm
+     , MAX(A.useLngWrdNm2) AS useLngWrdNm2
+     , A.engWrdNm AS engWrdNm
+     , MAX(A.useLngWrdNm3) AS useLngWrdNm3
+     , MAX(A.useLngWrdNm) AS useLngWrdNm
+from (
+		SELECT /* 복합약어기본 */ 
+		    sam.cmpx_eng_abrvtn_nm AS cmpxEngAbrvtnNm /*복합영문약어명*/ 
+		    , sam.vrtn_eng_abrvtn_nm AS vrtnEngAbrvtnNm /*변형영문약어명*/ 
+		    , sam.last_chng_tmstmp AS lastChngTmstmp /*최종변경일시*/ 
+		    , sam.last_chng_guid AS lastChngGuid /*최종변경GUID*/ 
+		    , case when mltd.LNG_CD = #{lngCd2} then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm2
+		    , sam.ENG_WRD_NM as engWrdNm
+		    , case when mltd.LNG_CD = #{lngCd3} then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm3
+		    , case when mltd.LNG_CD = #{lngCd}  then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm
+		FROM cm_cmpx_abrvtn_m sam LEFT OUTER JOIN (
+		         select * 
+		         from cm_mlt_lng_trnsltn_d mltd 
+		         where mltd.trnsfr_knd_cd in ( 'CMPX_ABRVTN_NAME' ) /*다국어 약어기준*/ 
+		             ) mltd 
+		             ON(sam.cmpx_Eng_Abrvtn_Nm = mltd.trnsfr_origin_key_val)
+		where sam.ACTV_STS_CD = '01'
+		    <if test="engWrdNm != null and engWrdNm != ''"> 
+		        and LOWER(sam.eng_wrd_nm) like #{engWrdNm}
+		    </if> 
+		    <if test="cmpxEngAbrvtnNm != null and cmpxEngAbrvtnNm != ''"> 
+		        and LOWER(sam.cmpx_Eng_Abrvtn_Nm) like #{cmpxEngAbrvtnNm}
+		    </if> 
+		    <if test="useLngWrdNm != null and useLngWrdNm != ''"> 
+		        and LOWER(mltd.trnsfr_rslt_val) like #{useLngWrdNm}
+		    </if>
+) A 
+GROUP BY A.cmpxEngAbrvtnNm, A.engWrdNm
+</select>
+<select id="selectListSrchOracle" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmCmpxAbrvtnMSelectListSrchIO">
+select A.cmpxEngAbrvtnNm AS cmpxEngAbrvtnNm
+     , MAX(A.vrtnEngAbrvtnNm) AS vrtnEngAbrvtnNm
+     , MAX(A.useLngWrdNm2) AS useLngWrdNm2
+     , A.engWrdNm AS engWrdNm
+     , MAX(A.useLngWrdNm3) AS useLngWrdNm3
+     , MAX(A.useLngWrdNm) AS useLngWrdNm
+from (
+		SELECT /* 복합약어기본 */ 
+		    sam.cmpx_eng_abrvtn_nm AS cmpxEngAbrvtnNm /*복합영문약어명*/ 
+		    , sam.vrtn_eng_abrvtn_nm AS vrtnEngAbrvtnNm /*변형영문약어명*/ 
+		    , sam.last_chng_tmstmp AS lastChngTmstmp /*최종변경일시*/ 
+		    , sam.last_chng_guid AS lastChngGuid /*최종변경GUID*/ 
+		    , case when mltd.LNG_CD = #{lngCd2} then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm2
+		    , sam.ENG_WRD_NM as engWrdNm
+		    , case when mltd.LNG_CD = #{lngCd3} then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm3
+		    , case when mltd.LNG_CD = #{lngCd}  then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm
+		FROM cm_cmpx_abrvtn_m sam LEFT OUTER JOIN ( select * 
+		         from cm_mlt_lng_trnsltn_d mltd 
+		         where mltd.trnsfr_knd_cd in ( 'CMPX_ABRVTN_NAME' ) /*다국어 약어기준*/ 
+		             ) mltd 
+		             ON(sam.cmpx_Eng_Abrvtn_Nm = mltd.trnsfr_origin_key_val)
+		where sam.ACTV_STS_CD = '01'
+		    <if test="engWrdNm != null and engWrdNm != ''"> 
+		        and LOWER(sam.eng_wrd_nm) like  #{engWrdNm}
+		    </if> 
+		    <if test="cmpxEngAbrvtnNm != null and cmpxEngAbrvtnNm != ''"> 
+		        and LOWER(sam.cmpx_Eng_Abrvtn_Nm) like  #{cmpxEngAbrvtnNm}
+		    </if> 
+		    <if test="useLngWrdNm != null and useLngWrdNm != ''"> 
+		        and LOWER(mltd.trnsfr_rslt_val) like #{useLngWrdNm}
+		    </if>
+) A 
+GROUP BY A.cmpxEngAbrvtnNm, A.engWrdNm
+</select>
+<select id="selectCmpxAbrvtn" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmCmpxAbrvtnMIO" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmCmpxAbrvtnMIO">
+SELECT    /* Kor)CBP 사전의 최소단위인 영문단어 및 예외적인 약어정보 Eng)records the English word and its Exception abbreviation that composes the smallest unit of terms in CBP system */
+        MAX(ENG_WRD_NM) AS engWrdNm,     /*kor)영문단어풀네임 eng)English word full name*/
+        MAX(CMPX_ENG_ABRVTN_NM) AS cmpxEngAbrvtnNm,     /*kor)영문단어에 대한 예외 약어 eng)abbreviation of English Exception word*/
+        MAX(VRTN_ENG_ABRVTN_NM) AS vrtnEngAbrvtnNm,     /*kor)미사용 eng)not used*/
+        MAX(LAST_CHNG_TMSTMP) AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+        MAX(SITE_LBRTRY_DSCD) AS siteLbrtryDscd,     /*Kor)사이트와 연구소를 구분 하기 위한 코드. Eng)Code for identification the Laboratory and site*/
+        MAX(ACTV_STS_CD) AS actvStsCd,     /*Kor)계약약정을 체결한 채널의 구분(창구 인터넷) Eng)code that distinguishes arrangement opening channels ( branch/internet .. )*/
+        MAX(LAST_CHNG_ID) AS lastChngId,     /*Kor)최종으로 변경한 식별자를 관리 한다. Eng) It manages the end-to a change identifier.*/
+        MAX(LAST_CHNG_GUID) AS lastChngGuid    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+  FROM  cm_cmpx_abrvtn_m
+ WHERE ACTV_STS_CD ='01'
+   AND  UPPER( CMPX_ENG_ABRVTN_NM) = UPPER(  #{cmpxEngAbrvtnNm} )
+</select>
+<select id="selectListCmpxAbrvtnNm" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmCmpxAbrvtnMIO" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmCmpxAbrvtnMIO">
+SELECT    /* Kor)CBP 사전의 최소단위인 영문단어 및 예외적인 약어정보 Eng)records the English word and its Exception abbreviation that composes the smallest unit of terms in CBP system */
+        ENG_WRD_NM AS engWrdNm,     /*kor)영문단어풀네임 eng)English word full name*/
+        CMPX_ENG_ABRVTN_NM AS cmpxEngAbrvtnNm,     /*kor)영문단어에 대한 복합 약어 eng)abbreviation of English Complex word*/
+        VRTN_ENG_ABRVTN_NM AS vrtnEngAbrvtnNm,     /*kor)미사용 eng)not used*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+        SITE_LBRTRY_DSCD AS siteLbrtryDscd,     /*Kor)사이트와 연구소를 구분 하기 위한 코드. Eng)Code for identification the Laboratory and site*/
+        ACTV_STS_CD AS actvStsCd,     /*Kor)계약약정을 체결한 채널의 구분(창구 인터넷) Eng)code that distinguishes arrangement opening channels ( branch/internet .. )*/
+        LAST_CHNG_ID AS lastChngId,     /*Kor)최종으로 변경한 식별자를 관리 한다. Eng) It manages the end-to a change identifier.*/
+        LAST_CHNG_GUID AS lastChngGuid    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+  FROM  cm_cmpx_abrvtn_m
+ WHERE UPPER(CMPX_ENG_ABRVTN_NM) = UPPER(#{cmpxEngAbrvtnNm})
+</select>
+<select id="selectListCmpxAbrvtn" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmCmpxAbrvtnMIO" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmCmpxAbrvtnMIO">
+SELECT    /* Kor)CBP 사전의 최소단위인 영문단어 및 예외적인 약어정보 Eng)records the English word and its Exception abbreviation that composes the smallest unit of terms in CBP system */
+        LOWER( ENG_WRD_NM)  AS engWrdNm,     /*kor)영문단어풀네임 eng)English word full name*/
+        LOWER (CMPX_ENG_ABRVTN_NM) AS cmpxEngAbrvtnNm,     /*kor)영문단어에 대한 예외 약어 eng)abbreviation of English Exception word*/
+        VRTN_ENG_ABRVTN_NM AS vrtnEngAbrvtnNm,     /*kor)미사용 eng)not used*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+        SITE_LBRTRY_DSCD AS siteLbrtryDscd,     /*Kor)사이트와 연구소를 구분 하기 위한 코드. Eng)Code for identification the Laboratory and site*/
+        ACTV_STS_CD AS actvStsCd,     /*Kor)계약약정을 체결한 채널의 구분(창구 인터넷) Eng)code that distinguishes arrangement opening channels ( branch/internet .. )*/
+        LAST_CHNG_ID AS lastChngId,     /*Kor)최종으로 변경한 식별자를 관리 한다. Eng) It manages the end-to a change identifier.*/
+        LAST_CHNG_GUID AS lastChngGuid    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+  FROM  cm_cmpx_abrvtn_m
+ WHERE ACTV_STS_CD ='01'
+</select>
+<select id="select" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmCmpxAbrvtnMIO" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmCmpxAbrvtnMIO">
+SELECT   
+        ENG_WRD_NM AS engWrdNm,     /*kor)영문단어풀네임 eng)English word full name*/
+        CMPX_ENG_ABRVTN_NM AS cmpxEngAbrvtnNm,     /*kor)영문단어에 대한 복합 약어 eng)abbreviation of English Complex word*/
+        VRTN_ENG_ABRVTN_NM AS vrtnEngAbrvtnNm,     /*kor)미사용 eng)not used*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+        SITE_LBRTRY_DSCD AS siteLbrtryDscd,     /*Kor)사이트와 연구소를 구분 하기 위한 코드. Eng)Code for identification the Laboratory and site*/
+        ACTV_STS_CD AS actvStsCd,     /*Kor)계약약정을 체결한 채널의 구분(창구 인터넷) Eng)code that distinguishes arrangement opening channels ( branch/internet .. )*/
+        LAST_CHNG_ID AS lastChngId,     /*Kor)최종으로 변경한 식별자를 관리 한다. Eng) It manages the end-to a change identifier.*/
+        LAST_CHNG_GUID AS lastChngGuid    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+FROM  cm_cmpx_abrvtn_m
+ WHERE ENG_WRD_NM = #{engWrdNm}
+</select>
+</mapper>

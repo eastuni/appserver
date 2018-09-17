@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.dni.deferred.dbio.MetricsDBIO">
+<!--Generated Wed Dec 06 15:02:30 KST 2017-->
+<select id="selectBxmAppList" resultType="bxm.web.admin.dni.analyze.domain.BxmAppOMM">
+SELECT /*  BXM어플리케이션 */ 
+       BXM_APP_ID AS bxmAppId,/*BXM어플리케이션ID*/ 
+       BXM_APP_DESC AS bxmAppDesc,/*BXM어플리케이션설명*/ 
+       BXM_APP_TYPE_CD AS bxmAppTypeCd,/*BXM 어플리케이션 타입 코드*/ 
+       BXM_APP_SHARED_YN AS bxmAppSharedYn,/*BXM 어플리케이션 공유 여부*/ 
+       BXM_REF_APP_LIST AS bxmRefAppList,/*BXM 참조 어플리케이션 목록*/ 
+       USE_YN AS useYn,/*사용여부*/ 
+       BIZ_PRE_PROC_NM AS bizPreProcNm,/*업무선처리명*/ 
+       BIZ_POST_PROC_NM AS bizPostProcNm,/*업무후처리명*/ 
+       REG_USER_ID AS regUserId,/*등록 사용자 ID*/ 
+       REG_OCCUR_DTTM AS regOccurDttm,/*등록발생일시*/ 
+       MODIFY_USER_ID AS modifyUserId,/*변경 사용자 ID*/ 
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경발생일시*/
+  FROM BXM_APP
+</select>
+<update id="mergeBxmAppStats">
+MERGE INTO bxm_dni_app_stats /*BXM 어플리케이션 통계*/
+            USING dual
+ON          ( BXM_APP_ID = #{bxmAppId} )
+WHEN MATCHED THEN 
+     UPDATE 
+        SET MODIFY_DTTM = #{modifyDttm} /* 변경 일시 */,
+            TOTAL_PKG_CNT = (SELECT COUNT(PKG_NM)
+                            FROM (
+                              SELECT PKG_NM
+                              FROM BXM_DNI_RES
+                              WHERE BXM_APP_ID = #{bxmAppId}
+                              GROUP BY PKG_NM)) /* 총 패키지 수 */,
+            TOTAL_TYPE_CNT = (SELECT COUNT(*)
+                              FROM BXM_DNI_RES
+                              WHERE BXM_APP_ID = #{bxmAppId}) /* 총 타입 수 */,
+            INF_TYPE_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND CLASS_TYPE_CD = 'INF') /* 인터페이스 타입 수 */,
+            ENUM_TYPE_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND CLASS_TYPE_CD = 'ENUM') /* ENUM 타입 수 */,
+            ABST_CLASS_TYPE_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND CLASS_TYPE_CD = 'ABSTRACT') /* 추상 클래스 타입 수 */,
+            CLASS_TYPE_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND CLASS_TYPE_CD = 'CLASS') /* 클래스 타입 수 */,
+            ALL_METHOD_CNT = (SELECT COUNT(METHOD_ID)
+                            FROM BXM_DNI_METHOD
+                            WHERE BXM_APP_ID = #{bxmAppId}) /* 전체 메소드 수 */,
+            TOTAL_FIELD_CNT = (SELECT SUM(FIELD_CNT)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}) /* 총 필드 수 */,
+            BXM_SVC_CLASS_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND EXEC_TYPE_CD = 1) /* BXM 서비스 클래스 수 */,
+            BXM_SVC_OP_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_METHOD
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND METHOD_EXEC_TYPE_CD = 1) /* BXM 서비스 오퍼레이션 수 */,
+            BXM_BATCH_CLASS_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND EXEC_TYPE_CD = 3) /* BXM 배치 클래스 수 */,
+            BXM_BEAN_CLASS_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND EXEC_TYPE_CD = 2) /* BXM 빈 클래스 수 */,
+            BXM_DBIO_CLASS_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND EXEC_TYPE_CD = 4) /* BXM DBIO 클래스 수 */,
+            BXM_OMM_CLASS_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND EXEC_TYPE_CD = 5) /* BXM OMM 클래스 수 */,
+            BXM_TRAN_OP_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_METHOD
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND TRAN_YN = 'Y') /* BXM 트랜잭션 오퍼레이션 수 */
+WHEN NOT MATCHED THEN 
+     INSERT
+     (
+         BXM_APP_ID /*BXM어플리케이션ID*/,
+         MODIFY_DTTM /*변경 일시*/,
+         TOTAL_PKG_CNT /*총 패키지 수*/,
+         TOTAL_TYPE_CNT /*총 타입 수*/,
+         INF_TYPE_CNT /*인터페이스 타입 수*/,
+         ENUM_TYPE_CNT /*ENUM 타입 수*/,
+         ABST_CLASS_TYPE_CNT /*추상 클래스 타입 수*/,
+         CLASS_TYPE_CNT /*클래스 타입 수*/,
+         ALL_METHOD_CNT /*전체 메소드 수*/,
+         TOTAL_FIELD_CNT /*총 필드 수*/,
+         BXM_SVC_CLASS_CNT /*BXM 서비스 클래스 수*/,
+         BXM_SVC_OP_CNT /*BXM 서비스 오퍼레이션 수*/,
+         BXM_BATCH_CLASS_CNT /*BXM 배치 클래스 수*/,
+         BXM_BEAN_CLASS_CNT /*BXM 빈 클래스 수*/,
+         BXM_DBIO_CLASS_CNT /*BXM DBIO 클래스 수*/,
+         BXM_OMM_CLASS_CNT /*BXM OMM 클래스 수*/,
+         BXM_TRAN_OP_CNT /*BXM 트랜잭션 오퍼레이션 수*/ 
+     ) 
+     VALUES 
+     (
+          #{bxmAppId} /*BXM어플리케이션ID*/,
+         #{modifyDttm} /*변경 일시*/,
+         (SELECT COUNT(PKG_NM)
+         FROM (
+           SELECT PKG_NM
+           FROM BXM_DNI_RES
+           WHERE BXM_APP_ID = #{bxmAppId}
+           GROUP BY PKG_NM)) /*총 패키지 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}) /*총 타입 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND CLASS_TYPE_CD = 'INF') /*인터페이스 타입 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND CLASS_TYPE_CD = 'ENUM') /*ENUM 타입 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND CLASS_TYPE_CD = 'ABSTRACT') /*추상 클래스 타입 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND CLASS_TYPE_CD = 'CLASS') /*클래스 타입 수*/,
+         (SELECT COUNT(METHOD_ID)
+          FROM BXM_DNI_METHOD
+          WHERE BXM_APP_ID = #{bxmAppId}) /*전체 메소드 수*/,
+         (SELECT SUM(FIELD_CNT)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}) /*총 필드 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND EXEC_TYPE_CD = 1) /*BXM 서비스 클래스 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_METHOD
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND METHOD_EXEC_TYPE_CD = 1) /*BXM 서비스 오퍼레이션 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND EXEC_TYPE_CD = 3) /*BXM 배치 클래스 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND EXEC_TYPE_CD = 2) /*BXM 빈 클래스 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND EXEC_TYPE_CD = 4) /*BXM DBIO 클래스 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND EXEC_TYPE_CD = 5) /*BXM OMM 클래스 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_METHOD
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND TRAN_YN = 'Y') /*BXM 트랜잭션 오퍼레이션 수*/ 
+     )
+</update>
+<update databaseId="mysql" id="mergeBxmAppStats">
+INSERT INTO BXM_DNI_APP_STATS
+	(
+         BXM_APP_ID /*BXM어플리케이션ID*/,
+         MODIFY_DTTM /*변경 일시*/,
+         TOTAL_PKG_CNT /*총 패키지 수*/,
+         TOTAL_TYPE_CNT /*총 타입 수*/,
+         INF_TYPE_CNT /*인터페이스 타입 수*/,
+         ENUM_TYPE_CNT /*ENUM 타입 수*/,
+         ABST_CLASS_TYPE_CNT /*추상 클래스 타입 수*/,
+         CLASS_TYPE_CNT /*클래스 타입 수*/,
+         ALL_METHOD_CNT /*전체 메소드 수*/,
+         TOTAL_FIELD_CNT /*총 필드 수*/,
+         BXM_SVC_CLASS_CNT /*BXM 서비스 클래스 수*/,
+         BXM_SVC_OP_CNT /*BXM 서비스 오퍼레이션 수*/,
+         BXM_BATCH_CLASS_CNT /*BXM 배치 클래스 수*/,
+         BXM_BEAN_CLASS_CNT /*BXM 빈 클래스 수*/,
+         BXM_DBIO_CLASS_CNT /*BXM DBIO 클래스 수*/,
+         BXM_OMM_CLASS_CNT /*BXM OMM 클래스 수*/,
+         BXM_TRAN_OP_CNT /*BXM 트랜잭션 오퍼레이션 수*/ 
+     ) 
+	 VALUES 
+	 (
+         #{bxmAppId} /*BXM어플리케이션ID*/,
+         #{modifyDttm} /*변경 일시*/,
+         (SELECT COUNT(a.PKG_NM)
+         FROM (
+           SELECT PKG_NM
+           FROM BXM_DNI_RES
+           WHERE BXM_APP_ID = #{bxmAppId}
+           GROUP BY PKG_NM) a) /*총 패키지 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}) /*총 타입 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND CLASS_TYPE_CD = 'INF') /*인터페이스 타입 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND CLASS_TYPE_CD = 'ENUM') /*ENUM 타입 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND CLASS_TYPE_CD = 'ABSTRACT') /*추상 클래스 타입 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND CLASS_TYPE_CD = 'CLASS') /*클래스 타입 수*/,
+         (SELECT COUNT(METHOD_ID)
+          FROM BXM_DNI_METHOD
+          WHERE BXM_APP_ID = #{bxmAppId}) /*전체 메소드 수*/,
+         (SELECT SUM(FIELD_CNT)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}) /*총 필드 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND EXEC_TYPE_CD = 1) /*BXM 서비스 클래스 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_METHOD
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND METHOD_EXEC_TYPE_CD = 1) /*BXM 서비스 오퍼레이션 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND EXEC_TYPE_CD = 3) /*BXM 배치 클래스 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND EXEC_TYPE_CD = 2) /*BXM 빈 클래스 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND EXEC_TYPE_CD = 4) /*BXM DBIO 클래스 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_RES
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND EXEC_TYPE_CD = 5) /*BXM OMM 클래스 수*/,
+         (SELECT COUNT(*)
+          FROM BXM_DNI_METHOD
+          WHERE BXM_APP_ID = #{bxmAppId}
+            AND TRAN_YN = 'Y') /*BXM 트랜잭션 오퍼레이션 수*/ 
+     )
+ON DUPLICATE KEY
+UPDATE 
+            MODIFY_DTTM = #{modifyDttm} /* 변경 일시 */,
+            TOTAL_PKG_CNT = (SELECT COUNT(a.PKG_NM)
+                            FROM (
+                              SELECT PKG_NM
+                              FROM BXM_DNI_RES
+                              WHERE BXM_APP_ID = #{bxmAppId}
+                              GROUP BY PKG_NM) a) /* 총 패키지 수 */,
+            TOTAL_TYPE_CNT = (SELECT COUNT(*)
+                              FROM BXM_DNI_RES
+                              WHERE BXM_APP_ID = #{bxmAppId}) /* 총 타입 수 */,
+            INF_TYPE_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND CLASS_TYPE_CD = 'INF') /* 인터페이스 타입 수 */,
+            ENUM_TYPE_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND CLASS_TYPE_CD = 'ENUM') /* ENUM 타입 수 */,
+            ABST_CLASS_TYPE_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND CLASS_TYPE_CD = 'ABSTRACT') /* 추상 클래스 타입 수 */,
+            CLASS_TYPE_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND CLASS_TYPE_CD = 'CLASS') /* 클래스 타입 수 */,
+            ALL_METHOD_CNT = (SELECT COUNT(METHOD_ID)
+                            FROM BXM_DNI_METHOD
+                            WHERE BXM_APP_ID = #{bxmAppId}) /* 전체 메소드 수 */,
+            TOTAL_FIELD_CNT = (SELECT SUM(FIELD_CNT)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}) /* 총 필드 수 */,
+            BXM_SVC_CLASS_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND EXEC_TYPE_CD = 1) /* BXM 서비스 클래스 수 */,
+            BXM_SVC_OP_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_METHOD
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND METHOD_EXEC_TYPE_CD = 1) /* BXM 서비스 오퍼레이션 수 */,
+            BXM_BATCH_CLASS_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND EXEC_TYPE_CD = 3) /* BXM 배치 클래스 수 */,
+            BXM_BEAN_CLASS_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND EXEC_TYPE_CD = 2) /* BXM 빈 클래스 수 */,
+            BXM_DBIO_CLASS_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND EXEC_TYPE_CD = 4) /* BXM DBIO 클래스 수 */,
+            BXM_OMM_CLASS_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_RES
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND EXEC_TYPE_CD = 5) /* BXM OMM 클래스 수 */,
+            BXM_TRAN_OP_CNT = (SELECT COUNT(*)
+                            FROM BXM_DNI_METHOD
+                            WHERE BXM_APP_ID = #{bxmAppId}
+                              AND TRAN_YN = 'Y') /* BXM 트랜잭션 오퍼레이션 수 */
+</update>
+</mapper>

@@ -1,0 +1,121 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'scheduler.dashboard'}}
+    <p class="desc">{{bxMsg 'scheduler.dashboard-msg'}}</p>
+    <div class="f-r">
+        <label class="desc schedule-date">{{bxMsg 'scheduler.schedule-date'}} :</label>
+        <select class="bw-input ipt-select schedule-date-select"></select>
+        <select class="bw-input ipt-select system-id-select"></select>
+        <select class="bw-input ipt-select reload-interval-select">
+            <option value="">{{bxMsg 'common.no-auto-refresh'}}</option>
+            <option value="10000">10{{bxMsg 'common.second'}}</option>
+            <option value="30000" selected>30{{bxMsg 'common.second'}}</option>
+            <option value="60000">60{{bxMsg 'common.second'}}</option>
+        </select>
+        <button type="button" class="bw-btn refresh-btn" title="{{bxMsg 'common.refresh'}}"><i class="bw-icon i-25 i-func-refresh"></i></button>
+    </div>
+</h2>
+<!--/END BW-TITLE-->
+<!--MODULE AREA * 레이아웃용 모듈영역-->
+<div class="module-wrap md-db">
+    <div class="module w-30">
+        <div class="module-inner h-unit add-bg">
+            <h3 class="db-tt">{{bxMsg 'scheduler.schedule-registration-status'}}</h3>
+            <div class="db-status schedule-registration-status-wrap">
+                <dl>
+                    <dt class="a-center">
+                        {{bxMsg 'scheduler.total-schedule-count'}}
+                        <span class="l-num" data-form-param="totalSchedule">0</span>
+                    </dt>
+                    <dd>
+                        <i class="bw-icon icon-status i-30 i-complete"></i>
+                        <span class="status-tt">{{bxMsg 'common.normal-completion'}}</span>
+                        <span class="m-num f-r" data-form-param="completeCnt">0</span>
+                    </dd>
+                    <dd>
+                        <i class="bw-icon icon-status i-30 i-waiting"></i>
+                        <span class="status-tt">{{bxMsg 'common.waiting'}}</span>
+                        <span class="m-num f-r" data-form-param="waitCnt">0</span>
+                    </dd>
+                    <dd>
+                        <i class="bw-icon icon-status i-30 i-run"></i>
+                        <span class="status-tt">{{bxMsg 'common.in-progress'}}</span>
+                        <span class="m-num f-r" data-form-param="execCnt">0</span>
+                    </dd>
+                    <dd>
+                        <i class="bw-icon icon-status i-30 i-pause"></i>
+                        <span class="status-tt">{{bxMsg 'common.pending'}}</span>
+                        <span class="m-num f-r" data-form-param="pendingCnt">0</span>
+                    </dd>
+                    <dd>
+                        <i class="bw-icon icon-status i-30 i-error"></i>
+                        <span class="status-tt">{{bxMsg 'common.error'}}</span>
+                        <span class="m-num f-r" data-form-param="errorCnt">0</span>
+                    </dd>
+                    <dd>
+                        <i class="bw-icon icon-status i-30 i-delay-start"></i>
+                        <span class="status-tt">{{bxMsg 'common.start-delay'}}</span>
+                        <span class="m-num f-r" data-form-param="startDelayCnt">0</span>
+                    </dd>
+                    <dd>
+                        <i class="bw-icon icon-status i-30 i-delay-end"></i>
+                        <span class="status-tt">{{bxMsg 'common.end-delay'}}</span>
+                        <span class="m-num f-r" data-form-param="endDelayCnt">0</span>
+                    </dd>
+                    <dd>
+                        <i class="bw-icon icon-status i-30 i-stop"></i>
+                        <span class="status-tt">{{bxMsg 'common.pause'}}</span>
+                        <span class="m-num f-r" data-form-param="suspendCnt">0</span>
+                    </dd>
+                    <dd>
+                        <i class="bw-icon icon-status i-30 i-unknown"></i>
+                        <span class="status-tt">{{bxMsg 'common.unknown'}}</span>
+                        <span class="m-num f-r" data-form-param="unknownCnt">0</span>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="module w-70">
+        <div class="module-inner md-lc">
+            <h3 class="db-tt">{{bxMsg 'scheduler.in-progress-job-status'}}</h3>
+            <canvas class="bw-chart chart-l job-status-in-progress-chart"></canvas>
+        </div>
+    </div>
+    <div class="module w-70">
+        <div class="module-inner md-lc">
+            <h3 class="db-tt">{{bxMsg 'scheduler.event-list'}}
+             	<div class="fix-r">
+					<select class="bw-input ipt-select a-right event-max-count-select">
+						<option value="10">10</option>
+						<option value="20">20</option>
+						<option value="30">30</option>
+					</select>
+					<select class="bw-input ipt-select a-right importance-code-select"></select>
+					<select class="bw-input ipt-select a-right event-occur-type-code-select"></select>
+				</div>
+            </h3>
+            <div class="bw-grid clr-mg add-bd2-t grid-header-no-border grid-body-no-border event-list-grid-wrap"></div>
+        </div>
+    </div>
+    <div class="module w-70">
+        <div class="module-inner hourly-schedule-chart-loading-bar">
+            <h3 class="db-tt">{{bxMsg 'scheduler.time-based-schedule-execution-status'}}
+            <span class="h3-sub-title hourly-standard-time"></span>
+                <select class="bw-input ipt-select fix-r" data-form-param="period">
+                    <option value="1">{{bxMsg 'app-deploy.1-hour'}}</option>
+                    <option value="2" selected>{{bxMsg 'app-deploy.2-hour'}}</option>
+                    <option value="4">{{bxMsg 'app-deploy.4-hour'}}</option>
+                </select>
+            </h3>
+            <canvas class="bw-chart chart-l hourly-schedule-execution-status-chart"></canvas>
+        </div>
+    </div>
+    <div class="module w-30">
+        <div class="module-inner md-lc">
+            <h3 class="db-tt">{{bxMsg 'scheduler.execution-count-per-node'}}</h3>
+            <canvas class="bw-chart chart-m execution-count-per-node-chart"></canvas>
+        </div>
+    </div>
+</div>
+<!--/END MODULE AREA-->

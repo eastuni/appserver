@@ -1,0 +1,12 @@
+OMM bxm.web.admin.batch.domain.BatchGroupOMM
+<description="BatchGroupOMM">
+{
+	String jobGrpId<length=40 description="배치작업그룹ID">;
+	String jobGrpNm<length=128 description="배치작업그룹명">;
+	String useYn<length=1 description="사용여부">;
+	String nodeMaxExecValidYn<length=1 description="NODE 최대 실행 검증 여부">;
+	Integer nodeMaxExecCnt<length=3 description="NODE 최대 실행 수">;
+	String sysMaxExecValidYn<length=1 description="시스템 최대 실행 검증 여부">;
+	Integer sysMaxExecCnt<length=3 description="시스템 최대 실행 수">;
+	String domainId<length=14 description="도메인 ID">;
+}

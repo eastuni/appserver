@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.dictionary.dao.CmStdAbrvtnM">
+<!--Generated Thu Aug 02 14:42:58 KST 2018-->
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmStdAbrvtnMIO">
+INSERT  
+
+  INTO  cm_std_abrvtn_m    /* 표준약어기본 */
+
+(
+
+  eng_wrd_nm    /*영문단어명*/, 
+
+  std_eng_abrvtn_nm    /*표준영문약어명*/, 
+
+  vrtn_eng_abrvtn_nm    /*변형영문약어명*/, 
+
+  last_chng_tmstmp    /*최종변경일시*/, 
+
+  LAST_CHNG_ID, 
+
+  SITE_LBRTRY_DSCD,
+
+  ACTV_STS_CD /* 활동상태코드 */,
+
+  last_chng_guid    /*최종변경GUID*/
+
+)
+
+VALUES 
+
+(
+
+  #{engWrdNm, jdbcType=VARCHAR}    /*영문단어명*/, 
+
+  #{stdEngAbrvtnNm, jdbcType=VARCHAR}    /*표준영문약어명*/, 
+
+  #{vrtnEngAbrvtnNm, jdbcType=VARCHAR}    /*변형영문약어명*/, 
+
+  #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경일시*/, 
+
+  #{lastChngId,jdbcType=VARCHAR},
+
+  #{siteLbrtryDscd,jdbcType=VARCHAR},
+
+  #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/,
+
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+
+)
+</insert>
+<select id="selectEngWrdNm" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmStdAbrvtnMIO">
+SELECT  /* 표준약어기본 */
+
+        eng_wrd_nm AS engWrdNm    /*영문단어명*/, 
+
+        std_eng_abrvtn_nm AS stdEngAbrvtnNm    /*표준영문약어명*/, 
+
+        vrtn_eng_abrvtn_nm AS vrtnEngAbrvtnNm    /*변형영문약어명*/, 
+
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+
+        SITE_LBRTRY_DSCD AS siteLbrtryDscd /* 사이트연구소구분코드 */,     
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_std_abrvtn_m
+
+ WHERE  std_eng_abrvtn_nm = #{stdEngAbrvtnNm}
+
+ AND ACTV_STS_CD = '01'
+</select>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmStdAbrvtnMIO">
+UPDATE  cm_std_abrvtn_m    /* 표준약어기본 */
+   SET  std_eng_abrvtn_nm = #{stdEngAbrvtnNm, jdbcType=VARCHAR}    /* 표준영문약어명 */, 
+        vrtn_eng_abrvtn_nm = #{vrtnEngAbrvtnNm, jdbcType=VARCHAR}    /* 변형영문약어명 */, 
+        last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */, 
+        SITE_LBRTRY_DSCD = #{siteLbrtryDscd, jdbcType=VARCHAR}    /* 사이트연구소구분코드 */, 
+        ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/,
+        LAST_CHNG_ID = #{lastChngId, jdbcType=VARCHAR},
+        last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE  eng_wrd_nm = #{engWrdNm, jdbcType=VARCHAR}
+</update>
+<delete id="delete">
+DELETE FROM cm_std_abrvtn_m
+
+ WHERE eng_wrd_nm = #{engWrdNm}
+</delete>
+<update id="updateActvStsCd" parameterType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmStdAbrvtnMIO">
+UPDATE cm_std_abrvtn_m    /* 표준약어기본 */
+   SET  ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/
+        , SITE_LBRTRY_DSCD = #{siteLbrtryDscd, jdbcType=VARCHAR}  /*사이트연구소구분코드*/
+        , last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+        , LAST_CHNG_ID = #{lastChngId, jdbcType=VARCHAR}
+        , last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE  eng_wrd_nm = #{engWrdNm, jdbcType=VARCHAR}
+</update>
+<select id="selectListSrchTotalCount" resultType="java.lang.Integer">
+select count(1) AS cnt
+
+	from (
+			SELECT /* 표준약어기본 */ 
+			    sam.std_eng_abrvtn_nm AS stdEngAbrvtnNm /*표준영문약어명*/ 
+			FROM cm_std_abrvtn_m sam 
+				LEFT OUTER JOIN ( select * 
+								            from cm_mlt_lng_trnsltn_d mltd 					
+								         where mltd.trnsfr_knd_cd in ( 'ABRVTN_NAME' ) /*다국어 약어기준*/ 
+								             ) mltd
+				 ON(sam.std_eng_abrvtn_nm = mltd.trnsfr_origin_key_val)
+
+			where sam.ACTV_STS_CD = '01'
+			
+			    <if test="engWrdNm != null and engWrdNm != ''"> 
+			        and sam.eng_wrd_nm like CONCAT (#{engWrdNm} ,'%') 
+			    </if> 
+
+			    <if test="stdEngAbrvtnNm != null and stdEngAbrvtnNm != ''"> 
+			        and sam.std_eng_abrvtn_nm like CONCAT ( #{stdEngAbrvtnNm} , '%') 
+			    </if> 
+
+			    <if test="useLngWrdNm != null and useLngWrdNm != ''"> 
+			        and mltd.trnsfr_rslt_val like CONCAT (#{useLngWrdNm},'%') 
+			    </if>
+			GROUP BY sam.std_eng_abrvtn_nm    
+	) A
+</select>
+<select id="selectListSrchOracle" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmStdAbrvtnMSelectListSrchIO">
+select A.stdEngAbrvtnNm AS stdEngAbrvtnNm
+
+     , MAX(A.vrtnEngAbrvtnNm) AS vrtnEngAbrvtnNm
+
+     , MAX(A.lastChngTmstmp) AS lastChngTmstmp
+
+     , MAX(A.lastChngGuid) AS lastChngGuid
+
+     , MAX(A.useLngWrdNm2) AS useLngWrdNm2
+
+     , A.engWrdNm AS engWrdNm
+
+     , MAX(A.useLngWrdNm3) AS useLngWrdNm3
+
+     , MAX(A.useLngWrdNm) AS useLngWrdNm
+
+from (
+
+		SELECT /* 표준약어기본 */ 
+
+		    sam.std_eng_abrvtn_nm AS stdEngAbrvtnNm /*표준영문약어명*/ 
+
+		    , sam.vrtn_eng_abrvtn_nm AS vrtnEngAbrvtnNm /*변형영문약어명*/ 
+
+		    , sam.last_chng_tmstmp AS lastChngTmstmp /*최종변경일시*/ 
+
+		    , sam.last_chng_guid AS lastChngGuid /*최종변경GUID*/ 
+
+		    , case when mltd.lng_cd = #{lngCd2} then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm2
+
+		    , sam.eng_wrd_nm as engWrdNm
+
+		    , case when mltd.lng_cd = #{lngCd3} then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm3
+
+		    , case when mltd.lng_cd = #{lngCd} then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm
+
+		FROM cm_std_abrvtn_m sam LEFT OUTER JOIN ( select * 
+
+		         from cm_mlt_lng_trnsltn_d mltd 
+
+		         where mltd.trnsfr_knd_cd in ( 'ABRVTN_NAME' ) /*다국어 약어기준*/ 
+		             ) mltd 
+
+		             ON(sam.std_eng_abrvtn_nm = mltd.trnsfr_origin_key_val)
+
+		where sam.ACTV_STS_CD = '01'
+
+		    <if test="engWrdNm != null and engWrdNm != ''"> 
+
+		        and sam.eng_wrd_nm like #{engWrdNm} ||'%'
+
+		    </if> 
+
+		    <if test="stdEngAbrvtnNm != null and stdEngAbrvtnNm != ''"> 
+
+		        and sam.std_eng_abrvtn_nm like #{stdEngAbrvtnNm} ||'%'
+
+		    </if> 
+
+		    <if test="useLngWrdNm != null and useLngWrdNm != ''"> 
+
+		        and mltd.trnsfr_rslt_val like #{useLngWrdNm} ||'%'
+
+		    </if>
+
+) A 
+
+GROUP BY A.stdEngAbrvtnNm,A.engWrdNm
+</select>
+<select id="selectListSrchMysql" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmStdAbrvtnMSelectListSrchIO">
+select A.stdEngAbrvtnNm AS stdEngAbrvtnNm
+
+     , MAX(A.vrtnEngAbrvtnNm) AS vrtnEngAbrvtnNm
+
+     , MAX(A.lastChngTmstmp) AS lastChngTmstmp
+
+     , MAX(A.lastChngGuid) AS lastChngGuid
+
+     , MAX(A.useLngWrdNm2) AS useLngWrdNm2
+
+     , A.engWrdNm AS engWrdNm
+
+     , MAX(A.useLngWrdNm3) AS useLngWrdNm3
+
+     , MAX(A.useLngWrdNm) AS useLngWrdNm
+
+from (
+
+		SELECT /* 표준약어기본 */ 
+
+		    sam.std_eng_abrvtn_nm AS stdEngAbrvtnNm /*표준영문약어명*/ 
+
+		    , sam.vrtn_eng_abrvtn_nm AS vrtnEngAbrvtnNm /*변형영문약어명*/ 
+
+		    , sam.last_chng_tmstmp AS lastChngTmstmp /*최종변경일시*/ 
+
+		    , sam.last_chng_guid AS lastChngGuid /*최종변경GUID*/ 
+
+		    , case when mltd.lng_cd = #{lngCd2} then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm2
+
+		    , sam.eng_wrd_nm as engWrdNm
+
+		    , case when mltd.lng_cd = #{lngCd3} then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm3
+
+		    , case when mltd.lng_cd = #{lngCd} then mltd.TRNSFR_RSLT_VAL else null end as useLngWrdNm
+
+		FROM cm_std_abrvtn_m sam LEFT OUTER JOIN ( select * 
+
+		         from cm_mlt_lng_trnsltn_d mltd 
+
+		         where mltd.trnsfr_knd_cd in ( 'ABRVTN_NAME' ) /*다국어 약어기준*/ 
+		             ) mltd 
+
+		             ON(sam.std_eng_abrvtn_nm = mltd.trnsfr_origin_key_val)
+
+		where sam.ACTV_STS_CD = '01'
+
+		    <if test="engWrdNm != null and engWrdNm != ''"> 
+
+		        and sam.eng_wrd_nm like CONCAT (#{engWrdNm} ,'%') 
+
+		    </if> 
+
+		    <if test="stdEngAbrvtnNm != null and stdEngAbrvtnNm != ''"> 
+
+		        and sam.std_eng_abrvtn_nm like CONCAT ( #{stdEngAbrvtnNm} , '%') 
+
+		    </if> 
+
+		    <if test="useLngWrdNm != null and useLngWrdNm != ''"> 
+
+		        and mltd.trnsfr_rslt_val like CONCAT (#{useLngWrdNm},'%') 
+
+		    </if>
+
+) A 
+
+GROUP BY A.stdEngAbrvtnNm, A.engWrdNm
+</select>
+<select id="selectActive" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmStdAbrvtnMIO">
+SELECT  /* 표준약어기본 */
+        eng_wrd_nm AS engWrdNm    /*영문단어명*/, 
+        std_eng_abrvtn_nm AS stdEngAbrvtnNm    /*표준영문약어명*/, 
+        vrtn_eng_abrvtn_nm AS vrtnEngAbrvtnNm    /*변형영문약어명*/, 
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+        SITE_LBRTRY_DSCD AS siteLbrtryDscd /* 사이트연구소구분코드 */,
+        actv_sts_cd AS actvStsCd /*활동상태코드*/,
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/,
+        last_chng_id   AS lastChngId /*최종변경식별자*/
+  FROM  cm_std_abrvtn_m
+ WHERE  eng_wrd_nm = #{engWrdNm}
+   AND ACTV_STS_CD = '01'
+</select>
+<select id="select" resultType="bankware.corebanking.applicationcommon.dictionary.dao.dto.CmStdAbrvtnMIO">
+SELECT  /* 표준약어기본 */
+        eng_wrd_nm AS engWrdNm    /*영문단어명*/, 
+        std_eng_abrvtn_nm AS stdEngAbrvtnNm    /*표준영문약어명*/, 
+        vrtn_eng_abrvtn_nm AS vrtnEngAbrvtnNm    /*변형영문약어명*/, 
+        last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/, 
+        SITE_LBRTRY_DSCD AS siteLbrtryDscd /* 사이트연구소구분코드 */,
+        actv_sts_cd AS actvStsCd /*활동상태코드*/,
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/,
+        last_chng_id   AS lastChngId /*최종변경식별자*/
+  FROM  cm_std_abrvtn_m
+   WHERE  eng_wrd_nm = #{engWrdNm}
+</select>
+</mapper>

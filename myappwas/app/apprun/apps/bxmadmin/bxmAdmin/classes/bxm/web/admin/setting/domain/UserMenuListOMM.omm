@@ -1,0 +1,7 @@
+OMM bxm.web.admin.setting.domain.UserMenuListOMM
+<description="UserMenuListOMM">
+{
+	Integer size<length=9>;
+	bxm.web.admin.setting.domain.UserMenuOutOMM userMenuList<length=0 arrayReference="size">;
+	Integer totalPage<length=9>;
+}

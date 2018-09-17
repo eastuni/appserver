@@ -1,0 +1,474 @@
+/*Theme style*/
+.theme-kw .app-deploy-nav {background: #333333;}
+.theme-kw .app-deploy-nav a.on h3 {background-color: #f0850c;}
+.theme-kw .app-deploy-main .step-bar li.on {background-color: #555555;}
+.theme-kw .app-deploy-main .first-step.on:after, .theme-kw .app-deploy .second-step.on:after {border-left: 12px solid #555555;}
+.theme-kw .app-deploy-main .app-deploy-desc {color: #555555;}
+.theme-kw .app-deploy-main .bw-selector {color: #555555;}
+.theme-kw .app-deploy-main .bw-selector.on {background-color: #555555;}
+.theme-kw .app-deploy-main .bw-selector.on input {background-color: #555555;}
+.theme-kw .app-deploy-main .step-btn.on {background-color: #555555;}
+.theme-kw .app-deploy-main .selector-bottom-arrow:after {border-top: 8px solid #555555;}
+.theme-kw .app-deploy-main .grid-list-item.on {border: 2px solid #555555;}
+.theme-kw .app-deploy-main .grid-list-item table td:first-child {color: #555555;}
+
+.theme1 .app-deploy-nav {background: #767f8f;}
+.theme1 .app-deploy-nav a.on h3 {background-color: #24b1a2;}
+.theme1 .app-deploy-main .step-bar li.on {background-color: #555555;}
+.theme1 .app-deploy-main .first-step.on:after, .theme1 .app-deploy .second-step.on:after {border-left: 12px solid #555555;}
+.theme1 .app-deploy-main .app-deploy-desc {color: #555555;}
+.theme1 .app-deploy-main .bw-selector {color: #555555;}
+.theme1 .app-deploy-main .bw-selector.on {background-color: #555555;}
+.theme1 .app-deploy-main .bw-selector.on input {background-color: #555555;}
+.theme1 .app-deploy-main .step-btn.on {background-color: #555555;}
+.theme1 .app-deploy-main .selector-bottom-arrow:after {border-top: 8px solid #555555;}
+.theme1 .app-deploy-main .grid-list-item.on {border: 2px solid #555555;}
+.theme1 .app-deploy-main .grid-list-item table td:first-child {color: #555555;}
+
+.theme2 .app-deploy-nav {background: #667097;}
+.theme2 .app-deploy-nav a.on h3 {background-color: #1e3176;}
+.theme2 .app-deploy-main .step-bar li.on {background-color: #0e278f;}
+.theme2 .app-deploy-main .first-step.on:after, .theme2 .app-deploy .second-step.on:after {border-left: 12px solid #0e278f;}
+.theme2 .app-deploy-main .app-deploy-desc {color: #0e278f;}
+.theme2 .app-deploy-main .bw-selector {color: #0e278f;}
+.theme2 .app-deploy-main .bw-selector.on {background-color: #0e278f;}
+.theme2 .app-deploy-main .bw-selector.on input {background-color: #0e278f;}
+.theme2 .app-deploy-main .step-btn.on {background-color: #0e278f;}
+.theme2 .app-deploy-main .selector-bottom-arrow:after {border-top: 8px solid #0e278f;}
+.theme2 .app-deploy-main .grid-list-item.on {border: 2px solid #0e278f;}
+.theme2 .app-deploy-main .grid-list-item table td:first-child {color: #0e278f;}
+
+.theme3 .app-deploy-nav {background: #756e91;}
+.theme3 .app-deploy-nav a.on h3 {background-color: #5b2d92;}
+.theme3 .app-deploy-main .step-bar li.on {background-color: #6c0084;}
+.theme3 .app-deploy-main .first-step.on:after, .theme3 .app-deploy .second-step.on:after {border-left: 12px solid #6c0084;}
+.theme3 .app-deploy-main .app-deploy-desc {color: #6c0084;}
+.theme3 .app-deploy-main .bw-selector {color: #6c0084;}
+.theme3 .app-deploy-main .bw-selector.on {background-color: #6c0084;}
+.theme3 .app-deploy-main .bw-selector.on input {background-color: #6c0084;}
+.theme3 .app-deploy-main .step-btn.on {background-color: #6c0084;}
+.theme3 .app-deploy-main .selector-bottom-arrow:after {border-top: 8px solid #6c0084;}
+.theme3 .app-deploy-main .grid-list-item.on {border: 2px solid #6c0084;}
+.theme3 .app-deploy-main .grid-list-item table td:first-child {color: #6c0084;}
+
+.app-deploy-workspace {
+    height: 100%;
+}
+
+.app-deploy-workspace .bw-tt {
+    margin-bottom: 30px;
+}
+
+.app-deploy {
+    margin: -20px;
+    overflow-y: auto;
+}
+
+.app-deploy-nav {
+    float: left;
+    display: block;
+    position: fixed;
+    top: 125px;
+    width: 200px;
+    height: 100%;
+    background: #5d6072;
+}
+
+.app-deploy-nav h3 {
+    background: url('../images/icon-arrow.png') no-repeat right;
+    background-size: 15px;
+    line-height: 35px;
+    height: 35px;
+    padding: 0 12px;
+    margin: 0;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: lighter;
+    cursor: pointer;
+}
+
+.app-deploy-nav a {
+    color: #ffffff;
+}
+
+.app-deploy-nav a.on h3 {
+    background-color: #5867eb;
+}
+
+.app-deploy-nav .bw-icon {
+    background-size: 80% !important;
+    margin-top: 7px;
+}
+
+.i-deploy-monitoring {
+    background: url('../images/app-deploy/Monitoring-icon.png') no-repeat !important;
+}
+
+.i-deploy-pre-deploy {
+    background: url('../images/app-deploy/PreDeploy_icon.png') no-repeat !important;
+}
+
+.i-deploy-manage-pre-deployed {
+    background: url('../images/app-deploy/ManagePre_icon.png') no-repeat !important;
+}
+
+.i-deploy-deploy {
+    background: url('../images/app-deploy/Deploy_icon.png') no-repeat !important;
+}
+
+.i-deploy-validate-ip {
+    background: url('../images/app-deploy/ValidateIP-icon.png') no-repeat !important;
+    margin-top: 0 !important;
+}
+
+.i-deploy-check-on {
+    background: url('../images/app-deploy/check_on.png') no-repeat !important;
+    background-size: 100% !important;
+    margin-top: -4px;
+}
+
+.i-deploy-check-off {
+    background: url('../images/app-deploy/check_off.png') no-repeat !important;
+    background-size: 100% !important;
+    margin-top: -4px;
+}
+
+.app-deploy-main {
+    padding-left: 200px;
+}
+
+.application-info-grid {
+    max-height: 600px;
+    overflow: auto;
+}
+
+.auth-setting-grid {
+    max-height: 430px;
+    overflow: auto;
+}
+
+.app-deploy-main #step-bar {
+    height: 38px;
+    width: auto;
+    background-color: #f6f6f6;
+    font-size: 12px;
+}
+
+.app-deploy-main .step-bar {
+    height: 100%;
+    list-style: none;
+}
+
+.app-deploy-main .step-bar li {
+    position: relative;
+    width: 33%;
+    height: 100%;
+    color: #999999;
+    display: inline-block;
+    text-align: center;
+    line-height: 38px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.app-deploy-main .step-bar li.full-bar {
+    width: 100%;
+    cursor: inherit;
+}
+
+.app-deploy-main .step-bar li.half-bar {
+    width: 49.5%;
+}
+
+.app-deploy-main .step-bar li.on {
+    background-color: #5b6dbf;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.app-deploy-main .first-step:before, .app-deploy-main .second-step:before {
+    content: "";
+    position: absolute;
+    right: -13px;
+    width: 0;
+    height: 0;
+    border-top: 19px solid transparent;
+    border-left: 13px solid #999999;
+    border-bottom: 19px solid transparent;
+    z-index: 1;
+}
+
+.app-deploy-main .first-step:after, .app-deploy .second-step:after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    right: -12px;
+    width: 0;
+    height: 0;
+    border-top: 18px solid transparent;
+    border-left: 12px solid #f6f6f6;
+    border-bottom: 18px solid transparent;
+    z-index: 2;
+}
+
+.app-deploy-main .first-step.on:before, .app-deploy .second-step.on:before {
+    border-top: 19px solid transparent;
+    border-left: 13px solid #ffffff;
+    border-bottom: 19px solid transparent;
+}
+
+.app-deploy-main .first-step.on:after, .app-deploy .second-step.on:after {
+    border-top: 18px solid transparent;
+    border-left: 12px solid #5b6dbf;
+    border-bottom: 18px solid transparent;
+}
+
+.app-deploy-main .pre-deploy-main {
+    padding: 13px 26px;
+}
+
+.app-deploy-main .app-deploy-desc {
+    margin: 13px 26px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #5b6dbf;
+}
+
+.app-deploy-main .search-wrap {
+    border: none;
+    padding: 0;
+}
+
+.app-deploy-main .pre-deploy-app-search {
+    padding: 26px 0;
+    margin: 0 26px;
+    height: 77px;
+    border-bottom: 2px solid #e6e6e6;
+}
+
+.app-deploy-main .input-wrap {
+    padding: 0 10px;
+    margin: 0;
+}
+
+.app-deploy-main .bw-selector {
+    background-color: #ffffff;
+    color: #5b6dbf;
+    cursor: pointer;
+}
+
+.app-deploy-main .bw-selector.on {
+    background-color: #5b6dbf;
+    color: #ffffff;
+}
+.app-deploy-main .bw-selector.on input {
+    /*inherit property doesn't work correctly on IE*/
+    background-color: #5b6dbf;
+}
+
+.app-deploy-main .input-left-selector {
+    margin-right: 0;
+    border-radius: 30px 0 0 30px;
+}
+
+.app-deploy-main .input-right-selector {
+    margin-right: 26px;
+    border-radius: 0 30px 30px 0;
+    border-left: none;
+}
+
+.app-deploy-main .input-middle-selector {
+    margin-right: 0;
+    border-radius: 0;
+    border-left: none;
+}
+
+.app-deploy-main .search-input {
+    position: relative;
+}
+
+.app-deploy-main .app-search-btn {
+    position: absolute;
+    right: 8px;
+}
+
+.app-deploy-main .bw-selector input {
+    display: inline-block;
+    border: none;
+    width: 62px;
+
+    /*MS Edge compatibility*/
+    height: 18px;
+    line-height: 18px;
+    margin: 1px 0;
+
+    background-color: inherit;
+    color: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+}
+
+.app-deploy-main .step-btn {
+    position: relative;
+    margin: -5px 0 0 5px;
+    width: 70px;
+    height: 35px;
+    line-height: 35px;
+    background-color: #adacad;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+
+    border-radius: 10px;
+}
+
+.app-deploy-main .step-btn.on {
+    background-color: #5b6dbf;
+}
+
+.app-deploy-main .prev-btn {
+    padding-left: 5px;
+}
+
+.app-deploy-main .prev-btn:before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 14px;
+    border-top: 6px solid transparent;
+    border-right: 8px solid #ffffff;
+    border-bottom: 6px solid transparent;
+}
+
+.app-deploy-main .next-btn {
+    padding-right: 5px;
+}
+
+.app-deploy-main .next-btn:after {
+    content: "";
+    position: absolute;
+    margin: 12px 0 0 5px;
+    border-top: 6px solid transparent;
+    border-left: 8px solid #ffffff;
+    border-bottom: 6px solid transparent;
+}
+
+.app-deploy-main .grid-selector {
+    border: 1px solid #e6e6e6;
+    border-radius: 30px;
+
+    padding: 2px 3px 2px 10px;
+    margin: 26px 26px 0 26px;
+
+}
+
+.app-deploy-main .grid-refresh {
+    margin: 27px 0;
+}
+
+.app-deploy-main .selector-bottom-arrow {
+    position: relative;
+    width: 100px;
+    line-height: 25px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.app-deploy-main .selector-bottom-arrow:after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    margin: 8px 0 0 0;
+    border-left: 6px solid transparent;
+    border-top: 8px solid #5b6dbf;
+    border-right: 6px solid transparent;
+}
+
+.app-deploy-main .grid-list {
+    height: calc(100vh - 309px);
+    margin-bottom: 30px;
+    overflow-y: auto;
+}
+
+.app-deploy-main .grid-list-item {
+    position: relative;
+    float: left;
+    width: 242px;
+    height: 197px;
+    margin: 26px 0 0 26px;
+    padding: 12px 16px;
+    border: 2px solid #e6e6e6;
+    cursor: pointer;
+}
+.app-deploy-main .manage-pre-deployed-section .grid-list-item {
+    cursor: inherit;
+}
+.app-deploy-main .grid-list-item.on {
+    border: 2px solid #5b6dbf;
+}
+.app-deploy-main .grid-list-item.ip-item {
+    height: 100px;
+}
+.app-deploy-main .grid-list-item.ip-item table td:first-child {
+    width: 80px;
+}
+
+.app-deploy-main .grid-list-item table {
+    width: 100%;
+    height: 100%;
+
+    color: #444444;
+    font-weight: 500;
+    font-size: 11px;
+}
+
+.app-deploy-main .grid-list-item table td:first-child {
+    width: 100px;
+    color: #5b6dbf;
+    font-weight: normal;
+}
+
+.app-deploy-main .grid-list-item table tr:first-child {
+    font-size: 13px;
+}
+
+.app-deploy-main .grid-list-item .check-btn {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 10px;
+    right: 10px;
+
+    background: url('../images/app-deploy/check_off.png') no-repeat;
+    background-size: 100%;
+}
+
+.app-deploy-main .grid-list-item.on .check-btn {
+    background: url('../images/app-deploy/check_on.png') no-repeat;
+    background-size: 100%;
+}
+
+.app-deploy-main .ip-select-page .pre-deploy-app-search {
+    padding-top: 9px;
+}
+.app-deploy-main .validation-time-desc {
+    margin-bottom: 5px;
+    color: #999999;
+    font-weight: 500;
+}
+
+.app-deploy-main .validate-ip-detail-desc {
+    margin-left: 15px;
+}
+
+.app-deploy-main .validate-ip-detail.search-wrap {
+    padding: 10px;
+}
+
+.app-deploy-main .validate-ip-detail .input-wrap {
+    padding: 0 10px 0 0;
+    margin: 0 10px 8px 0;
+}

@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.servicemanagement.executor.dao.SvTxJrnlL">
+<!--Generated Thu Sep 28 15:47:54 KST 2017-->
+<select id="select" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+SELECT
+
+       inst_cd AS instCd
+
+     , tx_dt AS txDt
+
+     , guid AS guid
+
+     , SEQ_NBR AS seqNbr
+
+     , staff_id AS staffId
+
+     , srvc_cd AS srvcCd
+
+     , tx_hms AS txHms
+
+     , scrn_id AS scrnId
+
+     , CHNL_DSCD AS chnlDscd
+
+     , acct_nbr AS acctNbr
+
+     , cust_id AS custId
+
+     , inp_cntnt AS inpCntnt
+
+     , cncl_yn AS cnclYn
+
+     , cncl_dt AS cnclDt
+
+     , tx_cncl_rsn_cd AS txCnclRsnCd
+
+     , cncl_crctn_tp_cd AS cnclCrctnTpCd
+
+     , CNCL_CNTNT AS cnclCntnt
+
+     , CNCL_TX_GUID AS cnclTxGuid
+     
+     , CUPLD_TX_CNTNT AS cupldTxCntnt
+
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM sv_tx_jrnl_l
+
+ WHERE inst_cd = #{instCd}
+
+   AND tx_dt = #{txDt}
+
+   AND guid = #{guid}
+
+   AND SEQ_NBR = #{seqNbr}
+</select>
+<insert id="insert" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+INSERT INTO sv_tx_jrnl_l
+
+(
+
+       inst_cd
+
+     , tx_dt
+
+     , guid
+
+     , SEQ_NBR
+
+     , staff_id
+
+     , srvc_cd
+
+     , tx_hms
+
+     , scrn_id
+
+     , CHNL_DSCD
+
+     , acct_nbr
+
+     , cust_id
+
+     , inp_cntnt
+
+     , cncl_yn
+
+     , cncl_dt
+
+     , tx_cncl_rsn_cd
+
+     , cncl_crctn_tp_cd
+
+     , CNCL_TX_GUID
+
+     , last_chng_tmstmp
+
+     , last_chng_guid
+     <if test="cupldTxCntnt != null and cupldTxCntnt != '' ">
+	 , CUPLD_TX_CNTNT 
+	</if>
+
+)
+
+VALUES 
+
+(
+
+       #{instCd, jdbcType=VARCHAR}
+
+     , #{txDt, jdbcType=VARCHAR}
+
+     , #{guid, jdbcType=VARCHAR}
+
+     , #{seqNbr, jdbcType=NUMERIC}
+     , #{staffId, jdbcType=VARCHAR}
+
+     , #{srvcCd, jdbcType=VARCHAR}
+
+     , #{txHms, jdbcType=VARCHAR}
+
+     , #{scrnId, jdbcType=VARCHAR}
+
+     , #{chnlDscd, jdbcType=VARCHAR}
+
+     , #{acctNbr, jdbcType=VARCHAR}
+
+     , #{custId, jdbcType=VARCHAR}
+
+     , #{inpCntnt, jdbcType=VARCHAR}
+
+	 
+     , #{cnclYn, jdbcType=VARCHAR}
+
+     , #{cnclDt, jdbcType=VARCHAR}
+
+     , #{txCnclRsnCd, jdbcType=VARCHAR}
+
+     , #{cnclCrctnTpCd, jdbcType=VARCHAR}
+
+      , #{cnclTxGuid, jdbcType=VARCHAR}
+
+     , #{lastChngTmstmp, jdbcType=TIMESTAMP}
+
+     , #{lastChngGuid, jdbcType=VARCHAR}
+     
+ 	<if test="cupldTxCntnt != null and cupldTxCntnt != '' ">
+	  ,#{cupldTxCntnt, jdbcType=VARCHAR}
+		</if>
+
+)
+</insert>
+<delete id="delete" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+DELETE FROM sv_tx_jrnl_l
+
+ WHERE inst_cd = #{instCd}
+
+   AND tx_dt = #{txDt}
+
+   AND guid = #{guid}
+
+   AND SEQ_NBR = #{seqNbr}
+</delete>
+<update id="update" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+UPDATE sv_tx_jrnl_l
+
+   SET staff_id = #{staffId, jdbcType=VARCHAR}
+
+     , srvc_cd = #{srvcCd, jdbcType=VARCHAR}
+
+     , tx_hms = #{txHms, jdbcType=VARCHAR}
+
+     , scrn_id = #{scrnId, jdbcType=VARCHAR}
+
+     , CHNL_DSCD = #{chnlDscd, jdbcType=VARCHAR}
+
+     , acct_nbr = #{acctNbr, jdbcType=VARCHAR}
+
+     , cust_id = #{custId, jdbcType=VARCHAR}
+
+     , inp_cntnt = #{inpCntnt, jdbcType=VARCHAR}
+
+     , cncl_yn = #{cnclYn, jdbcType=VARCHAR}
+
+     , cncl_dt = #{cnclDt, jdbcType=VARCHAR}
+
+     , tx_cncl_rsn_cd = #{txCnclRsnCd, jdbcType=VARCHAR}
+
+      , CNCL_CNTNT = #{cnclCntnt, jdbcType=VARCHAR}
+
+     , cncl_crctn_tp_cd = #{cnclCrctnTpCd, jdbcType=VARCHAR}
+
+     , CNCL_TX_GUID = #{cnclTxGuid, jdbcType=VARCHAR}
+
+     , last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}
+
+     , last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}
+     
+     <if test="cupldTxCntnt != null and cupldTxCntnt != '' ">
+	 , CUPLD_TX_CNTNT = #{cupldTxCntnt, jdbcType=VARCHAR}
+	</if>
+
+ WHERE inst_cd = #{instCd}
+
+   AND tx_dt = #{txDt}
+
+   AND guid = #{guid}
+
+   AND SEQ_NBR = #{seqNbr}
+</update>
+<update id="updateCancel" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+UPDATE sv_tx_jrnl_l
+
+      SET cncl_yn = #{cnclYn, jdbcType=VARCHAR}
+
+		<if test="cnclDt != null and cnclDt != '' ">
+		          , cncl_dt = #{cnclDt, jdbcType=VARCHAR}
+		</if>
+		<if test="txCnclRsnCd != null and txCnclRsnCd != '' ">
+		          , tx_cncl_rsn_cd = #{txCnclRsnCd, jdbcType=VARCHAR}
+		</if>
+		<if test="cnclCrctnTpCd != null and cnclCrctnTpCd != '' ">
+		          , cncl_crctn_tp_cd = #{cnclCrctnTpCd, jdbcType=VARCHAR}
+		</if>
+		<if test="cnclCrctnTpCd != null and cnclCrctnTpCd != '' ">
+		          , CNCL_CNTNT = #{cnclCntnt, jdbcType=VARCHAR}
+		</if>
+		<if test="cnclCrctnTpCd != null and cnclCrctnTpCd != '' ">
+		          , CNCL_TX_GUID = #{cnclTxGuid, jdbcType=VARCHAR}
+		</if>
+
+          , last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}
+          , last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}
+
+WHERE inst_cd = #{instCd, jdbcType=VARCHAR}
+    AND tx_dt = #{txDt, jdbcType=VARCHAR}
+    AND guid = #{guid, jdbcType=VARCHAR}
+    <if test="seqNbr != null and seqNbr != '' ">
+	AND seq_nbr = #{seqNbr}
+	</if>
+</update>
+<select id="selectListByCnd" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLSrchKeyIO" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+SELECT
+
+       inst_cd AS instCd
+
+     , tx_dt AS txDt
+
+     , guid AS guid
+
+     , SEQ_NBR AS seqNbr
+
+     , staff_id AS staffId
+
+     , srvc_cd AS srvcCd
+
+     , tx_hms AS txHms
+
+     , scrn_id AS scrnId
+
+     , CHNL_DSCD AS chnlDscd
+
+     , acct_nbr AS acctNbr
+
+     , cust_id AS custId
+
+     , inp_cntnt AS inpCntnt
+
+     , cncl_yn AS cnclYn
+
+     , cncl_dt AS cnclDt
+
+     , CNCL_CNTNT AS cnclCntnt
+     ,CUPLD_TX_CNTNT AS cupldTxCntnt
+
+     , tx_cncl_rsn_cd AS txCnclRsnCd
+
+     , cncl_crctn_tp_cd AS cnclCrctnTpCd
+
+     , CNCL_TX_GUID AS cnclTxGuid
+
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM sv_tx_jrnl_l
+
+ WHERE inst_cd = #{instCd}
+
+   AND tx_dt between #{inqryStartDt} AND #{inqryEndDt}
+
+<if test="guid != null and guid != '' ">   
+
+   AND guid = #{guid}
+
+</if>
+
+<if test="staffId != null and staffId != '' ">   
+
+   AND staff_id = #{staffId}
+
+</if>
+
+<if test="srvcCd != null and srvcCd != '' ">   
+
+   AND srvc_cd = #{srvcCd}
+
+</if>
+
+<if test="scrnId != null and scrnId != '' ">   
+
+   AND scrn_id = #{scrnId}
+
+</if>
+
+<if test="acctNbr != null and acctNbr != '' ">   
+
+   AND acct_nbr = #{acctNbr}
+
+</if>
+
+<if test="custId != null and custId != '' ">   
+
+   AND cust_id = #{custId}
+
+</if>
+
+ORDER BY tx_dt DESC, tx_hms DESC
+</select>
+<update id="updateCupldData" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+UPDATE sv_tx_jrnl_l
+   SET  acct_nbr = #{acctNbr, jdbcType=VARCHAR}
+        , cust_id = #{custId, jdbcType=VARCHAR}
+ WHERE inst_cd = #{instCd}
+   AND tx_dt = #{txDt}
+   AND guid = #{guid}
+</update>
+<select id="selectListCupldData" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+SELECT
+
+       inst_cd AS instCd
+
+     , tx_dt AS txDt
+
+     , guid AS guid
+
+     , SEQ_NBR AS seqNbr
+
+     , staff_id AS staffId
+
+     , srvc_cd AS srvcCd
+
+     , tx_hms AS txHms
+
+     , scrn_id AS scrnId
+
+     , CHNL_DSCD AS chnlDscd
+
+     , acct_nbr AS acctNbr
+
+     , cust_id AS custId
+
+     , inp_cntnt AS inpCntnt
+
+     , cncl_yn AS cnclYn
+
+     , cncl_dt AS cnclDt
+
+     , CNCL_CNTNT AS cnclCntnt
+
+     , tx_cncl_rsn_cd AS txCnclRsnCd
+
+     , cncl_crctn_tp_cd AS cnclCrctnTpCd
+
+     , CNCL_TX_GUID AS cnclTxGuid
+
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM sv_tx_jrnl_l
+
+ WHERE inst_cd = #{instCd}
+   AND tx_dt = #{txDt}
+<if test="guid != null and guid != '' ">
+   AND guid = #{guid} 
+</if>
+ORDER BY SEQ_NBR DESC
+</select>
+<select id="selectMaxSeqNbrMysql" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+SELECT IFNULL ( max(seq_nbr)+1 ,0 ) AS seqNbr
+  FROM sv_tx_jrnl_l 
+ WHERE inst_cd = #{instCd}
+   AND tx_dt = #{txDt}
+   AND guid = #{guid}
+   
+FOR UPDATE
+</select>
+<select id="selectMaxSeqNbrOracle" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+SELECT NVL ( max(seq_nbr)+1,0  ) AS seqNbr
+  FROM sv_tx_jrnl_l 
+ WHERE inst_cd = #{instCd}
+   AND tx_dt = #{txDt}
+   AND guid = #{guid}
+</select>
+<select id="selectOracle" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+SELECT
+
+       inst_cd AS instCd
+
+     , tx_dt AS txDt
+
+     , guid AS guid
+
+     , SEQ_NBR AS seqNbr
+
+     , staff_id AS staffId
+
+     , srvc_cd AS srvcCd
+
+     , tx_hms AS txHms
+
+     , scrn_id AS scrnId
+
+     , CHNL_DSCD AS chnlDscd
+
+     , acct_nbr AS acctNbr
+
+     , cust_id AS custId
+
+     , inp_cntnt AS inpCntnt2
+
+     , cncl_yn AS cnclYn
+
+     , cncl_dt AS cnclDt
+
+     , tx_cncl_rsn_cd AS txCnclRsnCd
+
+     , cncl_crctn_tp_cd AS cnclCrctnTpCd
+
+     , CNCL_CNTNT AS cnclCntnt
+
+     , CNCL_TX_GUID AS cnclTxGuid
+     
+     , CUPLD_TX_CNTNT AS cupldTxCntnt2
+
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM sv_tx_jrnl_l
+
+ WHERE inst_cd = #{instCd}
+
+   AND tx_dt = #{txDt}
+
+   AND guid = #{guid}
+
+   AND SEQ_NBR = #{seqNbr}
+</select>
+<select id="selectListByCndOracle" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLSrchKeyIO" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+SELECT
+
+       inst_cd AS instCd
+
+     , tx_dt AS txDt
+
+     , guid AS guid
+
+     , SEQ_NBR AS seqNbr
+
+     , staff_id AS staffId
+
+     , srvc_cd AS srvcCd
+
+     , tx_hms AS txHms
+
+     , scrn_id AS scrnId
+
+     , CHNL_DSCD AS chnlDscd
+
+     , acct_nbr AS acctNbr
+
+     , cust_id AS custId
+
+     , inp_cntnt AS inpCntnt2
+
+     , cncl_yn AS cnclYn
+
+     , cncl_dt AS cnclDt
+
+     , CNCL_CNTNT AS cnclCntnt
+     ,CUPLD_TX_CNTNT AS cupldTxCntnt2
+
+     , tx_cncl_rsn_cd AS txCnclRsnCd
+
+     , cncl_crctn_tp_cd AS cnclCrctnTpCd
+
+     , CNCL_TX_GUID AS cnclTxGuid
+
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM sv_tx_jrnl_l
+
+ WHERE inst_cd = #{instCd}
+
+   AND tx_dt between #{inqryStartDt} AND #{inqryEndDt}
+
+<if test="guid != null and guid != '' ">   
+
+   AND guid = #{guid}
+
+</if>
+
+<if test="staffId != null and staffId != '' ">   
+
+   AND staff_id = #{staffId}
+
+</if>
+
+<if test="srvcCd != null and srvcCd != '' ">   
+
+   AND srvc_cd = #{srvcCd}
+
+</if>
+
+<if test="scrnId != null and scrnId != '' ">   
+
+   AND scrn_id = #{scrnId}
+
+</if>
+
+<if test="acctNbr != null and acctNbr != '' ">   
+
+   AND acct_nbr = #{acctNbr}
+
+</if>
+
+<if test="custId != null and custId != '' ">   
+
+   AND cust_id = #{custId}
+
+</if>
+
+ORDER BY tx_dt DESC, tx_hms DESC
+</select>
+<select id="selectListCupldDataOracle" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO" resultType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+SELECT
+
+       inst_cd AS instCd
+
+     , tx_dt AS txDt
+
+     , guid AS guid
+
+     , SEQ_NBR AS seqNbr
+
+     , staff_id AS staffId
+
+     , srvc_cd AS srvcCd
+
+     , tx_hms AS txHms
+
+     , scrn_id AS scrnId
+
+     , CHNL_DSCD AS chnlDscd
+
+     , acct_nbr AS acctNbr
+
+     , cust_id AS custId
+
+     , inp_cntnt AS inpCntnt2
+
+     , cncl_yn AS cnclYn
+
+     , cncl_dt AS cnclDt
+
+     , CNCL_CNTNT AS cnclCntnt
+
+     , tx_cncl_rsn_cd AS txCnclRsnCd
+
+     , cncl_crctn_tp_cd AS cnclCrctnTpCd
+
+     , CNCL_TX_GUID AS cnclTxGuid
+
+     , last_chng_tmstmp AS lastChngTmstmp
+
+     , last_chng_guid AS lastChngGuid
+
+  FROM sv_tx_jrnl_l
+
+ WHERE inst_cd = #{instCd}
+   AND tx_dt = #{txDt}
+<if test="guid != null and guid != '' ">
+   AND guid = #{guid} 
+</if>
+ORDER BY SEQ_NBR DESC
+</select>
+<insert id="insertOracle" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+INSERT INTO sv_tx_jrnl_l
+
+(
+
+       inst_cd
+
+     , tx_dt
+
+     , guid
+
+     , SEQ_NBR
+
+     , staff_id
+
+     , srvc_cd
+
+     , tx_hms
+
+     , scrn_id
+
+     , CHNL_DSCD
+
+     , acct_nbr
+
+     , cust_id
+
+     , inp_cntnt
+
+     , cncl_yn
+
+     , cncl_dt
+
+     , tx_cncl_rsn_cd
+
+     , cncl_crctn_tp_cd
+
+     , CNCL_TX_GUID
+
+     , last_chng_tmstmp
+
+     , last_chng_guid
+     <if test="cupldTxCntnt2 != null and cupldTxCntnt2 != '' ">
+	 , CUPLD_TX_CNTNT 
+	</if>
+
+)
+
+VALUES 
+
+(
+
+       #{instCd, jdbcType=VARCHAR}
+
+     , #{txDt, jdbcType=VARCHAR}
+
+     , #{guid, jdbcType=VARCHAR}
+
+     , #{seqNbr, jdbcType=NUMERIC}
+     , #{staffId, jdbcType=VARCHAR}
+
+     , #{srvcCd, jdbcType=VARCHAR}
+
+     , #{txHms, jdbcType=VARCHAR}
+
+     , #{scrnId, jdbcType=VARCHAR}
+
+     , #{chnlDscd, jdbcType=VARCHAR}
+
+     , #{acctNbr, jdbcType=VARCHAR}
+
+     , #{custId, jdbcType=VARCHAR}
+
+     , #{inpCntnt2, jdbcType=VARCHAR}
+
+	 
+     , #{cnclYn, jdbcType=VARCHAR}
+
+     , #{cnclDt, jdbcType=VARCHAR}
+
+     , #{txCnclRsnCd, jdbcType=VARCHAR}
+
+     , #{cnclCrctnTpCd, jdbcType=VARCHAR}
+
+      , #{cnclTxGuid, jdbcType=VARCHAR}
+
+     , #{lastChngTmstmp, jdbcType=TIMESTAMP}
+
+     , #{lastChngGuid, jdbcType=VARCHAR}
+     
+ 	<if test="cupldTxCntnt2 != null and cupldTxCntnt2 != '' ">
+	  ,#{cupldTxCntnt2, jdbcType=VARCHAR}
+		</if>
+
+)
+</insert>
+<update id="updateOracle" parameterType="bankware.corebanking.servicemanagement.executor.dao.dto.SvTxJrnlLIO">
+UPDATE sv_tx_jrnl_l
+
+   SET staff_id = #{staffId, jdbcType=VARCHAR}
+
+     , srvc_cd = #{srvcCd, jdbcType=VARCHAR}
+
+     , tx_hms = #{txHms, jdbcType=VARCHAR}
+
+     , scrn_id = #{scrnId, jdbcType=VARCHAR}
+
+     , CHNL_DSCD = #{chnlDscd, jdbcType=VARCHAR}
+
+     , acct_nbr = #{acctNbr, jdbcType=VARCHAR}
+
+     , cust_id = #{custId, jdbcType=VARCHAR}
+
+     , inp_cntnt = #{inpCntnt2, jdbcType=VARCHAR}
+
+     , cncl_yn = #{cnclYn, jdbcType=VARCHAR}
+
+     , cncl_dt = #{cnclDt, jdbcType=VARCHAR}
+
+     , tx_cncl_rsn_cd = #{txCnclRsnCd, jdbcType=VARCHAR}
+
+      , CNCL_CNTNT = #{cnclCntnt, jdbcType=VARCHAR}
+
+     , cncl_crctn_tp_cd = #{cnclCrctnTpCd, jdbcType=VARCHAR}
+
+     , CNCL_TX_GUID = #{cnclTxGuid, jdbcType=VARCHAR}
+
+     , last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}
+
+     , last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}
+     
+     <if test="cupldTxCntnt2 != null and cupldTxCntnt2 != '' ">
+	 , CUPLD_TX_CNTNT = #{cupldTxCntnt2, jdbcType=VARCHAR}
+	</if>
+
+ WHERE inst_cd = #{instCd}
+
+   AND tx_dt = #{txDt}
+
+   AND guid = #{guid}
+
+   AND SEQ_NBR = #{seqNbr}
+</update>
+</mapper>

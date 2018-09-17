@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.common.dbio.ConfigValueDBIO">
+<!--Generated Thu Sep 07 16:48:35 KST 2017-->
+<select id="selectValue" resultType="java.lang.String">
+SELECT 
+	CFG_VAL
+FROM BXM_COM_CFG 
+WHERE CFG_KEY = #{cfgKey}
+</select>
+</mapper>

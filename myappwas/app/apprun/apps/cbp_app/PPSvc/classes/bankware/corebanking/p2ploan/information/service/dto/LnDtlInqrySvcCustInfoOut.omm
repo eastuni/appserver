@@ -1,0 +1,10 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.LnDtlInqrySvcCustInfoOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String custId<length=100 description="고객식별자">;
+	String custNm<length=50 description="고객명">;
+	String loinIdNbr<length=100 description="고객로그인아이디">;
+	BigDecimal age<length=10 description="연령">;
+	String crdtGradeCd<length=3 description="신용등급코드">;
+	String custGradeKndTpCd<length=1 description="고객등급">;
+}

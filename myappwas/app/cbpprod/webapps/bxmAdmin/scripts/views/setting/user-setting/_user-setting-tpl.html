@@ -1,0 +1,104 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'setting.user-setting'}}
+    <p class="desc">{{bxMsg 'setting.user-setting-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap user-setting-search">
+    <!--INPUT TYPE1 * 분할 없이 INLINE-->
+    <ul class="clr">
+        <li class="input-wrap">
+            <label class="bw-label">{{bxMsg 'setting.user-nm'}}</label>
+            <input type="text" class="bw-input w-l" data-form-param="userNm"/>
+        </li>
+        <li class="input-wrap">
+            <label class="bw-label">{{bxMsg 'setting.role-id'}}</label>
+            <input type="text" class="bw-input w-l" data-form-param="roleId"/>
+        </li>
+    </ul>
+    <!--/END INPUT TYPE1-->
+</section>
+<!--/END SEARCH AREA-->
+<!--GRID AREA-->
+<section class="user-setting-grid"></section>
+<!--/END GRID AREA-->
+<!--BW-SUB TITLE * 컨텐츠 서브타이틀-->
+<h3 class="bw-stt add-mg-t">{{bxMsg 'setting.user-setting-detail'}}<p class="desc user-setting-detail-title"></p></h3>
+<!--/END BW-SUB TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn edit edit-user-btn" title="{{bxMsg 'common.edit'}}"><i class="bw-icon i-25 i-func-edit"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--INFO AREA * 상세 영역-->
+<section class="search-wrap clr user-setting-detail bx-loding-wrap">
+    <ul class="clr">
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'setting.user-id'}}</label>
+                <input type="text" class="bw-input w-70" data-form-param="userId" readonly />
+            </div>
+        </li>
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'setting.user-nm'}}</label>
+                <input type="text" class="bw-input w-70" data-form-param="userNm" readonly />
+            </div>
+        </li>
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'setting.user-ip'}}</label>
+                <input type="text" class="bw-input w-70" data-form-param="userIp" readonly />
+            </div>
+        </li>
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'setting.role-id'}}</label>
+                <input type="text" class="bw-input w-35" data-form-param="roleId" readonly />
+                <input type="text" class="bw-input w-35" data-form-param="roleNm" readonly />
+            </div>
+        </li>
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'setting.register-id'}}</label>
+                <input type="text" class="bw-input w-70" data-form-param="regUserId" readonly />
+            </div>
+        </li>
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'setting.register-date'}}</label>
+                <input type="text" class="bw-input w-70" data-form-param="regOccurDttm" readonly />
+            </div>
+        </li>
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'setting.phone-no'}}</label>
+                <input type="text" class="bw-input w-70" data-form-param="phoneNo" readonly />
+            </div>
+        </li>
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'setting.email'}}</label>
+                <input type="text" class="bw-input w-70" data-form-param="email" readonly />
+            </div>
+        </li>
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'setting.use-yn'}}</label>
+                <input type="text" class="bw-input w-70" data-form-param="useYn" readonly />
+            </div>
+        </li>
+    </ul>
+</section>
+<!--/END INFO AREA-->

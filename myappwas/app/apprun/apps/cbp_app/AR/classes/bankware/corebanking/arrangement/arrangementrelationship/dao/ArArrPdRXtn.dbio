@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.arrangement.arrangementrelationship.dao.ArArrPdRXtn">
+<!--Generated Tue Jul 25 13:37:08 KST 2017-->
+<select id="selectListByPdCustAndArrAndDept" parameterType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrPdRSelectByPdCustAndArrAndDeptIO" resultType="java.lang.String">
+SELECT    
+
+       MAIN.arr_id AS arrId    /*계약식별자*/
+
+  FROM AR_ARR_M MAIN 
+
+  JOIN AR_ARR_PD_R PROD
+
+    ON MAIN.INST_CD = PROD.INST_CD
+
+   AND MAIN.ARR_ID  = PROD.ARR_ID
+
+   AND PROD.BIZ_DSCD = #{bizDscd}
+
+   AND PROD.PD_TP_CD = #{pdTpCd}
+
+   AND PROD.PD_TMPLT_CD = #{pdTmpltCd}
+
+  LEFT JOIN AR_ARR_DEPT_R DEPT
+
+    ON MAIN.INST_CD = DEPT.INST_CD
+
+   AND MAIN.ARR_ID  = DEPT.ARR_ID
+
+   AND DEPT.DEPT_ID = #{deptId}
+
+  LEFT JOIN AR_ARR_CUST_R CUST
+
+    ON MAIN.INST_CD = CUST.INST_CD
+
+   AND MAIN.ARR_ID  = CUST.ARR_ID
+
+   AND CUST.CUST_ID = #{rltdCustId}
+
+  LEFT JOIN AR_ARR_ARR_R RARR
+
+    ON MAIN.INST_CD = RARR.INST_CD
+
+   AND MAIN.ARR_ID  = RARR.MAIN_ARR_ID
+
+   AND RARR.RLTD_ARR_ID = #{rltdArrId}
+
+ WHERE MAIN.inst_cd = #{instCd}
+
+  AND MAIN.ARR_OPN_DT between #{inqryStartDt} and #{inqryEndDt}
+
+<if test="arrStsCd != null and arrStsCd != '' ">
+
+   AND MAIN.ARR_STS_CD = #{arrStsCd}
+
+</if>
+
+<if test="deptId != null and deptId != '' ">
+
+   AND DEPT.DEPT_ID = #{deptId}
+
+</if>
+
+<if test="rltdCustId != null and rltdCustId != '' ">
+
+   AND CUST.CUST_ID = #{rltdCustId}
+
+</if>
+
+<if test="rltdArrId != null and rltdArrId != '' ">
+
+   AND RARR.RLTD_ARR_ID = #{rltdArrId}
+
+</if>
+
+GROUP BY MAIN.arr_id
+</select>
+<select id="selectListEqlStsByPd" parameterType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrPdRIO" resultType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrPdRIO">
+SELECT    
+
+       inst_cd AS instCd    /*기관코드*/
+
+     , pd_cd AS pdCd    /*상품코드*/
+
+     , arr_id AS arrId    /*계약식별자*/
+
+     , arr_pd_rel_seq_nbr AS arrPdRelSeqNbr    /*계약상품관계일련번호*/
+
+     , biz_dscd AS bizDscd    /*업무구분코드*/
+
+     , pd_tp_cd AS pdTpCd    /*상품유형코드*/
+
+     , pd_tmplt_cd AS pdTmpltCd    /*상품템플릿코드*/
+
+     , arr_pd_rel_sts_cd AS arrPdRelStsCd    /*계약상품관계상태코드*/
+     , rel_start_dt AS relStartDt    /*관계시작년월일*/
+
+     , rel_end_dt AS relEndDt    /*관계종료년월일*/
+
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  ar_arr_pd_r
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  pd_cd = #{pdCd}
+
+   AND  arr_pd_rel_sts_cd = #{arrPdRelStsCd}
+</select>
+<select id="selectListQryScrnByPdCdMysql" resultType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrPdRIO">
+SELECT    
+
+       inst_cd AS instCd    /*기관코드*/
+
+     , pd_cd AS pdCd    /*상품코드*/
+
+     , arr_id AS arrId    /*계약식별자*/
+
+     , arr_pd_rel_seq_nbr AS arrPdRelSeqNbr    /*계약상품관계일련번호*/
+
+     , biz_dscd AS bizDscd    /*업무구분코드*/
+
+     , pd_tp_cd AS pdTpCd    /*상품유형코드*/
+
+     , pd_tmplt_cd AS pdTmpltCd    /*상품템플릿코드*/
+
+     , arr_pd_rel_sts_cd AS arrPdRelStsCd    /*계약상품관계상태코드*/
+     , rel_start_dt AS relStartDt    /*관계시작년월일*/
+
+     , rel_end_dt AS relEndDt    /*관계종료년월일*/
+
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  ar_arr_pd_r
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  pd_cd = #{pdCd}
+
+   AND  arr_pd_rel_sts_cd = '1'
+   
+ LIMIT #{pgOffset}, #{pgCnt}
+</select>
+<select id="selectListQryScrnByPdCdOracle" resultType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrPdRIO">
+select T2.*
+  from (
+	select 
+	
+	ROWNUM AS rnum, T1.*
+
+	from (
+SELECT    
+
+       inst_cd AS instCd    /*기관코드*/
+
+     , pd_cd AS pdCd    /*상품코드*/
+
+     , arr_id AS arrId    /*계약식별자*/
+
+     , arr_pd_rel_seq_nbr AS arrPdRelSeqNbr    /*계약상품관계일련번호*/
+
+     , biz_dscd AS bizDscd    /*업무구분코드*/
+
+     , pd_tp_cd AS pdTpCd    /*상품유형코드*/
+
+     , pd_tmplt_cd AS pdTmpltCd    /*상품템플릿코드*/
+
+     , arr_pd_rel_sts_cd AS arrPdRelStsCd    /*계약상품관계상태코드*/
+     , rel_start_dt AS relStartDt    /*관계시작년월일*/
+
+     , rel_end_dt AS relEndDt    /*관계종료년월일*/
+
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  ar_arr_pd_r
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  pd_cd = #{pdCd}
+
+   AND  arr_pd_rel_sts_cd = '1' ) T1
+   
+WHERE ROWNUM &lt;= #{pgOffset} + #{pgCnt} ) T2
+
+WHERE T2.rnum &gt; #{pgOffset}
+</select>
+</mapper>

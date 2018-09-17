@@ -1,0 +1,12 @@
+OMM bxm.web.admin.online.domain.ExecuteTranInOMM
+<description="">
+{
+	String onlineUrl<length=20 description="온라인URL">;
+	String guid<length=20 description="guid">;
+	String logOccurDttm<length=20 description="로그발생시간">;
+	String bizDate<length=20 description="영업일자">;
+	String msgData<length=20 description="전문데이터">;
+	String msgType<length=20 description="전문타입">;
+	String encoding<length=20 description="인코딩">;
+	String tableName<length=20 description="테이블 명">;
+}

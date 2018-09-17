@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.CD0077Inqry">
+<!--Generated Fri Jan 13 11:32:25 KST 2017-->
+<select id="selectCD0077InqryList" parameterType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CD0077InqryIFIn" resultType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CD0077InqryIFOutSub">
+SELECT            instCd,     /*기관코드*/
+           txDt,     /*거래일자*/
+           batchFileSeqNbr,     /*일괄파일일련번호*/
+                txUnqNbr,     /*거래고유번호*/
+                    jointNetworkTxDscd,     /*공동망거래구분코드*/
+                   cardAcctNbr,     /*카드계좌번호*/
+         amt,     /*금액*/
+                       hndlngInstBrnchCd,     /*취급기관점별코드*/
+                       whdrwlInstBrnchCd,     /*출금기관점별코드*/
+                 txOpnHms,     /*거래개시시분초*/
+                    cdAutoTlrMachineGiroNbr,     /*CDATM지로번호*/
+                     elctrncPymntNbr,     /*전자납부번호*/
+                    dsbrsmntAcctNbr,     /*지급계좌번호*/
+                 useInstNm1,     /*이용기관명*/
+                payerFullNm,     /*납부자성명*/
+                  whdrwlNm,     /*출금인명*/
+                      giroPymntCntnt,     /*지로납부내용*/
+                 msgPerTpCd     /*전문종별코드*/    FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+           instCd,     /*기관코드*/
+           txDt,     /*거래일자*/
+           batchFileSeqNbr,     /*일괄파일일련번호*/
+                txUnqNbr,     /*거래고유번호*/
+                    jointNetworkTxDscd,     /*공동망거래구분코드*/
+                   cardAcctNbr,     /*카드계좌번호*/
+         amt,     /*금액*/
+                       hndlngInstBrnchCd,     /*취급기관점별코드*/
+                       whdrwlInstBrnchCd,     /*출금기관점별코드*/
+                 txOpnHms,     /*거래개시시분초*/
+                    cdAutoTlrMachineGiroNbr,     /*CDATM지로번호*/
+                     elctrncPymntNbr,     /*전자납부번호*/
+                    dsbrsmntAcctNbr,     /*지급계좌번호*/
+                 useInstNm1,     /*이용기관명*/
+                payerFullNm,     /*납부자성명*/
+                  whdrwlNm,     /*출금인명*/
+                      giroPymntCntnt,     /*지로납부내용*/
+                 msgPerTpCd     /*전문종별코드*/
+ FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* CD지로수납동행납부취급미완료명세표-전자납부 */
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래일자*/
+        BATCH_FILE_SEQ_NBR AS batchFileSeqNbr,     /*일괄파일일련번호*/
+        TX_UNQ_NBR AS txUnqNbr,     /*거래고유번호*/
+        JNTNT_TX_DS_CD AS jointNetworkTxDscd,     /*공동망거래구분코드*/
+        CARD_ACCT_NBR AS cardAcctNbr,     /*카드계좌번호*/
+        AMT AS amt,     /*금액*/
+        HNDLNG_INST_BRNCH_CD AS hndlngInstBrnchCd,     /*취급기관점별코드*/
+        WHDR_INST_BRTY_CD AS whdrwlInstBrnchCd,     /*출금기관점별코드*/
+        TX_OPNG_HMS AS txOpnHms,     /*거래개시시분초*/
+        CDATM_GIRO_NBR AS cdAutoTlrMachineGiroNbr,     /*CDATM지로번호*/
+        ELCTRNC_PYMNT_NBR AS elctrncPymntNbr,     /*전자납부번호*/
+        DSBRS_ACCT_NBR AS dsbrsmntAcctNbr,     /*지급계좌번호*/
+        UTL_INST_NM AS useInstNm1,     /*이용기관명*/
+        PAYER_FULL_NM AS payerFullNm,     /*납부자성명*/
+        WHDRWL_NM AS whdrwlNm,     /*출금인명*/
+        GIRO_PYMNT_CNTNT AS giroPymntCntnt,     /*지로납부내용*/
+        TLGR_CLS_CD AS msgPerTpCd     /*전문종별코드*/
+  FROM  XP_CD_CD0077
+ WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectCD0077InqryTotalCnt" parameterType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CD0077InqryIFIn" resultType="bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CD0077InqryIFOut">
+SELECT count(1) as totalCount
+  FROM  XP_CD_CD0077
+ WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{txStartDt}
+   AND TX_DT &lt;= #{txEndDt}
+</select>
+</mapper>

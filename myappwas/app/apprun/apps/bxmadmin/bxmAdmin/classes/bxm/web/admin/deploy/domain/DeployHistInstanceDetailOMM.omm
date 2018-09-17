@@ -1,0 +1,10 @@
+OMM bxm.web.admin.deploy.domain.DeployHistInstanceDetailOMM
+<description="">
+{
+	String bxmInstanceId<length=20 description="BXM 인스턴스 ID">;
+	String deployId<length=20 description="배포 ID">;
+	String nodeName<length=20 description="노드 명">;
+	Integer appCount<length=9 description="어플리케이션 수">;
+	String containerNm<length=20 description="컨테이너 명">;
+	String deploySuccessYn<length=20 description="성공 여부">;
+}

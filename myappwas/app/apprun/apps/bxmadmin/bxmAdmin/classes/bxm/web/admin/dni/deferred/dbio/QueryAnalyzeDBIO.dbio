@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.dni.deferred.dbio.QueryAnalyzeDBIO">
+<!--Generated Mon Dec 04 16:20:36 KST 2017-->
+<select id="selectDbioQueryList" resultType="bxm.web.admin.dni.deferred.domain.BxmDbioQueryOMM">
+SELECT /* BXM DBIO 쿼리 */ 
+       GUID AS guid,/*GUID*/ 
+       NAMESPACE AS namespace,/*NAMESPACE*/ 
+       SQL_ID AS sqlId,/*SQLID*/ 
+       SQL_TYPE_CD AS sqlTypeCd,/*SQL구분코드*/ 
+       DBIO_PATH AS dbioPath,/*DBIO경로*/ 
+       BXM_APP_ID AS bxmAppId,/*BXM어플리케이션ID*/ 
+       EXEC_QUERY AS execQuery,/*실행쿼리*/ 
+       MODIFY_DTTM AS modifyDttm /*변경일시*/ 
+FROM 
+	( SELECT *
+	  FROM BXM_DBIO_QUERY
+	  ORDER BY MODIFY_DTTM ASC
+	)
+WHERE ROWNUM &lt;= #{queryCount}
+</select>
+<select databaseId="mysql" id="selectDbioQueryList" resultType="bxm.web.admin.dni.deferred.domain.BxmDbioQueryOMM">
+SELECT /* BXM DBIO 쿼리 */ 
+       a.GUID AS guid,/*GUID*/ 
+       a.NAMESPACE AS namespace,/*NAMESPACE*/ 
+       a.SQL_ID AS sqlId,/*SQLID*/ 
+       a.SQL_TYPE_CD AS sqlTypeCd,/*SQL구분코드*/ 
+       a.DBIO_PATH AS dbioPath,/*DBIO경로*/ 
+       a.BXM_APP_ID AS bxmAppId,/*BXM어플리케이션ID*/ 
+       a.EXEC_QUERY AS execQuery,/*실행쿼리*/ 
+       a.MODIFY_DTTM AS modifyDttm /*변경일시*/ 
+FROM 
+	( SELECT *
+	  FROM BXM_DBIO_QUERY
+	  ORDER BY MODIFY_DTTM ASC
+	) a
+LIMIT #{queryCount}
+</select>
+<select id="selectSeqNo" parameterType="bxm.web.admin.dni.deferred.domain.BxmDniSqlInfoOMM" resultType="java.lang.Integer">
+SELECT MAX(SEQ)
+FROM BXM_DNI_SQL_INFO
+WHERE BXM_APP_ID = #{bxmAppId}
+  AND PKG_NM = #{pkgNm}
+  AND CLASS_NM = #{classNm}
+  AND SQL_ID = #{sqlId}
+</select>
+<insert id="insertDbioQueryError" parameterType="bxm.web.admin.dni.deferred.domain.BxmDbioQueryErrorOMM">
+INSERT INTO BXM_DBIO_QUERY_ERROR /* BXM DBIO 쿼리 에러 내역 */
+(
+    GUID,/*GUID*/ 
+    NAMESPACE,/*NAMESPACE*/ 
+    SQL_ID,/*SQLID*/ 
+    SQL_TYPE_CD,/*SQL구분코드*/ 
+    DBIO_PATH,/*DBIO경로*/ 
+    BXM_APP_ID,/*BXM어플리케이션ID*/ 
+    EXEC_QUERY,/*실행쿼리*/ 
+    REG_DTTM,/*등록일시*/ 
+    PARSING_DTTM,/*파싱일시*/ 
+    ERR_MSG /*에러메시지*/ 
+)
+VALUES
+(
+    #{guid, jdbcType=VARCHAR},/*GUID*/ 
+    #{namespace, jdbcType=VARCHAR},/*NAMESPACE*/ 
+    #{sqlId, jdbcType=VARCHAR},/*SQLID*/ 
+    #{sqlTypeCd, jdbcType=VARCHAR},/*SQL구분코드*/ 
+    #{dbioPath, jdbcType=VARCHAR},/*DBIO경로*/ 
+    #{bxmAppId, jdbcType=VARCHAR},/*BXM어플리케이션ID*/ 
+    #{execQuery, jdbcType=VARCHAR},/*실행쿼리*/ 
+    #{regDttm, jdbcType=VARCHAR},/*등록일시*/ 
+    #{parsingDttm, jdbcType=VARCHAR},/*파싱일시*/
+    #{errMsg, jdbcType=VARCHAR} /*에러메시지*/ 
+)
+</insert>
+<delete id="deleteDbioQuery" parameterType="bxm.web.admin.dni.deferred.domain.BxmDbioQueryOMM">
+DELETE FROM BXM_DBIO_QUERY /*  BXM DBIO 쿼리 */ 
+WHERE GUID = #{guid}
+AND NAMESPACE = #{namespace}
+AND SQL_ID = #{sqlId}
+AND MODIFY_DTTM = #{modifyDttm}
+</delete>
+<delete id="deleteSqlInfo" parameterType="bxm.web.admin.dni.deferred.domain.BxmDniSqlInfoOMM">
+DELETE FROM BXM_DNI_SQL_INFO /* DBIO SQL ID 분석 정보 */
+      WHERE BXM_APP_ID = #{bxmAppId}
+        AND PKG_NM = #{pkgNm}
+        AND CLASS_NM = #{classNm}
+        AND SQL_ID = #{sqlId}
+</delete>
+<insert id="insertSqlInfo" parameterType="bxm.web.admin.dni.deferred.domain.BxmDniSqlInfoOMM">
+INSERT INTO BXM_DNI_SQL_INFO /* DBIO SQL ID 분석 정보 */
+(
+    BXM_APP_ID,/*BXM어플리케이션ID*/ 
+    PKG_NM,/*패키지 명*/ 
+    CLASS_NM,/*클래스 명*/ 
+    SQL_ID,/*SQL ID*/ 
+    SEQ,/*일련번호*/ 
+    SQL_TYPE_CD,/*SQL 구분 코드*/ 
+    DBIO_PATH,/*DBIO경로*/ 
+    TABLE_NM,/*테이블명*/ 
+    COLUMN_NM,/*컬럼명*/ 
+    MODIFY_DTTM /*변경 일시*/ 
+)
+VALUES
+(
+    #{bxmAppId, jdbcType=VARCHAR},/*BXM어플리케이션ID*/ 
+    #{pkgNm, jdbcType=VARCHAR},/*패키지 명*/ 
+    #{classNm, jdbcType=VARCHAR},/*클래스 명*/ 
+    #{sqlId, jdbcType=VARCHAR},/*SQL ID*/ 
+    #{seq, jdbcType=NUMERIC},/*일련번호*/ 
+    #{sqlTypeCd, jdbcType=VARCHAR},/*SQL 구분 코드*/ 
+    #{dbioPath, jdbcType=VARCHAR},/*DBIO경로*/ 
+    #{tableNm, jdbcType=VARCHAR},/*테이블명*/ 
+    #{columnNm, jdbcType=VARCHAR},/*컬럼명*/
+    #{modifyDttm, jdbcType=VARCHAR} /*변경 일시*/ 
+)
+</insert>
+<select id="selectSqlInfoList" parameterType="bxm.web.admin.dni.deferred.domain.BxmDniSqlInfoOMM" resultType="bxm.web.admin.dni.deferred.domain.BxmDniSqlInfoOMM">
+SELECT /* DBIO SQL ID 분석 정보 */ 
+       BXM_APP_ID AS bxmAppId,/*BXM어플리케이션ID*/ 
+       PKG_NM AS pkgNm,/*패키지 명*/ 
+       CLASS_NM AS classNm,/*클래스 명*/ 
+       SQL_ID AS sqlId,/*SQL ID*/ 
+       SEQ AS seq,/*일련번호*/ 
+       SQL_TYPE_CD AS sqlTypeCd,/*SQL 구분 코드*/ 
+       DBIO_PATH AS dbioPath,/*DBIO경로*/ 
+       TABLE_NM AS tableNm,/*테이블명*/ 
+       COLUMN_NM AS columnNm,/*컬럼명*/ 
+       MODIFY_DTTM AS modifyDttm /*변경 일시*/
+  FROM BXM_DNI_SQL_INFO  
+  WHERE BXM_APP_ID = #{bxmAppId}
+	AND PKG_NM = #{pkgNm}
+	AND CLASS_NM = #{classNm}
+	AND SQL_ID = #{sqlId}
+</select>
+</mapper>

@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.resourcelibrary.dao.CmTblXtnAtrD">
+<!--Generated Mon Aug 13 14:31:54 KST 2018-->
+<select id="selectListByInstCd" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrDIO">
+SELECT a.inst_cd AS instCd
+
+     , a.tbl_nm AS tblNm
+     , a.xtn_atrbt_nm AS xtnAtrbtNm
+
+     , a.std_atrbt_vldtn_use_yn AS stdAtrbtVldtnUseYn
+
+     , a.atrbt_vldtn_way_cd AS atrbtVldtnWayCd
+
+     , a.atrbt_vldtn_rule_cntnt AS atrbtVldtnRuleCntnt
+     , a.atrbt_vldtn_xtn_rule_cntnt AS atrbtVldtnXtnRuleCntnt
+      , a.RMK_CNTNT as rmkCntnt
+     , CASE WHEN A.XTN_ATRBT_VRTN_CMPS_CD is null 
+
+                  then CASE WHEN b.xtn_atrbt_vrtn_cmps_cd IS NULL 
+
+                                   THEN '00' 
+
+                                    ELSE b.xtn_atrbt_vrtn_cmps_cd 
+
+                                    END
+
+                           ELSE A.XTN_ATRBT_VRTN_CMPS_CD END AS xtnAtrbtVrtnCmpsCd
+
+     , A.LAST_CHNG_TMSTMP AS lastChngTmstmp
+
+  FROM cm_tbl_xtn_atr_d A
+       left outer join cm_tbl_xtn_atr_vrtn_cmps_d B
+       on a.tbl_nm = b.tbl_nm
+       AND a.xtn_atrbt_nm = b.xtn_atrbt_nm
+
+       AND a.inst_cd = b.inst_cd
+
+ WHERE a.tbl_nm = #{tblNm}
+   AND a.inst_cd = #{instCd}
+
+   AND a.ACTV_STS_CD = '01'
+
+GROUP BY a.inst_cd
+
+     , a.tbl_nm
+     , a.xtn_atrbt_nm
+
+     , a.std_atrbt_vldtn_use_yn
+
+     , a.atrbt_vldtn_way_cd
+
+     , a.atrbt_vldtn_rule_cntnt
+     , a.atrbt_vldtn_xtn_rule_cntnt
+     , a.RMK_CNTNT
+     , b.xtn_atrbt_vrtn_cmps_cd
+
+     , A.XTN_ATRBT_VRTN_CMPS_CD
+
+     , A.LAST_CHNG_TMSTMP
+
+ORDER BY A.XTN_ATRBT_NM
+</select>
+<select id="select" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrDIO">
+SELECT    /* 테이블확장속성명세 */
+       inst_cd AS instCd    /*기관코드*/
+     , tbl_nm AS tblNm    /*테이블명*/
+     , xtn_atrbt_nm AS xtnAtrbtNm    /*확장속성명*/
+     , inst_indv_dfntn_mndtry_yn AS instIndvDfntnMndtryYn
+     , std_atrbt_vldtn_use_yn AS stdAtrbtVldtnUseYn    /*표준속성검증사용여부*/
+     , atrbt_vldtn_way_cd AS atrbtVldtnWayCd    /*속성검증방법코드*/
+     , atrbt_vldtn_rule_cntnt AS atrbtVldtnRuleCntnt    /*속성검증규칙*/
+     , atrbt_vldtn_xtn_rule_cntnt AS atrbtVldtnXtnRuleCntnt    /*속성검증확장규칙*/
+     , XTN_ATRBT_VRTN_CMPS_CD AS xtnAtrbtVrtnCmpsCd
+     , RMK_CNTNT as rmkCntnt
+     , site_lbrtry_dscd as siteLbrtryDscd
+     , actv_sts_cd as actvStsCd
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM cm_tbl_xtn_atr_d
+ WHERE inst_cd = #{instCd, jdbcType=VARCHAR}
+   AND tbl_nm = #{tblNm, jdbcType=VARCHAR}
+   AND xtn_atrbt_nm = #{xtnAtrbtNm, jdbcType=VARCHAR}
+   AND ACTV_STS_CD = '01'
+</select>
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrDIO">
+INSERT INTO cm_tbl_xtn_atr_d    /* 테이블확장속성명세 */
+(
+       inst_cd    /*기관코드*/
+     , tbl_nm    /*테이블명*/
+     , xtn_atrbt_nm    /*확장속성명*/
+     , std_atrbt_vldtn_use_yn    /*표준속성검증사용여부*/
+     , inst_indv_dfntn_mndtry_yn
+     , atrbt_vldtn_way_cd    /*속성검증방법코드*/
+     , atrbt_vldtn_rule_cntnt    /*속성검증규칙*/
+     , atrbt_vldtn_xtn_rule_cntnt    /*속성검증확장규칙*/
+     , xtn_atrbt_vrtn_cmps_cd /*확장속성검증구성코드*/
+     , RMK_CNTNT /*비고내용*/
+     , SITE_LBRTRY_DSCD /* 사이트연구소구분코드 */
+     , ACTV_STS_CD /* 활동상태코드 */
+     , last_chng_tmstmp    /*최종변경일시*/
+     , last_chng_guid    /*최종변경GUID*/
+)
+VALUES 
+(
+       #{instCd, jdbcType=VARCHAR}    /*기관코드*/
+     , #{tblNm, jdbcType=VARCHAR}    /*테이블명*/
+     , #{xtnAtrbtNm, jdbcType=VARCHAR}    /*확장속성명*/
+     , #{stdAtrbtVldtnUseYn, jdbcType=VARCHAR}    /*표준속성검증사용여부*/
+     , #{instIndvDfntnMndtryYn, jdbcType=VARCHAR}
+     , #{atrbtVldtnWayCd, jdbcType=VARCHAR}    /*속성검증방법코드*/
+     , #{atrbtVldtnRuleCntnt, jdbcType=VARCHAR}    /*속성검증규칙*/
+     , #{atrbtVldtnXtnRuleCntnt, jdbcType=VARCHAR}    /*속성검증확장규칙*/
+     , #{xtnAtrbtVrtnCmpsCd, jdbcType=VARCHAR}    /*확장속성변형구성코드*/
+     , #{rmkCntnt, jdbcType=VARCHAR}    /*비고내용*/
+     , #{siteLbrtryDscd, jdbcType=VARCHAR} /*사이트연구소구분코드*/
+     , #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/
+     , #{lastChngTmstmp, jdbcType=TIMESTAMP}    /*최종변경일시*/
+     , #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrDIO">
+UPDATE  
+        cm_tbl_xtn_atr_d
+   SET  STD_ATRBT_VLDTN_USE_YN = #{stdAtrbtVldtnUseYn, jdbcType=VARCHAR}    /* 표준속성검증사용여부 */
+     , INST_INDV_DFNTN_MNDTRY_YN = #{instIndvDfntnMndtryYn, jdbcType=VARCHAR}    /* 기관개별정의필수여부 */
+     , ATRBT_VLDTN_WAY_CD = #{atrbtVldtnWayCd, jdbcType=VARCHAR}    /* 속성검증방법코드 */
+     , atrbt_vldtn_rule_cntnt = #{atrbtVldtnRuleCntnt, jdbcType=VARCHAR}    /* 속성검증규칙 */
+     , atrbt_vldtn_xtn_rule_cntnt = #{atrbtVldtnXtnRuleCntnt, jdbcType=VARCHAR}    /* 속성검증확장규칙 */
+     , XTN_ATRBT_VRTN_CMPS_CD = #{xtnAtrbtVrtnCmpsCd, jdbcType=VARCHAR}
+     , RMK_CNTNT = #{rmkCntnt, jdbcType=VARCHAR}    /* 비고내용 */
+     , SITE_LBRTRY_DSCD = #{siteLbrtryDscd, jdbcType=VARCHAR}    
+     , ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}    /* 활동상태코드 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+   AND TBL_NM = #{tblNm, jdbcType=VARCHAR}
+   AND XTN_ATRBT_NM = #{xtnAtrbtNm, jdbcType=VARCHAR}
+</update>
+<delete id="delete">
+DELETE FROM cm_tbl_xtn_atr_d    /* 테이블확장속성명세 */
+ WHERE inst_cd = #{instCd}
+
+   AND tbl_nm = #{tblNm}
+   AND xtn_atrbt_nm = #{xtnAtrbtNm}
+</delete>
+<select id="selectListByAtrbtNm" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrDIO">
+SELECT  /* 테이블확장속성정의기본 */
+
+        tbl_nm AS tblNm    /*테이블명*/
+     ,  xtn_atrbt_nm AS xtnAtrbtNm    /*확장속성명*/
+
+  FROM  cm_tbl_xtn_atr_d
+ WHERE  xtn_atrbt_nm = #{atrbtNm}
+
+     AND ACTV_STS_CD = '01'
+</select>
+<select id="selectList" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrDIO">
+SELECT a.inst_cd AS instCd
+
+     , a.tbl_nm AS tblNm
+     , a.xtn_atrbt_nm AS xtnAtrbtNm
+
+     , a.std_atrbt_vldtn_use_yn AS stdAtrbtVldtnUseYn
+
+     , a.atrbt_vldtn_way_cd AS atrbtVldtnWayCd
+
+     , a.atrbt_vldtn_rule_cntnt AS atrbtVldtnRuleCntnt
+     , a.atrbt_vldtn_xtn_rule_cntnt AS atrbtVldtnXtnRuleCntnt
+     , a.RMK_CNTNT as rmkCntnt
+     , c.atrbt_tp_cd AS atrbtTpCd
+
+     , c.atrbt_len AS atrbtLen
+
+  FROM cm_tbl_xtn_atr_d a
+     , cm_std_atr_m c
+
+ WHERE a.inst_cd = #{instCd}
+
+   AND a.tbl_nm = #{tblNm}
+   AND a.ACTV_STS_CD = '01'
+
+   AND c.ACTV_STS_CD = '01'
+
+   AND a.xtn_atrbt_nm = c.atrbt_nm
+
+<if test="xtnAtrbtNm != null and xtnAtrbtNm != '' ">
+
+   AND a.atrbt_nm like CONCAT(CONCAT('%', #{xtnAtrbtNm}), '%')
+
+</if>
+
+UNION ALL
+
+SELECT a.inst_cd AS instCd
+
+     , a.tbl_nm AS tblNm
+     , a.xtn_atrbt_nm AS xtnAtrbtNm
+
+     , a.std_atrbt_vldtn_use_yn AS stdAtrbtVldtnUseYn
+
+     , a.atrbt_vldtn_way_cd AS atrbtVldtnWayCd
+
+     , a.atrbt_vldtn_rule_cntnt AS atrbtVldtnRuleCntnt
+     , a.atrbt_vldtn_xtn_rule_cntnt AS atrbtVldtnXtnRuleCntnt
+      , a.RMK_CNTNT as rmkCntnt
+     , c.atrbt_tp_cd AS atrbtTpCd
+
+     , c.atrbt_len AS atrbtLen
+
+  FROM cm_tbl_xtn_atr_d a
+     , cm_std_atr_m c
+
+ WHERE a.inst_cd = 'STDA'
+
+   AND a.ACTV_STS_CD = '01'
+
+   AND c.ACTV_STS_CD = '01'
+
+   AND a.tbl_nm = #{tblNm}
+   AND a.xtn_atrbt_nm = c.atrbt_nm   
+
+<if test="xtnAtrbtNm != null and xtnAtrbtNm != '' ">
+
+   AND a.atrbt_nm like CONCAT(CONCAT('%', #{xtnAtrbtNm}), '%')
+
+</if>
+
+   AND NOT EXISTS (
+
+SELECT 1
+
+  FROM cm_tbl_xtn_atr_d b
+ WHERE b.inst_cd = #{instCd}
+
+   AND b.tbl_nm = #{tblNm}
+   AND a.tbl_nm = b.tbl_nm
+   AND a.xtn_atrbt_nm = b.xtn_atrbt_nm
+
+   AND b.ACTV_STS_CD = '01'
+
+)
+</select>
+<select id="selectListByStd" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrDIO">
+SELECT    /* 테이블확장속성명세 */
+
+        inst_cd AS instCd,     /*기관코드*/
+
+        tbl_nm AS tblNm,     /*테이블명*/
+        xtn_atrbt_nm AS xtnAtrbtNm,     /*확장속성명*/
+
+        std_atrbt_vldtn_use_yn AS stdAtrbtVldtnUseYn,     /*표준속성검증사용여부*/
+
+        inst_indv_dfntn_mndtry_yn AS instIndvDfntnMndtryYn,     /*기관개별정의필수여부*/
+
+        atrbt_vldtn_way_cd AS atrbtVldtnWayCd,     /*속성검증방법코드*/
+
+        atrbt_vldtn_rule_cntnt AS atrbtVldtnRuleCntnt,     /*속성검증규칙*/
+        atrbt_vldtn_xtn_rule_cntnt AS atrbtVldtnXtnRuleCntnt,     /*속성검증확장규칙*/
+         RMK_CNTNT as rmkCntnt,
+        last_chng_tmstmp AS lastChngTmstmp,     /*최종변경일시*/
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  cm_tbl_xtn_atr_d
+ WHERE  xtn_atrbt_nm IN
+
+		(
+
+			SELECT	xtn_atrbt_nm
+
+			  FROM 	cm_tbl_xtn_atr_d
+			 WHERE 	inst_cd = 'STDA'
+
+		)
+
+<if test="xtnAtrbtNm != null and xtnAtrbtNm != '' ">
+
+   AND xtn_atrbt_nm = #{xtnAtrbtNm}
+
+</if>
+
+<if test="tblNm != null and tblNm != '' ">
+   AND tbl_nm =  #{tblNm}
+</if>
+
+AND ACTV_STS_CD = '01'
+</select>
+<update id="updateActvStsCd" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrDIO">
+UPDATE cm_tbl_xtn_atr_d    /* 테이블확장속성명세 */
+   SET ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/
+     , SITE_LBRTRY_DSCD = #{siteLbrtryDscd, jdbcType=VARCHAR}    
+     , last_chng_tmstmp = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE inst_cd = #{instCd, jdbcType=VARCHAR}
+   AND tbl_nm = #{tblNm, jdbcType=VARCHAR}
+   AND xtn_atrbt_nm = #{xtnAtrbtNm, jdbcType=VARCHAR}
+</update>
+<update id="updateStdInfo" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrDIO">
+UPDATE  
+        cm_tbl_xtn_atr_d
+   SET  STD_ATRBT_VLDTN_USE_YN = #{stdAtrbtVldtnUseYn, jdbcType=VARCHAR}    /* 표준속성검증사용여부 */
+     , INST_INDV_DFNTN_MNDTRY_YN = #{instIndvDfntnMndtryYn, jdbcType=VARCHAR}    /* 기관개별정의필수여부 */
+     , SITE_LBRTRY_DSCD = #{siteLbrtryDscd, jdbcType=VARCHAR}    /* 사이트연구소구분코드 */
+     , ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}    /* 활동상태코드 */
+     , SITE_LBRTRY_DSCD = #{siteLbrtryDscd, jdbcType=VARCHAR}    
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+   AND TBL_NM = #{tblNm, jdbcType=VARCHAR}
+   AND XTN_ATRBT_NM = #{xtnAtrbtNm, jdbcType=VARCHAR}
+</update>
+<select id="selectListTblXtnAtrD" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrDIO" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrDIO">
+SELECT    /* 테이블확장속성명세 */
+        INST_CD AS instCd,     /*기관코드*/
+        TBL_NM AS tblNm,     /*테이블명*/
+        XTN_ATRBT_NM AS xtnAtrbtNm,     /*확장속성명*/
+        STD_ATRBT_VLDTN_USE_YN AS stdAtrbtVldtnUseYn,     /*표준속성검증사용여부*/
+        INST_INDV_DFNTN_MNDTRY_YN AS instIndvDfntnMndtryYn,     /*기관개별정의필수여부*/
+        ATRBT_VLDTN_WAY_CD AS atrbtVldtnWayCd,     /*속성검증방법코드*/
+        ATRBT_VLDTN_RULE_CNTNT AS atrbtVldtnRuleCntnt, 
+        ATRBT_VLDTN_XTN_RULE_CNTNT AS atrbtVldtnXtnRuleCntnt, 
+        XTN_ATRBT_VRTN_CMPS_CD AS xtnAtrbtVrtnCmpsCd, 
+        RMK_CNTNT AS rmkCntnt,     /*비고내용*/
+        SITE_LBRTRY_DSCD AS siteLbrtryDscd,     /*사이트연구소구분코드*/
+        ACTV_STS_CD AS actvStsCd,     /*활동상태코드*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  cm_tbl_xtn_atr_d
+ WHERE INST_CD = #{instCd}
+</select>
+<select id="selectAll" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrDIO">
+SELECT    /* 테이블확장속성명세 */
+       inst_cd AS instCd    /*기관코드*/
+     , tbl_nm AS tblNm    /*테이블명*/
+     , xtn_atrbt_nm AS xtnAtrbtNm    /*확장속성명*/
+     , inst_indv_dfntn_mndtry_yn AS instIndvDfntnMndtryYn
+     , std_atrbt_vldtn_use_yn AS stdAtrbtVldtnUseYn    /*표준속성검증사용여부*/
+     , atrbt_vldtn_way_cd AS atrbtVldtnWayCd    /*속성검증방법코드*/
+     , atrbt_vldtn_rule_cntnt AS atrbtVldtnRuleCntnt    /*속성검증규칙*/
+     , atrbt_vldtn_xtn_rule_cntnt AS atrbtVldtnXtnRuleCntnt    /*속성검증확장규칙*/
+     , XTN_ATRBT_VRTN_CMPS_CD AS xtnAtrbtVrtnCmpsCd
+     , RMK_CNTNT as rmkCntnt
+     , site_lbrtry_dscd
+     , actv_sts_cd
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM cm_tbl_xtn_atr_d
+ WHERE inst_cd = #{instCd}
+   AND tbl_nm = #{tblNm}
+   AND xtn_atrbt_nm = #{xtnAtrbtNm}
+</select>
+</mapper>

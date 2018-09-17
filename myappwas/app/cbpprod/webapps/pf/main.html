@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Product Factory</title>
+    <link href="/libs/pfui/dpl.css" rel="stylesheet">
+    <link href="/libs/pfui/pfui.css" rel="stylesheet">
+
+    <!-- bx ui 적용 -->
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/jquery/jquery-ui.css" />
+    <link rel="stylesheet" href="/libs/date-picker/jquery.datetimepicker.css" />
+	<link rel="stylesheet" href="/pf_common/style/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="/planner/project/css/style.css" type="text/css" />
+
+    <script src="/libs/jquery/jquery-1.10.2.min.js"></script>
+    <script src="/libs/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/libs/jquery/jquery-ui.js"></script>
+    <!-- bx ui 적용 -->
+
+    <script src="/libs/pfui/sea.js"></script>
+    <script src="/libs/pfui/config.js" data="true"></script>
+    <script src="/libs/extjs/ext-all.js"></script>
+    <link href="/libs/extjs/ext-theme-gray-all.css" rel="stylesheet">
+    <script src="/libs/handlebars/handlebars-1.1.2.js"></script>
+    <script src="/libs/xDate/xdate.js"></script>
+    <script src="/libs/underscore/underscore.js"></script>
+    <script src="/libs/date-picker/jquery.datetimepicker.full.min.js"></script>
+
+    <script src="/pf_common/config/commonConfig.js"></script>
+    <script src="/pf_common/js/pf-common.js"></script>
+    <script src="/pf_common/js/pf-msg.js"></script>
+    <script src="/pf_common/js/pf-component.js"></script>
+    <script src="/pf_common/js/pf-validation.js"></script>
+
+	<script src="/libs/jasny-bootstrap/jasny-bootstrap-custom.js"></script>
+
+    <!-- bx ui 적용 -->
+    <style type="text/css">
+        section.main {left:35px;}
+        /*메인 Header 개발과제선택 콤보박스 css*/
+        .default-layout-task-menu .my-task-list, .default-layout-task-menu .your-task{
+            height: 23px;
+            padding: 1px;
+            width: 150px;
+            color: #333;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            line-height: 20px;
+            vertical-align: middle;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            text-transform: none;
+            font: inherit;
+            margin: 0 0 3px 10px;
+        }
+        .default-layout-task-menu .your-task{
+            padding:5px !important;
+        }
+
+        /*좌측메뉴 펼쳐짐 글씨 색상*/
+        .ui-widget-content a {
+            color: #757575;
+            width:100%;
+        }
+
+        .header-main i {
+            margin-top: -3px;
+        }
+
+        .ico_mbox {
+		    /* background-image: url(https://ssl.pstatic.net/static/pwe/nm/spr_works_85bf2d1b93.png); */
+		    background-image: url('/images/bx-ui/sub-icons.png');
+		    background-position: -77px -450px;
+		    background-repeat: no-repeat;
+		    height: 18px;
+		    display: inline-block;
+		    width: 20px!important;
+		    position: relative;
+		    top: 4px;
+		    margin-left: 4px;
+		    margin-right: -4px;
+		}
+
+		aside .fav li .sub-menu .product-submenu-area li {
+		    /* line-height: -18px; */
+		    height: 28px;
+		    border-bottom: 0;
+		    text-align: left;
+		    text-indent: 10px;
+		    font-size: 12px;
+		    color: black;
+        }
+
+        .theme {
+            display: none;
+            position: absolute;
+            top: 31px;
+            width: 230px;
+            /* height: 42px; */
+            /* height: 270px; */
+            height: 155px;
+            /* left: 50%; */
+            left: -370%;
+            margin-left: -60px;
+            padding: 10px;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid #4179b5;
+        }
+
+        .theme.on {
+             display: block;
+        }
+
+        .theme-item[data-theme="default"] { background: rgb(135, 133, 133); }
+        .theme-item[data-theme="theme1"] { background: rgb(0, 0, 0); }
+        .theme-item[data-theme="theme2"] { background: #b6117b; }
+        .theme-item[data-theme="theme3"] { background: #34b896; }
+
+        .theme-item { display: inline-block; width: 20px; height: 20px; cursor: pointer; }
+
+        .theme-item.on { border: 3px solid rgb(255, 196, 0); }
+        .theme:after {
+            content: "";
+            position: absolute;
+            top: -6px;
+            left: 75%;
+            margin-left: -3px;
+            width: 0;
+            height: 0;
+            border-bottom:6px solid rgba(255,255,255,0.9);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+        }
+
+		.fileinput {
+            display: none;
+            position: absolute;
+            top: 75px;
+            left: -460%;
+			padding-top: 10px;
+    		padding-right: 10px;
+    		padding-bottom: 0px;
+    		padding-left: 10px;
+            background: rgba(255,255,255,0.9);
+            border: 1px solid #4179b5;
+		}
+		.fileinput-preview img {
+			width:140px;
+			height:40px;
+    		vertical-align: top;
+    		margin-top: -6px;
+    		margin-left: -4px;
+		}
+		.fileinput.on {
+             display: block;
+        }
+		.fileinput .thumbnail {
+		    overflow: hidden;
+		    display: inline-block;
+		    margin-bottom: 5px;
+		    vertical-align: middle;
+		    text-align: center;
+		    padding: 4px;
+		    background-color: #fff;
+    		border: 1px solid #ddd;
+    		border-radius: 4px;
+    		transition: all .2s ease-in-out;
+		}
+		.fileinput-exists .fileinput-new, .fileinput-new .fileinput-exists {
+    		display: none;
+		}
+
+		.btn {
+		    display: inline-block;
+		    /* padding: 6px 12px; */
+		    margin-bottom: 0;
+		    font-size: 14px;
+		    font-weight: 400;
+		    line-height: 1.42857143;
+		    text-align: center;
+		    white-space: nowrap;
+		    /* vertical-align: middle; */
+		    cursor: pointer;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		    background-image: none;
+		    border: 1px solid transparent;
+		    border-radius: 4px;
+		}
+
+		.btn-default {
+    		color: #333;
+    		background-color: #fff;
+    		border-color: #ccc;
+		}
+
+		.btn-file {
+		    /* overflow: hidden; */
+		    position: relative;
+		}
+
+		.fileinput .btn {
+    		/* vertical-align: middle; */
+		}
+
+		.fileinput-new .fileinput-exists {
+    		display: none;
+		}
+
+		.btn-file>input {
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    margin: 0;
+		    opacity: 0;
+		    filter: alpha(opacity=0);
+		    font-size: 23px;
+		    height: 100%;
+		    direction: ltr;
+		    cursor: pointer;
+		}
+
+		input[type=file] {
+    		display: none;
+		}
+    </style>
+    <!-- bx ui 적용 -->
+</head>
+<body class="theme-pf">
+
+<div id="loading-dim" class="loading-dim" style="z-index:9999">
+    <i class="fa fa-spinner fa-pulse loading-dim-icon"></i>
+</div>
+
+<div class="product-factory-header header">
+
+</div>
+<div class="product-factory-main-menu">
+
+</div>
+<div class="pf-workspace">
+
+</div>
+
+<script id="product-factory-header-tpl" type="text/x-handlebars-template">
+    <!--HEADER-->
+    <div class="header-main">
+        <h1 class="logo">
+			<a href="/main.html">
+				<img style="vertical-align:inherit;" id="product-factory-logo" src=""/>
+				<!--<img style="vertical-align:inherit;" src="/images/bx-ui/logo_PF_bankwareglobal.png"/>-->
+			</a>
+		</h1>
+        <section class="header-tool">
+            <ul class="bw-util">
+                <li>
+                    <i class="bw-icon i-25 i-cal"></i>
+                    <span class="bw-input today-info"></span>
+                </li>
+                <li class="default-layout-task-menu pf-default-my-task">
+                    <i class="bw-icon i-25 i-dept" style="margin-top:-3px;"></i>
+                    <select class="my-task-list" style="width:150px;">
+                    </select>
+                    <input type="text" class="bx-form-item your-task task-hide" disabled>
+                </li>
+                <li class="default-layout-task-menu pf-default-my-task">
+                    <button type="button" class="bw-btn task-create-popup-btn on"><i class="bw-icon i-25 i-func-add"></i></button>
+                </li>
+                <li>
+                    <i class="bw-icon i-25 i-agency"></i>
+                    <span class="login-tntInst-id" style="display:none"></span>
+                    <span class="bw-input login-tntInst-name"></span>
+                </li>
+                <li class="pf-user-menu">
+                    <i class="bw-icon i-25 i-log"></i>
+                    <span class="bw-input user-name"></span>
+                    <input class="user-id" type="hidden" disabled>
+                </li>
+                <li>
+                    <button type="button" class="bw-btn theme-btn"><i class="bw-icon i-25 i-color-theme"></i></button>
+                    <div class="theme">
+                        <div class="theme-item" data-theme="default"></div>
+                        <div class="theme-item" data-theme="theme1"></div>
+                        <div class="theme-item" data-theme="theme2"></div>
+                        <div class="theme-item" data-theme="theme3"></div>
+                    </div>
+
+					<!-- PF logo -->
+					<div class="fileinput fileinput-new" data-provides="fileinput">
+						<div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 140px; height: 40px;"></div>
+							<div>
+								<span class="btn btn-file">
+
+									<button type="button" class="fileinput-new" title="{{bxMsg 'ButtonBottomString8'}}"><i class="bw-icon i-30 i-log-image"></i></button>
+									<button type="button" class="fileinput-exists" title="{{bxMsg 'modify'}}"><i class="bw-icon i-30 i-log-image"></i></button>
+
+									<input type="file" name="product-factory-logo-image" accept=".jpg,.jpeg,.png,.bmp" style="width:35px;">
+								</span>
+
+								<button type="button" class="bw-btn pf-logo-save" title="{{bxMsg 'ButtonBottomString1'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+							</div>
+					</div>
+
+                </li>
+                <li>
+                    <button type="button" class="bw-btn logout-btn" title="로그아웃"><i class="bw-icon i-25 i-exit"></i></button>
+                </li>
+            </ul>
+            <div class="pf-hidden">
+                <input type="hidden" class="bx-form-item bx-compoenent-small hash"  disabled>
+            </div>
+            <!-- OHS 20161128 추가, 상품비교용 목록저장 div -->
+            <div style="display:none;" class="bx-form-item compare-product-list"></div>
+        </section>
+    </div>
+</script>
+
+<script id="pf-pt-dev-task-new-form" type="text/x-handlebars-template">
+    <div class="pf-pt-dev-task-new-form">
+        <table class="bx-info-table new-task-create-table">
+            <tr>
+                <th>{{bxMsg 'DAS0101String23'}}<span class="red-notice">*</span></th>
+                <td colspan="3"><input type="text" class="bx-form-item bx-compoenent-small new-task-name task-valid-100 mandatory" data-form-param="name" name="내용"></td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'PAS0202String9'}}</th>
+                <td colspan="3" class="end-td">
+                    <textarea class="bx-form-item new-task-content task-valid-300" data-form-param="content"></textarea>
+                    <input type="hidden" value="00" data-form-param="progressStatus">
+                </td>
+            </tr>
+        </table>
+    </div>
+</script>
+
+<script>
+	$('#loading-dim').show();
+    var parameter;
+    var productFactoryHeaderTpl = Handlebars.compile($('#product-factory-header-tpl').html());
+
+    $('.product-factory-header').html(productFactoryHeaderTpl());
+
+    $('.login-tntInst-id').text(getCookie('tntInstId'));
+    $('.login-tntInst-name').text(getCookie('tntInstName'));
+    $('.pf-user-menu').find('.user-id').text(getCookie('loginId'));
+    $('.pf-user-menu').find('.user-name').text(getCookie('loginNm'));
+
+    $('.today-info').text(XDate().toString('yyyy-MM-dd'));
+    $('body').addClass(getCookie('theme'));
+
+    var taskList = {};
+
+    function getCookie(cName) {
+        cName = cName + '=';
+        var cookieData = document.cookie;
+        var start = cookieData.indexOf(cName);
+        var cValue = '';
+        if(start != -1){
+            start += cName.length;
+            var end = cookieData.indexOf(';', start);
+            if(end == -1)end = cookieData.length;
+            cValue = cookieData.substring(start, end);
+        }
+        return unescape(cValue);
+    }
+
+    function setCookie(cName, cValue, cDate){
+        var expire = new Date();
+        expire.setDate(expire.getDate()+cDate);
+        var cookies = cName + '=' + escape(cValue) + '; path=/ ';
+        if(typeof cMinute != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
+        document.cookie = cookies;
+    }
+
+    // 로그아웃 버튼 클릭 시
+    $('.logout-btn').click(function(e){
+        setCookie('mother','',1);
+        setCookie('motherTntInstId','',1);
+        setCookie('tntInstId', '', 1);
+        setCookie('tntInstName', '', 1);
+        setCookie('loginNm','',1);
+        setCookie('loginId', '',1);
+        location.pathname = '/';
+    });
+
+    $('button.fileinput-new').click(function(e) {
+    	e.stopPropagation();
+    	$('input[name=product-factory-logo-image').click();
+    });
+
+    $('button.fileinput-exists').click(function(e) {
+    	e.stopPropagation();
+    	$('input[name=product-factory-logo-image').click();
+    });
+
+    $('input[name=product-factory-logo-image').change(function(e) {
+    	// 선택된 파일이 없을경우 처리
+    	// 크롬의 경우 취소버튼을 눌렀을경우 보안이유로 파일을 클리어 시킴.
+    	// 사용자가 인지할 수 있도록 image src clear
+    	if(e.target.files[0] == undefined) {
+    		$('.fileinput-preview img').remove();
+    		return;
+    	}
+
+    	// 이미지 파일만 선택 가능처리
+    	if(e.target.files[0].type.indexOf('image') == -1) {
+			PFComponent.showMessage(bxMsg('onlyImageFile'), 'warning');
+			return;
+    	}
+    });
+
+    // 테마버튼 클릭 처리
+    $('.theme-btn').click(function(e) {
+        $(e.currentTarget).parent().find('.theme').toggleClass('on');
+
+        // 쿠키에 저장되어있는 테마를 기본으로 세팅처리
+        if(getCookie('theme')) {
+        	$('.theme-item[data-theme='+getCookie('theme')+']').addClass('on');
+            $(e.currentTarget).parent().find('.fileinput-preview').css('background', $('.theme-item[data-theme='+getCookie('theme')+']').css('background'));
+        }
+        else {
+        	$('.theme-item[data-theme=default]').addClass('on');
+            $(e.currentTarget).parent().find('.fileinput-preview').css('background', $('.theme-item[data-theme=default]').css('background'));
+        }
+
+        $(e.currentTarget).parent().find('.fileinput').toggleClass('on');
+
+        // 현재 Product Factory Logo를 preview 영역에 보여줌
+	    if($('#product-factory-logo').attr('src')) {
+	    	$(e.currentTarget).parent().find('.fileinput-preview').append('<img src=' + $('#product-factory-logo').attr('src') + '>');
+	    }
+
+    });
+
+    // 테마의 색상 클릭 처리
+	$('.theme-item').click(function(e) {
+		var $target = $(e.currentTarget),
+					$selectedTarget;
+		$selectedTarget = $target.siblings('.theme-item.on');
+	    $selectedTarget.removeClass('on');
+	    $target.addClass('on');
+	    var currentTheme = $target.attr('data-theme');
+	    $('body').removeClass($selectedTarget.attr('data-theme')).addClass(currentTheme);
+	    setCookie('theme', currentTheme, { expires: 365 });
+
+	    // preview 영역의 색상도 같이 변경 해줌
+	    $target.parent().next().find('.fileinput-preview').css('background', $('body').find('.header-main').css('background'));
+	});
+
+    // PF Logo Save 아이콘 클릭 처리
+	$('.pf-logo-save').click(function(e) {
+		if($('.fileinput-preview img').attr('src') == undefined) {
+			PFComponent.showMessage(bxMsg('saveNoData'), 'warning');
+			return;
+		}
+    	// 이미지 파일만 선택 가능처리
+    	if(e.target.files && e.target.files[0].indexOf('image') == -1) {
+			PFComponent.showMessage(bxMsg('onlyImageFile'), 'warning');
+			return;
+    	}
+		if($('input[name=product-factory-logo-image')[0].files[0] == undefined) {
+			$('.theme-btn').click();
+			PFComponent.showMessage(bxMsg('Z_SaveSucceed'), 'success');
+			$('.fileinput').fileinput('clear');
+		}
+		else {
+	        var formData = new FormData();
+	        formData.append('file', $('input[name=product-factory-logo-image')[0].files[0]);
+	        //formData.append('uploadFile', $('input[name=product-factory-logo-image')[0].files[0]); // BXM용 변수
+	        formData.append('tntInstId', $('.product-factory-header', parent.document).find('.login-tntInst-id').text());
+	        formData.append('objectId', 'PFLogo');
+	        formData.append('lastModifier', getCookie('loginId'));
+	        formData.append('dataTpDscd', '05'); // 05 : Blob
+	        formData.append('atrbtId', 'image');
+	        formData.append('valSeqNbr', 1);
+
+	        // BXM용 추가헤더정보
+	        formData.append('application', 'PF_Factory');
+	        formData.append('service', 'EAVService');
+	        formData.append('operation', 'saveEAVObjectValueDetailBlob');
+	        formData.append('loginTntInstId', $('.product-factory-header', parent.document).find('.login-tntInst-id').text());
+	        formData.append('motherTntInstId', getCookie('motherTntInstId'));
+	        formData.append('lastModifier', getCookie('loginId'));
+
+	        if(g_serviceType == g_bxmService){
+	            url = "/serviceEndpoint/json/request.json";
+	        }
+	        else {
+	            url = "/eav/saveEAVObjectValueDetailBlob.json";
+	        }
+
+			$.ajax({
+			    url: url,
+			    type: "POST",
+			    data: formData,
+			    processData: false,
+			    contentType: false,
+			    success: function(fileUploadList, textStatus, jqXHR) {
+					$('.theme-btn').click();
+					$('#product-factory-logo').attr('src', $('.fileinput-preview').find('img').attr('src'));
+					PFComponent.showMessage(bxMsg('Z_SaveSucceed'), 'success');
+					$('.fileinput').fileinput('clear');
+			    }, error: function(jqXHR, textStatus, errorThrown) {
+			    }
+			    ,
+			    bxmHeader: {
+		            application: 'PF_Factory',
+		            service: 'EAVService',
+		            operation: 'saveEAVObjectValueDetailBlob'
+		    	}
+			});
+		}
+	});
+
+
+    $('body').attr('lang', getCookie('lang'));
+	$('.fileinput').fileinput();
+</script>
+
+<script src="/pf_common/js/pf-default.js"></script>
+<script src="/pf_common/js/pf-code.js"></script>
+<script src="/pf_common/js/pf-main.js"></script>
+
+<!-- 개발과제팝업 -->
+<script src="/planner/project/js/task-popup.js"></script>
+<script src="/planner/project/js/idea-popup.js"></script>
+<script src="/pf_common/popup/employee/js/popup.js"></script>
+<script src="/pf_common/popup/role/js/popup.js"></script>
+
+<script>
+	// Product Factory main logo 조회
+	var requestData = {
+			'objectId' : 'PFLogo',
+			'tntInstId' : $('.product-factory-header', parent.document).find('.login-tntInst-id').text()
+	}
+	PFRequest.get('/eav/getEAVObjectValueDetailBlobInfo.json', requestData, {
+	    success: function (responseData) {
+	    	if(responseData && responseData.voList && responseData.voList[0]) {
+	    		var data = responseData.voList[0].blobObject;
+	    		if(data) {
+	    			$('#product-factory-logo').attr('src', 'data:image/png;base64,'+ data);
+	    		}
+	    	}
+	    },
+	    bxmHeader: {
+	            application: 'PF_Factory',
+	            service: 'EAVService',
+	            operation: 'getEAVObjectValueDetailBlobInfo'
+	    }
+	});
+</script>
+<script>
+	$('#loading-dim').hide();
+</script>
+<script src="/pf_common/js/pf-menu.js"></script>
+</body>

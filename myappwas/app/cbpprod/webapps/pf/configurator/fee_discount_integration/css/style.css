@@ -1,0 +1,137 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for fee discount integration
+ * 수수료할인통합 CSS 
+ */
+.pf-fee-discount-grid { height : 200px; }
+.fee-discount-grid { height : 270px; }
+.pf-limit-cnd-grid { height : 200px; }
+.pf-fdi-rel-info { margin-top : 20px; }
+.popup-cnd-grid { height : 230px; }
+.limit-cnd-list-code-grid { height : 150px; }
+.limit-cnd-history-btn { float : right; }
+.limit-cnd-info-popup-tpl .limit-cnd-nm { width : 250px; }
+.limit-cnd-info-popup-tpl .bx-info-table .start-date { width : 145px; }
+.limit-cnd-info-popup-tpl .bx-info-table .end-date { width : 145px; }
+.pf-cp-prov-condition-history-popup .prov-cnd-popup { width : 290px; }
+.pf-cp-prov-condition-history-popup .pf-cp-prov-condition-history-grid-title { margin-top:10px; }
+.pf-cp-prov-condition-history-popup .history-condition-value-wrap { margin-top:20px; }
+.pf-cp-prov-condition-history-popup .pf-cp-prov-condition-history-grid { height : 160px; }
+.pf-cp-prov-condition-history-popup .history-prov-cnd-list-code-grid { height : 160px; }
+.limit-cnd-type1-warp { margin-top : 20px; }
+.limit-cnd-type2-warp { margin-top : 20px; }
+.pf-limit-condition-info-tpl .header-btn-group {
+    position: absolute;
+    right: 5px;
+    top: -2px;
+    z-index: 1;
+}
+.pf-fee-discount-add-popup .search-btn { float : right; }
+.pf-fdi-rel-form tr th { width : 150px; }
+.fee-discount-integration-limit-management-popup tr th { width : 150px; }
+.limit-cnd-type2-warp .bx-info-table-wrap { border: 1px solid;padding: 10px; }
+.pf-panel .pf-panel-body .pf-panel-footer {
+    margin-top: 10px;
+    padding-top: 10px;
+    height: 30px;
+    border-top: solid 1px #CCC;
+    padding-bottom:30px;
+}
+.prov-cnd-type1-warp { margin-top : 20px; }
+.prov-cnd-type2-warp { margin-top : 20px; }
+.prov-cnd-add-info-wrap { margin-top : 20px; }
+.prov-cnd-list-code-grid { height:160px; }
+.prov-cnd-add-info-grid { height:160px; }
+.prov-cnd-history-btn { float : right; }
+.prov-cnd-tpl .prov-cnd-nm { width : 283px; }
+.prov-cnd-tpl .bx-info-table .start-date { width : 150px; }
+.link-tabs li, .nav-tabs li { margin-right: -4px; }
+.nav-tabs .pfui-tab-item-text {
+    width: 120px;
+    cursor: pointer;
+    text-align: center;
+}
+input[type=text].bx-form-item.bx-compoenent-small { width: 166px; }
+/*수수료할인 팝업-제공조건탭 그리드*/
+.add-cnd4-fee-tpl-popup .add-cnd4-fee-popup-cnd-grid { height: 150px; }
+/*수수료할인 팝업-제공조건 적용규칙*/
+.add-cnd4-fee-tpl-popup .apply-rule-info-wrap {
+    margin-top: 30px;
+    padding: 15px 10px 5px 10px;
+    border: 1px solid;
+}
+.add-cnd4-fee-tpl-popup .apply-rule-info-wrap .apply-rule-title-wrap { margin-top: -25px; }
+.add-cnd4-fee-tpl-popup .apply-rule-info-wrap .apply-rule-title-wrap .cnd-value-title {
+    font-weight: bold;
+    font-size: 1.3em;
+    padding: 0 10px;
+}
+.add-cnd4-fee-tpl-popup .bx-info-table select, .add-cnd4-fee-tpl-popup .bx-info-table input[type=text] {
+    width: 160px;
+}
+.pf-ps-info-list-wrap .pfui-tree-item { height:25px; }
+.cnd-value-title { background: white; }
+.add-cnd4-fee-tpl-popup .bw-btn { float: right; }
+.add-cnd4-fee-tpl-popup .add-cnd4-fee-popup-limit-cnd-grid { height: 400px; }
+.add-cnd4-fee-tpl-popup .fee-dis-sub-tab-conts { padding: 10px; }
+.grid-extra-header {
+    /*text-align: initial;*/
+}
+.grid-extra-header .bw-btn {
+    /*float: right;*/
+}
+.cnd-tpl-search { float: right; }
+/*조건정보 우측 펼침 버튼*/
+.pf-limit-condition-info-tpl .header-btn-group {
+    position: absolute;
+    right: 14px;
+    top: -2px;
+    z-index: 1;
+}
+/*이력조회 버튼 조정*/
+.limit-cnd-info-popup-tpl .limit-cnd-history-btn {
+    margin-top: -3px;
+    float: right;
+}
+.header-group {
+    text-align: left;
+    height: 30px;
+}
+.pf-fdi .prod-group-grid-header {
+    margin-top: 15px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #515151;
+}
+input.calendar {
+    width: 156px;
+}
+.add-cnd4-fee-tpl-popup .apply-rule-info-wrap .apply-rule {
+    text-align: center;
+    line-height: 300%;
+}
+/*수수료할인이력조회*/
+.pf-cp-fee-discount-history-popup th {
+    width : 133px;
+}
+.pf-panel-body.bx-info-table-wrap {
+    margin-bottom:10px;
+}
+/*2017.05.17 추가*/
+.icon-help {
+    background-image: url('/images/bx-ui/sub-icons.png');
+    background-position: -530px -200px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    margin-left: 4px;
+    margin-right: -4px;
+}
+.add-cnd4-fee-cnd-value-popup label {
+    padding: 10px;
+    margin: 0 -5px; }
+.add-cnd4-fee-cnd-value-popup .cnd-value-04-amount-table, .add-cnd4-fee-cnd-value-popup .cnd-value-04-rate-table {
+    display: none; }
+.add-cnd4-fee-cnd-value-popup .cnd-value-04-amount-table.active, .add-cnd4-fee-cnd-value-popup .cnd-value-04-rate-table.active {
+    display: block; }

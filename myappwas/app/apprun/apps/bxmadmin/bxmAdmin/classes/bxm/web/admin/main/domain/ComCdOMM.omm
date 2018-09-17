@@ -1,0 +1,7 @@
+OMM bxm.web.admin.main.domain.ComCdOMM
+<description="">
+{
+	String cdVal<length=20 description="코드 값">;
+	String cdDesc<length=20 description="코드 설명">;
+	String seq<length=9 description="seq">;
+}

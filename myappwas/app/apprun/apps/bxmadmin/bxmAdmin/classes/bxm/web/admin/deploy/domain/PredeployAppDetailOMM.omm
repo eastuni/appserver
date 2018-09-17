@@ -1,0 +1,10 @@
+OMM bxm.web.admin.deploy.domain.PredeployAppDetailOMM
+<description="Predeploy Application Popup Info">
+{
+	String bxmAppId<length=32 description="BXM어플리케이션ID">;
+	String deployFileNm<length=512 description="배포파일명">;
+	String refBxmAppIdList<length=1024 description="참조 BXM어플리케이션ID 목록">;
+	String regOccurDttm<length=23 description="등록 발생 일시">;
+	Integer serviceCount<length=9 description="서비스 갯수">;
+	String bxmAppSharedYn<length=1 description="BXM어플리케이션공유코드">;
+}

@@ -1,0 +1,8 @@
+OMM bxm.web.admin.dni.analyze.domain.AnalyzeFileOMM
+<description="">
+{
+	String bxmAppId<length=20 description="BXM 어플리케이션 ID">;
+	String packageNm<length=20 description="패키지명">;
+	String classNm<length=20 description="클래스명">;
+	String filePath<length=20 description="파일 위치">;
+}

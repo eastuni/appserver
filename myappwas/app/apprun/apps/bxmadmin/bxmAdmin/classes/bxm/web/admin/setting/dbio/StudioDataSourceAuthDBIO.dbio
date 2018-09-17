@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.setting.dbio.StudioDataSourceAuthDBIO">
+<!--Generated Mon Nov 20 15:34:35 KST 2017-->
+<select id="selectUserNConnectionList" resultType="bxm.web.admin.setting.domain.StudioDataSourceAuthOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* BXM 사용자 DB 접근 권한 */ 
+       a.USER_ID AS userId /*사용자ID*/,
+       b.USER_NM AS userNm,
+       a.ACCESS_USE_DATABASE AS accessUseDatabase /*접근가능DB*/
+  FROM bxm_user_db_access_auth a
+  INNER JOIN bxm_user_info b
+  ON a.USER_ID = b.USER_ID AND a.DOMAIN_ID = b.DOMAIN_ID
+ WHERE a.ACCESS_USE_DATABASE != #{authInput.accessUseDatabase}
+ AND a.DOMAIN_ID = #{authInput.domainId}
+ <if test="authInput.userId != null and authInput.userId != ''">
+ 	AND upper(a.USER_ID) like upper(#{authInput.userId})||'%'
+ </if>
+ <if test="authInput.userNm != null and authInput.userNm != ''">
+ 	AND upper(b.USER_NM) like upper(#{authInput.userNm})||'%'
+ </if>
+   ORDER BY a.USER_ID
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectUserNConnectionList" resultType="bxm.web.admin.setting.domain.StudioDataSourceAuthOMM">
+SELECT /* BXM 사용자 DB 접근 권한 */ 
+       a.USER_ID AS userId /*사용자ID*/,
+       b.USER_NM AS userNm,
+       a.ACCESS_USE_DATABASE AS accessUseDatabase /*접근가능DB*/
+  FROM BXM_USER_DB_ACCESS_AUTH a
+  INNER JOIN BXM_USER_INFO b
+  ON a.USER_ID = b.USER_ID AND a.DOMAIN_ID = b.DOMAIN_ID
+ WHERE a.ACCESS_USE_DATABASE != #{authInput.accessUseDatabase}
+ AND a.DOMAIN_ID = #{authInput.domainId}
+ <if test="authInput.userId != null and authInput.userId != ''">
+ 	AND upper(a.USER_ID) like concat(upper(#{authInput.userId}),'%')
+ </if>
+ <if test="authInput.userNm != null and authInput.userNm != ''">
+ 	AND upper(b.USER_NM) like concat(upper(#{authInput.userNm}),'%')
+ </if>
+   ORDER BY a.USER_ID
+LIMIT #{pageNum}, #{pageCount}
+</select>
+<select id="countTotalPage" resultType="java.lang.Integer">
+SELECT COUNT(*)
+  FROM BXM_USER_DB_ACCESS_AUTH a
+  INNER JOIN BXM_USER_INFO b
+  ON a.USER_ID = b.USER_ID AND a.DOMAIN_ID = b.DOMAIN_ID
+ WHERE a.ACCESS_USE_DATABASE != #{authInput.accessUseDatabase}
+ AND a.DOMAIN_ID = #{domainId}
+ <if test="authInput.userId != null and authInput.userId != ''">
+ 	AND upper(a.USER_ID) like upper(#{authInput.userId})||'%'
+ </if>
+ <if test="authInput.userNm != null and authInput.userNm != ''">
+ 	AND upper(b.USER_NM) like upper(#{authInput.userNm})||'%'
+ </if>
+   ORDER BY a.USER_ID
+</select>
+<select databaseId="mysql" id="countTotalPage" resultType="java.lang.Integer">
+SELECT COUNT(*)
+  FROM BXM_USER_DB_ACCESS_AUTH a
+  INNER JOIN BXM_USER_INFO b
+  ON a.USER_ID = b.USER_ID AND a.DOMAIN_ID = b.DOMAIN_ID
+ WHERE a.ACCESS_USE_DATABASE != #{authInput.accessUseDatabase}
+ AND a.DOMAIN_ID = #{domainId}
+ <if test="authInput.userId != null and authInput.userId != ''">
+ 	AND upper(a.USER_ID) like concat(upper(#{authInput.userId}),'%')
+ </if>
+ <if test="authInput.userNm != null and authInput.userNm != ''">
+ 	AND upper(b.USER_NM) like concat(upper(#{authInput.userNm}),'%')
+ </if>
+</select>
+<select id="selectDataSourceName" parameterType="bxm.web.admin.setting.domain.StudioDataSourceOMM" resultType="java.lang.String">
+SELECT /* BXM Studio 환경 설정 */ 
+       VALUE AS VALUE /*설정 Value값*/
+  FROM BXM_BUILDER_CONFIG
+ WHERE NAMESPACE = #{namespace}
+   AND PROPERTY = #{property}
+   AND DOMAIN_ID = #{domainId}
+</select>
+<select id="selectNoRegisteredUserList" resultType="bxm.web.admin.setting.domain.StudioDataSourceUserOMM">
+SELECT
+	A.USER_ID as userId
+	,A.USER_NM as userNm
+FROM BXM_USER_INFO A
+LEFT OUTER JOIN
+	(
+		SELECT
+			USER_ID
+	      ,ACCESS_USE_DATABASE
+	      ,DOMAIN_ID
+		FROM BXM_USER_DB_ACCESS_AUTH
+		WHERE ACCESS_USE_DATABASE = #{datasourceUsage.accessUseDatabase}
+	) B
+ON A.USER_ID = B.USER_ID AND A.DOMAIN_ID = B.DOMAIN_ID
+WHERE B.ACCESS_USE_DATABASE is null
+AND A.DOMAIN_ID = #{datasourceUsage.domainId}
+	<if test="datasourceUsage.userId != null and datasourceUsage.userId != ''">
+		AND upper(A.USER_ID) like concat(upper(#{datasourceUsage.userId}),'%')
+	</if>
+	<if test="datasourceUsage.userNm != null and datasourceUsage.userNm != ''">
+		AND upper(A.USER_NM) like concat(upper(#{datasourceUsage.userNm}),'%')
+	</if>
+ORDER BY A.USER_ID
+LIMIT #{pageNum}, #{pageCount}
+</select>
+<select id="countNoRegisteredUsers" resultType="java.lang.Integer">
+SELECT
+	count(*)
+FROM BXM_USER_INFO A
+LEFT OUTER JOIN
+	(
+		SELECT
+			USER_ID
+      	,ACCESS_USE_DATABASE
+      	,DOMAIN_ID
+		FROM BXM_USER_DB_ACCESS_AUTH
+		WHERE ACCESS_USE_DATABASE = #{datasourceUsage.accessUseDatabase}
+	) B
+ON A.USER_ID = B.USER_ID AND A.DOMAIN_ID = B.DOMAIN_ID
+WHERE B.ACCESS_USE_DATABASE IS NULL AND A.DOMAIN_ID = #{datasourceUsage.domainId}
+	<if test="datasourceUsage.userId != null and datasourceUsage.userId != ''">
+		AND upper(A.USER_ID) like upper(#{datasourceUsage.userId})||'%'
+	</if>
+	<if test="datasourceUsage.userNm != null and datasourceUsage.userNm != ''">
+		AND upper(A.USER_NM) like upper(#{datasourceUsage.userNm})||'%'
+	</if>
+ORDER BY A.USER_ID
+</select>
+<select databaseId="mysql" id="countNoRegisteredUsers" resultType="java.lang.Integer">
+SELECT
+	count(*)
+FROM BXM_USER_INFO A
+LEFT OUTER JOIN
+	(
+		SELECT
+			USER_ID
+      	,ACCESS_USE_DATABASE
+      	,DOMAIN_ID
+		FROM BXM_USER_DB_ACCESS_AUTH
+		WHERE ACCESS_USE_DATABASE = #{datasourceUsage.accessUseDatabase}
+	) B
+ON A.USER_ID = B.USER_ID AND A.DOMAIN_ID = B.DOMAIN_ID
+WHERE B.ACCESS_USE_DATABASE IS NULL AND A.DOMAIN_ID = #{datasourceUsage.domainId}
+	<if test="datasourceUsage.userId != null and datasourceUsage.userId != ''">
+		AND upper(A.USER_ID) like concat(upper(#{datasourceUsage.userId}),'%')
+	</if>
+	<if test="datasourceUsage.userNm != null and datasourceUsage.userNm != ''">
+		AND upper(A.USER_NM) like concat(upper(#{datasourceUsage.userNm}),'%')
+	</if>
+ORDER BY A.USER_ID
+</select>
+<select id="selectConnectionUserList" resultType="bxm.web.admin.setting.domain.StudioDataSourceUserOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT
+	A.USER_ID as userId,
+	B.USER_NM as userNM
+FROM BXM_USER_DB_ACCESS_AUTH A
+INNER JOIN BXM_USER_INFO B
+ON A.USER_ID = B.USER_ID AND A.DOMAIN_ID = B.DOMAIN_ID
+WHERE A.ACCESS_USE_DATABASE = #{datasourceUsage.accessUseDatabase} 
+AND A.DOMAIN_ID = #{datasourceUsage.domainId}
+	<if test="datasourceUsage.userId != null and datasourceUsage.userId != ''">
+		AND upper(A.USER_ID) like upper(#{datasourceUsage.userId})||'%'
+	</if>
+	<if test="datasourceUsage.userNm != null and datasourceUsage.userNm != ''">
+		AND upper(B.USER_NM) like upper(#{datasourceUsage.userNm})||'%'
+	</if>
+ORDER BY A.USER_ID
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectConnectionUserList" resultType="bxm.web.admin.setting.domain.StudioDataSourceUserOMM">
+SELECT
+	A.USER_ID as userId,
+	B.USER_NM as userNM
+FROM BXM_USER_DB_ACCESS_AUTH A
+INNER JOIN BXM_USER_INFO B
+ON A.USER_ID = B.USER_ID AND A.DOMAIN_ID = B.DOMAIN_ID
+WHERE A.ACCESS_USE_DATABASE = #{datasourceUsage.accessUseDatabase} 
+AND A.DOMAIN_ID = #{datasourceUsage.domainId}
+	<if test="datasourceUsage.userId != null and datasourceUsage.userId != ''">
+		AND upper(A.USER_ID) like concat(upper(#{datasourceUsage.userId}),'%')
+	</if>
+	<if test="datasourceUsage.userNm != null and datasourceUsage.userNm != ''">
+		AND upper(B.USER_NM) like concat(upper(#{datasourceUsage.userNm}),'%')
+	</if>
+ORDER BY A.USER_ID
+LIMIT #{pageNum}, #{pageCount}
+</select>
+<select id="countConnectionUserList" resultType="java.lang.Integer">
+SELECT COUNT(*)
+FROM BXM_USER_DB_ACCESS_AUTH A
+INNER JOIN BXM_USER_INFO B
+ON A.USER_ID = B.USER_ID AND A.DOMAIN_ID = B.DOMAIN_ID
+WHERE A.ACCESS_USE_DATABASE = #{datasourceUsage.accessUseDatabase}
+AND A.DOMAIN_ID = #{datasourceUsage.domainId}
+	<if test="datasourceUsage.userId != null and datasourceUsage.userId != ''">
+		AND upper(A.USER_ID) like upper(#{datasourceUsage.userId})||'%'
+	</if>
+	<if test="datasourceUsage.userNm != null and datasourceUsage.userNm != ''">
+		AND upper(B.USER_NM) like upper(#{datasourceUsage.userNm}||'%'
+	</if>
+ORDER BY A.USER_ID
+</select>
+<select databaseId="mysql" id="countConnectionUserList" resultType="java.lang.Integer">
+SELECT COUNT(*)
+FROM BXM_USER_DB_ACCESS_AUTH A
+INNER JOIN BXM_USER_INFO B
+ON A.USER_ID = B.USER_ID AND A.DOMAIN_ID = B.DOMAIN_ID
+WHERE A.ACCESS_USE_DATABASE = #{datasourceUsage.accessUseDatabase}
+AND A.DOMAIN_ID = #{datasourceUsage.domainId}
+	<if test="datasourceUsage.userId != null and datasourceUsage.userId != ''">
+		AND upper(A.USER_ID) like concat(upper(#{datasourceUsage.userId}),'%')
+	</if>
+	<if test="datasourceUsage.userNm != null and datasourceUsage.userNm != ''">
+		AND upper(B.USER_NM) like concat(upper(#{datasourceUsage.userNm}),'%')
+	</if>
+ORDER BY A.USER_ID
+</select>
+<insert id="insertUserList" parameterType="bxm.web.admin.setting.domain.StudioDataSourceUserInOMM">
+INSERT INTO BXM_USER_DB_ACCESS_AUTH /* BXM 사용자 DB 접근 권한 */
+(
+	DOMAIN_ID, /* 도메인 ID */
+    USER_ID /*사용자ID*/,
+    ACCESS_USE_DATABASE /*접근가능DB*/ 
+)
+VALUES
+(
+	#{domainId}, /* 도메인 ID */
+    #{userId} /*사용자ID*/,
+    #{accessUseDatabase} /*접근가능DB*/ 
+)
+</insert>
+<delete id="deleteUserList" parameterType="bxm.web.admin.setting.domain.StudioDataSourceUserInOMM">
+DELETE FROM BXM_USER_DB_ACCESS_AUTH /* BXM 사용자 DB 접근 권한 */
+      WHERE USER_ID = #{userId, jdbcType=VARCHAR}
+      AND DOMAIN_ID = #{domainId}
+        <if test="accessUseDatabase != null and accessUseDatabase !=''">
+        AND ACCESS_USE_DATABASE = #{accessUseDatabase, jdbcType=VARCHAR}
+        </if>
+</delete>
+</mapper>

@@ -1,0 +1,5 @@
+OMM bxm.web.admin.setting.domain.StudioDataSourceUserInListOMM
+<description="">
+{
+	bxm.web.admin.setting.domain.StudioDataSourceUserInOMM userList<length=0 arrayReference="1">;
+}

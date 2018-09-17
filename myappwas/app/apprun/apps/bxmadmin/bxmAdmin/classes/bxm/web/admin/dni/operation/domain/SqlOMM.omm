@@ -1,0 +1,9 @@
+OMM bxm.web.admin.dni.operation.domain.SqlOMM
+<description="">
+{
+	String sqlId<length=512 description="SQL ID">;
+	String inputType<length=512 description="입력 타입">;
+	String outputType<length=512 description="출력 타입">;
+	String execTypeCd<length=1 description="실행 타입 코드">;
+	Boolean isExecuted<length=20 description="실행 여부">;
+}

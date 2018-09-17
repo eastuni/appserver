@@ -1,0 +1,16 @@
+OMM bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd0044IO
+<description="결제원 차액 졀제지시서">
+{
+	String instCd<length=14 description="기관코드">;
+	String txDt<length=8 description="거래년월일">;
+	String seqNbr<length=12 description="일련번호">;
+	String fnclInstCd<length=3 description="금융기관코드">;
+	String crdtDebitDscd1<length=1 description="대차구분코드1">;
+	BigDecimal netStlmntAmt<length=18 decimal=2 description="차액결제금액">;
+	String crdtDebitDscd2<length=1 description="대차구분코드2">;
+	BigDecimal fundsAdjstmntAmt<length=18 decimal=2 description="자금조정금액">;
+	String crdtDebitDscd3<length=1 description="대차구분코드3">;
+	BigDecimal feeAmt<length=18 decimal=2 description="수수료">;
+	Date lastChngTmstmp<length=30 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

@@ -1,0 +1,7 @@
+OMM bxm.web.admin.dni.analyze.domain.BxmDniRootSvcOMM
+<description="">
+{
+	String methodId<length=40 description="메소드 ID">;
+	String rootMethodId<length=40 description="Root 메소드 ID">;
+	String modifyDttm<length=23 description="변경 일시">;
+}

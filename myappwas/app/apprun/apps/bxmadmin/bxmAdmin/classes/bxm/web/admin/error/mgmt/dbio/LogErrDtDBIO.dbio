@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.error.mgmt.dbio.LogErrDtDBIO">
+<!--Generated Wed Nov 29 16:42:24 KST 2017-->
+<select id="select4Graph" parameterType="bxm.web.admin.error.mgmt.domain.SearchBaseOMM" resultType="bxm.web.admin.error.mgmt.domain.GraphOMM">
+SELECT 
+	LOG_OCCUR_DTTM as logOccurDttm
+	, SUM(ERR_OCCUR_CNT) as errOccurCnt
+FROM BXM_LOG_ERR_DT
+WHERE 
+	LOG_OCCUR_DTTM &gt;= #{occurDtStart, jdbcType=VARCHAR}
+	AND LOG_OCCUR_DTTM &lt;= #{occurDtEnd, jdbcType=VARCHAR}
+	AND DOMAIN_ID = #{domainId}
+	<if test="bizDtStart != null and bizDtStart != ''">
+		AND	BIZ_DT &gt;= #{bizDtStart, jdbcType=VARCHAR}
+		AND BIZ_DT &lt;= #{bizDtEnd, jdbcType=VARCHAR}
+	</if>
+GROUP BY LOG_OCCUR_DTTM
+</select>
+<select id="select4TopErrCd" parameterType="bxm.web.admin.error.mgmt.domain.SearchBaseOMM" resultType="bxm.web.admin.error.mgmt.domain.TopErrCdOMM">
+SELECT A.errCd, A.errOccurCnt
+FROM (
+  SELECT 
+  	ERR_CD as errCd
+  	, SUM(ERR_OCCUR_CNT) as errOccurCnt
+  FROM BXM_LOG_ERR_DT
+  WHERE 
+  	LOG_OCCUR_DTTM &gt;= #{occurDtStart, jdbcType=VARCHAR}
+	AND LOG_OCCUR_DTTM &lt;= #{occurDtEnd, jdbcType=VARCHAR}
+	AND DOMAIN_ID = #{domainId}
+	<if test="bizDtStart != null and bizDtStart != ''">
+		AND	BIZ_DT &gt;= #{bizDtStart, jdbcType=VARCHAR}
+		AND BIZ_DT &lt;= #{bizDtEnd, jdbcType=VARCHAR}
+	</if>
+  GROUP BY ERR_CD
+  ORDER BY SUM(ERR_OCCUR_CNT) DESC, ERR_CD ASC
+  ) A
+WHERE ROWNUM &lt;=5
+</select>
+<select databaseId="mysql" id="select4TopErrCd" parameterType="bxm.web.admin.error.mgmt.domain.SearchBaseOMM" resultType="bxm.web.admin.error.mgmt.domain.TopErrCdOMM">
+SELECT A.errCd, A.errOccurCnt
+FROM (
+  SELECT 
+  	ERR_CD as errCd
+  	, SUM(ERR_OCCUR_CNT) as errOccurCnt
+  FROM BXM_LOG_ERR_DT
+  WHERE 
+  	LOG_OCCUR_DTTM &gt;= #{occurDtStart}
+	AND LOG_OCCUR_DTTM &lt;= #{occurDtEnd}
+	AND DOMAIN_ID = #{domainId}
+	<if test="bizDtStart != null and bizDtStart != ''">
+		AND	BIZ_DT &gt;= #{bizDtStart}
+		AND BIZ_DT &lt;= #{bizDtEnd}
+	</if>
+  GROUP BY ERR_CD
+  ORDER BY SUM(ERR_OCCUR_CNT) DESC, ERR_CD ASC
+  ) A
+LIMIT 5
+</select>
+<select id="select4TopTrxCd" parameterType="bxm.web.admin.error.mgmt.domain.SearchBaseOMM" resultType="bxm.web.admin.error.mgmt.domain.TopTrxCdOMM">
+SELECT A.trxCd, A.errOccurCnt
+FROM (
+  SELECT 
+  	TRX_CD as trxCd
+  	, SUM(ERR_OCCUR_CNT) as errOccurCnt
+  FROM BXM_LOG_ERR_DT
+  WHERE 
+  	LOG_OCCUR_DTTM &gt;= #{occurDtStart, jdbcType=VARCHAR}
+	AND LOG_OCCUR_DTTM &lt;= #{occurDtEnd, jdbcType=VARCHAR}
+	AND DOMAIN_ID = #{domainId}
+	<if test="bizDtStart != null and bizDtStart != ''">
+		AND	BIZ_DT &gt;= #{bizDtStart, jdbcType=VARCHAR}
+		AND BIZ_DT &lt;= #{bizDtEnd, jdbcType=VARCHAR}
+	</if>
+  GROUP BY TRX_CD
+  ORDER BY SUM(ERR_OCCUR_CNT) DESC, TRX_CD ASC
+  ) A
+WHERE ROWNUM &lt;=5
+</select>
+<select databaseId="mysql" id="select4TopTrxCd" parameterType="bxm.web.admin.error.mgmt.domain.SearchBaseOMM" resultType="bxm.web.admin.error.mgmt.domain.TopTrxCdOMM">
+SELECT A.trxCd, A.errOccurCnt
+FROM (
+  SELECT 
+  	TRX_CD as trxCd
+  	, SUM(ERR_OCCUR_CNT) as errOccurCnt
+  FROM BXM_LOG_ERR_DT
+  WHERE 
+  	LOG_OCCUR_DTTM &gt;= #{occurDtStart}
+	AND LOG_OCCUR_DTTM &lt;= #{occurDtEnd}
+	AND DOMAIN_ID = #{domainId}
+	<if test="bizDtStart != null and bizDtStart != ''">
+		AND	BIZ_DT &gt;= #{bizDtStart}
+		AND BIZ_DT &lt;= #{bizDtEnd}
+	</if>
+  GROUP BY TRX_CD
+  ORDER BY SUM(ERR_OCCUR_CNT) DESC, TRX_CD ASC
+  ) A
+LIMIT 5
+</select>
+<select id="selectTotalErrOccurCnt" parameterType="bxm.web.admin.error.mgmt.domain.SearchBaseOMM" resultType="java.lang.Integer">
+SELECT 
+	SUM(ERR_OCCUR_CNT) as errOccurCnt
+FROM BXM_LOG_ERR_DT
+WHERE 
+	LOG_OCCUR_DTTM &gt;= #{occurDtStart, jdbcType=VARCHAR}
+	AND LOG_OCCUR_DTTM &lt;= #{occurDtEnd, jdbcType=VARCHAR}
+	AND DOMAIN_ID = #{domainId}
+	<if test="bizDtStart != null and bizDtStart != ''">
+		AND	BIZ_DT &gt;= #{bizDtStart, jdbcType=VARCHAR}
+		AND BIZ_DT &lt;= #{bizDtEnd, jdbcType=VARCHAR}
+	</if>
+</select>
+<select id="select4TopChlTypeCd" parameterType="bxm.web.admin.error.mgmt.domain.SearchBaseOMM" resultType="bxm.web.admin.error.mgmt.domain.TopChlTypeCdOMM">
+SELECT A.chlTypeCd, A.errOccurCnt
+FROM (
+  SELECT 
+  	CHL_TYPE_CD as chlTypeCd
+  	, SUM(ERR_OCCUR_CNT) as errOccurCnt
+  FROM BXM_LOG_ERR_DT
+  WHERE 
+  	LOG_OCCUR_DTTM &gt;= #{occurDtStart, jdbcType=VARCHAR}
+	AND LOG_OCCUR_DTTM &lt;= #{occurDtEnd, jdbcType=VARCHAR}
+	AND DOMAIN_ID = #{domainId}
+	<if test="bizDtStart != null and bizDtStart != ''">
+		AND	BIZ_DT &gt;= #{bizDtStart, jdbcType=VARCHAR}
+		AND BIZ_DT &lt;= #{bizDtEnd, jdbcType=VARCHAR}
+	</if>
+  GROUP BY CHL_TYPE_CD
+  ORDER BY SUM(ERR_OCCUR_CNT) DESC, CHL_TYPE_CD ASC
+  ) A
+WHERE ROWNUM &lt;=5
+</select>
+<select databaseId="mysql" id="select4TopChlTypeCd" parameterType="bxm.web.admin.error.mgmt.domain.SearchBaseOMM" resultType="bxm.web.admin.error.mgmt.domain.TopChlTypeCdOMM">
+SELECT A.chlTypeCd, A.errOccurCnt
+FROM (
+  SELECT 
+  	CHL_TYPE_CD as chlTypeCd
+  	, SUM(ERR_OCCUR_CNT) as errOccurCnt
+  FROM BXM_LOG_ERR_DT
+  WHERE 
+  	LOG_OCCUR_DTTM &gt;= #{occurDtStart}
+	AND LOG_OCCUR_DTTM &lt;= #{occurDtEnd}
+	AND DOMAIN_ID = #{domainId}
+	<if test="bizDtStart != null and bizDtStart != ''">
+		AND	BIZ_DT &gt;= #{bizDtStart}
+		AND BIZ_DT &lt;= #{bizDtEnd}
+	</if>
+  GROUP BY CHL_TYPE_CD
+  ORDER BY SUM(ERR_OCCUR_CNT) DESC, CHL_TYPE_CD ASC
+  ) A
+LIMIT 5
+</select>
+</mapper>

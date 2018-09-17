@@ -1,0 +1,8 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.LnDtlInqrySvcCndOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String cndCd<length=4 description="조건코드">;
+	String cndNm<length=100 description="조건명">;
+	String cndVal<length=5 description="조건값">;
+	String negtnLvlDscd<length=2 description="협상레벨구분코드">;
+}

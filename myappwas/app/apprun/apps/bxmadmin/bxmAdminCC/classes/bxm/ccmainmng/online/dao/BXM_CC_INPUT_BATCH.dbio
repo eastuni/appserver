@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.ccmainmng.online.dao.BXM_CC_INPUT_BATCH">
+<!--Generated Thu Nov 23 13:52:39 KST 2017-->
+<insert id="insertBxmCCInputBatch01A" parameterType="bxm.ccmainmng.online.dto.BxmCCInputBatchIO">
+INSERT INTO BXM_CC_INPUT_BATCH /* 센터컷 입력(배치) */
+(
+     DOMAIN_ID /*도메인ID*/,
+    CC_ID /*센터컷ID*/,
+    PCSN_DT /*처리일자*/,
+    ACPT_NO /*접수번호*/,
+    TN_NO /*회차번호*/,
+    EXEC_NO /*실행번호*/,
+    CC_TRX_SQNO /*센터컷거래일련번호*/,
+    SERI_PCSN_KEY /*순차처리키*/,
+    PCSN_STAT /*처리상태*/,
+    PCSN_AMT /*처리금액*/,
+    INPT_DATA_LTH /*입력데이터길이*/,
+    INPT_DATA /*입력데이터*/,
+    INPT_DATA2 /*입력데이터2*/,
+    MODIFY_USER_ID /*변경사용자ID*/,
+    MODIFY_OCCUR_DTTM /*변경발생일시*/ 
+)
+VALUES
+(
+    #{domainId, jdbcType=VARCHAR} /*도메인ID*/,
+    #{ccId, jdbcType=VARCHAR} /*센터컷ID*/,
+    #{pcsnDt, jdbcType=VARCHAR} /*처리일자*/,
+    #{acptNo, jdbcType=NUMERIC} /*접수번호*/,
+    #{tnNo, jdbcType=NUMERIC} /*회차번호*/,
+    #{execNo, jdbcType=NUMERIC} /*실행번호*/,
+    #{ccTrxSqno, jdbcType=NUMERIC} /*센터컷거래일련번호*/,
+    #{seriPcsnKey, jdbcType=VARCHAR} /*순차처리키*/,
+    #{pcsnStat, jdbcType=NUMERIC} /*처리상태*/,
+    #{pcsnAmt, jdbcType=NUMERIC} /*처리금액*/,
+    #{inptDataLth, jdbcType=NUMERIC} /*입력데이터길이*/,
+    #{inptData, jdbcType=VARCHAR} /*입력데이터*/,
+    #{inptData2, jdbcType=VARCHAR} /*입력데이터2*/,
+    #{chngUserId, jdbcType=VARCHAR} /*변경사용자ID*/,
+    #{chngDttm, jdbcType=VARCHAR} /*변경발생일시*/ 
+)
+</insert>
+<insert id="insertBxmCCInputBatch01D" parameterType="bxm.ccmainmng.online.dao.dto.InsertBxmCCInputBatch01DIn">
+INSERT  
+  INTO  BXM_CC_INPUT_BATCH    /* 센터컷 입력(배치) */
+(
+  domain_id,
+  cc_id    /*CCID*/, 
+  pcsn_dt    /*처리일자*/, 
+  acpt_no    /*접수번호*/, 
+  exec_no    /*실행번호*/, 
+  tn_no    /*회차번호*/, 
+  cc_trx_sqno    /*CC거래일련번호*/, 
+  seri_pcsn_key    /*순차처리키*/, 
+  pcsn_stat    /*처리상태*/, 
+  pcsn_amt    /*처리금액*/, 
+  modify_occur_dttm    /*변경일시*/, 
+  modify_user_id    /*변경사용자ID*/, 
+  inpt_data_lth    /*입력데이터길이*/, 
+  inpt_data    /*입력데이터*/, 
+  inpt_data2    /*입력데이터2*/
+)
+SELECT
+	A.DOMAIN_ID as domain_id,
+	A.CC_ID as cc_id,
+	A.PCSN_DT as pcsn_dt,
+	A.ACPT_NO as acpt_no,
+	A.EXEC_NO as exec_no,
+	A.TN_NO+1 as tn_no,
+	A.CC_TRX_SQNO as cc_trx_sqno,
+	A.SERI_PCSN_KEY as seri_pcsn_key,
+	1 as pcsn_stat,
+	A.PCSN_AMT as pcsn_amt,
+	#{chngDttm} as chng_dttm,
+	#{chngUserId} as chng_user_id,
+	A.INPT_DATA_LTH as inpt_data_lth,
+	A.INPT_DATA as inpt_data,
+	A.INPT_DATA2 as inpt_data2
+FROM BXM_CC_INPUT_BATCH A INNER JOIN BXM_CC_ERROR B
+ON A.CC_ID = B.CC_ID
+AND A.PCSN_DT = B.PCSN_DT
+AND A.ACPT_NO = B.ACPT_NO
+AND A.EXEC_NO = B.EXEC_NO
+AND A.TN_NO = B.TN_NO
+AND A.CC_TRX_SQNO = B.CC_TRX_SQNO
+WHERE B.domain_id = #{domainId}
+AND B.CC_ID = #{ccId}
+AND B.PCSN_DT = #{pcsnDt}	
+AND B.ACPT_NO = #{acptNo}
+AND B.EXEC_NO = #{execNo}
+AND B.TN_NO = #{tnNo}
+AND B.RE_REG_CD = 0
+AND A.CC_TRX_SQNO BETWEEN #{srtSqno} AND #{endSqno}
+AND A.PCSN_STAT = 10
+</insert>
+<select id="selectBxmCCInputBatch01A" parameterType="bxm.ccmainmng.online.dto.BxmCCInputBatchIO" resultType="bxm.ccmainmng.online.dto.BxmCCInputBatchIO">
+SELECT  /* 센터컷 입력(배치) */
+		domain_id AS domainId,
+        cc_id AS ccId    /*CCID*/, 
+        pcsn_dt AS pcsnDt    /*처리일자*/, 
+        acpt_no AS acptNo    /*접수번호*/, 
+        exec_no AS execNo    /*실행번호*/, 
+        tn_no AS tnNo    /*회차번호*/, 
+        cc_trx_sqno AS ccTrxSqno    /*CC거래일련번호*/, 
+        seri_pcsn_key AS seriPcsnKey    /*순차처리키*/, 
+        pcsn_stat AS pcsnStat    /*처리상태*/, 
+        pcsn_amt AS pcsnAmt    /*처리금액*/, 
+        modify_occur_dttm AS chngDttm    /*변경일시*/, 
+        modify_user_id AS chngUserId    /*변경사용자ID*/, 
+        inpt_data_lth AS inptDataLth    /*입력데이터길이*/, 
+        inpt_data AS inptData    /*입력데이터*/, 
+        inpt_data2 AS inptData2    /*입력데이터2*/
+  FROM  BXM_CC_INPUT_BATCH
+ WHERE  domain_id = #{domainId}
+   AND cc_id = #{ccId}
+   AND  pcsn_dt = #{pcsnDt}
+   AND  acpt_no = #{acptNo}
+   AND  exec_no = #{execNo}
+   AND  tn_no = #{tnNo}
+   AND  cc_trx_sqno = #{ccTrxSqno}
+</select>
+<select id="selectBxmCCInputBatch01E" parameterType="bxm.ccmainmng.online.dao.dto.SelectBxmCCInputBatch01EIn" resultType="bxm.ccmainmng.online.dao.dto.SelectBxmCCInputBatch01EOut">
+SELECT
+	count(*) AS ttObjCnt,
+	sum(pcsn_amt) As ttObjAmt
+FROM  BXM_CC_INPUT_BATCH A INNER JOIN BXM_CC_ERROR B
+ON A.CC_ID = B.CC_ID
+AND A.PCSN_DT = B.PCSN_DT
+AND A.ACPT_NO = B.ACPT_NO
+AND A.EXEC_NO = B.EXEC_NO
+AND A.TN_NO = B.TN_NO
+AND A.CC_TRX_SQNO = B.CC_TRX_SQNO
+WHERE B.domain_id = #{domainId}
+AND B.CC_ID = #{ccId}
+AND B.PCSN_DT = #{pcsnDt}	
+AND B.ACPT_NO = #{acptNo}
+AND B.EXEC_NO = #{execNo}
+AND B.TN_NO = #{tnNo}
+AND B.RE_REG_CD = 0
+AND A.CC_TRX_SQNO BETWEEN #{srtSqno} AND #{endSqno}
+AND A.PCSN_STAT = 10
+</select>
+<update id="updateBxmCCInputBatch01D" parameterType="bxm.ccmainmng.online.dto.BxmCCInputBatchIO">
+UPDATE  
+        BXM_CC_INPUT_BATCH    /* 센터컷 입력(배치) */
+   SET  pcsn_stat = #{pcsnStat}, 
+        modify_occur_dttm = #{chngDttm}    /* 변경일시 */, 
+        modify_user_id = #{chngUserId}    /* 변경사용자ID */ 
+ WHERE  domain_id = #{domainId}
+   AND cc_id = #{ccId}
+   AND  pcsn_dt = #{pcsnDt}
+   AND  acpt_no = #{acptNo}
+   AND  exec_no = #{execNo}
+   AND  tn_no = #{tnNo}
+   AND  cc_trx_sqno = #{ccTrxSqno}
+</update>
+</mapper>

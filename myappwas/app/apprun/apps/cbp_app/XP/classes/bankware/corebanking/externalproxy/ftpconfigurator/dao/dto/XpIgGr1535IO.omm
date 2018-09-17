@@ -1,0 +1,28 @@
+OMM bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIgGr1535IO
+<description="">
+{
+	String instCd<length=14 description="기관코드">;
+	String txDt<length=8 description="거래일자">;
+	String seqNbr<length=20 description="일련번호">;
+	String rmtncDt<length=8 description="이체일자">;
+	String fnclInstBizBrnchCd<length=7 description="금융기관영업은행지점코드">;
+	BigDecimal realRcptAmt<length=22 decimal=2 description="실수납금액">;
+	Integer rcptProxyCostCnt<length=7 description="수납대행비용건수">;
+	BigDecimal rcptProxyCostAmt<length=22 decimal=2 description="수납대행비용금액">;
+	Integer rcptCnt<length=7 description="수납건수">;
+	BigDecimal rcptAmt<length=22 decimal=2 description="수납금액">;
+	Integer dsbrsmntCnt<length=7 description="지급건수">;
+	BigDecimal dsbrsmntAmt<length=22 decimal=2 description="지급금액">;
+	Integer appendFeeCnt<length=7 description="추가수수료건수">;
+	BigDecimal appendFeeAmt<length=22 decimal=2 description="추가수수료금액">;
+	Integer actualPymntCnt<length=7 description="실지급건수">;
+	BigDecimal actualPymntAmt<length=22 decimal=2 description="실지급금액">;
+	String rcptDt<length=8 description="수납일자">;
+	String feeDscd<length=2 description="요금구분코드">;
+	String rcptDscd<length=2 description="수납구분코드">;
+	BigDecimal rcptProxyCostAdjstmntAmt<length=22 decimal=2 description="수납대행비용조정금액">;
+	BigDecimal supplFeeAdjstmntAmt<length=22 decimal=2 description="추가수수료조정금액">;
+	String orgnlRcptDt<length=8 description="원수납일자">;
+	Date lastChngTmstmp<length=30 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

@@ -1,0 +1,38 @@
+<div class="modal-wrap">
+    {{#if cfgKey}}<h2 class="bw-tt a-center">{{bxMsg 'setting.admin-edit'}}({{cfgKey}})</h2>{{/if}}
+    {{#unless cfgKey}}<h2 class="bw-tt a-center">{{bxMsg 'setting.admin-add'}}</h2>{{/unless}}
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t fix-h bx-no-draggable admin-setting-form">
+        <ul class="col-3 clr">
+            <li class="w-100">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-13">{{bxMsg 'setting.key'}}</label>
+                    {{#if cfgKey}}<input type="text" class="bw-input w-87" data-form-param="cfgKey" value="{{cfgKey}}" readonly />{{/if}}
+                    {{#unless cfgKey}}<input type="text" class="bw-input w-87" data-form-param="cfgKey" />{{/unless}}
+                </div>
+            </li>
+            <li class="w-100">
+                <div class="input-wrap fix-txtarea h-half p-rel clr">
+                    <label class="bw-label w-13">{{bxMsg 'setting.value'}}</label>
+                    <div class="txt-wrap2 fix-size w-87 f-r">
+                        <textarea class="bw-textarea" data-form-param="cfgVal"></textarea>
+                    </div>
+                </div>
+            </li>
+            <li class="w-100">
+                <div class="input-wrap fix-txtarea h-half p-rel clr">
+                    <label class="bw-label w-13">{{bxMsg 'setting.description'}}</label>
+                    <div class="txt-wrap2 fix-size w-87 f-r">
+                        <textarea class="bw-textarea" data-form-param="cfgDesc"></textarea>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on save-admin-btn">{{bxMsg 'common.save'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

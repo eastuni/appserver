@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.accounting.settlement.daobatch.AcStlmntGlMBat">
+<!--Generated Mon Oct 30 17:13:36 KST 2017-->
+<delete id="delete" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntGlMBatIO">
+DELETE  FROM  ac_stlmnt_gl_m
+ WHERE  INST_CD = #{instCd}
+   AND STLMNT_BASE_DT = #{stlmntBaseDt}
+   AND STLMNT_NTH = #{stlmntNth}
+   AND DEPT_ID = #{deptId}
+   AND CRNCY_CD = #{crncyCd}
+   AND ACCTG_DSCD = #{acctgDscd}
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+</delete>
+<insert id="insert" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntGlMBatIO">
+INSERT  
+  INTO  ac_stlmnt_gl_m    /* 결산총계정기본 */
+(
+  INST_CD,     /*기관코드*/
+  STLMNT_BASE_DT,     /*결산기준년월일*/
+  STLMNT_NTH,     /*결산회차*/
+  DEPT_ID,     /*부서식별자*/
+  CRNCY_CD,     /*통화코드*/
+  ACCTG_DSCD,     /*회계구분코드*/
+  ACCTG_ITM_CD,     /*계정과목코드*/
+  STLMNT_BF_BAL,     /*결산전잔액*/
+  PRCD_TRM_CRCTN_AMT,     /*전기보정금액*/
+  ONLINE_ACCRUED_INCOME_AMT,     /*온라인미수수익금액*/
+  ONLINE_ACCRUED_EXPNS_AMT,     /*온라인미지급비용금액*/
+  ONLINE_UNRND_REVENUE_AMT,     /*온라인선수수익금액*/
+  ONLINE_PREPAID_EXPNS_AMT,     /*온라인선급비용금액*/
+  MANUAL_ACCRUED_INCOME_AMT,     /*수기미수수익금액*/
+  MANUAL_ACCRUED_EXPNS_AMT,     /*수기미지급비용금액*/
+  MANUAL_UNRND_REVENUE_AMT,     /*수기선수수익금액*/
+  MANUAL_PREPAID_EXPNS_AMT,     /*수기선급비용금액*/
+  ONLINE_LDGR_ADJSTMNT_AMT,     /*온라인장부조정금액*/
+  MANUAL_LDGR_ADJSTMNT_AMT,     /*수기장부조정금액*/
+  STLMNT_AF_BAL,     /*결산후잔액*/
+  ACCTG_DMNTH_ACMLTD_AMT,     /*계리월중적수*/
+  ACCTG_DTRM_ACMLTD_AMT,     /*계리기중적수*/
+  LAST_CHNG_TMSTMP,     /*최종변경타임스탬프*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{stlmntBaseDt},     /*결산기준년월일*/
+  #{stlmntNth},     /*결산회차*/
+  #{deptId},     /*부서식별자*/
+  #{crncyCd},     /*통화코드*/
+  #{acctgDscd},     /*회계구분코드*/
+  #{acctgItmCd},     /*계정과목코드*/
+  #{stlmntBfBal},     /*결산전잔액*/
+  #{prcdTrmCrctnAmt},     /*전기보정금액*/
+  #{onlineAccruedIncomeAmt},     /*온라인미수수익금액*/
+  #{onlineAccruedExpnsAmt},     /*온라인미지급비용금액*/
+  #{onlineUnrndRevenueAmt},     /*온라인선수수익금액*/
+  #{onlinePrepaidExpnsAmt},     /*온라인선급비용금액*/
+  #{manualAccruedIncomeAmt},     /*수기미수수익금액*/
+  #{manualAccruedExpnsAmt},     /*수기미지급비용금액*/
+  #{manualUnrndRevenueAmt},     /*수기선수수익금액*/
+  #{manualPrepaidExpnsAmt},     /*수기선급비용금액*/
+  #{onlineLdgrAdjstmntAmt},     /*온라인장부조정금액*/
+  #{manualLdgrAdjstmntAmt},     /*수기장부조정금액*/
+  #{stlmntAfBal},     /*결산후잔액*/
+  #{acctgDmnthAcmltdAmt},     /*계리월중적수*/
+  #{acctgDtrmAcmltdAmt},     /*계리기중적수*/
+  #{lastChngTmstmp},     /*최종변경타임스탬프*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<insert id="insertList" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntGlMBatIO">
+INSERT  
+  INTO  ac_stlmnt_gl_m    /* 결산총계정기본 */
+(
+  INST_CD,     /*기관코드*/
+  STLMNT_BASE_DT,     /*결산기준년월일*/
+  STLMNT_NTH,     /*결산회차*/
+  DEPT_ID,     /*부서식별자*/
+  CRNCY_CD,     /*통화코드*/
+  ACCTG_DSCD,     /*회계구분코드*/
+  ACCTG_ITM_CD,     /*계정과목코드*/
+  STLMNT_BF_BAL,     /*결산전잔액*/
+  PRCD_TRM_CRCTN_AMT,     /*전기보정금액*/
+  ONLINE_ACCRUED_INCOME_AMT,     /*온라인미수수익금액*/
+  ONLINE_ACCRUED_EXPNS_AMT,     /*온라인미지급비용금액*/
+  ONLINE_UNRND_REVENUE_AMT,     /*온라인선수수익금액*/
+  ONLINE_PREPAID_EXPNS_AMT,     /*온라인선급비용금액*/
+  MANUAL_ACCRUED_INCOME_AMT,     /*수기미수수익금액*/
+  MANUAL_ACCRUED_EXPNS_AMT,     /*수기미지급비용금액*/
+  MANUAL_UNRND_REVENUE_AMT,     /*수기선수수익금액*/
+  MANUAL_PREPAID_EXPNS_AMT,     /*수기선급비용금액*/
+  ONLINE_LDGR_ADJSTMNT_AMT,     /*온라인장부조정금액*/
+  MANUAL_LDGR_ADJSTMNT_AMT,     /*수기장부조정금액*/
+  STLMNT_AF_BAL,     /*결산후잔액*/
+  ACCTG_DMNTH_ACMLTD_AMT,     /*계리월중적수*/
+  ACCTG_DTRM_ACMLTD_AMT,     /*계리기중적수*/
+  LAST_CHNG_TMSTMP,     /*최종변경타임스탬프*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{stlmntBaseDt},     /*결산기준년월일*/
+  #{stlmntNth},     /*결산회차*/
+  #{deptId},     /*부서식별자*/
+  #{crncyCd},     /*통화코드*/
+  #{acctgDscd},     /*회계구분코드*/
+  #{acctgItmCd},     /*계정과목코드*/
+  #{stlmntBfBal},     /*결산전잔액*/
+  #{prcdTrmCrctnAmt},     /*전기보정금액*/
+  #{onlineAccruedIncomeAmt},     /*온라인미수수익금액*/
+  #{onlineAccruedExpnsAmt},     /*온라인미지급비용금액*/
+  #{onlineUnrndRevenueAmt},     /*온라인선수수익금액*/
+  #{onlinePrepaidExpnsAmt},     /*온라인선급비용금액*/
+  #{manualAccruedIncomeAmt},     /*수기미수수익금액*/
+  #{manualAccruedExpnsAmt},     /*수기미지급비용금액*/
+  #{manualUnrndRevenueAmt},     /*수기선수수익금액*/
+  #{manualPrepaidExpnsAmt},     /*수기선급비용금액*/
+  #{onlineLdgrAdjstmntAmt},     /*온라인장부조정금액*/
+  #{manualLdgrAdjstmntAmt},     /*수기장부조정금액*/
+  #{stlmntAfBal},     /*결산후잔액*/
+  #{acctgDmnthAcmltdAmt},     /*계리월중적수*/
+  #{acctgDtrmAcmltdAmt},     /*계리기중적수*/
+  #{lastChngTmstmp},     /*최종변경타임스탬프*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="select" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntGlMBatIO" resultType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntGlMBatIO">
+SELECT    /* 결산총계정기본 */
+        INST_CD AS instCd,     /*기관코드*/
+        STLMNT_BASE_DT AS stlmntBaseDt,     /*결산기준년월일*/
+        STLMNT_NTH AS stlmntNth,     /*결산회차*/
+        DEPT_ID AS deptId,     /*부서식별자*/
+        CRNCY_CD AS crncyCd,     /*통화코드*/
+        ACCTG_DSCD AS acctgDscd,     /*회계구분코드*/
+        ACCTG_ITM_CD AS acctgItmCd,     /*계정과목코드*/
+        STLMNT_BF_BAL AS stlmntBfBal,     /*결산전잔액*/
+        PRCD_TRM_CRCTN_AMT AS prcdTrmCrctnAmt,     /*전기보정금액*/
+        ONLINE_ACCRUED_INCOME_AMT AS onlineAccruedIncomeAmt,     /*온라인미수수익금액*/
+        ONLINE_ACCRUED_EXPNS_AMT AS onlineAccruedExpnsAmt,     /*온라인미지급비용금액*/
+        ONLINE_UNRND_REVENUE_AMT AS onlineUnrndRevenueAmt,     /*온라인선수수익금액*/
+        ONLINE_PREPAID_EXPNS_AMT AS onlinePrepaidExpnsAmt,     /*온라인선급비용금액*/
+        MANUAL_ACCRUED_INCOME_AMT AS manualAccruedIncomeAmt,     /*수기미수수익금액*/
+        MANUAL_ACCRUED_EXPNS_AMT AS manualAccruedExpnsAmt,     /*수기미지급비용금액*/
+        MANUAL_UNRND_REVENUE_AMT AS manualUnrndRevenueAmt,     /*수기선수수익금액*/
+        MANUAL_PREPAID_EXPNS_AMT AS manualPrepaidExpnsAmt,     /*수기선급비용금액*/
+        ONLINE_LDGR_ADJSTMNT_AMT AS onlineLdgrAdjstmntAmt,     /*온라인장부조정금액*/
+        MANUAL_LDGR_ADJSTMNT_AMT AS manualLdgrAdjstmntAmt,     /*수기장부조정금액*/
+        STLMNT_AF_BAL AS stlmntAfBal,     /*결산후잔액*/
+        ACCTG_DMNTH_ACMLTD_AMT AS acctgDmnthAcmltdAmt,     /*계리월중적수*/
+        ACCTG_DTRM_ACMLTD_AMT AS acctgDtrmAcmltdAmt,     /*계리기중적수*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ac_stlmnt_gl_m
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT = #{stlmntBaseDt}
+   AND STLMNT_NTH = #{stlmntNth}
+   AND DEPT_ID = #{deptId}
+   AND CRNCY_CD = #{crncyCd}
+   AND ACCTG_DSCD = #{acctgDscd}
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+</select>
+<update id="update" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntGlMBatIO">
+UPDATE  
+        ac_stlmnt_gl_m    /* 결산총계정기본 */
+   SET  STLMNT_BF_BAL = #{stlmntBfBal}    /* 결산전잔액 */
+     , PRCD_TRM_CRCTN_AMT = #{prcdTrmCrctnAmt}    /* 전기보정금액 */
+     , ONLINE_ACCRUED_INCOME_AMT = #{onlineAccruedIncomeAmt}    /* 온라인미수수익금액 */
+     , ONLINE_ACCRUED_EXPNS_AMT = #{onlineAccruedExpnsAmt}    /* 온라인미지급비용금액 */
+     , ONLINE_UNRND_REVENUE_AMT = #{onlineUnrndRevenueAmt}    /* 온라인선수수익금액 */
+     , ONLINE_PREPAID_EXPNS_AMT = #{onlinePrepaidExpnsAmt}    /* 온라인선급비용금액 */
+     , MANUAL_ACCRUED_INCOME_AMT = #{manualAccruedIncomeAmt}    /* 수기미수수익금액 */
+     , MANUAL_ACCRUED_EXPNS_AMT = #{manualAccruedExpnsAmt}    /* 수기미지급비용금액 */
+     , MANUAL_UNRND_REVENUE_AMT = #{manualUnrndRevenueAmt}    /* 수기선수수익금액 */
+     , MANUAL_PREPAID_EXPNS_AMT = #{manualPrepaidExpnsAmt}    /* 수기선급비용금액 */
+     , ONLINE_LDGR_ADJSTMNT_AMT = #{onlineLdgrAdjstmntAmt}    /* 온라인장부조정금액 */
+     , MANUAL_LDGR_ADJSTMNT_AMT = #{manualLdgrAdjstmntAmt}    /* 수기장부조정금액 */
+     , STLMNT_AF_BAL = #{stlmntAfBal}    /* 결산후잔액 */
+     , ACCTG_DMNTH_ACMLTD_AMT = #{acctgDmnthAcmltdAmt}    /* 계리월중적수 */
+     , ACCTG_DTRM_ACMLTD_AMT = #{acctgDtrmAcmltdAmt}    /* 계리기중적수 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경타임스탬프 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT = #{stlmntBaseDt}
+   AND STLMNT_NTH = #{stlmntNth}
+   AND DEPT_ID = #{deptId}
+   AND CRNCY_CD = #{crncyCd}
+   AND ACCTG_DSCD = #{acctgDscd}
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+</update>
+<select id="selectList" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntGlMBatIO" resultType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntGlMBatIO">
+SELECT    /* 결산총계정기본 */
+        INST_CD AS instCd,     /*기관코드*/
+        STLMNT_BASE_DT AS stlmntBaseDt,     /*결산기준년월일*/
+        STLMNT_NTH AS stlmntNth,     /*결산회차*/
+        DEPT_ID AS deptId,     /*부서식별자*/
+        CRNCY_CD AS crncyCd,     /*통화코드*/
+        ACCTG_DSCD AS acctgDscd,     /*회계구분코드*/
+        ACCTG_ITM_CD AS acctgItmCd,     /*계정과목코드*/
+        STLMNT_BF_BAL AS stlmntBfBal,     /*결산전잔액*/
+        PRCD_TRM_CRCTN_AMT AS prcdTrmCrctnAmt,     /*전기보정금액*/
+        ONLINE_ACCRUED_INCOME_AMT AS onlineAccruedIncomeAmt,     /*온라인미수수익금액*/
+        ONLINE_ACCRUED_EXPNS_AMT AS onlineAccruedExpnsAmt,     /*온라인미지급비용금액*/
+        ONLINE_UNRND_REVENUE_AMT AS onlineUnrndRevenueAmt,     /*온라인선수수익금액*/
+        ONLINE_PREPAID_EXPNS_AMT AS onlinePrepaidExpnsAmt,     /*온라인선급비용금액*/
+        MANUAL_ACCRUED_INCOME_AMT AS manualAccruedIncomeAmt,     /*수기미수수익금액*/
+        MANUAL_ACCRUED_EXPNS_AMT AS manualAccruedExpnsAmt,     /*수기미지급비용금액*/
+        MANUAL_UNRND_REVENUE_AMT AS manualUnrndRevenueAmt,     /*수기선수수익금액*/
+        MANUAL_PREPAID_EXPNS_AMT AS manualPrepaidExpnsAmt,     /*수기선급비용금액*/
+        ONLINE_LDGR_ADJSTMNT_AMT AS onlineLdgrAdjstmntAmt,     /*온라인장부조정금액*/
+        MANUAL_LDGR_ADJSTMNT_AMT AS manualLdgrAdjstmntAmt,     /*수기장부조정금액*/
+        STLMNT_AF_BAL AS stlmntAfBal,     /*결산후잔액*/
+        ACCTG_DMNTH_ACMLTD_AMT AS acctgDmnthAcmltdAmt,     /*계리월중적수*/
+        ACCTG_DTRM_ACMLTD_AMT AS acctgDtrmAcmltdAmt,     /*계리기중적수*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경타임스탬프*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ac_stlmnt_gl_m
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT = #{stlmntBaseDt}
+<if test="stlmntNth != null and stlmntNth != ''">      
+   AND STLMNT_NTH = #{stlmntNth}
+</if>
+<if test="deptId != null and deptId != ''">   
+   AND DEPT_ID = #{deptId}
+</if>
+<if test="acctgDscd != null and acctgDscd != ''">  
+   AND ACCTG_DSCD = #{acctgDscd}
+</if>
+<if test="acctgItmCd != null and acctgItmCd != ''">     
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+</if>
+<if test="crncyCd != null and crncyCd != ''">     
+   AND CRNCY_CD = #{crncyCd}
+</if>
+</select>
+<update id="updatePrcdTrmCrctnAmt" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntGlMBatIO">
+UPDATE  
+        ac_stlmnt_gl_m    /* 결산총계정기본 */
+   SET  PRCD_TRM_CRCTN_AMT = #{prcdTrmCrctnAmt, jdbcType=DECIMAL}    /* 전기보정금액 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경타임스탬프 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT = #{stlmntBaseDt}
+   AND STLMNT_NTH = #{stlmntNth}
+   AND DEPT_ID = #{deptId}
+   AND CRNCY_CD = #{crncyCd}
+   AND ACCTG_DSCD = #{acctgDscd}
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+</update>
+<update id="updateOnlineAmt" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntGlMBatIO">
+UPDATE  
+        ac_stlmnt_gl_m    /* 결산총계정기본 */
+   SET  ONLINE_ACCRUED_INCOME_AMT = ONLINE_ACCRUED_INCOME_AMT + #{onlineAccruedIncomeAmt}    /* 온라인미수수익금액 */
+     , ONLINE_ACCRUED_EXPNS_AMT = ONLINE_ACCRUED_EXPNS_AMT + #{onlineAccruedExpnsAmt}    /* 온라인미지급비용금액 */
+     , ONLINE_UNRND_REVENUE_AMT = ONLINE_UNRND_REVENUE_AMT + #{onlineUnrndRevenueAmt}    /* 온라인선수수익금액 */
+     , ONLINE_PREPAID_EXPNS_AMT = ONLINE_PREPAID_EXPNS_AMT + #{onlinePrepaidExpnsAmt}    /* 온라인선급비용금액 */
+     , ONLINE_LDGR_ADJSTMNT_AMT = ONLINE_LDGR_ADJSTMNT_AMT + #{onlineLdgrAdjstmntAmt}	/*온라인장부조정금액*/
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경타임스탬프 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT = #{stlmntBaseDt}
+   AND STLMNT_NTH = #{stlmntNth}
+   AND DEPT_ID = #{deptId}
+   AND CRNCY_CD = #{crncyCd}
+   AND ACCTG_DSCD = #{acctgDscd}
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+</update>
+<select id="selectMaxStlmntNth" resultType="java.lang.Integer">
+SELECT  MAX(STLMNT_NTH) AS maxStlmntNth
+  FROM  AC_STLMNT_GL_M
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT =#{stlmntBaseDt}
+</select>
+<update id="updateStlmntAfBal" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntGlMBatIO">
+UPDATE  
+        ac_stlmnt_gl_m
+   SET  STLMNT_AF_BAL = #{stlmntAfBal}
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}
+     , LAST_CHNG_GUID = #{lastChngGuid}
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT = #{stlmntBaseDt}
+   AND STLMNT_NTH = #{stlmntNth}
+   AND DEPT_ID = #{deptId}
+   AND CRNCY_CD = #{crncyCd}
+   AND ACCTG_DSCD = #{acctgDscd}
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+</update>
+<update id="updateManualEntryLdgerAdjstAmt" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntGlMBatIO">
+UPDATE  
+        ac_stlmnt_gl_m    /* 결산총계정기본 */
+   SET  MANUAL_LDGR_ADJSTMNT_AMT = MANUAL_LDGR_ADJSTMNT_AMT + #{manualLdgrAdjstmntAmt}    /* 비온라인장부조정금액 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경타임스탬프 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT = #{stlmntBaseDt}
+   AND STLMNT_NTH = #{stlmntNth}
+   AND DEPT_ID = #{deptId}
+   AND CRNCY_CD = #{crncyCd}
+   AND ACCTG_DSCD = #{acctgDscd}
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+</update>
+<update id="updateManualEntryAmt" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntGlMBatIO">
+UPDATE  
+        ac_stlmnt_gl_m    /* 결산총계정기본 */
+   SET  MANUAL_ACCRUED_INCOME_AMT = MANUAL_ACCRUED_INCOME_AMT + #{manualAccruedIncomeAmt}    /* 비온라인미수수익금액 */
+     , MANUAL_ACCRUED_EXPNS_AMT = MANUAL_ACCRUED_EXPNS_AMT + #{manualAccruedExpnsAmt}    /* 비온라인미지급비용금액 */
+     , MANUAL_UNRND_REVENUE_AMT = MANUAL_UNRND_REVENUE_AMT + #{manualUnrndRevenueAmt}    /* 비온라인선수수익금액 */
+     , MANUAL_PREPAID_EXPNS_AMT = MANUAL_PREPAID_EXPNS_AMT + #{manualPrepaidExpnsAmt}    /* 비온라인선급비용금액 */
+     , MANUAL_LDGR_ADJSTMNT_AMT = MANUAL_LDGR_ADJSTMNT_AMT + #{manualLdgrAdjstmntAmt}    /* 비온라인장부조정금액 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경타임스탬프 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT = #{stlmntBaseDt}
+   AND STLMNT_NTH = #{stlmntNth}
+   AND DEPT_ID = #{deptId}
+   AND CRNCY_CD = #{crncyCd}
+   AND ACCTG_DSCD = #{acctgDscd}
+   AND ACCTG_ITM_CD = #{acctgItmCd}
+</update>
+</mapper>

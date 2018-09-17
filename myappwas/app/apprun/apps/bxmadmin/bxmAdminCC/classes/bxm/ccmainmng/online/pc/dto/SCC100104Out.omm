@@ -1,0 +1,6 @@
+OMM bxm.ccmainmng.online.pc.dto.SCC100104Out
+<description="">
+{
+	Integer nodeCnt<length=9>;
+	bxm.ccmainmng.online.dto.BxmCCNodeIO nodeList<length=0 arrayReference="nodeCnt">;
+}

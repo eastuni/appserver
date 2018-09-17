@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.cloudbanking.deposit.transaction.batch.dao.ArArrArrIdBat">
+<!--Generated Mon Oct 23 17:21:43 KST 2017-->
+<select id="selectDpstArrIdList" resultType="bankware.cloudbanking.deposit.transaction.batch.dao.dto.ArArrArrIdBatIO">
+SELECT    /* 계약기본 */
+
+        ARR_ID AS arrId    /*계약식별자*/
+
+  FROM  ar_arr_m
+
+ WHERE INST_CD = #{instCd}
+
+ AND ARR_STS_CD = #{arrStsCd}
+
+ AND BIZ_DSCD = '01' 
+
+ AND PD_TMPLT_CD = #{pdTmpltCd}
+
+ AND ARR_OPN_DT &gt; #{arrOpnDt}
+
+ Limit 10
+</select>
+</mapper>

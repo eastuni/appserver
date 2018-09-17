@@ -1,0 +1,34 @@
+OMM bxm.ccmainmng.share.dto.BxmCCMainIO
+<description="">
+{
+	String domainId<length=14 description="도메인ID">;
+	String ccId<length=9 description="센터컷ID">;
+	String useYn<length=1 description="사용여부">;
+	String ccNm<length=256 description="센터컷명">;
+	String ccDesc<length=512 description="센터컷설명">;
+	String lv2AppCd<length=2 description="레벨2어플리케이션코드">;
+	String lv3AppCd<length=3 description="레벨3어플리케이션코드">;
+	String onlineTrxCd<length=12 description="온라인거래코드">;
+	String onlineInputDto<length=1024 description="온라인입력DTO">;
+	Integer ttExecTn<length=2 description="총실행회차">;
+	Integer paraPrcsCnt<length=3 description="병렬프로세스수">;
+	String procTypeCd<length=1 description="처리유형코드">;
+	String autoExecCd<length=1 description="자동실행코드">;
+	String atmtExecSrtTime<length=4 description="자동실행시작시각">;
+	String atmtExecEndTime<length=4 description="자동실행종료시각">;
+	Long dataCnt<length=20 description="데이터건수">;
+	String errStopYn<length=1 description="오류중지여부">;
+	String errProcCd<length=1 description="오류처리코드">;
+	String rePcsnErrCd<length=1000 description="재처리에러코드">;
+	Integer rePcsnWaitEltm<length=3 description="재처리대기시간">;
+	String flwnWrkKnCd<length=1 description="후속작업코드">;
+	String btchExecId<length=100 description="배치실행ID">;
+	String inptParmCn<length=4000 description="입력파라미터내용">;
+	String nodeAsgnMethCd<length=1 description="노드지정코드">;
+	String ccExecParam<length=16 description="센터컷실행파라미터">;
+	String procTrxCd<length=12 description="처리서비스거래코드">;
+	String regUserId<length=32 description="등록사용자ID">;
+	String regOccurDttm<length=23 description="등록발생일시">;
+	String modifyUserId<length=32 description="변경사용자ID">;
+	String modifyOccurDttm<length=23 description="변경발생일시">;
+}

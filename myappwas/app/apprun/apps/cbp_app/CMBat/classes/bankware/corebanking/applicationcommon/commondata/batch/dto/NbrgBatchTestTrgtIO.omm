@@ -1,0 +1,6 @@
+OMM bankware.corebanking.applicationcommon.commondata.batch.dto.NbrgBatchTestTrgtIO
+<description="">
+{
+	String outpCntnt<length=4000 description="출력내용">;
+	String instCd<length=3 description="기관코드">;
+}

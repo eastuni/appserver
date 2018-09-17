@@ -1,0 +1,8 @@
+OMM bxm.web.admin.addition.before.image.domain.StatisticsForTableOMM
+<description="">
+{
+	Integer rank<length=9 description="순위">;
+	String tableNm<length=100 description="테이블명">;
+	Integer count<length=9 description="개수">;
+	String percent<length=18 description="비율">;
+}

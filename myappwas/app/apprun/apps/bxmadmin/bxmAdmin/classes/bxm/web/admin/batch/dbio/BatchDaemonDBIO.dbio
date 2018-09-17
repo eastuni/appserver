@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.batch.dbio.BatchDaemonDBIO">
+<!--Generated Thu Nov 30 13:06:08 KST 2017-->
+<insert id="insertDaemon" parameterType="bxm.web.admin.batch.domain.BatchDaemonOMM">
+INSERT INTO BXM_JOB_DAEMON_INFO /* BXM 배치 데몬 정보 */
+(
+	DOMAIN_ID, /* 도메인 ID */
+    JOB_ID,/*배치작업ID*/ 
+    JOB_NM,/*배치작업명*/ 
+    BXM_APP_ID,/*BXM어플리케이션ID*/ 
+    USE_YN,/*사용여부*/ 
+    LOG_LV_NM,/*로그레벨명*/ 
+    COMMIT_CFG_LIST,/*커밋설정목록*/ 
+    EXEC_ARGS,/*실행아규먼트*/ 
+    EXEC_INTERVAL_SEC,/*실행주기초*/ 
+    CRON_EXEC_CFG_VAL,/*CRON실행설정값*/ 
+    PARLL_EXEC_YN,/*병렬실행여부*/ 
+    ERR_STOP_YN,/*에러중지여부*/ 
+    REG_USER_ID,/*등록 사용자 ID*/ 
+    REG_OCCUR_DTTM,/*등록 발생 일시*/ 
+    MODIFY_USER_ID,/*변경 사용자 ID*/
+    MODIFY_OCCUR_DTTM /*변경 발생 일시*/ 
+)
+VALUES
+(
+	#{domainId}, /* 도메인 ID */
+    #{jobId},/*배치작업ID*/ 
+    #{jobNm, jdbcType=VARCHAR},/*배치작업명*/ 
+    #{bxmAppId},/*BXM어플리케이션ID*/ 
+    #{useYn, jdbcType=VARCHAR},/*사용여부*/ 
+    #{logLvNm, jdbcType=VARCHAR},/*로그레벨명*/ 
+    #{commitCfgList, jdbcType=VARCHAR},/*커밋설정목록*/ 
+    #{execArgs, jdbcType=VARCHAR},/*실행아규먼트*/ 
+    #{execIntervalSec, jdbcType=NUMERIC},/*실행주기초*/ 
+    #{cronExecCfgVal, jdbcType=VARCHAR},/*CRON실행설정값*/ 
+    #{parllExecYn, jdbcType=VARCHAR},/*병렬실행여부*/ 
+    #{errStopYn, jdbcType=VARCHAR},/*에러중지여부*/ 
+    #{regUserId, jdbcType=VARCHAR},/*등록 사용자 ID*/ 
+    #{regOccurDttm, jdbcType=VARCHAR},/*등록 발생 일시*/ 
+    #{regUserId, jdbcType=VARCHAR},/*변경 사용자 ID*/
+    #{regOccurDttm, jdbcType=VARCHAR} /*변경 발생 일시*/ 
+)
+</insert>
+<select id="selectDaemonList" resultType="bxm.web.admin.batch.domain.BatchDaemonOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* BXM 배치 데몬 정보 */ 
+       JOB_ID AS jobId,/*배치작업ID*/ 
+       JOB_NM AS jobNm,/*배치작업명*/ 
+       BXM_APP_ID AS bxmAppId,/*BXM어플리케이션ID*/ 
+       USE_YN AS useYn,/*사용여부*/ 
+       LOG_LV_NM AS logLvNm,/*로그레벨명*/ 
+       COMMIT_CFG_LIST AS commitCfgList,/*커밋설정목록*/ 
+       EXEC_ARGS AS execArgs,/*실행아규먼트*/ 
+       EXEC_INTERVAL_SEC AS execIntervalSec,/*실행주기초*/ 
+       CRON_EXEC_CFG_VAL AS cronExecCfgVal,/*CRON실행설정값*/ 
+       PARLL_EXEC_YN AS parllExecYn,/*병렬실행여부*/ 
+       ERR_STOP_YN AS errStopYn,/*에러중지여부*/ 
+       REG_USER_ID AS regUserId,/*등록 사용자 ID*/ 
+       REG_OCCUR_DTTM AS regOccurDttm,/*등록 발생 일시*/ 
+       MODIFY_USER_ID AS modifyUserId,/*변경 사용자 ID*/ 
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경 발생 일시*/
+  FROM BXM_JOB_DAEMON_INFO
+  WHERE DOMAIN_ID = #{domainId}
+	  <if test="batchDaemon.jobId != '' and batchDaemon.jobId != null">
+	  	and upper(JOB_ID) like upper(#{batchDaemon.jobId, jdbcType=VARCHAR})||'%'
+	  </if>
+	  <if test="batchDaemon.jobNm != '' and batchDaemon.jobNm != null">
+	  	and upper(JOB_NM) like upper(#{batchDaemon.jobNm, jdbcType=VARCHAR})||'%'
+	  </if>
+  ORDER BY JOB_ID
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectDaemonList" resultType="bxm.web.admin.batch.domain.BatchDaemonOMM">
+SELECT /* BXM 배치 데몬 정보 */ 
+       JOB_ID AS jobId,/*배치작업ID*/ 
+       JOB_NM AS jobNm,/*배치작업명*/ 
+       BXM_APP_ID AS bxmAppId,/*BXM어플리케이션ID*/ 
+       USE_YN AS useYn,/*사용여부*/ 
+       LOG_LV_NM AS logLvNm,/*로그레벨명*/ 
+       COMMIT_CFG_LIST AS commitCfgList,/*커밋설정목록*/ 
+       EXEC_ARGS AS execArgs,/*실행아규먼트*/ 
+       EXEC_INTERVAL_SEC AS execIntervalSec,/*실행주기초*/ 
+       CRON_EXEC_CFG_VAL AS cronExecCfgVal,/*CRON실행설정값*/ 
+       PARLL_EXEC_YN AS parllExecYn,/*병렬실행여부*/ 
+       ERR_STOP_YN AS errStopYn,/*에러중지여부*/ 
+       REG_USER_ID AS regUserId,/*등록 사용자 ID*/ 
+       REG_OCCUR_DTTM AS regOccurDttm,/*등록 발생 일시*/ 
+       MODIFY_USER_ID AS modifyUserId,/*변경 사용자 ID*/ 
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경 발생 일시*/
+  FROM BXM_JOB_DAEMON_INFO
+  WHERE DOMAIN_ID = #{domainId}
+	  <if test="batchDaemon.jobId != '' and batchDaemon.jobId != null">
+	  	and upper(JOB_ID) like CONCAT(upper(#{batchDaemon.jobId}), '%')
+	  </if>
+	  <if test="batchDaemon.jobNm != '' and batchDaemon.jobNm != null">
+	  	and upper(JOB_NM) like CONCAT(upper(#{batchDaemon.jobNm}), '%')
+	  </if>
+  ORDER BY JOB_ID
+LIMIT #{pageNum}, #{pageCount}
+</select>
+<select id="selectDaemonInfo" parameterType="bxm.web.admin.batch.domain.BatchDaemonMonOMM" resultType="bxm.web.admin.batch.domain.BatchDaemonOMM">
+SELECT /* BXM 배치 데몬 정보 */ 
+       JOB_ID AS jobId,/*배치작업ID*/ 
+       JOB_NM AS jobNm,/*배치작업명*/ 
+       BXM_APP_ID AS bxmAppId,/*BXM어플리케이션ID*/ 
+       USE_YN AS useYn,/*사용여부*/ 
+       LOG_LV_NM AS logLvNm,/*로그레벨명*/ 
+       COMMIT_CFG_LIST AS commitCfgList,/*커밋설정목록*/ 
+       EXEC_ARGS AS execArgs,/*실행아규먼트*/ 
+       EXEC_INTERVAL_SEC AS execIntervalSec,/*실행주기초*/ 
+       CRON_EXEC_CFG_VAL AS cronExecCfgVal,/*CRON실행설정값*/ 
+       PARLL_EXEC_YN AS parllExecYn,/*병렬실행여부*/ 
+       ERR_STOP_YN AS errStopYn,/*에러중지여부*/ 
+       REG_USER_ID AS regUserId,/*등록 사용자 ID*/ 
+       REG_OCCUR_DTTM AS regOccurDttm,/*등록 발생 일시*/ 
+       MODIFY_USER_ID AS modifyUserId,/*변경 사용자 ID*/ 
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경 발생 일시*/
+  FROM BXM_JOB_DAEMON_INFO
+ WHERE JOB_ID = #{jobId}
+ AND DOMAIN_ID = #{domainId}
+</select>
+<delete id="deleteDaemon" parameterType="bxm.web.admin.batch.domain.BatchDaemonOMM">
+DELETE FROM BXM_JOB_DAEMON_INFO /* BXM 배치 데몬 정보 */
+      WHERE JOB_ID = #{jobId}
+      AND DOMAIN_ID = #{domainId}
+</delete>
+<update id="updateDaemon" parameterType="bxm.web.admin.batch.domain.BatchDaemonOMM">
+UPDATE BXM_JOB_DAEMON_INFO/* BXM 배치 데몬 정보 */
+   SET JOB_NM = #{jobNm, jdbcType=VARCHAR} /* 배치작업명 */,
+       BXM_APP_ID = #{bxmAppId} /* BXM어플리케이션ID */,
+       USE_YN = #{useYn, jdbcType=VARCHAR} /* 사용여부 */,
+       LOG_LV_NM = #{logLvNm, jdbcType=VARCHAR} /* 로그레벨명 */,
+       COMMIT_CFG_LIST = #{commitCfgList, jdbcType=VARCHAR} /* 커밋설정목록 */,
+       EXEC_ARGS = #{execArgs, jdbcType=VARCHAR} /* 실행아규먼트 */,
+       EXEC_INTERVAL_SEC = #{execIntervalSec, jdbcType=NUMERIC} /* 실행주기초 */,
+       CRON_EXEC_CFG_VAL = #{cronExecCfgVal, jdbcType=VARCHAR} /* CRON실행설정값 */,
+       PARLL_EXEC_YN = #{parllExecYn, jdbcType=VARCHAR} /* 병렬실행여부 */,
+       ERR_STOP_YN = #{errStopYn, jdbcType=VARCHAR} /* 에러중지여부 */,
+       MODIFY_USER_ID = #{modifyUserId, jdbcType=VARCHAR} /* 변경 사용자 ID */,
+       MODIFY_OCCUR_DTTM = #{modifyOccurDttm, jdbcType=VARCHAR} /* 변경 발생 일시 */
+ WHERE JOB_ID = #{jobId}
+ AND DOMAIN_ID = #{domainId}
+</update>
+<insert id="insertDaemonHist" parameterType="bxm.web.admin.batch.domain.BatchDaemonHistOMM">
+INSERT INTO BXM_JOB_DAEMON_HIST /* BXM 배치 데몬 정보 변경이력 */
+(
+	DOMAIN_ID, /* 도메인 ID */
+    JOB_ID,/*배치작업ID*/ 
+    MODIFY_OCCUR_DTTM,/*변경 발생 일시*/ 
+    MODIFY_TYPE_CD,/*변경구분코드*/ 
+    JOB_NM,/*배치작업명*/ 
+    BXM_APP_ID,/*BXM어플리케이션ID*/ 
+    USE_YN,/*사용여부*/ 
+    LOG_LV_NM,/*로그레벨명*/ 
+    COMMIT_CFG_LIST,/*커밋설정목록*/ 
+    EXEC_ARGS,/*실행아규먼트*/ 
+    EXEC_INTERVAL_SEC,/*실행주기초*/ 
+    CRON_EXEC_CFG_VAL,/*CRON실행설정값*/ 
+    PARLL_EXEC_YN,/*병렬실행여부*/ 
+    ERR_STOP_YN,/*에러중지여부*/ 
+    REG_USER_ID,/*등록 사용자 ID*/ 
+    REG_OCCUR_DTTM,/*등록 발생 일시*/
+    MODIFY_USER_ID /*변경 사용자 ID*/ 
+)
+VALUES
+(
+	#{domainId}, /* 도메인 ID */
+    #{jobId},/*배치작업ID*/ 
+    #{modifyOccurDttm, jdbcType=VARCHAR},/*변경 발생 일시*/ 
+    #{modifyTypeCd, jdbcType=VARCHAR},/*변경구분코드*/ 
+    #{jobNm, jdbcType=VARCHAR},/*배치작업명*/ 
+    #{bxmAppId, jdbcType=VARCHAR},/*BXM어플리케이션ID*/ 
+    #{useYn, jdbcType=VARCHAR},/*사용여부*/ 
+    #{logLvNm, jdbcType=VARCHAR},/*로그레벨명*/ 
+    #{commitCfgList, jdbcType=VARCHAR},/*커밋설정목록*/ 
+    #{execArgs, jdbcType=VARCHAR},/*실행아규먼트*/ 
+    #{execIntervalSec, jdbcType=NUMERIC},/*실행주기초*/ 
+    #{cronExecCfgVal, jdbcType=VARCHAR},/*CRON실행설정값*/ 
+    #{parllExecYn, jdbcType=VARCHAR},/*병렬실행여부*/ 
+    #{errStopYn, jdbcType=VARCHAR},/*에러중지여부*/ 
+    #{regUserId, jdbcType=VARCHAR},/*등록 사용자 ID*/ 
+    #{regOccurDttm, jdbcType=VARCHAR},/*등록 발생 일시*/
+    #{modifyUserId, jdbcType=VARCHAR} /*변경 사용자 ID*/ 
+)
+</insert>
+<select id="selectCommonList" parameterType="bxm.web.admin.batch.domain.BatchDaemonMonOMM" resultType="java.lang.String">
+SELECT /* BXM 배치 데몬 모니터링 */ 
+       EXEC_NODE_NO AS execNodeNo/*실행노드번호*/ 
+  FROM BXM_JOB_DAEMON_MON
+ WHERE JOB_ID = #{jobId}
+ AND DOMAIN_ID = #{domainId}
+</select>
+<insert id="insertDaemonMon" parameterType="bxm.web.admin.batch.domain.BatchDaemonMonOMM">
+INSERT INTO BXM_JOB_DAEMON_MON /* BXM 배치 데몬 모니터링 */
+(
+	DOMAIN_ID, /* 도메인 ID */
+    JOB_ID,/*배치작업ID*/ 
+    EXEC_NODE_NO/*실행노드번호*/ 
+)
+VALUES
+(
+	#{domainId}, /* 도메인 ID */
+    #{jobId},/*배치작업ID*/ 
+    #{execNodeNo}/*실행노드번호*/ 
+)
+</insert>
+<delete id="deleteDaemonMon" parameterType="bxm.web.admin.batch.domain.BatchDaemonMonOMM">
+DELETE FROM BXM_JOB_DAEMON_MON /* BXM 배치 데몬 모니터링 */
+      WHERE JOB_ID = #{jobId}
+      AND DOMAIN_ID = #{domainId}
+        <if test="execNodeNo != '' and execNodeNo != null">
+	  	and EXEC_NODE_NO = #{execNodeNo}
+	    </if>
+</delete>
+<select id="selectDaemonAll" resultType="bxm.web.admin.batch.domain.BatchDaemonOMM">
+SELECT /* BXM 배치 데몬 정보 */ 
+       DOMAIN_ID AS domainId /*도메인ID*/,
+       JOB_ID AS jobId /*배치작업ID*/,
+       JOB_NM AS jobNm /*배치작업명*/,
+       BXM_APP_ID AS bxmAppId /*BXM어플리케이션ID*/,
+       USE_YN AS useYn /*사용여부*/,
+       LOG_LV_NM AS logLvNm /*로그레벨명*/,
+       COMMIT_CFG_LIST AS commitCfgList /*커밋설정목록*/,
+       EXEC_ARGS AS execArgs /*실행아규먼트*/,
+       EXEC_INTERVAL_SEC AS execIntervalSec /*실행주기초*/,
+       CRON_EXEC_CFG_VAL AS cronExecCfgVal /*CRON실행설정값*/,
+       PARLL_EXEC_YN AS parllExecYn /*병렬실행여부*/,
+       ERR_STOP_YN AS errStopYn /*에러중지여부*/,
+       REG_USER_ID AS regUserId /*등록 사용자 ID*/,
+       REG_OCCUR_DTTM AS regOccurDttm /*등록 발생 일시*/,
+       MODIFY_USER_ID AS modifyUserId /*변경 사용자 ID*/,
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경 발생 일시*/
+  FROM BXM_JOB_DAEMON_INFO
+ WHERE DOMAIN_ID = #{domainId}
+</select>
+<select id="countTotalPage" resultType="java.lang.Integer">
+SELECT COUNT(*) FROM BXM_JOB_DAEMON_INFO
+WHERE DOMAIN_ID = #{domainId}
+	<if test="searchCondition.jobId != null and searchCondition.jobId != ''">
+		and upper(JOB_ID) like upper(#{searchCondition.jobId})||'%'
+	</if>
+		<if test="searchCondition.jobNm != null and searchCondition.jobNm != ''">
+		and upper(JOB_NM) like upper(#{searchCondition.jobNm})||'%'
+	</if>
+</select>
+<select databaseId="mysql" id="countTotalPage" resultType="java.lang.Integer">
+SELECT 
+	COUNT(*) 
+FROM BXM_JOB_DAEMON_INFO
+WHERE DOMAIN_ID = #{domainId}
+	<if test="searchCondition.jobId != null and searchCondition.jobId != ''">
+		and upper(JOB_ID) like CONCAT(upper(#{searchCondition.jobId}), '%')
+	</if>
+		<if test="searchCondition.jobNm != null and searchCondition.jobNm != ''">
+		and upper(JOB_NM) like CONCAT(upper(#{searchCondition.jobNm}), '%')
+	</if>
+</select>
+</mapper>

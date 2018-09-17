@@ -1,0 +1,46 @@
+<!-- 개발과제 목록 -->
+<div class="pf-panel-header">
+    <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+    <h2 class="pf-panel-title">{{bxMsg 'ProjectTypeList'}}</h2>
+    <!-- 개발과제 목록 -->
+</div>
+<div class="pf-panel-body bx-info-table-wrap">
+    <div class="pf-ppt-project-type-list-form">
+        <table class="project-type-query-table bx-info-table">
+            <tr>
+                <th>{{bxMsg 'lastModifiedDate'}}</th>
+                <!-- 최종변경일자 -->
+                <td>
+                    <input name="start" class="bx-form-item bx-compoenent-small calendar start-date" type="text" data-form-param="startDate">
+                    <label>-</label>
+                    <input name="end" class="bx-form-item bx-compoenent-small calendar end-date" type="text" data-form-param="endDate">
+                </td>
+                <th class="padding-th">{{bxMsg 'PAS0101String4'}}</th>
+                <!-- 등록사원/登记人 -->
+                <td>
+                    <input type="text" class="bx-form-item bx-compoenent-small user-id" data-form-param="registUserName" readonly>
+                    <input type="text" class="bx-form-item bx-compoenent-small user-name" disabled>
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'PAM0300String1'}}</th>
+                <!-- 개발과제유형명 -->
+                <td colspan="3">
+                    <input type="text" class="bx-form-item bx-compoenent-small" data-form-param="projectTypeName">
+                </td>
+            </tr>
+        </table>
+        <div class="grid-extra-header">
+            <button type="button" class="bw-btn pf-reset-form-btn" icon-tooltip="{{bxMsg 'ButtonBottomString6'}}">
+                    <i class="bw-icon i-25 i-func-reset"></i>
+                </button>
+            <button type="button" class="bw-btn project-type-list-inquiry-btn" icon-tooltip="{{bxMsg 'ButtonBottomString5'}}">
+                    <i class="bw-icon i-25 i-search"></i>
+                </button>
+            <button type="button" class="bw-btn project-type-create-popup-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString7'}}">
+                    <i class="bw-icon i-25 i-func-add"></i>
+                </button>
+        </div>
+    </div>
+    <div class="pf-ppt-project-type-master-list-grid middle-grid"></div>
+</div>

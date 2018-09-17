@@ -1,0 +1,6 @@
+OMM bankware.corebanking.customer.open.batch.dto.CustCrdtInfoXtrctnFooterIO
+<description="파일 입출력">
+{
+	String dscd<length=1 description="구분코드">;
+	Integer cnt<length=5 description="건수">;
+}

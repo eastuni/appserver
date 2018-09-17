@@ -1,0 +1,11 @@
+OMM bxm.web.admin.batch.domain.RealtimeLogInOMM
+<description="">
+{
+	Boolean fileReadYn<length=20>;
+	Long lastFilePoint<length=18>;
+	String jobId<length=20>;
+	String jobName<length=20>;
+	BigDecimal jobExecutionId<length=15>;
+	Integer fileReadSize<length=9>;
+	String scheduleExecId<length=20>;
+}

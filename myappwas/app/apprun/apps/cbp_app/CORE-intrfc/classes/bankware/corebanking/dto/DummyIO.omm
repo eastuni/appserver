@@ -1,0 +1,5 @@
+OMM bankware.corebanking.dto.DummyIO extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+
+}

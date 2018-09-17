@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.actor.customer.dao.AtCustAcdntReportDXtn">
+<!--Generated Wed Jul 12 12:29:49 KST 2017-->
+<select id="selectList" resultType="bankware.corebanking.actor.customer.dao.dto.AtCustAcdntReportDXtnIO">
+SELECT inst_cd as instCd
+
+     , cust_id as custId
+
+     , report_seq_nbr as reportSeqNbr
+
+     , cust_acdnt_tp_cd as custAcdntTpCd
+
+     , report_cntnt as reportCntnt
+
+     , report_rvctn_yn as reportRvctnYn
+
+     , acdnt_ocr_dt as acdntOcrDt
+
+     , report_rgstrn_dt as reportRgstrnDt
+
+     , report_rgstrn_hms as reportRgstrnHms
+
+     , cust_acdnt_rgstrn_rsn_cd as custAcdntRgstrnRsnCd
+
+     , report_rgstrn_dept_id as reportRgstrnDeptId
+
+     , report_rgstrn_staff_id as reportRgstrnStaffId
+
+     , report_rvctn_dt as reportRvctnDt
+
+     , report_rvctn_hms as reportRvctnHms
+
+     , cust_acdnt_rvctn_rsn_cd as custAcdntRvctnRsnCd
+
+     , report_rvctn_dept_id as reportRvctnDeptId
+
+     , report_rvctn_staff_id as reportRvctnStaffId
+
+     , report_rvctn_cntnt as reportRvctnCntnt
+
+     , last_chng_tmstmp as lastChngTmstmp
+
+     , last_chng_guid as lastChngGuid
+
+  FROM at_cust_acdnt_report_d
+
+ WHERE inst_cd = #{instCd}
+
+   AND cust_id = #{custId}
+
+   <if test="reportRvctnYn != null &amp;&amp; reportRvctnYn !=''">
+
+   AND report_rvctn_yn = #{reportRvctnYn}
+
+   </if>
+</select>
+<select id="selectOneByAccidentType" resultType="bankware.corebanking.actor.customer.dao.dto.AtCustAcdntReportDXtnIO">
+SELECT inst_cd as instCd
+
+     , cust_id as custId
+
+     , report_seq_nbr as reportSeqNbr
+
+     , cust_acdnt_tp_cd as custAcdntTpCd
+
+     , report_cntnt as reportCntnt
+
+     , report_rvctn_yn as reportRvctnYn
+
+     , acdnt_ocr_dt as acdntOcrDt
+
+     , report_rgstrn_dt as reportRgstrnDt
+
+     , report_rgstrn_hms as reportRgstrnHms
+
+     , cust_acdnt_rgstrn_rsn_cd as custAcdntRgstrnRsnCd
+
+     , report_rgstrn_dept_id as reportRgstrnDeptId
+
+     , report_rgstrn_staff_id as reportRgstrnStaffId
+
+     , report_rvctn_dt as reportRvctnDt
+
+     , report_rvctn_hms as reportRvctnHms
+
+     , cust_acdnt_rvctn_rsn_cd as custAcdntRvctnRsnCd
+
+     , report_rvctn_dept_id as reportRvctnDeptId
+
+     , report_rvctn_staff_id as reportRvctnStaffId
+
+     , report_rvctn_cntnt as reportRvctnCntnt
+
+     , last_chng_tmstmp as lastChngTmstmp
+
+     , last_chng_guid as lastChngGuid
+
+  FROM at_cust_acdnt_report_d
+
+ WHERE inst_cd = #{instCd}
+
+   AND cust_id = #{custId}
+
+  <if test="custAcdntTpCd != null &amp;&amp; custAcdntTpCd !=''">
+
+   AND cust_acdnt_tp_cd = #{custAcdntTpCd}
+
+   </if>
+
+   <if test="reportRvctnYn != null &amp;&amp; reportRvctnYn !=''">
+
+   AND report_rvctn_yn = #{reportRvctnYn}
+
+   </if>
+</select>
+</mapper>

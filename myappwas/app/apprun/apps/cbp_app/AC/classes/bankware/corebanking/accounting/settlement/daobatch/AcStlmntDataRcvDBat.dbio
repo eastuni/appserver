@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.accounting.settlement.daobatch.AcStlmntDataRcvDBat">
+<!--Generated Mon Oct 30 18:00:17 KST 2017-->
+<select id="select" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntDataRcvDBatIO" resultType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntDataRcvDBatIO">
+SELECT    
+        INST_CD AS instCd, 
+        STLMNT_BASE_DT AS stlmntBaseDt, 
+        DATA_RCV_NTH AS dataRcvNth, 
+        BIZ_DSCD AS bizDscd, 
+        ACCT_NBR AS acctNbr, 
+        DEPT_ID AS deptId, 
+        CRNCY_CD AS crncyCd,
+        ACCTG_DSCD AS acctgDscd, 
+        ACCTG_ITM_CD AS acctgItmCd, 
+        ARR_ID AS arrId, 
+        STLMNT_CRCTN_DSCD AS stlmntCrctnDscd, 
+        CRCTN_AMT AS crctnAmt, 
+        RLTD_ACCTG_ITM_CD AS rltdAcctgItmCd, 
+        LAST_CHNG_TMSTMP AS lastChngTmstmp, 
+        LAST_CHNG_GUID AS lastChngGuid
+  FROM  ac_stlmnt_data_rcv_d
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT = #{stlmntBaseDt}
+   AND DATA_RCV_NTH = #{dataRcvNth}
+   AND BIZ_DSCD = #{bizDscd}
+   AND ACCT_NBR = #{acctNbr}
+</select>
+<select id="selectList" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntDataRcvDBatIO" resultType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntDataRcvDBatIO">
+SELECT    
+        INST_CD AS instCd, 
+        STLMNT_BASE_DT AS stlmntBaseDt, 
+        DATA_RCV_NTH AS dataRcvNth, 
+        BIZ_DSCD AS bizDscd, 
+        ACCT_NBR AS acctNbr, 
+        DEPT_ID AS deptId, 
+        CRNCY_CD AS crncyCd,
+        ACCTG_DSCD AS acctgDscd, 
+        ACCTG_ITM_CD AS acctgItmCd, 
+        ARR_ID AS arrId, 
+        STLMNT_CRCTN_DSCD AS stlmntCrctnDscd, 
+        CRCTN_AMT AS crctnAmt, 
+        RLTD_ACCTG_ITM_CD AS rltdAcctgItmCd, 
+        LAST_CHNG_TMSTMP AS lastChngTmstmp, 
+        LAST_CHNG_GUID AS lastChngGuid
+  FROM  ac_stlmnt_data_rcv_d
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT = #{stlmntBaseDt}
+<if test="dataRcvNth != null and dataRcvNth != ''">      
+   AND DATA_RCV_NTH = #{dataRcvNth}
+</if>
+<if test="bizDscd != null and bizDscd != ''">   
+   AND BIZ_DSCD = #{bizDscd}
+</if>
+<if test="acctNbr != null and acctNbr != ''">   
+   AND ACCT_NBR = #{acctNbr}
+</if>
+</select>
+<select id="selectListAmtSum" parameterType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntDataRcvDBatIO" resultType="bankware.corebanking.accounting.settlement.daobatch.dto.AcStlmntDataRcvDBatIO">
+SELECT    
+        INST_CD AS instCd, 
+        STLMNT_BASE_DT AS stlmntBaseDt, 
+        DEPT_ID AS deptId, 
+        CRNCY_CD AS crncyCd,
+        ACCTG_DSCD AS acctgDscd, 
+        ACCTG_ITM_CD AS acctgItmCd, 
+        STLMNT_CRCTN_DSCD AS stlmntCrctnDscd, 
+        SUM(CRCTN_AMT) AS crctnAmt
+  FROM  ac_stlmnt_data_rcv_d
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT = #{stlmntBaseDt}
+   AND DATA_RCV_NTH = #{dataRcvNth}
+<if test="acctgDscd != null and acctgDscd != ''">  
+   AND ACCTG_DSCD = #{acctgDscd}
+</if>
+GROUP BY INST_CD, STLMNT_BASE_DT, DEPT_ID, 
+CRNCY_CD, ACCTG_DSCD, ACCTG_ITM_CD, STLMNT_CRCTN_DSCD
+</select>
+<select id="selectMaxDataRcvNth" resultType="java.lang.Integer">
+SELECT  MAX(DATA_RCV_NTH) AS maxDataRcvNth
+  FROM  ac_stlmnt_data_rcv_d
+ WHERE INST_CD = #{instCd}
+   AND STLMNT_BASE_DT =#{stlmntBaseDt}
+</select>
+</mapper>

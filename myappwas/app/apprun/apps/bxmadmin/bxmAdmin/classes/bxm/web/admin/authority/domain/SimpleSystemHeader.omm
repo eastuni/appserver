@@ -1,0 +1,18 @@
+OMM bxm.web.admin.authority.domain.SimpleSystemHeader
+<description="">
+{
+	String application<length=30 description="BXM어플리케이션ID">;
+	String service<length=30 description="서비스명">;
+	String operation<length=30 description="오퍼레이션명">;
+	String userId<length=30 description="사용자ID">;
+	String systemId<length=30 description="시스템ID">;
+	String returnCode<length=30 description="응답코드">;
+	String uuid<length=36 description="UUID">;
+	String messageCode<length=9 description="메시지코드">;
+	Integer messageCount<length=5 description="메시지갯수">;
+	String messages<length=200 arrayReference="messageCount" description="메시지리스트">;
+	Integer detailMessageCount<length=5 description="상세메시지갯수">;
+	String detailMessages<length=200 arrayReference="detailMessageCount" description="상세메시지리스트">;
+	String traceMessage<length=500 description="트레이스메시지">;
+	String langCd<length=2 description="언어코드">;
+}

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.arrangement.arrangementrelationship.dao.ArArrLastPsbkBkgD">
+<!--Generated Sat Mar 31 11:35:59 KST 2018-->
+<delete id="delete" parameterType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrLastPsbkBkgDIO">
+DELETE  FROM  ar_arr_last_psbk_bkg_d    /* 계약최종통장기장내역 */
+
+ WHERE  INST_CD = #{instCd}
+
+   AND ARR_ID = #{arrId}
+
+   AND ARR_ISSMDA_INHRNC_ID = #{arrIssmdaInhrncId}
+   AND ARR_ISSMDA_TP_CD = #{arrIssmdaTpCd}
+   AND ARR_ISSMDA_REL_SEQ_NBR = #{arrIssmdaRelSeqNbr}
+</delete>
+<update id="update" parameterType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrLastPsbkBkgDIO">
+UPDATE  
+        ar_arr_last_psbk_bkg_d    /* 계약최종통장기장내역 */
+   SET  LAST_PSBK_BKG_ISSUE_NTH = #{lastPsbkIssueNth}    /* 최종통장발급회차 */
+     , LAST_PSBK_BKG_SIDE_CNT = #{lastPsbkBkgSideCnt}    /* 최종통장기장면수 */
+     , LAST_PSBK_BKG_ROW_CNT = #{lastPsbkBkgRowCnt}    /* 최종통장기장행수 */
+     , LAST_PSBK_BKG_DT = #{lastPsbkBkgDt}    /* 최종통장기장년월일 */
+     , LAST_PSBK_BKG_TX_DT = #{lastPsbkBkgTxDt}    /* 최종통장기장거래년월일 */
+     , LAST_PSBK_BKG_TX_SEQ_NBR = #{lastPsbkBkgTxSeqNbr}    /* 최종통장기장거래일련번호 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND ARR_ID = #{arrId}
+   AND ARR_ISSMDA_INHRNC_ID = #{arrIssmdaInhrncId}
+   AND ARR_ISSMDA_TP_CD = #{arrIssmdaTpCd}
+   AND ARR_ISSMDA_REL_SEQ_NBR = #{arrIssmdaRelSeqNbr}
+</update>
+<select id="select" parameterType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrLastPsbkBkgDIO" resultType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrLastPsbkBkgDIO">
+SELECT    /* 계약최종통장기장내역 */
+        INST_CD AS instCd,     /*기관코드*/
+        ARR_ID AS arrId,     /*계약식별자*/
+        ARR_ISSMDA_INHRNC_ID AS arrIssmdaInhrncId,     /*계약발급매체고유식별자*/
+        ARR_ISSMDA_TP_CD AS arrIssmdaTpCd,     /*계약발급매체유형코드*/
+        ARR_ISSMDA_REL_SEQ_NBR AS arrIssmdaRelSeqNbr,     /*계약발급매체관계일련번호*/
+        LAST_PSBK_BKG_ISSUE_NTH AS lastPsbkIssueNth,     /*최종통장기장발급회차*/
+        LAST_PSBK_BKG_SIDE_CNT AS lastPsbkBkgSideCnt,     /*최종통장기장면수*/
+        LAST_PSBK_BKG_ROW_CNT AS lastPsbkBkgRowCnt,     /*최종통장기장행수*/
+        LAST_PSBK_BKG_DT AS lastPsbkBkgDt,     /*최종통장기장년월일*/
+        LAST_PSBK_BKG_TX_DT AS lastPsbkBkgTxDt,     /*최종통장기장거래년월일*/
+        LAST_PSBK_BKG_TX_SEQ_NBR AS lastPsbkBkgTxSeqNbr,     /*최종통장기장거래일련번호*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ar_arr_last_psbk_bkg_d
+ WHERE INST_CD = #{instCd}
+   AND ARR_ID = #{arrId}
+   AND ARR_ISSMDA_INHRNC_ID = #{arrIssmdaInhrncId}
+   AND ARR_ISSMDA_TP_CD = #{arrIssmdaTpCd}
+   AND ARR_ISSMDA_REL_SEQ_NBR = #{arrIssmdaRelSeqNbr}
+</select>
+<insert id="insert" parameterType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrLastPsbkBkgDIO">
+INSERT  
+  INTO  ar_arr_last_psbk_bkg_d    /* 계약최종통장기장내역 */
+(
+  INST_CD,     /*기관코드*/
+  ARR_ID,     /*계약식별자*/
+  ARR_ISSMDA_INHRNC_ID,     /*계약발급매체고유식별자*/
+  ARR_ISSMDA_TP_CD,     /*계약발급매체유형코드*/
+  ARR_ISSMDA_REL_SEQ_NBR,     /*계약발급매체관계일련번호*/
+  LAST_PSBK_BKG_ISSUE_NTH,     /*최종통장기장발급회차*/
+  LAST_PSBK_BKG_SIDE_CNT,     /*최종통장기장면수*/
+  LAST_PSBK_BKG_ROW_CNT,     /*최종통장기장행수*/
+  LAST_PSBK_BKG_DT,     /*최종통장기장년월일*/
+  LAST_PSBK_BKG_TX_DT,     /*최종통장기장거래년월일*/
+  LAST_PSBK_BKG_TX_SEQ_NBR,     /*최종통장기장거래일련번호*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{arrId},     /*계약식별자*/
+  #{arrIssmdaInhrncId},     /*계약발급매체고유식별자*/
+  #{arrIssmdaTpCd},     /*계약발급매체유형코드*/
+  #{arrIssmdaRelSeqNbr},     /*계약발급매체관계일련번호*/
+  #{lastPsbkIssueNth},     /*최종통장발급회차*/
+  #{lastPsbkBkgSideCnt},     /*최종통장기장면수*/
+  #{lastPsbkBkgRowCnt},     /*최종통장기장행수*/
+  #{lastPsbkBkgDt},     /*최종통장기장년월일*/
+  #{lastPsbkBkgTxDt},     /*최종통장기장거래년월일*/
+  #{lastPsbkBkgTxSeqNbr},     /*최종통장기장거래일련번호*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectLastOneMysql" resultType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrLastPsbkBkgDIO">
+SELECT    /* 계약최종통장기장내역 */
+        INST_CD AS instCd,     /*기관코드*/
+        ARR_ID AS arrId,     /*계약식별자*/
+        ARR_ISSMDA_INHRNC_ID AS arrIssmdaInhrncId,     /*계약발급매체고유식별자*/
+        ARR_ISSMDA_TP_CD AS arrIssmdaTpCd,     /*계약발급매체유형코드*/
+        ARR_ISSMDA_REL_SEQ_NBR AS arrIssmdaRelSeqNbr,     /*계약발급매체관계일련번호*/
+        LAST_PSBK_BKG_ISSUE_NTH AS lastPsbkIssueNth,     /*최종통장기장발급회차*/
+        LAST_PSBK_BKG_SIDE_CNT AS lastPsbkBkgSideCnt,     /*최종통장기장면수*/
+        LAST_PSBK_BKG_ROW_CNT AS lastPsbkBkgRowCnt,     /*최종통장기장행수*/
+        LAST_PSBK_BKG_DT AS lastPsbkBkgDt,     /*최종통장기장년월일*/
+        LAST_PSBK_BKG_TX_DT AS lastPsbkBkgTxDt,     /*최종통장기장거래년월일*/
+        LAST_PSBK_BKG_TX_SEQ_NBR AS lastPsbkBkgTxSeqNbr,     /*최종통장기장거래일련번호*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  ar_arr_last_psbk_bkg_d
+ WHERE INST_CD = #{instCd}
+   AND ARR_ID = #{arrId}
+ ORDER BY LAST_PSBK_BKG_ISSUE_NTH DESC
+ LIMIT 1
+</select>
+<select id="selectLastOneOracle" resultType="bankware.corebanking.arrangement.arrangementrelationship.dao.dto.ArArrLastPsbkBkgDIO">
+SELECT *
+  FROM (
+	SELECT    /* 계약최종통장기장내역 */
+	        INST_CD AS instCd,     /*기관코드*/
+	        ARR_ID AS arrId,     /*계약식별자*/
+	        ARR_ISSMDA_INHRNC_ID AS arrIssmdaInhrncId,     /*계약발급매체고유식별자*/
+	        ARR_ISSMDA_TP_CD AS arrIssmdaTpCd,     /*계약발급매체유형코드*/
+	        ARR_ISSMDA_REL_SEQ_NBR AS arrIssmdaRelSeqNbr,     /*계약발급매체관계일련번호*/
+	        LAST_PSBK_BKG_ISSUE_NTH AS lastPsbkIssueNth,     /*최종통장기장발급회차*/
+	        LAST_PSBK_BKG_SIDE_CNT AS lastPsbkBkgSideCnt,     /*최종통장기장면수*/
+	        LAST_PSBK_BKG_ROW_CNT AS lastPsbkBkgRowCnt,     /*최종통장기장행수*/
+	        LAST_PSBK_BKG_DT AS lastPsbkBkgDt,     /*최종통장기장년월일*/
+	        LAST_PSBK_BKG_TX_DT AS lastPsbkBkgTxDt,     /*최종통장기장거래년월일*/
+	        LAST_PSBK_BKG_TX_SEQ_NBR AS lastPsbkBkgTxSeqNbr,     /*최종통장기장거래일련번호*/
+	        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+	        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+	  FROM  ar_arr_last_psbk_bkg_d
+	 WHERE INST_CD = #{instCd}
+	   AND ARR_ID = #{arrId}
+	 ORDER BY LAST_PSBK_BKG_ISSUE_NTH DESC    
+  ) T1
+ WHERE ROWNUM &lt;= 1
+</select>
+</mapper>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.arrangement.arrangementcondition.dao.ArArrAplyIntRtValDtlDXtn">
+<!--Generated Thu Jun 07 10:39:12 KST 2018-->
+<select id="select" parameterType="bankware.corebanking.arrangement.arrangementcondition.dao.dto.ArArrAplyIntRtValDtlDXtnIO" resultType="bankware.corebanking.arrangement.arrangementcondition.dao.dto.ArArrAplyIntRtValDtlDXtnIO">
+SELECT /* 계약적용금리값상세명세 */ 
+       INST_CD AS instCd, /*기관코드*/ 
+       ARR_ID AS arrId, /*계약식별자*/ 
+       ARR_INT_RT_TP_CD AS arrIntRtTpCd, /*계약금리유형코드*/ 
+       EFCTV_START_DT AS efctvStartDt, /*유효시작년월일*/ 
+       APLY_INT_RT_SEQ_NBR AS aplyIntRtSeqNbr, /*적용금리일련번호*/ 
+       APLY_INT_RT_VAL_SEQ_NBR AS aplyIntRtValSeqNbr, /*적용금리값일련번호*/ 
+       CND_CD AS cndCd, /*조건코드*/ 
+       CND_DTLS_TP_CD AS cndDtlsTpCd, /*조건세부유형코드*/ 
+       INT_RT_CNFRMTN_DSCD AS intRtCnfrmtnDscd, /*금리확정구분코드*/ 
+       APLY_INT_RT AS aplyIntRt, /*적용이율*/ 
+       INT_RT_NXT_RBLD_DT AS intRtNxtRbldDt, /*금리다음재산정년월일*/ 
+       LAST_CHNG_TMSTMP AS lastChngTmstmp, /*최종변경일시*/ 
+       LAST_CHNG_GUID AS lastChngGuid /*최종변경GUID*/
+FROM   AR_ARR_APLY_INT_RT_VAL_DTL_D
+WHERE  INST_CD = #{instCd}
+   AND ARR_ID = #{arrId}
+   AND ARR_INT_RT_TP_CD = #{arrIntRtTpCd}
+   AND EFCTV_START_DT = #{efctvStartDt}
+   AND APLY_INT_RT_SEQ_NBR = #{aplyIntRtSeqNbr}
+   AND APLY_INT_RT_VAL_SEQ_NBR = #{aplyIntRtValSeqNbr}
+   AND CND_CD = #{cndCd}
+</select>
+<select id="selectList" parameterType="bankware.corebanking.arrangement.arrangementcondition.dao.dto.ArArrAplyIntRtValDtlDXtnIO" resultType="bankware.corebanking.arrangement.arrangementcondition.dao.dto.ArArrAplyIntRtValDtlDXtnIO">
+SELECT /* 계약적용금리값상세명세 */ 
+       INST_CD AS instCd, /*기관코드*/ 
+       ARR_ID AS arrId, /*계약식별자*/ 
+       ARR_INT_RT_TP_CD AS arrIntRtTpCd, /*계약금리유형코드*/ 
+       EFCTV_START_DT AS efctvStartDt, /*유효시작년월일*/ 
+       APLY_INT_RT_SEQ_NBR AS aplyIntRtSeqNbr, /*적용금리일련번호*/ 
+       APLY_INT_RT_VAL_SEQ_NBR AS aplyIntRtValSeqNbr, /*적용금리값일련번호*/ 
+       CND_CD AS cndCd, /*조건코드*/ 
+       CND_DTLS_TP_CD AS cndDtlsTpCd, /*조건세부유형코드*/ 
+       INT_RT_CNFRMTN_DSCD AS intRtCnfrmtnDscd, /*금리확정구분코드*/ 
+       APLY_INT_RT AS aplyIntRt, /*적용이율*/ 
+       INT_RT_NXT_RBLD_DT AS intRtNxtRbldDt, /*금리다음재산정년월일*/ 
+       LAST_CHNG_TMSTMP AS lastChngTmstmp, /*최종변경일시*/ 
+       LAST_CHNG_GUID AS lastChngGuid /*최종변경GUID*/
+FROM   AR_ARR_APLY_INT_RT_VAL_DTL_D
+WHERE  INST_CD = #{instCd}
+   AND ARR_ID = #{arrId}
+   AND ARR_INT_RT_TP_CD = #{arrIntRtTpCd}
+   AND EFCTV_START_DT = #{efctvStartDt}
+   AND APLY_INT_RT_SEQ_NBR = #{aplyIntRtSeqNbr}
+   AND APLY_INT_RT_VAL_SEQ_NBR = #{aplyIntRtValSeqNbr}
+</select>
+</mapper>

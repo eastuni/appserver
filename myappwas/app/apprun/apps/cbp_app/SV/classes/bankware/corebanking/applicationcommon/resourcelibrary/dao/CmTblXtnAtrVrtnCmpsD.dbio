@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.applicationcommon.resourcelibrary.dao.CmTblXtnAtrVrtnCmpsD">
+<!--Generated Fri Jul 20 20:16:54 KST 2018-->
+<insert id="insert" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrVrtnCmpsDIO">
+INSERT INTO CM_TBL_XTN_ATR_VRTN_CMPS_D   /* 테이블확장속성변형구성명세 */
+(
+       inst_cd    /*기관코드*/
+     , tbl_nm    /*테이블명*/
+     , xtn_atrbt_nm    /*확장속성명*/
+     , xtn_atrbt_xtn_atrbt_nm    /*확장속성확장속성명*/
+     , xtn_atrbt_vrtn_cmps_cd    /*확장속성변형구성코드*/
+     , SITE_LBRTRY_DSCD /* 사이트연구소구분코드 */
+     , ACTV_STS_CD /* 활동상태코드 */
+     , last_chng_tmstmp    /*최종변경일시*/
+     , last_chng_guid    /*최종변경GUID*/
+)
+VALUES 
+(
+       #{instCd}    /*기관코드*/
+     , #{tblNm}    /*테이블명*/
+     , #{xtnAtrbtNm}    /*확장속성명*/
+     , #{xtnAtrbtXtnAtrbtNm}    /*확장속성확장속성명*/
+     , #{xtnAtrbtVrtnCmpsCd}    /*확장속성변형구성코드*/
+     , #{siteLbrtryDscd, jdbcType=VARCHAR} /*사이트연구소구분코드*/
+     , #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/
+     , #{lastChngTmstmp}    /*최종변경일시*/
+     , #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<update id="update" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrVrtnCmpsDIO">
+UPDATE cm_tbl_xtn_atr_vrtn_cmps_d    /* 테이블확장속성변형구성명세 */
+   SET xtn_atrbt_xtn_atrbt_nm = #{xtnAtrbtXtnAtrbtNm}    /* 확장속성확장속성명 */
+     , xtn_atrbt_vrtn_cmps_cd = #{xtnAtrbtVrtnCmpsCd}    /* 확장속성변형구성코드 */
+     , site_lbrtry_dscd = #{siteLbrtryDscd, jdbcType=VARCHAR}
+     , ACTV_STS_CD = #{actvStsCd, jdbcType=VARCHAR}  /*활동상태코드*/
+     , last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE inst_cd = #{instCd}
+   AND tbl_nm = #{tblNm}
+   AND xtn_atrbt_nm = #{xtnAtrbtNm}
+   AND xtn_atrbt_xtn_atrbt_nm = #{xtnAtrbtXtnAtrbtNm}
+</update>
+<delete id="delete">
+DELETE FROM cm_tbl_xtn_atr_vrtn_cmps_d    /* 테이블확장속성변형구성명세 */
+ WHERE inst_cd = #{instCd}
+
+   AND tbl_nm = #{tblNm}
+   AND xtn_atrbt_nm = #{xtnAtrbtNm}
+
+   AND xtn_atrbt_xtn_atrbt_nm = #{xtnAtrbtXtnAtrbtNm}
+</delete>
+<update id="updateActvStsCd" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrVrtnCmpsDIO">
+UPDATE cm_tbl_xtn_atr_vrtn_cmps_d    /* 테이블확장속성변형구성명세 */
+   SET ACTV_STS_CD = #{actvStsCd}  /*활동상태코드*/
+     , site_lbrtry_dscd = #{siteLbrtryDscd}
+     , last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE inst_cd = #{instCd}
+   AND tbl_nm = #{tblNm}
+   AND xtn_atrbt_nm = #{xtnAtrbtNm}
+   AND xtn_atrbt_xtn_atrbt_nm = #{xtnAtrbtXtnAtrbtNm}
+</update>
+<select id="selectXtnAtrbtVrtnCmpsCdMysql" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrVrtnCmpsDIO">
+SELECT    /* 테이블확장속성변형구성명세 */
+
+       IFNULL(MAX(xtn_atrbt_vrtn_cmps_cd), ' ') AS xtnAtrbtVrtnCmpsCd    /*확장속성변형구성코드*/
+
+  FROM cm_tbl_xtn_atr_vrtn_cmps_d
+ WHERE inst_cd = #{instCd}
+
+   AND tbl_nm = #{tblNm}
+   AND xtn_atrbt_nm = #{xtnAtrbtNm}
+
+   AND ACTV_STS_CD = '01'
+</select>
+<select id="selectXtnAtrbtVrtnCmpsCdOracle" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrVrtnCmpsDIO">
+SELECT    /* 테이블확장속성변형구성명세 */
+
+       NVL(MAX(xtn_atrbt_vrtn_cmps_cd), ' ') AS xtnAtrbtVrtnCmpsCd    /*확장속성변형구성코드*/
+
+  FROM cm_tbl_xtn_atr_vrtn_cmps_d
+ WHERE inst_cd = #{instCd}
+
+   AND tbl_nm = #{tblNm}
+   AND xtn_atrbt_nm = #{xtnAtrbtNm}
+
+   AND ACTV_STS_CD = '01'
+</select>
+<select id="selectList" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrVrtnCmpsDIO" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrVrtnCmpsDIO">
+SELECT    /* 테이블확장속성변형구성명세 */
+       inst_cd AS instCd    /*기관코드*/
+     , tbl_nm AS tblNm    /*테이블명*/
+     , xtn_atrbt_nm AS xtnAtrbtNm    /*확장속성명*/
+     , xtn_atrbt_xtn_atrbt_nm AS xtnAtrbtXtnAtrbtNm    /*확장속성확장속성명*/
+     , xtn_atrbt_vrtn_cmps_cd AS xtnAtrbtVrtnCmpsCd    /*확장속성변형구성코드*/
+     , site_lbrtry_dscd AS siteLbrtryDscd
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM  cm_tbl_xtn_atr_vrtn_cmps_d
+ WHERE INST_CD = #{instCd}
+</select>
+<select id="selectActive" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrVrtnCmpsDIO">
+SELECT    /* 테이블확장속성변형구성명세 */
+       inst_cd AS instCd    /*기관코드*/
+     , tbl_nm AS tblNm    /*테이블명*/
+     , xtn_atrbt_nm AS xtnAtrbtNm    /*확장속성명*/
+     , xtn_atrbt_xtn_atrbt_nm AS xtnAtrbtXtnAtrbtNm    /*확장속성확장속성명*/
+     , xtn_atrbt_vrtn_cmps_cd AS xtnAtrbtVrtnCmpsCd    /*확장속성변형구성코드*/
+     , site_lbrtry_dscd AS siteLbrtryDscd
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM cm_tbl_xtn_atr_vrtn_cmps_d
+ WHERE inst_cd = #{instCd}
+   AND tbl_nm = #{tblNm}
+   AND xtn_atrbt_nm = #{xtnAtrbtNm}
+   AND xtn_atrbt_xtn_atrbt_nm = #{xtnAtrbtXtnAtrbtNm}
+   AND ACTV_STS_CD = '01'
+</select>
+<select id="select" parameterType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrVrtnCmpsDIO" resultType="bankware.corebanking.applicationcommon.resourcelibrary.dao.dto.CmTblXtnAtrVrtnCmpsDIO">
+SELECT    /* 테이블확장속성변형구성명세 */
+       inst_cd AS instCd    /*기관코드*/
+     , tbl_nm AS tblNm    /*테이블명*/
+     , xtn_atrbt_nm AS xtnAtrbtNm    /*확장속성명*/
+     , xtn_atrbt_xtn_atrbt_nm AS xtnAtrbtXtnAtrbtNm    /*확장속성확장속성명*/
+     , xtn_atrbt_vrtn_cmps_cd AS xtnAtrbtVrtnCmpsCd    /*확장속성변형구성코드*/
+     , site_lbrtry_dscd AS siteLbrtryDscd
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+  FROM cm_tbl_xtn_atr_vrtn_cmps_d
+ WHERE inst_cd = #{instCd}
+   AND tbl_nm = #{tblNm}
+   AND xtn_atrbt_nm = #{xtnAtrbtNm}
+   AND xtn_atrbt_xtn_atrbt_nm = #{xtnAtrbtXtnAtrbtNm}
+</select>
+</mapper>

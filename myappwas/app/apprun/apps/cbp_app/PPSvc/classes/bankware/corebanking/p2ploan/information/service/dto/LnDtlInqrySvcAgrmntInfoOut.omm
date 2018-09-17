@@ -1,0 +1,9 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.LnDtlInqrySvcAgrmntInfoOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	BigDecimal aplyIntRt<length=10 decimal=4 description="적용이율">;
+	BigDecimal agrmntAmt<length=18 decimal=2 description="약정금액">;
+	BigDecimal agrmntBal<length=18 decimal=2 description="약정잔액">;
+	BigDecimal whdrwlAblAmt<length=18 decimal=2 description="출금가능액">;
+	String pymntAcctNbr<length=20 description="결제계좌번호">;
+}

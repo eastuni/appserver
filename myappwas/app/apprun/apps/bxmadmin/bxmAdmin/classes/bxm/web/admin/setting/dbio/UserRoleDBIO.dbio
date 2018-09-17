@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.web.admin.setting.dbio.UserRoleDBIO">
+<!--Generated Wed Dec 13 15:31:03 KST 2017-->
+<select id="selectUserRoleInfo" resultType="bxm.web.admin.setting.domain.UserRoleOMM">
+SELECT /* BXM 역할 */ 
+       ROLE_ID AS roleId,/*역할ID*/ 
+       ROLE_NM AS roleNm,/*역할명*/ 
+       USE_YN AS useYn,/*사용여부*/ 
+       ROLE_DESC AS roleDesc,/*역할설명*/ 
+       REG_USER_ID AS regUserId,/*등록 사용자 ID*/ 
+       REG_OCCUR_DTTM AS regOccurDttm,/*등록 발생 일시*/ 
+       MODIFY_USER_ID AS modifyUserId,/*변경 사용자 ID*/ 
+       MODIFY_OCCUR_DTTM AS modifyOccurDttm /*변경 발생 일시*/
+  FROM BXM_USER_ROLE
+ WHERE ROLE_ID = #{relation.roleId}
+ AND DOMAIN_ID = #{relation.domainId}
+</select>
+<select id="selectUserRoleList" resultType="bxm.web.admin.setting.domain.UserRoleOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* BXM 역할 */ 
+       ROLE_ID AS roleId,/*역할ID*/ 
+       ROLE_NM AS roleNm,/*역할명*/ 
+       USE_YN AS useYn,/*사용여부*/ 
+       ROLE_DESC AS roleDesc/*역할설명*/ 
+  FROM BXM_USER_ROLE
+  WHERE DOMAIN_ID = #{domainId}
+  ORDER BY ROLE_ID
+/* #### Original SQL ]] ################# */
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectUserRoleList" resultType="bxm.web.admin.setting.domain.UserRoleOMM">
+SELECT /* BXM 역할 */ 
+       ROLE_ID AS roleId,/*역할ID*/ 
+       ROLE_NM AS roleNm,/*역할명*/ 
+       USE_YN AS useYn,/*사용여부*/ 
+       ROLE_DESC AS roleDesc/*역할설명*/ 
+  FROM BXM_USER_ROLE
+  WHERE DOMAIN_ID = #{domainId}
+ORDER BY ROLE_ID
+</select>
+<insert id="insertUserRole" parameterType="bxm.web.admin.setting.domain.UserRoleOMM">
+INSERT INTO BXM_USER_ROLE /* BXM 역할 */
+(
+	DOMAIN_ID, /*도메인 ID */
+    ROLE_ID,/*역할ID*/ 
+    ROLE_NM,/*역할명*/ 
+    USE_YN,/*사용여부*/ 
+    ROLE_DESC,/*역할설명*/ 
+    REG_USER_ID,/*등록 사용자 ID*/ 
+    REG_OCCUR_DTTM,/*등록 발생 일시*/ 
+    MODIFY_USER_ID,/*변경 사용자 ID*/
+    MODIFY_OCCUR_DTTM /*변경 발생 일시*/ 
+)
+VALUES
+(
+	#{domainId}, /* 도메인 ID */
+    #{roleId},/*역할ID*/ 
+    #{roleNm, jdbcType=VARCHAR},/*역할명*/ 
+    #{useYn, jdbcType=VARCHAR},/*사용여부*/ 
+    #{roleDesc, jdbcType=VARCHAR},/*역할설명*/ 
+    #{regUserId, jdbcType=VARCHAR},/*등록 사용자 ID*/ 
+    #{regOccurDttm, jdbcType=VARCHAR},/*등록 발생 일시*/ 
+    #{regUserId, jdbcType=VARCHAR},/*변경 사용자 ID*/
+    #{regOccurDttm, jdbcType=VARCHAR} /*변경 발생 일시*/ 
+)
+</insert>
+<update id="updateUserRole" parameterType="bxm.web.admin.setting.domain.UserRoleOMM">
+UPDATE BXM_USER_ROLE /* BXM 역할 */
+   SET ROLE_NM = #{roleNm} /* 역할명 */,
+       USE_YN = #{useYn} /* 사용여부 */,
+       ROLE_DESC = #{roleDesc} /* 역할설명 */,
+       MODIFY_USER_ID = #{modifyUserId} /* 변경 사용자 ID */,
+       MODIFY_OCCUR_DTTM = #{modifyOccurDttm} /* 변경 발생 일시 */
+ WHERE ROLE_ID = #{roleId}
+ AND DOMAIN_ID = #{domainId}
+</update>
+<delete id="deleteUserRole" parameterType="bxm.web.admin.setting.domain.UserRolePwdOMM">
+DELETE FROM BXM_USER_ROLE /* BXM 역할 */
+      WHERE ROLE_ID = #{roleId}
+      AND DOMAIN_ID = #{domainId}
+</delete>
+<insert id="insertRoleNMenu" parameterType="bxm.web.admin.setting.domain.UserRoleRelationOMM">
+INSERT INTO BXM_USER_ROLE_N_MENU /* BXM 역할 ADMIN메뉴 관계 */
+(
+	DOMAIN_ID, /* 도메인 ID */
+    ROLE_ID,/*역할ID*/
+    MENU_ID /*메뉴ID*/ 
+)
+VALUES
+(
+	#{domainId}, /* 도메인 ID */
+    #{roleId},/*역할ID*/
+    #{menuId} /*메뉴ID*/ 
+)
+</insert>
+<insert id="insertRoleNPerm" parameterType="bxm.web.admin.setting.domain.UserRoleRelationOMM">
+INSERT INTO BXM_USER_ROLE_N_PERM /* BXM 역할 권한 관계 */
+(
+	DOMAIN_ID, /* 도메인 ID */
+    ROLE_ID,/*역할ID*/
+    AUTH_ID /*권한ID*/ 
+)
+VALUES
+(
+	#{domainId}, /* 도메인 ID */
+    #{roleId},/*역할ID*/
+    #{authId} /*권한ID*/ 
+)
+</insert>
+<delete id="deleteRoleNMenu" parameterType="bxm.web.admin.setting.domain.UserRoleRelationOMM">
+DELETE FROM BXM_USER_ROLE_N_MENU /* BXM 역할 ADMIN메뉴 관계 */
+WHERE ROLE_ID = #{roleId, jdbcType=VARCHAR} 
+AND DOMAIN_ID = #{domainId}
+<if test="menuId != null and menuId != ''">
+	AND MENU_ID = #{menuId, jdbcType=VARCHAR}
+</if>
+</delete>
+<delete id="deleteRoleNPerm" parameterType="bxm.web.admin.setting.domain.UserRoleRelationOMM">
+DELETE FROM BXM_USER_ROLE_N_PERM /* BXM 역할 권한 관계 */
+WHERE ROLE_ID = #{roleId} AND AUTH_ID = #{authId}
+AND DOMAIN_ID = #{domainId}
+</delete>
+<select id="countRoleTotalPage" resultType="java.lang.Integer">
+SELECT COUNT(*) 
+FROM BXM_USER_ROLE
+WHERE DOMAIN_ID = #{domainId}
+</select>
+<select id="countPermTotalPage" resultType="java.lang.Integer">
+SELECT COUNT(*) FROM BXM_USER_ROLE_N_PERM
+WHERE ROLE_ID = #{roleId}
+AND DOMAIN_ID = #{domainId}
+</select>
+<select id="selectRoleNPerm" resultType="bxm.web.admin.setting.domain.UserPermissionOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT /* BXM 역할 권한 관계 */  
+       A.AUTH_ID AS authId /*권한ID*/
+       , B.AUTH_NM AS authNm
+       , B.AUTH_DESC AS authDesc
+  FROM BXM_USER_ROLE_N_PERM A
+  INNER JOIN BXM_USER_PERM B
+  ON A.AUTH_ID = B.AUTH_ID AND A.DOMAIN_ID = B.DOMAIN_ID
+ WHERE A.ROLE_ID = #{roleId} AND A.DOMAIN_ID = #{domainId}
+ ORDER BY A.AUTH_ID
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectRoleNPerm" resultType="bxm.web.admin.setting.domain.UserPermissionOMM">
+SELECT /* BXM 역할 권한 관계 */  
+       A.AUTH_ID AS authId /*권한ID*/
+       , B.AUTH_NM AS authNm
+       , B.AUTH_DESC AS authDesc
+  FROM BXM_USER_ROLE_N_PERM A
+  INNER JOIN BXM_USER_PERM B
+  ON A.AUTH_ID = B.AUTH_ID AND A.DOMAIN_ID = B.DOMAIN_ID
+ WHERE A.ROLE_ID = #{roleId} AND A.DOMAIN_ID = #{domainId}
+ ORDER BY A.AUTH_ID
+ limit #{pageNum}, #{pageCount}
+</select>
+<select id="selectRoleNMenu" resultType="bxm.web.admin.setting.domain.UserMenuOutOMM">
+SELECT /* BXM 역할 ADMIN메뉴 관계 */  
+       B.MENU_ID AS menuId
+       , B.MENU_NM AS menuNm /*메뉴ID*/
+       , B.MENU_DESC AS menuDesc
+       , B.PARENT_MENU_ID AS parentMenuId
+       , B.MENU_SEQ AS menuSeq
+  FROM BXM_USER_ROLE_N_MENU A
+  INNER JOIN BXM_USER_MENU B
+  ON A.MENU_ID = B.MENU_ID AND A.DOMAIN_ID = B.DOMAIN_ID
+ WHERE A.ROLE_ID = #{roleId} AND A.DOMAIN_ID = #{domainId}
+   ORDER BY B.MENU_ID
+</select>
+<select id="selectMenuPopList" resultType="bxm.web.admin.setting.domain.UserMenuOutOMM">
+SELECT 
+         a.MENU_ID AS menuId,
+         a.MENU_NM AS menuNm,
+         a.MENU_DESC AS menuDesc,
+         a.PARENT_MENU_ID AS parentMenuId,
+         a.MENU_SEQ AS menuSeq
+    FROM BXM_USER_MENU a
+         LEFT JOIN ( SELECT * FROM BXM_USER_ROLE_N_MENU WHERE ROLE_ID=#{roleId} ) b ON a.MENU_ID = b.MENU_ID AND a.DOMAIN_ID = b.DOMAIN_ID
+   WHERE b.MENU_ID IS NULL
+     AND a.USE_YN = 'Y'
+     AND a.DOMAIN_ID = #{domainId}
+ORDER BY a.PARENT_MENU_ID DESC
+</select>
+<select id="selectPermPopList" resultType="bxm.web.admin.setting.domain.UserPermissionOMM">
+SELECT * FROM 
+    ( SELECT ROWNUM AS ROW__NUM, A.* FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+select 
+ a.AUTH_ID AS authId,
+ a.AUTH_NM AS authNm,
+ a.AUTH_DESC AS authDesc
+ from BXM_USER_PERM a
+ left join ( select * from BXM_USER_ROLE_N_PERM where ROLE_ID=#{role.roleId} ) b
+ on a.AUTH_ID = b.AUTH_ID AND a.DOMAIN_ID = b.DOMAIN_ID
+ where b.AUTH_ID is null
+ and a.USE_YN = 'Y'
+ AND a.DOMAIN_ID = #{role.domainId}
+ order by a.AUTH_ID
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pageNum}*#{pageCount})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pageNum}-1)*#{pageCount}
+</select>
+<select databaseId="mysql" id="selectPermPopList" resultType="bxm.web.admin.setting.domain.UserPermissionOMM">
+select 
+ a.AUTH_ID AS authId,
+ a.AUTH_NM AS authNm,
+ a.AUTH_DESC AS authDesc
+ from BXM_USER_PERM a
+ left join ( select * from BXM_USER_ROLE_N_PERM where ROLE_ID=#{role.roleId} ) b
+ on a.AUTH_ID = b.AUTH_ID AND a.DOMAIN_ID = b.DOMAIN_ID
+ where b.AUTH_ID is null
+ and a.USE_YN = 'Y'
+ AND a.DOMAIN_ID = #{role.domainId}
+ order by a.AUTH_ID
+ limit #{pageNum}, #{pageCount}
+</select>
+<select id="countPermPopPage" resultType="java.lang.Integer">
+select COUNT(*)
+ from BXM_USER_PERM a
+ left join ( select * from BXM_USER_ROLE_N_PERM where ROLE_ID=#{roleId} ) b
+ on a.AUTH_ID = b.AUTH_ID AND a.DOMAIN_ID = b.DOMAIN_ID
+ where b.AUTH_ID IS NULL AND a.DOMAIN_ID = #{domainId}
+</select>
+<select id="checkMenuExist" resultType="java.lang.String">
+SELECT 
+       MENU_ID AS menuId /*메뉴ID*/
+  FROM BXM_USER_ROLE_N_MENU
+ WHERE ROLE_ID = #{roleId}
+   AND MENU_ID = #{menuId}
+   AND DOMAIN_ID = #{domainId}
+</select>
+<select id="selectParentMenuId" resultType="java.lang.String">
+SELECT
+	PARENT_MENU_ID AS parentMenuId
+FROM BXM_USER_MENU
+WHERE MENU_ID = #{menuId, jdbcType=VARCHAR}
+AND DOMAIN_ID = #{domainId}
+</select>
+<select id="selectChildrenMenuIds" resultType="bxm.web.admin.setting.domain.UserRoleRelationOMM">
+SELECT
+	MENU_ID as menuId
+FROM BXM_USER_MENU
+WHERE PARENT_MENU_ID = #{parentMenuId}
+AND DOMAIN_ID = #{domainId}
+</select>
+</mapper>

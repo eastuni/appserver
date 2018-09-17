@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.actor.customer.dao.AtCustDocR">
+<!--Generated Mon Jul 03 16:53:47 KST 2017-->
+<insert id="insert" parameterType="bankware.corebanking.actor.customer.dao.dto.AtCustDocRIO">
+INSERT
+
+  INTO at_cust_doc_r
+
+(
+
+   inst_cd
+
+ , cust_id
+
+ , doc_issue_id
+ , doc_id
+
+ , cust_doc_rel_cd
+
+ , cust_doc_rel_sts_cd
+ , rel_start_dt
+
+ , rel_end_dt
+
+ , last_chng_tmstmp
+
+ , last_chng_guid
+
+)
+
+VALUES
+
+(
+
+   #{instCd,jdbcType=VARCHAR}
+
+ , #{custId,jdbcType=VARCHAR}
+
+ , #{docIssueId,jdbcType=VARCHAR}
+ , #{docId,jdbcType=VARCHAR}
+
+ , #{custDocRelCd,jdbcType=VARCHAR}
+
+ , #{custDocRelStsCd,jdbcType=VARCHAR}
+
+ , #{relStartDt,jdbcType=VARCHAR}
+
+ , #{relEndDt,jdbcType=VARCHAR}
+
+ , #{lastChngTmstmp}
+
+ , #{lastChngGuid}
+
+)
+</insert>
+<update id="update" parameterType="bankware.corebanking.actor.customer.dao.dto.AtCustDocRIO">
+UPDATE at_cust_doc_r
+
+   SET cust_doc_rel_sts_cd = #{custDocRelStsCd,jdbcType=VARCHAR}
+
+
+<if test="relEndDt != null &amp;&amp; relEndDt != ''">   
+
+     , rel_end_dt = #{relEndDt,jdbcType=VARCHAR}
+
+</if>     
+
+
+
+     , last_chng_tmstmp = #{lastChngTmstmp}
+
+     , last_chng_guid = #{lastChngGuid}
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND cust_id = #{custId,jdbcType=VARCHAR}
+
+   AND doc_issue_id = #{docIssueId,jdbcType=VARCHAR}
+</update>
+<select id="selectList" resultType="bankware.corebanking.actor.customer.dao.dto.AtCustDocRIO">
+SELECT inst_cd as instCd
+
+     , cust_id as custId
+
+     , doc_issue_id as docIssueId
+     , doc_id as docId
+
+     , cust_doc_rel_cd as custDocRelCd
+
+     , cust_doc_rel_sts_cd as custDocRelStsCd
+     , rel_start_dt as relStartDt
+
+     , rel_end_dt as relEndDt
+
+     , last_chng_tmstmp as lastChngTmstmp
+
+     , last_chng_guid as lastChngGuid
+
+  FROM at_cust_doc_r
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND cust_id = #{custId,jdbcType=VARCHAR}
+
+
+
+<if test="txDt != null &amp;&amp; txDt != ''">      
+
+   AND rel_end_dt &gt;= #{txDt,jdbcType=VARCHAR}
+
+</if>
+
+
+
+<if test="custDocRelStsCd != null &amp;&amp; custDocRelStsCd != ''">   
+
+   AND cust_doc_rel_sts_cd = #{custDocRelStsCd,jdbcType=VARCHAR}
+</if>
+</select>
+<select id="selectLastDocIssueIdList" resultType="bankware.corebanking.actor.customer.dao.dto.AtCustDocRIO">
+SELECT MAX(doc_issue_id) as docIssueId
+     , doc_id as docId
+
+  FROM at_cust_doc_r
+
+ WHERE inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND cust_id = #{custId,jdbcType=VARCHAR}
+
+   AND rel_end_dt &gt;= #{txDt,jdbcType=VARCHAR}
+
+   AND cust_doc_rel_sts_cd = #{custDocRelStsCd,jdbcType=VARCHAR}
+
+
+<if test="docIdList != null and docIdList.size != 0">
+
+   AND doc_id IN
+
+	<foreach close=")" collection="docIdList" item="item" open="(" separator=",">
+
+		#{item,jdbcType=VARCHAR}
+
+	</foreach>
+
+</if>
+
+
+
+ GROUP BY doc_id
+</select>
+<select id="selectCustInfoList" resultType="bankware.corebanking.actor.customer.dao.dto.AtCustDocRIO">
+SELECT acdr.doc_issue_id as docIssueId
+     , acdr.cust_id as custId
+
+     , aand.actor_nm as actorNm
+
+     , acdr.cust_doc_rel_cd as custDocRelCd
+
+  FROM at_cust_doc_r acdr
+
+       INNER JOIN at_cust_m acm
+
+          ON (acdr.inst_cd = acm.inst_cd AND acdr.cust_id = acm.cust_id
+          AND acm.cust_sts_cd &lt;&gt; #{ignoreStsCd})
+
+       LEFT OUTER JOIN at_actor_nm_d aand
+
+         ON (acm.inst_cd = aand.inst_cd 
+
+             AND acm.actor_id = aand.actor_id
+
+             AND aand.actor_nm_tp_cd = #{actorNmTpCd}
+
+             AND aand.efctv_start_dt &lt;= #{txDt,jdbcType=VARCHAR}
+
+             AND aand.efctv_end_dt &gt;= #{txDt,jdbcType=VARCHAR}
+             
+             AND aand.actor_nm_sts_cd = #{infoStsCd})
+
+ WHERE acdr.inst_cd = #{instCd,jdbcType=VARCHAR}
+
+   AND acdr.rel_end_dt &gt;= #{txDt,jdbcType=VARCHAR}
+
+   AND acdr.cust_doc_rel_sts_cd = #{custDocRelStsCd,jdbcType=VARCHAR}
+
+
+<if test="docIssueIdList != null and docIssueIdList.size != 0">
+   AND acdr.doc_issue_id IN
+	<foreach close=")" collection="docIssueIdList" item="item" open="(" separator=",">
+		#{item,jdbcType=VARCHAR}
+
+	</foreach>
+
+</if>
+
+
+
+<if test="custDocRelCd != null and custDocRelCd != ''">
+
+   AND acdr.cust_doc_rel_cd = #{custDocRelCd,jdbcType=VARCHAR}
+
+</if>
+</select>
+<select id="selectListByDocIssueId" resultType="bankware.corebanking.actor.customer.dao.dto.AtCustDocRIO">
+SELECT inst_cd as instCd
+
+     , cust_id as custId
+
+     , doc_issue_id as docIssueId
+     , doc_id as docId
+
+     , cust_doc_rel_cd as custDocRelCd
+
+     , cust_doc_rel_sts_cd as custDocRelStsCd
+     , rel_start_dt as relStartDt
+
+     , rel_end_dt as relEndDt
+
+     , last_chng_tmstmp as lastChngTmstmp
+
+     , last_chng_guid as lastChngGuid
+
+  FROM at_cust_doc_r
+
+ WHERE inst_cd = #{instCd}
+
+   AND cust_id = #{custId}
+
+   AND doc_issue_id = #{docIssueId}
+</select>
+</mapper>

@@ -1,0 +1,11 @@
+OMM bxm.web.admin.batch.domain.FBatchJobParamsOMM
+<description="">
+{
+	BigDecimal jobInstanceId<length=19 description="배치작업 인스턴스 아이디">;
+	String typeCd<length=6 description="실행파라미터 타입코드">;
+	String keyName<length=100 description="실행파라미터 KEY">;
+	String stringVal<length=4000 description="실행파라미터 String 값">;
+	Date dateVal<length=30 description="실행파라미터 Date 값">;
+	BigDecimal longVal<length=19 description="실행파라미터 Long 값">;
+	BigDecimal doubleVal<length=22 description="실행파라미터 Double 값">;
+}

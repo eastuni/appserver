@@ -1,0 +1,34 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IxMsg0200c
+<description="미사용 : 처리결과조회처리(0200/400, 0210/400)">
+{
+	String sysId<length=2 description="시스템ID">;
+	String extrnlInstCd<length=3 description="대외기관코드">;
+	String jointNetworkClCd<length=4 description="공동망종별코드">;
+	String jointNetworkTxDscd<length=3 description="공동망거래구분코드">;
+	String sndRcvFlagCntnt<length=1 description="송수신FLAG">;
+	String rspnsCd<length=3 description="응답코드">;
+	String hndlngFnclInstCd<length=3 description="취급금융기관코드">;
+	String hndlngFnclInstBrnchCd<length=4 description="취급금융기관부점코드">;
+	String hndlngMsgMgmtNbr<length=6 description="취급전문관리번호">;
+	String hndlngMsgSndDtHms<length=12 description="취급전문전송일시">;
+	String intrmdryMsgMgmtNbr<length=9 description="중개기관전문관리번호">;
+	String intrmdryMsgSndDtHms<length=12 description="중개기관전문전송일시">;
+	String opnFnclInstCd<length=3 description="개설금융기관코드">;
+	String opnFnclInstBrnchCd<length=4 description="개설금융기관부점코드">;
+	String opnMsgMgmtNbr<length=6 description="개설전문관리번호">;
+	String opnMsgSndTmstmp<length=12 description="개설전문전송일시">;
+	String orgnlTxHndlngFnclInstCd<length=3 description="원거래취급금융기관코드">;
+	String orgnlTxHndlngFnclInstBrnchCd<length=4 description="원거래취급금융기관부점코드">;
+	String orgnlTxHndlngMsgMgmtNbr<length=6 description="원거래취급전문관리번호">;
+	String orgnlTxHndlngMsgSndTmstmp<length=12 description="원거래취급전문전송일시">;
+	String orgnlTxIntrmdryMsgMgmtNbr<length=9 description="원거래중개기관전문관리번호">;
+	String orgnlTxIntrmdryMsgSndTmstmp<length=12 description="원거래중개기관전문전송일시">;
+	String orgnlTxOpnFnclInstCd<length=3 description="원거래개설금융기관코드">;
+	String orgnlTxOpnFnclInstBrnchCd<length=4 description="원거래개설금융기관부점코드">;
+	String orgnlTxOpnMsgMgmtNbr<length=6 description="원거래개설전문관리번호">;
+	String orgnlTxOpnMsgSndTmstmp<length=12 description="원거래개설전문전송일시">;
+	String orgnlTxRcpntAcctNbr<length=14 description="원거래수취인계좌번호">;
+	BigDecimal orgnlTxAmt<length=12 description="원거래거래금액">;
+	BigDecimal dfltAmt<length=12 description="부도금액">;
+	String fillerCntnt61<length=11 description="예비정보 FIELD">;
+}

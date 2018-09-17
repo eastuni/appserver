@@ -1,0 +1,1827 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.settlement.arrangementtransaction.dao.StTxMXtn">
+<!--Generated Wed May 09 15:19:51 KST 2018-->
+<select id="selectArrTxHistoryByDeptAndPdOracle" resultType="bankware.corebanking.settlement.arrangementtransaction.dao.dto.StTxMXtnOut">
+SELECT
+
+        inst_cd AS instCd,     /*기관코드*/
+
+        arr_id AS arrId,     /*계약식별자*/
+
+        tx_dt AS txDt,     /*거래년월일*/
+
+        tx_seq_nbr AS txSeqNbr,     /*거래일련번호*/
+
+        tx_cd AS txCd,     /*거래코드*/
+
+        rckng_dt AS rckngDt,     /*기산년월일*/
+
+        cust_id AS custId,     /*고객식별자*/
+
+        tx_cust_id AS txCustId,     /*거래고객식별자*/
+
+        tx_sts_cd AS txStsCd,     /*거래상태코드*/
+
+        chnl_dscd AS chnlDscd,     /*채널구분코드*/
+
+        trmnl_nbr AS trmnlNbr,     /*단말번호*/
+
+        tx_dept_id AS txDeptId,     /*거래부서식별자*/
+
+        tx_hms AS txHms,     /*거래시각*/
+
+        tx_staff_id AS txStaffId,     /*거래스태프식별자*/
+
+        tx_rmk_cntnt AS txRmkCntnt,     /*거래적요내용*/
+        crncy_cd  AS  crncyCd,		/*통화코드*/
+
+        cash_trnsfr_dscd AS cashTrnsfrDscd,   /*현금대체구분코드*/
+
+        dpst_whdrwl_dscd AS dpstWhdrwlDscd,  /*입출구분코드*/
+        tx_amt AS txAmt,     /*거래금액*/
+
+        tx_af_bal AS txAfBal,     /*거래후잔액*/
+
+        slip_nbr AS slipNbr,     /*전표번호*/
+
+        mthr_arr_id AS mthrArrId, /*모계약식별자*/
+
+        cntrprt_arr_id AS cntrprtArrId,     /*상대계약식별자*/
+
+        cntrprt_tx_dt AS cntrprtTxDt,     /*상대거래년월일*/
+
+        cntrprt_tx_seq_nbr AS cntrprtTxSeqNbr,     /*상대거래일련번호*/
+
+        cncl_cntrprt_tx_dt AS cnclCntrprtTxDt,     /*취소상대거래년월일*/
+
+        cncl_cntrprt_tx_seq_nbr AS cnclCntrprtTxSeqNbr,     /*취소상대거래일련번호*/
+
+        last_chng_tmstmp AS lastChngTmstmp,     /*최종변경일시*/
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+FROM(
+
+        SELECT
+
+              rownum as rnum,
+
+              inst_cd,     /*기관코드*/
+
+              arr_id,     /*계약식별자*/
+
+              tx_dt,     /*거래년월일*/
+
+              tx_seq_nbr,     /*거래일련번호*/
+
+              tx_cd,     /*거래코드*/
+
+              rckng_dt,     /*기산년월일*/
+
+              cust_id,     /*고객식별자*/
+
+              tx_cust_id,     /*거래고객식별자*/
+
+              tx_sts_cd,     /*거래상태코드*/
+
+              chnl_dscd,     /*채널구분코드*/
+
+              trmnl_nbr,     /*단말번호*/
+
+              tx_dept_id,     /*거래부서식별자*/
+
+              tx_hms,     /*거래시각*/
+
+              tx_staff_id,     /*거래스태프식별자*/
+
+              tx_rmk_cntnt,     /*거래적요내용*/
+              crncy_cd,		/*통화코드*/
+
+              cash_trnsfr_dscd,   /*현금대체구분코드*/
+
+              dpst_whdrwl_dscd,  /*입출구분코드*/
+              tx_amt,     /*거래금액*/
+
+              tx_af_bal,     /*거래후잔액*/
+
+              slip_nbr,     /*전표번호*/
+
+              mthr_arr_id, /*모계약식별자*/
+
+              cntrprt_arr_id,     /*상대계약식별자*/
+
+              cntrprt_tx_dt,     /*상대거래년월일*/
+
+              cntrprt_tx_seq_nbr,     /*상대거래일련번호*/
+
+              cncl_cntrprt_tx_dt,     /*취소상대거래년월일*/
+
+              cncl_cntrprt_tx_seq_nbr,     /*취소상대거래일련번호*/
+
+              last_chng_tmstmp,     /*최종변경일시*/
+
+              last_chng_guid      /*최종변경GUID*/
+
+       FROM(
+
+                    SELECT  /* 거래기본 */
+
+                            a.inst_cd,     /*기관코드*/
+
+                            a.arr_id,     /*계약식별자*/
+
+                            a.tx_dt,     /*거래년월일*/
+
+                            a.tx_seq_nbr,     /*거래일련번호*/
+
+                            a.tx_cd,     /*거래코드*/
+
+                            a.rckng_dt,     /*기산년월일*/
+
+                            a.cust_id,     /*고객식별자*/
+
+                            a.tx_cust_id,     /*거래고객식별자*/
+
+                            a.tx_sts_cd,     /*거래상태코드*/
+
+                            a.chnl_dscd,     /*채널구분코드*/
+
+                            a.trmnl_nbr,     /*단말번호*/
+
+                            a.tx_dept_id,     /*거래부서식별자*/
+
+                            a.tx_hms,     /*거래시각*/
+
+                            a.tx_staff_id,     /*거래스태프식별자*/
+
+                            a.tx_rmk_cntnt,     /*거래적요내용*/
+                            a.crncy_cd ,		/*통화코드*/
+
+                            a.cash_trnsfr_dscd,   /*현금대체구분코드*/
+
+                            a.dpst_whdrwl_dscd,  /*입출구분코드*/
+                            a.tx_amt,     /*거래금액*/
+
+                            a.tx_af_bal,     /*거래후잔액*/
+
+                            a.slip_nbr,     /*전표번호*/
+
+                            a.mthr_arr_id, /*모계약식별자*/
+
+                            a.cntrprt_arr_id,     /*상대계약식별자*/
+
+                            a.cntrprt_tx_dt,     /*상대거래년월일*/
+
+                            a.cntrprt_tx_seq_nbr,     /*상대거래일련번호*/
+
+                            a.cncl_cntrprt_tx_dt,     /*취소상대거래년월일*/
+
+                            a.cncl_cntrprt_tx_seq_nbr,     /*취소상대거래일련번호*/
+
+                            a.last_chng_tmstmp,     /*최종변경일시*/
+
+                            a.last_chng_guid    /*최종변경GUID*/
+
+                      FROM st_tx_m a, ar_arr_m_dept_v b
+
+                     WHERE a.inst_cd = #{arrTxHistoryIn.instCd}
+
+                       AND a.tx_dt &gt;= #{arrTxHistoryIn.inqryStartDt}
+
+                       AND a.tx_dt &lt;= #{arrTxHistoryIn.inqryEndDt}
+
+                       <if test="arrTxHistoryIn.pdCd != null and arrTxHistoryIn.pdCd != ''">
+
+                       AND b.pd_cd = #{arrTxHistoryIn.pdCd}
+
+                       </if>
+
+                       <if test="arrTxHistoryIn.deptId != null and arrTxHistoryIn.deptId != ''">
+
+                       AND b.acctg_dept_id = #{arrTxHistoryIn.deptId}
+
+                       </if>
+
+                       AND a.inst_cd = b.inst_cd
+
+                       AND a.arr_id = b.arr_id
+
+                       AND a.tx_sts_cd in ('1')
+
+                     ORDER BY a.tx_dt desc, a.tx_seq_nbr desc ) T1
+
+      WHERE rownum &lt;= #{startNbr} + #{arrTxHistoryIn.pgCnt} ) T2
+
+WHERE T2.rnum &gt;  #{startNbr}
+</select>
+<select id="selectArrTxHistoryByDeptAndPdMysql" resultType="bankware.corebanking.settlement.arrangementtransaction.dao.dto.StTxMXtnOut">
+SELECT  /* 거래기본 */
+
+        a.inst_cd AS instCd,     /*기관코드*/
+
+        a.arr_id AS arrId,     /*계약식별자*/
+
+        a.tx_dt AS txDt,     /*거래년월일*/
+
+        a.tx_seq_nbr AS txSeqNbr,     /*거래일련번호*/
+
+        a.tx_cd AS txCd,     /*거래코드*/
+
+        a.rckng_dt AS rckngDt,     /*기산년월일*/
+
+        a.cust_id AS custId,     /*고객식별자*/
+
+        a.tx_cust_id AS txCustId,     /*거래고객식별자*/
+
+        a.tx_sts_cd AS txStsCd,     /*거래상태코드*/
+
+        a.chnl_dscd AS chnlDscd,     /*채널구분코드*/
+
+        a.trmnl_nbr AS trmnlNbr,     /*단말번호*/
+
+        a.tx_dept_id AS txDeptId,     /*거래부서식별자*/
+
+        a.tx_hms AS txHms,     /*거래시각*/
+
+        a.tx_staff_id AS txStaffId,     /*거래스태프식별자*/
+
+        a.tx_rmk_cntnt AS txRmkCntnt,     /*거래적요내용*/
+        a.crncy_cd  AS  crncyCd,		/*통화코드*/
+
+        a.cash_trnsfr_dscd AS cashTrnsfrDscd,   /*현금대체구분코드*/
+
+        a.dpst_whdrwl_dscd AS dpstWhdrwlDscd,  /*입출구분코드*/
+        a.tx_amt AS txAmt,     /*거래금액*/
+
+        a.tx_af_bal AS txAfBal,     /*거래후잔액*/
+
+        a.slip_nbr AS slipNbr,     /*전표번호*/
+
+        a.mthr_arr_id AS mthrArrId, /*모계약식별자*/
+
+        a.cntrprt_arr_id AS cntrprtArrId,     /*상대계약식별자*/
+
+        a.cntrprt_tx_dt AS cntrprtTxDt,     /*상대거래년월일*/
+
+        a.cntrprt_tx_seq_nbr AS cntrprtTxSeqNbr,     /*상대거래일련번호*/
+
+        a.cncl_cntrprt_tx_dt AS cnclCntrprtTxDt,     /*취소상대거래년월일*/
+
+        a.cncl_cntrprt_tx_seq_nbr AS cnclCntrprtTxSeqNbr,     /*취소상대거래일련번호*/
+
+        a.last_chng_tmstmp AS lastChngTmstmp,     /*최종변경일시*/
+
+        a.last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM st_tx_m a, ar_arr_m_dept_v b
+
+ WHERE a.inst_cd = #{arrTxHistoryIn.instCd}
+
+   AND a.tx_dt &gt;= #{arrTxHistoryIn.inqryStartDt}
+
+   AND a.tx_dt &lt;= #{arrTxHistoryIn.inqryEndDt}
+
+   <if test="arrTxHistoryIn.pdCd != null and arrTxHistoryIn.pdCd != ''">
+
+   AND b.pd_cd = #{arrTxHistoryIn.pdCd}
+
+   </if>
+
+   <if test="arrTxHistoryIn.deptId != null and arrTxHistoryIn.deptId != ''">
+
+   AND b.acctg_dept_id = #{arrTxHistoryIn.deptId}
+
+   </if>
+
+   AND a.inst_cd = b.inst_cd
+
+   AND a.arr_id = b.arr_id
+
+   AND a.tx_sts_cd in ('1')
+
+ ORDER BY a.tx_dt desc, a.tx_seq_nbr desc
+
+ LIMIT #{startNbr}, #{arrTxHistoryIn.pgCnt}
+</select>
+<select id="selectArrTxHistoryByTxCdAndAmtTpOracle" resultType="bankware.corebanking.settlement.arrangementtransaction.dao.dto.StTxMXtnOut">
+SELECT
+
+        instCd,     /*기관코드*/
+
+        arrId,     /*계약식별자*/
+
+        txAmt,     /*거래금액*/
+
+        crcnyCd  /*통화코드*/
+
+FROM(
+
+        SELECT
+
+                rownum as rnum,
+
+                instCd,     /*기관코드*/
+
+                arrId,     /*계약식별자*/
+
+                txAmt,     /*거래금액*/
+
+                crcnyCd  /*통화코드*/
+
+        FROM(
+
+                  SELECT  /* 거래기본 */
+
+                          a.inst_cd AS instCd,     /*기관코드*/
+
+                          a.arr_id AS arrId,     /*계약식별자*/
+
+                          sum(c.tx_amt) AS txAmt,     /*거래금액*/
+                           c.CRNCY_CD AS crcnyCd /*통화코드*/
+
+
+                    FROM st_tx_m a
+                              inner join ar_arr_m_dept_v b
+                              on (a.inst_cd = b.inst_cd
+                               AND a.arr_id = b.arr_id)
+                              left outer join st_tx_entry_d c
+                              on (a.inst_cd = c.inst_cd
+                               AND a.arr_id = c.arr_id
+                               AND a.tx_dt = c.tx_dt
+                               AND a.tx_seq_nbr = c.tx_seq_nbr
+
+                                )
+                   WHERE a.inst_cd = #{arrTxHistoryIn.instCd}
+
+                     AND a.tx_dt = #{arrTxHistoryIn.inqryStartDt}
+
+                     AND a.tx_sts_cd in ('1')
+
+                     <if test="arrTxHistoryIn.pdCd != null and arrTxHistoryIn.pdCd != ''">
+
+                     AND b.pd_cd = #{arrTxHistoryIn.pdCd}
+
+                     </if>
+
+                     <if test="arrTxHistoryIn.bizDscd != null and arrTxHistoryIn.bizDscd != ''">
+
+                     AND b.biz_dscd = #{arrTxHistoryIn.bizDscd}
+
+                     </if>
+
+                     <if test="arrTxHistoryIn.deptId != null and arrTxHistoryIn.deptId != ''">
+
+                     AND b.acctg_dept_id = #{arrTxHistoryIn.deptId}
+
+                     </if>
+
+                     <if test="arrTxHistoryIn.txCdList != null and arrTxHistoryIn.txCdList != '' and arrTxHistoryIn.txCdList.size != 0">
+
+                     AND a.tx_cd IN
+
+                      <foreach close=")" collection="arrTxHistoryIn.txCdList" item="item" open="(" separator=",">
+
+                      #{item}
+
+                       </foreach>
+
+                     </if>
+
+                   <if test="arrTxHistoryIn.crncyCd != null and arrTxHistoryIn.crncyCd != ''">
+                             AND (b.crncy_cd = #{arrTxHistoryIn.crncyCd})
+                    </if>
+                    <if test="arrTxHistoryIn.amtTpCdList != null and arrTxHistoryIn.amtTpCdList != '' and arrTxHistoryIn.amtTpCdList.size != 0 ">
+                            AND (c.amt_tp_cd is null or c.amt_tp_cd IN
+                    <foreach close=")" collection="arrTxHistoryIn.amtTpCdList" item="item" open="(" separator=",">
+                                                #{item}
+                                                 </foreach> )
+                    </if>
+
+
+                    GROUP BY a.inst_cd, a.arr_id, c.CRNCY_CD
+
+                    ORDER BY a.inst_cd desc, a.arr_id desc ) T1
+
+        WHERE rownum &lt;= #{startNbr} + #{arrTxHistoryIn.pgCnt} ) T2
+
+WHERE T2.rnum &gt;  #{startNbr}
+</select>
+<select id="selectArrTxHistoryByTxCdAndAmtTpMysql" resultType="bankware.corebanking.settlement.arrangementtransaction.dao.dto.StTxMXtnOut">
+SELECT  /* 거래기본 */
+
+        a.inst_cd AS instCd,     /*기관코드*/
+
+        a.arr_id AS arrId,     /*계약식별자*/
+
+        sum(c.tx_amt) AS txAmt,     /*거래금액*/
+        c.CRNCY_CD AS crcnyCd /*통화코드*/
+
+    FROM st_tx_m a
+                              inner join ar_arr_m_dept_v b
+                              on (a.inst_cd = b.inst_cd
+                               AND a.arr_id = b.arr_id)
+                              left outer join st_tx_entry_d c
+                              on (a.inst_cd = c.inst_cd
+                               AND a.arr_id = c.arr_id
+                               AND a.tx_dt = c.tx_dt
+                               AND a.tx_seq_nbr = c.tx_seq_nbr
+
+
+
+                               )
+
+
+
+ WHERE a.inst_cd = #{arrTxHistoryIn.instCd}
+
+   AND a.tx_dt = #{arrTxHistoryIn.inqryStartDt}
+
+   AND a.tx_sts_cd in ('1')
+
+   <if test="arrTxHistoryIn.pdCd != null and arrTxHistoryIn.pdCd != ''">
+
+   AND b.pd_cd = #{arrTxHistoryIn.pdCd}
+
+   </if>
+
+   <if test="arrTxHistoryIn.bizDscd != null and arrTxHistoryIn.bizDscd != ''">
+
+   AND b.biz_dscd = #{arrTxHistoryIn.bizDscd}
+
+   </if>
+
+   <if test="arrTxHistoryIn.deptId != null and arrTxHistoryIn.deptId != ''">
+
+   AND b.acctg_dept_id = #{arrTxHistoryIn.deptId}
+
+   </if>
+
+   <if test="arrTxHistoryIn.txCdList != null and arrTxHistoryIn.txCdList != '' and arrTxHistoryIn.txCdList.size != 0">
+
+   AND a.tx_cd IN
+
+    <foreach close=")" collection="arrTxHistoryIn.txCdList" item="item" open="(" separator=",">
+
+        #{item}
+
+     </foreach>
+
+   </if>
+
+   <if test="arrTxHistoryIn.crncyCd != null and arrTxHistoryIn.crncyCd != ''">
+             AND (b.crncy_cd = #{arrTxHistoryIn.crncyCd})
+    </if>
+    <if test="arrTxHistoryIn.amtTpCdList != null and arrTxHistoryIn.amtTpCdList != '' and arrTxHistoryIn.amtTpCdList.size != 0 ">
+            AND (c.amt_tp_cd is null or c.amt_tp_cd IN
+    <foreach close=")" collection="arrTxHistoryIn.amtTpCdList" item="item" open="(" separator=",">
+                                #{item}
+                                 </foreach> )
+    </if>
+
+
+
+
+GROUP BY a.inst_cd, a.arr_id, c.CRNCY_CD
+
+ORDER BY a.inst_cd desc, a.arr_id desc
+
+ LIMIT #{startNbr}, #{arrTxHistoryIn.pgCnt}
+</select>
+<select id="selectArrLastTxMysql" resultType="bankware.corebanking.settlement.arrangementtransaction.dao.dto.StTxMXtnOut">
+SELECT  /* 거래기본 */
+
+        inst_cd AS instCd,     /*기관코드*/
+
+        arr_id AS arrId,     /*계약식별자*/
+
+        tx_dt AS txDt,     /*거래년월일*/
+
+        tx_seq_nbr AS txSeqNbr,     /*거래일련번호*/
+
+        tx_cd AS txCd,     /*거래코드*/
+
+        rckng_dt AS rckngDt,     /*기산년월일*/
+
+        cust_id AS custId,     /*고객식별자*/
+
+        tx_cust_id AS txCustId,     /*거래고객식별자*/
+
+        tx_sts_cd AS txStsCd,     /*거래상태코드*/
+
+        chnl_dscd AS chnlDscd,     /*채널구분코드*/
+
+        trmnl_nbr AS trmnlNbr,     /*단말번호*/
+
+        tx_dept_id AS txDeptId,     /*거래부서식별자*/
+
+        tx_hms AS txHms,     /*거래시각*/
+
+        tx_staff_id AS txStaffId,     /*거래스태프식별자*/
+
+        tx_rmk_cntnt AS txRmkCntnt,     /*거래적요내용*/
+        crncy_cd  AS  crncyCd,		/*통화코드*/
+
+        cash_trnsfr_dscd AS cashTrnsfrDscd,   /*현금대체구분코드*/
+
+        dpst_whdrwl_dscd AS dpstWhdrwlDscd,  /*입출구분코드*/
+        tx_amt AS txAmt,     /*거래금액*/
+
+        tx_af_bal AS txAfBal,     /*거래후잔액*/
+
+        slip_nbr AS slipNbr,     /*전표번호*/
+
+        mthr_arr_id AS mthrArrId, /*모계약식별자*/
+
+        cntrprt_arr_id AS cntrprtArrId,     /*상대계약식별자*/
+
+        cntrprt_tx_dt AS cntrprtTxDt,     /*상대거래년월일*/
+
+        cntrprt_tx_seq_nbr AS cntrprtTxSeqNbr,     /*상대거래일련번호*/
+
+        cncl_cntrprt_tx_dt AS cnclCntrprtTxDt,     /*취소상대거래년월일*/
+
+        cncl_cntrprt_tx_seq_nbr AS cnclCntrprtTxSeqNbr,     /*취소상대거래일련번호*/
+
+        last_chng_tmstmp AS lastChngTmstmp,     /*최종변경일시*/
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM st_tx_m
+
+ WHERE inst_cd = #{arrTxHistoryIn.instCd}
+
+   AND arr_id = #{arrTxHistoryIn.arrId}
+
+   AND tx_sts_cd in ('1')
+
+   ORDER BY tx_dt desc, tx_seq_nbr desc
+
+ LIMIT 1
+</select>
+<select id="selectArrLastTxOracle" parameterType="bankware.corebanking.settlement.arrangementtransaction.interfaces.dto.ArrTxQryIn" resultType="bankware.corebanking.settlement.arrangementtransaction.dao.dto.StTxMXtnOut">
+SELECT
+
+         instCd,     /*기관코드*/
+
+        arrId,     /*계약식별자*/
+
+        txDt,     /*거래년월일*/
+
+        txSeqNbr,     /*거래일련번호*/
+
+        txCd,     /*거래코드*/
+
+        rckngDt,     /*기산년월일*/
+
+        custId,     /*고객식별자*/
+
+        txCustId,     /*거래고객식별자*/
+
+        txStsCd,     /*거래상태코드*/
+
+        chnlDscd,     /*채널구분코드*/
+
+        trmnlNbr,     /*단말번호*/
+
+        txDeptId,     /*거래부서식별자*/
+
+        txHms,     /*거래시각*/
+
+        txStaffId,     /*거래스태프식별자*/
+
+        txRmkCntnt,     /*거래적요내용*/
+        crncyCd,		/*통화코드*/
+
+        cashTrnsfrDscd,   /*현금대체구분코드*/
+
+        dpstWhdrwlDscd,  /*입출구분코드*/
+        txAmt,     /*거래금액*/
+
+        txAfBal,     /*거래후잔액*/
+
+        slipNbr,     /*전표번호*/
+
+        mthrArrId, /*모계약식별자*/
+
+        cntrprtArrId,     /*상대계약식별자*/
+
+        cntrprtTxDt,     /*상대거래년월일*/
+
+        cntrprtTxSeqNbr,     /*상대거래일련번호*/
+
+        cnclCntrprtTxDt,     /*취소상대거래년월일*/
+
+        cnclCntrprtTxSeqNbr,     /*취소상대거래일련번호*/
+
+        lastChngTmstmp,     /*최종변경일시*/
+
+        lastChngGuid    /*최종변경GUID*/
+
+
+
+
+
+FROM(
+
+SELECT  /* 거래기본 */
+
+        inst_cd AS instCd,     /*기관코드*/
+
+        arr_id AS arrId,     /*계약식별자*/
+
+        tx_dt AS txDt,     /*거래년월일*/
+
+        tx_seq_nbr AS txSeqNbr,     /*거래일련번호*/
+
+        tx_cd AS txCd,     /*거래코드*/
+
+        rckng_dt AS rckngDt,     /*기산년월일*/
+
+        cust_id AS custId,     /*고객식별자*/
+
+        tx_cust_id AS txCustId,     /*거래고객식별자*/
+
+        tx_sts_cd AS txStsCd,     /*거래상태코드*/
+
+        chnl_dscd AS chnlDscd,     /*채널구분코드*/
+
+        trmnl_nbr AS trmnlNbr,     /*단말번호*/
+
+        tx_dept_id AS txDeptId,     /*거래부서식별자*/
+
+        tx_hms AS txHms,     /*거래시각*/
+
+        tx_staff_id AS txStaffId,     /*거래스태프식별자*/
+
+        tx_rmk_cntnt AS txRmkCntnt,     /*거래적요내용*/
+        crncy_cd  AS  crncyCd,		/*통화코드*/
+
+        cash_trnsfr_dscd AS cashTrnsfrDscd,   /*현금대체구분코드*/
+
+        dpst_whdrwl_dscd AS dpstWhdrwlDscd,  /*입출구분코드*/
+        tx_amt AS txAmt,     /*거래금액*/
+
+        tx_af_bal AS txAfBal,     /*거래후잔액*/
+
+        slip_nbr AS slipNbr,     /*전표번호*/
+
+        mthr_arr_id AS mthrArrId, /*모계약식별자*/
+
+        cntrprt_arr_id AS cntrprtArrId,     /*상대계약식별자*/
+
+        cntrprt_tx_dt AS cntrprtTxDt,     /*상대거래년월일*/
+
+        cntrprt_tx_seq_nbr AS cntrprtTxSeqNbr,     /*상대거래일련번호*/
+
+        cncl_cntrprt_tx_dt AS cnclCntrprtTxDt,     /*취소상대거래년월일*/
+
+        cncl_cntrprt_tx_seq_nbr AS cnclCntrprtTxSeqNbr,     /*취소상대거래일련번호*/
+
+        last_chng_tmstmp AS lastChngTmstmp,     /*최종변경일시*/
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM st_tx_m
+
+ WHERE inst_cd = #{arrTxHistoryIn.instCd}
+
+   AND arr_id = #{arrTxHistoryIn.arrId}
+
+   AND tx_sts_cd in ('1')
+
+   ORDER BY tx_dt desc, tx_seq_nbr desc )
+
+ WHERE rownum = 1
+</select>
+<select id="selectArrTxHistoryByDeptAndPdCount" resultType="java.lang.Integer">
+SELECT  /* 거래기본 */
+
+        count(*)
+
+  FROM st_tx_m a, ar_arr_m_dept_v b
+
+ WHERE a.inst_cd = #{arrTxHistoryIn.instCd}
+
+   AND a.tx_dt &gt;= #{arrTxHistoryIn.inqryStartDt}
+
+   AND a.tx_dt &lt;= #{arrTxHistoryIn.inqryEndDt}
+
+   <if test="arrTxHistoryIn.pdCd != null and arrTxHistoryIn.pdCd != ''">
+
+   AND b.pd_cd = #{arrTxHistoryIn.pdCd}
+
+   </if>
+
+   <if test="arrTxHistoryIn.deptId != null and arrTxHistoryIn.deptId != ''">
+
+   AND b.acctg_dept_id = #{arrTxHistoryIn.deptId}
+
+   </if>
+
+   AND a.inst_cd = b.inst_cd
+
+   AND a.arr_id = b.arr_id
+
+   AND a.tx_sts_cd in ('1')
+</select>
+<select id="selectArrTxHistoryByTxCdAndAmtTpCount" resultType="java.lang.Integer">
+SELECT count(*)
+
+  FROM (
+
+    SELECT  /* 거래기본 */
+
+            a.inst_cd AS instCd
+
+    FROM st_tx_m a
+    inner join ar_arr_m_dept_v b
+                              on (a.inst_cd = b.inst_cd
+                               AND a.arr_id = b.arr_id)
+    left outer join st_tx_entry_d c
+                              on (a.inst_cd = c.inst_cd
+                               AND a.arr_id = c.arr_id
+                               AND a.tx_dt = c.tx_dt
+                               AND a.tx_seq_nbr = c.tx_seq_nbr
+
+
+                               )
+
+     WHERE a.inst_cd = #{arrTxHistoryIn.instCd}
+
+       AND a.tx_dt = #{arrTxHistoryIn.inqryStartDt}
+
+       AND a.tx_sts_cd in ('1')
+
+       <if test="arrTxHistoryIn.pdCd != null and arrTxHistoryIn.pdCd != ''">
+
+       AND b.pd_cd = #{arrTxHistoryIn.pdCd}
+
+       </if>
+
+       <if test="arrTxHistoryIn.bizDscd != null and arrTxHistoryIn.bizDscd != ''">
+
+       AND b.biz_dscd = #{arrTxHistoryIn.bizDscd}
+
+       </if>
+
+       <if test="arrTxHistoryIn.deptId != null and arrTxHistoryIn.deptId != ''">
+
+       AND b.acctg_dept_id = #{arrTxHistoryIn.deptId}
+
+       </if>
+
+<if test="arrTxHistoryIn.txCdList != null and arrTxHistoryIn.txCdList != '' and arrTxHistoryIn.txCdList.size != 0">
+
+       AND a.tx_cd IN
+
+        <foreach close=")" collection="arrTxHistoryIn.txCdList" item="item" open="(" separator=",">
+
+            #{item}
+
+         </foreach>
+
+       </if>
+
+   <if test="arrTxHistoryIn.crncyCd != null and arrTxHistoryIn.crncyCd != ''">
+             AND (b.crncy_cd = #{arrTxHistoryIn.crncyCd})
+    </if>
+    <if test="arrTxHistoryIn.amtTpCdList != null and arrTxHistoryIn.amtTpCdList != '' and arrTxHistoryIn.amtTpCdList.size != 0 ">
+            AND (c.amt_tp_cd is null or c.amt_tp_cd IN
+    <foreach close=")" collection="arrTxHistoryIn.amtTpCdList" item="item" open="(" separator=",">
+                                #{item}
+                                 </foreach> )
+    </if>
+
+
+    GROUP BY a.inst_cd, a.arr_id, c.crncy_cd
+
+) T
+</select>
+<select id="selectArrTxSumByDeptMysql" resultType="bankware.corebanking.settlement.arrangementtransaction.dao.dto.StTxMXtnOut">
+select
+
+            inst_cd AS instCd,
+
+            arr_id AS arrId,
+
+            crncy_cd AS crncyCd,
+
+            acctg_dscd AS acctgDscd,
+
+            acctg_itm_cd AS acctgItmCd,
+
+            amt_tp_cd AS amtTpCd,
+
+           sum(case when dpst_whdrwl_dscd = '1' and cash_trnsfr_dscd = '1' then tx_amt end) AS  cashDpstAmt,
+           sum(case when dpst_whdrwl_dscd = '1' and cash_trnsfr_dscd = '2' then tx_amt end) AS trnsfrDpstAmt,
+           sum(case when dpst_whdrwl_dscd = '2' and cash_trnsfr_dscd = '1' then tx_amt end) AS cashWhdrwlAmt,
+           sum(case when dpst_whdrwl_dscd = '2' and cash_trnsfr_dscd = '2' then tx_amt end) AS trnsfrWhdrwlAmt
+    from (
+
+    select a.inst_cd, a.arr_id, b.crncy_cd, b.amt_tp_cd, b.acctg_dscd, b.acctg_itm_cd, b.cash_trnsfr_dscd,
+
+           case when a.tx_sts_cd = '1' then b.dpst_whdrwl_dscd else (case when b.dpst_whdrwl_dscd = '1' then '2' else '1' end) end dpst_whdrwl_dscd,
+           b.tx_amt
+
+    from st_tx_m a, st_tx_entry_d b, ar_arr_m_dept_v c
+
+    where a.inst_cd = b.inst_cd
+
+      and a.arr_id = b.arr_id
+
+      and a.tx_dt = b.tx_dt
+
+      and a.tx_seq_nbr = b.tx_seq_nbr
+
+      and a.inst_cd = c.inst_cd
+
+      and a.arr_id = c.arr_id
+
+      and a.tx_sts_cd in ('1', '3')
+
+      and b.acctg_itm_cd is not null
+
+      and a.inst_cd = #{arrTxHistoryIn.instCd}
+
+      and a.tx_dt between #{arrTxHistoryIn.inqryStartDt} and #{arrTxHistoryIn.inqryEndDt}
+
+      and a.tx_dept_id =#{arrTxHistoryIn.deptId}
+
+      <if test="arrTxHistoryIn.pdCdList != null and arrTxHistoryIn.pdCdList != '' and arrTxHistoryIn.pdCdList.size != 0">
+
+      and c.pd_cd in
+
+              <foreach close=")" collection="arrTxHistoryIn.pdCdList" item="item" open="(" separator=",">
+
+                       #{item}
+
+            </foreach>
+
+       </if>
+
+    ) tx
+
+    group by inst_cd, arr_id, crncy_cd, acctg_dscd, acctg_itm_cd, amt_tp_cd
+
+
+
+ LIMIT #{arrTxHistoryIn.pgNbr}, #{arrTxHistoryIn.pgCnt}
+</select>
+<select id="selectArrTxSumByDeptOracle" resultType="bankware.corebanking.settlement.arrangementtransaction.dao.dto.StTxMXtnOut">
+SELECT
+
+                instCd,
+
+                arrId,
+
+                crncyCd,
+
+                acctgDscd,
+
+                acctgItmCd,
+
+                amtTpCd,
+
+                cashDpstAmt,
+
+                trnsfrDpstAmt,
+
+                cashWhdrwlAmt,
+                trnsfrWhdrwlAmt
+FROM(
+
+        SELECT
+
+                rownum as rnum,
+
+                instCd,
+
+                arrId,
+
+                crncyCd,
+
+                acctgDscd,
+
+                acctgItmCd,
+
+                amtTpCd,
+
+                cashDpstAmt,
+
+                trnsfrDpstAmt,
+
+                cashWhdrwlAmt,
+                trnsfrWhdrwlAmt
+         FROM(
+
+                select
+
+                            inst_cd AS instCd,
+
+                            arr_id AS arrId,
+
+                            crncy_cd AS crncyCd,
+
+                            acctg_dscd AS acctgDscd,
+
+                            acctg_itm_cd AS acctgItmCd,
+
+                            amt_tp_cd AS amtTpCd,
+
+                           sum(case when dpst_whdrwl_dscd = '1' and cash_trnsfr_dscd = '1' then tx_amt end) AS  cashDpstAmt,
+                           sum(case when dpst_whdrwl_dscd = '1' and cash_trnsfr_dscd = '2' then tx_amt end) AS trnsfrDpstAmt,
+                           sum(case when dpst_whdrwl_dscd = '2' and cash_trnsfr_dscd = '1' then tx_amt end) AS cashWhdrwlAmt,
+                           sum(case when dpst_whdrwl_dscd = '2' and cash_trnsfr_dscd = '2' then tx_amt end) AS trnsfrWhdrwlAmt
+                    from (
+
+                    select a.inst_cd, a.arr_id, b.crncy_cd, b.amt_tp_cd, b.acctg_dscd, b.acctg_itm_cd, b.cash_trnsfr_dscd,
+
+                           case when a.tx_sts_cd = '1' then b.dpst_whdrwl_dscd else (case when b.dpst_whdrwl_dscd = '1' then '2' else '1' end) end dpst_whdrwl_dscd,
+                           b.tx_amt
+
+                    from st_tx_m a, st_tx_entry_d b, ar_arr_m_dept_v c
+
+                    where a.inst_cd = b.inst_cd
+
+                      and a.arr_id = b.arr_id
+
+                      and a.tx_dt = b.tx_dt
+
+                      and a.tx_seq_nbr = b.tx_seq_nbr
+
+                      and a.inst_cd = c.inst_cd
+
+                      and a.arr_id = c.arr_id
+
+                      and a.tx_sts_cd in ('1', '3')
+
+                      and b.acctg_itm_cd is not null
+
+                      and a.inst_cd = #{arrTxHistoryIn.instCd}
+
+                      and a.tx_dt between #{arrTxHistoryIn.inqryStartDt} and #{arrTxHistoryIn.inqryEndDt}
+
+                      and a.tx_dept_id =#{arrTxHistoryIn.deptId}
+
+                      <if test="arrTxHistoryIn.pdCdList != null and arrTxHistoryIn.pdCdList != '' and arrTxHistoryIn.pdCdList.size != 0">
+
+                      and c.pd_cd in
+
+                              <foreach close=")" collection="arrTxHistoryIn.pdCdList" item="item" open="(" separator=",">
+
+                                       #{item}
+
+                            </foreach>
+
+                       </if>
+
+                    ) tx
+
+                    group by inst_cd, arr_id, crncy_cd, acctg_dscd, acctg_itm_cd, amt_tp_cd ) T1
+
+     WHERE rownum &lt;= #{arrTxHistoryIn.pgNbr} + #{arrTxHistoryIn.pgCnt} ) T2
+
+WHERE T2.rnum &gt;  #{arrTxHistoryIn.pgNbr}
+</select>
+<select id="selectArrTxSumByDeptCount" resultType="java.lang.Integer">
+select
+
+    count(*) as cnt
+
+from (
+
+		select
+
+                inst_cd AS instCd,
+                arr_id AS arrId,
+                crncy_cd AS crncyCd,
+                acctg_dscd AS acctgDscd,
+                acctg_itm_cd AS acctgItmCd,
+                amt_tp_cd AS amtTpCd
+                
+        from (
+
+        select  a.inst_cd, a.arr_id, b.crncy_cd, b.amt_tp_cd,
+        		b.acctg_dscd, b.acctg_itm_cd, b.cash_trnsfr_dscd,
+				case when a.tx_sts_cd = '1' then b.dpst_whdrwl_dscd else (case when b.dpst_whdrwl_dscd = '1' then '2' else '1' end) end dpst_whdrwl_dscd,
+                b.tx_amt
+
+        from st_tx_m a, st_tx_entry_d b, ar_arr_m_dept_v c
+
+        where a.inst_cd = b.inst_cd
+
+          and a.arr_id = b.arr_id
+
+          and a.tx_dt = b.tx_dt
+
+          and a.tx_seq_nbr = b.tx_seq_nbr
+
+          and a.inst_cd = c.inst_cd
+
+          and a.arr_id = c.arr_id
+
+          and a.tx_sts_cd in ('1', '3')
+
+          and b.acctg_itm_cd is not null
+
+          and a.inst_cd = #{arrTxHistoryIn.instCd}
+
+          and a.tx_dt between #{arrTxHistoryIn.inqryStartDt} and #{arrTxHistoryIn.inqryEndDt}
+
+          and a.tx_dept_id =#{arrTxHistoryIn.deptId}
+
+          <if test="arrTxHistoryIn.pdCdList != null and arrTxHistoryIn.pdCdList != '' and arrTxHistoryIn.pdCdList.size != 0">
+
+          and c.pd_cd in
+
+                  <foreach close=")" collection="arrTxHistoryIn.pdCdList" item="item" open="(" separator=",">
+
+                           #{item}
+
+                </foreach>
+
+          </if>
+
+        ) tx
+
+        group by inst_cd, arr_id, crncy_cd, acctg_dscd, acctg_itm_cd, amt_tp_cd
+
+) a
+</select>
+<select id="selectArrTxSumByDpstWhdrwl" resultType="bankware.corebanking.settlement.arrangementtransaction.dao.dto.StTxMXtnOut">
+select
+
+    b.DPST_WHDRWL_DSCD AS dpstWhdrwlDscd,
+    a.tx_sts_cd AS txStsCd,
+
+    count(*) as txCnt,
+
+    sum(b.tx_amt) as txAmt
+from st_tx_m a, st_tx_entry_d b, ar_arr_m_dept_v c
+
+where 1=1
+
+        and a.inst_cd = b.inst_cd
+
+        and a.arr_id = b.arr_id
+
+        and a.tx_dt = b.tx_dt
+
+        and a.tx_seq_nbr = b.tx_seq_nbr
+
+        and a.inst_cd = c.inst_cd
+
+        and a.arr_id = c.arr_id
+
+        and a.inst_cd = #{arrTxHistoryIn.instCd}
+
+        and a.tx_dt between #{arrTxHistoryIn.inqryStartDt} and #{arrTxHistoryIn.inqryEndDt}
+
+        and a.tx_sts_cd in ('1', '3')
+
+        and a.CHNL_DSCD in ('01', '03')
+
+        <if test="arrTxHistoryIn.txStaffId != null and arrTxHistoryIn.txStaffId != ''">
+
+        AND  a.TX_STAFF_ID = #{arrTxHistoryIn.txStaffId}
+
+        </if>
+
+        <if test="arrTxHistoryIn.deptId != null and arrTxHistoryIn.deptId != ''">
+
+        AND  a.TX_DEPT_ID  = #{arrTxHistoryIn.deptId}
+
+        </if>
+
+
+
+        <choose>
+
+        <when test="arrTxHistoryIn.pdCdList != null and arrTxHistoryIn.pdCdList != '' and arrTxHistoryIn.pdCdList.size != 0">
+
+        and c.pd_cd in
+
+              <foreach close=")" collection="arrTxHistoryIn.pdCdList" item="item" open="(" separator=",">
+
+                       #{item}
+
+            </foreach>
+
+        </when>
+
+        <otherwise>
+
+        and (c.biz_dscd in ('01', '02') or (c.biz_dscd = '09' and c.pd_tp_cd = '07'))
+
+        </otherwise>
+
+        </choose>
+
+
+
+        group by b.DPST_WHDRWL_DSCD, a.tx_sts_cd
+</select>
+<select id="selectArrTxSumByChannel" resultType="bankware.corebanking.settlement.arrangementtransaction.dao.dto.StTxMXtnOut">
+select
+
+    a.chnlDscd AS chnlDscd,
+
+    sum(a.tmpTxSum) AS txAmt,
+    count(a.chnlDscd ) AS txCnt
+
+from
+
+    (
+
+    select
+
+        a.INST_CD,
+
+        a.ARR_ID,
+
+        a.TX_DT,
+
+        a.TX_SEQ_NBR,
+
+        a.CHNL_DSCD AS chnlDscd,
+
+        sum(b.tx_amt) as tmpTxSum
+    from st_tx_m a, st_tx_entry_d b, ar_arr_m_dept_v c
+
+    where 1=1
+
+            and a.inst_cd = b.inst_cd
+
+            and a.arr_id = b.arr_id
+
+            and a.tx_dt = b.tx_dt
+
+            and a.tx_seq_nbr = b.tx_seq_nbr
+
+            and a.inst_cd = c.inst_cd
+
+            and a.arr_id = c.arr_id
+
+            and a.inst_cd = #{arrTxHistoryIn.instCd}
+
+            and a.tx_dt between #{arrTxHistoryIn.inqryStartDt} and #{arrTxHistoryIn.inqryEndDt}
+
+            and a.tx_sts_cd in ('1', '3')
+
+            and a.CHNL_DSCD in ('01', '03')
+
+            <if test="arrTxHistoryIn.txStaffId != null and arrTxHistoryIn.txStaffId != ''">
+
+            AND  a.TX_STAFF_ID = #{arrTxHistoryIn.txStaffId}
+
+            </if>
+
+            <if test="arrTxHistoryIn.deptId != null and arrTxHistoryIn.deptId != ''">
+
+            AND  a.TX_DEPT_ID  = #{arrTxHistoryIn.deptId}
+
+            </if>
+
+            <choose>
+
+            <when test="arrTxHistoryIn.pdCdList != null and arrTxHistoryIn.pdCdList != '' and arrTxHistoryIn.pdCdList.size != 0">
+
+            and c.pd_cd in
+
+                  <foreach close=")" collection="arrTxHistoryIn.pdCdList" item="item" open="(" separator=",">
+
+                           #{item}
+
+                </foreach>
+
+            </when>
+
+            <otherwise>
+
+            and (c.biz_dscd in ('01', '02') or (c.biz_dscd = '09' and c.pd_tp_cd = '07'))
+
+            </otherwise>
+
+            </choose>
+
+            group by a.INST_CD, a.ARR_ID, a.TX_DT, a.TX_SEQ_NBR, a.CHNL_DSCD
+
+        ) a
+
+group by chnlDscd
+</select>
+<select id="selectArrTxHistoryMysql" resultType="bankware.corebanking.settlement.arrangementtransaction.dao.dto.StTxMXtnOut">
+SELECT  /* 거래기본 */
+
+        a.inst_cd AS instCd,     /*기관코드*/
+
+        a.arr_id AS arrId,     /*계약식별자*/
+
+        a.tx_dt AS txDt,     /*거래년월일*/
+
+        a.tx_seq_nbr AS txSeqNbr,     /*거래일련번호*/
+
+        a.tx_cd AS txCd,     /*거래코드*/
+
+        a.rckng_dt AS rckngDt,     /*기산년월일*/
+
+        a.cust_id AS custId,     /*고객식별자*/
+
+        a.tx_cust_id AS txCustId,     /*거래고객식별자*/
+
+        a.tx_sts_cd AS txStsCd,     /*거래상태코드*/
+
+        a.chnl_dscd AS chnlDscd,     /*채널구분코드*/
+
+        a.trmnl_nbr AS trmnlNbr,     /*단말번호*/
+
+        a.tx_dept_id AS txDeptId,     /*거래부서식별자*/
+
+        a.tx_hms AS txHms,     /*거래시각*/
+
+        a.tx_staff_id AS txStaffId,     /*거래스태프식별자*/
+
+        a.tx_rmk_cntnt AS txRmkCntnt,     /*거래적요내용*/
+        a.crncy_cd  AS  crncyCd,		/*통화코드*/
+
+        a.cash_trnsfr_dscd AS cashTrnsfrDscd,   /*현금대체구분코드*/
+
+        a.dpst_whdrwl_dscd AS dpstWhdrwlDscd,  /*입출구분코드*/
+        a.tx_amt AS txAmt,     /*거래금액*/
+
+        a.tx_af_bal AS txAfBal,     /*거래후잔액*/
+
+        a.slip_nbr AS slipNbr,     /*전표번호*/
+
+        a.mthr_arr_id AS mthrArrId, /*모계약식별자*/
+
+        a.cntrprt_arr_id AS cntrprtArrId,     /*상대계약식별자*/
+
+        a.cntrprt_tx_dt AS cntrprtTxDt,     /*상대거래년월일*/
+
+        a.cntrprt_tx_seq_nbr AS cntrprtTxSeqNbr,     /*상대거래일련번호*/
+
+        a.cncl_cntrprt_tx_dt AS cnclCntrprtTxDt,     /*취소상대거래년월일*/
+
+        a.cncl_cntrprt_tx_seq_nbr AS cnclCntrprtTxSeqNbr,     /*취소상대거래일련번호*/
+
+        a.last_chng_tmstmp AS lastChngTmstmp,     /*최종변경일시*/
+
+        a.last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM st_tx_m a
+
+ WHERE a.inst_cd = #{arrTxHistoryIn.instCd}
+
+   AND a.tx_dt &gt;= #{arrTxHistoryIn.inqryStartDt}
+
+   AND a.tx_dt &lt;= #{arrTxHistoryIn.inqryEndDt}
+
+   AND a.tx_sts_cd in ('1')
+
+<if test="arrTxHistoryIn.txStaffId != null and arrTxHistoryIn.txStaffId != ''">
+
+   AND a.TX_STAFF_ID = #{arrTxHistoryIn.txStaffId}
+
+</if>
+
+<if test="arrTxHistoryIn.chnlDscd != null and arrTxHistoryIn.chnlDscd != ''">
+
+   AND a.CHNL_DSCD = #{arrTxHistoryIn.chnlDscd}
+
+</if>
+
+<if test="arrTxHistoryIn.txDeptId != null and arrTxHistoryIn.txDeptId != ''">
+
+   AND a.TX_DEPT_ID = #{arrTxHistoryIn.txDeptId}
+
+</if>
+
+<if test="arrTxHistoryIn.txCd != null and arrTxHistoryIn.txCd != ''">
+
+   AND a.TX_CD = #{arrTxHistoryIn.txCd}
+
+</if>
+
+<if test="arrTxHistoryIn.crncyCd != null and arrTxHistoryIn.crncyCd != ''">
+
+   AND a.CRNCY_CD = #{arrTxHistoryIn.crncyCd}
+
+</if>
+
+
+
+ ORDER BY a.tx_dt desc, a.tx_seq_nbr desc
+
+ LIMIT #{startNbr}, #{arrTxHistoryIn.pgCnt}
+</select>
+<select id="selectArrTxHistoryOracle" resultType="bankware.corebanking.settlement.arrangementtransaction.dao.dto.StTxMXtnOut">
+SELECT
+
+        inst_cd AS instCd,     /*기관코드*/
+
+        arr_id AS arrId,     /*계약식별자*/
+
+        tx_dt AS txDt,     /*거래년월일*/
+
+        tx_seq_nbr AS txSeqNbr,     /*거래일련번호*/
+
+        tx_cd AS txCd,     /*거래코드*/
+
+        rckng_dt AS rckngDt,     /*기산년월일*/
+
+        cust_id AS custId,     /*고객식별자*/
+
+        tx_cust_id AS txCustId,     /*거래고객식별자*/
+
+        tx_sts_cd AS txStsCd,     /*거래상태코드*/
+
+        chnl_dscd AS chnlDscd,     /*채널구분코드*/
+
+        trmnl_nbr AS trmnlNbr,     /*단말번호*/
+
+        tx_dept_id AS txDeptId,     /*거래부서식별자*/
+
+        tx_hms AS txHms,     /*거래시각*/
+
+        tx_staff_id AS txStaffId,     /*거래스태프식별자*/
+
+        tx_rmk_cntnt AS txRmkCntnt,     /*거래적요내용*/
+        crncy_cd  AS  crncyCd,		/*통화코드*/
+
+        cash_trnsfr_dscd AS cashTrnsfrDscd,   /*현금대체구분코드*/
+
+        dpst_whdrwl_dscd AS dpstWhdrwlDscd,  /*입출구분코드*/
+        tx_amt AS txAmt,     /*거래금액*/
+
+        tx_af_bal AS txAfBal,     /*거래후잔액*/
+
+        slip_nbr AS slipNbr,     /*전표번호*/
+
+        mthr_arr_id AS mthrArrId, /*모계약식별자*/
+
+        cntrprt_arr_id AS cntrprtArrId,     /*상대계약식별자*/
+
+        cntrprt_tx_dt AS cntrprtTxDt,     /*상대거래년월일*/
+
+        cntrprt_tx_seq_nbr AS cntrprtTxSeqNbr,     /*상대거래일련번호*/
+
+        cncl_cntrprt_tx_dt AS cnclCntrprtTxDt,     /*취소상대거래년월일*/
+
+        cncl_cntrprt_tx_seq_nbr AS cnclCntrprtTxSeqNbr,     /*취소상대거래일련번호*/
+
+        last_chng_tmstmp AS lastChngTmstmp,     /*최종변경일시*/
+
+        last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+FROM(
+
+        SELECT
+
+              rownum as rnum,
+
+              inst_cd,     /*기관코드*/
+
+              arr_id,     /*계약식별자*/
+
+              tx_dt,     /*거래년월일*/
+
+              tx_seq_nbr,     /*거래일련번호*/
+
+              tx_cd,     /*거래코드*/
+
+              rckng_dt,     /*기산년월일*/
+
+              cust_id,     /*고객식별자*/
+
+              tx_cust_id,     /*거래고객식별자*/
+
+              tx_sts_cd,     /*거래상태코드*/
+
+              chnl_dscd,     /*채널구분코드*/
+
+              trmnl_nbr,     /*단말번호*/
+
+              tx_dept_id,     /*거래부서식별자*/
+
+              tx_hms,     /*거래시각*/
+
+              tx_staff_id,     /*거래스태프식별자*/
+
+              tx_rmk_cntnt,     /*거래적요내용*/
+              crncy_cd,		/*통화코드*/
+
+              cash_trnsfr_dscd,   /*현금대체구분코드*/
+
+              dpst_whdrwl_dscd,  /*입출구분코드*/
+              tx_amt,     /*거래금액*/
+
+              tx_af_bal,     /*거래후잔액*/
+
+              slip_nbr,     /*전표번호*/
+
+              mthr_arr_id, /*모계약식별자*/
+
+              cntrprt_arr_id,     /*상대계약식별자*/
+
+              cntrprt_tx_dt,     /*상대거래년월일*/
+
+              cntrprt_tx_seq_nbr,     /*상대거래일련번호*/
+
+              cncl_cntrprt_tx_dt,     /*취소상대거래년월일*/
+
+              cncl_cntrprt_tx_seq_nbr,     /*취소상대거래일련번호*/
+
+              last_chng_tmstmp,     /*최종변경일시*/
+
+              last_chng_guid      /*최종변경GUID*/
+
+       FROM(
+
+                    SELECT  /* 거래기본 */
+
+                            a.inst_cd,     /*기관코드*/
+
+                            a.arr_id,     /*계약식별자*/
+
+                            a.tx_dt,     /*거래년월일*/
+
+                            a.tx_seq_nbr,     /*거래일련번호*/
+
+                            a.tx_cd,     /*거래코드*/
+
+                            a.rckng_dt,     /*기산년월일*/
+
+                            a.cust_id,     /*고객식별자*/
+
+                            a.tx_cust_id,     /*거래고객식별자*/
+
+                            a.tx_sts_cd,     /*거래상태코드*/
+
+                            a.chnl_dscd,     /*채널구분코드*/
+
+                            a.trmnl_nbr,     /*단말번호*/
+
+                            a.tx_dept_id,     /*거래부서식별자*/
+
+                            a.tx_hms,     /*거래시각*/
+
+                            a.tx_staff_id,     /*거래스태프식별자*/
+
+                            a.tx_rmk_cntnt,     /*거래적요내용*/
+                            a.crncy_cd ,		/*통화코드*/
+
+                            a.cash_trnsfr_dscd,   /*현금대체구분코드*/
+
+                            a.dpst_whdrwl_dscd,  /*입출구분코드*/
+                            a.tx_amt,     /*거래금액*/
+
+                            a.tx_af_bal,     /*거래후잔액*/
+
+                            a.slip_nbr,     /*전표번호*/
+
+                            a.mthr_arr_id, /*모계약식별자*/
+
+                            a.cntrprt_arr_id,     /*상대계약식별자*/
+
+                            a.cntrprt_tx_dt,     /*상대거래년월일*/
+
+                            a.cntrprt_tx_seq_nbr,     /*상대거래일련번호*/
+
+                            a.cncl_cntrprt_tx_dt,     /*취소상대거래년월일*/
+
+                            a.cncl_cntrprt_tx_seq_nbr,     /*취소상대거래일련번호*/
+
+                            a.last_chng_tmstmp,     /*최종변경일시*/
+
+                            a.last_chng_guid    /*최종변경GUID*/
+
+                      FROM st_tx_m a
+
+                      WHERE a.inst_cd = #{arrTxHistoryIn.instCd}
+
+                           AND a.tx_dt &gt;= #{arrTxHistoryIn.inqryStartDt}
+
+                           AND a.tx_dt &lt;= #{arrTxHistoryIn.inqryEndDt}
+
+                           AND a.tx_sts_cd in ('1')
+
+                        <if test="arrTxHistoryIn.txStaffId != null and arrTxHistoryIn.txStaffId != ''">
+
+                           AND a.TX_STAFF_ID = #{arrTxHistoryIn.txStaffId}
+
+                        </if>
+
+                        <if test="arrTxHistoryIn.chnlDscd != null and arrTxHistoryIn.chnlDscd != ''">
+
+                           AND a.CHNL_DSCD = #{arrTxHistoryIn.chnlDscd}
+
+                        </if>
+
+                        <if test="arrTxHistoryIn.txDeptId != null and arrTxHistoryIn.txDeptId != ''">
+
+                           AND a.TX_DEPT_ID = #{arrTxHistoryIn.txDeptId}
+
+                        </if>
+
+                        <if test="arrTxHistoryIn.txCd != null and arrTxHistoryIn.txCd != ''">
+
+                           AND a.TX_CD = #{arrTxHistoryIn.txCd}
+
+                        </if>
+
+                        <if test="arrTxHistoryIn.crncyCd != null and arrTxHistoryIn.crncyCd != ''">
+
+                              AND a.CRNCY_CD = #{arrTxHistoryIn.crncyCd}
+
+                        </if>
+
+                     ORDER BY a.tx_dt desc, a.tx_seq_nbr desc ) T1
+
+      WHERE rownum &lt;= #{startNbr} + #{arrTxHistoryIn.pgCnt} ) T2
+
+WHERE T2.rnum &gt;  #{startNbr}
+</select>
+<select id="selectArrTxHistoryCount" resultType="java.lang.Integer">
+SELECT  /* 거래기본 */
+
+        count(*)
+
+  FROM st_tx_m a
+
+ WHERE a.inst_cd = #{arrTxHistoryIn.instCd}
+
+   AND a.tx_dt &gt;= #{arrTxHistoryIn.inqryStartDt}
+
+   AND a.tx_dt &lt;= #{arrTxHistoryIn.inqryEndDt}
+
+   AND a.tx_sts_cd in ('1')
+
+<if test="arrTxHistoryIn.txStaffId != null and arrTxHistoryIn.txStaffId != ''">
+
+   AND a.TX_STAFF_ID = #{arrTxHistoryIn.txStaffId}
+
+</if>
+
+<if test="arrTxHistoryIn.chnlDscd != null and arrTxHistoryIn.chnlDscd != ''">
+
+   AND a.CHNL_DSCD = #{arrTxHistoryIn.chnlDscd}
+
+</if>
+
+<if test="arrTxHistoryIn.txDeptId != null and arrTxHistoryIn.txDeptId != ''">
+
+   AND a.TX_DEPT_ID = #{arrTxHistoryIn.txDeptId}
+
+</if>
+
+<if test="arrTxHistoryIn.txCd != null and arrTxHistoryIn.txCd != ''">
+
+   AND a.TX_CD = #{arrTxHistoryIn.txCd}
+
+</if>
+
+<if test="arrTxHistoryIn.crncyCd != null and arrTxHistoryIn.crncyCd != ''">
+
+   AND a.CRNCY_CD = #{arrTxHistoryIn.crncyCd}
+
+</if>
+</select>
+<select id="selectArrTxSumByDeptAndTxCdMysql" resultType="bankware.corebanking.settlement.arrangementtransaction.dao.dto.StTxMXtnOut">
+select
+
+            acct_nbr AS acctNbr,
+
+            crncy_cd AS crncyCd,
+
+           sum(case when dpst_whdrwl_dscd = '1' then tx_amt end) AS dpstTxAmt,
+           sum(case when dpst_whdrwl_dscd = '2' then tx_amt end) AS whdrwlTxAmt,
+
+           sum(case when dpst_whdrwl_dscd = '1' then 1 end) AS dpstTxCnt,
+           sum(case when dpst_whdrwl_dscd = '2' then 2 end) AS whdrwlTxCnt
+
+    from (
+
+    select a.inst_cd, a.arr_id, b.crncy_cd, b.amt_tp_cd, b.acctg_dscd, b.acctg_itm_cd, b.cash_trnsfr_dscd,
+             b.dpst_whdrwl_dscd,
+             b.tx_amt,
+             c.acct_nbr
+
+    from st_tx_m a, st_tx_entry_d b, ar_arr_m_dept_v c
+
+    where a.inst_cd = b.inst_cd
+
+      and a.arr_id = b.arr_id
+
+      and a.tx_dt = b.tx_dt
+
+      and a.tx_seq_nbr = b.tx_seq_nbr
+
+      and a.inst_cd = c.inst_cd
+
+      and a.arr_id = c.arr_id
+
+      and a.tx_sts_cd = '1'
+
+      and b.acctg_itm_cd is not null
+
+      and a.inst_cd = #{arrTxHistoryIn.instCd}
+
+      and a.tx_dt between #{arrTxHistoryIn.inqryStartDt} and #{arrTxHistoryIn.inqryEndDt}
+
+      and c.acctg_dept_id =#{arrTxHistoryIn.deptId}
+
+	  <if test="arrTxHistoryIn.chnlDscd != null and arrTxHistoryIn.chnlDscd != ''">
+	  	and a.chnl_dscd = #{arrTxHistoryIn.chnlDscd}
+	  </if>
+	      
+      <if test="arrTxHistoryIn.pdCdList != null and arrTxHistoryIn.pdCdList != '' and arrTxHistoryIn.pdCdList.size != 0">
+
+      and c.pd_cd in
+
+              <foreach close=")" collection="arrTxHistoryIn.pdCdList" item="item" open="(" separator=",">
+
+                       #{item}
+
+            </foreach>
+
+       </if>
+
+     order by c.acct_nbr
+
+    ) tx
+
+    group by inst_cd, arr_id, crncy_cd, acct_nbr
+
+
+ LIMIT #{arrTxHistoryIn.pgNbr}, #{arrTxHistoryIn.pgCnt}
+</select>
+<select id="selectArrTxSumByDeptAndTxCdOracle" resultType="bankware.corebanking.settlement.arrangementtransaction.dao.dto.StTxMXtnOut">
+SELECT
+
+                acctNbr,
+
+                crncyCd,
+
+                dpstTxAmt,
+
+                whdrwlTxAmt,
+
+                dpstTxCnt,
+
+                whdrwlTxCnt
+
+FROM(
+
+        SELECT
+
+                rownum as rnum,
+
+                acctNbr,
+
+                crncyCd,
+
+                dpstTxAmt,
+
+                whdrwlTxAmt,
+
+                dpstTxCnt,
+
+                whdrwlTxCnt
+
+         FROM(
+
+                select
+
+                            acct_nbr AS acctNbr,
+
+                            crncy_cd AS crncyCd,
+
+                           sum(case when dpst_whdrwl_dscd = '1' then tx_amt end) AS dpstTxAmt,
+                           sum(case when dpst_whdrwl_dscd = '2' then tx_amt end) AS whdrwlTxAmt,
+
+                           sum(case when dpst_whdrwl_dscd = '1' then 1 end) AS dpstTxCnt,
+                           sum(case when dpst_whdrwl_dscd = '2' then 2 end) AS whdrwlTxCnt
+                    from (
+
+                    select a.inst_cd, a.arr_id, b.crncy_cd, b.amt_tp_cd, b.acctg_dscd, b.acctg_itm_cd, b.cash_trnsfr_dscd,
+                             b.dpst_whdrwl_dscd,
+                             b.tx_amt,
+                             c.acct_nbr
+
+                    from st_tx_m a, st_tx_entry_d b, ar_arr_m_dept_v c
+
+                    where a.inst_cd = b.inst_cd
+
+                      and a.arr_id = b.arr_id
+
+                      and a.tx_dt = b.tx_dt
+
+                      and a.tx_seq_nbr = b.tx_seq_nbr
+
+                      and a.inst_cd = c.inst_cd
+
+                      and a.arr_id = c.arr_id
+
+                      and a.tx_sts_cd = '1'
+
+                      and b.acctg_itm_cd is not null
+
+                      and a.inst_cd = #{arrTxHistoryIn.instCd, jdbcType=VARCHAR}
+
+					  <if test="arrTxHistoryIn.chnlDscd != null and arrTxHistoryIn.chnlDscd != ''">
+	                      and a.chnl_dscd = #{arrTxHistoryIn.chnlDscd, jdbcType=VARCHAR}
+	                  </if>
+
+                      and a.tx_dt between #{arrTxHistoryIn.inqryStartDt, jdbcType=VARCHAR} and #{arrTxHistoryIn.inqryEndDt, jdbcType=VARCHAR}
+
+                      and c.acctg_dept_id =#{arrTxHistoryIn.deptId, jdbcType=VARCHAR}
+
+                      <if test="arrTxHistoryIn.pdCdList != null and arrTxHistoryIn.pdCdList != '' and arrTxHistoryIn.pdCdList.size != 0">
+
+                      and c.pd_cd in
+
+                              <foreach close=")" collection="arrTxHistoryIn.pdCdList" item="item" open="(" separator=",">
+
+                                       #{item}
+
+                            </foreach>
+
+                       </if>
+
+                     order by c.acct_nbr
+
+                    ) tx
+
+                    group by inst_cd, arr_id, crncy_cd, acct_nbr ) T1
+
+     WHERE rownum &lt;= #{arrTxHistoryIn.pgNbr} + #{arrTxHistoryIn.pgCnt} ) T2
+
+WHERE T2.rnum &gt;  #{arrTxHistoryIn.pgNbr}
+</select>
+<select id="selectArrTxSumByDeptAndTxCdCount" resultType="java.lang.Integer">
+select
+
+    count(*) as cnt
+
+from (
+
+	select
+			inst_cd AS instCd,
+            arr_id AS arrId,
+            crncy_cd AS crncyCd
+            
+	 from (
+
+        select  a.inst_cd, a.arr_id,
+				b.crncy_cd, b.amt_tp_cd, b.acctg_dscd, b.acctg_itm_cd,
+	            b.cash_trnsfr_dscd, b.dpst_whdrwl_dscd, b.tx_amt,
+	            c.acct_nbr
+
+	    from st_tx_m a, st_tx_entry_d b, ar_arr_m_dept_v c
+
+	    where a.inst_cd = b.inst_cd
+	
+	      and a.arr_id = b.arr_id
+	
+	      and a.tx_dt = b.tx_dt
+	
+	      and a.tx_seq_nbr = b.tx_seq_nbr
+	
+	      and a.inst_cd = c.inst_cd
+	
+	      and a.arr_id = c.arr_id
+	
+	      and a.tx_sts_cd = '1'
+	
+	      and b.acctg_itm_cd is not null
+	
+	      and a.inst_cd = #{arrTxHistoryIn.instCd, jdbcType=VARCHAR}
+	
+	      and a.tx_dt between #{arrTxHistoryIn.inqryStartDt, jdbcType=VARCHAR} and #{arrTxHistoryIn.inqryEndDt, jdbcType=VARCHAR}
+	
+	      and c.acctg_dept_id =#{arrTxHistoryIn.deptId, jdbcType=VARCHAR}
+	
+		  <if test="arrTxHistoryIn.chnlDscd != null and arrTxHistoryIn.chnlDscd != ''">
+	      	and a.chnl_dscd = #{arrTxHistoryIn.chnlDscd}
+	      </if>
+	      
+	      <if test="arrTxHistoryIn.pdCdList != null and arrTxHistoryIn.pdCdList != '' and arrTxHistoryIn.pdCdList.size != 0">
+	
+	      and c.pd_cd in
+	
+	              <foreach close=")" collection="arrTxHistoryIn.pdCdList" item="item" open="(" separator=",">
+	
+	                       #{item}
+	
+	            </foreach>
+	
+	       </if>
+		) tx
+
+	group by inst_cd, arr_id, crncy_cd
+
+) a
+</select>
+</mapper>

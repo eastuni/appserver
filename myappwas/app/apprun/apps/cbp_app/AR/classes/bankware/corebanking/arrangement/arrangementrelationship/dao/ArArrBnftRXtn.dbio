@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.arrangement.arrangementrelationship.dao.ArArrBnftRXtn">
+<!--Generated Tue Jul 25 10:41:07 KST 2017-->
+<select id="selectListByBnftIdOnBaseDt" resultType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrBnftRIO">
+SELECT    
+
+       inst_cd AS instCd    /*기관코드*/
+
+     , bnft_id AS bnftId    /*혜택식별자*/
+
+     , arr_id AS arrId    /*계약식별자*/
+
+     , arr_bnft_rel_seq_nbr AS arrBnftRelSeqNbr    /*계약혜택관계일련번호*/
+
+     , biz_dscd AS bizDscd    /*업무구분코드*/
+
+     , pd_tp_cd AS pdTpCd    /*상품유형코드*/
+
+     , pd_tmplt_cd AS pdTmpltCd    /*상품템플릿코드*/
+
+     , arr_bnft_rel_sts_cd AS arrBnftRelStsCd    /*계약혜택관계상태코드*/
+     , rel_start_dt AS relStartDt    /*관계시작년월일*/
+
+     , rel_end_dt AS relEndDt    /*관계종료년월일*/
+
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  ar_arr_bnft_r
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  bnft_id = #{bnftId}
+
+<if test=" arrBnftRelStsCd != null and arrBnftRelStsCd != ''  ">
+   AND  arr_bnft_rel_sts_cd = #{arrBnftRelStsCd}
+</if>
+
+   AND  rel_start_dt &lt;= #{baseDt}
+   
+   AND  rel_end_dt &gt; #{baseDt}
+</select>
+<select id="selectListByBnftInfoOnBaseDt" resultType="bankware.corebanking.core.arrangement.arrangementrelationship.dao.dto.ArArrBnftRIO">
+SELECT    
+
+       inst_cd AS instCd    /*기관코드*/
+
+     , bnft_id AS bnftId    /*혜택식별자*/
+
+     , arr_id AS arrId    /*계약식별자*/
+
+     , arr_bnft_rel_seq_nbr AS arrBnftRelSeqNbr    /*계약혜택관계일련번호*/
+
+     , biz_dscd AS bizDscd    /*업무구분코드*/
+
+     , pd_tp_cd AS pdTpCd    /*상품유형코드*/
+
+     , pd_tmplt_cd AS pdTmpltCd    /*상품템플릿코드*/
+
+     , arr_bnft_rel_sts_cd AS arrBnftRelStsCd    /*계약혜택관계상태코드*/
+     , rel_start_dt AS relStartDt    /*관계시작년월일*/
+
+     , rel_end_dt AS relEndDt    /*관계종료년월일*/
+
+     , last_chng_tmstmp AS lastChngTmstmp    /*최종변경일시*/
+
+     , last_chng_guid AS lastChngGuid    /*최종변경GUID*/
+
+  FROM  ar_arr_bnft_r
+
+ WHERE  inst_cd = #{instCd}
+
+   AND  biz_dscd = #{bizDscd}
+   
+   AND  pd_tp_cd = #{pdTpCd}
+      
+   AND  pd_tmplt_cd = #{pdTmpltCd}
+
+<if test=" arrBnftRelStsCd != null and arrBnftRelStsCd != ''  ">
+   AND  arr_bnft_rel_sts_cd = #{arrBnftRelStsCd}
+</if>
+
+   AND  rel_start_dt &lt;= #{baseDt}
+   
+   AND  rel_end_dt &gt; #{baseDt}
+</select>
+</mapper>

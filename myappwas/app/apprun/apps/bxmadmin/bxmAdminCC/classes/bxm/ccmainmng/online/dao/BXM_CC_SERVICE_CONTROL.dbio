@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bxm.ccmainmng.online.dao.BXM_CC_SERVICE_CONTROL">
+<!--Generated Thu Nov 23 18:32:21 KST 2017-->
+<delete id="deleteBxmCCServiceControl01B" parameterType="bxm.ccmainmng.online.dto.BxmCCServiceControlIO">
+DELETE  FROM  BXM_CC_SERVICE_CONTROL    /* 센터컷 서비스관리 */
+ WHERE  domain_id = #{domainId} 
+   AND cc_id = #{ccId}
+   AND  pcsn_dt = #{pcsnDt}
+   AND  acpt_no = #{acptNo}
+   AND  tn_no = #{tnNo}
+</delete>
+<update id="updateBxmCCServiceControl01C" parameterType="bxm.ccmainmng.online.dto.BxmCCServiceControlIO">
+UPDATE  
+        BXM_CC_SERVICE_CONTROL    /* 센터컷 서비스관리 */
+   SET  
+        pcsn_stat = #{pcsnStat}    /* 처리상태 */, 
+        modify_occur_dttm = #{chngDttm}   /* 변경일시 */, 
+        modify_user_id = #{chngUserId}    /* 변경사용자ID */
+WHERE  domain_id = #{domainId} 
+AND cc_id = #{ccId}
+AND  pcsn_dt = #{pcsnDt}
+AND  acpt_no = #{acptNo}
+<if test="execNo != null and execNo !=''">
+AND exec_no = #{execNo}
+</if>   
+AND  tn_no = #{tnNo}
+</update>
+<update id="updateBxmCCServiceControl01D" parameterType="bxm.ccmainmng.online.dto.BxmCCServiceControlIO">
+UPDATE  
+        BXM_CC_SERVICE_CONTROL    /* 센터컷 서비스관리 */
+   SET  
+        pcsn_stat = #{pcsnStat}    /* 처리상태 */
+</update>
+</mapper>

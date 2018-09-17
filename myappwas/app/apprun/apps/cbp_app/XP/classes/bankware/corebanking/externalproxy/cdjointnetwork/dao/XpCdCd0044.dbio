@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.cdjointnetwork.dao.XpCdCd0044">
+<!--Generated Fri Jan 13 11:34:13 KST 2017-->
+<delete id="deleteXpCdCd0044" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd0044IO">
+DELETE  FROM  XP_CD_CD0044_H
+ WHERE  INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND SEQ_NBR = #{seqNbr}
+</delete>
+<insert id="insertXpCdCd0044" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd0044IO">
+INSERT  
+  INTO  XP_CD_CD0044_H
+(
+  INST_CD,     /*기관코드*/
+  TX_DT,     /*거래년월일*/
+  SEQ_NBR,     /*일련번호*/
+  FNCL_INST_CD,     /*금융기관코드*/
+  CRDT_DEBIT_Dscd_1,     /*대차구분코드1*/
+  NET_STLMNT_AMT,     /*차액결제금액*/
+  CRDT_DEBIT_Dscd_2,     /*대차구분코드2*/
+  FUNDS_ADJSTMNT_AMT,     /*자금조정금액*/
+  CRDT_DEBIT_Dscd_3,     /*대차구분코드3*/
+  FEE_AMT,     /*수수료*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd, jdbcType=VARCHAR},     /*기관코드*/
+  #{txDt, jdbcType=VARCHAR},     /*거래년월일*/
+  #{seqNbr, jdbcType=NUMERIC},     /*일련번호*/
+  #{fnclInstCd, jdbcType=VARCHAR},     /*금융기관코드*/
+  #{crdtDebitDscd1, jdbcType=VARCHAR},     /*대차구분코드1*/
+  #{netStlmntAmt, jdbcType=NUMERIC},     /*차액결제금액*/
+  #{crdtDebitDscd2, jdbcType=VARCHAR},     /*대차구분코드2*/
+  #{fundsAdjstmntAmt, jdbcType=NUMERIC},     /*자금조정금액*/
+  #{crdtDebitDscd3, jdbcType=VARCHAR},     /*대차구분코드3*/
+  #{feeAmt, jdbcType=NUMERIC},     /*수수료*/
+  #{lastChngTmstmp, jdbcType=TIMESTAMP},     /*최종변경일시*/
+  #{lastChngGuid, jdbcType=VARCHAR}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectXpCdCd0044List" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd0044IO">
+SELECT    
+        T1.INST_CD AS instCd,     /*기관코드*/
+        T1.TX_DT AS txDt,     /*거래년월일*/
+        T1.SEQ_NBR AS seqNbr,     /*일련번호*/
+        T1.FNCL_INST_CD AS fnclInstCd,     /*금융기관코드*/
+        T1.CRDT_DEBIT_Dscd_1 AS crdtDebitDscd1,     /*대차구분코드1*/
+        T1.NET_STLMNT_AMT AS netStlmntAmt,     /*차액결제금액*/
+        T1.CRDT_DEBIT_Dscd_2 AS crdtDebitDscd2,     /*대차구분코드2*/
+        T1.FUNDS_ADJSTMNT_AMT AS fundsAdjstmntAmt,     /*자금조정금액*/
+        T1.CRDT_DEBIT_Dscd_3 AS crdtDebitDscd3,     /*대차구분코드3*/
+        T1.FEE_AMT AS feeAmt,     /*수수료*/
+        T1.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        T1.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_CD_CD0044_H T1
+  LEFT OUTER JOIN CM_BIZ_DAY_M T2
+    ON  T2.INST_CD = T1.INST_CD
+   AND  T2.BASE_DT =#{txDt}
+ WHERE
+        T1.INST_CD = #{instCd}
+   AND  T1.TX_DT &gt;= T2.BF_BIZ_DT
+   AND  T1.TX_DT &lt; T2.BIZ_DT
+ORDER BY T1.TX_DT, T1.SEQ_NBR
+</select>
+<update id="updateXpCdCd0044" parameterType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd0044IO">
+UPDATE  
+        XP_CD_CD0044_H
+   SET  FNCL_INST_CD = #{fnclInstCd, jdbcType=VARCHAR}    /* 금융기관코드 */
+     , CRDT_DEBIT_Dscd_1 = #{crdtDebitDscd1, jdbcType=VARCHAR}    /* 대차구분코드1 */
+     , NET_STLMNT_AMT = #{netStlmntAmt, jdbcType=NUMERIC}    /* 차액결제금액 */
+     , CRDT_DEBIT_Dscd_2 = #{crdtDebitDscd2, jdbcType=VARCHAR}    /* 대차구분코드2 */
+     , FUNDS_ADJSTMNT_AMT = #{fundsAdjstmntAmt, jdbcType=NUMERIC}    /* 자금조정금액 */
+     , CRDT_DEBIT_Dscd_3 = #{crdtDebitDscd3, jdbcType=VARCHAR}    /* 대차구분코드3 */
+     , FEE_AMT = #{feeAmt, jdbcType=NUMERIC}    /* 수수료 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp, jdbcType=TIMESTAMP}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid, jdbcType=VARCHAR}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND SEQ_NBR = #{seqNbr}
+</update>
+<select id="selectXpCdCd0044List2" resultType="bankware.corebanking.externalproxy.cdjointnetwork.dao.dto.XpCdCd0044IO">
+SELECT    
+        T1.INST_CD AS instCd,     /*기관코드*/
+        T1.TX_DT AS txDt,     /*거래년월일*/
+        T1.SEQ_NBR AS seqNbr,     /*일련번호*/
+        T1.FNCL_INST_CD AS fnclInstCd,     /*금융기관코드*/
+        T1.CRDT_DEBIT_Dscd_1 AS crdtDebitDscd1,     /*대차구분코드1*/
+        T1.NET_STLMNT_AMT AS netStlmntAmt,     /*차액결제금액*/
+        T1.CRDT_DEBIT_Dscd_2 AS crdtDebitDscd2,     /*대차구분코드2*/
+        T1.FUNDS_ADJSTMNT_AMT AS fundsAdjstmntAmt,     /*자금조정금액*/
+        T1.CRDT_DEBIT_Dscd_3 AS crdtDebitDscd3,     /*대차구분코드3*/
+        T1.FEE_AMT AS feeAmt,     /*수수료*/
+        T1.LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        T1.LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_CD_CD0044_H T1
+ WHERE
+        T1.INST_CD = #{instCd}
+   AND  T1.TX_DT &gt;= #{txStartDt}
+   AND  T1.TX_DT &lt;= #{txEndDt}
+ORDER BY T1.TX_DT, T1.SEQ_NBR
+</select>
+</mapper>

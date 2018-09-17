@@ -1,0 +1,35 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.PgMsg0200a
+<description="PG출금지시(0200/0210 408900)">
+{
+	String bizDscd<length=3 description="업무구분코드PGS">;
+	String extrnlInstCd<length=3 description="대외기관코드">;
+	String jointNetworkClCd<length=4 description="공동망종별코드">;
+	String jointNetworkTxDscd<length=6 description="공동망거래구분코드">;
+	String sndRcvFlagCntnt<length=1 description="송수신FLAG">;
+	String rspnsCd<length=3 description="응답코드">;
+	String msgSndTmstmp1<length=12 description="전문전송일시">;
+	String intrmdryMsgMgmtNbr<length=12 description="중개기관전문관리번호">;
+	String instMsgMgmtNbr<length=8 description="기관전문관리번호">;
+	String fillerCntnt<length=1 description="FILLER">;
+	String stsCd<length=3 description="상태코드">;
+	String whdrwlFnclInstSndTmstmp<length=12 description="출금금융기관전문전송일시">;
+	String whdrwlAcctNbr<length=16 description="출금계좌번호" encrypt="AES256">;
+	String whdrwlAcctPswd<length=4 description="출금계좌비밀번호(미사용)">;
+	String dpsrRlnmNbr<length=13 description="예금주실명번호">;
+	String whdrwlAmt<length=12 description="출금금액">;
+	String dpstAcctDt<length=8 description="이용업체계좌앞입금일">;
+	String feeAmt<length=10 description="수수료">;
+	String useEntrprsNm<length=10 description="이용업체명약칭" encrypt="KSC5601">;
+	String useEntrprsAprvlNbr<length=8 description="이용업체승인번호">;
+	String balAmt<length=12 description="출금후잔액">;
+	String useEntrprsMsgMgmtNbr<length=15 description="이용업체전문관리번호">;
+	String whdrwlLmtChkYn<length=1 description="출금한도체크구분">;
+	String feeAlctnBnkCd<length=3 description="수수료배분은행코드">;
+	String randomNbr1<length=32 description="난수1">;
+	String randomNbr2<length=32 description="난수2">;
+	String encrptnPswdInfoCntnt<length=32 description="암호화된비밀번호정보">;
+	String keyVersionCntnt<length=2 description="마스터키버전">;
+	String otpBizDscd<length=1 description="보안카드/OTP구분">;
+	String otpOpnSeqNbr<length=4 description="보안카드/OTP일련번호">;
+	String prprtnFldCntnt<length=75 description="예비필드">;
+}

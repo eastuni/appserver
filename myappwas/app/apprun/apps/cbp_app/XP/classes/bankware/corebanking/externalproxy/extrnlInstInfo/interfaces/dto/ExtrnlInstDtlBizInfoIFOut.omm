@@ -1,0 +1,6 @@
+OMM bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstDtlBizInfoIFOut
+<description="대외기관세부업무관리">
+{
+	Integer cnt<length=9 description="출력건수">;
+	bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstDtlBizInfoIFOutSub list<length=0 arrayReference="cnt" description="출력리스트">;
+}

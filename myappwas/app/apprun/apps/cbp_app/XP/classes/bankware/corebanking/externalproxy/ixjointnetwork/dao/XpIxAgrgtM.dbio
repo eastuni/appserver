@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ixjointnetwork.dao.XpIxAgrgtM">
+<!--Generated Wed Dec 07 16:59:05 KST 2016-->
+<insert id="insertXpIxAgrgtM" parameterType="bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxAgrgtMIO">
+INSERT  
+  INTO  xp_ix_agrgt_m    /* 타행환집계기본 */
+(
+  INST_CD,     /*기관코드*/
+  TX_DT,     /*거래년월일*/
+  FNCL_INST_CD,     /*금융기관코드*/
+  OPN_CASH_DPST_CNT,     /*개설현금입금건수*/
+  OPN_CASH_DPST_AMT,     /*개설현금입금금액*/
+  OPN_CASH_CNCL_CNT,     /*개설현금취소건수*/
+  OPN_CASH_CNCL_AMT,     /*개설현금취소금액*/
+  OPN_CASH_DPST_INCPBLTY_CNT,     /*개설현금입금불능건수*/
+  OPN_CASH_DPST_INCPBLTY_AMT,     /*개설현금입금불능금액*/
+  OPN_BNK_CHK_INQRY_CNT,     /*개설자기앞수표조회건수*/
+  OPN_DFLT_WHDRWL_TX_CNT,     /*개설부도출금거래건수*/
+  OPN_DFLT_WHDRWL_TX_AMT,     /*개설부도출금거래금액*/
+  HNDLNG_CASH_DPST_CNT,     /*취급현금입금건수*/
+  HNDLNG_CASH_DPST_AMT,     /*취급현금입금금액*/
+  HNDLNG_CASH_CNCL_CNT,     /*취급현금취소건수*/
+  HNDLNG_CASH_CNCL_AMT,     /*취급현금취소금액*/
+  HNDLNG_CASH_DPST_INCPBLTY_CNT,     /*취급현금입금불능건수*/
+  HNDLNG_CASH_DPST_INCPBLTY_AMT,     /*취급현금입금불능금액*/
+  HNDLNG_BNK_CHK_INQRY_CNT,     /*취급자기앞수표조회건수*/
+  HNDLNG_DFLT_WHDRWL_TX_CNT,     /*취급부도출금거래건수*/
+  HNDLNG_DFLT_WHDRWL_TX_AMT,     /*취급부도출금거래금액*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{instCd},     /*기관코드*/
+  #{txDt},     /*거래년월일*/
+  #{fnclInstCd},     /*금융기관코드*/
+  #{opnCashDpstCnt},     /*개설현금입금건수*/
+  #{opnCashDpstAmt},     /*개설현금입금금액*/
+  #{opnCashCnclCnt},     /*개설현금취소건수*/
+  #{opnCashCnclAmt},     /*개설현금취소금액*/
+  #{opnCashDpstIncpbltyCnt},     /*개설현금입금불능건수*/
+  #{opnCashDpstIncpbltyAmt},     /*개설현금입금불능금액*/
+  #{opnBnkChkInqryCnt},     /*개설자기앞수표조회건수*/
+  #{opnDfltWhdrwlTxCnt},     /*개설부도출금거래건수*/
+  #{opnDfltWhdrwlTxAmt},     /*개설부도출금거래금액*/
+  #{hndlngCashDpstCnt},     /*취급현금입금건수*/
+  #{hndlngCashDpstAmt},     /*취급현금입금금액*/
+  #{hndlngCashCnclCnt},     /*취급현금취소건수*/
+  #{hndlngCashCnclAmt},     /*취급현금취소금액*/
+  #{hndlngCashDpstIncpbltyCnt},     /*취급현금입금불능건수*/
+  #{hndlngCashDpstIncpbltyAmt},     /*취급현금입금불능금액*/
+  #{hndlngBnkChkInqryCnt},     /*취급자기앞수표조회건수*/
+  #{hndlngDfltWhdrwlTxCnt},     /*취급부도출금거래건수*/
+  #{hndlngDfltWhdrwlTxAmt},     /*취급부도출금거래금액*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<update id="updateXpIxAgrgtM" parameterType="bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxAgrgtMIO">
+UPDATE  
+        xp_ix_agrgt_m    /* 타행환집계기본 */
+   SET  OPN_CASH_DPST_CNT = OPN_CASH_DPST_CNT + #{opnCashDpstCnt}    /* 개설현금입금건수 */
+     , OPN_CASH_DPST_AMT = OPN_CASH_DPST_AMT + #{opnCashDpstAmt}    /* 개설현금입금금액 */
+     , OPN_CASH_CNCL_CNT = OPN_CASH_CNCL_CNT + #{opnCashCnclCnt}    /* 개설현금취소건수 */
+     , OPN_CASH_CNCL_AMT = OPN_CASH_CNCL_AMT + #{opnCashCnclAmt}    /* 개설현금취소금액 */
+     , OPN_CASH_DPST_INCPBLTY_CNT = OPN_CASH_DPST_INCPBLTY_CNT + #{opnCashDpstIncpbltyCnt}    /* 개설현금입금불능건수 */
+     , OPN_CASH_DPST_INCPBLTY_AMT = OPN_CASH_DPST_INCPBLTY_AMT + #{opnCashDpstIncpbltyAmt}    /* 개설현금입금불능금액 */
+     , OPN_BNK_CHK_INQRY_CNT = OPN_BNK_CHK_INQRY_CNT + #{opnBnkChkInqryCnt}    /* 개설자기앞수표조회건수 */
+     , OPN_DFLT_WHDRWL_TX_CNT = OPN_DFLT_WHDRWL_TX_CNT + #{opnDfltWhdrwlTxCnt}    /* 개설부도출금거래건수 */
+     , OPN_DFLT_WHDRWL_TX_AMT = OPN_DFLT_WHDRWL_TX_AMT + #{opnDfltWhdrwlTxAmt}    /* 개설부도출금거래금액 */
+     , HNDLNG_CASH_DPST_CNT = HNDLNG_CASH_DPST_CNT + #{hndlngCashDpstCnt}    /* 취급현금입금건수 */
+     , HNDLNG_CASH_DPST_AMT = HNDLNG_CASH_DPST_AMT + #{hndlngCashDpstAmt}    /* 취급현금입금금액 */
+     , HNDLNG_CASH_CNCL_CNT = HNDLNG_CASH_CNCL_CNT + #{hndlngCashCnclCnt}    /* 취급현금취소건수 */
+     , HNDLNG_CASH_CNCL_AMT = HNDLNG_CASH_CNCL_AMT + #{hndlngCashCnclAmt}    /* 취급현금취소금액 */
+     , HNDLNG_CASH_DPST_INCPBLTY_CNT = HNDLNG_CASH_DPST_INCPBLTY_CNT + #{hndlngCashDpstIncpbltyCnt}    /* 취급현금입금불능건수 */
+     , HNDLNG_CASH_DPST_INCPBLTY_AMT = HNDLNG_CASH_DPST_INCPBLTY_AMT + #{hndlngCashDpstIncpbltyAmt}    /* 취급현금입금불능금액 */
+     , HNDLNG_BNK_CHK_INQRY_CNT = HNDLNG_BNK_CHK_INQRY_CNT + #{hndlngBnkChkInqryCnt}    /* 취급자기앞수표조회건수 */
+     , HNDLNG_DFLT_WHDRWL_TX_CNT = HNDLNG_DFLT_WHDRWL_TX_CNT + #{hndlngDfltWhdrwlTxCnt}    /* 취급부도출금거래건수 */
+     , HNDLNG_DFLT_WHDRWL_TX_AMT = HNDLNG_DFLT_WHDRWL_TX_AMT + #{hndlngDfltWhdrwlTxAmt}    /* 취급부도출금거래금액 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND FNCL_INST_CD = #{fnclInstCd}
+</update>
+<select id="selectXpIxAgrgtMCrSum" resultType="bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxAgrgtMIO">
+SELECT    /* 타행환공동망거래의집계정보를관리함 */
+        nvl(sum(OPN_CASH_DPST_CNT), 0) AS opnCashDpstCnt,     /*개설현금입금건수*/
+        nvl(sum(OPN_CASH_DPST_AMT), 0) AS opnCashDpstAmt,     /*개설현금입금금액*/
+        nvl(sum(OPN_CASH_CNCL_CNT), 0) AS opnCashCnclCnt,     /*개설현금취소건수*/
+        nvl(sum(OPN_CASH_CNCL_AMT), 0) AS opnCashCnclAmt,     /*개설현금취소금액*/
+        nvl(sum(OPN_CASH_DPST_INCPBLTY_CNT), 0) AS opnCashDpstIncpbltyCnt,     /*개설현금입금불능건수*/
+        nvl(sum(OPN_CASH_DPST_INCPBLTY_AMT), 0) AS opnCashDpstIncpbltyAmt,     /*개설현금입금불능금액*/
+        nvl(sum(OPN_BNK_CHK_INQRY_CNT), 0) AS opnBnkChkInqryCnt,     /*개설자기앞수표조회건수*/
+        nvl(sum(OPN_DFLT_WHDRWL_TX_CNT), 0) AS opnDfltWhdrwlTxCnt,     /*개설부도출금거래건수*/
+        nvl(sum(OPN_DFLT_WHDRWL_TX_AMT), 0) AS opnDfltWhdrwlTxAmt     /*개설부도출금거래금액*/
+  FROM  XP_IX_SMTN_M
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+</select>
+<select id="selectXpIxAgrgtMDrSum" resultType="bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxAgrgtMIO">
+SELECT    /* 타행환집계기본 */
+        nvl(sum(HNDLNG_CASH_DPST_CNT), 0) AS hndlngCashDpstCnt,     /*취급현금입금건수*/
+        nvl(sum(HNDLNG_CASH_DPST_AMT), 0) AS hndlngCashDpstAmt,     /*취급현금입금금액*/
+        nvl(sum(HNDLNG_CASH_CNCL_CNT), 0) AS hndlngCashCnclCnt,     /*취급현금취소건수*/
+        nvl(sum(HNDLNG_CASH_CNCL_AMT), 0) AS hndlngCashCnclAmt,     /*취급현금취소금액*/
+        nvl(sum(HNDLNG_CASH_DPST_INCPBLTY_CNT), 0) AS hndlngCashDpstIncpbltyCnt,     /*취급현금입금불능건수*/
+        nvl(sum(HNDLNG_CASH_DPST_INCPBLTY_AMT), 0) AS hndlngCashDpstIncpbltyAmt,     /*취급현금입금불능금액*/
+        nvl(sum(HNDLNG_BNK_CHK_INQRY_CNT), 0) AS hndlngBnkChkInqryCnt,     /*취급자기앞수표조회건수*/
+        nvl(sum(HNDLNG_DFLT_WHDRWL_TX_CNT), 0) AS hndlngDfltWhdrwlTxCnt,     /*취급부도출금거래건수*/
+        nvl(sum(HNDLNG_DFLT_WHDRWL_TX_AMT), 0) AS hndlngDfltWhdrwlTxAmt     /*취급부도출금거래금액*/
+  FROM  xp_ix_agrgt_m
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+</select>
+<select id="selectListXpIxAgrgtM" resultType="bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxAgrgtMIO">
+SELECT 
+instCd,
+txDt,     /*Kor)거래가 발생한 영업일자*/
+fnclInstCd,     /*Kor)금융기관코드*/
+opnCashDpstCnt,     /*Kor)개설현금입금건수*/
+opnCashDpstAmt,     /*Kor)개설현금입금금액*/
+opnCashCnclCnt,     /*Kor)개설현금취소건수*/
+opnCashCnclAmt,     /*Kor)개설현금취소금액*/
+opnCashDpstIncpbltyCnt,     /*Kor)개설현금입금불능건수*/
+opnCashDpstIncpbltyAmt,     /*Kor)개설현금입금불능금액*/
+opnBnkChkInqryCnt,     /*Kor)개설자기앞수표조회건수*/
+opnDfltWhdrwlTxCnt,     /*Kor)개설부도출금거래건수*/
+opnDfltWhdrwlTxAmt,     /*Kor)개설부도출금거래금액*/
+hndlngCashDpstCnt,     /*Kor)취급현금입금건수*/
+hndlngCashDpstAmt,     /*Kor)취급현금입금금액*/
+hndlngCashCnclCnt,     /*Kor)취급현금취소건수*/
+hndlngCashCnclAmt,     /*Kor)취급현금취소금액*/
+hndlngCashDpstIncpbltyCnt,     /*Kor)취급현금입금불능건수*/
+hndlngCashDpstIncpbltyAmt,     /*Kor)취급현금입금불능금액*/
+hndlngBnkChkInqryCnt,     /*Kor)취급자기앞수표조회건수*/
+hndlngDfltWhdrwlTxCnt,     /*Kor)취급부도출금거래건수*/
+hndlngDfltWhdrwlTxAmt,     /*Kor)취급부도출금거래금액*/
+lastChngTmstmp,
+lastChngGuid
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM,
+A.instCd,
+A.txDt,     /*Kor)거래가 발생한 영업일자*/
+A.fnclInstCd,     /*Kor)금융기관코드*/
+A.opnCashDpstCnt,     /*Kor)개설현금입금건수*/
+A.opnCashDpstAmt,     /*Kor)개설현금입금금액*/
+A.opnCashCnclCnt,     /*Kor)개설현금취소건수*/
+A.opnCashCnclAmt,     /*Kor)개설현금취소금액*/
+A.opnCashDpstIncpbltyCnt,     /*Kor)개설현금입금불능건수*/
+A.opnCashDpstIncpbltyAmt,     /*Kor)개설현금입금불능금액*/
+A.opnBnkChkInqryCnt,     /*Kor)개설자기앞수표조회건수*/
+A.opnDfltWhdrwlTxCnt,     /*Kor)개설부도출금거래건수*/
+A.opnDfltWhdrwlTxAmt,     /*Kor)개설부도출금거래금액*/
+A.hndlngCashDpstCnt,     /*Kor)취급현금입금건수*/
+A.hndlngCashDpstAmt,     /*Kor)취급현금입금금액*/
+A.hndlngCashCnclCnt,     /*Kor)취급현금취소건수*/
+A.hndlngCashCnclAmt,     /*Kor)취급현금취소금액*/
+A.hndlngCashDpstIncpbltyCnt,     /*Kor)취급현금입금불능건수*/
+A.hndlngCashDpstIncpbltyAmt,     /*Kor)취급현금입금불능금액*/
+A.hndlngBnkChkInqryCnt,     /*Kor)취급자기앞수표조회건수*/
+A.hndlngDfltWhdrwlTxCnt,     /*Kor)취급부도출금거래건수*/
+A.hndlngDfltWhdrwlTxAmt,     /*Kor)취급부도출금거래금액*/
+A.lastChngTmstmp,
+A.lastChngGuid
+     FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* Kor)타행환공동망 거래의 집계 정보를 관리함 Eng) */
+        INST_CD AS instCd,     /*Kor)다중 금융기관서비스를 위한 속성으로 동일 시스템을 사용하는 각 금융기관마다 부여된 코드 Eng)Code that distinguishes each financial entity when one system operates multi-entity*/
+        TX_DT AS txDt,     /*Kor)거래가 발생한 영업일자*/
+        FNCL_INST_CD AS fnclInstCd,     /*Kor)금융기관코드*/
+        OPN_CASH_DPST_CNT AS opnCashDpstCnt,     /*Kor)개설현금입금건수*/
+        OPN_CASH_DPST_AMT AS opnCashDpstAmt,     /*Kor)개설현금입금금액*/
+        OPN_CASH_CNCL_CNT AS opnCashCnclCnt,     /*Kor)개설현금취소건수*/
+        OPN_CASH_CNCL_AMT AS opnCashCnclAmt,     /*Kor)개설현금취소금액*/
+        OPN_CASH_DPST_INCPBLTY_CNT AS opnCashDpstIncpbltyCnt,     /*Kor)개설현금입금불능건수*/
+        OPN_CASH_DPST_INCPBLTY_AMT AS opnCashDpstIncpbltyAmt,     /*Kor)개설현금입금불능금액*/
+        OPN_BNK_CHK_INQRY_CNT AS opnBnkChkInqryCnt,     /*Kor)개설자기앞수표조회건수*/
+        OPN_DFLT_WHDRWL_TX_CNT AS opnDfltWhdrwlTxCnt,     /*Kor)개설부도출금거래건수*/
+        OPN_DFLT_WHDRWL_TX_AMT AS opnDfltWhdrwlTxAmt,     /*Kor)개설부도출금거래금액*/
+        HNDLNG_CASH_DPST_CNT AS hndlngCashDpstCnt,     /*Kor)취급현금입금건수*/
+        HNDLNG_CASH_DPST_AMT AS hndlngCashDpstAmt,     /*Kor)취급현금입금금액*/
+        HNDLNG_CASH_CNCL_CNT AS hndlngCashCnclCnt,     /*Kor)취급현금취소건수*/
+        HNDLNG_CASH_CNCL_AMT AS hndlngCashCnclAmt,     /*Kor)취급현금취소금액*/
+        HNDLNG_CASH_DPST_INCPBLTY_CNT AS hndlngCashDpstIncpbltyCnt,     /*Kor)취급현금입금불능건수*/
+        HNDLNG_CASH_DPST_INCPBLTY_AMT AS hndlngCashDpstIncpbltyAmt,     /*Kor)취급현금입금불능금액*/
+        HNDLNG_BNK_CHK_INQRY_CNT AS hndlngBnkChkInqryCnt,     /*Kor)취급자기앞수표조회건수*/
+        HNDLNG_DFLT_WHDRWL_TX_CNT AS hndlngDfltWhdrwlTxCnt,     /*Kor)취급부도출금거래건수*/
+        HNDLNG_DFLT_WHDRWL_TX_AMT AS hndlngDfltWhdrwlTxAmt,     /*Kor)취급부도출금거래금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*Kor)테이블 로우(Row)의  일부 컬럼  혹은 전컬럼을 생성하거나 변경 한 최종시점 Eng)specifies the last change time of the record.*/
+        LAST_CHNG_GUID AS lastChngGuid    /*Kor)테이블 로우(Row)의  일부 컬럼 혹은 전 컬럼의 생성/변경 거래를 실행한 거래의 GUID Eng)specifies the transaction GUID that changes the record*/
+  FROM  XP_IX_SMTN_M
+ WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{startDt}
+   AND TX_DT &lt;= #{endDt}
+ order by tx_dt desc
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectListXpIxAgrgtMCount" resultType="java.lang.Integer">
+SELECT    /* Kor)타행환공동망 거래의 집계 정보를 관리함 Eng) */
+        count(TX_DT)
+  FROM  XP_IX_SMTN_M
+ WHERE INST_CD = #{instCd}
+   AND TX_DT &gt;= #{startDt}
+   AND TX_DT &lt;= #{endDt}
+</select>
+<select id="selectIxAgrgtMByTxDt" resultType="bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxAgrgtMIO">
+SELECT    /* 타행환공동망거래의집계정보를관리함 */
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        FNCL_INST_CD AS fnclInstCd,     /*금융기관코드*/
+        OPN_CASH_DPST_CNT AS opnCashDpstCnt,     /*개설현금입금건수*/
+        OPN_CASH_DPST_AMT AS opnCashDpstAmt,     /*개설현금입금금액*/
+        OPN_CASH_CNCL_CNT AS opnCashCnclCnt,     /*개설현금취소건수*/
+        OPN_CASH_CNCL_AMT AS opnCashCnclAmt,     /*개설현금취소금액*/
+        OPN_CASH_DPST_INCPBLTY_CNT AS opnCashDpstIncpbltyCnt,     /*개설현금입금불능건수*/
+        OPN_CASH_DPST_INCPBLTY_AMT AS opnCashDpstIncpbltyAmt,     /*개설현금입금불능금액*/
+        OPN_BNK_CHK_INQRY_CNT AS opnBnkChkInqryCnt,     /*개설자기앞수표조회건수*/
+        OPN_DFLT_WHDRWL_TX_CNT AS opnDfltWhdrwlTxCnt,     /*개설부도출금거래건수*/
+        OPN_DFLT_WHDRWL_TX_AMT AS opnDfltWhdrwlTxAmt,     /*개설부도출금거래금액*/
+        HNDLNG_CASH_DPST_CNT AS hndlngCashDpstCnt,     /*취급현금입금건수*/
+        HNDLNG_CASH_DPST_AMT AS hndlngCashDpstAmt,     /*취급현금입금금액*/
+        HNDLNG_CASH_CNCL_CNT AS hndlngCashCnclCnt,     /*취급현금취소건수*/
+        HNDLNG_CASH_CNCL_AMT AS hndlngCashCnclAmt,     /*취급현금취소금액*/
+        HNDLNG_CASH_DPST_INCPBLTY_CNT AS hndlngCashDpstIncpbltyCnt,     /*취급현금입금불능건수*/
+        HNDLNG_CASH_DPST_INCPBLTY_AMT AS hndlngCashDpstIncpbltyAmt,     /*취급현금입금불능금액*/
+        HNDLNG_BNK_CHK_INQRY_CNT AS hndlngBnkChkInqryCnt,     /*취급자기앞수표조회건수*/
+        HNDLNG_DFLT_WHDRWL_TX_CNT AS hndlngDfltWhdrwlTxCnt,     /*취급부도출금거래건수*/
+        HNDLNG_DFLT_WHDRWL_TX_AMT AS hndlngDfltWhdrwlTxAmt,     /*취급부도출금거래금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_IX_SMTN_M
+ WHERE TX_DT = #{txDt, jdbcType=VARCHAR}
+</select>
+<select id="selectForUpdate" parameterType="bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxAgrgtMIO" resultType="bankware.corebanking.externalproxy.ixjointnetwork.dao.dto.XpIxAgrgtMIO">
+SELECT    /* 타행환공동망거래의집계정보를관리함 */
+        INST_CD AS instCd,     /*기관코드*/
+        TX_DT AS txDt,     /*거래년월일*/
+        FNCL_INST_CD AS fnclInstCd,     /*금융기관코드*/
+        OPN_CASH_DPST_CNT AS opnCashDpstCnt,     /*개설현금입금건수*/
+        OPN_CASH_DPST_AMT AS opnCashDpstAmt,     /*개설현금입금금액*/
+        OPN_CASH_CNCL_CNT AS opnCashCnclCnt,     /*개설현금취소건수*/
+        OPN_CASH_CNCL_AMT AS opnCashCnclAmt,     /*개설현금취소금액*/
+        OPN_CASH_DPST_INCPBLTY_CNT AS opnCashDpstIncpbltyCnt,     /*개설현금입금불능건수*/
+        OPN_CASH_DPST_INCPBLTY_AMT AS opnCashDpstIncpbltyAmt,     /*개설현금입금불능금액*/
+        OPN_BNK_CHK_INQRY_CNT AS opnBnkChkInqryCnt,     /*개설자기앞수표조회건수*/
+        OPN_DFLT_WHDRWL_TX_CNT AS opnDfltWhdrwlTxCnt,     /*개설부도출금거래건수*/
+        OPN_DFLT_WHDRWL_TX_AMT AS opnDfltWhdrwlTxAmt,     /*개설부도출금거래금액*/
+        HNDLNG_CASH_DPST_CNT AS hndlngCashDpstCnt,     /*취급현금입금건수*/
+        HNDLNG_CASH_DPST_AMT AS hndlngCashDpstAmt,     /*취급현금입금금액*/
+        HNDLNG_CASH_CNCL_CNT AS hndlngCashCnclCnt,     /*취급현금취소건수*/
+        HNDLNG_CASH_CNCL_AMT AS hndlngCashCnclAmt,     /*취급현금취소금액*/
+        HNDLNG_CASH_DPST_INCPBLTY_CNT AS hndlngCashDpstIncpbltyCnt,     /*취급현금입금불능건수*/
+        HNDLNG_CASH_DPST_INCPBLTY_AMT AS hndlngCashDpstIncpbltyAmt,     /*취급현금입금불능금액*/
+        HNDLNG_BNK_CHK_INQRY_CNT AS hndlngBnkChkInqryCnt,     /*취급자기앞수표조회건수*/
+        HNDLNG_DFLT_WHDRWL_TX_CNT AS hndlngDfltWhdrwlTxCnt,     /*취급부도출금거래건수*/
+        HNDLNG_DFLT_WHDRWL_TX_AMT AS hndlngDfltWhdrwlTxAmt,     /*취급부도출금거래금액*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  XP_IX_SMTN_M
+ WHERE INST_CD = #{instCd}
+   AND TX_DT = #{txDt}
+   AND FNCL_INST_CD = #{fnclInstCd}
+   FOR UPDATE
+</select>
+</mapper>

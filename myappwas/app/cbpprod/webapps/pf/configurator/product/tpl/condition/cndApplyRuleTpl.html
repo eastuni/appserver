@@ -1,0 +1,102 @@
+<!-- 적용규칙 (수수료할인적용규칙, 우대금리적용규칙) -->
+<div class="apply-rule-title-wrap">
+    <span class="cnd-value-title">{{bxMsg 'ApplyRule'}}</span>
+    <!-- 적용규칙 -->
+</div>
+<table class="bx-info-table">
+    <tr>
+        <!-- 적용시작일자 -->
+        <th>{{bxMsg 'PAS0202String19'}}</th>
+        <td>
+            <input type="text" class="bx-form-item bx-compoenent-small calendar start-date" data-form-param="applyStartDate" value="{{applyStartDate}}">
+        </td>
+        <!-- 적용종료일자 -->
+        <th>{{bxMsg 'PAS0202String20'}}</th>
+        <td>
+            <input type="text" class="bx-form-item bx-compoenent-small calendar end-date" data-form-param="applyEndDate" value="{{applyEndDate}}">
+        </td>
+        <td>
+            <span style="float:right;">
+                <button type="button" class="bw-btn pf-cp-apply-rule-history-btn" icon-tooltip="{{bxMsg 'ButtonGrayString3'}}">
+                    <i class="bw-icon i-25 i-func-history"></i>
+                </button>
+                </span>
+        </td>
+    </tr>
+    <tr>
+        <!-- 상태 -->
+        <th>{{bxMsg 'DPS0101String6'}}</th>
+        <td>
+            <select data-form-param="ruleStatusCode" value="{{ruleStatusCode}}" class="bx-form-item bx-compoenent-small status" disabled>
+                </select>
+        </td>
+        <!-- 최대할인 -->
+        <th><span class="max-discount">{{bxMsg 'MaxDiscount'}}</span></th>
+        <td>
+            <label class="discount-radio max-discount"><input type="radio" name="discount-radio" class="bx-form-item discount-radio discount-amount" value="02" checked>{{bxMsg 'DPS0121_4BString2'}}</label>
+            <label class="discount-radio max-discount"><input type="radio" name="discount-radio" class="bx-form-item discount-radio discount-rate" value="01">{{bxMsg 'DPS0121_4BString3'}}</label>
+            <input type="text" data-form-param="maxAmount" value="{{maxAmount}}" class="bx-form-item bx-compoenent-small removeComma float21 input-align-right max-amount max-discount" />
+            <input type="hidden" data-form-param="maxRate" value="{{maxRate}}" class="bx-form-item bx-compoenent-small removeComma float10 input-align-right max-rate max-discount" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5">
+            <button type="button" class="formula-cal-btn large-btn text-input-btn min" value="MIN">MIN</button>
+            <button type="button" class="formula-cal-btn large-btn text-input-btn max" value="MAX">MAX</button>
+            <button type="button" class="formula-cal-btn large-btn text-input-btn avg" value="AVG">AVG</button>
+            <button type="button" class="formula-cal-btn large-btn text-input-btn sum" value="SUM">SUM</button>
+
+            <button type="button" class="formula-cal-btn large-btn text-input-btn and" value="AND">AND</button>
+            <button type="button" class="formula-cal-btn large-btn text-input-btn or" value="OR">OR</button>
+            <button type="button" class="formula-cal-btn large-btn text-input-btn not" value="NOT">NOT</button>
+            <button type="button" class="formula-cal-btn text-input-btn priority" value="PRIORITY" style="width: 80px">PRIORITY</button>
+            <button type="button" class="formula-cal-btn text-input-btn match" value="MATCH" style="width: 60px">MATCH</button>
+
+            <button type="button" class="formula-cal-btn small-btn text-input-btn" value="(">(</button>
+            <button type="button" class="formula-cal-btn small-btn text-input-btn" value=")">)</button>
+            <button type="button" class="formula-cal-btn small-btn text-input-btn" value=",">,</button>
+            <button type="button" class="formula-cal-btn small-btn back-space-btn">←</button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5">
+            <!-- 2017.05.17 적용규칙 Help버튼 추가 -->
+            <button type="button" class="bw-btn pf-cp-apply-rule-help-btn write-btn" icon-tooltip="{{bxMsg 'helpBtn'}}" style="float:right;margin-top: -10px;">
+   					<!--<i class="icon-help" style="width:20px;height:20px"></i>-->
+   					<i class="bw-icon i-25 i-help" style="width:20px;height:20px"></i>
+				</button>
+
+            <!-- 적용규칙 검증버튼 -->
+            <button type="button" class="bw-btn rule-validation-btn" icon-tooltip="{{bxMsg 'validation'}}" style="float:right;margin-top: -10px;">
+					<i class="bw-icon i-25 i-func-submit2"></i>
+				</button>
+
+
+            <!-- 적용규칙 -->
+            <textarea data-form-param="ruleContent" class="bx-form-item bx-compoenent-small apply-rule">{{ruleContent}}</textarea>
+
+            <!-- 적용규칙 변환공식 -->
+            <textarea data-form-param="ruleDesc" class="bx-form-item bx-compoenent-small apply-rule-desc" readonly>{{ruleDesc}}</textarea>
+            <div style="text-align: center; margin-top: 10px; color: red;" class="applyRuleSyntaxError"><span>{{bxMsg 'applyRuleSyntaxError'}}</span></div>
+
+            <!-- 숨김 : ruleID -->
+            <input type="hidden" class="bx-form-item bx-compoenent-small rule-id" data-form-param="ruleId" value="{{ruleId}}">
+            <input type="hidden" class="bx-form-item bx-compoenent-small rule-apply-target-distinction-code" data-form-param="ruleApplyTargetDistinctionCode" value="{{ruleApplyTargetDistinctionCode}}">
+        </td>
+    </tr>
+</table>
+<footer class="pf-panel-footer">
+
+    <button type="button" class="bw-btn pf-cp-apply-rule-delete-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString2'}}">
+            <i class="bw-icon i-30 i-func-trash"></i>
+        </button>
+
+    <button type="button" class="bw-btn pf-cp-apply-rule-save-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+            <i class="bw-icon i-30 i-func-save"></i>
+        </button>
+
+    <!--<button class="pf-cp-apply-rule-grapic-view-btn bx-btn-small bw-btn ">{{bxMsg 'grapicView'}}</button>		&lt;!&ndash; 그래픽으로보기 &ndash;&gt;-->
+    <button type="button" class="bw-btn pf-cp-apply-rule-grapic-view-btn" icon-tooltip="{{bxMsg 'grapicView'}}">
+            <i class="bw-icon i-30 i-view-graphic"></i>
+        </button>
+</footer>

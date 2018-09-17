@@ -1,0 +1,31 @@
+OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.GR6723InqryInterfaceIO
+<description="출금은행용 지방세입금 수납내역">
+{
+	String instCd<length=14 description="기관코드">;
+	String txDt<length=8 description="거래일자">;
+	String seqNbr<length=7 description="일련번호">;
+	String useIssueInstDscd<length=2 description="이용기관발행기관분류코드">;
+	String useInstGiroNbr<length=7 description="이용기관지로번호">;
+	String whdrwlBnkCd<length=3 description="출금은행코드">;
+	String pymntOblgtrIdNbr<length=13 description="납부의무자 주민등록번호">;
+	String taxPymntNbr<length=32 description="납세번호">;
+	String elctrncPymntNbr<length=19 description="전자납부번호">;
+	BigDecimal rcptAmt<length=12 description="수납금액">;
+	String whdrwlBnkBrnchCd<length=7 description="출금은행점별코드">;
+	String payerIdNbr<length=13 description="납부자주민등번호">;
+	String pymntUseSysDscd<length=1 description="납부이용시스템">;
+	String pymntFormDscd<length=1 description="납부형태구분">;
+	String crdtCardAprvlNbr<length=12 description="신용카드승인번호">;
+	String crdtCardInstlmntMnthCnt<length=2 description="신용카드할부개월수">;
+	BigDecimal bfPrdAmt<length=12 description="납기내금액">;
+	BigDecimal afPrdAmt<length=12 description="납기후금액">;
+	String prdDt<length=8 description="납기일">;
+	BigDecimal dtlTaxNm1Amt<length=12 description="상세세목1금액">;
+	BigDecimal dtlTaxNmTwoAmt<length=12 description="상세세목2금액">;
+	BigDecimal dtlTaxNmThreeAmt<length=12 description="상세세목3금액">;
+	BigDecimal dtlTaxNmFourAmt<length=12 description="상세세목4금액">;
+	BigDecimal dtlTaxNmFiveAmt<length=12 description="상세세목5금액">;
+	String chkContainYn<length=1 description="수표포함여부">;
+	String totPymntUnqNbr<length=19 description="전체납부고유번호">;
+	String rcptDt<length=8 description="수납일자">;
+}

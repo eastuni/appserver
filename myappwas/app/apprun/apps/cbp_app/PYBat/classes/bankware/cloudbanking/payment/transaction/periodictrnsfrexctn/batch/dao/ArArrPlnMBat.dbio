@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.cloudbanking.payment.transaction.periodictrnsfrexctn.batch.dao.ArArrPlnMBat">
+<!--Generated Thu Aug 24 10:36:04 KST 2017-->
+<select id="selectList" resultType="bankware.cloudbanking.payment.transaction.periodictrnsfrexctn.batch.dao.dto.ArArrPlnMIO">
+select T1.ARR_ID		  as arrId
+
+      ,T1.PLN_SEQ_NBR	  as plnSeqNbr
+
+	   ,T1.ARR_SRVC_TP_CD as arrSrvcTpCd
+	   
+	   ,T2.ACCTG_DEPT_ID as txDeptId
+
+ from ar_arr_pln_m        T1,
+
+      ar_arr_m            T2
+
+where T1.ARR_ID = T2.ARR_ID
+
+  and T1.INST_CD          = #{instCd}
+
+  and T1.ARR_SRVC_TP_CD   = #{arrSrvcTpCd}
+
+  and T1.ARR_PLN_STS_CD   = '1'
+
+  and T1.NXT_EXCTN_PLN_DT = #{baseDt}
+
+  and T2.ARR_STS_CD       = 'A'
+  
+  and T2.INST_CD          = T1.INST_CD
+</select>
+</mapper>

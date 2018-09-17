@@ -1,0 +1,10 @@
+OMM bankware.corebanking.p2plending.listreport.service.dto.CashFlow
+<description="Cash Flow By Monthly">
+{
+	String rpymntStsCd<length=1 description="상환상태코드">;
+	String rpymntSchdldDt<length=8 description="상환예정일">;
+	BigDecimal rpymntSchdldAmt<length=18 decimal=2 description="상환예정금액">;
+	Integer rpymntCyclNbr<length=7 description="상환회차번호">;
+	String arrId<length=15 description="계약식별자">;
+	String rpymntStsNm<length=20 description="상환상태명">;
+}

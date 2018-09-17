@@ -1,0 +1,8 @@
+OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.GR7790InqryIFIn
+<description="GR7790-서울시 지방세입금 은행 납부 내역 조회 INPUT">
+{
+	String inqryStartDt<length=8 description="조회시작일자">;
+	String inqryEndDt<length=8 description="조회종료일자">;
+	Integer pgNbr<length=5 description="페이지번호">;
+	Integer pgCnt<length=5 description="페이지건수">;
+}

@@ -1,0 +1,9 @@
+OMM bxm.web.admin.system.setting.domain.ValidationRuleSearchConditionOMM
+<description="">
+{
+	String validRuleId<length=20>;
+	String type<length=20>;
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+	String domainId<length=14 description="도메인 ID">;
+}

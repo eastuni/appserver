@@ -1,0 +1,7 @@
+OMM bxm.ccmainmng.online.dao.dto.SelectListDTZF302001AOut
+<description="">
+{
+	String appLv2Cd<length=20 description="어플리케이션 Lv2 코드">;
+	String appLv2Nm<length=20 description="어플리케이션 Lv2 명">;
+	Integer cnt<length=9 description="개수">;
+}

@@ -1,0 +1,7 @@
+OMM bxm.web.admin.deferred.domain.DfrdWorkProgrssSituation01In
+<description="후행작업진행상황 DTO">
+{
+	bxm.web.admin.deferred.domain.DfrdWork01IO dfrdWorkIO<length=0 description="후행작업">;
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+}

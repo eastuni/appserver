@@ -1,0 +1,9 @@
+<div class="calculation-rule-condition-list">
+	<ul>
+		{{#each list}}
+		<li class="calculation-rule-condition-list-item ellipsis"
+			icon-tooltip="[{{this.conditionCode}}] {{this.text}}" value="{{this.conditionCode}}">
+			<strong>[{{this.conditionCode}}]</strong><br />{{this.text}}
+		</li> {{/each}}
+	</ul>
+</div>

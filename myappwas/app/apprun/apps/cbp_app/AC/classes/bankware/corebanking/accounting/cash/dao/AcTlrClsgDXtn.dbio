@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.accounting.cash.dao.AcTlrClsgDXtn">
+<!--Generated Thu Mar 15 12:57:18 KST 2018-->
+<select id="selectList" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcTlrClsgDXtnIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcTlrClsgDXtnIO">
+SELECT
+
+   inst_cd   AS instCd   /*기관코드*/,
+
+   base_dt   AS baseDt   /*기준년월일*/,
+
+   dept_id   AS deptId   /*부서식별자*/,
+
+   staff_id   AS staffId   /*스태프식별자*/,
+
+   tlr_clsg_dscd   AS tlrClsgDscd   /*텔러마감구분코드*/,
+
+   biz_opn_dt   AS bizOpnDt   /*업무개시년월일*/,
+
+   biz_opn_hms   AS bizOpnHms   /*업무개시시각*/,
+   biz_clsg_dt   AS bizClsgDt   /*업무마감년월일*/,
+
+   biz_clsg_hms   AS bizClsgHms   /*업무마감시각*/,
+
+   last_chng_tmstmp   AS lastChngTmstmp   /*최종변경일시*/,
+
+   last_chng_guid   AS lastChngGuid   /*최종변경GUID*/ 
+
+FROM AC_TLR_CLSG_D
+
+ WHERE INST_CD =   #{instCd}
+
+<if test="deptId != null and deptId != ''">   
+
+   AND DEPT_ID =   #{deptId}
+
+</if>
+
+<if test="staffId != null and staffId != ''">   
+
+   AND STAFF_ID =  #{staffId}
+
+</if>
+
+<if test="baseDt != null and baseDt != ''">   
+
+  AND BASE_DT =   #{baseDt} 
+
+</if>
+
+<if test="tlrClsgDscd != null and tlrClsgDscd != ''">   
+
+  AND TLR_CLSG_DSCD =   #{tlrClsgDscd}
+
+</if>
+
+order by base_dt desc
+</select>
+<update id="updateOpngRgstrn" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcTlrClsgDXtnIO">
+UPDATE AC_TLR_CLSG_D
+
+   SET  BIZ_OPN_DT = #{bizOpnDt}   /*업무개시년월일*/
+
+      ,  biz_opn_hms = #{bizOpnHms}   /*업무개시시각*/
+ WHERE INST_CD =   #{instCd} 
+
+   AND BASE_DT =   #{baseDt}
+
+   AND DEPT_ID =   #{deptId} 
+
+   AND STAFF_ID =  #{staffId}
+</update>
+<select id="select" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcTlrClsgDXtnIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcTlrClsgDXtnIO">
+SELECT
+
+   inst_cd   AS instCd   /*기관코드*/,
+
+   base_dt   AS baseDt   /*기준년월일*/,
+
+   dept_id   AS deptId   /*부서식별자*/,
+
+   staff_id   AS staffId   /*스태프식별자*/,
+
+   tlr_clsg_dscd   AS tlrClsgDscd   /*텔러마감구분코드*/,
+
+   biz_opn_dt   AS bizOpnDt   /*업무개시년월일*/,
+
+   biz_opn_hms   AS bizOpnHms   /*업무개시시각*/,
+   biz_clsg_dt   AS bizClsgDt   /*업무마감년월일*/,
+
+   biz_clsg_hms   AS bizClsgHms   /*업무마감시각*/,
+
+   last_chng_tmstmp   AS lastChngTmstmp   /*최종변경일시*/,
+
+   last_chng_guid   AS lastChngGuid   /*최종변경GUID*/ 
+
+ FROM  ac_tlr_clsg_d
+
+ WHERE  INST_CD = #{instCd}   /*기관코드*/
+
+      AND  BASE_DT = #{baseDt}   /*기준년월일*/
+
+      AND  DEPT_ID = #{deptId}   /*부서식별자*/
+
+      AND  STAFF_ID = #{staffId}   /*스태프식별자*/
+
+      <if test="tlrClsgDscd != null and tlrClsgDscd != ''">   
+
+	  AND TLR_CLSG_DSCD =   #{tlrClsgDscd}
+
+      </if>
+</select>
+<insert id="insert" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcTlrClsgDXtnIO">
+INSERT
+
+   INTO  ac_tlr_clsg_d
+
+(
+
+   inst_cd       /*기관코드*/,
+
+   base_dt       /*기준년월일*/,
+
+   dept_id       /*부서식별자*/,
+
+   staff_id       /*스태프식별자*/,
+
+   tlr_clsg_dscd       /*텔러마감구분코드*/,
+
+   biz_opn_dt       /*업무개시년월일*/,
+
+   biz_opn_hms       /*업무개시시각*/,
+   biz_clsg_dt       /*업무마감년월일*/,
+
+   biz_clsg_hms       /*업무마감시각*/,
+
+   last_chng_tmstmp       /*최종변경일시*/,
+
+   last_chng_guid       /*최종변경GUID*/
+
+)
+
+VALUES
+
+(
+
+   #{instCd}   /*기관코드*/,
+
+   #{baseDt}   /*기준년월일*/,
+
+   #{deptId}   /*부서식별자*/,
+
+   #{staffId}   /*스태프식별자*/,
+
+   #{tlrClsgDscd}   /*텔러마감구분코드*/,
+
+   #{bizOpnDt}   /*업무개시년월일*/,
+
+   #{bizOpnHms}   /*업무개시시각*/,
+   #{bizClsgDt}   /*업무마감년월일*/,
+
+   #{bizClsgHms}   /*업무마감시각*/,
+
+   #{lastChngTmstmp}   /*최종변경일시*/,
+
+   #{lastChngGuid}   /*최종변경GUID*/ 
+
+)
+</insert>
+<update id="update" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcTlrClsgDXtnIO">
+UPDATE
+
+        ac_tlr_clsg_d
+
+  SET
+
+        TLR_CLSG_DSCD = #{tlrClsgDscd}   /*텔러마감구분코드*/
+
+      ,  BIZ_OPN_DT = #{bizOpnDt}   /*업무개시년월일*/
+
+      ,  biz_opn_hms = #{bizOpnHms}   /*업무개시시각*/
+      ,  BIZ_CLSG_DT = #{bizClsgDt}   /*업무마감년월일*/
+
+      ,  BIZ_CLSG_HMS = #{bizClsgHms}   /*업무마감시각*/
+
+      ,  LAST_CHNG_TMSTMP = #{lastChngTmstmp}   /*최종변경일시*/
+
+      ,  LAST_CHNG_GUID = #{lastChngGuid}   /*최종변경GUID*/
+
+ WHERE  INST_CD = #{instCd}   /*기관코드*/
+
+      AND  BASE_DT = #{baseDt}   /*기준년월일*/
+
+      AND  DEPT_ID = #{deptId}   /*부서식별자*/
+
+      AND  STAFF_ID = #{staffId}   /*스태프식별자*/
+</update>
+<update id="updateClsgRgstrn" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcTlrClsgDXtnIO">
+UPDATE  
+        ac_tlr_clsg_d    /* 텔러마감명세 */
+   SET  TLR_CLSG_DSCD = #{tlrClsgDscd}    /* 텔러마감구분코드 */
+     , BIZ_CLSG_DT = #{bizClsgDt}    /* 업무마감년월일 */
+     , BIZ_CLSG_HMS = #{bizClsgHms}    /* 업무마감시각 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE INST_CD = #{instCd}
+   AND BASE_DT = #{baseDt}
+   AND DEPT_ID = #{deptId}
+   AND STAFF_ID = #{staffId}
+</update>
+<select id="selectBizDtTlrClsgByBfBizDtCashOnHandMysql" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcTlrClsgDSelectBizDtTlrClsgByBfBizDtCashOnHandIn" resultType="bankware.corebanking.accounting.cash.dao.dto.AcTlrClsgDSelectBizDtTlrClsgByBfBizDtCashOnHandOut">
+SELECT 
+	a.inst_cd as instCd,
+	a.base_dt as bfBizDt,
+	a.dept_id as deptId,
+	a.staff_id as staffId,
+	a.sumAmt as sumAmt,
+	#{baseDt} as baseDt,
+	b.TLR_CLSG_DSCD as tlrClsgDscd
+FROM
+
+(SELECT
+  a.inst_cd, a.base_dt, a.dept_id, a.staff_id, b.tlr_clsg_dscd,
+  SUM(biz_dt_crncy_amt+biz_dt_chk_amt) AS sumAmt
+  FROM  ac_tlr_tx_sumn_d a, ac_tlr_clsg_d b
+ WHERE  a.INST_CD = #{instCd}   /*기관코드*/
+   AND  a.BASE_DT = #{bfBizDt}   /*기준년월일*/
+   AND  a.DEPT_ID = #{deptId}   /*부서식별자*/
+<if test="staffId != null and staffId != ''"> 
+   AND  a.STAFF_ID = #{staffId}   /*스태프식별자*/
+</if>
+   AND a.INST_CD = b.INST_CD
+   AND a.BASE_DT = b.BASE_DT
+   AND a.DEPT_ID = b.DEPT_ID
+   AND a.STAFF_ID = b.STAFF_ID
+ GROUP BY a.INST_CD, a.BASE_DT, a.DEPT_ID, a.STAFF_ID, b.TLR_CLSG_DSCD
+HAVING sumAmt &lt;&gt; 0 ) a 
+	
+	LEFT OUTER JOIN
+	
+(SELECT
+  inst_cd, base_dt, dept_id, staff_id, tlr_clsg_dscd 
+  FROM ac_tlr_clsg_d
+ WHERE inst_cd = #{instCd}
+   AND base_dt = #{baseDt}
+   AND dept_id = #{deptId}) b
+	 
+	ON a.inst_cd = b.inst_cd
+	AND a.dept_id = b.dept_id
+	AND a.staff_id = b.staff_id
+</select>
+<select id="selectBizDtTlrClsgByBfBizDtCashOnHandOracle" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcTlrClsgDSelectBizDtTlrClsgByBfBizDtCashOnHandIn" resultType="bankware.corebanking.accounting.cash.dao.dto.AcTlrClsgDSelectBizDtTlrClsgByBfBizDtCashOnHandOut">
+SELECT 
+	a.inst_cd as instCd,
+	a.base_dt as bfBizDt,
+	a.dept_id as deptId,
+	a.staff_id as staffId,
+	a.sumAmt as sumAmt,
+	#{baseDt} as baseDt,
+	b.TLR_CLSG_DSCD as tlrClsgDscd
+FROM
+
+(SELECT
+  a.inst_cd, a.base_dt, a.dept_id, a.staff_id, b.tlr_clsg_dscd,
+  SUM(biz_dt_crncy_amt+biz_dt_chk_amt) AS sumAmt
+  FROM  ac_tlr_tx_sumn_d a, ac_tlr_clsg_d b
+ WHERE  a.INST_CD = #{instCd}   /*기관코드*/
+   AND  a.BASE_DT = #{bfBizDt}   /*기준년월일*/
+   AND  a.DEPT_ID = #{deptId}   /*부서식별자*/
+<if test="staffId != null and staffId != ''"> 
+   AND  a.STAFF_ID = #{staffId}   /*스태프식별자*/
+</if>
+   AND a.INST_CD = b.INST_CD
+   AND a.BASE_DT = b.BASE_DT
+   AND a.DEPT_ID = b.DEPT_ID
+   AND a.STAFF_ID = b.STAFF_ID
+ GROUP BY a.INST_CD, a.BASE_DT, a.DEPT_ID, a.STAFF_ID, b.TLR_CLSG_DSCD
+HAVING SUM(biz_dt_crncy_amt+biz_dt_chk_amt+cash_rcvd_amt + cash_whdrwl_amt + chk_rcvd_amt + chk_whdrwl_amt + 
+	  othr_chk_rcvd_amt + othr_chk_whdrwl_amt + trnsfr_rcvd_amt + trnsfr_whdrwl_amt + trnsfr_rcvd_dmstc_amt + 
+	  trnsfr_whdrwl_dmstc_amt + dfrnc_adjstmnt_amt + snd_cash_amt + snd_trnsfr_amt + snd_chk_amt + rcv_cash_amt + 
+	  rcv_trnsfr_amt + rcv_chk_amt) &lt;&gt; 0) a 
+	
+	LEFT OUTER JOIN
+	
+(SELECT
+  inst_cd, base_dt, dept_id, staff_id, tlr_clsg_dscd 
+  FROM ac_tlr_clsg_d
+ WHERE inst_cd = #{instCd}
+   AND base_dt = #{baseDt}
+   AND dept_id = #{deptId}) b
+	 
+	ON a.inst_cd = b.inst_cd
+	AND a.dept_id = b.dept_id
+	AND a.staff_id = b.staff_id
+</select>
+</mapper>

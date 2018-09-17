@@ -1,0 +1,77 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'app-deploy.deploy-history'}}
+    <p class="desc">{{bxMsg 'app-deploy.deploy-history-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap deploy-history-search">
+    <!--INPUT TYPE1 * 분할 없이 INLINE-->
+    <ul class="clr">
+        <li class="input-wrap w-40">
+            <label class="bw-label w-30">{{bxMsg 'app-deploy.deploy-history-id'}}</label>
+            <input type="text" class="bw-input w-70" data-form-param="deployId"/>
+        </li>
+        <li class="input-wrap w-25">
+            <label class="bw-label w-40">{{bxMsg 'app-deploy.process-level'}}</label>
+            <select class="bw-input ipt-select w-60" data-form-param="deployProcMethodNm"></select>
+        </li>
+        <li class="input-wrap w-25">
+            <label class="bw-label w-40">{{bxMsg 'app-deploy.success-yn'}}</label>
+            <select class="bw-input ipt-select w-60" data-form-param="deploySuccessYn">
+                <option value="">{{bxMsg 'common.all'}}</option>
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+            </select>
+        </li>
+    </ul>
+    <ul class="clr">
+        <li class="input-wrap w-33">
+            <label class="bw-label w-30">{{bxMsg 'app-deploy.process-date'}}</label>
+            <input type="text" class="bw-input ipt-cal a-center w-35" data-form-param="regOccurDttmStart[0]"/>
+            <input type="text" class="bw-input ipt-time a-center w-35" data-form-param="regOccurDttmStart[1]"/>
+        </li>
+        <li class="clr" style="margin-top: 5px; margin-right: 10px;">
+            <span class="unit-desc">~</span>
+        </li>
+        <li class="input-wrap w-25">
+            <input type="text" class="bw-input ipt-cal a-center w-50" data-form-param="regOccurDttmEnd[0]"/>
+            <input type="text" class="bw-input ipt-time a-center w-50" data-form-param="regOccurDttmEnd[1]"/>
+        </li>
+    </ul>
+    <!--/END INPUT TYPE1-->
+</section>
+<!--/END SEARCH AREA-->
+<!--GRID AREA-->
+<section class="deploy-history-grid"></section>
+<!--/END GRID AREA-->
+<!--BW-SUB TITLE * 컨텐츠 서브타이틀-->
+<h3 class="bw-stt add-mg-t">{{bxMsg 'app-deploy.deploy-history-detail'}}<p class="desc deploy-history-detail-title"></p></h3>
+<!--/END BW-SUB TITLE-->
+<!--INFO AREA * 상세 영역-->
+<section class="search-wrap clr add-bd2-t">
+
+    <!-- 좌측 상단 그리드  -->
+    <div class="sub-section module w-100">
+        <h4>{{bxMsg 'app-deploy.instance-deploy-history'}}</h4>
+        <!--GRID AREA-->
+        <section class="add-bd2-t instance-deploy-history-grid"></section>
+        <!--/END GRID AREA-->
+    </div>
+
+    <!-- 좌측 하단 그리드  -->
+    <div class="sub-section module w-100">
+        <h4>{{bxMsg 'app-deploy.app-deploy-history'}}</h4>
+        <!--GRID AREA-->
+        <section class="add-bd2-t app-deploy-history-grid"></section>
+        <!--/END GRID AREA-->
+    </div>
+</section>

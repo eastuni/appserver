@@ -1,0 +1,29 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for Change search
+ * 정보변경개발과제검색 CSS 
+ */
+.pf-pc .pf-pcge-conts {
+    margin: 10px auto; }
+.pf-pc th {
+    width: 90px;
+    text-align: left; }
+.pf-pc .change-query-table td {
+    line-height: 29px; }
+.pf-pc .change-query-table tr {
+    margin-bottom: 10px;
+    height: 35px; }
+.pf-pc .change-query-table .padding-th {
+    padding-left: 10px; }
+.pf-pc .task-query-button-box {
+    margin-top: 5px;
+    text-align: right; }
+.pf-pc .dev-task-activity-grid {
+    height: 200px; }
+.pf-pc .middle-grid {
+    height: 350px; }
+
+.pf-pc-change-list-grid .x-tree-icon-parent, .pf-pc-change-list-grid .x-tree-icon-leaf {
+    width: 0px;
+    background-image: none;
+}

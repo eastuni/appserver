@@ -1,0 +1,72 @@
+<div class="modal-wrap">
+    <h2 class="bw-tt a-center">{{bxMsg 'online.link-flow-main-add'}}</h2>
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t bx-no-draggable link-flow-main-form">
+        <!--INPUT TYPE2 * 균등 2분할 -->
+        <ul class="clr">
+            <li class="w-34">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-40">
+                        {{bxMsg 'online.start-trading-code'}}
+                        <button type="button" class="bw-btn search-link-start-trading-code-btn" title="{{bxMsg 'online.start-trading-code-search'}}">
+                            <i class="bw-icon i-20 i-func-search"></i>
+                        </button>
+                    </label>
+                    <input type="text" class="bw-input w-60" data-form-param="linkStartTrxCd" readonly/>
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-30">{{bxMsg 'online.start-trading-name'}}</label>
+                    <input type="text" class="bw-input w-70" name="trxNm" readonly/>
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-30">{{bxMsg 'online.use-yn'}}</label>
+                    <select class="bw-input ipt-select w-70" data-form-param="useYn">
+                        <option value="Y">Y</option>
+                        <option value="N">N</option>
+                    </select>
+                </div>
+            </li>
+            <li class="w-34">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'online.link-representative-code'}}</label>
+                    <input type="text" class="bw-input w-40" data-form-param="linkMainCd" readonly/>
+                    <span class="w-20">
+                        <input type="checkbox" class="bw-input" name="changeLinkMain">
+                        <label class="bw-form-msg">{{bxMsg 'online.manual-input'}}</label>
+                    </span>
+                </div>
+            </li>
+            <li class="w-66">
+                <div class="input-wrap clr">
+                    <label class="bw-label modified-pwd w-30">{{bxMsg 'online.link-control-fqn'}}</label>
+                    <input type="text" class="bw-input w-70" name="linkCtrlFqn" readonly/>
+                </div>
+            </li>
+            <li class="w-34">
+                <div class="input-wrap clr">
+                    <label class="bw-label modified-check-pwd w-40">{{bxMsg 'online.link-output-confirm-yn'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="linkOutputCheckYn">
+                        <option value="Y">Y</option>
+                        <option value="N">N</option>
+                    </select>
+                </div>
+            </li>
+            <li class="w-66">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-30">{{bxMsg 'online.link-output-confirm-fqn'}}</label>
+                    <input type="text" class="bw-input w-70" data-form-param="linkOutputFqn" />
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on save-btn">{{bxMsg 'common.save'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

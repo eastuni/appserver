@@ -1,0 +1,42 @@
+<div class="modal-wrap">
+    {{#if testKeyId}}<h2 class="bw-tt a-center">{{bxMsg 'trx-setting.test-param-edit'}}({{testKeyId}})</h2>{{/if}}
+    {{#unless testKeyId}}<h2 class="bw-tt a-center">{{bxMsg 'trx-setting.test-param-add'}}</h2>{{/unless}}
+
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t fix-h bx-no-draggable test-param-form">
+        <ul class="col-2 clr">
+            <li>
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-30">{{bxMsg 'trx-setting.test-level'}}</label>
+                    {{#if testKeyId}} <select class="bw-input ipt-select w-70" data-form-param="testKeyTypeCd" disabled></select>{{/if}}
+                    {{#unless testKeyId}} <select class="bw-input ipt-select w-70" data-form-param="testKeyTypeCd"></select>{{/unless}}
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-30">{{bxMsg 'trx-setting.test-date'}}</label>
+                    <input type="text" class="bw-input ipt-cal w-70" data-form-param="testDt" value="{{testDt}}">
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-30">{{bxMsg 'trx-setting.test-key-id'}}</label>
+                    {{#if testKeyId}} <input type="text" class="bw-input w-70" data-form-param="testKeyId" value="{{testKeyId}}" readonly/>{{/if}}
+                    {{#unless testKeyId}} <input type="text" class="bw-input w-70" data-form-param="testKeyId"/>{{/unless}}
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-30">{{bxMsg 'trx-setting.test-eai-id'}}</label>
+                    <select class="bw-input ipt-select w-70" data-form-param="testEaiId"></select>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on save-test-param-btn">{{bxMsg 'common.save'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

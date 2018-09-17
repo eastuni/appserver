@@ -1,0 +1,7 @@
+OMM bxm.web.admin.system.setting.domain.CommonMessageListOMM
+<description="CommonMessageListOMM">
+{
+	Integer size<length=9>;
+	bxm.web.admin.system.setting.domain.CommonMessageOMM commonMsgList<length=0 arrayReference="size">;
+	Integer totalPage<length=9>;
+}

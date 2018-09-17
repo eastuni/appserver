@@ -1,0 +1,63 @@
+<!--INPUT TYPE1 * 분할 없이 INLINE-->
+<ul class="clr">
+    <li class="input-wrap w-30">
+        <label class="bw-label w-40">{{bxMsg 'online.log-type'}}</label>
+        <select class="bw-input w-60 ipt-select log-type-select"></select>
+    </li>
+</ul>
+<ul class="clr">
+    <li class="input-wrap w-30">
+        <label class="bw-label w-40">{{bxMsg 'online.application'}}</label>
+        <input type="text" class="bw-input w-60" data-form-param="bxmAppId" />
+    </li>
+    <li class="input-wrap w-30">
+        <label class="bw-label w-40">{{bxMsg 'online.service'}}</label>
+        <input type="text" class="bw-input w-60" data-form-param="svcNm" />
+    </li>
+    <li class="input-wrap w-30">
+        <label class="bw-label w-40">{{bxMsg 'online.operation'}}</label>
+        <input type="text" class="bw-input w-60" data-form-param="opNm" />
+    </li>
+</ul>
+<ul class="clr">
+	<li class="input-wrap w-30">
+        <label class="bw-label w-40">{{bxMsg 'online.node'}}</label>
+        <input type="text" class="bw-input w-60" data-form-param="nodeName" />
+    </li>
+    <li class="input-wrap w-40">
+        <label class="bw-label w-30">{{bxMsg 'online.occur-date'}}</label>
+        <input type="text" class="bw-input ipt-cal w-30" data-form-param="occurDttm[0]" />
+        <input type="text" class="bw-input a-right w-20 ipt-time" data-form-param="occurDttm[1]" />
+        <input type="text" class="bw-input a-right w-20 ipt-time" data-form-param="occurDttm[2]" />
+    </li>
+    <li class="input-wrap w-25 sys-cd" style="display: none;">
+        <label class="bw-label w-40">{{bxMsg 'online.system-code'}}</label>
+        <input type="text" class="bw-input w-60" data-form-param="sysCd"/>
+    </li>
+</ul>
+<ul class="clr">
+	<li class="input-wrap w-30 search-choice-li" style="display: none;">
+    	<label class="bw-label w-40">
+    		<select class="bw-input ipt-select w-90 search-choice search-choice-style"></select>
+    	</label>
+    	<input type="text" class="bw-input w-60 search-choice-input" data-form-param="custId"/>
+    </li>
+    <li class="input-wrap w-40">
+        <label class="bw-label w-30">{{bxMsg 'online.guid'}}</label>
+        <input type="text" class="bw-input w-70" data-form-param="guid" />
+    </li>
+    <li class="input-wrap w-25 log-seq">
+        <label class="bw-label w-40">{{bxMsg 'online.log-seq'}}</label>
+        <input type="text" class="bw-input w-60" data-form-param="logSeq" />
+        <input type="hidden" data-form-param="linkSeq"/>
+    </li>
+    <li class="input-wrap w-25 user-ip">
+        <label class="bw-label w-40">{{bxMsg 'online.user-ip'}}</label>
+        <input type="text" class="bw-input w-60" data-form-param="sendUserIp" />
+    </li>
+    <li class="input-wrap w-25 err-cd" style="display: none;">
+        <label class="bw-label w-40">{{bxMsg 'online.err-code'}}</label>
+        <input type="text" class="bw-input w-60" data-form-param="errCd" />
+    </li>
+</ul>
+<!--/END INPUT TYPE1-->

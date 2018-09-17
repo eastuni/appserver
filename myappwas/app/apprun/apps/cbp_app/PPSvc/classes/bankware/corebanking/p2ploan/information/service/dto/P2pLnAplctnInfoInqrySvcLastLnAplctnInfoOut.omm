@@ -1,0 +1,7 @@
+OMM bankware.corebanking.p2ploan.information.service.dto.P2pLnAplctnInfoInqrySvcLastLnAplctnInfoOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	BigDecimal aplctnAmt<length=18 decimal=2 description="신청금액">;
+	String arrId<length=40 description="계약식별자">;
+	BigDecimal lnIntRt<length=30 description="Loan Interest Rate">;
+}

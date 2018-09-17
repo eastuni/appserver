@@ -1,0 +1,10 @@
+OMM bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.RsvtnPymntHdIFIn
+<description="예약 납부내역 간략조회 IN">
+{
+	String custId<length=15 description="고객식별자">;
+	String acctNbr<length=24 description="계좌번호">;
+	String inqryStartDt<length=8 description="조회시작일자">;
+	String inqryEndDt<length=8 description="조회종료일자">;
+	Integer pgNbr<length=3 description="페이지번호">;
+	Integer pgCnt<length=2 description="페이지당건수">;
+}

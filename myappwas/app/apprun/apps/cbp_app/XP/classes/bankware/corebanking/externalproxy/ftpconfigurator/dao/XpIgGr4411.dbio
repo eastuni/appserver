@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.ftpconfigurator.dao.XpIgGr4411">
+<!--Generated Wed Apr 26 17:45:25 KST 2017-->
+<select id="selectGR4411InqryList" resultType="bankware.corebanking.externalproxy.ftpconfigurator.dao.dto.XpIgGr4411IO">
+SELECT 			A.instCd,     /*기관코드*/
+			        A.txYm,     /*거래년월*/
+			        A.seqNbr,     /*일련번호*/
+			        A.fnclInstCd,     /*금융기관코드*/
+			        A.duringTheMnthFrstTrnsfrDt,     /*월중최초영업일자*/
+			        A.duringTheMnthLastTrnsfrDt,     /*월중최종영업일자*/
+			        A.rprtngDscd,     /*월보구분코드*/
+			        A.rcptCnt,     /*수납건수*/
+			        A.rcptAmt,     /*수납금액*/
+			        A.rcptProxyCostCnt,     /*수납대행비용건수*/
+			        A.rcptProxyCostAmt,     /*수납대행비용금액*/
+			        A.pymntCnt,     /*지급건수*/
+			        A.dsbrsmntAmt,     /*지급금액*/
+			        A.appendFeeCnt,     /*추가수수료건수*/
+			        A.appendFeeAmt,     /*추가수수료금액*/
+			        A.errCnt,     /*에러건수*/
+			        A.errAmt,     /*에러금액*/
+			        A.mnyRcvdDsbldCnt,     /*입금불능건수*/
+			        A.dpstDsbldAmt,     /*입금불능금액*/
+			        A.rcvdCnclCnt,     /*입금취소건수*/
+			        A.rcvdCnclAmt     /*입금취소금액*/
+FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+    				A.instCd,     /*기관코드*/
+			        A.txYm,     /*거래년월*/
+			        A.seqNbr,     /*일련번호*/
+			        A.fnclInstCd,     /*금융기관코드*/
+			        A.duringTheMnthFrstTrnsfrDt,     /*월중최초영업일자*/
+			        A.duringTheMnthLastTrnsfrDt,     /*월중최종영업일자*/
+			        A.rprtngDscd,     /*월보구분코드*/
+			        A.rcptCnt,     /*수납건수*/
+			        A.rcptAmt,     /*수납금액*/
+			        A.rcptProxyCostCnt,     /*수납대행비용건수*/
+			        A.rcptProxyCostAmt,     /*수납대행비용금액*/
+			        A.pymntCnt,     /*지급건수*/
+			        A.dsbrsmntAmt,     /*지급금액*/
+			        A.appendFeeCnt,     /*추가수수료건수*/
+			        A.appendFeeAmt,     /*추가수수료금액*/
+			        A.errCnt,     /*에러건수*/
+			        A.errAmt,     /*에러금액*/
+			        A.mnyRcvdDsbldCnt,     /*입금불능건수*/
+			        A.dpstDsbldAmt,     /*입금불능금액*/
+			        A.rcvdCnclCnt,     /*입금취소건수*/
+			        A.rcvdCnclAmt     /*입금취소금액*/
+    FROM 
+        (
+
+		/* #### Original SQL [[ ################# */
+		SELECT    /* 인터넷지로_지로업무처리실적월보 */
+		        INST_CD AS instCd,     /*기관코드*/
+		        TX_YM AS txYm,     /*거래년월*/
+		        SEQ_NBR AS seqNbr,     /*일련번호*/
+		        FNCL_INST_CD AS fnclInstCd,     /*금융기관코드*/
+		        DMNTH_FRST_BSOP_DT AS duringTheMnthFrstTrnsfrDt,     /*월중최초영업일자*/
+		        DMNTH_LAST_BSOP_DT AS duringTheMnthLastTrnsfrDt,     /*월중최종영업일자*/
+		        MNRP_DS_CD AS rprtngDscd,     /*월보구분코드*/
+		        RCPT_CNT AS rcptCnt,     /*수납건수*/
+		        RCPT_AMT AS rcptAmt,     /*수납금액*/
+		        RCPT_PROXY_COST_CNT AS rcptProxyCostCnt,     /*수납대행비용건수*/
+		        RCPT_PROXY_COST_AMT AS rcptProxyCostAmt,     /*수납대행비용금액*/
+		        DSBRS_CNT AS pymntCnt,     /*지급건수*/
+		        DSBRS_AMT AS dsbrsmntAmt,     /*지급금액*/
+		        SUPPL_FEE_CNT AS appendFeeCnt,     /*추가수수료건수*/
+		        SUPPL_FEE_AMT AS appendFeeAmt,     /*추가수수료금액*/
+		        ERR_CNT AS errCnt,     /*에러건수*/
+		        ERR_AMT AS errAmt,     /*에러금액*/
+		        DPST_INBL_CNT AS mnyRcvdDsbldCnt,     /*입금불능건수*/
+		        DPST_INBL_AMT AS dpstDsbldAmt,     /*입금불능금액*/
+		        DPST_CNCL_CNT AS rcvdCnclCnt,     /*입금취소건수*/
+		        DPST_CNCL_AMT AS rcvdCnclAmt     /*입금취소금액*/
+		  FROM  XP_IG_GR4411
+		 WHERE INST_CD = #{instCd}
+		   AND TX_YM = #{txYm}
+		   order by SEQ_NBR desc
+		/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) A
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<select id="selectGR4411InqryTotalCnt" resultType="java.lang.Integer">
+SELECT    /* 인터넷지로_요금종류별수납및지급집계내역 */
+        COUNT(INST_CD)
+  FROM  XP_IG_GR4411
+ WHERE INST_CD = #{instCd}
+   AND TX_YM = #{txYm}
+</select>
+</mapper>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.externalproxy.commonconfigurator.dao.XpExtrnlInstSubBizM">
+<!--Generated Mon Sep 12 15:08:06 KST 2016-->
+<insert id="insertExternalInstSubBiz" parameterType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpExtrnlInstSubBizMIO">
+INSERT  
+  INTO  xp_extrnl_inst_sub_biz_m    /* 대외기관별세부업무기본 */
+(
+  EXTRNL_INST_CD,     /*대외기관코드*/
+  EXTRNL_BIZ_Dscd,     /*대외업무구분코드*/
+  EXTRNL_SUB_BIZ_Dscd,     /*대외업무세부구분코드*/
+  STS_CD,     /*상태코드*/
+  APLY_START_DT,     /*적용시작년월일*/
+  EXTRNL_SUB_BIZ_NM,     /*대외세부업무명*/
+  LAST_CHNG_TMSTMP,     /*최종변경일시*/
+  LAST_CHNG_GUID    /*최종변경GUID*/
+)
+VALUES 
+(
+  #{extrnlInstCd},     /*대외기관코드*/
+  #{extrnlBizDscd},     /*대외업무구분코드*/
+  #{extrnlSubBizDscd},     /*대외업무세부구분코드*/
+  #{stsCd},     /*상태코드*/
+  #{aplyStartDt},     /*적용시작년월일*/
+  #{extrnlSubBizNm},     /*대외세부업무명*/
+  #{lastChngTmstmp},     /*최종변경일시*/
+  #{lastChngGuid}    /*최종변경GUID*/
+)
+</insert>
+<select id="selectExternalInstSubBiz" resultType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpExtrnlInstSubBizMIO">
+SELECT    /* 대외기관별세부업무기본 */
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        EXTRNL_SUB_BIZ_Dscd AS extrnlSubBizDscd,     /*대외업무세부구분코드*/
+        STS_CD AS stsCd,     /*상태코드*/
+        APLY_START_DT AS aplyStartDt,     /*적용시작년월일*/
+        EXTRNL_SUB_BIZ_NM AS extrnlSubBizNm,     /*대외세부업무명*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  xp_extrnl_inst_sub_biz_m
+ WHERE EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND EXTRNL_SUB_BIZ_Dscd = #{extrnlSubBizDscd}
+</select>
+<select id="selectExternalInstSubBizList" resultType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpExtrnlInstSubBizMIO">
+SELECT 
+extrnlInstCd,     /*대외기관코드*/
+extrnlBizDscd,     /*대외업무구분코드*/
+extrnlSubBizDscd,     /*대외업무세부구분코드*/
+stsCd,     /*상태코드*/
+aplyStartDt,     /*적용시작년월일*/
+extrnlSubBizNm,     /*대외세부업무명*/
+lastChngTmstmp,     /*최종변경일시*/
+lastChngGuid    /*최종변경GUID*/
+ FROM 
+    ( SELECT ROWNUM AS ROW__NUM, 
+A.extrnlInstCd,     /*대외기관코드*/
+A.extrnlBizDscd,     /*대외업무구분코드*/
+A.extrnlSubBizDscd,     /*대외업무세부구분코드*/
+A.stsCd,     /*상태코드*/
+A.aplyStartDt,     /*적용시작년월일*/
+A.extrnlSubBizNm,     /*대외세부업무명*/
+A.lastChngTmstmp,     /*최종변경일시*/
+A.lastChngGuid    /*최종변경GUID*/
+     FROM 
+        (
+
+/* #### Original SQL [[ ################# */
+SELECT    /* 대외기관별세부업무기본 */
+        EXTRNL_INST_CD AS extrnlInstCd,     /*대외기관코드*/
+        EXTRNL_BIZ_Dscd AS extrnlBizDscd,     /*대외업무구분코드*/
+        EXTRNL_SUB_BIZ_Dscd AS extrnlSubBizDscd,     /*대외업무세부구분코드*/
+        STS_CD AS stsCd,     /*상태코드*/
+        APLY_START_DT AS aplyStartDt,     /*적용시작년월일*/
+        EXTRNL_SUB_BIZ_NM AS extrnlSubBizNm,     /*대외세부업무명*/
+        LAST_CHNG_TMSTMP AS lastChngTmstmp,     /*최종변경일시*/
+        LAST_CHNG_GUID AS lastChngGuid    /*최종변경GUID*/
+  FROM  xp_extrnl_inst_sub_biz_m
+ WHERE EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND EXTRNL_SUB_BIZ_Dscd = #{extrnlSubBizDscd}
+WHERE 1=1
+<if test="extrnlInstCd != null and extrnlInstCd != ''">   
+   and extrnl_inst_cd = #{extrnlInstCd}
+</if> 
+<if test="extrnlBizDscd != null and extrnlBizDscd != ''">   
+   and extrnl_biz_Dscd = #{extrnlBizDscd}
+</if> 
+order by extrnl_inst_cd, extrnlBizDscd, extrnlSubBizDscd
+/* #### Original SQL ]] ################# */
+
+        ) A 
+    WHERE ROWNUM &lt;= ((#{pgNbr}*#{pgCnt})+1) 
+    ) 
+WHERE ROW__NUM &gt; (#{pgNbr}-1)*#{pgCnt}
+</select>
+<update id="updateExternalInstSubBizStatus">
+UPDATE  
+        xp_extrnl_inst_sub_biz_m    /* 대외기관별세부업무기본 */
+   SET  sts_cd = #{stsCd}    /* 인터페이스상태코드 */
+     , last_chng_tmstmp = #{lastChngTmstmp}    /* 최종변경일시 */
+     , last_chng_guid = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND EXTRNL_SUB_BIZ_Dscd = #{extrnlSubBizDscd}
+</update>
+<update id="updateExternalInstSubBiz" parameterType="bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpExtrnlInstSubBizMIO">
+UPDATE  
+        xp_extrnl_inst_sub_biz_m    /* 대외기관별세부업무기본 */
+   SET  STS_CD = #{stsCd}    /* 상태코드 */
+     , APLY_START_DT = #{aplyStartDt}    /* 적용시작년월일 */
+     , EXTRNL_SUB_BIZ_NM = #{extrnlSubBizNm}    /* 대외세부업무명 */
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}    /* 최종변경일시 */
+     , LAST_CHNG_GUID = #{lastChngGuid}    /* 최종변경GUID */
+ WHERE EXTRNL_INST_CD = #{extrnlInstCd}
+   AND EXTRNL_BIZ_Dscd = #{extrnlBizDscd}
+   AND EXTRNL_SUB_BIZ_Dscd = #{extrnlSubBizDscd}
+</update>
+</mapper>

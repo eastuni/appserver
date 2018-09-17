@@ -1,0 +1,917 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bankware.corebanking.accounting.cash.dao.AcBillCtgryCashD">
+<!--Generated Wed May 02 14:49:32 KST 2018-->
+<insert id="insertMysql" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+INSERT INTO AC_BILL_CTGRY_CASH_D(
+
+  INST_CD
+
+, BASE_DT
+
+, DEPT_ID
+
+, STAFF_ID
+
+, CRNCY_CD
+
+, BILL_CTGRY_FORM_DSCD
+
+, BILL_CTGRY_UNIT_AMT
+
+, BILL_CTGRY_CNT
+
+, BILL_CTGRY_AMT
+
+, LAST_CHNG_TMSTMP 
+
+, LAST_CHNG_GUID
+
+)
+
+VALUES(
+
+  #{instCd}
+
+, #{baseDt}
+
+, #{deptId}
+
+, #{staffId}
+
+, #{crncyCd}
+
+, #{billCtgryFormDscd}
+
+, #{billCtgryUnitAmt}
+
+, #{billCtgryCnt}
+
+, #{billCtgryAmt}
+
+, #{lastChngTmstmp} 
+
+, #{lastChngGuid}
+
+)
+</insert>
+<insert id="insertOracle" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+INSERT INTO AC_BILL_CTGRY_CASH_D(
+
+  INST_CD
+
+, BASE_DT
+
+, DEPT_ID
+
+, STAFF_ID
+
+, CRNCY_CD
+
+, BILL_CTGRY_FORM_DSCD
+
+, BILL_CTGRY_UNIT_AMT
+
+, BILL_CTGRY_CNT
+
+, BILL_CTGRY_AMT
+
+, LAST_CHNG_TMSTMP 
+
+, LAST_CHNG_GUID
+
+)
+
+VALUES(
+
+  #{instCd}
+
+, #{baseDt}
+
+, #{deptId}
+
+, #{staffId}
+
+, #{crncyCd}
+
+, #{billCtgryFormDscd}
+
+, #{billCtgryUnitAmt}
+
+, #{billCtgryCnt}
+
+, #{billCtgryAmt}
+
+, #{lastChngTmstmp} 
+
+, #{lastChngGuid}
+
+)
+</insert>
+<select id="selectMysql" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+SELECT INST_CD              AS instCd             /* 기관코드 */
+
+     , BASE_DT              AS baseDt             /* 기준년월일 */
+
+     , DEPT_ID              AS deptId             /* 부서식별자 */
+
+     , STAFF_ID             AS staffId            /* 스태프식별자 */
+
+     , CRNCY_CD             AS crncyCd            /* 통화코드 */
+
+     , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+
+     , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+
+     , BILL_CTGRY_CNT       AS billCtgryCnt       /* 권종매수 */
+
+     , BILL_CTGRY_AMT       AS billCtgryAmt       /* 권종금액 */
+
+     , LAST_CHNG_TMSTMP     AS lastChngTmstmp     /* 최종변경일시 */
+
+     , LAST_CHNG_GUID       AS lastChngGuid       /* 최종변경GUID */
+
+  FROM AC_BILL_CTGRY_CASH_D
+
+ WHERE INST_CD = #{instCd}
+
+	AND BASE_DT = #{baseDt}
+
+	AND DEPT_ID = #{deptId}
+
+   AND STAFF_ID = #{staffId}
+
+	AND CRNCY_CD = #{crncyCd}   
+
+	AND BILL_CTGRY_FORM_DSCD = #{billCtgryFormDscd}   
+
+	AND BILL_CTGRY_UNIT_AMT = #{billCtgryUnitAmt}
+</select>
+<select id="selectOracle" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+SELECT INST_CD              AS instCd             /* 기관코드 */
+
+     , BASE_DT              AS baseDt             /* 기준년월일 */
+
+     , DEPT_ID              AS deptId             /* 부서식별자 */
+
+     , STAFF_ID             AS staffId            /* 스태프식별자 */
+
+     , CRNCY_CD             AS crncyCd            /* 통화코드 */
+
+     , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+
+     , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+
+     , BILL_CTGRY_CNT       AS billCtgryCnt       /* 권종매수 */
+
+     , BILL_CTGRY_AMT       AS billCtgryAmt       /* 권종금액 */
+
+     , LAST_CHNG_TMSTMP     AS lastChngTmstmp     /* 최종변경일시 */
+
+     , LAST_CHNG_GUID       AS lastChngGuid       /* 최종변경GUID */
+
+  FROM AC_BILL_CTGRY_CASH_D
+
+ WHERE INST_CD = #{instCd}
+
+	AND BASE_DT = #{baseDt}
+
+	AND DEPT_ID = #{deptId}
+
+   AND STAFF_ID = #{staffId}
+
+	AND CRNCY_CD = #{crncyCd}   
+
+	AND BILL_CTGRY_FORM_DSCD = #{billCtgryFormDscd}   
+
+	AND BILL_CTGRY_UNIT_AMT = #{billCtgryUnitAmt}
+</select>
+<select id="selectListMysql" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+SELECT INST_CD              AS instCd             /* 기관코드 */
+
+     , BASE_DT              AS baseDt             /* 기준년월일 */
+
+     , DEPT_ID              AS deptId             /* 부서식별자 */
+
+     , STAFF_ID             AS staffId            /* 스태프식별자 */
+
+     , CRNCY_CD             AS crncyCd            /* 통화코드 */
+
+     , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+
+     , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+
+     , BILL_CTGRY_CNT       AS billCtgryCnt       /* 권종매수 */
+
+     , BILL_CTGRY_AMT       AS billCtgryAmt       /* 권종금액 */
+
+     , LAST_CHNG_TMSTMP     AS lastChngTmstmp     /* 최종변경일시 */
+
+     , LAST_CHNG_GUID       AS lastChngGuid       /* 최종변경GUID */
+
+  FROM AC_BILL_CTGRY_CASH_D
+
+ WHERE INST_CD = #{instCd}
+
+	AND BASE_DT = #{baseDt}
+
+   AND DEPT_ID = #{deptId}
+
+   AND STAFF_ID = #{staffId}
+</select>
+<select id="selectListOracle" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+SELECT INST_CD              AS instCd             /* 기관코드 */
+
+     , BASE_DT              AS baseDt             /* 기준년월일 */
+
+     , DEPT_ID              AS deptId             /* 부서식별자 */
+
+     , STAFF_ID             AS staffId            /* 스태프식별자 */
+
+     , CRNCY_CD             AS crncyCd            /* 통화코드 */
+
+     , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+
+     , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+
+     , BILL_CTGRY_CNT       AS billCtgryCnt       /* 권종매수 */
+
+     , BILL_CTGRY_AMT       AS billCtgryAmt       /* 권종금액 */
+
+     , LAST_CHNG_TMSTMP     AS lastChngTmstmp     /* 최종변경일시 */
+
+     , LAST_CHNG_GUID       AS lastChngGuid       /* 최종변경GUID */
+
+  FROM AC_BILL_CTGRY_CASH_D
+
+ WHERE INST_CD = #{instCd}
+
+	AND BASE_DT = #{baseDt}
+
+   AND DEPT_ID = #{deptId}
+
+   AND STAFF_ID = #{staffId}
+</select>
+<select id="selectSumByCurrencyMysql" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+SELECT 
+
+       CRNCY_CD             AS crncyCd            /* 통화코드 */
+
+     , SUM(BILL_CTGRY_AMT)       AS billCtgryAmt       /* 권종금액 */
+  FROM AC_BILL_CTGRY_CASH_D
+
+ WHERE INST_CD = #{instCd}
+
+	AND BASE_DT = #{baseDt}
+
+   AND DEPT_ID = #{deptId}
+
+   AND STAFF_ID = #{staffId}
+
+GROUP BY CRNCY_CD
+</select>
+<select id="selectSumByCurrencyOracle" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+SELECT 
+
+       CRNCY_CD             AS crncyCd            /* 통화코드 */
+
+     , SUM(BILL_CTGRY_AMT)       AS billCtgryAmt       /* 권종금액 */
+  FROM AC_BILL_CTGRY_CASH_D
+
+ WHERE INST_CD = #{instCd}
+
+	AND BASE_DT = #{baseDt}
+
+   AND DEPT_ID = #{deptId}
+
+   AND STAFF_ID = #{staffId}
+
+GROUP BY CRNCY_CD
+</select>
+<update id="updateMysql" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+UPDATE AC_BILL_CTGRY_CASH_D
+
+   SET BILL_CTGRY_CNT = #{billCtgryCnt}
+
+     , BILL_CTGRY_AMT = #{billCtgryAmt}
+
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}
+
+     , LAST_CHNG_GUID = #{lastChngGuid}
+
+ WHERE INST_CD = #{instCd}
+
+   AND BASE_DT = #{baseDt}
+
+   AND DEPT_ID = #{deptId}
+
+   AND STAFF_ID = #{staffId}
+
+   AND CRNCY_CD = #{crncyCd}
+
+   AND BILL_CTGRY_FORM_DSCD = #{billCtgryFormDscd}
+
+   AND BILL_CTGRY_UNIT_AMT = #{billCtgryUnitAmt}
+</update>
+<update id="updateOracle" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+UPDATE AC_BILL_CTGRY_CASH_D
+
+   SET BILL_CTGRY_CNT = #{billCtgryCnt}
+
+     , BILL_CTGRY_AMT = #{billCtgryAmt}
+
+     , LAST_CHNG_TMSTMP = #{lastChngTmstmp}
+
+     , LAST_CHNG_GUID = #{lastChngGuid}
+
+ WHERE INST_CD = #{instCd}
+
+   AND BASE_DT = #{baseDt}
+
+   AND DEPT_ID = #{deptId}
+
+   AND STAFF_ID = #{staffId}
+
+   AND CRNCY_CD = #{crncyCd}
+
+   AND BILL_CTGRY_FORM_DSCD = #{billCtgryFormDscd}
+
+   AND BILL_CTGRY_UNIT_AMT = #{billCtgryUnitAmt}
+</update>
+<select id="selectSumWithStaffList" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+SELECT INST_CD              AS instCd             /* 기관코드 */
+
+     , BASE_DT              AS baseDt             /* 기준년월일 */
+
+     , DEPT_ID              AS deptId             /* 부서식별자 */
+
+     , STAFF_ID             AS staffId            /* 스태프식별자 */
+
+     , CRNCY_CD             AS crncyCd            /* 통화코드 */
+
+     , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+
+     , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+
+     , SUM(BILL_CTGRY_CNT)       AS billCtgryCnt       /* 권종매수 */
+     , SUM(BILL_CTGRY_AMT)       AS billCtgryAmt       /* 권종금액 */
+  FROM AC_BILL_CTGRY_CASH_D
+
+ WHERE INST_CD = #{instCd}
+
+	AND BASE_DT = #{baseDt}
+
+<if test="deptId != null and deptId != ''">   
+
+   AND DEPT_ID = #{deptId}
+
+</if>
+
+GROUP BY INST_CD, BASE_DT, DEPT_ID, STAFF_ID, CRNCY_CD
+
+       , BILL_CTGRY_FORM_DSCD, BILL_CTGRY_UNIT_AMT
+       
+ORDER BY  CRNCY_CD, BILL_CTGRY_FORM_DSCD, BILL_CTGRY_UNIT_AMT desc
+</select>
+<delete id="delete" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+DELETE FROM AC_BILL_CTGRY_CASH_D
+
+ WHERE INST_CD = #{instCd}
+
+    AND BASE_DT = #{baseDt}
+
+    AND DEPT_ID = #{deptId}
+
+    AND STAFF_ID = #{staffId}
+</delete>
+<select id="selectDeptSumListMysql" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+select case when a_instCd is null then b_instCd else a_instCd end as instCd
+         , case when a_deptId is null then b_deptId else a_deptId end as deptId
+         , case when a_crncyCd is null then b_crncyCd else a_crncyCd end crncyCd
+         , case when a_billCtgryFormDscd is null then b_billCtgryFormDscd else a_billCtgryFormDscd end as billCtgryFormDscd
+         , case when a_billCtgryUnitAmt is null then b_billCtgryUnitAmt else a_billCtgryUnitAmt end billCtgryUnitAmt
+         , case when a_billCtgryCnt is null then b_billCtgryCnt else a_billCtgryCnt end billCtgryCnt
+         , case when SUM(a_billCtgryAmt) is null then 0 else SUM(a_billCtgryAmt) end as bizDtbillCtgryAmt
+         , case when SUM(b_billCtgryAmt) is null then 0 else SUM(b_billCtgryAmt) end as bfBizDtbillCtgryAmt
+from (
+    select a.instCd as a_instCd
+             , a.deptId as a_deptId
+             , a.crncyCd as a_crncyCd
+             , a.billCtgryFormDscd as a_billCtgryFormDscd
+             , a.billCtgryUnitAmt as a_billCtgryUnitAmt
+             , a.billCtgryCnt as a_billCtgryCnt
+             , a.billCtgryAmt as a_billCtgryAmt
+             , b.instCd as b_instCd
+             , b.deptId as b_deptId
+             , b.crncyCd as b_crncyCd
+             , b.billCtgryFormDscd as b_billCtgryFormDscd
+             , b.billCtgryUnitAmt as b_billCtgryUnitAmt
+             , b.billCtgryCnt as b_billCtgryCnt
+             , b.billCtgryAmt as b_billCtgryAmt
+      from
+          (SELECT INST_CD              AS instCd             /* 기관코드 */
+                      , DEPT_ID              AS deptId             /* 부서식별자 */
+                      , CRNCY_CD             AS crncyCd            /* 통화코드 */
+                      , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+                      , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+                      , BILL_CTGRY_CNT			AS billCtgryCnt
+                      , BILL_CTGRY_AMT       AS billCtgryAmt      /* 권종금액 */
+             FROM AC_BILL_CTGRY_CASH_D
+            WHERE INST_CD = #{instCd}
+              AND BASE_DT = #{baseDt}
+              AND DEPT_ID = #{deptId}
+          <if test="staffId != null and staffId != ''">
+              AND STAFF_ID=#{staffId}
+          </if>
+          ) a
+      LEFT OUTER JOIN
+          (SELECT INST_CD              AS instCd             /* 기관코드 */
+                      , DEPT_ID              AS deptId             /* 부서식별자 */
+                      , CRNCY_CD             AS crncyCd            /* 통화코드 */
+                      , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+                      , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+                      , BILL_CTGRY_CNT			AS billCtgryCnt
+                      , BILL_CTGRY_AMT       AS billCtgryAmt      /* 권종금액 */
+            FROM AC_BILL_CTGRY_CASH_D
+           WHERE INST_CD = #{instCd}
+              AND BASE_DT = #{bfBizDt}
+              AND DEPT_ID = #{deptId}
+          <if test="staffId != null and staffId != ''">
+              AND STAFF_ID=#{staffId}
+          </if>
+          ) b
+      on a.instCd=b.instCd
+    and a.deptId=b.deptId
+    and a.crncyCd=b.crncyCd
+    and a.billCtgryFormDscd=b.billCtgryFormDscd
+    and a.billCtgryUnitAmt=b.billCtgryUnitAmt
+union
+    select a.instCd as a_instCd
+           , a.deptId as a_deptId
+           , a.crncyCd as a_crncyCd
+           , a.billCtgryFormDscd as a_billCtgryFormDscd
+           , a.billCtgryUnitAmt as a_billCtgryUnitAmt
+           , a.billCtgryCnt as a_billCtgryCnt
+           , a.billCtgryAmt as a_billCtgryAmt
+           , b.instCd as b_instCd
+           , b.deptId as b_deptId
+           , b.crncyCd as b_crncyCd
+           , b.billCtgryFormDscd as b_billCtgryFormDscd
+           , b.billCtgryUnitAmt as b_billCtgryUnitAmt
+           , b.billCtgryCnt as b_billCtgryCnt
+           , b.billCtgryAmt as b_billCtgryAmt 
+      from
+          (SELECT INST_CD              AS instCd             /* 기관코드 */
+                      , DEPT_ID              AS deptId             /* 부서식별자 */
+                      , CRNCY_CD             AS crncyCd            /* 통화코드 */
+                      , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+                      , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+                      , BILL_CTGRY_CNT			AS billCtgryCnt
+                      , BILL_CTGRY_AMT       AS billCtgryAmt      /* 권종금액 */
+             FROM AC_BILL_CTGRY_CASH_D
+            WHERE INST_CD = #{instCd}
+               AND BASE_DT = #{baseDt}
+               AND DEPT_ID = #{deptId}
+          <if test="staffId != null and staffId != ''">
+               AND STAFF_ID=#{staffId}
+          </if>
+          ) a
+     RIGHT OUTER JOIN
+          (SELECT INST_CD              AS instCd             /* 기관코드 */
+                      , DEPT_ID              AS deptId             /* 부서식별자 */
+                      , CRNCY_CD             AS crncyCd            /* 통화코드 */
+                      , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+                      , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+                      , BILL_CTGRY_CNT			AS billCtgryCnt
+                      , BILL_CTGRY_AMT       AS billCtgryAmt      /* 권종금액 */
+             FROM AC_BILL_CTGRY_CASH_D
+           WHERE INST_CD = #{instCd}
+               AND BASE_DT = #{bfBizDt}
+               AND DEPT_ID = #{deptId}
+          <if test="staffId != null and staffId != ''">
+               AND STAFF_ID=#{staffId}
+          </if>
+          ) b
+       on a.instCd=b.instCd
+      and a.deptId=b.deptId
+      and a.crncyCd=b.crncyCd
+      and a.billCtgryFormDscd=b.billCtgryFormDscd
+      and a.billCtgryUnitAmt=b.billCtgryUnitAmt
+      ) a
+GROUP BY instCd, deptId, crncyCd, billCtgryFormDscd, billCtgryUnitAmt, billCtgryCnt
+order by crncyCd ,billCtgryFormDscd , billCtgryUnitAmt desc
+</select>
+<select id="selectDeptSumListOracle" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+SELECT instCd			/*기관코드*/
+
+, deptId				/*부서식별자*/
+
+, crncyCd			/*통화코드*/
+
+, billCtgryFormDscd			/*권종형태구분코드*/
+
+, billCtgryUnitAmt			/*권종단위금액*/
+
+, bizDtbillCtgryAmt			/*당영업일권종금액*/
+
+, bfBizDtbillCtgryAmt			/*전영업일권종금액*/
+
+FROM (
+
+    select
+
+    case when a_instCd is null then b_instCd else a_instCd end as instCd
+
+    , case when a_deptId is null then b_deptId else a_deptId end as deptId
+
+    , case when a_crncyCd is null then b_crncyCd else a_crncyCd end crncyCd
+
+    , case when a_billCtgryFormDscd is null then b_billCtgryFormDscd else a_billCtgryFormDscd end as billCtgryFormDscd
+
+    , case when a_billCtgryUnitAmt is null then b_billCtgryUnitAmt else a_billCtgryUnitAmt end billCtgryUnitAmt
+
+    , case when SUM(a_billCtgryAmt) is null then 0 else SUM(a_billCtgryAmt) end as bizDtbillCtgryAmt
+    , case when SUM(b_billCtgryAmt) is null then 0 else SUM(b_billCtgryAmt) end as bfBizDtbillCtgryAmt
+    from (
+
+        select 
+
+        a.instCd as a_instCd
+
+        , a.deptId as a_deptId
+
+        , a.crncyCd as a_crncyCd
+
+        , a.billCtgryFormDscd as a_billCtgryFormDscd
+
+        , a.billCtgryUnitAmt as a_billCtgryUnitAmt
+
+        , a.billCtgryAmt as a_billCtgryAmt
+
+        , b.instCd as b_instCd
+
+        , b.deptId as b_deptId
+
+        , b.crncyCd as b_crncyCd
+
+        , b.billCtgryFormDscd as b_billCtgryFormDscd
+
+        , b.billCtgryUnitAmt as b_billCtgryUnitAmt
+
+        , b.billCtgryAmt as b_billCtgryAmt
+
+        from
+
+              (SELECT INST_CD              AS instCd             /* 기관코드 */
+
+              , DEPT_ID              AS deptId             /* 부서식별자 */
+
+              , CRNCY_CD             AS crncyCd            /* 통화코드 */
+
+              , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+
+              , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+
+              , BILL_CTGRY_AMT       AS billCtgryAmt      /* 권종금액 */
+
+              FROM AC_BILL_CTGRY_CASH_D
+
+              WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+
+           	  AND BASE_DT = #{baseDt, jdbcType=VARCHAR}
+
+        	  AND DEPT_ID = #{deptId, jdbcType=VARCHAR}
+
+        <if test="staffId != null and staffId != ''">
+
+         	 AND STAFF_ID=#{staffId, jdbcType=VARCHAR}
+
+        </if>
+
+              ) a
+
+              LEFT OUTER JOIN
+
+              (SELECT INST_CD              AS instCd             /* 기관코드 */
+
+              , DEPT_ID              AS deptId             /* 부서식별자 */
+
+              , CRNCY_CD             AS crncyCd            /* 통화코드 */
+
+              , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+
+              , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+
+              , BILL_CTGRY_AMT       AS billCtgryAmt      /* 권종금액 */
+
+              FROM AC_BILL_CTGRY_CASH_D
+
+              WHERE INST_CD = #{instCd, jdbcType=VARCHAR}
+
+	          AND BASE_DT = #{bfBizDt, jdbcType=VARCHAR}
+
+	          AND DEPT_ID = #{deptId, jdbcType=VARCHAR}
+
+	     <if test="staffId != null and staffId != ''">
+
+	          AND STAFF_ID=#{staffId, jdbcType=VARCHAR}
+
+	     </if>
+
+    ) b
+
+              on a.instCd=b.instCd
+
+              and a.deptId=b.deptId
+
+              and a.crncyCd=b.crncyCd
+
+              and a.billCtgryFormDscd=b.billCtgryFormDscd
+
+              and a.billCtgryUnitAmt=b.billCtgryUnitAmt
+
+    )
+
+    GROUP BY a_instCd, b_instCd
+
+    , a_deptId, b_deptId
+
+    , a_crncyCd, b_crncyCd
+
+    , a_billCtgryFormDscd, b_billCtgryFormDscd
+
+    , a_billCtgryUnitAmt, b_billCtgryUnitAmt
+
+) A
+
+order by a.crncyCd ,a.billCtgryFormDscd , a.billCtgryUnitAmt desc
+</select>
+<select id="selectTlrSumListMysql" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+select case when a_instCd is null then b_instCd else a_instCd end as instCd
+         , case when a_deptId is null then b_deptId else a_deptId end as deptId
+         , case when a_staffId is null then b_staffId else a_staffId end as staffId
+         , case when a_crncyCd is null then b_crncyCd else a_crncyCd end crncyCd
+         , case when a_billCtgryFormDscd is null then b_billCtgryFormDscd else a_billCtgryFormDscd end as billCtgryFormDscd
+         , case when a_billCtgryUnitAmt is null then b_billCtgryUnitAmt else a_billCtgryUnitAmt end billCtgryUnitAmt
+         , case when a_billCtgryCnt is null then b_billCtgryCnt else a_billCtgryCnt end billCtgryCnt
+         , case when SUM(a_billCtgryAmt) is null then 0 else SUM(a_billCtgryAmt) end as bizDtbillCtgryAmt
+         , case when SUM(b_billCtgryAmt) is null then 0 else SUM(b_billCtgryAmt) end as bfBizDtbillCtgryAmt
+from (
+    select a.instCd as a_instCd
+             , a.deptId as a_deptId
+             , a.staffId as a_staffId
+             , a.crncyCd as a_crncyCd
+             , a.billCtgryFormDscd as a_billCtgryFormDscd
+             , a.billCtgryUnitAmt as a_billCtgryUnitAmt
+             , a.billCtgryCnt as a_billCtgryCnt
+             , a.billCtgryAmt as a_billCtgryAmt
+             , b.instCd as b_instCd
+             , b.deptId as b_deptId
+             , b.staffId as b_staffId
+             , b.crncyCd as b_crncyCd
+             , b.billCtgryFormDscd as b_billCtgryFormDscd
+             , b.billCtgryUnitAmt as b_billCtgryUnitAmt
+             , b.billCtgryCnt as b_billCtgryCnt
+             , b.billCtgryAmt as b_billCtgryAmt
+      from
+          (SELECT INST_CD              AS instCd             /* 기관코드 */
+                      , DEPT_ID              AS deptId             /* 부서식별자 */
+                      , STAFF_ID				AS	staffId				/*스태프식별자*/
+                      , CRNCY_CD             AS crncyCd            /* 통화코드 */
+                      , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+                      , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+                      , BILL_CTGRY_CNT			AS billCtgryCnt
+                      , BILL_CTGRY_AMT       AS billCtgryAmt      /* 권종금액 */
+             FROM AC_BILL_CTGRY_CASH_D
+            WHERE INST_CD = #{instCd}
+              AND BASE_DT = #{baseDt}
+              AND DEPT_ID = #{deptId}
+              AND STAFF_ID=#{staffId}
+          ) a
+      LEFT OUTER JOIN
+          (SELECT INST_CD              AS instCd             /* 기관코드 */
+                      , DEPT_ID              AS deptId             /* 부서식별자 */
+                      , STAFF_ID				AS	staffId				/*스태프식별자*/
+                      , CRNCY_CD             AS crncyCd            /* 통화코드 */
+                      , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+                      , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+                      , BILL_CTGRY_CNT			AS billCtgryCnt
+                      , BILL_CTGRY_AMT       AS billCtgryAmt      /* 권종금액 */
+            FROM AC_BILL_CTGRY_CASH_D
+           WHERE INST_CD = #{instCd}
+              AND BASE_DT = #{bfBizDt}
+              AND DEPT_ID = #{deptId}
+              AND STAFF_ID=#{staffId}
+          ) b
+      on a.instCd=b.instCd
+    and a.deptId=b.deptId
+    and a.crncyCd=b.crncyCd
+    and a.billCtgryFormDscd=b.billCtgryFormDscd
+    and a.billCtgryUnitAmt=b.billCtgryUnitAmt
+union
+    select a.instCd as a_instCd
+           , a.deptId as a_deptId
+           , a.staffId as a_staffId
+           , a.crncyCd as a_crncyCd
+           , a.billCtgryFormDscd as a_billCtgryFormDscd
+           , a.billCtgryUnitAmt as a_billCtgryUnitAmt
+           , a.billCtgryCnt as a_billCtgryCnt
+           , a.billCtgryAmt as a_billCtgryAmt
+           , b.instCd as b_instCd
+           , b.deptId as b_deptId
+           , b.staffId as b_staffId
+           , b.crncyCd as b_crncyCd
+           , b.billCtgryFormDscd as b_billCtgryFormDscd
+           , b.billCtgryUnitAmt as b_billCtgryUnitAmt
+           , b.billCtgryCnt as b_billCtgryCnt
+           , b.billCtgryAmt as b_billCtgryAmt 
+      from
+          (SELECT INST_CD              AS instCd             /* 기관코드 */
+                      , DEPT_ID              AS deptId             /* 부서식별자 */
+                      , STAFF_ID				AS	staffId				/*스태프식별자*/
+                      , CRNCY_CD             AS crncyCd            /* 통화코드 */
+                      , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+                      , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+                      , BILL_CTGRY_CNT			AS billCtgryCnt
+                      , BILL_CTGRY_AMT       AS billCtgryAmt      /* 권종금액 */
+             FROM AC_BILL_CTGRY_CASH_D
+            WHERE INST_CD = #{instCd}
+               AND BASE_DT = #{baseDt}
+               AND DEPT_ID = #{deptId}
+               AND STAFF_ID=#{staffId}
+          ) a
+     RIGHT OUTER JOIN
+          (SELECT INST_CD              AS instCd             /* 기관코드 */
+                      , DEPT_ID              AS deptId             /* 부서식별자 */
+                      , STAFF_ID				AS	staffId				/*스태프식별자*/
+                      , CRNCY_CD             AS crncyCd            /* 통화코드 */
+                      , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+                      , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+                      , BILL_CTGRY_CNT			AS billCtgryCnt
+                      , BILL_CTGRY_AMT       AS billCtgryAmt      /* 권종금액 */
+             FROM AC_BILL_CTGRY_CASH_D
+           WHERE INST_CD = #{instCd}
+               AND BASE_DT = #{bfBizDt}
+               AND DEPT_ID = #{deptId}
+               AND STAFF_ID=#{staffId}
+          ) b
+       on a.instCd=b.instCd
+      and a.deptId=b.deptId
+      and a.crncyCd=b.crncyCd
+      and a.billCtgryFormDscd=b.billCtgryFormDscd
+      and a.billCtgryUnitAmt=b.billCtgryUnitAmt
+      ) a
+GROUP BY instCd, deptId, staffId, crncyCd, billCtgryFormDscd, billCtgryUnitAmt, billCtgryCnt
+order by crncyCd ,billCtgryFormDscd , billCtgryUnitAmt desc
+</select>
+<select id="selectTlrSumListOracle" parameterType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO" resultType="bankware.corebanking.accounting.cash.dao.dto.AcBillCtgryCashDIO">
+SELECT instCd			/*기관코드*/
+
+, deptId				/*부서식별자*/
+
+, staffId				/*스태프식별자*/
+
+, crncyCd			/*통화코드*/
+
+, billCtgryFormDscd			/*권종형태구분코드*/
+
+, billCtgryUnitAmt			/*권종단위금액*/
+
+, bizDtbillCtgryAmt			/*당영업일권종금액*/
+
+, bfBizDtbillCtgryAmt			/*전영업일권종금액*/
+
+FROM (
+
+    select
+
+    case when a_instCd is null then b_instCd else a_instCd end as instCd
+
+    , case when a_deptId is null then b_deptId else a_deptId end as deptId
+    
+    , case when a_staffId is null then b_staffId else a_staffId end as staffId
+
+    , case when a_crncyCd is null then b_crncyCd else a_crncyCd end crncyCd
+
+    , case when a_billCtgryFormDscd is null then b_billCtgryFormDscd else a_billCtgryFormDscd end as billCtgryFormDscd
+
+    , case when a_billCtgryUnitAmt is null then b_billCtgryUnitAmt else a_billCtgryUnitAmt end billCtgryUnitAmt
+
+    , case when SUM(a_billCtgryAmt) is null then 0 else SUM(a_billCtgryAmt) end as bizDtbillCtgryAmt
+    , case when SUM(b_billCtgryAmt) is null then 0 else SUM(b_billCtgryAmt) end as bfBizDtbillCtgryAmt
+    from (
+
+        select 
+
+        a.instCd as a_instCd
+
+        , a.deptId as a_deptId
+        
+        , a.staffId as a_staffId
+
+        , a.crncyCd as a_crncyCd
+
+        , a.billCtgryFormDscd as a_billCtgryFormDscd
+
+        , a.billCtgryUnitAmt as a_billCtgryUnitAmt
+
+        , a.billCtgryAmt as a_billCtgryAmt
+
+        , b.instCd as b_instCd
+
+        , b.deptId as b_deptId
+        
+        , b.staffId as b_staffId
+
+        , b.crncyCd as b_crncyCd
+
+        , b.billCtgryFormDscd as b_billCtgryFormDscd
+
+        , b.billCtgryUnitAmt as b_billCtgryUnitAmt
+
+        , b.billCtgryAmt as b_billCtgryAmt
+
+        from
+
+              (SELECT INST_CD              AS instCd             /* 기관코드 */
+
+              , DEPT_ID              AS deptId             /* 부서식별자 */
+              
+              , STAFF_ID				AS staffId			/*스태프식별자*/
+
+              , CRNCY_CD             AS crncyCd            /* 통화코드 */
+
+              , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+
+              , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+
+              , BILL_CTGRY_AMT       AS billCtgryAmt      /* 권종금액 */
+
+              FROM AC_BILL_CTGRY_CASH_D
+
+              WHERE INST_CD = #{instCd}
+
+           	  AND BASE_DT = #{baseDt}
+
+        	  AND DEPT_ID = #{deptId}
+
+         	 AND STAFF_ID=#{staffId}
+
+              ) a
+
+              LEFT OUTER JOIN
+
+              (SELECT INST_CD              AS instCd             /* 기관코드 */
+
+              , DEPT_ID              AS deptId             /* 부서식별자 */
+              
+              , STAFF_ID				AS staffId			/*스태프식별자*/
+
+              , CRNCY_CD             AS crncyCd            /* 통화코드 */
+
+              , BILL_CTGRY_FORM_DSCD AS billCtgryFormDscd  /* 권종형태구분코드 */
+
+              , BILL_CTGRY_UNIT_AMT  AS billCtgryUnitAmt   /* 권종단위금액 */
+
+              , BILL_CTGRY_AMT       AS billCtgryAmt      /* 권종금액 */
+
+              FROM AC_BILL_CTGRY_CASH_D
+
+              WHERE INST_CD = #{instCd}
+
+	          AND BASE_DT = #{bfBizDt}
+
+	          AND DEPT_ID = #{deptId}
+
+	          AND STAFF_ID=#{staffId}
+    ) b
+
+              on a.instCd=b.instCd
+
+              and a.deptId=b.deptId
+
+              and a.crncyCd=b.crncyCd
+
+              and a.billCtgryFormDscd=b.billCtgryFormDscd
+
+              and a.billCtgryUnitAmt=b.billCtgryUnitAmt
+
+    )
+
+    GROUP BY a_instCd, b_instCd
+
+    , a_deptId, b_deptId
+    
+    , a_staffId, b_staffId
+
+    , a_crncyCd, b_crncyCd
+
+    , a_billCtgryFormDscd, b_billCtgryFormDscd
+
+    , a_billCtgryUnitAmt, b_billCtgryUnitAmt
+
+) A
+
+order by a.crncyCd ,a.billCtgryFormDscd , a.billCtgryUnitAmt desc
+</select>
+</mapper>

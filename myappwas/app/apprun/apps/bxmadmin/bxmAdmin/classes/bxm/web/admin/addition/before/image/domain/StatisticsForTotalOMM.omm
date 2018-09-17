@@ -1,0 +1,13 @@
+OMM bxm.web.admin.addition.before.image.domain.StatisticsForTotalOMM
+<description="">
+{
+	String tableNm<length=20 description="테이블명">;
+	Integer totalCnt<length=9 description="전체개수">;
+	Integer okBefCnt<length=9 description="반영 전(B)">;
+	Integer okAftCnt<length=9 description="반영 후(A)">;
+	Integer errNoDataCnt<length=9 description="select시 미존재(N)">;
+	Integer errManyDataCnt<length=9 description="select시 데이터중복(M)">;
+	Integer errDupKeyCnt<length=9 description="insert시 DuplicationKey 발생(D)">;
+	Integer errPartialSkipCnt<length=9 description="부분 스킵(P)">;
+	String percent<length=20>;
+}

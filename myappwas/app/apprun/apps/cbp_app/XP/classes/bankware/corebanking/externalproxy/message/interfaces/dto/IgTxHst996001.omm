@@ -1,0 +1,8 @@
+OMM bankware.corebanking.externalproxy.message.interfaces.dto.IgTxHst996001
+<description="공통 일괄(선택) 납부  (재)취소 ">
+{
+	BigDecimal orgnlTxUnqNbr<length=13 description="원거래고유번호">;
+	String orgnlTxPymntAmt<length=15 description="원거래납부금액">;
+	String fillerCntnt03<length=3 description="fillerCntnt03">;
+	String prcsRspnsCd<length=3 description="처리응답코드">;
+}

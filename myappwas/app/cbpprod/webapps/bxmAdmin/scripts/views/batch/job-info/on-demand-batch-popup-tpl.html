@@ -1,0 +1,109 @@
+<div class="modal-wrap bx-loding-wrap">
+    <h2 class="bw-tt a-center popup-title"></h2>
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t fix-h on-demand-batch-popup bx-no-draggable bx-loding-wrap">
+        <ul class="col-2 clr">
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'batch.job-id'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="jobName" value="{{jobId}}" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'batch.app-nm'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="applicationName" value="{{bxmAppId}}" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'batch.step-exec-type'}}</label>
+                    <select class="bw-input ipt-select w-60 step-exec-type" data-form-param="stepExecuteType" data-code="BXMAD0042"></select>
+                </div>
+            </li>
+        </ul>
+        <ul class="clr">
+            <li class="w-100 default-step-box">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-20">{{bxMsg 'batch.step-ids'}}</label>
+                    <input type="text" class="bw-input w-80" data-form-param="stepId" readonly/>
+                </div>
+            </li>
+            <li class="w-50 step-2-step-box">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'batch.start-step-id'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="startStepId" readonly/>
+                </div>
+            </li>
+            <li class="w-50 step-2-step-box">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'batch.end-step-id'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="endStepId" readonly/>
+                </div>
+            </li>
+        </ul>
+
+        <!-- STEP 목록 -->
+
+        <div class="module">
+            <div class="bw-tab add-mg-t">
+                <strong>{{bxMsg 'batch.batch-execution-url-list'}}<span></span>
+                </strong>
+            </div>
+            <div class="module-wrap add-bd2-t add-bd">
+                <div class="bw-grid add-mg-zero">
+                    <table>
+                        <colgroup>
+                            <col width="5%;">
+                            <col width="75%;">
+                            <col width="20%;">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>{{bxMsg 'batch.batch-execution-url'}}</th>
+                            <th>{{bxMsg 'batch.batch-desc'}}</th>
+                        </tr>
+                        </thead>
+                        <tbody class="batch-url-list"></tbody>
+                    </table>
+                </div>
+            </div>
+            <ul class="clr add-mg-t add-mg-b">
+                <li class="w-40">
+                    <div>
+                        <label class="bw-label w-20">{{bxMsg 'batch.parameter-key'}}</label>
+                    </div>
+                </li>
+                <li class="w-40">
+                    <div>
+                        <label class="bw-label w-20">{{bxMsg 'batch.parameter-value'}}</label>
+                    </div>
+                </li>
+            </ul>
+            <ul class="clr parameter-items">
+                <li class="w-40">
+                    <div class="input-wrap clr">
+                        <input type="text" class="bw-input add-mg-l w-90 parameter-key-input" />
+                    </div>
+                </li>
+                <li class="w-40">
+                    <div class="input-wrap clr">
+                        <input type="text" class="bw-input add-mg-l w-90 parameter-value-input" />
+                    </div>
+                </li>
+                <li class="w-20">
+                    <button type="button" class="bw-btn add-parameter-btn">
+                        <i class="bw-icon i-25 i-func-add"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on run-on-demand-batch-btn">{{bxMsg 'common.run'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

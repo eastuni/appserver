@@ -1,0 +1,14 @@
+OMM bxm.web.admin.batch.domain.BatchJobSearchConditionOMM
+<description="">
+{
+	String jobId<length=100 description="배치작업ID">;
+	String jobNm<length=256 description="배치작업명">;
+	String jobTypeCd<length=1 description="배치작업유형코드">;
+	Integer pageNum<length=9>;
+	Integer pageCount<length=9>;
+	String fromStartTime<length=30 description="배치작업 시작시각 범위시작">;
+	String toStartTime<length=30 description="배치작업 시작시각 범위끝">;
+	String exitCode<length=100 description="배치작업 종료 구분">;
+	String status<length=20 description="실행 상태">;
+	String domainId<length=20 description="도메인ID">;
+}

@@ -1,0 +1,78 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'setting.role-setting'}}
+    <p class="desc">{{bxMsg 'setting.role-setting-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--************* 그룹 목록  *************-->
+<div class="module-wrap add-bd2-t add-bd">
+    <section class="module add-mg-l add-mg-t w-40">
+        <!-- 좌측 상단 그리드  -->
+        <div class="sub-section module w-100">
+            <h4>{{bxMsg 'setting.role-list'}}</h4>
+            <!--GRID AREA-->
+            <section class="role-setting-grid"></section>
+            <!--/END GRID AREA-->
+        </div>
+
+        <!-- 좌측 하단 그리드  -->
+        <div class="sub-section module role-setting-detail bx-loding-wrap">
+            <h4>{{bxMsg 'setting.role-detail'}} <span class="role-setting-detail-title"></span></h4>
+            <div class="bw-grid add-mg-zero">
+                <section class="bw-tool add-bd2-t">
+                    <div class="btn-wrap fix-r">
+                        <button type="button" class="bw-btn edit edit-role-btn" title="{{bxMsg 'common.edit'}}">
+                            <i class="bw-icon i-25 i-func-edit"></i>
+                        </button>
+                    </div>
+                </section>
+                <section class="search-wrap clr">
+                    <ul class="clr">
+                        <li class="w-100">
+                            <div class="input-wrap clr">
+                                <label class="bw-label w-40">{{bxMsg 'setting.role-id'}}</label>
+                                <input type="text" class="bw-input w-60" data-form-param="roleId" readonly />
+                            </div>
+                        </li>
+                        <li class="w-100">
+                            <div class="input-wrap clr">
+                                <label class="bw-label w-40">{{bxMsg 'setting.role-nm'}}</label>
+                                <input type="text" class="bw-input w-60" data-form-param="roleNm" readonly />
+                            </div>
+                        </li>
+                        <li class="w-100">
+                            <div class="input-wrap clr">
+                                <label class="bw-label w-40">{{bxMsg 'setting.role-desc'}}</label>
+                                <input type="text" class="bw-input w-60" data-form-param="roleDesc" readonly />
+                            </div>
+                        </li>
+                        <li class="w-100">
+                            <div class="input-wrap clr">
+                                <label class="bw-label w-40">{{bxMsg 'setting.use-yn'}}</label>
+                                <input type="text" class="bw-input w-60" data-form-param="useYn" readonly />
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section class="module add-mg-l add-mg-t w-53">
+        <!-- 우측 상단 그리드  -->
+        <div class="sub-section module w-100 bx-loding-wrap">
+            <h4 class="role-setting-menu-access-permission-title">{{bxMsg 'setting.menu-access-permission'}}</h4>
+            <!--GRID AREA-->
+            <section class="role-setting-menu-access-permission-grid"></section>
+            <!--/END GRID AREA-->
+        </div>
+
+        <!-- 우측 하단 그리드  -->
+        <div class="sub-section module w-100 bx-loding-wrap" style="display: none">
+            <h4 class="role-setting-operation-permission-title">{{bxMsg 'setting.operation-permission'}}</h4>
+            <!--GRID AREA-->
+            <section class="role-setting-operation-permission-grid"></section>
+            <!--/END GRID AREA-->
+        </div>
+    </section>
+</div>

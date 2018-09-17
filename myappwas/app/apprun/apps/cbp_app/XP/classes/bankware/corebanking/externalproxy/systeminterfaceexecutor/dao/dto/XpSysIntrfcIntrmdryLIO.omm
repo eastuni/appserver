@@ -1,0 +1,18 @@
+OMM bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpSysIntrfcIntrmdryLIO
+<description="시스템인터페이스중계로그 ">
+{
+	String rowId<length=50 description="Row ID">;
+	String instCd<length=14 description="기관코드">;
+	String txDt<length=8 description="거래년월일">;
+	String guid<length=40 description="GUID">;
+	String rqstRspnsDscd<length=1 description="요청응답구분코드">;
+	String txHms<length=6 description="거래시각">;
+	String sysIntrfcId<length=40 description="ORIGINAL NAME:SYS_INTRFC_ID , 시스템인터페이스식별자">;
+	String inpCntnt<length=4000 description="입력내용">;
+	String sysIntrfcBizKeyCntnt<length=200 description="ORIGINAL NAME:SYS_INTRFC_BIZ_KEY_CNTNT , 시스템인터페이스업무키">;
+	String orgnlTxDt<length=8 description="원거래년월일">;
+	String orgnlTxGuid<length=40 description="원거래GUID">;
+	String timeoutYn<length=1 description="타임아웃여부">;
+	Date lastChngTmstmp<length=30 description="최종변경일시">;
+	String lastChngGuid<length=40 description="최종변경GUID">;
+}

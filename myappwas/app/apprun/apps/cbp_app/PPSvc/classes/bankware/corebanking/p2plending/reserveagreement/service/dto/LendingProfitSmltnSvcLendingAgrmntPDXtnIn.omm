@@ -1,0 +1,6 @@
+OMM bankware.corebanking.p2plending.reserveagreement.service.dto.LendingProfitSmltnSvcLendingAgrmntPDXtnIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String xtnAtrbtNm<length=30 description="확장속성명">;
+	String xtnAtrbtCntnt<length=100 description="확장속성내용">;
+}

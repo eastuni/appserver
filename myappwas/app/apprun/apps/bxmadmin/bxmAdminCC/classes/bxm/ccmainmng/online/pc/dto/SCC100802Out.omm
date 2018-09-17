@@ -1,0 +1,13 @@
+OMM bxm.ccmainmng.online.pc.dto.SCC100802Out
+<description="">
+{
+	Integer nodeNum<length=9 description="노드 번호">;
+	String svrNm<length=20 description="서버 명">;
+	String useYn<length=20 description="사용 여부">;
+	String svrIp<length=20 description="서버 IP">;
+	Integer svrPort<length=9 description="서버 포트">;
+	String requestUri<length=20 description="호출 주소">;
+	String svrType<length=20 description="서버 타입">;
+	Boolean status<length=20 description="서버 상태">;
+	String autoSvrYn<length=20 description="자동서버여부">;
+}

@@ -1,0 +1,7 @@
+OMM bxm.ccmainmng.online.dao.dto.SelectListDTZF303001BOut
+<description="">
+{
+	String srvrId<length=20 description="서버 ID">;
+	String srvrNm<length=20 description="서버 명">;
+	Integer cnt<length=9 description="개수">;
+}
