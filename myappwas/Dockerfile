@@ -21,8 +21,6 @@ RUN groupadd -g ${cigid} ${cigroup} \
           && useradd -d "/home/${ciuser}" -u ${ciuid} -g ${cigid} -m -s /bin/bash ${ciuser}
 VOLUME /applogs
 
-EXPOSE 8080 8081
-
 COPY bash_aliases /home/${cbpuser}/.bash_aliases
 COPY app/product /app/product
 COPY app/cbpprod /app/cbpprod
