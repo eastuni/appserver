@@ -1,4 +1,4 @@
-FROM eastuni/ubuntu-ko:open-jdk
+FROM eastuni/ubuntu-ko:httpd
 
 ARG appuser=apprun
 ARG appgroup=apprun
