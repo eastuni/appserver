@@ -18,6 +18,5 @@ startup_was(){
 }
 
 startup_was online
-startup_was admin
+run_was admin
 
-/usr/sbin/apache2ctl -DFOREGROUND

@@ -1,4 +1,4 @@
-FROM eastuni/ubuntu-ko:httpd
+FROM eastuni/ubuntu-ko:tomcat
 
 ARG appuser=apprun
 ARG appgroup=apprun
@@ -24,9 +24,19 @@ COPY app/product /app/product
 COPY app/cbpprod /app/cbpprod
 COPY app/apprun /app/apprun
 
-RUN chown -R ${appuser}:${ciuser} /app && chown ${appuser}:${appuser} /home/${appuser}/.bash_aliases
+ARG washome=/app/cbpprod/was_instance
+RUN chown -R ${appuser}:${ciuser} /app && chown ${appuser}:${appuser} /home/${appuser}/.bash_aliases \
+			&& chmod 755 ${washome}/admin/*.sh && chmod 755 ${washome}/online/*.sh
+
+CMD ["service","apache2","start"]
 
 USER ${appuser}
+
+RUN mkdir ${washome}/admin/webapps && cd ${washome}/admin/webapps \
+			&& ln -s ../../webapps/bxmAdmin && ln -s ../../webapps/cpPfDist && ln -s ../../webapps/cpServiceEndpoint \
+			&& ln -s ../../webapps/pf \
+			&& mkdir ${washome}/online/webapps && cd ${washome}/online/webapps \
+			&& ln -s ../../webapps/onPfDist && ln -s ../../webapps/onServiceEndpoint 
 
 COPY entrypoint.sh /entrypoint.sh
 
