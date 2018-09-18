@@ -33,10 +33,10 @@ CMD ["service","apache2","start"]
 USER ${appuser}
 
 RUN mkdir ${washome}/admin/webapps && cd ${washome}/admin/webapps \
-			&& ln -s ../../webapps/bxmAdmin && ln -s ../../webapps/cpPfDist && ln -s ../../webapps/cpServiceEndpoint \
-			&& ln -s ../../webapps/pf \
+			&& ln -s ../../../webapps/bxmAdmin && ln -s ../../../webapps/cpPfDist && ln -s ../../../webapps/cpServiceEndpoint \
+			&& ln -s ../../../webapps/pf \
 			&& mkdir ${washome}/online/webapps && cd ${washome}/online/webapps \
-			&& ln -s ../../webapps/onPfDist && ln -s ../../webapps/onServiceEndpoint 
+			&& ln -s ../../../webapps/onPfDist && ln -s ../../../webapps/onServiceEndpoint 
 
 COPY entrypoint.sh /entrypoint.sh
 
