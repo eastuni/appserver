@@ -95,8 +95,6 @@ define(
                     fn_getCodeList(sParam, that);
 
                     
-                    that.$el.find('#additionalSearchCndWrap').hide();
-
                     // 코드종류
                     sParam = {};
                     // combobox 정보 셋팅
@@ -350,8 +348,8 @@ define(
                 
 
                 ,setDatePicker: function () {
-                    fn_makeDatePicker(this.$el.find('#additionalSearchCndWrap [data-form-param="srchStartDtm"]'));
-                    fn_makeDatePicker(this.$el.find('#additionalSearchCndWrap [data-form-param="srchEndDtm"]'));
+                    fn_makeDatePicker(this.$el.find('#CAPSV301-base-table [data-form-param="srchStartDtm"]'));
+                    fn_makeDatePicker(this.$el.find('#CAPSV301-base-table [data-form-param="srchEndDtm"]'));
                     fn_makeDatePicker(this.$el.find('#CAPSV301-detail-table [data-form-param="efctvStartDt"]'));
                     fn_makeDatePicker(this.$el.find('#CAPSV301-detail-table [data-form-param="efctvEndDt"]'));
                 }
@@ -366,9 +364,9 @@ define(
 
                     that.setDstbStaffInfo('CAPSV301-base-table',this.staffId, this.staffNm);
                     
-                    that.$el.find('#additionalSearchCndWrap [data-form-param="dstbTaskStsCd"] option:eq(0)').attr("selected", "selected");
-                    fn_makeDatePicker(that.$el.find('#additionalSearchCndWrap [data-form-param="srchStartDtm"]'));
-                    fn_makeDatePicker(that.$el.find('#additionalSearchCndWrap [data-form-param="srchEndDtm"]'));
+                    that.$el.find('#CAPSV301-base-table [data-form-param="dstbTaskStsCd"] option:eq(0)').attr("selected", "selected");
+                    fn_makeDatePicker(that.$el.find('#CAPSV301-base-table [data-form-param="srchStartDtm"]'));
+                    fn_makeDatePicker(that.$el.find('#CAPSV301-base-table [data-form-param="srchEndDtm"]'));
                     
                     that.$el.find("#searchResultCount").html(bxMsg('cbb_items.SCRNITM#srchRslt'));
                     that.CAPSV301Grid.resetData();
@@ -456,10 +454,10 @@ define(
                     
                     sParam.dstbTaskId = that.$el.find('.CAPSV301-base-table [data-form-param="dstbTaskId"]').val();
                     sParam.dstbTaskNm = that.$el.find('.CAPSV301-base-table [data-form-param="dstbTaskNm"]').val();
-                    sParam.dstbTaskStsCd = that.$el.find('#additionalSearchCndWrap [data-form-param="dstbTaskStsCd"]').val();
+                    sParam.dstbTaskStsCd = that.$el.find('#CAPSV301-base-table [data-form-param="dstbTaskStsCd"]').val();
                     sParam.dstbStaffId = that.$el.find('.CAPSV301-base-table [data-form-param="dstbStaffId"]').val();
-                    var efctvStartDt = that.$el.find('#additionalSearchCndWrap [data-form-param="srchStartDtm"]').val();
-                    var efctvEndDt = that.$el.find('#additionalSearchCndWrap [data-form-param="srchEndDtm"]').val();
+                    var efctvStartDt = that.$el.find('#CAPSV301-base-table [data-form-param="srchStartDtm"]').val();
+                    var efctvEndDt = that.$el.find('#CAPSV301-base-table [data-form-param="srchEndDtm"]').val();
                     if(efctvStartDt != ''){
                     	sParam.efctvStartDt = XDate(efctvStartDt).toString('yyyyMMdd');
                     }
@@ -765,10 +763,6 @@ define(
                 	fn_pageLayerCtrl("#CAPSV301-base-table", this.$el.find("#btn-base-search-modal"));
                 }
 
-                , additionalSearchModal : function() {                	
-                	fn_pageLayerCtrl("#additionalSearchCndWrap", this.$el.find("#btnAdditionalSearchCndToggle"));
-                }
-                
                 , gridAreaModal : function() {
                 	fn_pageLayerCtrl("#CAPSV301-grid", this.$el.find("#btn-up-grid"));
                 }

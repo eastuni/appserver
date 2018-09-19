@@ -1,0 +1,75 @@
+<div class="modal-wrap">
+    {{#if value}}<h2 class="bw-tt a-center">{{bxMsg 'setting.studio-edit'}}</h2>{{/if}}
+    {{#unless value}}<h2 class="bw-tt a-center">{{bxMsg 'setting.studio-add'}}</h2>{{/unless}}
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t bx-no-draggable studio-setting-form">
+        <!--INPUT TYPE2 -->
+        <ul class="clr">
+            <li class="w-70">
+                {{#if value}}<div class="input-wrap asterisk clr">{{/if}}
+                {{#unless value}}<div class="input-wrap asterisk w-90 f-l">{{/unless}}
+                    <label class="bw-label w-20">{{bxMsg 'setting.division'}}</label>
+                    {{#if value}}
+                    <input type="text" class="bw-input w-80" value="{{ns_description}}" readonly />
+                    <input type="hidden" class="bw-input w-80" data-form-param="namespace" value="{{namespace}}"/>
+                    {{/if}}
+                    {{#unless value}}
+                    <select class="bw-input ipt-select w-80" data-form-param="namespace"></select>
+                    {{/unless}}
+                </div>
+                {{#unless value}}
+                <button type="button" class="bw-btn add-namespace-btn"><i class="bw-icon i-25 i-func-add"></i></button>
+                {{/unless}}
+            </li>
+            <li class="w-70">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-20">{{bxMsg 'setting.attr'}}</label>
+                    {{#if value}}
+                    <input type="text" class="bw-input w-80" data-form-param="property" value="{{property}}" readonly />
+                    {{/if}}
+                    {{#unless value}}
+                    <input type="text" class="bw-input w-80" data-form-param="property" value="{{property}}" />
+                    {{/unless}}
+                </div>
+            </li>
+            <li class="w-70">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-20">{{bxMsg 'setting.value'}}</label>
+                    {{#if value}}
+                    <input type="hidden" class="bw-input w-80" data-form-param="oldValue" value="{{value}}" />
+                    <input type="text" class="bw-input w-80" data-form-param="value" value="{{value}}" />
+                    {{/if}}
+                    {{#unless value}}
+                    <input type="text" class="bw-input w-80" data-form-param="value" value="{{value}}" />
+                    {{/unless}}
+                </div>
+            </li>
+            <li class="w-30">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'setting.use-yn'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="useYn">
+                        <option value="Y">Y</option>
+                        <option value="N">N</option>
+                    </select>
+                </div>
+            </li>
+            <li class="w-70">
+            <div class="input-wrap fix-txtarea h-half p-rel clr">
+                <label class="bw-label w-20 inline-flex-display">
+                    {{bxMsg 'setting.description'}}
+                </label>
+                <div class="txt-wrap2 fix-size w-80 f-r">
+                    <textarea class="bw-textarea" data-form-param="description"></textarea>
+                </div>
+            </div>
+        </li>
+        </ul>
+        <!--/END INPUT TYPE2-->
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on save-studio-btn">{{bxMsg 'common.save'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

@@ -1,7 +1,0 @@
-OMM bankware.corebanking.externalproxy.commonjointnetwork.dao.dto.OwnDpstWhdrIO
-<description="">
-{
-	String xtnAtrbtCntnt<length=3 description="망구분코드">;
-	BigDecimal rcvdAmt<length=22 decimal=2 description="수취금액">;
-	BigDecimal dsbrsmntAmt3<length=22 decimal=2 description="지급금액">;
-}

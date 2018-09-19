@@ -48,7 +48,7 @@
             </properties>
         </objectname>
     </management>
- 		<context forced-timeout="300000">
+ 		<context forced-timeout="180000">
         <preprocessor classname="bankware.corebanking.service.processor.CbbSystemPreProcessor" order="1"/>
         <postprocessor classname="bankware.corebanking.service.processor.CbbSystemPostProcessor" order="1"/>
         <postprocessor classname="bankware.corebanking.service.processor.CbbAppLogPostProcessor" order="2"/>

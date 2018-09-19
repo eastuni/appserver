@@ -1,25 +1,15 @@
 #!/bin/bash
 
-run_was(){
-	APP_NAME=$1
-	echo "start up ${APP_NAME}"
-	fromsh=${WAS_HOME}/${APP_NAME}/startup.sh
-	mysh=~/tomcatrun.sh
-	cp $fromsh $mysh
-	sed -i "s/startup.sh/catalina.sh run/g" $mysh
-	$mysh
-}
+echo "export DB_PORT=${DB_PORT}" >> /home/apprun/.bash_aliases 
+echo "export DB_HOST=${DB_HOST}" >> /home/apprun/.bash_aliases
 
-startup_was(){
-	APP_NAME=$1
-	echo "start up ${APP_NAME}"
-	${WAS_HOME}/${APP_NAME}/startup.sh
-}
+echo "clean applogs"
+rm -rf /applogs/*
 
+su - apprun -c "bash /startwas.sh"
 service apache2 start
+#service apache2 stop
 
-su - apprun
-. /home/apprun/.bash_aliases
-startup_was online
-run_was admin
+#/usr/sbin/apache2ctl restart -D FOREGROUND
 
+tail -f /var/log/apache2/*log

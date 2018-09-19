@@ -52,6 +52,7 @@ define(
 
 
                 'click #btn-CAPAR140-grid-add': 'addGrid',
+                'click #btn-CAPAR140-grid-save': 'savePsbkMsgCntnt',
 
                 
                 'click #btn-passbook-message-info-toggle': 'togglePassbookMessageInfo',
@@ -332,25 +333,7 @@ define(
 					sParam.psbkMsgDtlTpCd           = that.$el.find('#passbook-message-info-area [data-form-param="psbkMsgDtlTpCd"]').val();
 					sParam.psbkBkgYnClassNm         = that.$el.find('#passbook-message-info-area [data-form-param="psbkBkgYnClassNm"]').val();
 					sParam.psbkMsgEditClassNm       = that.$el.find('#passbook-message-info-area [data-form-param="psbkMsgEditClassNm"]').val();
-					sParam.psbkMsgList				= [];
-					
-					that.CAPAR140GridPsbkMsg.getAllData().forEach(function(val, idx){
-						var pParam = {};
-						pParam.psbkMsgId 		= that.$el.find('#passbook-message-info-area [data-form-param="psbkMsgId"]').val();
-						pParam.psbkMsgSeqNbr	= val.psbkMsgSeqNbr != "" ? val.psbkMsgSeqNbr : idx+1;
-						pParam.psbkMsgCntnt		= val.psbkMsgCntnt;
-						sParam.psbkMsgList.push(pParam);
-					});
-					
-                    
-
-//                    var serviceCode;
-//					if(that.changeYn == "Y"){
-//						serviceCode = "CAPAR1408402";
-//					}else{
-//						serviceCode = "CAPAR1408101";
-//					}
-                    var linkData = {"header": fn_getHeader("CAPAR1408402"), "CaArrExtrnlIdNbrTpInfoMgmtSvcGetExtrnlIdNbrInfoIn": sParam};
+                    var linkData = {"header": fn_getHeader("CAPAR1408402"), "CaArrPsbkMsgMgmtSvcIn": sParam};
 
 
                     // ajax호출
@@ -374,6 +357,67 @@ define(
 
 
             },
+            
+            savePsbkMsgCntnt: function(event){
+            	
+                var that = this;
+
+                //배포처리[과제식별자 체크]
+                  if (!fn_headerTaskIdCheck()){
+                      return;
+                  }
+                 
+                  function saveData() {
+                  	
+                      var sParam = {};
+                      sParam.instCd 					= that.instCd;
+                      sParam.psbkMsgId 				= that.$el.find('#passbook-message-info-area [data-form-param="psbkMsgId"]').val();
+  					sParam.savepsbkMsgList				= [];
+  					sParam.deletePsbkMsgList		=[];
+  					that.CAPAR140GridPsbkMsg.getAllData().forEach(function(val, idx){
+  						var pParam = {};
+  						pParam.psbkMsgId 		= that.$el.find('#passbook-message-info-area [data-form-param="psbkMsgId"]').val();
+  						pParam.psbkMsgSeqNbr	= val.psbkMsgSeqNbr != "" ? val.psbkMsgSeqNbr : idx+1;
+  						pParam.psbkMsgCntnt		= val.psbkMsgCntnt;
+  						sParam.savepsbkMsgList.push(pParam);
+  					});
+  					that.deleteList.forEach(function(val,idx){
+  						var pParam = {};
+  						pParam.psbkMsgId 		= that.$el.find('#passbook-message-info-area [data-form-param="psbkMsgId"]').val();
+  						pParam.psbkMsgSeqNbr	= val.psbkMsgSeqNbr
+  						if(val.psbkMsgSeqNbr !=""){
+  	  						sParam.deletePsbkMsgList.push(pParam);
+  						}
+  						
+  					});
+  					console.log(sParam);
+  					
+  					
+                      var linkData = {"header": fn_getHeader("CAPAR1408405"), "CaArrPsbkMsgMgmtSvcIn": sParam};
+
+
+                      // ajax호출
+                      bxProxy.post(sUrl, JSON.stringify(linkData), {
+                          enableLoading: true
+                          , success: function (responseData) {
+                              if (fn_commonChekResult(responseData)) {
+                                  fn_alertMessage("", bxMsg('cbb_items.SCRNITM#success'));
+
+
+                                  that.resetPsbkMsgInfo();
+  		    	                //트리다시 그리기
+  				                that.loadTreeList();
+                              }
+                          }   // end of suucess: fucntion
+                      }); // end of bxProxy
+                  }
+
+
+                  fn_confirmMessage(event, bxMsg('cbb_items.ABRVTN#save'), bxMsg('cbb_items.SCRNITM#screenSave'), saveData, this);
+
+            	
+            },
+            
 
 
             addGrid : function() { 

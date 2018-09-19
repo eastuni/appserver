@@ -123,7 +123,7 @@ define([ 'bx/common/common-info', 'text!app/views/page/CAPMT/091/_CAPMT091.html'
 			this.inquireSearchCondition();
 
 			// this.drawBoard();
-			this.drawToolbar();
+			//this.drawToolbar();
 
 			return this.$el;
 		},
@@ -369,7 +369,7 @@ define([ 'bx/common/common-info', 'text!app/views/page/CAPMT/091/_CAPMT091.html'
 				 * ruleNm
 				 */
 				{
-					text : bxMsg('cbb_items.AT#ruleNm'),
+					text : bxMsg('cbb_items.SCRNITM#proceedingTargetRule'),
 					dataIndex : 'ruleNm',
 					width : 200,
 					flex : 1,
@@ -738,7 +738,7 @@ define([ 'bx/common/common-info', 'text!app/views/page/CAPMT/091/_CAPMT091.html'
 			 * if delete list is empty
 			 */
 			if (that.deleteList.length == 0) {
-				fn_alertMessage("", bxMsg('cbb_items.SCRNITM#no-input-data-msg'));
+				fn_alertMessage("", bxMsg('cbb_items.SCRNITM#noChange'));
 				return;
 			}
 

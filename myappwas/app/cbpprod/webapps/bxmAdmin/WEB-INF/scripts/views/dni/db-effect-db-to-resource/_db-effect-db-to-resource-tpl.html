@@ -1,0 +1,52 @@
+<!--BW-TITLE -->
+<h2 class="bw-tt">
+    {{bxMsg 'dni.db-effect-db-to-resource'}}
+    <p class="desc">{{bxMsg 'dni.db-effect-db-to-resource-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-MODULE-->
+<div class="layout-wrap">
+    <div class="bw-tree-wrap layout col1 inner-tools-75">
+        <!--BW-TOOL -->
+        <div class="bw-tool add-bd2-t add-mg-b h-auto bxm-search-wrap">
+            <div class="radio-wrap clr">
+                <input type="radio" class="bw-input unit ipt-radio" id="dedr-rdo1" name="dedrSearchType" data-form-param="searchType" value="table" checked/>
+                <label for="dedr-rdo1" class="bw-label unit">{{bxMsg 'dni.table'}}</label>
+                <input type="radio" class="bw-input unit ipt-radio" id="dedr-rdo2" name="dedrSearchType" data-form-param="searchType" value="column" />
+                <label for="dedr-rdo2" class="bw-label unit">{{bxMsg 'dni.column'}}</label>
+            </div>
+            <div class="bw-wrap clr">
+                <div class="input-wrap add-btn w-83 clr-mg-t clr">
+                    <input type="text" class="bw-input w-100" placeholder="{{bxMsg 'dni.keyword'}}" data-form-param="keyword" />
+                    <button type="button" class="bw-btn fix-r search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-20 i-search"></i></button>
+                </div>
+                <button type="button" class="bw-btn fix-r btn-single reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-20 i-func-reset"></i></button>
+            </div>
+        </div>
+        <!--/END BW-TOOL-->
+        <!--BW-TREE -->
+        <ul class="bw-tree bw-tree-floor bw-tree-root bxm-tree-wrap resource-tree"></ul>
+        <!--/END BW-TREE -->
+    </div>
+    <div class="bw-inner-contents layout col2">
+        <!--BW-GRID -->
+        <section class="bw-grid add-bd2-t no-tree-icon bxm-grid-wrap btn-included"></section>
+        <!--/END BW-GRID-->
+        <!--TAB MENU-->
+        <!--BW-TOOL -->
+        <div class="bw-tool add-bd2-t add-mg-t">
+            <div class="f-l">
+                <h3 class="bw-desc d-block">{{bxMsg 'dni.sql-content'}}</h3>
+            </div>
+        </div>
+        <!--/END BW-TOOL-->
+        <!--PRE-->
+        <div class="module-wrap add-bd fix-h h-500 sql-wrap">
+            <div class="bw-pre">
+                <pre class="sql-content"></pre>
+            </div>
+        </div>
+        <!--/END PRE-->
+    </div>
+</div>
+<!--/END BW-MODULE-->

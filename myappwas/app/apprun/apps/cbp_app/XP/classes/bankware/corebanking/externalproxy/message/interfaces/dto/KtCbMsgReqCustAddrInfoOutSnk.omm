@@ -1,6 +1,0 @@
-OMM bankware.corebanking.externalproxy.message.interfaces.dto.KtCbMsgReqCustAddrInfoOutSnk
-<description="KT CB정보 응답-고객주소정보 Out">
-{
-	String custZipCd<length=6 description="고객주소지우편번호">;
-	String custAddr<length=200 description="고객주소지">;
-}

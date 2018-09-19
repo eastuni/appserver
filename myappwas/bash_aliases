@@ -7,7 +7,8 @@ export RUN_HOME=/app/apprun
 export LOG_HOME=/applogs
 
 # export JAVA_HOME=$SW_HOME/jdk/jdk
-export CATALINA_HOME=/usr/share/tomcat8
+#export CATALINA_HOME=/usr/share/tomcat8
+export CATALINA_HOME=$SW_HOME/tomcat8
 
 export BXM_HOME=$SW_HOME/lib
 export BAT_HOME=$PRJ_HOME/batch
@@ -17,7 +18,7 @@ export WAS_LOG_HOME=$LOG_HOME/was
 export APP_LOG_HOME=$LOG_HOME/app
 export BAT_LOG_HOME=$APP_LOG_HOME/batch
 
-export PATH=$JAVA_HOME/bin:$PATH
+#export PATH=$JAVA_HOME/bin:$PATH
 export EXINIT='set noai ts=4 sw=4'
 
 export PATH

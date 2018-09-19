@@ -1,0 +1,63 @@
+<div class="modal-wrap fix-h">
+    <h2 class="bw-tt a-center">{{bxMsg 'centerCut.centerCutErrorDetails'}}</h2>
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="bw-tool add-bd2-t"></section>
+    <section class="search-wrap bxm-popup-search bx-no-draggable">
+        <!--INPUT TYPE1 * 분할 없이 INLINE-->
+        <ul class="clr col-3">
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'centerCut.centerCutId'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="ccId" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'centerCut.processingDate'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="pcsnDt" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'centerCut.registrationNo'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="acptNo" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'centerCut.turnNo'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="tnNo" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'centerCut.executionNo'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="execNo" readonly/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'centerCut.sequenceNo'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="ccTrxSqno" readonly/>
+                </div>
+            </li>
+            <li class="w-100">
+                <div class="input-wrap fix-txtarea">
+                    <label class="bw-label w-13">{{bxMsg 'centerCut.centerCutErrorDetails'}}</label>
+                    <div class="txt-wrap2 fix-size w-87 f-r">
+                        <textarea class="bw-textarea" data-form-param="oputCn" readonly></textarea>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!--/END INPUT TYPE1-->
+    </section>
+    <!--/END SEARCH AREA-->
+    <!--GRID AREA-->
+    <section class="bxm-popup-grid bx-no-draggable"></section>
+    <!--/END GRID AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on cancel-btn">{{bxMsg 'common.ok'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

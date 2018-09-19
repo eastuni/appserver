@@ -210,14 +210,14 @@ function(config, popupKrZipCd, commonInfo, datePicker, popupDeptId, tpl, ExtGrid
 					var that = this;
 
                 	//배포처리반영[버튼비활성화]
-                    fn_btnCheckForDistribution([
-                                        		this.$el.find('.CAPAT101-wrap #btn-base-attribute-save')
-                                        		,this.$el.find('.CAPAT101-wrap #btn-dept-hist-save')
-                                        		,this.$el.find('.CAPAT101-wrap #btn-belonged-dept-info-save')
-                                        		,this.$el.find('.CAPAT101-wrap #btn-role-hist-save')
-                                        		,this.$el.find('.CAPAT101-wrap #btn-role-info-save')
-                                        		,this.$el.find('.CAPAT101-wrap #btn-contact-point-save')
-                                        			   ]);
+//                    fn_btnCheckForDistribution([
+//                                        		this.$el.find('.CAPAT101-wrap #btn-base-attribute-save')
+//                                        		,this.$el.find('.CAPAT101-wrap #btn-dept-hist-save')
+//                                        		,this.$el.find('.CAPAT101-wrap #btn-belonged-dept-info-save')
+//                                        		,this.$el.find('.CAPAT101-wrap #btn-role-hist-save')
+//                                        		,this.$el.find('.CAPAT101-wrap #btn-role-info-save')
+//                                        		,this.$el.find('.CAPAT101-wrap #btn-contact-point-save')
+//                                        			   ]);
 					// 데이터 피커 로드
 					this.loadDatePicker();
 					return this.$el;

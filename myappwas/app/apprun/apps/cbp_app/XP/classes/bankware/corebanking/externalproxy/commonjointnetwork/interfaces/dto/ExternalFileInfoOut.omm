@@ -1,6 +1,0 @@
-OMM bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.ExternalFileInfoOut
-<description="대외파일정보OUT">
-{
-	String sucssYn<length=1 description="성공여부">;
-	String msgCntnt<length=100 description="메시지내용">;
-}

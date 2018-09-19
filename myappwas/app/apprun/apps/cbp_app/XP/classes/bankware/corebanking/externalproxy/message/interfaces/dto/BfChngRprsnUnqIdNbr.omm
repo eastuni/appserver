@@ -1,6 +1,0 @@
-OMM bankware.corebanking.externalproxy.message.interfaces.dto.BfChngRprsnUnqIdNbr
-<description="변경전관련인주민등록번호">
-{
-	String bfChngRprsnRlnmNbrDscd<length=1 description="변경전관련인실명번호구분코드">;
-	String bfChngRprsnRlnmNbr<length=13 description="변경전관련인실명번호">;
-}

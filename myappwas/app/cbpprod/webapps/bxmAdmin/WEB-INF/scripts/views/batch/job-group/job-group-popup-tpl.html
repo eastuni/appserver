@@ -1,0 +1,67 @@
+<div class="modal-wrap">
+    {{#if jobGrpId}}<h2 class="bw-tt a-center">{{bxMsg 'batch.batch-work-group-edit'}}({{jobGrpId}})</h2>{{/if}}
+    {{#unless jobGrpId}}<h2 class="bw-tt a-center">{{bxMsg 'batch.batch-work-group-add'}}</h2>{{/unless}}
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t fix-h bx-no-draggable job-group-form">
+        <ul class="clr">
+            <li class="w-100">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-50">{{bxMsg 'batch.work-group-id'}}</label>
+                    {{#if jobGrpId}}<input type="text" class="bw-input w-50" data-form-param="jobGrpId" value="{{jobGrpId}}" readonly>{{/if}}
+                    {{#unless jobGrpId}}<input type="text" class="bw-input w-50" data-form-param="jobGrpId">{{/unless}}
+                </div>
+            </li>
+            <li class="w-100">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-50">{{bxMsg 'batch.work-group-nm'}}</label>
+                    <input type="text" class="bw-input w-50" data-form-param="jobGrpNm" value="{{jobGrpNm}}" />
+                </div>
+            </li>
+            <li class="w-100">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-50">{{bxMsg 'batch.use-yn'}}</label>
+                    <select class="bw-input ipt-select w-50" data-form-param="useYn">
+                        <option value="Y">Y</option>
+                        <option value="N">N</option>
+                    </select>
+                </div>
+            </li>
+            <li class="w-100">
+            	<div class="input-wrap clr">
+            		<label class="bw-label w-50">{{bxMsg 'batch.system-max-execute-yn'}}</label>
+            		<select class="bw-input ipt-select w-50" data-form-param="sysMaxExecValidYn">
+            		 	<option value="Y">Y</option>
+                        <option value="N">N</option>
+                    </select>
+           		</div>
+            </li>
+            <li class="w-100">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-50">{{bxMsg 'batch.system-max-execute-count'}}<i class="fa fa-question-circle chr-c-yellow2" title="{{bxMsg 'batch.type-num-msg'}}"></i></label>
+                    <input type="text" class="bw-input w-50" data-form-param="sysMaxExecCnt" value="{{sysMaxExecCnt}}">
+                </div>
+            </li>
+            <li class="w-100">
+            	<div class="input-wrap clr">
+            		<label class="bw-label w-50">{{bxMsg 'batch.node-max-execute-yn'}}</label>
+            		<select class="bw-input ipt-select w-50" data-form-param="nodeMaxExecValidYn">
+            		 	<option value="Y">Y</option>
+                        <option value="N">N</option>
+                    </select>
+           		</div>
+            </li>
+            <li class="w-100">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-50">{{bxMsg 'batch.node-max-execute-count'}}<i class="fa fa-question-circle chr-c-yellow2" title="{{bxMsg 'batch.type-num-msg'}}"></i></label>
+                    <input type="text" class="bw-input w-50" data-form-param="nodeMaxExecCnt" value="{{nodeMaxExecCnt}}">
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on save-job-group-btn">{{bxMsg 'common.save'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

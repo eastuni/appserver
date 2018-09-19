@@ -1,0 +1,25 @@
+
+	<section  id='SCM903' ng-init="SCM903Ctrl.init()">
+		<div   id="changePasswordPopup"   >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SCM903%}">
+			</div>
+			<div   id="serviceBody"  class="modal-body" >
+				<div   id="secSrchRslt"  class="add-mg-t" >
+					<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#bfChngPswd%}" data-i18n-title="{%=cbb_items.AT#bfChngPswd%}"></label>
+						<input type="password" class="bw-input"  data-form-param="bfChngPswd"/>
+					</div>
+					<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#afChngPswd%}" data-i18n-title="{%=cbb_items.AT#afChngPswd%}"></label>
+						<input type="password" class="bw-input"  data-form-param="afChngPswd"/>
+					</div>
+					<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#afChngCnfrmtnPswd%}" data-i18n-title="{%=cbb_items.AT#afChngCnfrmtnPswd%}"></label>
+						<input type="password" class="bw-input"  data-form-param="afChngCnfrmtnPswd"/>
+					</div>
+				</div>
+			</div>
+			<div   class="modal-footer btn-wrap add-mg" >
+				<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="SCM903Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#changeLoinPswd%}"/></button>
+				<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SCM903Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+			</div>
+		</div>
+	</section>

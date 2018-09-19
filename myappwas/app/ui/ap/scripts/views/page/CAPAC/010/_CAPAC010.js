@@ -580,6 +580,8 @@ define(
                 this.$el.find('#extended-journalizing-rule-attribute-area [data-form-param="xtnAtrbtNm"]').val(data.xtnAtrbtNm);
                 this.$el.find('#extended-journalizing-rule-attribute-area [data-form-param="atrbtTpCd"]').val(data.atrbtTpCd);
                 this.$el.find('#extended-journalizing-rule-attribute-area [data-form-param="atrbtVldtnWayCd"]').val(data.atrbtVldtnWayCd);
+                
+                this.$el.find('#extended-journalizing-rule-attribute-area [data-form-param="refAtrbtDesc"]').val(data.refAtrbtDescCntnt);
 
 
                 this.setJournalizingCondition(data.atrbtVldtnWayCd);
@@ -652,6 +654,10 @@ define(
                 this.$el.find('#journalizing-rule-detail-area [data-form-param="acctgItmNm"]').val("");
                 this.$el.find('#journalizing-rule-detail-area [data-form-param="aplyStartDt"]').val(getCurrentDate("yyyy-mm-dd"));
                 this.$el.find('#journalizing-rule-detail-area [data-form-param="aplyEndDt"]').val("9999-12-31");
+                
+                this.resetExtendedJournalizingRuleAttribute();
+                this.CAPAC010ExtdJrnlRlGrid.resetData();
+                
             },
 
 
@@ -816,9 +822,9 @@ define(
                 var refObjCd = this.$el.find('#extended-journalizing-rule-attribute-area [data-form-param="tblNm"]').val();
 
 
-                if(!refObjCd) {
-                	return;
-                }
+//                if(!refObjCd) {
+//                	return;
+//                }
 
 
                 param.refObjCd = refObjCd;
@@ -830,6 +836,7 @@ define(
                 this.popupRefAtrbtSearch = new PopupRefAtrbtSearch(param);
                 this.popupRefAtrbtSearch.render();
                 this.popupRefAtrbtSearch.on('popUpSetData', function (data) {
+                	that.$el.find('#extended-journalizing-rule-attribute-area [data-form-param="tblNm"]').val(data.refObjCd);
                     that.$el.find('#extended-journalizing-rule-attribute-area [data-form-param="xtnAtrbtNm"]').val(data.refAtrbtNm);
                 });
             },
@@ -1271,6 +1278,7 @@ define(
                     sParam.className = "CAPAC010-pdTpCd2-wrap";
                     sParam.targetId = "pdTpCd2";
                     sParam.nullYn = "Y";
+                    sParam.viewType = "ValNm";
                     //inData 정보 셋팅
                     sParam.instCd = commonInfo.getInstInfo().instCd;
                     sParam.bizDscd = bizDscd;
@@ -1317,6 +1325,7 @@ define(
                     sParam.className = "CAPAC010-pdTmpltCd2-wrap";
                     sParam.targetId = "pdTmpltCd2";
                     sParam.nullYn = "Y";
+                    sParam.viewType = "ValNm";
                     //inData 정보 셋팅
                     sParam.instCd = commonInfo.getInstInfo().instCd;
                     sParam.bizDscd = bizDscd;
@@ -1359,6 +1368,7 @@ define(
                     sParam.className = "CAPAC010-pdCd2-wrap";
                     sParam.targetId = "pdCd2";
                     sParam.nullYn = "Y";
+                    sParam.viewType = "ValNm";
                     //inData 정보 셋팅
                     sParam.instCd = commonInfo.getInstInfo().instCd;
                     sParam.bizDscd = bizDscd;

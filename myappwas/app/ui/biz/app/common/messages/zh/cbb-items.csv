@@ -342,6 +342,7 @@ AT#aprvlStgeDtlSeqNbr,审批阶段详细序列号
 AT#aprvlStgePrcsSeqNbr,审批阶段处理序列号
 AT#aprvlStgeStsCd,审批阶段状态代码
 AT#aprvlStsCd,批准状态
+AT#aprvlTmpltDscd,
 AT#aprvlTmpltId,授权模板识别码
 AT#aprvlTmpltLvlCd,授权模板级别代码
 AT#aprvlTmpltNm,授权模板名
@@ -425,8 +426,8 @@ AT#arrDt,签约日期
 AT#arrEddSeqNbr,安排加强尽职调查序号
 AT#arrEmplRelCd,合同员工关系代码
 AT#arrEmplRelSeqNbr,合同员工关系序列号
-AT#arrEmplRelStsCd,
-AT#arrEmplRelStsChngRsnCd,
+AT#arrEmplRelStsCd,合同员工关系状态代码
+AT#arrEmplRelStsChngRsnCd,合同员工关系状态更改事由代码
 AT#arrExtrnlIdNbr,合约外部识别编号
 AT#arrExtrnlIdNbrSeqNbr,合约外部识别编号序列编号
 AT#arrExtrnlIdNbrStsCd,合约外部识别编号状态代码
@@ -527,7 +528,7 @@ AT#arrSrvcBlckngStsRsnCd,合约服务冻结状态事由代码
 AT#arrSrvcBlckngTrgtNcsrTrgtCntnt,协议服务限制对象内容
 AT#arrSrvcBlckngTrgtNcsrYn,协议服务限制对象需要与否
 AT#arrSrvcTpCd,安排服务类型代码
-AT#arrSrvcTpNm,合约服务类型名
+AT#arrSrvcTpNm,
 AT#arrStaffRelCd,合约人员关系代码
 AT#arrStaffRelStsCd,合约人员关系状态代码
 AT#arrStaffRelStsChngRsnCd,合约人员关系状态更改事由代码
@@ -577,7 +578,7 @@ AT#assetAddrRegionClCrtrCd,资产地区分类基准代码
 AT#assetAddrRegionClCrtrNm,资产地区分类基准名
 AT#assetAddrRegionClNm,资产地区分类名
 AT#assetAddrTpCd,
-AT#assetAlctnPrity,
+AT#assetAlctnPrity,资产分配顺序
 AT#assetAprslRelStsCd,资产鉴定关系状态代码
 AT#assetAssetRelCd,资产资产关系代码
 AT#assetAssetRelSeqNbr,资产资产关系序列编号
@@ -852,6 +853,7 @@ AT#biddingStsCd,出价状态代码
 AT#biddingSucssFeeAmt,投标成功手续费
 AT#biddingTmstmp,投标时间戳
 AT#biddingTrmCnt,投标期间
+AT#billAmt,缴费金额
 AT#billCtgryAmt,面值金额
 AT#billCtgryCd,汇票代码
 AT#billCtgryCnt,面值张数
@@ -860,7 +862,7 @@ AT#billCtgryUnitAmt,单位金额
 AT#binId,Bin识别码
 AT#bindCardInqryYn,绑卡查询
 AT#bindTpCd,
-AT#birthDay,
+AT#birthDay,生日
 AT#birthDt,生日
 AT#bizCd,业务代码
 AT#bizClsgDeptCnt,业务关闭部门计数
@@ -1190,7 +1192,7 @@ AT#clHrarcyNm,分类体系名
 AT#clHrarcyUsageDscd,
 AT#clId,分类识别码
 AT#clNm,分类名
-AT#clStrctrCntnt,
+AT#clStrctrCntnt,分类体系内容
 AT#clStrctrDscd,
 AT#clStrctrNm,分类结构名
 AT#clStrctrTpCd,分类体系类型类别代码
@@ -1369,7 +1371,7 @@ AT#cndValDfntnYn,条件值定义与否
 AT#cndValNullYn,条件值NULL与否
 AT#cndValQryCntnt,条件值查询内容
 AT#cndVldtnWayCd,条件验证方法代码
-AT#cndvBtwnRelTpCd,
+AT#cndvBtwnRelTpCd,条件值之间关系类型代码
 AT#cnfdntlAcctYn,保密帐号是否
 AT#cnfrmAuthDataCntnt,认证确认数据
 AT#cnfrmChargeBurdenDscd,确认充电负担区分代码
@@ -1808,7 +1810,7 @@ AT#docsArvlNatCd,文件到达国家代码
 AT#dongBlwAddr,洞（韩国行政区）以下地址
 AT#dongNm,洞（行政区）名
 AT#dplctnAblYn,可重复与否
-AT#dplctnKeyValCntnt,重复检查键值内容
+AT#dplctnKeyValCntnt,重复检查键值
 AT#dpndntCndYn,是否为依附条件
 AT#dpsrNm,
 AT#dpstAcctLastBal,存款账户余额
@@ -1885,7 +1887,7 @@ AT#dstbSetVal,发布设置属性值
 AT#dstbSrvrId,发布服务器识别码
 AT#dstbSrvrNm,发布服务器名
 AT#dstbStsCd,发布状态代码
-AT#dstbStsDscd,
+AT#dstbStsDscd,发布状态代码
 AT#dstbTaskChngSeqNbr,发布工作更改序列编号
 AT#dstbTaskDtlCntnt,发布工作详细内容
 AT#dstbTaskId,发布工作识别码
@@ -1939,6 +1941,7 @@ AT#dueDlgncSeqNbr,确认义务序列编号
 AT#dueDlgncStsCd,确认义务状态代码
 AT#dueDlgncStsRsnCd,确认义务状态事由代码
 AT#dueDlgncStsRsnCntnt,确认义务状态事由内容
+AT#duedtElpsdNotEndCnt,null
 AT#duedtMgmtBizTpCd,
 AT#duedtMgmtDt,期限管理年月日
 AT#duedtMgmtDtlTpCd,
@@ -2027,7 +2030,7 @@ AT#erlyTrmntnFeeAmt,提前解除手续费
 AT#erlyTrmntnPdCnt,提取产品编号
 AT#errCd,错误代码
 AT#errCntnt,错误内容
-AT#errDtlCntnt,错误详细内容
+AT#errDtlCntnt,
 AT#errGuid,错误GUID
 AT#errLvlCd,错误级别
 AT#errMsgCd,错误消息代码
@@ -2156,14 +2159,14 @@ AT#feeCmltvAmt,手续费累积金额
 AT#feeCndCd,Fee Condition Code
 AT#feeCndNm,Fee Condition Name
 AT#feeCnt,手续费次数
-AT#feeDcAmt,
-AT#feeDcCntnt,
+AT#feeDcAmt,折扣金额
+AT#feeDcCntnt,手续费折扣内容
 AT#feeDcMaxAmt,可折扣最大金额
 AT#feeDcMinAmt,可折扣最小金额
-AT#feeDcNm,
-AT#feeDcRt,
-AT#feeDcSeqNbr,
-AT#feeDcStsCd,
+AT#feeDcNm,手续费折扣名
+AT#feeDcRt,折扣率
+AT#feeDcSeqNbr,手续费折扣序列编号
+AT#feeDcStsCd,手续费折扣状态代码
 AT#feeDcsnAmt,Fee Decision Amount
 AT#feeDmstcAmt,手续费本币金额
 AT#feeDscd,手续费区别代码
@@ -2291,7 +2294,7 @@ AT#frgnTrnsfrCnvrtdAmt,
 AT#frgnTrnsfrDmstcCrncyAmt,
 AT#frgnTxAmt,
 AT#frgnTxAmtOcrYn,外汇交易发生与否
-AT#frgncExProfitDlgAplyFrctnCnt,
+AT#frgncExProfitDlgAplyFrctnCnt,外汇利交易应用分数
 AT#frgncExTradePrncpl,外币买卖本金
 AT#frontDoorStrctrDescCntnt,门厅结构说明
 AT#frozenCmltvAmt,冻结累积金额
@@ -2344,7 +2347,7 @@ AT#glWhdrwlAmt,总分类账取出金额
 AT#gndrCd,性别
 AT#gndrDscd,性别
 AT#gndrDscdNm,性别区别代码名称
-AT#gnrlWhdrwlAmt,
+AT#gnrlWhdrwlAmt,一般提款金额
 AT#goalFailrLastTxSeqNbr,目标失败上次交易序列号
 AT#goodsShpmntDt,货物装运日期
 AT#gradeChoicRsnCntnt,等级评定事由内容
@@ -2408,6 +2411,7 @@ AT#househldNbr,户编号
 AT#hqAcctgItmYn,总店会计科目与否
 AT#hr,时间
 AT#hshVal,散列值
+AT#hstQryYn,History Query Yes Or No
 AT#hstSeqNbr,历史序列编号
 AT#iconNm,图标名
 AT#idNbr,ID编号
@@ -2747,7 +2751,7 @@ AT#lastPrcsDt,最终流程日期
 AT#lastPrcsngNbr,最终处理编号
 AT#lastPrntDt,最后打印日期
 AT#lastPsbkBkgDt,最终存折记账年月日
-AT#lastPsbkBkgLnCnt,
+AT#lastPsbkBkgLnCnt,最后存折记账行数
 AT#lastPsbkBkgPgCnt,最后存折记账页数
 AT#lastPsbkBkgRowCnt,最终存折记账行数
 AT#lastPsbkBkgSideCnt,最终存折记账页数
@@ -3117,7 +3121,7 @@ AT#mostUsedTrnsfrAcctListJson,最常用的转帐帐号列表JSON
 AT#moveDt,入住年月日
 AT#moveInDeptId,移入部门识别码
 AT#moveInDeptNm,
-AT#moveInDt,
+AT#moveInDt,移动日期
 AT#moveInMoveOutIntAmt,全出全入利息
 AT#moveLnDt,移入年月日
 AT#moveOutDeptId,移出部门识别码
@@ -3284,7 +3288,7 @@ AT#ocptnNm,职业名称
 AT#ocrAmt,发生额
 AT#ocrRsnCd,发生事由代码
 AT#ofcTelNbr,工作单位电话号码
-AT#offrCndCd,
+AT#offrCndCd,提供条件代码
 AT#offrCndStsDscd,
 AT#oilCmpnyCd,
 AT#oilKndCd,石油种类代码
@@ -3515,7 +3519,7 @@ AT#prcsSkpCnt,
 AT#prcsStsCd,流程状态代码
 AT#prcsTmstmp,处理日时
 AT#prcsUserNbr,处理用户编号
-AT#prcsYn,
+AT#prcsYn,处理与否
 AT#prcsngAmt,处理金额
 AT#prcsngCnt,流程数
 AT#prcsngDsVal,加工特征值
@@ -3687,6 +3691,8 @@ AT#pswdChngRsnCd,密码更改事由代码
 AT#pswdErrAllwncCnt,允许密码错误次数
 AT#pswdErrCnt,密码错误次数
 AT#pswdErrCntExcsYn,密码错误次数是否超过
+AT#pswdExprtnDscd,Password Expiration Distinction Code
+AT#pswdExprtnSchdldDayCnt,Password Expiration Scheduled Day Count
 AT#pswdLockExprtnDtm,密码锁定失效时间
 AT#pswdLockTmTrmCnt,密码锁时间统计
 AT#pswdMgmtYn,密码管理与否
@@ -3985,7 +3991,7 @@ AT#rltdNm,关联名
 AT#rltdPrcsId,关联流程识别码
 AT#rltdPrcsNm,相关进程名称
 AT#rltdSeqNbr,对方序列编号
-AT#rltdStaffId,对方人员识别码
+AT#rltdStaffId,
 AT#rltdTxSeqNbr,关联交易序列编号
 AT#rmbrsmntBnkBic,报销银行Bic
 AT#rmbrsmntClaimYn,报销索赔
@@ -4067,7 +4073,7 @@ AT#rpymntTxAmt,还款交易金额
 AT#rpymntTxDt,偿还交易日期
 AT#rpymntTxSeqNbr,偿还交易序列号
 AT#rpymntTxYn,还款交易是否
-AT#rpymntWayCd,偿还方式代码
+AT#rpymntWayCd,还款方式区分代码
 AT#rpymntWayNm,偿还方式名称
 AT#rqerNm,
 AT#rqstAmt,申请金额
@@ -4162,6 +4168,7 @@ AT#schdlCnt,安排个数
 AT#schdlTpCd,计划类型代码
 AT#schdldPrcsBrnchCd,预定处理分行代码
 AT#schdldPrcsUserNbr,预定处理用户号码
+AT#schldtlYn,null
 AT#scnd,秒
 AT#scndCatalogId,第二目录识别
 AT#scndryBldgNbr,第二建筑号码
@@ -4224,7 +4231,7 @@ AT#shpmntDocsAcptncDscd,装运单据验收区号
 AT#shpmntDueDt,装运到期日
 AT#shpmntNatCd,装运国家代码
 AT#shpmntPortNm,装运端口名称
-AT#shrnDvisnCd,
+AT#shrnDvisnCd,共享部门代码
 AT#shrnObjId,共享对象ID
 AT#shrnSeqNbr,共享序列号
 AT#shrnTpDscd,
@@ -4321,6 +4328,7 @@ AT#srvcPrflCntnt,服务档案内容
 AT#srvcPrflDescCntnt,服务档案说明
 AT#srvcPrflNm,服务档案名
 AT#srvcRstrctnCd,服务限制码
+AT#srvcRstrctnDtm,Service Restriction Date Time
 AT#srvcRstrctnEndDtm,服务限制终止时日
 AT#srvcRstrctnEndTmstmp,服务限制终止时日
 AT#srvcRstrctnRgstrnRsnCntnt,服务限制注册原因内容
@@ -4494,7 +4502,7 @@ AT#taxAdminTxKndCd,税收征管种类代码
 AT#taxAmtTpCd,税金金额类型代码
 AT#taxAplyBaseDt,征税套用基准年月日
 AT#taxCdKorNm,税率代码韩文名称
-AT#taxCdNm,
+AT#taxCdNm,税率代码名称
 AT#taxFreeOverAmtPrcsAgrmntYn,免税额过程协议
 AT#taxKndCd,税金种类代码
 AT#taxPayerCd,纳税人代码
@@ -4874,7 +4882,7 @@ AT#valDt,起息日
 AT#validYm,有效年月
 AT#varCyclRefCndCd,可变周期参考条件代码
 AT#varCyclRefCndCdNm,变量周期参考条件代码名称
-AT#varFrqRefCndCd,
+AT#varFrqRefCndCd,浮动周期参照条件代码
 AT#varId,变量识别
 AT#varIntRtAplyCyclCnt,浮动利率套用周期数
 AT#varIntRtAplyWayCd,浮动利率套用方式代码
@@ -4998,7 +5006,8 @@ ABRVTN#accept,接受
 ABRVTN#accrued,未收
 ABRVTN#acctg,
 ABRVTN#acdnt,事件
-ABRVTN#acmltd,
+ABRVTN#acmltd,积累
+ABRVTN#acmltn,積立
 ABRVTN#acnts,
 ABRVTN#acqstn,
 ABRVTN#action,措施
@@ -5087,6 +5096,7 @@ ABRVTN#base,
 ABRVTN#basis,依据
 ABRVTN#batch,批量
 ABRVTN#bath,浴室
+ABRVTN#bdtal,貸損充當
 ABRVTN#bdy,体
 ABRVTN#bean,主体
 ABRVTN#begin,开始
@@ -5165,6 +5175,7 @@ ABRVTN#cmpresn,
 ABRVTN#cmprsn,比较
 ABRVTN#cmpst,复合的
 ABRVTN#cmptr,计算机
+ABRVTN#cmpttn,競合
 ABRVTN#cmpx,
 ABRVTN#cmrcl,
 ABRVTN#cmsn,
@@ -5227,6 +5238,7 @@ ABRVTN#cust,客户
 ABRVTN#custNbr,
 ABRVTN#cvrng,覆盖
 ABRVTN#cycl,
+ABRVTN#dbms,dbms
 ABRVTN#dc,
 ABRVTN#dcdng,解码
 ABRVTN#dcsn,判断
@@ -5235,6 +5247,7 @@ ABRVTN#debug,调试
 ABRVTN#delimited,界限划定
 ABRVTN#depo,
 ABRVTN#desired,希望的
+ABRVTN#dfnd,被告
 ABRVTN#dfns,防护
 ABRVTN#dfrd,延期的
 ABRVTN#dfrmnt,延期
@@ -5259,6 +5272,7 @@ ABRVTN#double,两倍的
 ABRVTN#dplct,复制
 ABRVTN#dpndnt,依附
 ABRVTN#dpsr,存款人
+ABRVTN#dpstr,被供託者
 ABRVTN#drtn,期间
 ABRVTN#ds,
 ABRVTN#dsbrsmnt,支出
@@ -5266,6 +5280,7 @@ ABRVTN#dscd,
 ABRVTN#dsgntn,
 ABRVTN#dspnsr,
 ABRVTN#dspsbl,可支配
+ABRVTN#dspsl,賣却
 ABRVTN#dstb,分配
 ABRVTN#dstntn,
 ABRVTN#dstrbt,分配
@@ -5293,6 +5308,7 @@ ABRVTN#embs,
 ABRVTN#emplymnt,职业
 ABRVTN#empty,空值
 ABRVTN#enbld,已启用
+ABRVTN#encrptn,加密
 ABRVTN#end,结束
 ABRVTN#eng,英语
 ABRVTN#engh,充分的
@@ -5357,6 +5373,7 @@ ABRVTN#frgn,外国的
 ABRVTN#front,前面
 ABRVTN#frozen,冻结
 ABRVTN#frqnt,频率
+ABRVTN#fss,金監院
 ABRVTN#fuel,燃料
 ABRVTN#funds,资金
 ABRVTN#fvrt,收藏
@@ -5510,6 +5527,7 @@ ABRVTN#medm,
 ABRVTN#member,成员
 ABRVTN#memory,存储
 ABRVTN#menu,目录
+ABRVTN#meta,元
 ABRVTN#mgmt,管理
 ABRVTN#micro,
 ABRVTN#mistake,
@@ -5588,6 +5606,7 @@ ABRVTN#pg,页码
 ABRVTN#phone,电话
 ABRVTN#photo,照片
 ABRVTN#pln,计划
+ABRVTN#plnf,原告
 ABRVTN#plrl,复数
 ABRVTN#pltcl,
 ABRVTN#pltnm,
@@ -5613,6 +5632,7 @@ ABRVTN#prncpl,本金
 ABRVTN#prnt,打印
 ABRVTN#profit,利润
 ABRVTN#program,程序
+ABRVTN#prpsty,性向
 ABRVTN#prsnl,个人
 ABRVTN#prsnt,当前
 ABRVTN#prsntn,
@@ -5641,6 +5661,7 @@ ABRVTN#qstnr,问卷
 ABRVTN#queue,列
 ABRVTN#random,
 ABRVTN#rating,等级
+ABRVTN#rbld,rebuild
 ABRVTN#rckng,账单
 ABRVTN#rcmnd,建议
 ABRVTN#rcmndtn,推荐
@@ -5724,6 +5745,7 @@ ABRVTN#sample,例子
 ABRVTN#save,保存
 ABRVTN#sbst,子集
 ABRVTN#schdl,时间
+ABRVTN#schldtl,执行權原
 ABRVTN#schm,图解
 ABRVTN#school,学校
 ABRVTN#scndry,从属的
@@ -5794,12 +5816,14 @@ ABRVTN#strdy,星期六
 ABRVTN#stream,流
 ABRVTN#string,字符串
 ABRVTN#stripe,
+ABRVTN#strtg,戰略
 ABRVTN#sts,状态
 ABRVTN#stsfctn,偿还
 ABRVTN#style,
 ABRVTN#stylesheet,样式单
 ABRVTN#sub,替代
 ABRVTN#sucss,成功
+ABRVTN#sue,提訴
 ABRVTN#sum,合计
 ABRVTN#super,优秀的
 ABRVTN#survey,调查
@@ -5834,6 +5858,7 @@ ABRVTN#to,
 ABRVTN#tp,类型
 ABRVTN#track,
 ABRVTN#trade,买卖
+ABRVTN#tral,審級
 ABRVTN#trgr,触发器
 ABRVTN#trgt,
 ABRVTN#trm,期间
@@ -6076,6 +6101,9 @@ CDVAL#11602DTS,部门服务
 CDVAL#11602EDS,Training Service
 CDVAL#11602FXS,外汇服务
 CDVAL#11602IAS,内部账户服务
+CDVAL#11602LCB,
+CDVAL#11602LCBat,
+CDVAL#11602LCS,
 CDVAL#11602LNBat,授信批处理
 CDVAL#11602LNS,贷款服务
 CDVAL#11602MTS,监控控制服务
@@ -6119,6 +6147,7 @@ CDVAL#11603DPS,存款服务
 CDVAL#11603DTS,部门服务
 CDVAL#11603FXS,外汇服务
 CDVAL#11603IAS,内部客户服务
+CDVAL#11603LCS,
 CDVAL#11603LNS,授信服务
 CDVAL#11603MTS,监控服务
 CDVAL#11603NPS,非银行转账服务
@@ -6221,6 +6250,9 @@ CDVAL#1192405,合约/客户关系人
 CDVAL#1192406,合约/文件
 CDVAL#1192407,合约/资产
 CDVAL#1192408,合约/发行介质
+CDVAL#1192409,
+CDVAL#1192410,
+CDVAL#1192411,
 CDVAL#11929AC,AC
 CDVAL#11929AR,AR
 CDVAL#11929AS,资产
@@ -6483,6 +6515,7 @@ CDVAL#11973ForeignExchangeBuy,外币购买
 CDVAL#11973ForeignExchangeSell,外币销售
 CDVAL#11973IncreaseLimit,提高额度
 CDVAL#11973IncreaseTermExtension,额度提高期限延长
+CDVAL#11973IntRtReduceDemand,
 CDVAL#11973InterRealTmTrnsfrIn,从本行立即转账汇款至他行
 CDVAL#11973InterRealTmTrnsfrOut,他行立即转账
 CDVAL#11973InterRsvatnTrnsfrOut,安排转出
@@ -6501,6 +6534,7 @@ CDVAL#11973IssueBalCertificate,开具余额证明
 CDVAL#11973IssueBankName,
 CDVAL#11973IssueLg,发行LG
 CDVAL#11973IssuePsbk,发行存折
+CDVAL#11973Loan,贷款
 CDVAL#11973LoanIntCapitalization,授信利息成本
 CDVAL#11973ModifyBalanceSweep,修改余额扫描
 CDVAL#11973ModifyCltrl,
@@ -6658,6 +6692,7 @@ CDVAL#1230807,安排发布媒体类型代码
 CDVAL#1230808,尽职调查区别代码
 CDVAL#1230809,
 CDVAL#1230810,
+CDVAL#1230811,Arrangement Asset Relation Code
 CDVAL#1231001,新进人员
 CDVAL#1231002,退休
 CDVAL#1231003,休假
@@ -7171,6 +7206,7 @@ CDVAL#4002701,通知目标
 CDVAL#4002702,营销目标
 CDVAL#40028R,接收
 CDVAL#40028S,发送
+CDVAL#4002901,
 CDVAL#4002903,电子邮件
 CDVAL#4002904,短信
 CDVAL#50000A,活动
@@ -7199,6 +7235,7 @@ CDVAL#50001A04,
 CDVAL#50001N01,
 CDVAL#50001T07,
 CDVAL#50001T09,
+CDVAL#50001U01,
 CDVAL#5000201,柜面
 CDVAL#5000202,网上
 CDVAL#5000203,手机应用
@@ -7341,7 +7378,8 @@ CDVAL#500223,取消
 CDVAL#500231,注册
 CDVAL#500232,结束
 CDVAL#500233,注销
-CDVAL#500234,取消终止
+CDVAL#500234,减少金额
+CDVAL#500235,增加金额
 CDVAL#5002401,分期偿还本金
 CDVAL#5002402,本金和利息分期付款
 CDVAL#5002403,到期还款
@@ -7386,6 +7424,7 @@ CDVAL#5002504103,一年累积金额（自然月）
 CDVAL#5002504201,一年存入金额（开户日起计）
 CDVAL#5002504202,一年取款金额（开户日起计）
 CDVAL#5002504203,一年累积金额（开户日起计）
+CDVAL#5002505001,
 CDVAL#5002509001,支付总额
 CDVAL#5002509002,进账总额
 CDVAL#5002509003,总还款金额
@@ -7676,6 +7715,7 @@ CDVAL#8000001,日
 CDVAL#8000002,周
 CDVAL#8000003,月
 CDVAL#8000004,年
+CDVAL#8000005,
 CDVAL#800010,无记录
 CDVAL#800011,日历
 CDVAL#800012,注册日期
@@ -7787,6 +7827,23 @@ CDVAL#8003302,新
 CDVAL#8003303,转存
 CDVAL#8003304,到期
 CDVAL#8003305,关闭
+CDVAL#999A13980,
+CDVAL#999A13981,
+CDVAL#999A13990,
+CDVAL#999A13991,
+CDVAL#999A14000,
+CDVAL#999A14001,
+CDVAL#999A14002,
+CDVAL#999A14010,
+CDVAL#999A14011,
+CDVAL#999A14020,
+CDVAL#999A14021,
+CDVAL#999A14022,
+CDVAL#999A140331,
+CDVAL#999A140334,
+CDVAL#999A140363,
+CDVAL#999A140372,
+CDVAL#999A140373,
 CDVAL#A00041,登记
 CDVAL#A0004C,取消
 CDVAL#A00051,登记
@@ -7805,6 +7862,7 @@ CDVAL#A0012ASB,资产基本组件
 CDVAL#A0012ATB,参与者基本组件
 CDVAL#A0012CMB,申请基本组件
 CDVAL#A0012DCB,文档基本组件
+CDVAL#A0012LCB,
 CDVAL#A0012PDB,产品基本组件
 CDVAL#A0012SMB,系统常用基本组件
 CDVAL#A0012STB,结算基本组件
@@ -7964,6 +8022,7 @@ CDVAL#A006800002,贷款签约新通知
 CDVAL#A006800003,短信本人认证
 CDVAL#A006800004,电子邮件本人认证
 CDVAL#A006800005, 顾客电子邮件本人认证
+CDVAL#A006800007,
 CDVAL#A006800015,
 CDVAL#A0068BAL_CERTIFICATE_EMAIL,余额证明通知
 CDVAL#A0068TEST1,测试3
@@ -8059,6 +8118,7 @@ CDVAL#A0099OG,原交易
 CDVAL#A010001,免税
 CDVAL#A010002,小额
 CDVAL#A010003,实体
+CDVAL#A0100111,股息所得税
 CDVAL#A0101101,正常费率
 CDVAL#A0101102,提前终止率
 CDVAL#A0101103,到期日后几率
@@ -8303,9 +8363,11 @@ CDVAL#A0217CMBat,常见批次
 CDVAL#A0217CRBat,信用报告批次
 CDVAL#A0217CUBat,客户批次
 CDVAL#A0217DPBat,存款批处理
+CDVAL#A0217LCBat,
 CDVAL#A0217LNBat,授信批处理
 CDVAL#A0217PYBat,转账批处理
 CDVAL#A0217SCBat,SCF批处理
+CDVAL#A0217XPBat,External Proxy Batch
 CDVAL#A021801,批处理作业标识符
 CDVAL#A021802,批处理作业名
 CDVAL#A021803,批处理组件代码
@@ -8597,6 +8659,8 @@ CDVAL#A043502,后入先出
 CDVAL#A043503,回次选择
 CDVAL#A043504,
 CDVAL#A0438CLS,担保服务
+CDVAL#A0438LCB,
+CDVAL#A0438LCS,
 CDVAL#A043901,活动
 CDVAL#A043902,闲置
 CDVAL#A04491,金额
@@ -8735,6 +8799,8 @@ CDVAL#A058504,
 CDVAL#A058711,
 CDVAL#A058712,
 CDVAL#A0595001,经营资金
+CDVAL#A059501,经营资金
+CDVAL#A059502,
 CDVAL#A06091,等候
 CDVAL#A06092,诉讼
 CDVAL#A06093,停止错误
@@ -10091,6 +10157,7 @@ CDVAL#A100503,
 CDVAL#A100504,
 CDVAL#A100505,
 CDVAL#A100599,
+CDVAL#A1006H,
 CDVAL#A1006I,
 CDVAL#A1006R,
 CDVAL#A100701,
@@ -10393,6 +10460,7 @@ CDVAL#A110302,
 CDVAL#A110303,
 CDVAL#A110401,
 CDVAL#A110402,
+CDVAL#A110411,
 CDVAL#A110502,
 CDVAL#A110503,
 CDVAL#A110504,
@@ -10526,6 +10594,20 @@ CDVAL#A113001,
 CDVAL#A113002,
 CDVAL#A113003,
 CDVAL#A113004,
+CDVAL#A1130A1,Encrypt PII
+CDVAL#A1130B1,Encrypt External Link (Federation of Banks)
+CDVAL#A1130C1,Encrypt Password
+CDVAL#A1130D1,Encrypt Other Information
+CDVAL#A1130H01,SHA-256
+CDVAL#A1130H02,SHA-512
+CDVAL#A1130H11,SHA3-256
+CDVAL#A1130H12,SHA3-512
+CDVAL#A1130H21,SHAKE128
+CDVAL#A1130H22,SHAKE256
+CDVAL#A1130P01,RSA
+CDVAL#A1130S01,AES-128
+CDVAL#A1130S02,AES-192
+CDVAL#A1130S03,AES-256
 CDVAL#A113100,
 CDVAL#A113101,
 CDVAL#A113102,
@@ -10573,11 +10655,11 @@ CDVAL#A1141AR_EXTRNL_ID_NBRG,
 CDVAL#A1141AR_PSBK_MSG_EDTR,
 CDVAL#A1141AR_PSBK_MSG_VLDTR,
 CDVAL#A1141AR_PSWD_VLDTR,
-CDVAL#A1141AR_SRVC_VLDTN,服务验证规则程序
+CDVAL#A1141AR_SRVC_VLDTR,服务验证规则程序
 CDVAL#A1141AR_XTN_ATRBT,排列扩展属性规则程序
 CDVAL#A1141AT_MBRSHP_CRTN,
-CDVAL#A1141CM_ATRBT_VLDTN_COMPLEX,
-CDVAL#A1141CM_ATRBT_VLDTN_SIMPLE,
+CDVAL#A1141CM_ATRBT_VLDTR_COMPLEX,
+CDVAL#A1141CM_ATRBT_VLDTR_SIMPLE,
 CDVAL#A1141CM_XTN_CODE,
 CDVAL#A1141ST_BAL_UPD,
 CDVAL#A1141ST_BAL_UPD_DCSN,
@@ -10599,6 +10681,243 @@ CDVAL#A1147M,
 CDVAL#A1147Y,
 CDVAL#A115301,
 CDVAL#A115302,
+CDVAL#A122101,
+CDVAL#A1311BIGINT,BIGINT
+CDVAL#A1311CHAR,CHAR
+CDVAL#A1311CLOB,CLOB
+CDVAL#A1311DATE,DATE
+CDVAL#A1311DECIMAL,DECIMAL
+CDVAL#A1311DOUBLE,DOUBLE
+CDVAL#A1311FLOAT,FLOAT
+CDVAL#A1311INTEGER,INTEGER
+CDVAL#A1311TIMESTAMP,TIMESTAMP
+CDVAL#A1311TINYINT,TINYINT
+CDVAL#A1311VARCHAR,VARCHAR
+CDVAL#A1359,DTO状态代码
+CDVAL#A135901,活动
+CDVAL#A135902,闲置
+CDVAL#A1360,
+CDVAL#A1360001,丢失
+CDVAL#A1361,状态代码
+CDVAL#A13611,活动
+CDVAL#A13612,闲置
+CDVAL#A1362,税种类型代码
+CDVAL#A1362110,利息所得税
+CDVAL#A1362111,股息所得税
+CDVAL#A1362112,居民税
+CDVAL#A1362113,特殊农村发展税
+CDVAL#A1362114,国防税
+CDVAL#A1363,产品条件详细类型代码
+CDVAL#A136308,利率
+CDVAL#A136311,优惠利率
+CDVAL#A136312,额外利率
+CDVAL#A1365ACS,账户服务
+CDVAL#A1365ARS,合约服务
+CDVAL#A1365BFS,优惠服务
+CDVAL#A1365BPS,业务伙伴服务
+CDVAL#A1365CAS,设置门户管理服务
+CDVAL#A1365CLS,担保服务
+CDVAL#A1365CMS,公共服务
+CDVAL#A1365CRS,信用报告服务
+CDVAL#A1365CUS,客户服务
+CDVAL#A1365DPS,存款服务
+CDVAL#A1365DTS,部门服务
+CDVAL#A1365FXS,外汇服务
+CDVAL#A1365IAS,内部账户服务
+CDVAL#A1365LCS,
+CDVAL#A1365LNS,贷款服务
+CDVAL#A1365MTS,监控控制服务
+CDVAL#A1365NPS,非银行支付服务
+CDVAL#A1365PDS,产品服务
+CDVAL#A1365PPS,P2P服务
+CDVAL#A1365PYS,支付服务
+CDVAL#A1365SCS,供应链金融服务
+CDVAL#A1365SFS,人员服务
+CDVAL#A1365UES,审查服务
+CDVAL#A1365UPS,用户入口服务
+CDVAL#A1365WAS,财富管理代理服务
+CDVAL#A1365XPS,外部代理服务
+CDVAL#A136701,
+CDVAL#A136702,
+CDVAL#A136703,
+CDVAL#A136704,
+CDVAL#A136801,
+CDVAL#A136802,
+CDVAL#A136901,
+CDVAL#A136902,
+CDVAL#A136903,
+CDVAL#A136904,
+CDVAL#A137101,
+CDVAL#A137102,
+CDVAL#A137103,
+CDVAL#A137104,
+CDVAL#A137201,
+CDVAL#A137202,
+CDVAL#A137301,
+CDVAL#A137302,
+CDVAL#A137401,
+CDVAL#A137402,
+CDVAL#A137501,
+CDVAL#A137502,
+CDVAL#A137601,
+CDVAL#A137602,
+CDVAL#A137701,
+CDVAL#A137702,
+CDVAL#A137703,
+CDVAL#A137704,
+CDVAL#A137801,
+CDVAL#A137802,
+CDVAL#A137803,
+CDVAL#A137804,
+CDVAL#A137901,
+CDVAL#A137902,
+CDVAL#A137903,
+CDVAL#A137904,
+CDVAL#A138001,
+CDVAL#A138002,
+CDVAL#A138003,
+CDVAL#A138004,
+CDVAL#A138101,
+CDVAL#A138102,
+CDVAL#A138103,
+CDVAL#A138104,
+CDVAL#A138201,
+CDVAL#A138202,
+CDVAL#A138203,
+CDVAL#A138204,
+CDVAL#A138301,
+CDVAL#A138302,
+CDVAL#A138401,
+CDVAL#A138402,
+CDVAL#A138403,
+CDVAL#A138404,
+CDVAL#A1386,资产地址类型代码
+CDVAL#A138601,位置
+CDVAL#A138602,所有者地址
+CDVAL#A1387,资产地址区域分类代码
+CDVAL#A138701,抵押品识别率区域代码
+CDVAL#A138703,住宅租赁区号
+CDVAL#A13980,
+CDVAL#A13981,
+CDVAL#A13990,
+CDVAL#A13991,
+CDVAL#A14000,
+CDVAL#A14001,
+CDVAL#A14002,
+CDVAL#A14010,
+CDVAL#A14011,
+CDVAL#A14020,
+CDVAL#A14021,
+CDVAL#A14022,
+CDVAL#A140331,
+CDVAL#A140332,
+CDVAL#A140334,
+CDVAL#A140363,
+CDVAL#A140372,
+CDVAL#A140373,
+CDVAL#A141201,
+CDVAL#A141301,
+CDVAL#A144301,Normal
+CDVAL#A144302,Warning
+CDVAL#A144303,Expiration
+CDVAL#A145501,打开
+CDVAL#A145502,存款
+CDVAL#A145503,部分还款
+CDVAL#A145504,全额支付
+CDVAL#A145509,结算
+CDVAL#A14561,从下一个工作日到结束日期
+CDVAL#A14562,从开始日期到结束日期前一天
+CDVAL#A14571,365天
+CDVAL#A14572,360天
+CDVAL#A14573,按日历日
+CDVAL#A14581,每月单位月份
+CDVAL#A14582,日单位日
+CDVAL#A14583,每月单位日
+CDVAL#A145901,小数点低于第五位
+CDVAL#A145902,小数点低于第四位数
+CDVAL#A145903,小数点低于第三位数
+CDVAL#A145904,小数点低于第二位数
+CDVAL#A145905,小数点低于第一位数
+CDVAL#A145906,1个单位
+CDVAL#A145907,10个单位
+CDVAL#A145908,100个单位
+CDVAL#A145909,1000个单位
+CDVAL#A146001,1
+CDVAL#A146002,10
+CDVAL#A146003,100
+CDVAL#A146004,1,000
+CDVAL#A146005,10,000
+CDVAL#A146006,100,000
+CDVAL#A146007,1,000,000
+CDVAL#A146008,10,000,000
+CDVAL#A146009,100,000,000
+CDVAL#A146101,月
+CDVAL#A146102,季
+CDVAL#A146106,半
+CDVAL#A146112,年
+CDVAL#A146199,单笔付款
+CDVAL#A146201,月
+CDVAL#A146202,季
+CDVAL#A146206,半
+CDVAL#A146212,年
+CDVAL#A146299,单笔付款
+CDVAL#A14631,年
+CDVAL#A14632,月
+CDVAL#A14633,天
+CDVAL#A146401,自基准日期起的特定期间月份
+CDVAL#A146402,具体确定日期
+CDVAL#A146403,具体确定日期+12月特定日期
+CDVAL#A14651,工作日，如果是假期
+CDVAL#A14652,最后一天
+CDVAL#A14653,具体确定日期
+CDVAL#A14654,具体确定日期+ 12月波动
+CDVAL#A14655,具体确定的波动
+CDVAL#A14661,协议日期
+CDVAL#A14671,未核销
+CDVAL#A14672,延迟利息>余额拖欠利息
+CDVAL#A14673,平衡拖欠>延迟利率
+CDVAL#A14674,仅延迟利息
+CDVAL#A147401,主要的摊销
+CDVAL#A147402,安装摊销
+CDVAL#A147403,气球付款
+CDVAL#A147404,偶然付款
+CDVAL#A147405,逐步增加
+CDVAL#A147410,混合主要的摊销
+CDVAL#A147411,混合安装AMORTIZATION
+CDVAL#A147420,客户指定
+CDVAL#A147421,固定安装
+CDVAL#A147422,不规范的付款
+CDVAL#A148301,
+CDVAL#A148302,
+CDVAL#A148305,
+CDVAL#A148306,
+CDVAL#A14861,工作日，如果是假期
+CDVAL#A14862,假期后的下一个工作日
+CDVAL#A14871,预
+CDVAL#A14872,岗位
+CDVAL#A150601,
+CDVAL#A150602,
+CDVAL#A150603,
+CDVAL#A150604,
+CDVAL#A150605,
+CDVAL#A1506B1,
+CDVAL#A1506E1,
+CDVAL#A1506E2,
+CDVAL#A1507AP,
+CDVAL#A1507CP,
+CDVAL#A1507DF,
+CDVAL#A151501,
+CDVAL#A151502,
+CDVAL#A1526001,
+CDVAL#A1526002,
+CDVAL#A1526003,
+CDVAL#A1526004,
+CDVAL#A1526005,
+CDVAL#A1526006,
+CDVAL#A15601,
+CDVAL#A15602,
+CDVAL#A15603,
+CDVAL#A15604,
 CDVAL#C001631,
 CDVAL#InwardRemittance,
 CDVAL#L006301,Equal Principal Repayment
@@ -10608,6 +10927,23 @@ CDVAL#L006304,Occasional Repayment
 CDVAL#L006305,Uneven Repayment
 CDVAL#L006306,Equal Parts Partial Repayment
 CDVAL#L006307,Gradual Increase Type Partial Repayment
+CDVAL#STDAA13980,
+CDVAL#STDAA13981,
+CDVAL#STDAA13990,
+CDVAL#STDAA13991,
+CDVAL#STDAA14000,
+CDVAL#STDAA14001,
+CDVAL#STDAA14002,
+CDVAL#STDAA14010,
+CDVAL#STDAA14011,
+CDVAL#STDAA14020,
+CDVAL#STDAA14021,
+CDVAL#STDAA14022,
+CDVAL#STDAA140331,
+CDVAL#STDAA140334,
+CDVAL#STDAA140363,
+CDVAL#STDAA140372,
+CDVAL#STDAA140373,
 CDVAL#T0001AFN,阿富汗
 CDVAL#T0001CNY,人民币
 CDVAL#T0001EUR,欧元
@@ -10941,9 +11277,11 @@ CD#A0293,住宅种类代码
 CD#A0294, 住宅方式区别代码
 CD#A0295,职业类别代码
 CD#A0296,雇佣类型代码
+CD#A0306,
 CD#A0405,
 CD#A0406,
 CD#A0452,
+CD#A0595,
 CD#A0640,
 CD#A0646,
 CD#A0647,
@@ -11060,7 +11398,7 @@ CD#A0885,
 CD#A0886,
 CD#A0887,
 CD#A0888,Important Certificate Code
-CD#A0889,Important Certificate Distribute Code
+CD#A0889,Important Certificate Classification Code
 CD#A0890,Important Certificate Type Code
 CD#A0891,
 CD#A0892,
@@ -11258,7 +11596,6 @@ CD#A1109,
 CD#A1110,
 CD#A1111,
 CD#A1112,
-CD#A1113,
 CD#A1114,
 CD#A1115,
 CD#A1118,
@@ -11290,6 +11627,58 @@ CD#A1146,
 CD#A1147,
 CD#A1151,Document List
 CD#A1153,Borrower Type Code
+CD#A1221,
+CD#A1226,
+CD#A1311,Column Type Code
+CD#A1365,
+CD#A1367,
+CD#A1368,
+CD#A1369,
+CD#A1371,
+CD#A1372,
+CD#A1373,
+CD#A1374,
+CD#A1375,
+CD#A1376,
+CD#A1377,
+CD#A1378,
+CD#A1379,
+CD#A1380,
+CD#A1381,
+CD#A1382,
+CD#A1383,
+CD#A1384,
+CD#A1398,
+CD#A1399,
+CD#A1400,
+CD#A1401,
+CD#A1402,
+CD#A1403,
+CD#A1412,
+CD#A1413,
+CD#A1443,Password Expiration Distinction Code
+CD#A1455, 交易类型区别代码
+CD#A1456,利息计算部分区分代码
+CD#A1457,利息计算基准日计数区分代码
+CD#A1458,利息计算单位区分代码
+CD#A1459,利息计算分数区分代码
+CD#A1460,主要计算分数区分代码
+CD#A1461,利息支付周期区分代码
+CD#A1462,主要付款周期区分代码
+CD#A1463,逾期格雷斯日特区代码
+CD#A1464,下一个付款日期方式代码
+CD#A1465,下一个付款日期假日申请区别代码
+CD#A1466,安排付款日区别代码
+CD#A1467,高级付款应用方法区分代码
+CD#A1474,还款方式区分代码
+CD#A1486,逾期日期假日申请区别代码
+CD#A1487,利息前/后收购区别代码
+CD#A1506,
+CD#A1507,
+CD#A1515,
+CD#A1519,
+CD#A1526,
+CD#A1560,
 CD#C0016,
 CD#Cdd,
 CD#T0001,货币代码
@@ -11420,6 +11809,7 @@ CMPX_ABRVTN#BSS,
 CMPX_ABRVTN#CB,
 CMPX_ABRVTN#CDD,
 CMPX_ABRVTN#CSS,
+CMPX_ABRVTN#CV,Consistency Validation
 CMPX_ABRVTN#Crdrkprm,
 CMPX_ABRVTN#CrdtRtg,
 CMPX_ABRVTN#Cucu,
@@ -11434,6 +11824,7 @@ CMPX_ABRVTN#Dtsf,
 CMPX_ABRVTN#EAI,
 CMPX_ABRVTN#EDD,
 CMPX_ABRVTN#IPCT,
+CMPX_ABRVTN#KFTC,KFTC
 CMPX_ABRVTN#LTV,
 CMPX_ABRVTN#Prtnrd,
 CMPX_ABRVTN#Prtnrs,
@@ -11446,13 +11837,18 @@ CMPX_ABRVTN#bal,
 CMPX_ABRVTN#bdngnfrmtnsmry,
 CMPX_ABRVTN#bl,
 CMPX_ABRVTN#bnkhr,뱅크아워
+CMPX_ABRVTN#cb,CB
 CMPX_ABRVTN#cc,
 CMPX_ABRVTN#cd,
 CMPX_ABRVTN#cdatm,
+CMPX_ABRVTN#cdd,CDD
 CMPX_ABRVTN#chkYn,
 CMPX_ABRVTN#cms,
 CMPX_ABRVTN#cnt,
 CMPX_ABRVTN#cptlcst,
+CMPX_ABRVTN#css,CSS
+CMPX_ABRVTN#ctvd,一致性验证
+CMPX_ABRVTN#dbms,dbms
 CMPX_ABRVTN#dc,
 CMPX_ABRVTN#di,
 CMPX_ABRVTN#dlnprftloss,
@@ -11460,9 +11856,14 @@ CMPX_ABRVTN#dmfr,
 CMPX_ABRVTN#dmnth,
 CMPX_ABRVTN#dpstlm,
 CMPX_ABRVTN#dscd,
+CMPX_ABRVTN#dsr,DSR
 CMPX_ABRVTN#dstp,
+CMPX_ABRVTN#dti,DTI
 CMPX_ABRVTN#dtm,
+CMPX_ABRVTN#dts,DTS
 CMPX_ABRVTN#duedlgnc,
+CMPX_ABRVTN#eai,EAI
+CMPX_ABRVTN#edd,EDD
 CMPX_ABRVTN#endMonth,
 CMPX_ABRVTN#extnprd,
 CMPX_ABRVTN#fep,
@@ -11472,25 +11873,26 @@ CMPX_ABRVTN#hfcgf,
 CMPX_ABRVTN#hm,
 CMPX_ABRVTN#hms,
 CMPX_ABRVTN#hmss,
-CMPX_ABRVTN#ic,
+CMPX_ABRVTN#ic,IC
 CMPX_ABRVTN#impcrtfct,
 CMPX_ABRVTN#imptcrtct,
 CMPX_ABRVTN#imptcrtfct,
 CMPX_ABRVTN#incdchrg,
 CMPX_ABRVTN#introfc,
-CMPX_ABRVTN#iso,
+CMPX_ABRVTN#iso,ISO
 CMPX_ABRVTN#issmda,
 CMPX_ABRVTN#jdgmrgt,
 CMPX_ABRVTN#kbfn,
 CMPX_ABRVTN#kcb,KCB
-CMPX_ABRVTN#kcgf,
-CMPX_ABRVTN#kcif,
-CMPX_ABRVTN#kdic,Korea Deposit Insurance Corporation
+CMPX_ABRVTN#kcgf,KCGF
+CMPX_ABRVTN#kcif,KCIF
+CMPX_ABRVTN#kdic,KDIC
 CMPX_ABRVTN#ked,KED
-CMPX_ABRVTN#kftc,
-CMPX_ABRVTN#lc,
+CMPX_ABRVTN#kftc,KFTC
+CMPX_ABRVTN#lc,LC
 CMPX_ABRVTN#lg,
 CMPX_ABRVTN#lqdtprmm,
+CMPX_ABRVTN#ltv,LTV
 CMPX_ABRVTN#mci,
 CMPX_ABRVTN#nftf,
 CMPX_ABRVTN#nodeTp,
@@ -11498,13 +11900,14 @@ CMPX_ABRVTN#ntnlpnsn,
 CMPX_ABRVTN#obtr,
 CMPX_ABRVTN#pbc,
 CMPX_ABRVTN#piamt,
-CMPX_ABRVTN#pin,
+CMPX_ABRVTN#pin,PIN
 CMPX_ABRVTN#pk,
 CMPX_ABRVTN#pl,
 CMPX_ABRVTN#pot,
 CMPX_ABRVTN#ppsam,
 CMPX_ABRVTN#rcv,
 CMPX_ABRVTN#rlstt,
+CMPX_ABRVTN#rprsn,
 CMPX_ABRVTN#saf,
 CMPX_ABRVTN#save,
 CMPX_ABRVTN#tax,
@@ -11545,8 +11948,9 @@ DMN#nm,
 DMN#nth,
 DMN#path,
 DMN#price,
+DMN#priority,prity
 DMN#prncpl,
-DMN#pswd,
+DMN#pswd,密码
 DMN#qnty,
 DMN#rt,
 DMN#scnd,
@@ -11616,6 +12020,7 @@ DOC#SampleDoc02,
 DOC#SampleDoc03,
 DOC#SampleDoc04,
 DOC#SampleDoc05,
+DOC#StaffSMSAuthorization,
 DOC#TermDepositTerms,整存整取条款
 DOC#Test,测试1
 DOC#TrailBalance,试算平衡表
@@ -11929,6 +12334,7 @@ MENU#204_248,
 MENU#204_249,
 MENU#204_25,
 MENU#204_251,协议
+MENU#204_252,여신상환_테스트
 MENU#204_26,
 MENU#204_27,
 MENU#204_28,
@@ -12581,9 +12987,18 @@ MENU#235_145,存折消息
 MENU#235_147,
 MENU#235_148,
 MENU#235_15,系统参数
-MENU#235_151,
-MENU#235_152,
+MENU#235_151,系统接口信息管理
+MENU#235_152,外部事务参数管理
+MENU#235_153,类
+MENU#235_154,类
+MENU#235_155,课堂反思
+MENU#235_156,服务反思
+MENU#235_157,Manage distribution
+MENU#235_158,Distribution Parameter
+MENU#235_159,데이터검증
 MENU#235_16,企业级
+MENU#235_160,데이터검증현황관리
+MENU#235_161,계약서비스유형
 MENU#235_17,页
 MENU#235_18,旗帜
 MENU#235_19,文本内容
@@ -14182,13 +14597,68 @@ MENU#277_369,开立虚拟账户
 MENU#277_37,暂记账户新建
 MENU#277_370,注册终身账户
 MENU#277_371,
+MENU#277_376,
+MENU#277_377,
+MENU#277_378,
+MENU#277_379,
 MENU#277_38,暂记账户整理
+MENU#277_380,
+MENU#277_381,
+MENU#277_382,
+MENU#277_383,
+MENU#277_384,
+MENU#277_385,
 MENU#277_39,开立内部合约
+MENU#277_390,
+MENU#277_391,
+MENU#277_392,
+MENU#277_393,
+MENU#277_394,
+MENU#277_395,
+MENU#277_396,
+MENU#277_397,
+MENU#277_398,
+MENU#277_399,
 MENU#277_4,担保
 MENU#277_40,开立内部子合约
+MENU#277_400,
+MENU#277_401,
+MENU#277_402,
+MENU#277_403,
+MENU#277_404,
+MENU#277_405,
+MENU#277_406,
+MENU#277_407,
+MENU#277_408,
+MENU#277_409,
 MENU#277_41,交易日报查询
+MENU#277_410,
+MENU#277_411,
+MENU#277_412,
+MENU#277_413,
+MENU#277_414,
+MENU#277_415,
+MENU#277_416,
+MENU#277_417,
+MENU#277_419,
 MENU#277_42,汇率管理
+MENU#277_420,
+MENU#277_421,
+MENU#277_422,
+MENU#277_423,
+MENU#277_424,
+MENU#277_425,
+MENU#277_426,
+MENU#277_427,
+MENU#277_428,
+MENU#277_429,
 MENU#277_43,重要证书管理
+MENU#277_430,
+MENU#277_431,
+MENU#277_432,
+MENU#277_433,
+MENU#277_435,상환스케쥴조회_테스트
+MENU#277_436,대출상환 테스트
 MENU#277_44,重要证书管理
 MENU#277_46,277_46
 MENU#277_49,277_44
@@ -14561,7 +15031,7 @@ MENU#286_201,查询
 MENU#286_202,登记/修改
 MENU#286_203,交易限制管理
 MENU#286_204,销户
-MENU#286_205,277_190
+MENU#286_205,통장
 MENU#286_206,打印交易记录
 MENU#286_207,重新发行存折
 MENU#286_208,重印交易历史记录
@@ -15110,6 +15580,11 @@ MENU#297_157,
 MENU#297_158,
 MENU#297_159,服务反思
 MENU#297_16,企业级
+MENU#297_160,계약서비스
+MENU#297_161,배포정합성검증
+MENU#297_162,배포정합성검증실행
+MENU#297_163,데이터검증
+MENU#297_164,데이터검증현황관리
 MENU#297_17,页
 MENU#297_18,旗帜
 MENU#297_19,文本内容
@@ -17091,7 +17566,6 @@ PD#grtst,
 PD#or,
 PD#scanCode,请扫描账单条形码
 PD#wmpWhdwScrNm,申购撤销
-SCRNITM#,mrchntInfo
 SCRNITM# marginAmt,
 SCRNITM#1yrRt,一年期
 SCRNITM#5yrRt,五年期
@@ -17106,6 +17580,7 @@ SCRNITM#B_add,加
 SCRNITM#B_cancel, 取消
 SCRNITM#B_close,关闭
 SCRNITM#B_code,码
+SCRNITM#B_copy,
 SCRNITM#B_delete,删除
 SCRNITM#B_excel,Excel
 SCRNITM#B_initialize,清除
@@ -17166,6 +17641,8 @@ SCRNITM#CAPWF507-TREE-TITLE,付款条件列表
 SCRNITM#CNY,元
 SCRNITM#CentercutForcedEnd,强制终点切割
 SCRNITM#Claim,分配为本人作业
+SCRNITM#CmpttnHis,競合內譯
+SCRNITM#CrdtDebt,債權債務者
 SCRNITM#CrdtOffrFormCd,
 SCRNITM#CrncyCnvrtr,
 SCRNITM#DOWN,下
@@ -17177,6 +17654,7 @@ SCRNITM#Get,获取
 SCRNITM#IdntyNbr,识别号码
 SCRNITM#IdntyTp,识别类型
 SCRNITM#Individual Business,
+SCRNITM#InqryTrgt,
 SCRNITM#IntRtCmptnInfo,
 SCRNITM#Itm,
 SCRNITM#KRW,韩元
@@ -17225,10 +17703,14 @@ SCRNITM#abrvtnDmnGrp,缩写域组
 SCRNITM#accept,
 SCRNITM#acct,账户
 SCRNITM#acctActvtn,账户激活
+SCRNITM#acctAdd,null
 SCRNITM#acctBeenReset,账户已重新激活
 SCRNITM#acctBrowse,账户查询
+SCRNITM#acctDel,null
 SCRNITM#acctDtl,账户详细信息
 SCRNITM#acctDtlSrch,搜索帐户详细信息
+SCRNITM#acctInfoAdd,
+SCRNITM#acctInfoChng,
 SCRNITM#acctInfoInqry,账户信息查询
 SCRNITM#acctList,
 SCRNITM#acctMgmt,账户管理
@@ -17339,6 +17821,7 @@ SCRNITM#anotherLoanAplctn,申请其他贷款
 SCRNITM#answerTrgtTpCd,答复对象类型代码
 SCRNITM#anualAcmltnAmtClndrBase,基于日历的年积累金额
 SCRNITM#anualAcmltnAmtOpnDayBase,基于营业日的年累计金额
+SCRNITM#apCntnt,
 SCRNITM#aplcntArea,
 SCRNITM#aplctnCncl,取消申请
 SCRNITM#aplctnCndChng,更改申请条件
@@ -17457,8 +17940,10 @@ SCRNITM#arrRelKnd,合约关系类别
 SCRNITM#arrSrchDscd,
 SCRNITM#arrSrvcBlckngCntnt,
 SCRNITM#arrSrvcBlckngRqerDscd,
+SCRNITM#arrSrvcCmpntCd,
 SCRNITM#arrSrvcTp,
 SCRNITM#arrSrvcTpCd,安排服务类型代码
+SCRNITM#arrSrvcTpNm,
 SCRNITM#arrStsCd,合约状态
 SCRNITM#arrStsChngRsnCd,签约状态更改事由代码
 SCRNITM#arrStsHms,
@@ -17657,12 +18142,15 @@ SCRNITM#bsicInfo,基本信息
 SCRNITM#bsisDscd,BSIS区分
 SCRNITM#bsisDstnctn,BSIS区分
 SCRNITM#btnAdd,新增
+SCRNITM#btnAplctnCncl,
 SCRNITM#btnAprvlCncl,
 SCRNITM#btnAprvlCndExctnRgstn,
 SCRNITM#btnAprvlLineDsgntn,
 SCRNITM#btnAprvlRgstn,
 SCRNITM#btnCltrlAmtCmptn,
+SCRNITM#btnDlgtnCncl,
 SCRNITM#btnDtiDsrCmptn,
+SCRNITM#btnHstQry,
 SCRNITM#btnIntRtDtl,
 SCRNITM#btnLnlnkng,
 SCRNITM#btnLtvCmptn,
@@ -17675,6 +18163,7 @@ SCRNITM#btnSchPrev,
 SCRNITM#btnStyle,按钮样式
 SCRNITM#btnSysAssAsm,
 SCRNITM#btnUserRule,
+SCRNITM#btn_downloadSql,
 SCRNITM#btn_dtoCashDelete,dto缓存删除
 SCRNITM#btn_recallDistr,
 SCRNITM#btsdAcct,两边会计科目
@@ -17719,7 +18208,9 @@ SCRNITM#cardOwnrRel,
 SCRNITM#cardOwnrRelCd,
 SCRNITM#cardTpCd,
 SCRNITM#cardWhdrwlDt,
+SCRNITM#caseBasCntnt,null
 SCRNITM#caseDscd,
+SCRNITM#caseRltdPerson,
 SCRNITM#caseRltdPersonDscd,
 SCRNITM#cash,可用余额
 SCRNITM#cash2,现金账户
@@ -17810,6 +18301,8 @@ SCRNITM#classSearch,作用类转型状况查询
 SCRNITM#classSrch,类查询
 SCRNITM#classSubTitie,定义：合同账户编号
 SCRNITM#classTpCd,
+SCRNITM#clctnRqst,
+SCRNITM#clctnRspblPerson,
 SCRNITM#clickHere,
 SCRNITM#clickNext,下一步
 SCRNITM#close,关闭
@@ -17841,12 +18334,15 @@ SCRNITM#cmprsnPrntDscd,
 SCRNITM#cmpsCndTpCd,
 SCRNITM#cmpsStartPstn,组成起始位置
 SCRNITM#cmpsWay,组成方式
+SCRNITM#cmpttnHisRegt,null
 SCRNITM#cmpxAbrvtnRgstrnVrfctn,复杂的缩写注册验证
 SCRNITM#cmpxEngAbrvtn,复杂英文缩写
 SCRNITM#cnclCnfrmtn,
 SCRNITM#cnclCrctnTpCd,
 SCRNITM#cnclNotFinWhdrwlCnclPrcsDscd,
 SCRNITM#cnclRmkCntnt,
+SCRNITM#cncrnPsn,null
+SCRNITM#cncrnPsnRegt,null
 SCRNITM#cnct,自动申购
 SCRNITM#cndBtwnRel,
 SCRNITM#cndBtwnRelTpCd,
@@ -17887,6 +18383,7 @@ SCRNITM#cnfrmtn,确定
 SCRNITM#cnfrmtnAndUpload,确认并上传
 SCRNITM#cnsltnArrId,
 SCRNITM#cnsltnId,
+SCRNITM#cnsltnRgstrn,
 SCRNITM#cnsltnSts,
 SCRNITM#cnt,笔
 SCRNITM#cntct,联络方式
@@ -17908,6 +18405,7 @@ SCRNITM#cntctPrhbtnDscd,
 SCRNITM#cntctPrhbtnTpCd,
 SCRNITM#cntctfficeFax,办公联系传真
 SCRNITM#cntnntDscd,
+SCRNITM#cntntLctn,
 SCRNITM#cntrCtLogTpCd,热批处理日志类型
 SCRNITM#cntrctGoods,合同物品
 SCRNITM#cntrctGoodsAtrbt,
@@ -17944,6 +18442,8 @@ SCRNITM#corpInfoChng,企业信息更改
 SCRNITM#corpNm,企业名
 SCRNITM#corpnNm,法人名
 SCRNITM#correctAnswer,正确的答案
+SCRNITM#cpCnt,
+SCRNITM#cpCntnt,
 SCRNITM#crAtrbtList,計算屬性列表
 SCRNITM#crUnitCd,
 SCRNITM#crUnitCdNm,計算單位代碼名稱
@@ -17953,6 +18453,7 @@ SCRNITM#crctn,更正
 SCRNITM#crctnDstnctn,修正分区
 SCRNITM#crctnToGlPrcsng,
 SCRNITM#crdtAmt,贷方金额
+SCRNITM#crdtDebtRegt,null
 SCRNITM#crdtGrade,
 SCRNITM#crdtInfoQryUseAgrmntYn,
 SCRNITM#crdtLnLmtChkRsltCd,
@@ -17994,6 +18495,7 @@ SCRNITM#custAcdntReport,客户事故报告
 SCRNITM#custAcdntReportTpCd,
 SCRNITM#custActionTpCd,
 SCRNITM#custAplyIntRt,
+SCRNITM#custBasInfo,null
 SCRNITM#custBaseAtrbt,
 SCRNITM#custCloseCnfrm,
 SCRNITM#custDfltGrade,客户默认等级
@@ -18053,10 +18555,12 @@ SCRNITM#dataChkMsg,数据没有改变。
 SCRNITM#dataDscd,
 SCRNITM#dataTpCd,
 SCRNITM#dataUseDscd,
+SCRNITM#dataVldtnErrDtl,
 SCRNITM#dateRule,请确认日期格式。日期格式为 “YYYY-MM-DD”。
 SCRNITM#day,日
 SCRNITM#days,日
 SCRNITM#dbCdtDstnctn,借贷区分
+SCRNITM#dcsnDt,
 SCRNITM#dcsnItmDscd,
 SCRNITM#debit,借方
 SCRNITM#debitAmt,借方金额
@@ -18118,6 +18622,8 @@ SCRNITM#deptRoleTmpltSrch, 查询部门角色模板
 SCRNITM#deptSrch, 搜索部门
 SCRNITM#deptSts, 部门状况
 SCRNITM#deptTree, 部门树
+SCRNITM#desiredPymntDt,
+SCRNITM#desiredPymntNth,
 SCRNITM#detail-view2,详细查看
 SCRNITM#dfltScrnYn,是否为初始页面
 SCRNITM#dfrnc,差异
@@ -18132,6 +18638,8 @@ SCRNITM#dlgDt,买卖日期
 SCRNITM#dlgInfo,买卖信息
 SCRNITM#dlgtnCntnts,代表团内容
 SCRNITM#dlgtnDetailInfo,
+SCRNITM#dlgtnRcpt,
+SCRNITM#dlgtnRpymnt,
 SCRNITM#dlgtnStaffNm,授权人员姓名
 SCRNITM#dlvryOrderDt,
 SCRNITM#dlvryOrderDtl,
@@ -18167,12 +18675,15 @@ SCRNITM#dontRemberTxPwd,我不记得交易密码
 SCRNITM#downloadComplete,下载完毕
 SCRNITM#downloadfile,下载
 SCRNITM#dplctnAbl,可能重复
+SCRNITM#dplctnKeyValCntnt,重复检查键值
 SCRNITM#dpsr,
 SCRNITM#dpstAcctDscd,
 SCRNITM#dpstAcctListMsg,会员认证后才能进行处理。即将回到该页面。
 SCRNITM#dpstAcctOwnrNm,
 SCRNITM#dpstAfMtrtyDtInt,存款到期利息
 SCRNITM#dpstAmt,存款金额
+SCRNITM#dpstAmtMgmt,null
+SCRNITM#dpstAmtOcr,null
 SCRNITM#dpstArrIntRtTpCd,
 SCRNITM#dpstBnk,
 SCRNITM#dpstCertiInfoMsg,只提供电子版。需要书面存款证明的客户请联系客服中心。
@@ -18186,6 +18697,7 @@ SCRNITM#dpstNrmlInt,存款正常利息
 SCRNITM#dpstPd,存款产品
 SCRNITM#dpstPdNm,存款产品名称
 SCRNITM#dpstRmkDscd,
+SCRNITM#dpstRprting,null
 SCRNITM#dpstRslt,存款结果
 SCRNITM#dpstSucss,已存款至以上账号。
 SCRNITM#dpstTpCd,
@@ -18207,8 +18719,15 @@ SCRNITM#dscntAmtRtDscd,
 SCRNITM#dscntAplyRuleDscd,
 SCRNITM#dscntRtAmtDscd,
 SCRNITM#dstbCncl,
+SCRNITM#dstbCtvdDtlList,
+SCRNITM#dstbCtvdExcRslt,
+SCRNITM#dstbCtvdList,
+SCRNITM#dstbCtvdRslt,
+SCRNITM#dstbErrDtlCntnt,
+SCRNITM#dstbErrList,
 SCRNITM#dstbExecuteEndDt,
 SCRNITM#dstbExecuteStartDt,
+SCRNITM#dstbFin,
 SCRNITM#dstbRqst,
 SCRNITM#dstbRslt,
 SCRNITM#dstbRsltSrvr,
@@ -18230,8 +18749,14 @@ SCRNITM#dtoIsNull,请生成DTO后进行处理。
 SCRNITM#dtrmDmstcWhdrwlAcmltdAmt,国内货币取款分期积数
 SCRNITM#dtrmWhdrwlAcmltdAmt,取款分期积数
 SCRNITM#due,逾期
+SCRNITM#duedateInfo,
+SCRNITM#duedateInfoChng,
+SCRNITM#duedtInfoMgmt,null
+SCRNITM#duedtInfoRegt,null
 SCRNITM#duedtMgmtBizTpCd,
 SCRNITM#duedtMgmtDtlTpCd,
+SCRNITM#dvdndCaseRegt,null
+SCRNITM#dvdndInfo,null
 SCRNITM#dvlpmnt,开发
 SCRNITM#edd,
 SCRNITM#eddAdtnlAtrbt,
@@ -18288,8 +18813,11 @@ SCRNITM#erlyRpymnt,提前还款
 SCRNITM#erlyTrmntn,提前解除
 SCRNITM#erlyTrmntnDt,提前还款日
 SCRNITM#erlyWarngStepDscd,
+SCRNITM#errDtl,
+SCRNITM#errDtlCntnt,
 SCRNITM#errLvlCd,错误级别
 SCRNITM#errMsgCd,错误消息代码
+SCRNITM#errTpCd,
 SCRNITM#error,
 SCRNITM#errorAllwncCnt,容许错误次数
 SCRNITM#estmtTrm,
@@ -18308,9 +18836,11 @@ SCRNITM#exRtDscd,
 SCRNITM#exRtInfoArea,
 SCRNITM#exRtMarginInfo,
 SCRNITM#excptnAprvlRsn,
+SCRNITM#exctnAll,
 SCRNITM#exctnDt,
 SCRNITM#exctnHst,
 SCRNITM#exctnTrmntn,
+SCRNITM#exctnVldtn,
 SCRNITM#exctnYn,
 SCRNITM#execAutoInvstFixAmt,我们将在每日7:00PM触发自动定投.
 SCRNITM#executeAutoDpst,我们将在每日7:00PM触发发自动转存.
@@ -18371,6 +18901,7 @@ SCRNITM#finalTerminateDt,
 SCRNITM#finance,理财
 SCRNITM#findId,找回ID
 SCRNITM#findIdPswd,忘记ID或密码？
+SCRNITM#findPrprty,
 SCRNITM#findPswd,找回密码
 SCRNITM#findPswdUsingClphn,通过手机认证找回密码
 SCRNITM#findPswdUsingScrtyQstn,通过安全问题找回密码
@@ -18446,6 +18977,7 @@ SCRNITM#glOutpLvlDscd,总分类帐输出电平分区
 SCRNITM#glPrcsngStsDscd,
 SCRNITM#globalCmnt,
 SCRNITM#gndrDscd,性别
+SCRNITM#gnrtSql,
 SCRNITM#goodsDtlsAtrbt,
 SCRNITM#goodsDtlsList,
 SCRNITM#grade,等级
@@ -18645,17 +19177,20 @@ SCRNITM#lbltySts,
 SCRNITM#lbrIncomeAmt,
 SCRNITM#lbrIncomeDscd,
 SCRNITM#lcCntrtInfoArea,
+SCRNITM#lcDpstAmt,null
 SCRNITM#lcInfo,
 SCRNITM#lcInfoArea,
 SCRNITM#leapYrYnDesc,※闰年是或否：如果计算的利息在贫困年度需要不同，则该值应为“Y”。
 SCRNITM#leaseCntnt,
 SCRNITM#leaseIncomeAmt,
 SCRNITM#leaseRgstrn,
+SCRNITM#legActnSts,null
 SCRNITM#legalActionCostDscd,
 SCRNITM#legalActionDscd,
 SCRNITM#legalActionDtDscd,
 SCRNITM#legalActionDtHms,
 SCRNITM#legalActionDtRsltDscd,
+SCRNITM#legalActionMgmt,null
 SCRNITM#levyCrncyDscd,征收货币区别代码
 SCRNITM#lflngAcctNbr,
 SCRNITM#lgArea,
@@ -18792,6 +19327,7 @@ SCRNITM#mayNeed,您可能想要
 SCRNITM#mayWant,所需执行列表
 SCRNITM#mbrshpAtmtcCreateRuleClassNm,会员协议自动生成规则类
 SCRNITM#mbrshpOpn,用户注册
+SCRNITM#mdfySql,
 SCRNITM#measrDscd,
 SCRNITM#mediaDscd,
 SCRNITM#memberBrdnInstlmntMnth,
@@ -19043,11 +19579,15 @@ SCRNITM#over,超过
 SCRNITM#overevryTransDay7pm,每日自动转存超过{0}元部分余额
 SCRNITM#ovrZero,请输入大于0的交易金额。
 SCRNITM#ovrduDscd,
+SCRNITM#ovrduGrcCyclCnt,
+SCRNITM#ovrduIntAplyMthdDscd,逾期利息申请方法区别代码
 SCRNITM#ownBnkAlreadyLonAmt,
 SCRNITM#ownBnkTxRsnTpCd,
 SCRNITM#ownOthrBnkDpstlmLonAmt,
 SCRNITM#ownOthrDpstlmLon,
+SCRNITM#ownrAdtnlInfo,
 SCRNITM#ownrCntnt,
+SCRNITM#ownrIdAdtnlInfo,
 SCRNITM#ownrshpChngRsn,
 SCRNITM#pageList,页面目录
 SCRNITM#parmAtrbt,参数属性
@@ -19117,7 +19657,9 @@ SCRNITM#pgDesc,页面说明
 SCRNITM#pgNm,页面名称
 SCRNITM#phoneCntctState,联系电话状态
 SCRNITM#phoneNo,手机号码
+SCRNITM#pkCntnt,
 SCRNITM#plnHms,
+SCRNITM#plnfdfnd,null
 SCRNITM#plsChckCashAcct,请注意查询您的现金账户.
 SCRNITM#plsinptOTP,请输入短信验证码:
 SCRNITM#pltnmCardGradeCd,
@@ -19168,6 +19710,7 @@ SCRNITM#prflAtrbtNm,
 SCRNITM#prflDs,
 SCRNITM#prflInfo,档案信息
 SCRNITM#prflNm,个人资料名称
+SCRNITM#prgrsInfo,
 SCRNITM#prgrsStsCd,
 SCRNITM#prgrsStsDscd,
 SCRNITM#privateBrowsingChangeRequest,为了方便利用服务,请解除无痕浏览模式。
@@ -19185,6 +19728,10 @@ SCRNITM#processing,处理
 SCRNITM#product,持有产品数量
 SCRNITM#prprtyInfo,
 SCRNITM#prprtyRightRstrctnDscd,
+SCRNITM#prprtySurveyRqst,
+SCRNITM#prpymntsAmt,null
+SCRNITM#prpymntsDtlAmt,
+SCRNITM#prpymntsOcrAmt,null
 SCRNITM#prscrptnDscd,
 SCRNITM#prsnChrgInfo,
 SCRNITM#prsnlClntInfoChng,个人客户信息更改
@@ -19290,6 +19837,7 @@ SCRNITM#rdmptn,赎回
 SCRNITM#rdpstExctn,
 SCRNITM#reCalcnMthd,
 SCRNITM#reDistribution,
+SCRNITM#reExctn,
 SCRNITM#reExmntn,再次验证
 SCRNITM#reLoin,请用注册ID重新登录。
 SCRNITM#rePrcsng,
@@ -19314,6 +19862,7 @@ SCRNITM#refBalUseTmCd,参考余额使用时间码
 SCRNITM#refBizDscd,
 SCRNITM#refInstCdCntnt,
 SCRNITM#refInstNm,
+SCRNITM#refObj,参考对象
 SCRNITM#refObjNm,参考对象名称
 SCRNITM#refPd,参考产品
 SCRNITM#refPdCnd,参考产品条件
@@ -19340,6 +19889,8 @@ SCRNITM#relDept,关系部门
 SCRNITM#relEndDt,关系终止日期
 SCRNITM#relInfo,关系信息
 SCRNITM#relObjDscd,
+SCRNITM#relOwnCmpny,null
+SCRNITM#relOwnCmpnyRegt,null
 SCRNITM#relStartDt,关系开始日期
 SCRNITM#relSts,关系状况
 SCRNITM#relStsCd,关系状况
@@ -19347,6 +19898,7 @@ SCRNITM#relStsCdChngRsn,
 SCRNITM#relStsCdChngRsnCntnt,
 SCRNITM#relStsChngRsn,
 SCRNITM#relStsChngRsnCntnt,
+SCRNITM#relThingSetRegt,null
 SCRNITM#relTp,关系类型
 SCRNITM#relVal,关系值
 SCRNITM#remittanceInfoArea,
@@ -19378,6 +19930,7 @@ SCRNITM#rflctnNcsrYn,
 SCRNITM#rgstDlyTrnsfr,
 SCRNITM#rgstDstnctn,注册类别
 SCRNITM#rgstEddMsg,
+SCRNITM#rgstSucss,
 SCRNITM#rgstrnDept,登记部门
 SCRNITM#rgstrnHms,
 SCRNITM#rgstrnInfo,
@@ -19400,14 +19953,22 @@ SCRNITM#riskPdDesc5,5. 高风险产品：经各行风险评级确定为高风险
 SCRNITM#rjctdRsn,
 SCRNITM#rjctdRsnCd,
 SCRNITM#rjctdRsnCntnt,
+SCRNITM#rltdAcctRprting,null
+SCRNITM#rltdAcctSts,null
 SCRNITM#rltdAcctgItmCd,相对账户
 SCRNITM#rltdAtrbtDscd,
 SCRNITM#rltdAtrbtTpCd,
+SCRNITM#rltdCaseMgmt,null
 SCRNITM#rltdCrncyCd,
 SCRNITM#rltdCustNm,关系客户名称
 SCRNITM#rltdDept,
 SCRNITM#rltdDeptNm,
 SCRNITM#rltdLnCntnt,
+SCRNITM#rltdStaffId,
+SCRNITM#rltdStaffNm,
+SCRNITM#rltdThing,
+SCRNITM#rltdThingMgmt,null
+SCRNITM#rltdThingSetInfo,null
 SCRNITM#rltvCorp,合作企业
 SCRNITM#rltvDept,
 SCRNITM#rmNbr,
@@ -19491,6 +20052,8 @@ SCRNITM#rpymntSchdldAmt,应还款额
 SCRNITM#rpymntSchdldAmtInqry,查询应还款额
 SCRNITM#rpymntSchdldAttr,
 SCRNITM#rpymntSts,
+SCRNITM#rpymntTxCntnt,
+SCRNITM#rpymntWayCd,还款方式区分代码
 SCRNITM#rpymntin7d,七日内待还款额
 SCRNITM#rpynw,立即还款
 SCRNITM#rqerNm,
@@ -19697,6 +20260,7 @@ SCRNITM#spvsrAthrznDscd,
 SCRNITM#spvsrAthrznTxYn,主管授权用户号
 SCRNITM#spvsrList,主管列表
 SCRNITM#spvsrStaffIdCntnt,主管员工内容
+SCRNITM#sql-generate-msg,
 SCRNITM#srchAsmItmTblRslt,
 SCRNITM#srchCnd,检索条件
 SCRNITM#srchCust,
@@ -19809,6 +20373,7 @@ SCRNITM#subScrib,申购
 SCRNITM#subsAmt,申购金额
 SCRNITM#subscrbFinMsg,当前账户总金额
 SCRNITM#success,处理成功。
+SCRNITM#successChange,
 SCRNITM#sup300-tab,处理成功。
 SCRNITM#supplInfoFormDscd,
 SCRNITM#swingAccount,主账户（@）的余额在子账户(@) 上swing处理的关系已经设定。
@@ -19859,7 +20424,7 @@ SCRNITM#terminateSrvc,
 SCRNITM#termsAgreeMsg,我已充分了解上述的产品说明书及条款内容，并对此同意。
 SCRNITM#termsAgrmntView,查看条款
 SCRNITM#termsAndConditions,T&C
-SCRNITM#test,test444
+SCRNITM#test,test
 SCRNITM#test1,
 SCRNITM#test2,
 SCRNITM#test5,
@@ -19930,9 +20495,12 @@ SCRNITM#transNm,交易名称
 SCRNITM#transfer,转账
 SCRNITM#transferManager,
 SCRNITM#transferManagerErr,
+SCRNITM#trdDebt,第三債務者
+SCRNITM#trdDebtRegt,null
 SCRNITM#treeService,服务配置
 SCRNITM#trfcCardFnctn,
 SCRNITM#trgtAmtInfo,
+SCRNITM#trgtCnt,
 SCRNITM#trgtCust,
 SCRNITM#trgtInfo,
 SCRNITM#trgtList,目标清单
@@ -20059,6 +20627,7 @@ SCRNITM#unrpdDataYn,
 SCRNITM#upAcctgItmCd,上位会计科目
 SCRNITM#upAmtTpCd,上位金額类型代码
 SCRNITM#upArrIssmdaTpCd,
+SCRNITM#upArrSrvcTpCd,
 SCRNITM#upCdNbr,上级代码
 SCRNITM#upCdNbrNm,上级代码名称
 SCRNITM#upClass,
@@ -20091,10 +20660,15 @@ SCRNITM#varIntRtCyclBaseDayDscd,
 SCRNITM#varLvl,
 SCRNITM#variable,
 SCRNITM#variableRange,
+SCRNITM#vdDt,
+SCRNITM#vdSeqNbr,
 SCRNITM#verify,验证
 SCRNITM#view,查看
 SCRNITM#vldtn,验证
+SCRNITM#vldtnDesc,
+SCRNITM#vldtnErrCntntInqry,
 SCRNITM#vldtnRuleCntnt,校验规则
+SCRNITM#vldtnSmry,
 SCRNITM#vldtnWay,校验方法
 SCRNITM#vrtlAcctTx,虚拟账户交易
 SCRNITM#water,自来水费
@@ -20170,7 +20744,7 @@ SCRNITM#yourRiskLevel,您的风险等级是 :
 SCRNITM#yrMarginRt,年中获利率
 SCRNITM#yrPl,年中损益
 SCRNITM#yuan,元
-SCRN_DESC#,
+SCRNITM#zipSndPlcNm,null
 SCRN_DESC#CAPAC002,管理会计科目和账目处理可能的店铺。
 SCRN_DESC#CAPAC010,管理产品类型的分录规则。
 SCRN_DESC#CAPAC030,管理货币兑换并选择现金管理目标。
@@ -20188,6 +20762,7 @@ SCRN_DESC#CAPAR110,配置合约关系该处理的业务规则。
 SCRN_DESC#CAPAR120,根据产品管理业务规则，以处理安排业务。
 SCRN_DESC#CAPAR130,配置合约之间关系可定义的产品。
 SCRN_DESC#CAPAR140,
+SCRN_DESC#CAPAR150,
 SCRN_DESC#CAPAS010,
 SCRN_DESC#CAPAS020,
 SCRN_DESC#CAPAS030,
@@ -20201,6 +20776,13 @@ SCRN_DESC#CAPAT302,设置密码组成内容、登录时效、OTP有效时间等�
 SCRN_DESC#CAPAT401, 管理您的会员协议自动生成规则类和业务相关的行政主管部门，如客户的参数。
 SCRN_DESC#CAPAT402,注册客户时,  指定默认客户等级  。
 SCRN_DESC#CAPAT403, 设置所需的杠杆客户信息商定清单。
+SCRN_DESC#CAPCA001,
+SCRN_DESC#CAPCA002,
+SCRN_DESC#CAPCA003,
+SCRN_DESC#CAPCA011,
+SCRN_DESC#CAPCA012,
+SCRN_DESC#CAPCA013,
+SCRN_DESC#CAPCA014,
 SCRN_DESC#CAPCM005,管理各种识别符、账号等的编号规则。
 SCRN_DESC#CAPCM010,定义属性的名称、类型、校验方法等。未在此定义的属性无法在扩展属性页面查询。
 SCRN_DESC#CAPCM011,您可以查看/创建单词。
@@ -20516,6 +21098,81 @@ SCRN_DESC#SFX982,注册并取消存托管银行账户。
 SCRN_DESC#SIA001,注册会计处理内部账户。
 SCRN_DESC#SIA002,查询会计处理内部账户。
 SCRN_DESC#SIA004,清除会计处理的内部账户。
+SCRN_DESC#SLC001, 
+SCRN_DESC#SLC002, 
+SCRN_DESC#SLC003, 
+SCRN_DESC#SLC004, 
+SCRN_DESC#SLC005, 
+SCRN_DESC#SLC006, 
+SCRN_DESC#SLC201, 
+SCRN_DESC#SLC202, 
+SCRN_DESC#SLC203, 
+SCRN_DESC#SLC204, 
+SCRN_DESC#SLC205, 
+SCRN_DESC#SLC206, 
+SCRN_DESC#SLC207, 
+SCRN_DESC#SLC208, 
+SCRN_DESC#SLC209, 
+SCRN_DESC#SLC210, 
+SCRN_DESC#SLC301, 
+SCRN_DESC#SLC302, 
+SCRN_DESC#SLC303, 
+SCRN_DESC#SLC304, 
+SCRN_DESC#SLC305, 
+SCRN_DESC#SLC306, 
+SCRN_DESC#SLC307, 
+SCRN_DESC#SLC308, 
+SCRN_DESC#SLC309, 
+SCRN_DESC#SLC380, 
+SCRN_DESC#SLC381, 
+SCRN_DESC#SLC382, 
+SCRN_DESC#SLC383, 
+SCRN_DESC#SLC384, 
+SCRN_DESC#SLC385, 
+SCRN_DESC#SLC401, 
+SCRN_DESC#SLC402, 
+SCRN_DESC#SLC403, 
+SCRN_DESC#SLC404, 
+SCRN_DESC#SLC405, 
+SCRN_DESC#SLC406, 
+SCRN_DESC#SLC407, 
+SCRN_DESC#SLC408, 
+SCRN_DESC#SLC409, 
+SCRN_DESC#SLC410, 
+SCRN_DESC#SLC411, 
+SCRN_DESC#SLC412, 
+SCRN_DESC#SLC413, 
+SCRN_DESC#SLC414, 
+SCRN_DESC#SLC480, 
+SCRN_DESC#SLC481, 
+SCRN_DESC#SLC501, 
+SCRN_DESC#SLC502, 
+SCRN_DESC#SLC503, 
+SCRN_DESC#SLC504, 
+SCRN_DESC#SLC505, 
+SCRN_DESC#SLC506, 
+SCRN_DESC#SLC507, 
+SCRN_DESC#SLC508, 
+SCRN_DESC#SLC509, 
+SCRN_DESC#SLC510, 
+SCRN_DESC#SLC511, 
+SCRN_DESC#SLC580, 
+SCRN_DESC#SLC581, 
+SCRN_DESC#SLC582, 
+SCRN_DESC#SLC583, 
+SCRN_DESC#SLC584, 
+SCRN_DESC#SLC585, 
+SCRN_DESC#SLC586, 
+SCRN_DESC#SLC587, 
+SCRN_DESC#SLC588, 
+SCRN_DESC#SLC589, 
+SCRN_DESC#SLC590, 
+SCRN_DESC#SLC591, 
+SCRN_DESC#SLC592, 
+SCRN_DESC#SLC593, 
+SCRN_DESC#SLC601, 
+SCRN_DESC#SLC602, 
+SCRN_DESC#SLC603, 
 SCRN_DESC#SLN001,取消客户贷款账户的交易
 SCRN_DESC#SLN002,注册，变更或取消客户贷款的事情。
 SCRN_DESC#SLN003,展示贷款承诺结果。
@@ -20599,10 +21256,10 @@ SCRN_DESC#SUE026,
 SCRN_DESC#SUE029,
 SCRN_DESC#SUE035,
 SCRN_DESC#SUE037,
+SCRN_DESC#clctnRspblPerson,
 SCRN_DESC#mgmt,
 SCRN_DESC#rpptA8, 除存款、国债外，我几乎不投资其他金融产品
 SCRN_DESC#test,test
-SCRN#,
 SCRN#CAPAC002,会计科目
 SCRN#CAPAC010,分录规则
 SCRN#CAPAC030,货币面额
@@ -20620,6 +21277,7 @@ SCRN#CAPAR110,合同关系规则
 SCRN#CAPAR120,合约产品规则
 SCRN#CAPAR130,合约之间关系产品规则
 SCRN#CAPAR140,存折消息
+SCRN#CAPAR150,
 SCRN#CAPAS010,
 SCRN#CAPAS020,
 SCRN#CAPAS030,
@@ -20634,6 +21292,13 @@ SCRN#CAPAT302,安全水平
 SCRN#CAPAT401,客户参数
 SCRN#CAPAT402,客户默认等级
 SCRN#CAPAT403,客户信息使用同意
+SCRN#CAPCA001,
+SCRN#CAPCA002,
+SCRN#CAPCA003,
+SCRN#CAPCA011,
+SCRN#CAPCA012,
+SCRN#CAPCA013,
+SCRN#CAPCA014,
 SCRN#CAPCM005,编号
 SCRN#CAPCM010,标准属性
 SCRN#CAPCM011,术语
@@ -21283,6 +21948,7 @@ SCRN#SCM503,ToDo List (portlet)
 SCRN#SCM900,服务列表
 SCRN#SCM901,
 SCRN#SCM902,
+SCRN#SCM903,Change Password
 SCRN#SCR000,
 SCRN#SCU110,客户信息查询
 SCRN#SCU110-1,联络方式
@@ -21495,6 +22161,81 @@ SCRN#SFX982,管理存款银行
 SCRN#SIA000,帐户新
 SCRN#SIA001,开立暂停账户
 SCRN#SIA002,查询暂停帐户
+SCRN#SLC001,
+SCRN#SLC002,
+SCRN#SLC003,
+SCRN#SLC004,
+SCRN#SLC005,
+SCRN#SLC006,
+SCRN#SLC201,
+SCRN#SLC202,
+SCRN#SLC203,
+SCRN#SLC204,
+SCRN#SLC205,
+SCRN#SLC206,
+SCRN#SLC207,
+SCRN#SLC208,
+SCRN#SLC209,
+SCRN#SLC210,
+SCRN#SLC301,
+SCRN#SLC302,
+SCRN#SLC303,
+SCRN#SLC304,
+SCRN#SLC305,
+SCRN#SLC306,
+SCRN#SLC307,
+SCRN#SLC308,
+SCRN#SLC309,
+SCRN#SLC380,
+SCRN#SLC381,
+SCRN#SLC382,
+SCRN#SLC383,
+SCRN#SLC384,
+SCRN#SLC385,
+SCRN#SLC401,
+SCRN#SLC402,
+SCRN#SLC403,
+SCRN#SLC404,
+SCRN#SLC405,
+SCRN#SLC406,
+SCRN#SLC407,
+SCRN#SLC408,
+SCRN#SLC409,
+SCRN#SLC410,
+SCRN#SLC411,
+SCRN#SLC412,
+SCRN#SLC413,
+SCRN#SLC414,
+SCRN#SLC480,
+SCRN#SLC481,
+SCRN#SLC501,
+SCRN#SLC502,
+SCRN#SLC503,
+SCRN#SLC504,
+SCRN#SLC505,
+SCRN#SLC506,
+SCRN#SLC507,
+SCRN#SLC508,
+SCRN#SLC509,
+SCRN#SLC510,
+SCRN#SLC511,
+SCRN#SLC580,
+SCRN#SLC581,
+SCRN#SLC582,
+SCRN#SLC583,
+SCRN#SLC584,
+SCRN#SLC585,
+SCRN#SLC586,
+SCRN#SLC587,
+SCRN#SLC588,
+SCRN#SLC589,
+SCRN#SLC590,
+SCRN#SLC591,
+SCRN#SLC592,
+SCRN#SLC593,
+SCRN#SLC601,
+SCRN#SLC602,
+SCRN#SLC603,
 SCRN#SLN001,贷款取消
 SCRN#SLN002,贷款申请
 SCRN#SLN003,贷款公开结果查询
@@ -21567,6 +22308,8 @@ SCRN#SPD015,利息计算模拟器
 SCRN#SPD016,
 SCRN#SPD017,还款预定金额查询
 SCRN#SPD018,計算集成搜索
+SCRN#SPD040,还款预定金额查询 Test
+SCRN#SPD041,偿还贷款 Test
 SCRN#SPP011,贷款列表
 SCRN#SPP017,贷款商品信息查询
 SCRN#SPP019,登记贷款申请信息
@@ -21586,7 +22329,7 @@ SCRN#SPY032,标准订单处理结果查询
 SCRN#SPY060,转账历史查询
 SCRN#SPY060-1,最近转账账户目录
 SCRN#SPY100,新建内部账户
-SCRN#SPY101,子内部协议创建
+SCRN#SPY101,内部协议创建
 SCRN#SPY150,查询内部合同清单
 SCRN#SPY900,查询最后一次转账账号
 SCRN#SSC100,查询SCF使用协议清单
@@ -21662,7 +22405,6 @@ SCRN#bbbbb,bbbbb
 SCRN#ccccc,ccccc
 SCRN#popup-service,弹出式服务
 SCRN#srvcRstrctnEndTmstmp,服务限制终止时日
-SRVC#,
 SRVC#CAPAC0018100,保存帐户详细信息
 SRVC#CAPAC0018400,获取帐号代码列表
 SRVC#CAPAC0018401,查询账号详细信息
@@ -21703,6 +22445,7 @@ SRVC#CAPAR0208400,签约开放页面查询
 SRVC#CAPAR0208401,查看新的会员屏幕
 SRVC#CAPAR0208402,
 SRVC#CAPAR0308103,将扩展属性类链接到服务
+SRVC#CAPAR0308201,
 SRVC#CAPAR0308205,更新服务相关延伸
 SRVC#CAPAR0308206,更新服务列表相关的扩展属性
 SRVC#CAPAR0308403,查询与服务相关的扩展属性
@@ -21742,6 +22485,11 @@ SRVC#CAPAR1408401,存折消息账户信息
 SRVC#CAPAR1408402,存折消息账户保存
 SRVC#CAPAR1408403,存折消息信息删除
 SRVC#CAPAR1408404,存折消息账户列表信息
+SRVC#CAPAR1408405,
+SRVC#CAPAR1508301,
+SRVC#CAPAR1508401,
+SRVC#CAPAR1508402,
+SRVC#CAPAR1508501,
 SRVC#CAPAS0100101,
 SRVC#CAPAS0100401,
 SRVC#CAPAS0100501,
@@ -21779,8 +22527,13 @@ SRVC#CAPAT1005035,查询客户默认级代码列表
 SRVC#CAPAT1005036,注册客户默认级别代码列表
 SRVC#CAPAT1005037,修改客户默认级别代码列表
 SRVC#CAPAT1005038,删除客户默认级别代码列表
+SRVC#CAPCA0138101,
+SRVC#CAPCA0138102,
+SRVC#CAPCA0138401,
+SRVC#CAPCA0148401,
 SRVC#CAPCM0018400,通过代码查询代码
 SRVC#CAPCM0038400,通过代码查询代码
+SRVC#CAPCM0038401,Query code using code number lis
 SRVC#CAPCM0058101,注册编号规则基本信息
 SRVC#CAPCM0058201,修改编号规则的基本信息
 SRVC#CAPCM0058202,保存编号规则的细节信息
@@ -22013,6 +22766,8 @@ SRVC#CAPST0068500,检查费用公式
 SRVC#CAPST0078100,注册费用公式条件
 SRVC#CAPST0078300,删除费用公式条件
 SRVC#CAPST0078400,查询费用公式条件列表
+SRVC#CAPSV0008501,
+SRVC#CAPSV0008510,
 SRVC#CAPSV0018401,查询控制中心清单
 SRVC#CAPSV0028101,注册控制中心基本信息
 SRVC#CAPSV0028102,注册控制中心详细信息
@@ -22042,6 +22797,7 @@ SRVC#CAPSV0060103,
 SRVC#CAPSV0060104,
 SRVC#CAPSV0060105,
 SRVC#CAPSV0060106,Query the list of no send task detail
+SRVC#CAPSV0060107,
 SRVC#CAPSV0060201,
 SRVC#CAPSV0060202,
 SRVC#CAPSV0060203,
@@ -22118,6 +22874,10 @@ SRVC#CAPSV0608300,删除屏幕用户权限
 SRVC#CAPSV0608301,删除屏幕用户权限列表
 SRVC#CAPSV0608400,查询屏用户权限
 SRVC#CAPSV0608401,查询屏幕用户权限列表
+SRVC#CAPSV3020311,
+SRVC#CAPSV3020312,
+SRVC#CAPSV3020313,
+SRVC#CAPSV3020314,
 SRVC#CAPSV9008401,查询服务列表
 SRVC#CAPWF0118401,Workflow List Inquiry
 SRVC#CAPWF0128401,Workflow Search
@@ -22134,6 +22894,7 @@ SRVC#CAPWF4028302,审批条件扩展信息删除
 SRVC#CAPWF4028401,审批条件详细查询
 SRVC#CAPWF4028402,inquiry approval condition extend information
 SRVC#CAPWF5018102,
+SRVC#CAPWF5018103,duplicate approval template
 SRVC#CAPWF5018302,
 SRVC#CAPWF5018403,
 SRVC#CAPXP02781002,
@@ -23041,6 +23802,9 @@ SRVC#SAR0009904,测试安排计划
 SRVC#SAR0009905,测试安排密码
 SRVC#SAR0009906,测试安排附加属性
 SRVC#SAR0009907,安排测试
+SRVC#SAR0009908,
+SRVC#SAR0009909,
+SRVC#SAR0009910,
 SRVC#SAR0010400,查询交易历史
 SRVC#SAR0010401,查询交易基本信息
 SRVC#SAR0010402,查询出入明细
@@ -23077,6 +23841,11 @@ SRVC#SAR0118401,
 SRVC#SAR0119900,
 SRVC#SAR0129900,
 SRVC#SAR0139900,
+SRVC#SAR0149900,
+SRVC#SAR0149901,
+SRVC#SAR0159900,
+SRVC#SAR0159901,
+SRVC#SAR0159902,
 SRVC#SAR0208100,创建安排帐户关系
 SRVC#SAR0208200,更改合约相关账户
 SRVC#SAR0208300,终止安排帐户关系
@@ -23145,7 +23914,14 @@ SRVC#SAR99Y0178,测试安排条件
 SRVC#SBF0010103,插入应用候选收益
 SRVC#SBF0010401,获得可用利益清单
 SRVC#SBF0010402,查询申请候选人利益清单
+SRVC#SBF0100401,
+SRVC#SBF0100402,
+SRVC#SBF0100403,
+SRVC#SBF0100404,
 SRVC#SBF9020401,API Ba Test
+SRVC#SBF9030401,
+SRVC#SBF9040401,
+SRVC#SBF9050401,
 SRVC#SBP0008101,
 SRVC#SBP1230101,注册合作伙伴
 SRVC#SBP1230102,
@@ -23320,6 +24096,7 @@ SRVC#SCU1138401,客户登录ID查询
 SRVC#SCU1138402,手机号检查
 SRVC#SCU1138403,检查登录ID号码
 SRVC#SCU1138404,检查客户的唯一身份证号码
+SRVC#SCU1141001,
 SRVC#SCU1148201,更改个人客户
 SRVC#SCU1148202,更改唯一标识号
 SRVC#SCU1148203,更改演员演员关系
@@ -23562,6 +24339,7 @@ SRVC#SDP0120400,协定撤销生效
 SRVC#SDP0130101,存款结算入账CC
 SRVC#SDP0130200,定期存款利息支付
 SRVC#SDP0130300,定期存款利息支付（CC）
+SRVC#SDP0130400,
 SRVC#SDP0131101,中心切割试验存款资本化结算
 SRVC#SDP0140000,存入ADD查询服务
 SRVC#SDP0140200,金额部分撤销原则
@@ -23856,6 +24634,7 @@ SRVC#SLN9980401,结算测试
 SRVC#SLN9990001,P2P交易测试
 SRVC#SLN9999990,贷款考试
 SRVC#SLN9999991,贷款考试
+SRVC#SLN9999992,
 SRVC#SNP0000000,公开内部支付安排
 SRVC#SNP0010100,现金充值
 SRVC#SNP0020100,提款请求
@@ -23948,6 +24727,12 @@ SRVC#SPD9130401,Product Template Test Service
 SRVC#SPD9140401,Product Transaction Serivce Test Service
 SRVC#SPD9150401,Point Condition Test Service
 SRVC#SPD9160401,Point Test Service
+SRVC#SPD9170401,
+SRVC#SPD9170402,测试计算下一个付款日期
+SRVC#SPD9170403,
+SRVC#SPD9170405,Test Calculate Detail Period
+SRVC#SPD9170406,
+SRVC#SPD9170407,
 SRVC#SPD9990403,BSCSvcInfo Test
 SRVC#SPP0110400,贷款列表查询
 SRVC#SPP0120400,贷款详细查询
@@ -24087,6 +24872,8 @@ SRVC#SSF1020501,注册处的工作人员的关系
 SRVC#SSF1020502,修改员工关系部
 SRVC#SSF1020503,注册人员角色
 SRVC#SSF1020504,修改员工角色
+SRVC#SSF1218102,
+SRVC#SSF1218401,
 SRVC#SSF1508201,员工扩展属性列表搜索
 SRVC#SSF2000001,部门搜索人员
 SRVC#SSF2000002,搜索员工角色信息

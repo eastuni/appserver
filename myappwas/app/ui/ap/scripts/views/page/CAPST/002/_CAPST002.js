@@ -35,6 +35,7 @@ define(
                 /*
                  * search-condition-area
                  */
+            	'keydown .search-key' : 'fn_enter',
                 'click #btn-search-condition-reset': 'resetSearchCondition',
                 'click #btn-search-condition-inquire': 'inquireSearchCondition',
                 'click #btn-search-condition-toggle': 'toggleSearchCondition',
@@ -478,7 +479,7 @@ define(
 
 
                 // 입력 Key값이 없는 경우 전역변수에 저장된 Key값을 사용
-                // sParam.amtTpCd = this.$el.find('#search-condition-area  [data-form-param="amtTpCd"]').val();
+                sParam.amtTpCd = this.$el.find('#search-condition-area  [data-form-param="amtTpCd"]').val();
                 sParam.amtTpCdNm = this.$el.find('#search-condition-area  [data-form-param="amtTpCdNm"]').val();
                 sParam.upAmtTpCd = this.$el.find('#search-condition-area  [data-form-param="upAmtTpCd"]').val();
                 sParam.acctgPrcsYn = this.$el.find('#search-condition-area  [data-form-param="acctgPrcsYn"]').val();
@@ -536,7 +537,7 @@ define(
                 sParam.className = "CAPST002-acctgPrcsYn-wrap";
                 sParam.targetId = "acctgPrcsYn";
                 sParam.nullYn = "Y";
-                sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                sParam.allNm = bxMsg('cbb_items.SCRNITM#B_select');
                 sParam.cdNbr = "10000";
                 fn_getCodeList(sParam, this);
 
@@ -548,7 +549,7 @@ define(
                 sParam.className = "CAPST002-upAmtTpCd-wrap";
                 sParam.targetId = "upAmtTpCd";
                 sParam.nullYn = "Y";
-                sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                sParam.allNm = bxMsg('cbb_items.SCRNITM#B_select');
                 sParam.cdNbr = "50026";
                 sParam.viewType = "ValNm"
                 fn_getCodeList(sParam, this);
@@ -600,8 +601,20 @@ define(
 	                sParam.acctgPrcsYn = this.getYn(this.$el.find('#detail-information-area [data-form-param="acctgPrcsYn"]'));
 	                sParam.actvYn = this.getYn(this.$el.find('#detail-information-area [data-form-param="actvYn"]'));
 
-
-
+	                if(fn_isNull(sParam.amtTpCd)){
+                    	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#no-mandatory-data-msg') + "["+bxMsg('cbb_items.AT#amtTpCd')+"]");
+	                  	return;
+                    }
+	                
+	                if(isNaN(sParam.amtTpCd) == true){ //문자체크
+	                	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#chkDigitMsg') + "["+bxMsg('cbb_items.AT#amtTpCd')+"]");
+	                  	return;
+	                }
+	                
+	                if(fn_isNull(sParam.amtTpCdNm)){
+                    	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#no-mandatory-data-msg') + "["+bxMsg('cbb_items.AT#amtTpCdNm')+"]");
+	                  	return;
+                    }
 
 	                console.log(sParam);
 	                var linkData = {"header": fn_getHeader(srvcCd), "CaAmtTpMgmtSvcGetAmtTpMgmtIn": sParam};
@@ -720,6 +733,7 @@ define(
              */
             resetSearchCondition: function () {
             	this.deleteList = [];
+            	this.$el.find('#search-condition-area [data-form-param="amtTpCd"]').val("");
                 this.$el.find('#search-condition-area [data-form-param="amtTpCdNm"]').val("");
                 this.$el.find('#search-condition-area [data-form-param="upAmtTpCd"] option:eq(0)').attr("selected", "selected");
                 this.$el.find('#search-condition-area [data-form-param="acctgPrcsYn"] option:eq(0)').attr("selected", "selected");
@@ -766,6 +780,15 @@ define(
             		return "Y";
             	else
             		return "N";
+            },
+            
+            fn_enter: function (event) {
+                var that = this;
+                var event = event || window.event;
+                var keyID = (event.which) ? event.which : event.keyCode;
+                if(keyID == 13) { //enter
+                	that.inquireSearchCondition();
+                }
             }
 
 

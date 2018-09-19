@@ -1,8 +1,0 @@
-OMM bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.IgCityGiroNbrMgmtIFOut
-<description="행정구역 지로번호 OUT">
-{
-	String msgCd<length=10 description="결과코드">;
-	Integer listCnt<length=8 description="List Count">;
-	bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.IgCityGiroNbrMgmtIFOutSub list<length=20 arrayReference="listCnt" description="지자체 지로번호조회 목록">;
-	Integer totCnt<length=5 description="전체건수 ">;
-}

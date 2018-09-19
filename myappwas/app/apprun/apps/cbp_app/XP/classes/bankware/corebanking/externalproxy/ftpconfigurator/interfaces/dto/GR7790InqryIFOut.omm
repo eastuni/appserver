@@ -1,7 +1,0 @@
-OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.GR7790InqryIFOut
-<description="GR7790-서울시 지방세입금 은행 납부 내역 조회 OUTPUT">
-{
-	Integer cnt<length=9 description="건수">;
-	bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.GR7790InqryIFOutSub outList<length=20 arrayReference="cnt" description="리스트">;
-	Integer totCnt<length=9 description="전체건수">;
-}

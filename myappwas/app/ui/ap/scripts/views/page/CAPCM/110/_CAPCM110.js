@@ -361,7 +361,7 @@ define(
                         , columns: [
 	                        {text: bxMsg('cbb_items.SCRNITM#cd'), height: 25, flex: 1, dataIndex: 'cd', style: 'text-align:center', align: 'center'}
 	                        , {text: bxMsg('cbb_items.AT#cdNm'), flex: 1, dataIndex: 'cdNm', style: 'text-align:center', align: 'center'}
-	                        , {text: bxMsg('cbb_items.AT#inqrySeq'), flex: 1, dataIndex: 'cdNm', style: 'text-align:center', align: 'center', hidden : true}
+	                        , {text: bxMsg('cbb_items.AT#inqrySeq'), flex: 1, dataIndex: 'inqrySeq', style: 'text-align:center', align: 'center'}
                         ]
 	                	,gridConfig: {
 				  				multiSelect: true
@@ -379,7 +379,7 @@ define(
                         , columns: [
 	                        {text: bxMsg('cbb_items.SCRNITM#cd'), height: 25, flex: 1, dataIndex: 'cd', style: 'text-align:center', align: 'center'}
 	                        , {text: bxMsg('cbb_items.AT#cdNm'), flex: 1, dataIndex: 'cdNm', style: 'text-align:center', align: 'center'}
-	                        , {text: bxMsg('cbb_items.AT#inqrySeq'), flex: 1, dataIndex: 'inqrySeq', style: 'text-align:center', align: 'center', hidden : true}
+	                        , {text: bxMsg('cbb_items.AT#inqrySeq'), flex: 1, dataIndex: 'inqrySeq', style: 'text-align:center', align: 'center', editor: 'textfield'}
 	                        , {xtype: 'actioncolumn', text: bxMsg('cbb_items.SCRNITM#btnMltLng'), flex: 1, align: 'center', style: 'text-align:center'
 	                        	, renderer: function (val) {
 //	                        		return "<button type=\"button\" class=\"bw-btn-form unit\" title=\"{{bxMsg 'cbb_items.SCRNITM#btnMltLng'}}\" id=\"btn-grid-search\">{{bxMsg 'cbb_items.SCRNITM#btnMltLng'}}</button>";
@@ -410,7 +410,22 @@ define(
 
                         ]
 	                	,gridConfig: {
+		                	// 셀 에디팅 플러그인
 	                		multiSelect: true
+		                  , plugins: [
+		                        Ext.create('Ext.grid.plugin.CellEditing', {
+		                            // 2번 클릭시, 에디팅할 수 있도록 처리
+		                            clicksToEdit: 2
+		                          , listeners: {
+		                            	'beforeedit': function (editor, e) {
+			                            	if(e.field == 'cd' || e.field == 'cdNm') {
+			                            		return false;
+			                            	}
+		                                } // end of edit
+		                            } // end of listners
+		                        }) // end of Ext.create
+		                    ] // end of plugins
+                	
 	                	} // end of gridConfig
                     });
 
@@ -449,7 +464,7 @@ define(
                     sParam.targetId = "cmpntCd";
                     sParam.nullYn = "Y";
                     sParam.allNm = bxMsg('cbb_items.SCRNITM#all'); // 전체
-//                    sParam.viewType = "ValNm";
+                    sParam.viewType = "ValNm";
                     sParam.cdNbr = "11602";
                     fn_getCodeList(sParam, that);
 
@@ -473,7 +488,7 @@ define(
                     sParam.targetId = "cmpntCd";
 //                    sParam.nullYn = "Y";
 //                    sParam.allNm = bxMsg('cbb_items.SCRNITM#all'); 
-//                    sParam.viewType = "ValNm";
+                    sParam.viewType = "ValNm";
                     sParam.cdNbr = "11602";
                     fn_getCodeList(sParam, that);
 
@@ -586,10 +601,23 @@ define(
 
                 	that.$el.find('#CAPCM110-code-detail-table [data-form-param="cd"]').val("");
                 	that.$el.find('#CAPCM110-code-detail-table [data-form-param="cdNm"]').val("");
+                	that.$el.find('#CAPCM110-code-detail-table [data-form-param="inqrySeq"]').val("");
 
 
                 	// readonly 처리
+            		//2018.06.19  keewoong.hong  Bug(prj) #11578  확장코드(02), 외부코드(03)는 화면표시순서를 관리하지 않음.
                 	that.$el.find('#CAPCM110-code-detail-table [data-form-param="cd"]').prop("readonly", false);
+                	that.$el.find('#CAPCM110-code-detail-table [data-form-param="cdNm"]').prop("readonly", false);
+                	
+                	
+                	var cdNbrTpCd = that.$el.find('.CAPCM110-detail-table [data-form-param="cdNbrTpCd"]').val();
+                	
+            		if(cdNbrTpCd == '02' || cdNbrTpCd == '03') {
+                		$(document.getElementById("CAPCM110-code-detail-table-row2")).hide();
+            		} else {
+                		$(document.getElementById("CAPCM110-code-detail-table-row2")).show();
+            		}
+                	
                 }
 
 
@@ -1176,11 +1204,14 @@ define(
 
                 	if (!selectedRecord) {
                 		return;
+                		
                 	} else {
                 		that.$el.find('.CAPCM110-code-detail-table [data-form-param="cd"]').val(selectedRecord.data.cd);
                 		that.$el.find('.CAPCM110-code-detail-table [data-form-param="cdNm"]').val(selectedRecord.data.cdNm);
                 		that.$el.find('.CAPCM110-code-detail-table [data-form-param="inqrySeq"]').val(selectedRecord.data.inqrySeq);
                 		that.$el.find('.CAPCM110-code-detail-table [data-form-param="cd"]').prop("readonly", true);
+                    	that.$el.find('#CAPCM110-code-detail-table [data-form-param="cdNm"]').prop("readonly", true);
+
                 	}
                 }
 
@@ -1310,6 +1341,14 @@ define(
                 			that.$el.find('#btn-CAPCM110-detail-grid-delete').show();
                 			that.CAPCM110SandardGrid.setColumnVisible(3, true);
                 		}
+                		
+                    	//2018.06.19  keewoong.hong  Bug(prj) #11578  확장코드(02), 외부코드(03)는 화면표시순서를 관리하지 않음.
+                		if(cdNbrTpCd == '02' || cdNbrTpCd == '03') {
+                    		$(document.getElementById("CAPCM110-code-detail-table-row2")).hide();
+                		} else {
+                    		$(document.getElementById("CAPCM110-code-detail-table-row2")).show();
+                		}
+                		
                 	}
                 	that.resetDistributionBtn();
 
@@ -1319,9 +1358,6 @@ define(
                 }
 
 
-//
-//
-//
                 , selectCAPCM110SubsetLeftGrid : function(baseData) {
                     var that = this;
                     var sParam = {};
@@ -1516,7 +1552,16 @@ define(
                 	var that = this;
                 	var param = {};
                 	param.trnsfrKndCd = "CDVAL_NAME"; // 코드값명
-            		param.trnsfrOriginKeyVal = that.$el.find('.CAPCM110-detail-table [data-form-param="cdNbr"]').val()+that.$el.find('.CAPCM110-code-detail-table [data-form-param="cd"]').val(); // 코드+값
+                	
+                	var sCdNbrTpCd = that.$el.find('.CAPCM110-detail-table [data-form-param="cdNbrTpCd"]').val();
+                	
+                	// 2018.06.20  keewoong.hong  외부코드는 다국어 key값이 [instCd + cdNbr + cd] 이다.
+                	if (sCdNbrTpCd == "03") {
+                		var sHeaderInstCd = $.sessionStorage('headerInstCd')
+                		param.trnsfrOriginKeyVal = sHeaderInstCd+that.$el.find('.CAPCM110-detail-table [data-form-param="cdNbr"]').val()+that.$el.find('.CAPCM110-code-detail-table [data-form-param="cd"]').val(); // 기관코드+코드+값
+                	} else {
+                		param.trnsfrOriginKeyVal = that.$el.find('.CAPCM110-detail-table [data-form-param="cdNbr"]').val()+that.$el.find('.CAPCM110-code-detail-table [data-form-param="cd"]').val(); // 코드+값
+                	}
 
 
             		that.openPage(evnet, param);

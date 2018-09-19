@@ -1,0 +1,118 @@
+<div class="modal-wrap fix-h">
+    <h2 class="bw-tt a-center">{{bxMsg 'batch.batch-job-step-detail'}}</h2>
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t bx-no-draggable job-step-detail">
+        <section class="sub-section">
+            <h4 class="a-left">{{bxMsg 'batch.base-info'}}</h4>
+            <ul class="col-3 clr">
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'batch.step-execution-id'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="stepExecutionId" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'batch.step-id'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="stepName" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'batch.execute-state'}}</label>
+                        <span  class="bw-input w-60 a-left is-disabled" data-form-param="status"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'batch.end-code'}}</label>
+                        <span class="bw-input w-60 a-left is-disabled" data-form-param="exitCode"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'batch.start-date'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="startTime" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'batch.end-date'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="endTime" readonly/>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="sub-section">
+            <h4 class="a-left">{{bxMsg 'batch.process-data-info'}}</h4>
+            <ul class="col-3 clr">
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'batch.read-count'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="readCount" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'batch.write-count'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="writeCount" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'batch.filter-count'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="filterCount" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'batch.read-skip-count'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="readSkipCount" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'batch.write-skip-count'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="writeSkipCount" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'batch.process-skip-count'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="processSkipCount" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'batch.commit-count'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="commitCount" readonly/>
+                    </div>
+                </li>
+                <li>
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">{{bxMsg 'batch.rollback-count'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="rollbackCount" readonly/>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="sub-section">
+            <h4 class="a-left">{{bxMsg 'batch.error-info'}}</h4>
+            <ul class="clr">
+                <li class="w-100">
+                    <div class="input-wrap fix-txtarea small-area p-rel clr">
+                        <label class="bw-label w-20">{{bxMsg 'batch.error-msg'}}</label>
+                        <div class="txt-wrap2 fix-size w-80 f-r">
+                            <textarea class="bw-textarea" data-form-param="exitMessage" readonly></textarea>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on ok-btn">{{bxMsg 'common.ok'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable ok-btn"></button>
+</div>

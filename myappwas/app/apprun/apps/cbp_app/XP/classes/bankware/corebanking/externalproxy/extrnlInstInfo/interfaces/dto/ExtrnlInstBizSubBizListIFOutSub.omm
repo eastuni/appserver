@@ -1,8 +1,0 @@
-OMM bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstBizSubBizListIFOutSub
-<description=" ">
-{
-	String parntParntDscd<length=6 description="조부모코드">;
-	String parntDscd<length=6 description="부모코드">;
-	String dscd<length=6 description="코드값">;
-	String nm<length=100 description="코드명">;
-}

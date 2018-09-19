@@ -1,8 +1,0 @@
-OMM bankware.corebanking.externalproxy.message.interfaces.dto.KtCbMsgReqAllotInfoOutSnk
-<description="KT CB정보 응답-반복부(단말기할부정보) Out">
-{
-	String mgmtSeqNbr<length=11 description="단말기관리일련번호">;
-	String allotCnt<length=3 description="단말기잔여할부개월수">;
-	String allotAmt<length=9 description="단말기잔여할부금액">;
-	String allotAmtPerMnth<length=9 description="단말기잔여할부월별납입금액">;
-}

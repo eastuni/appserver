@@ -1,8 +1,0 @@
-OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CC0013InqryIFIn
-<description="">
-{
-	String bnkCd<length=3 description="은행코드">;
-	String brnchCd<length=7 description="지점코드">;
-	Integer pgNbr<length=5 description="페이지번호">;
-	Integer pgCnt<length=5 description="페이지건수">;
-}

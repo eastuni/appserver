@@ -85,9 +85,18 @@
 								<div class="input-wrap clr">
 									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#pdCd'}}">{{bxMsg 'cbb_items.SCRNITM#pdCd'}}</label>
 									<select class="bw-input w-60 ipt-select CAPSV003-base-pdCd-wrap" data-form-param="pdCd"></select>
-
-
 								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#srvcRstrctnDtm'}}">{{bxMsg 'cbb_items.AT#srvcRstrctnDtm'}}</label>
+									<input type="text" class="bw-input w-25 ipt-cal"  data-form-param="srvcRstrctnDtm" />
+									<input type="text" class="bw-input w-20 ipt-time" data-form-param="srvcRstrctnTime" placeholder="--:--:--" />
+								</div>
+							</td>
+							<td class="td-w-33">
+								<input type="checkbox" class="bw-input ipt-radio f-l" id="hstQryYn" data-form-param="hstQryYn" />
+								<label class="bw-label fix-lh">{{bxMsg 'cbb_items.AT#hstQryYn'}}</label>
 							</td>
 						</tr>
 					</table>
@@ -129,7 +138,7 @@
 								<div class="input-wrap clr">
 									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#srvcRstrctnStartDtm'}}">{{bxMsg 'cbb_items.AT#srvcRstrctnStartDtm'}}</label>
 									<input type="text" class="bw-input w-20 ipt-cal" data-form-param="srvcRstrctnStartDtm" />
-									<input type="text" class="bw-input w-10 ipt-time" data-form-param="srvcRstrctnStartTime" placeholder="--:--:--" />
+									<input type="text" class="bw-input w-15 ipt-time" data-form-param="srvcRstrctnStartTime" placeholder="--:--:--" />
 								</div>
 							</td>
 							<!-- 서비스제한종료일시 -->
@@ -139,7 +148,7 @@
 
 
 									<input type="text" class="bw-input w-20 ipt-cal" data-form-param="srvcRstrctnEndDtm" />
-									<input type="text" class="bw-input w-10 ipt-time" data-form-param="srvcRstrctnEndTime" placeholder="--:--:--" />
+									<input type="text" class="bw-input w-15 ipt-time" data-form-param="srvcRstrctnEndTime" placeholder="--:--:--" />
 
 
 								</div>

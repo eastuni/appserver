@@ -94,7 +94,63 @@ define(
 
                     that.initData = initData;
 
+                    
+                    // 2018.05.29  keewoong.hong  Subtask #10531 [CAS-Multilingual] (BPI 지원) 다국어 언어 추가 요청 (따갈로그어, 세부아노어)
+                    // 관리 하고자 하는 언어 1, 2, 3 선택                      
+                	var sParam = {};
+                	sParam.instCd  = $.sessionStorage('headerInstCd');
+                	sParam.cdNbr   = "10005";
 
+            		var linkData = {"header": fn_getHeader("CAPCM0038400"), "CaCmnCdSvcGetCdListByCdNbrIn": sParam};
+
+                    that.lngCd1 = "";
+                    that.lngCd2 = "";
+                    that.lngCd3 = "";
+                    
+            		var lngCd1 = "";
+            		var lngCd2 = "";
+            		var lngCd3 = "";
+
+                    // ajax호출
+                    bxProxy.post(sUrl, JSON.stringify(linkData), {
+                        enableLoading: false
+                        , success: function (responseData) {
+
+                        	if(responseData.CaCmnCdSvcGetCdListByCdNbrOut.tblNm.length > 0) {
+                        		$(responseData.CaCmnCdSvcGetCdListByCdNbrOut.tblNm).each(function(idx, data) {
+                    				if(idx == 0) {
+                    					lngCd1 = data.cdNm;
+                    					that.lngCd1 = data.cd;
+                    				} else if(idx == 1) {
+                    					lngCd2 = data.cdNm;
+                    					that.lngCd2 = data.cd;
+                    				} else if(idx == 2) {
+                    					lngCd3 = data.cdNm;
+                    					that.lngCd3 = data.cd;
+                    				}
+                        		});
+                        		
+                        		// 하단 상세 항목 타이틀 변경
+                        		that.$el.find("#CAPCM190-detail-table #label_trnsfrRsltVal1").text(lngCd1);
+                        		that.$el.find("#CAPCM190-detail-table #label_trnsfrRsltVal2").text(lngCd2);
+                        		that.$el.find("#CAPCM190-detail-table #label_trnsfrRsltVal3").text(lngCd3);
+                        		
+                        		// 하단 상세 항목필드 placeholer 변경
+                        		that.$el.find('#CAPCM190-detail-table [data-form-param="trnsfrRsltVal1"]').prop("placeholder", lngCd1);
+                        		that.$el.find('#CAPCM190-detail-table [data-form-param="trnsfrRsltVal2"]').prop("placeholder", lngCd2);
+                        		that.$el.find('#CAPCM190-detail-table [data-form-param="trnsfrRsltVal3"]').prop("placeholder", lngCd3);
+                        		
+                        		// 중단 그리드 Title명 변경
+                        		that.CAPCM190Grid.columns[2].text = lngCd1;
+                        		that.CAPCM190Grid.columns[3].text = lngCd2;
+                        		that.CAPCM190Grid.columns[4].text = lngCd3;
+                        		
+                        	}
+                        }   // end of suucess: fucntion
+                    }); // end of bxProxy
+
+
+                    
                     /* ------------------------------------------------------------ */
                     that.CAPCM190Grid = new ExtGrid({
                         /* ------------------------------------------------------------ */
@@ -116,9 +172,9 @@ define(
 							    }
 							}
                             , {text: bxMsg('cbb_items.SCRNITM#trnsfrOriginKeyVal'),width: 160,flex: 1, dataIndex: 'trnsfrOriginKeyVal', style: 'text-align:center', align: 'left'}
-                            , {text: bxMsg('cbb_items.CDVAL#10005ko'),width: 160,flex: 2,dataIndex: 'trnsfrRsltVal1', style: 'text-align:center', align: 'left'}
-                            , {text: bxMsg('cbb_items.CDVAL#10005en'),width: 160,flex: 2,dataIndex: 'trnsfrRsltVal2', style: 'text-align:center', align: 'left'}
-                            , {text: bxMsg('cbb_items.CDVAL#10005zh'),width: 160,flex: 2,dataIndex: 'trnsfrRsltVal3', style: 'text-align:center', align: 'left'}
+                            , {text: bxMsg('cbb_items.SCRNITM#lngCd')+'1',width: 160,flex: 2,dataIndex: 'trnsfrRsltVal1', style: 'text-align:center', align: 'left'}
+                            , {text: bxMsg('cbb_items.SCRNITM#lngCd')+'2',width: 160,flex: 2,dataIndex: 'trnsfrRsltVal2', style: 'text-align:center', align: 'left'}
+                            , {text: bxMsg('cbb_items.SCRNITM#lngCd')+'3',width: 160,flex: 2,dataIndex: 'trnsfrRsltVal3', style: 'text-align:center', align: 'left'}
                             , {text: bxMsg('cbb_items.SCRNITM#trnsfrTrgtKnd') ,dataIndex: 'trnsfrKnd', hidden : true}
                             , {
                              	xtype: 'actioncolumn', width: 80, align: 'center', style: 'text-align:center', text: bxMsg('cbb_items.SCRNITM#del')
@@ -185,6 +241,8 @@ define(
 
                     	}
                     }
+                    
+                    
                 }
 
 
@@ -487,20 +545,20 @@ define(
 
                     var trnsfrKnd = that.$el.find('.CAPCM190-detail-table [data-form-param="trnsfrKnd"]').val();
                     var trnsfrOriginKeyVal =  that.$el.find('.CAPCM190-detail-table [data-form-param="trnsfrOriginKeyVal"]').val();
-                    var koNm = that.$el.find('.CAPCM190-detail-table [data-form-param="trnsfrRsltVal1"]').val(); // 한국어
-                    var enNm = that.$el.find('.CAPCM190-detail-table [data-form-param="trnsfrRsltVal2"]').val(); // 영어
-                    var chNm = that.$el.find('.CAPCM190-detail-table [data-form-param="trnsfrRsltVal3"]').val(); // 중국어
+                    var trnsfrRsltVal1 = that.$el.find('.CAPCM190-detail-table [data-form-param="trnsfrRsltVal1"]').val(); // 한국어
+                    var trnsfrRsltVal2 = that.$el.find('.CAPCM190-detail-table [data-form-param="trnsfrRsltVal2"]').val(); // 영어
+                    var trnsfrRsltVal3 = that.$el.find('.CAPCM190-detail-table [data-form-param="trnsfrRsltVal3"]').val(); // 중국어
 
                     if (trnsfrKnd == "" || trnsfrOriginKeyVal == "") {
                     	return;
                     }
 
-                    // 영어
                     var mltLngDtl = {};
+                	mltLngDtl = {};
                     mltLngDtl.trnsfrKndCd = trnsfrKnd;
                     mltLngDtl.trnsfrOriginKeyVal = trnsfrOriginKeyVal;
-                    mltLngDtl.lngCd = "en";
-                    mltLngDtl.trnsfrRsltVal = enNm;
+                    mltLngDtl.lngCd = that.lngCd1;
+                    mltLngDtl.trnsfrRsltVal = trnsfrRsltVal1;
                     sParam.mltLngDtlList.push(mltLngDtl);
 
 
@@ -509,8 +567,8 @@ define(
                     	mltLngDtl = {};
                         mltLngDtl.trnsfrKndCd = trnsfrKnd;
                         mltLngDtl.trnsfrOriginKeyVal = trnsfrOriginKeyVal;
-                        mltLngDtl.lngCd = "ko";
-                        mltLngDtl.trnsfrRsltVal = koNm;
+                        mltLngDtl.lngCd = that.lngCd2;
+                        mltLngDtl.trnsfrRsltVal = trnsfrRsltVal2;
 
 
                         sParam.mltLngDtlList.push(mltLngDtl);
@@ -522,8 +580,8 @@ define(
                     	mltLngDtl = {};
                     	mltLngDtl.trnsfrKndCd = trnsfrKnd;
                     	mltLngDtl.trnsfrOriginKeyVal = trnsfrOriginKeyVal;
-                    	mltLngDtl.lngCd = "zh";
-                    	mltLngDtl.trnsfrRsltVal = chNm;
+                    	mltLngDtl.lngCd = that.lngCd3;
+                    	mltLngDtl.trnsfrRsltVal = trnsfrRsltVal3;
 
 
                     	sParam.mltLngDtlList.push(mltLngDtl);

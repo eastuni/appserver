@@ -1,9 +1,0 @@
-OMM bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.PymntHstQryIFOut
-<description="납부내역 조회 OUT">
-{
-	String msgCd<length=10 description="메시지코드">;
-	Integer totCnt<length=3 description="예약총건수">;
-	Integer pgNbr<length=3 description="페이지번호">;
-	Integer pgCnt<length=2 description="페이지당건수">;
-	bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.PymntHstQryIFOutSub outList<length=0 arrayReference="pgCnt" description="리스트">;
-}

@@ -7,10 +7,13 @@ AUIACE0004,인도인수대상이 타점권일 경우 인도인수타점권매수
 AUIACE0006,The transaction amount greater than the amounts transferred. Please check the transaction amount.
 AUIACE0007,Staff identification of cash send(receive) and cash receive(send) should be different. Please check staff information.
 AUIACE0008,Retained limit amount is greater than 0. Please check input data.
-AUIACE0009, 
 AUIACE0010,You can not proceed until the previous settlement step ends. Please execute again.
 AUIACE0011,There are no settlement steps you want to execute. Please select and run it again.
 AUIACE0012,It can be executed only when the settlement step is completed. Please try again after processing ends.
+AUIACE0015,In case of foreign cash acquisition and delivery, It can only be processed in cash or transfer. Check the input data of cash transfer distinction.
+AUIACE0016,Amount is mandatory value. Please check input value.
+AUIACE0017,You have to enter the count of other check when receiving or sending other check. Please check input value.
+AUIACE0018, Partial transfer amount should be smaller than withdrawal amount. Please check input amount.
 AUIARE0001,The arrangement Plan should not registered when arrangement is not active .
 AUIARE0002,Limit Arrangement do not support Repayment Please check the account information
 AUIARE0003,designated mobile phone number list is insufficient or exceeds the limit({0}) Please check the number of the designated mobile phones.
@@ -118,20 +121,15 @@ AUICME0050,The second (ss) can not exceed 59 seconds. Please check and take acti
 AUICME0051,Batch job not found for new batch instance Please enter correct Batch job identification or you need to register Batch job first
 AUICME0052,Please Check input Attribute Length Value. Please Check input Attribute Length Value.
 AUICME0053,Please Check input Attribute Name Value. Please Check input Attribute Name Value.
-AUICME0054, 
 AUICME0055,It's already canceled or corrected. Please check input value.
-AUICME0056, 
 AUICME0057, Standard English abbreviation can not be registered more than 6 digits.  Please contact your business contacts.
-AUICME0058, 
 AUICME0059,The setup contains no rule attribute properties, which are output to standard organ information.Be sure to register and change the setup engine information. Contact your IT representative for more information.
 AUICME0060, Ask for a common team request for menu queries.  Ask for a common team request for menu queries.
 AUICME0061,Important item classification item is mandatory. Check input value.
 AUICME0062,no request information available for distribution  register your distribution requirements.
 AUICME0063,You can not cancel your task that have been successfully deployed for operation server. You need to request a new task.
-AUICME0064, 
 AUICME0065,only available for scheduled distribution You must inquire IT responsible person.
 AUICME0066,It is not status for processing You must inquire IT responsible person.
-AUICME0067, 
 AUICME0068,user group/ channel can not be deleted with menu system Please delete the menu system
 AUICME0069,There is no Upper Class Please check again.
 AUICME0070,There is nothing to reflect. Please inquiry first.
@@ -197,13 +195,9 @@ AUILNE0026,You can not enter the screening identifier when applying for a credit
 AUILNE0027,Choose Loan Application Distinction 
 AUILNE0028,The main service is a mandatory check whether the interlock transaction history is canceled. 
 AUILNE0029,Please register after formula verification. 
-AUILNE0030, 
 AUIPDE0001,Cannot set value on interest and fee type condition.\n Please check input value.\n
 AUIPDE0002,Applying rules between the preferential interests are not defined. Please define the rule.
 AUIPDE0003,If there are more than 1 provided condition, apply rule must be defined. Please define the rule.
-AUIPDE0004, 
-AUIPDE0005, 
-AUIPDE0006, 
 AUISCE0001,Please select Counterparty register distinction code. Please select Counterparty register distinction code.
 AUISCE0002,Please check main contract to modify sub contract. Please check selected contract.
 AUISCE0003,Loan is not allowed with main contract and sub contract at the same time.  

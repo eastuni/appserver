@@ -1,9 +1,0 @@
-OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.CD0088InqryIFIn
-<description="">
-{
-	String instCd<length=3 description="기관코드">;
-	String txStartDt<length=8 description="거래시작일자">;
-	String txEndDt<length=8 description="거래종료일자">;
-	Integer pgNbr<length=5 description="페이지번호">;
-	Integer pgCnt<length=5 description="페이지건수">;
-}

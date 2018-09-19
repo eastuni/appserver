@@ -1,0 +1,185 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'batch.batch-job-monitor'}}
+    <p class="desc">{{bxMsg 'batch.batch-job-monitor-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap job-monitoring-search">
+    <!--INPUT TYPE1 * 분할 없이 INLINE-->
+    <ul class="clr">
+        <li class="input-wrap w-33">
+            <label class="bw-label w-40">
+                {{bxMsg 'batch.work-id'}}
+                <button type="button" class="bw-btn search-work-id-btn" title="{{bxMsg 'batch.work-id-search'}}"><i class="bw-icon i-20 i-func-search"></i></button>
+            </label>
+            <input type="text" class="bw-input w-60" data-form-param="jobId" />
+        </li>
+        <li class="input-wrap w-35">
+            <label class="bw-label w-40">{{bxMsg 'batch.execute-state'}}</label>
+            <select class="bw-input ipt-select w-60" data-form-param="status">
+                <option value="" selected>{{bxMsg 'common.all'}}</option>
+            </select>
+        </li>
+    </ul>
+    <ul class="clr">
+        <li class="input-wrap w-40">
+            <label class="bw-label w-33">{{bxMsg 'batch.execute-date'}}</label>
+            <input type="text" class="bw-input ipt-cal a-center w-33" data-form-param="fromStartTime[0]" readonly/>
+            <input type="text" class="bw-input ipt-time a-center w-33" data-form-param="fromStartTime[1]" />
+        </li>
+        <li class="clr" style="margin-top: 5px; margin-right: 10px;">
+            <span class="unit-desc">~</span>
+        </li>
+        <li class="input-wrap w-25">
+            <input type="text" class="bw-input ipt-cal a-center w-50" data-form-param="toStartTime[0]" readonly/>
+            <input type="text" class="bw-input ipt-time a-center w-50" data-form-param="toStartTime[1]" />
+        </li>
+    </ul>
+    <!--/END INPUT TYPE1-->
+</section>
+<!--/END SEARCH AREA-->
+<!--GRID AREA-->
+<section class="bw-grid job-monitoring-grid"></section>
+<!--/END GRID AREA-->
+<!--BW-SUB TITLE * 컨텐츠 서브타이틀-->
+<h3 class="bw-stt add-mg-t">{{bxMsg 'batch.batch-job-monitor-detail'}}<p class="desc job-monitoring-title"></p></h3>
+<!--/END BW-SUB TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn detail-refresh-btn" title="{{bxMsg 'common.refresh'}}"><i class="bw-icon i-25 i-func-refresh"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--INFO AREA * 상세 영역-->
+<section class="search-wrap clr bx-loding-wrap job-monitoring-detail">
+    <ul class="unit w-80 col-2 clr">
+        <li>
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.job-instance-id'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="jobInstanceId" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.work-execute-id'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="jobExecutionId" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.work-id'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="jobId" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.work-nm'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="jobNm" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.batch-execution-type'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="jobTypeCd" data-code="BXMAD0012" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.node-nm'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="nodeName" readonly />
+            </div>
+        </li>
+    </ul>
+    <ul class="unit w-80 clr">
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.execute-state'}}</label>
+                <span class="bw-input w-60 is-disabled" data-form-param="status"></span>
+            </div>
+        </li>
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.end-division'}}</label>
+                <span class="bw-input w-60 is-disabled" data-form-param="exitCode"></span>
+            </div>
+        </li>
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.add-date'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="createTime" readonly/>
+            </div>
+        </li>
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.step-count'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="stepCount" readonly/>
+            </div>
+        </li>
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.start-date'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="startTime" readonly/>
+            </div>
+        </li>
+        <li class="w-50">
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.end-date'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="endTime" readonly/>
+            </div>
+        </li>
+        <li class="w-100">
+            <div class="input-wrap fix-txtarea h-half p-rel clr">
+                <label class="bw-label w-17">{{bxMsg 'batch.execution-param-confirm'}}</label>
+                <div class="txt-wrap2 fix-size w-83 f-r">
+                    <textarea class="bw-textarea" data-form-param="execParamList" readonly></textarea>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <!--STATUS IMAGE AREA-->
+    <div class="bw-status type-l unit w-20">
+        <div class="img-area a-center">
+            <i class="fa fa-cog job-monitoring-running-icon" style="color:#5563b2;font-size:90px;"></i>
+        </div>
+        <div class="btn-wrap fix-center">
+            <button type="button" class="bw-btn btn-ctr control-job-btn" data-code="suspend" title="{{bxMsg 'common.suspend'}}">
+                <i class="fa fa-pause"></i>
+            </button>
+            <button type="button" class="bw-btn btn-ctr control-job-btn" data-code="resume" title="{{bxMsg 'common.resume'}}">
+                <i class="fa fa-eject fa-rotate-90"></i>
+            </button>
+            <button type="button" class="bw-btn btn-ctr control-job-btn" data-code="restart" title="{{bxMsg 'common.restart'}}">
+                <i class="fa fa-play"></i>
+            </button>
+            <button type="button" class="bw-btn btn-ctr control-job-btn" data-code="stop" title="{{bxMsg 'common.stop'}}">
+                <i class="fa fa-stop"></i>
+            </button>
+            <button type="button" class="bw-btn btn-ctr control-job-btn" data-code="forcedstop" title="{{bxMsg 'common.forced-stop'}}">
+                <i class="fa fa-stop chr-c-orange"></i>
+            </button>
+        </div>
+    </div>
+    <!-- STEP 목록 -->
+
+    <div class="module w-100">
+        <div class="bw-tab add-mg-t">
+            <strong>{{bxMsg 'batch.batch-job-step-list'}}<span></span></strong>
+        </div>
+        <div class="module-wrap add-bd2-t add-bd">
+            <!--GRID AREA-->
+            <section class="bw-grid job-step-grid add-mg"></section>
+            <!--/END GRID AREA-->
+        </div>
+    </div>
+    <!--/END STATUS IMAGE AREA-->
+</section>

@@ -1,8 +1,0 @@
-OMM bankware.corebanking.externalproxy.commonconfigurator.interfaces.dto.ExternalServiceBaseIO
-<description="">
-{
-	String sysIntrfcId<length=40 description="시스템인터페이스식별자">;
-	String extrnlSrvcCd<length=20 description="대외서비스코드">;
-	String extrnlTxCd<length=10 description="대외거래코드">;
-	String extrnlRcvdSrvcCd<length=20 description="대외수신서비스코드">;
-}

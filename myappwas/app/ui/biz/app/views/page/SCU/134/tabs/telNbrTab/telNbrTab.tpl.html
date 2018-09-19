@@ -9,7 +9,7 @@
 				<button type="button" class="bw-btn b-ctr"  id="btnTelNbrGridToggle" ng-click="SCU134_telNbrTabCtrl.btnTelNbrGridToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
 			</div>
 			</section>
-			<section  id="telNbrSrchRslt"  >
+			<section  id="telNbrSrchRslt"   >
 				<div id="SCU134_telNbrTab_telNbrInfoList" >
 					<section class="bw-grid"></section>
 				</div>
@@ -25,41 +25,42 @@
 				<button type="button" class="bw-btn b-ctr"  id="btnTelNbrInfoToggle" ng-click="SCU134_telNbrTabCtrl.btnTelNbrInfoToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
 			</div>
 			</section>
-		<section  id="telNbrInfo"  class="search-wrap">
+		<section  id="telNbrInfo"  class="search-wrap" >
 		<table class="w-100" >
 			<tr  name="tr_telNbrInfo" >
 				<td class="td-w-33">
 					<div class="input-wrap fix-label clr" >
 						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#cntctPntTp%}" data-i18n-title="{%=cbb_items.SCRNITM#cntctPntTp%}"></label>
-						<select class="bw-input ipt-select"  data-form-param="ctcptTpCd"></select>
+						<select class="bw-input ipt-select"  data-form-param="ctcptTpCd" tabIndex="0"></select>
 					</div>
 				</td>
 				<td class="td-w-33">
 					<div class="input-wrap fix-label clr" >
 						<label class="bw-label "  data-i18n="{%=cbb_items.AT#cntctMthdTpCd%}" data-i18n-title="{%=cbb_items.AT#cntctMthdTpCd%}"></label>
-						<select class="bw-input ipt-select"  data-form-param="cntctMthdTpCd"></select>
+						<select class="bw-input ipt-select"  data-form-param="cntctMthdTpCd" tabIndex="0"></select>
 					</div>
 				</td>
 				<td class="td-w-33">
 					<div class="input-wrap fix-label clr" >
 						<label class="bw-label "  data-i18n="{%=cbb_items.AT#rprsntvCtcptYn%}" data-i18n-title="{%=cbb_items.AT#rprsntvCtcptYn%}"></label>
-						<select class="bw-input ipt-select"  data-form-param="rprsntvCtcptYn"></select>
+						<select class="bw-input ipt-select"  data-form-param="rprsntvCtcptYn" tabIndex="0"></select>
 					</div>
 				</td>
 			</tr>
 			<tr  name="tr_telNbrInfo" >
 				<td class="td-w-33">
-					<div class="input-wrap unit clr fix-tel" >
+					<div class="input-wrap unit clr fix-tel"  tabIndex="0">
 						<label class="bw-label unit w-30"  data-i18n="{%=cbb_items.AT#telNbr%}" data-i18n-title="{%=cbb_items.AT#telNbr%}"></label>
-						<select class="bw-input unit w-25 ipt-select" ng-model="SCU171_telNbrTabCtrl.intrntnlNbrSelectedValue" data-form-param="intrntnlNbr"></select><input type="text" class="bw-input unit w-13 clear ipt-tel" data-form-param="idTelNbr"><input type="text" class="bw-input unit w-13 clear ipt-tel" data-form-param="telExNbr"><input type="text" class="bw-input unit w-13 clear" data-form-param="serialTelNbr">
+						<select class="bw-input unit w-25 ipt-select" data-form-param="intrntnlNbr"></select><input type="text" class="bw-input unit w-13 clear ipt-tel" data-form-param="idTelNbr"><input type="text" class="bw-input unit w-13 clear ipt-tel" data-form-param="telExNbr"><input type="text" class="bw-input unit w-13 clear" data-form-param="serialTelNbr">
 					</div>
 				</td>
 				<td class="td-w-33">
 					<div class="input-wrap fix-label clr" >
 						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rcvPrmsnDstnctn%}" data-i18n-title="{%=cbb_items.SCRNITM#rcvPrmsnDstnctn%}"></label>
-						<select class="bw-input ipt-select"  data-form-param="cntctPrhbtnTpCd"></select>
+						<select class="bw-input ipt-select"  data-form-param="cntctPrhbtnTpCd" tabIndex="0"></select>
 					</div>
 				</td>
+				<td>&nbsp;</td>
 			</tr>
 		</table>
 	</section>

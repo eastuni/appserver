@@ -1,6 +1,0 @@
-OMM bankware.corebanking.externalproxy.message.interfaces.dto.CdMsg0800bSub
-<description="0800 : 은행상태확인 전문의 sub DTO 40건">
-{
-	String bnkCd<length=3 description="은행코드">;
-	String stsCd<length=1 description="상태">;
-}

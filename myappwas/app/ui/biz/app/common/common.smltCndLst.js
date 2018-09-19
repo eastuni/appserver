@@ -37,7 +37,11 @@ function __service($commonService, $commonProxy, $commonUiGenerator){
            		if(createTable !=""){
                 	
                 	$(tbList).each(function (idx, item) {
-                		var listCdList = JSON.parse(item.pdCndVal);
+                		var listCdList;
+                		if (!$commonService.fn_isEmpty(item.pdCndVal)) {
+                			listCdList = JSON.parse(item.pdCndVal);
+                		}
+                		
 //              		  	var sectionArea = $(document.createElement('section'));
 //                    	var selectArea = $(document.createElement('select'));
               		 

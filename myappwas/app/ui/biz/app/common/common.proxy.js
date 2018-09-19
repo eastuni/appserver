@@ -70,8 +70,8 @@ function __service($http, $q, $timeout, $interval, $rootScope, $state, $commonCo
          */
         fn_callAsyncSvc : function(url, linkData, option) {
         	let that = this;
-//        	console.log(url, linkData, option);
-        	console.log(option.callerController);
+        	//console.log(url, linkData, option);
+        	//console.log(option.callerController);
         	let srvcCd = "";
         	
         	if(linkData.header === null || !angular.isDefined(linkData.header.srvcCd)) {
@@ -87,8 +87,8 @@ function __service($http, $q, $timeout, $interval, $rootScope, $state, $commonCo
         	// 로딩여부가 true 이고 로딩바가 실행되어 있지 않으면 한다.
         	if(option.enableLoading && !that.isDimExecution()) {
         		let loadingDim = $('body').bxDim({
-            		color: 'black',
-            		enableBlur: true,
+            		color: 'clear',
+            		enableBlur: false,
             		enableIcon: true,
             		iconType: 'spin',
             		text: 'Now Loading .....'
@@ -132,7 +132,12 @@ function __service($http, $q, $timeout, $interval, $rootScope, $state, $commonCo
         	//returnCode 0 : 정상, 1: 에러, 2 : 시스템에러, 3 : 책임자승인
         	let returnCode = responseData.header.returnCode;
         	
-//        	console.log(responseData);
+        	/**
+        	 * 모든 서비스 종료 시, 승인 세션 제거.
+        	 * 승인 프로세스가 종료되지 않아, 화면에 승인식별자가 있는 경우,
+        	 * 다시 세션스토리지에 설정되므로 해당 위치에서 clear
+        	 */
+        	$.sessionStorage('aprvlId', null);
         	
         	if(returnCode == "1" || returnCode == "2") { // 에러
         		
@@ -146,14 +151,16 @@ function __service($http, $q, $timeout, $interval, $rootScope, $state, $commonCo
             	var list = [];
             	/*WORKAREA_acctNbr_REPLACE_START*/
             	
-            	if(responseData.header.data.aprvlSts=="02"){ //승인거절이 난 후, 동일거래에 대해 재요청 시
-            		$.sessionStorage('globalAprvlId', null); //재요청하는 승인식별자가 셋팅되기 전 기록을 지움
-            	}
+            	//if(responseData.header.data.aprvlSts=="02"){ //승인거절이 난 후, 동일거래에 대해 재요청 시
+            	//	$.sessionStorage('globalAprvlId', null); //재요청하는 승인식별자가 셋팅되기 전 기록을 지움
+            	//}
             	
-    			list.push({"aprvlId" : responseData.header.data.aprvlId});
-    			list.push({"scrnId" : responseData.header.data.scrnId});
-    			list.push({"srvcCd" : responseData.header.data.srvcCd});
-//    			list.push({"seqNbr" : 0});
+            	console.log("##b check header",responseData.header);
+                // 2018.04.17  keewoong.hong  Header 정비
+    			list.push({"aprvlId" : responseData.header.aprvlId});
+    			//list.push({"scrnId" : responseData.header.data.scrnId});
+    			//list.push({"srvcCd" : responseData.header.data.srvcCd});
+    			//list.push({"seqNbr" : 0});
     			param.list = list;
     			var popInstance = $commonModal.showModal({
     				id : "SCM500",
@@ -174,6 +181,7 @@ function __service($http, $q, $timeout, $interval, $rootScope, $state, $commonCo
 //        				$.sessionStorage('globalAprvlId', selectedItem.aprvlId);
 //        				var aprvlInfo = '{"aprvlId" : selectedItem.aprvlId, "srvcCd": selectedItem.srvcCd, "scrnId": selectedItem.scrnId}'
 //        				$.sessionStorage('aprvlInfo', JSON.stringify(aprvlInfo));
+        				console.log("#@#proxy responseData",responseData);
                 		responseData.callerController.setGlobalAprvlId(selectedItem.aprvlId);
         			},
         			function () { // 닫기시 callback 함수
@@ -186,7 +194,6 @@ function __service($http, $q, $timeout, $interval, $rootScope, $state, $commonCo
         	}
         	else {
         		$rootScope.$broadcast('__setFooterLogMessage', "cbb_items.SCRNITM#success");
-        		$.sessionStorage('globalAprvlId', null); //승인 후, 거래 정상 수행 시 세션 제거
         		return true;
         	}
         },

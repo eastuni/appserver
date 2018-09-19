@@ -8,6 +8,10 @@ AUIACE0009,
 AUIACE0010, 
 AUIACE0011,没有您要执行的结算步骤。 请选择并再次运行。
 AUIACE0012,只有在结算步骤完成后才能执行。 处理结束后请重试。
+AUIACE0015, 
+AUIACE0016, 
+AUIACE0017, 
+AUIACE0018,部分转账金额应小于取款金额。 请检查输入量。
 AUIARE0001,合约计划只有在合约状态为 
 AUIARE0003, 
 AUIARE0004, 
@@ -109,6 +113,8 @@ AUICME0067,
 AUICME0068, 
 AUICME0069, 
 AUICME0070, 
+AUICME0071,Your password will expire soon. Are you sure you want to change your password?
+AUICME0072,Your password has expired. Are you sure you want to change your password?
 AUICUE0001,身份证号码太短。 请输入至少大于六位的有效身份证。
 AUICUE0002,身份证号码太长。 请输入10位以内的有效身份证。
 AUICUE0003,输入值长度有误。 请检查输入值长度。

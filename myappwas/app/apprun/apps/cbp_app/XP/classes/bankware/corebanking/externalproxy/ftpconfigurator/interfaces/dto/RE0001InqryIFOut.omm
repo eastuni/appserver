@@ -1,7 +1,0 @@
-OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.RE0001InqryIFOut
-<description="">
-{
-	Integer listCnt<length=8 description="목록건수">;
-	bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.RE0001InqryIFSub list<length=20 arrayReference="listCnt" description="자금청구접수미완료내역">;
-	Integer totCnt<length=8 description="전체건수">;
-}

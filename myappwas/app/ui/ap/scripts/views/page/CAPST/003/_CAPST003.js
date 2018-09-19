@@ -10,6 +10,7 @@ define(
         ExtGrid
     ) {
 
+    	//20180426 참조잔액사용시기코드(refBalUseTmCd) 주석처리
         var comboStore1 = {}; // 여부
         var comboStore2 = {}; // 입출구분코드
         var comboStore3 = {}; // 잔액초기화주기코드
@@ -37,6 +38,7 @@ define(
                 /*
                  * search-condition-area
                  */
+            	'keydown .search-key' : 'fn_enter',
                 'click #btn-search-condition-reset': 'resetSearchCondition',
                 'click #btn-search-condition-inquire': 'inquireSearchCondition',
                 'click #btn-search-condition-toggle': 'toggleSearchCondition',
@@ -501,28 +503,28 @@ define(
       	                          } // end of 활동여부
       	           
       	                          // 참조잔액사용시기코드
-      	                          , {
-                                text: bxMsg('cbb_items.AT#refBalUseTmCd'),
-                                width: 130,
-                                dataIndex: 'refBalUseTmCd',
-                                style: 'text-align:center',
-                                align: 'center',
-                                editor: {
-                                    xtype: 'combobox',
-                                    store: that.comboStore4,
-                                    displayField: 'cdNm',
-                                    valueField: 'cd'
-                                },
-                                hidden: true,
-                                renderer: function (val) {
-                                        index = that.comboStore4.findExact('cd', val);
-                                        if (index != -1) {
-                                            rs = that.comboStore4.getAt(index).data;
-                                            return rs.cdNm;
-                                        }
-                                    } // end of render
-      	                          } // end of 참조잔액사용시기코드
-      	                          , {
+//      	                          , {
+//                                text: bxMsg('cbb_items.AT#refBalUseTmCd'),
+//                                width: 130,
+//                                dataIndex: 'refBalUseTmCd',
+//                                style: 'text-align:center',
+//                                align: 'center',
+//                                editor: {
+//                                    xtype: 'combobox',
+//                                    store: that.comboStore4,
+//                                    displayField: 'cdNm',
+//                                    valueField: 'cd'
+//                                },
+//                                hidden: true,
+//                                renderer: function (val) {
+//                                        index = that.comboStore4.findExact('cd', val);
+//                                        if (index != -1) {
+//                                            rs = that.comboStore4.getAt(index).data;
+//                                            return rs.cdNm;
+//                                        }
+//                                    } // end of render
+//      	                          } // end of 참조잔액사용시기코드
+      	                   , {
                                 text: '',
                                 width: 0,
                                 dataIndex: 'lastChngTmstmp',
@@ -567,7 +569,8 @@ define(
                                     clicksToEdit: 2,
                                     listeners: {
                                         'beforeedit': function (editor, e) {
-                                            if (e.field == 'balTpDscd' || e.field == 'balInitzCyclCd' || e.field == 'balInitzBaseDayDscd' || e.field == 'refBalTpCd' || e.field == 'refBalUseTmCd' || e.field == 'balUpdtWayCd' || e.field == 'balUpdtDpstWhdrwlDscd' || e.field == 'actvYn') {
+                                        	//|| e.field == 'refBalUseTmCd'
+                                            if (e.field == 'balTpDscd' || e.field == 'balInitzCyclCd' || e.field == 'balInitzBaseDayDscd' || e.field == 'refBalTpCd' || e.field == 'balUpdtWayCd' || e.field == 'balUpdtDpstWhdrwlDscd' || e.field == 'actvYn') {
                                                 return false;
                                             }
                                         }
@@ -612,7 +615,7 @@ define(
                 that.$el.find('#detail-information-area [data-form-param="balUpdtClassNm"]').val(selectedRecord.balUpdtClassNm);
                 that.$el.find('#detail-information-area [data-form-param="updtJdgmntMthdNm"]').val(selectedRecord.updtJdgmntMthdNm);
                 that.$el.find('#detail-information-area [data-form-param="refBalTp"]').val(selectedRecord.refBalTpCd);
-                that.$el.find('#detail-information-area [data-form-param="refBalUseTmCd"]').val(selectedRecord.refBalUseTmCd);
+//                that.$el.find('#detail-information-area [data-form-param="refBalUseTmCd"]').val(selectedRecord.refBalUseTmCd);
                 if (selectedRecord.actvYn == "Y")
                     this.$el.find('#detail-information-area [data-form-param="actvYn"]').prop("checked", true);
                 else
@@ -631,6 +634,7 @@ define(
                 var param = that.settedParam;
                 var sParam = {};
                 // 입력 Key값이 없는 경우 전역변수에 저장된 Key값을 사용
+                sParam.balTpCd = this.$el.find('#search-condition-area  [data-form-param="balTpCd"]').val()
                 sParam.balTpCdNm = this.$el.find('#search-condition-area  [data-form-param="balTpCdNm"]').val()
                 sParam.balInitzCyclCd = this.$el.find('#search-condition-area  [data-form-param="balInitzCycl"]').val()
                 sParam.refBalTpCd = this.$el.find('#search-condition-area  [data-form-param="refBalTp"]').val()
@@ -677,7 +681,7 @@ define(
                 sParam.className = "CAPST003-balInitzCycl-wrap";
                 sParam.targetId = "balInitzCycl";
                 sParam.nullYn = "Y";
-                sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                sParam.allNm = bxMsg('cbb_items.SCRNITM#B_select');
                 sParam.cdNbr = "80000";
                 fn_getCodeList(sParam, this);
 
@@ -688,7 +692,7 @@ define(
                 sParam.className = "CAPST003-refBalTp-wrap";
                 sParam.targetId = "refBalTp";
                 sParam.nullYn = "Y";
-                sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                sParam.allNm = bxMsg('cbb_items.SCRNITM#B_select');
                 sParam.cdNbr = "50025";
                 sParam.viewType = "ValNm"
                 fn_getCodeList(sParam, this);
@@ -700,7 +704,7 @@ define(
                 sParam.className = "CAPST003-balTpDstnctn-wrap";
                 sParam.targetId = "balTpDstnctn";
                 sParam.nullYn = "Y";
-                sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                sParam.allNm = bxMsg('cbb_items.SCRNITM#B_select');
                 sParam.cdNbr = "A0449";
                 fn_getCodeList(sParam, this);
 
@@ -711,7 +715,7 @@ define(
                 sParam.className = "CAPST003-balInitzBaseDay-wrap";
                 sParam.targetId = "balInitzBaseDay";
                 sParam.nullYn = "Y";
-                sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                sParam.allNm = bxMsg('cbb_items.SCRNITM#B_select');
                 sParam.cdNbr = "80001";
                 fn_getCodeList(sParam, this);
 
@@ -722,7 +726,7 @@ define(
                 sParam.className = "CAPST003-balUpdtWay-wrap";
                 sParam.targetId = "balUpdtWay";
                 sParam.nullYn = "Y";
-                sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                sParam.allNm = bxMsg('cbb_items.SCRNITM#B_select');
                 sParam.cdNbr = "80002";
                 fn_getCodeList(sParam, this);
 
@@ -740,13 +744,13 @@ define(
                 /*
                  *  참조잔액사용시기코드
                  */
-                sParam = {};
-                sParam.className = "CAPST003-refBalUseTmCd-wrap";
-                sParam.targetId = "refBalUseTmCd";
-                sParam.nullYn = "Y";
-                sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
-                sParam.cdNbr = "80012";
-                fn_getCodeList(sParam, this);
+//                sParam = {};
+//                sParam.className = "CAPST003-refBalUseTmCd-wrap";
+//                sParam.targetId = "refBalUseTmCd";
+//                sParam.nullYn = "Y";
+//                sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+//                sParam.cdNbr = "80012";
+//                fn_getCodeList(sParam, this);
 
 
             },
@@ -777,11 +781,37 @@ define(
 	                sParam.balUpdtClassNm = this.$el.find('#detail-information-area [data-form-param="balUpdtClassNm"]').val();
 	                sParam.updtJdgmntMthdNm = this.$el.find('#detail-information-area [data-form-param="updtJdgmntMthdNm"]').val();
 	                sParam.refBalTpCd = this.$el.find('#detail-information-area [data-form-param="refBalTp"]').val();
-	                sParam.refBalUseTmCd = this.$el.find('#detail-information-area [data-form-param="refBalUseTmCd"]').val();
-	                
+//	                sParam.refBalUseTmCd = this.$el.find('#detail-information-area [data-form-param="refBalUseTmCd"]').val();
 	                sParam.actvYn = this.getYn(this.$el.find('#detail-information-area [data-form-param="actvYn"]'));
 
-	                
+	                if(fn_isNull(sParam.balTpCd)){
+                    	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#no-mandatory-data-msg') + "["+bxMsg('cbb_items.AT#balTpCd')+"]");
+	                  	return;
+                    }
+	                if(isNaN(sParam.balTpCd) == true){ //문자체크
+	                	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#chkDigitMsg') + "["+bxMsg('cbb_items.AT#balTpCd')+"]");
+	                  	return;
+	                }
+	                if(fn_isNull(sParam.balTpCdNm)){
+	                	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#no-mandatory-data-msg') + "["+bxMsg('cbb_items.AT#balTpCdNm')+"]");
+	                	return;
+	                }
+	                if(fn_isNull(sParam.balTpDscd)){
+	                	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#no-mandatory-data-msg') + "["+bxMsg('cbb_items.AT#balTpDscd')+"]");
+	                	return;
+	                }
+	                if(fn_isNull(sParam.balInitzCyclCd)){
+	                	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#no-mandatory-data-msg') + "["+bxMsg('cbb_items.AT#balInitzCyclCd')+"]");
+	                	return;
+	                }
+	                if(fn_isNull(sParam.balInitzBaseDayDscd)){
+	                	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#no-mandatory-data-msg') + "["+bxMsg('cbb_items.AT#balInitzBaseDayDscd')+"]");
+	                	return;
+	                }
+	                if(fn_isNull(sParam.balUpdtWayCd)){
+	                	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#no-mandatory-data-msg') + "["+bxMsg('cbb_items.AT#balUpdtWayCd')+"]");
+	                	return;
+	                }
 	                
 	                console.log(sParam);
 	                var linkData = {"header": fn_getHeader(srvcCd), "CaBalTpMgmtSvcGetBalTpMgmtIn": sParam};
@@ -841,7 +871,7 @@ define(
                         sub.balUpdtClassNm = data.balUpdtClassNm;
                         sub.updtJdgmntMthdNm = data.updtJdgmntMthdNm;
                         sub.refBalTpCd = data.refBalTpCd;
-                        sub.refBalUseTmCd = data.refBalUseTmCd;
+//                        sub.refBalUseTmCd = data.refBalUseTmCd;
                         sub.actvYn = data.actvYn;
 
                         table.push(sub);
@@ -889,6 +919,7 @@ define(
              */
             resetSearchCondition: function () {
             	this.deleteList = [];
+            	this.$el.find('#search-condition-area [data-form-param="balTpCd"]').val("");
                 this.$el.find('#search-condition-area [data-form-param="balTpCdNm"]').val("");
                 this.$el.find('#search-condition-area [data-form-param="balInitzCycl"] option:eq(0)').attr("selected", "selected");
                 this.$el.find('#search-condition-area [data-form-param="refBalTp"] option:eq(0)').attr("selected", "selected");
@@ -913,7 +944,7 @@ define(
                 this.$el.find('#detail-information-area [data-form-param="balUpdtWay"] option:eq(0)').attr("selected", "selected");
                 this.$el.find('#detail-information-area [data-form-param="balUpdtDpstAndWhdrwlOfMnyDstnctn"] option:eq(0)').attr("selected", "selected");
                 this.$el.find('#detail-information-area [data-form-param="refBalTp"] option:eq(0)').attr("selected", "selected");
-                this.$el.find('#detail-information-area [data-form-param="refBalUseTmCd"] option:eq(0)').attr("selected", "selected");
+//                this.$el.find('#detail-information-area [data-form-param="refBalUseTmCd"] option:eq(0)').attr("selected", "selected");
                 this.$el.find('#detail-information-area [data-form-param="actvYn"]').attr("checked", false);
             },
             
@@ -939,6 +970,15 @@ define(
             		return "Y";
             	else
             		return "N";
+            },
+            
+            fn_enter: function (event) {
+                var that = this;
+                var event = event || window.event;
+                var keyID = (event.which) ? event.which : event.keyCode;
+                if(keyID == 13) { //enter
+                	that.inquireSearchCondition();
+                }
             }
 
         }); // end of Backbone.View.extend({

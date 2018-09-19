@@ -15,18 +15,18 @@
 					<button type="button" class="bw-btn b-ctr"  id="btnAttrToggle" ng-click="SCU142Ctrl.btnAttrToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
 				</div>
 				</section>
-			<section  id="secAttr"  class="search-wrap">
+			<section  id="secAttr"  class="search-wrap" >
 			<table class="w-100" >
 				<tr  name="tr_secAttr" >
 					<td class="td-w-33">
 						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rprsntnBzmanNm%}" data-i18n-title="{%=cbb_items.SCRNITM#rprsntnBzmanNm%}"></label>
-							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"   data-form-param="nm" />
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"   data-form-param="nm"  tabIndex="0"/>
 						</div>
 					</td>
 					<td class="td-w-33">
 						<div class="input-wrap fix-label asterisk clr" >
 							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rprsntvDtlTp%}" data-i18n-title="{%=cbb_items.SCRNITM#rprsntvDtlTp%}"></label>
-							<select class="bw-input ipt-select"  data-form-param="actorDtlTp"></select>
+							<select class="bw-input ipt-select"  data-form-param="actorDtlTp" tabIndex="0"></select>
 						</div>
 					</td>
 					<td class="td-w-33">
@@ -36,12 +36,15 @@
 				<tr  name="tr_secAttr" >
 					<td class="td-w-33">
 						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rprsnttvUnqID%}" data-i18n-title="{%=cbb_items.SCRNITM#rprsnttvUnqID%}"></label>
-							<input type="text"  maxlength='30' dec='0' class="bw-input a-left"   data-form-param="actorUnqIdNbr" />
+							<input type="text"  maxlength='30' dec='0' class="bw-input a-left"   data-form-param="actorUnqIdNbr"  tabIndex="0"/>
 						</div>
 					</td>
-					<td class="td-w-33" colspan="2">
+					<td class="td-w-33">
+						<button type="button" class="bw-btn-form unit add-mg-t-7"  id="ICON_OTHER" ng-click="SCU142Ctrl.ICON_OTHER_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#checkDplctn%}"/></button>
+					</td>
+					<td class="td-w-33">
 						<div class="clr add-mg-l-10" >
-							<input type="checkbox"  class="bw-input ipt-radio f-l" id="vldtnErrOvrrdYn" data-form-param="vldtnErrOvrrdYn" />
+							<input type="checkbox"  class="bw-input ipt-radio f-l" id="vldtnErrOvrrdYn" data-form-param="vldtnErrOvrrdYn" tabIndex="0"/>
 							<label class="bw-label f-l add-mg-t-5 add-font-style"  data-i18n="{%=cbb_items.AT#vldtnErrOvrrdYn%}" data-i18n-title="{%=cbb_items.AT#vldtnErrOvrrdYn%}"></label>
 						</div>
 					</td>
@@ -50,19 +53,19 @@
 					<td class="td-w-33">
 						<div class="input-wrap fix-label asterisk clr" >
 							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#naty%}" data-i18n-title="{%=cbb_items.SCRNITM#naty%}"></label>
-							<select class="bw-input ipt-select"  data-form-param="natyIsoNatCd"></select>
+							<select class="bw-input ipt-select"  data-form-param="natyIsoNatCd" tabIndex="0"></select>
 						</div>
 					</td>
 					<td class="td-w-33">
 						<div class="input-wrap fix-label asterisk clr" >
 							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rsdncLctnI%}" data-i18n-title="{%=cbb_items.SCRNITM#rsdncLctnI%}"></label>
-							<select class="bw-input ipt-select"  data-form-param="rsdncLctnIsoNatCd"></select>
+							<select class="bw-input ipt-select"  data-form-param="rsdncLctnIsoNatCd" tabIndex="0"></select>
 						</div>
 					</td>
 					<td class="td-w-33">
 						<div class="input-wrap fix-label asterisk clr" >
 							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#lngCd%}" data-i18n-title="{%=cbb_items.SCRNITM#lngCd%}"></label>
-							<select class="bw-input ipt-select"  data-form-param="lngCd"></select>
+							<select class="bw-input ipt-select"  data-form-param="lngCd" tabIndex="0"></select>
 						</div>
 					</td>
 				</tr>

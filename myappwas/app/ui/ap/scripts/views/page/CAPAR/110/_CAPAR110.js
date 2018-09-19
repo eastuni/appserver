@@ -144,7 +144,7 @@ define(
                                 that.CAPAR110Grid = new ExtGrid({
                                     // 그리드 컬럼 정의
                                     fields: ['No', 'arrRelKndCd', 'arrRelCd', 'arrRelNm', 'arrStsCd', 'bizDscd', 'bizDscdNm'
-                                             , 'pdTpCd', 'pdTpNm', 'pdTmpltCd', 'pdTmpltNm', 'pdCd', 'pdNm', 'relMndtryYn', 'relPlrlYn']
+                                             , 'pdTpCd', 'pdTpNm', 'pdTmpltCd', 'pdTmpltNm', 'pdCd', 'pdNm', 'relMndtryYn', 'relPlrlYn','scrnInpYn']
                                     , id: 'CAPAR110Grid'
                                     , columns: [
 											{
@@ -279,6 +279,29 @@ define(
 				                                            return "<span class=\"bw-sign " + classNm + "\">" + val + "</span>";
 				                                        }
 				                                    } // end of render
+						                  }
+						                  // 화면입력여부
+						                  ,{text:bxMsg('cbb_items.AT#scrnInpYn'), dataIndex: 'scrnInpYn', flex: 1, style: 'text-align:center', align: 'center',
+						                	  editor: {
+						                		  xtype: 'combobox',
+						                		  store: that.comboStore4,
+						                		  displayField: 'cdNm',
+						                		  valueField: 'cd'
+						                	  },
+						                	  renderer: function (val) {
+						                		  index = that.comboStore4.findExact('cd', val);
+						                		  if (index != -1) {
+						                			  rs = that.comboStore4.getAt(index).data;
+						                			  var classNm = "s-no";
+						                			  var val = rs.cd;
+						                			  
+						                			  
+						                			  if (val == "Y") {
+						                				  classNm = "s-yes";
+						                			  }
+						                			  return "<span class=\"bw-sign " + classNm + "\">" + val + "</span>";
+						                		  }
+						                	  } // end of render
 						                  }
 						                  ,{
 					                            xtype: 'actioncolumn',
@@ -578,13 +601,36 @@ define(
                          	break;
 
 
-                     	case '08':		//계약/발급메체
+                     	case '08':		//계약/발급매체
 
 
                      		sParam.cdNbr = "A0451";
                          	break;
 
 
+                     	case '09':		//계약/혜택
+
+
+                     		sParam.cdNbr = "A1226";
+                         	break;
+
+                         	
+                         	
+                     	case '10':		//계약/자산
+
+
+                     		sParam.cdNbr = "A0595";
+                         	break;
+
+                         	
+                         	
+                     	case '11':		//계약/파트너
+
+
+                     		sParam.cdNbr = "A1221";
+                         	break;
+
+                         
                     	}
 
 
@@ -998,6 +1044,7 @@ define(
 		            that.$el.find('.CAPAR110-detail-table [data-form-param="pdCd"]').prop("disabled", false);
 		            that.$el.find('.CAPAR110-detail-table [data-form-param="relMndtryYn"]').prop("checked", true);
 		            that.$el.find('.CAPAR110-detail-table [data-form-param="relPlrlYn"]').prop("checked", true);
+		            that.$el.find('.CAPAR110-detail-table [data-form-param="scrnInpYn"]').prop("checked", true);
                 }
 
 
@@ -1161,6 +1208,11 @@ define(
                     } else {
                     	sParam.relPlrlYn = "N";
                     }
+                    if(that.$el.find('.CAPAR110-detail-table [data-form-param="scrnInpYn"]').is(':checked')) { // 화면입력여부
+                    	sParam.scrnInpYn = "Y";                	
+                    } else {
+                    	sParam.scrnInpYn = "N";
+                    }
 
 
                     if(that.initFlag) { //등록
@@ -1278,6 +1330,14 @@ define(
 	                }
 	                else {
 	                 that.$el.find('.CAPAR110-detail-table [data-form-param="relPlrlYn"]').prop("checked", false);
+	                }
+
+	                // 화면입력여부
+	                if(data.scrnInpYn == "Y") {
+	                	that.$el.find('.CAPAR110-detail-table [data-form-param="scrnInpYn"]').prop("checked", true);
+	                }
+	                else {
+	                	that.$el.find('.CAPAR110-detail-table [data-form-param="scrnInpYn"]').prop("checked", false);
 	                }
 
 

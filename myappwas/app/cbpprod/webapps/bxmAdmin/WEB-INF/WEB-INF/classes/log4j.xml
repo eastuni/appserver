@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="filelog" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${logHome}/bxmAdmin/app.log"/>
+        <param name="DatePattern" value="'.'yyyyMMddHH"/>
+        <param name="Append" value="true"/>
+        <layout class="bxm.common.log4j.BxmPatternLayout">
+            <param name="ConversionPattern" value="[%d{yy/MM/dd HH:mm:ss,SSS}][%bxm{guid}][%p][%F:%L] %m%n" />
+        </layout>
+    </appender>
+		
+    <root>
+        <priority value="info" />
+        <appender-ref ref="filelog" />
+    </root>
+</log4j:configuration>

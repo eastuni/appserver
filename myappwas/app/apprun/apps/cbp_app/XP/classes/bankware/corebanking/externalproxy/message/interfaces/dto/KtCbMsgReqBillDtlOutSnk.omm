@@ -1,9 +1,0 @@
-OMM bankware.corebanking.externalproxy.message.interfaces.dto.KtCbMsgReqBillDtlOutSnk
-<description="KT CB정보 응답-반복부 청구납입정보의 청구상세 Out">
-{
-	String billYm<length=6 description="청구대상년월">;
-	String billAmt<length=9 description="청구금액">;
-	String prdDt<length=8 description="납기일자">;
-	String rcptAmt<length=9 description="수납금액">;
-	String rcptDt<length=8 description="수납일자">;
-}

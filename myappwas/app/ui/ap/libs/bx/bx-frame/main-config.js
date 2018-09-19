@@ -68,13 +68,12 @@ define(
                     }
 
                     function initMenu() {
-                        var param = {};
                         
-//                        param.header = fn_getHeader('CAPSV0108403');
-                        param.header = fn_getHeader('CAPSV0108404');
-                        param.LogInSvcGetLoginUserIn = {};
-
-                        bxProxy.post(sUrl, JSON.stringify(param), {
+                    	var param = {};
+                		param.userGrpCd = $.sessionStorage('userGrpCd'); 	// 2018.04.23  keewoong.hong  제품 표준전문헤더 항목 조정
+                		var linkData = {"header" : fn_getHeader("CAPSV0108404") , "CaMenuMgmtSvcGetUserFirstParentMenuIn" : param};
+                		
+                        bxProxy.post(sUrl, JSON.stringify(linkData), {
                         	enableLoading: true,
                             success: function (response) {
                             	var rootMenuList = [];

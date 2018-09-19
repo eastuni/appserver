@@ -5,20 +5,10 @@
         <param-name>config-location</param-name>
         <param-value>bxm-management-instance.xml</param-value>
   </context-param>
-  <!--
-  <context-param>
-        <param-name>cache-datasource</param-name>
-        <param-value>java:/comp/env/BXMNXA</param-value>
-  </context-param>
-  -->
   <listener>
   	<listener-class>bankware.corebanking.web.endpoint.CbbHttpServiceEndpointContextListener</listener-class>
   </listener>
-  <!--
-  <listener>
-        <listener-class>bxm.cache.manager.BxmCacheContextListener</listener-class>
-  </listener>
-  -->
+
   <servlet>
     <servlet-name>bxmHttpServiceEndpointMapping</servlet-name>
         <servlet-class>bankware.corebanking.web.endpoint.CbbHttpServiceEndpointMapping</servlet-class>
@@ -34,16 +24,5 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
-	<resource-ref>
-		<res-ref-name>serviceEndpointQCF</res-ref-name>
-		<res-type>javax.jms.ConnectionFactory</res-type>
-		<res-auth>Container</res-auth>
-	</resource-ref>
-
-	<resource-ref>
-		<res-ref-name>serviceEndpointRQ</res-ref-name>
-		<res-type>javax.jms.Queue</res-type>
-		 <res-auth>Container</res-auth>
-	</resource-ref>
 </web-app>
 

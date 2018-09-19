@@ -44,9 +44,14 @@ define(
                 /*
                  * search-condition-area
                  */
-                'change .CAPST004-bizDscd-wrap': 'changeBusinessDistinctCode',
+                /*'change .CAPST004-bizDscd-wrap': 'changeBusinessDistinctCode',
                 'change .CAPST004-pdTpCd-wrap': 'changeProductTypeCode',
                 'change .CAPST004-pdTmpltCd-wrap': 'changeProductTemplateCode',
+                */
+            	
+                'change .CAPST004-bizDscd-wrap': 'selectBusinessDistinctCodeOfDetail',
+                'change .CAPST004-pdTpCd-wrap': 'selectProductTypeCodeOfDetail',
+                'change .CAPST004-pdTmpltCd-wrap': 'selectProductTemplateCodeOfDetail',
                 'click #btn-search-condition-reset': 'resetSearchCondition',
                 'click #btn-search-condition-inquire': 'inquireBalanceParameter',
                 'click #btn-search-condition-toggle': 'toggleSearchCondition',
@@ -518,270 +523,12 @@ define(
                 sParam.className = "CAPST004-amtTpCd-wrap";
                 sParam.targetId = "amtTpCd";
                 sParam.nullYn = "Y";
-                sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                sParam.allNm = bxMsg('cbb_items.SCRNITM#B_select');
                 sParam.cdNbr = "50026";
+                sParam.viewType = "ValNm";
                 fn_getCodeList(sParam, this);
 
 
-            },
-
-
-            /**
-             * 업무 구분 코드 변경
-             */
-            changeBusinessDistinctCode: function (e) {
-                var that = this;
-                var targetArea;
-                if (e) targetArea = $(e.target.closest("section")).parent().attr("id");
-                else targetArea = "detail-information-area";
-
-
-
-
-                var sParam = {};
-                var bizDscd = $('#' + targetArea + '  [data-form-param="bizDscd"]').val();
-                var $selectPdTpCd = $('#' + targetArea + '  [data-form-param="pdTpCd"]');
-                var $selectPdTmpltCd = $('#' + targetArea + '  [data-form-param="pdTmpltCd"]');
-                var $selectPdCd = $('#' + targetArea + '  [data-form-param="pdCd"]');
-
-
-
-
-
-
-                //상품템플릿코드, 상품코드 초기화
-                $selectPdTpCd.empty();
-                $selectPdTpCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-                $selectPdTmpltCd.empty();
-                $selectPdTmpltCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-                $selectPdCd.empty();
-                $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-
-
-                if (bizDscd == "") {
-                    //상품유형코드 초기화
-                    $selectPdTpCd.empty();
-                   // $selectPdTpCd.val("");
-                    $selectPdTpCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-                } else {
-                    //combobox 정보 셋팅
-                    sParam.className = "CAPST004-pdTpCd-wrap." + targetArea;
-                    sParam.targetId = "pdTpCd";
-                    sParam.nullYn = "Y";
-                    sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
-                    //inData 정보 셋팅
-                    sParam.instCd = commonInfo.getInstInfo().instCd;
-                    sParam.bizDscd = bizDscd;
-                    sParam.pdTpCd = "";
-                    sParam.pdTmpltCd = "";
-                    sParam.pdCd = "";
-
-
-                    //상품유형코드 콤보데이터 load
-                    fn_getPdCodeList(sParam, self);
-                }
-
-
-
-
-            },
-
-
-            /**
-             * 상품 유형 코드 변경
-             */
-            changeProductTypeCode: function (e) {
-                var that = this;
-                var targetArea;
-                if (e) targetArea = $(e.target.closest("section")).parent().attr("id");
-                else targetArea = "detail-information-area";
-
-
-
-
-                var sParam = {};
-                var bizDscd = $('#' + targetArea + '  [data-form-param="bizDscd"]').val();
-                var pdTpCd = $('#' + targetArea + '  [data-form-param="pdTpCd"]').val();
-
-
-                var $selectPdTmpltCd = $('#' + targetArea + '  [data-form-param="pdTmpltCd"]');
-                var $selectPdCd = $('#' + targetArea + '  [data-form-param="pdCd"]');
-
-
-                //상품코드 초기화
-                $selectPdTmpltCd.empty();
-                $selectPdTmpltCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-                $selectPdCd.empty();
-                $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-
-
-                if (pdTpCd == "") {
-                    //상품템플릿코드 초기화
-                    $selectPdTmpltCd.empty();
-                    $selectPdTmpltCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-                } else {
-                    //combobox 정보 셋팅
-                    sParam.className = "CAPST004-pdTmpltCd-wrap." + targetArea;
-                    sParam.targetId = "pdTmpltCd";
-                    sParam.nullYn = "Y";
-                    sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
-                    //inData 정보 셋팅
-                    sParam.instCd = commonInfo.getInstInfo().instCd;
-                    sParam.bizDscd = bizDscd;
-                    sParam.pdTpCd = pdTpCd;
-                    sParam.pdTmpltCd = "";
-                    sParam.pdCd = "";
-
-
-                    //상품템플릿코드 콤보데이터 load
-                    fn_getPdCodeList(sParam, self);
-                }
-
-
-            },
-
-
-            /**
-             * 상품 템플릿 코드 변경
-             */
-            changeProductTemplateCode: function (e) {
-                var that = this;
-                var targetArea;
-                if (e) targetArea = $(e.target.closest("section")).parent().attr("id");
-                else targetArea = "detail-information-area";
-
-
-
-
-                var sParam = {};
-                // 상품대분류코드
-                var bizDscd = $('#' + targetArea + '  [data-form-param="bizDscd"]').val();
-                var pdTpCd = $('#' + targetArea + '  [data-form-param="pdTpCd"]').val();
-                var pdTmpltCd = $('#' + targetArea + '  [data-form-param="pdTmpltCd"]').val();
-
-
-                var $selectPdCd = $('#' + targetArea + '  [data-form-param="pdCd"]');
-
-
-                $selectPdCd.empty();
-                $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-
-
-                if (pdTmpltCd == "") {
-                    //상품템플릿코드 초기화
-                    $selectPdCd.empty();
-                    $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-                } else {
-                    //combobox 정보 셋팅
-                    sParam.className = "CAPST004-pdCd-wrap." + targetArea;
-                    sParam.targetId = "pdCd";
-                    sParam.nullYn = "Y";
-                    sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
-                    //inData 정보 셋팅
-                    sParam.instCd = commonInfo.getInstInfo().instCd;
-                    sParam.bizDscd = bizDscd;
-                    sParam.pdTpCd = pdTpCd;
-                    sParam.pdTmpltCd = pdTmpltCd;
-                    sParam.pdCd = "";
-
-
-                    //상품코드 콤보데이터 load
-                    fn_getPdCodeList(sParam, self);
-                }
-            },
-
-
-            /*
-             * Set parameters for the selected record
-             */
-            setRecordParam: function (selectedRecord, that) {
-                recordParam = {};
-                recordParam.bizDscd = selectedRecord.bizDscd;
-                recordParam.pdTpCd = selectedRecord.pdTpCd;
-                recordParam.pdTmpltCd = selectedRecord.pdTmpltCd;
-                recordParam.pdCd = selectedRecord.pdCd;
-                recordParam.that = that;
-
-
-                this.setBizDscd();
-            },
-
-
-            setBizDscd: function(){
-                 self.$el.find('#detail-information-area [data-form-param="bizDscd"]').prop("disabled", true);
-                 $("#detail-information-area [data-form-param='bizDscd'").val(recordParam.bizDscd);
-                 sParam.className = "CAPST004-pdTpCd-wrap.detail-information-area" ;
-                 sParam.targetId = "pdTpCd";
-                 sParam.nullYn = "Y";
-                 sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
-                 //inData 정보 셋팅
-                 sParam.instCd = commonInfo.getInstInfo().instCd;
-                 sParam.bizDscd = $('#detail-information-area [data-form-param="bizDscd"]').val();
-                 sParam.pdTpCd = "";
-                 sParam.pdTmpltCd = "";
-                 sParam.pdCd = "";
-                 sParam.selectVal = self.unFillBlank(recordParam.pdTpCd);
-                 //상품유형코드 콤보데이터 load
-                 fn_getPdCodeList(sParam, self, null, self.setPdTpCd);
-
-
-            },
-
-
-            setPdTpCd: function(){
-            	 self.$el.find('#detail-information-area [data-form-param="pdTpCd"]').prop("disabled", true);
-
-
-            	 sParam.className = "CAPST004-pdTmpltCd-wrap.detail-information-area";
-                 sParam.targetId = "pdTmpltCd";
-                 sParam.nullYn = "Y";
-                 sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
-                 //inData 정보 셋팅
-                 sParam.instCd = commonInfo.getInstInfo().instCd;
-                 sParam.bizDscd = $('#detail-information-area [data-form-param="bizDscd"]').val();
-                 sParam.pdTpCd = $('#detail-information-area [data-form-param="pdTpCd"]').val();
-                 sParam.pdTmpltCd = "";
-                 sParam.pdCd = "";
-                 sParam.selectVal = self.unFillBlank(recordParam.pdTmpltCd);
-                 //상품템플릿코드 콤보데이터 load
-                 fn_getPdCodeList(sParam, self, null, self.setPdTmpltCd);
-
-
-            },
-
-
-            setPdTmpltCd: function(){
-
-
-
-
-            	self.$el.find('#detail-information-area [data-form-param="pdTmpltCd"]').prop("disabled", true);
-
-
-            	 sParam.className = "CAPST004-pdCd-wrap.detail-information-area";
-                 sParam.targetId = "pdCd";
-                 sParam.nullYn = "Y";
-                 sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
-                 //inData 정보 셋팅
-                 sParam.instCd = commonInfo.getInstInfo().instCd;
-                 sParam.bizDscd =$('#detail-information-area [data-form-param="bizDscd"]').val();
-                 sParam.pdTpCd = $('#detail-information-area [data-form-param="pdTpCd"]').val();
-                 sParam.pdTmpltCd = $('#detail-information-area [data-form-param="pdTmpltCd"]').val();
-                 sParam.pdCd = "";
-                 sParam.selectVal = self.unFillBlank(recordParam.pdCd);
-                 //상품중분류코드 콤보데이터 load
-                 fn_getPdCodeList(sParam, self, null, self.setPdCd);
-            },
-
-
-            setPdCd: function(){
-            	var that = recordParam.that;
-
-
-            	self.$el.find('#detail-information-area [data-form-param="pdCd"]').prop("disabled", true);
-
-
-                recordParam = {};
             },
 
 
@@ -1066,7 +813,16 @@ define(
 	                sParam.acctgPrcsYn = this.getYn(this.$el.find('#detail-information-area [data-form-param="acctgPrcsYn"]'));
 	                sParam.instCd = commonInfo.getInstInfo().instCd;
 
-
+	                if(fn_isNull(sParam.bizDscd)){ 
+                    	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#no-mandatory-data-msg') + "["+bxMsg('cbb_items.AT#bizDscd')+"]");
+	                  	return;
+                    }
+	                
+	                if(fn_isNull(sParam.amtTpCd)){ 
+                    	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#no-mandatory-data-msg') + "["+bxMsg('cbb_items.AT#amtTpCd')+"]");
+	                  	return;
+                    }
+	                
 	                console.log(sParam);
 	                var linkData = {"header": fn_getHeader(srvcCd), "CaXtnAmtTpMgmtSvcRegisterXtnAmtTypeIn": sParam};
 	                // ajax호출
@@ -1094,8 +850,243 @@ define(
 
 
             },
+            
+            /*
+             * Set parameters for the selected record
+             */
+            setRecordParam: function (selectedRecord, that) {
+                recordParam = {};
+                recordParam.bizDscd = selectedRecord.bizDscd;
+                recordParam.pdTpCd = selectedRecord.pdTpCd;
+                recordParam.pdTmpltCd = selectedRecord.pdTmpltCd;
+                recordParam.pdCd = selectedRecord.pdCd;
+                recordParam.that = that;
 
 
+                this.setBizDscd();
+            },
+
+
+            setBizDscd: function(){
+                 self.$el.find('#detail-information-area [data-form-param="bizDscd"]').prop("disabled", true);
+                 $("#detail-information-area [data-form-param='bizDscd'").val(recordParam.bizDscd);
+                 sParam.className = "CAPST004-pdTpCd-wrap.detail-information-area" ;
+                 sParam.targetId = "pdTpCd";
+                 sParam.nullYn = "Y";
+                 sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                 //inData 정보 셋팅
+                 sParam.instCd = commonInfo.getInstInfo().instCd;
+                 sParam.bizDscd = $('#detail-information-area [data-form-param="bizDscd"]').val();
+                 sParam.pdTpCd = "";
+                 sParam.pdTmpltCd = "";
+                 sParam.pdCd = "";
+                 sParam.selectVal = self.unFillBlank(recordParam.pdTpCd);
+                 //상품유형코드 콤보데이터 load
+                 fn_getPdCodeList(sParam, self, null, self.setPdTpCd);
+
+
+            },
+
+
+            setPdTpCd: function(){
+            	 self.$el.find('#detail-information-area [data-form-param="pdTpCd"]').prop("disabled", true);
+
+
+            	 sParam.className = "CAPST004-pdTmpltCd-wrap.detail-information-area";
+                 sParam.targetId = "pdTmpltCd";
+                 sParam.nullYn = "Y";
+                 sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                 //inData 정보 셋팅
+                 sParam.instCd = commonInfo.getInstInfo().instCd;
+                 sParam.bizDscd = $('#detail-information-area [data-form-param="bizDscd"]').val();
+                 sParam.pdTpCd = $('#detail-information-area [data-form-param="pdTpCd"]').val();
+                 sParam.pdTmpltCd = "";
+                 sParam.pdCd = "";
+                 sParam.selectVal = self.unFillBlank(recordParam.pdTmpltCd);
+                 //상품템플릿코드 콤보데이터 load
+                 fn_getPdCodeList(sParam, self, null, self.setPdTmpltCd);
+
+
+            },
+
+
+            setPdTmpltCd: function(){
+
+
+
+
+            	self.$el.find('#detail-information-area [data-form-param="pdTmpltCd"]').prop("disabled", true);
+
+
+            	 sParam.className = "CAPST004-pdCd-wrap.detail-information-area";
+                 sParam.targetId = "pdCd";
+                 sParam.nullYn = "Y";
+                 sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                 //inData 정보 셋팅
+                 sParam.instCd = commonInfo.getInstInfo().instCd;
+                 sParam.bizDscd =$('#detail-information-area [data-form-param="bizDscd"]').val();
+                 sParam.pdTpCd = $('#detail-information-area [data-form-param="pdTpCd"]').val();
+                 sParam.pdTmpltCd = $('#detail-information-area [data-form-param="pdTmpltCd"]').val();
+                 sParam.pdCd = "";
+                 sParam.selectVal = self.unFillBlank(recordParam.pdCd);
+                 //상품중분류코드 콤보데이터 load
+                 fn_getPdCodeList(sParam, self, null, self.setPdCd);
+            },
+
+
+            setPdCd: function(){
+            	var that = recordParam.that;
+
+            	self.$el.find('#detail-information-area [data-form-param="pdCd"]').prop("disabled", true);
+
+                recordParam = {};
+            },
+            
+            /**
+             * 업무 구분 코드 변경
+             */
+            selectBusinessDistinctCodeOfDetail: function (data) {
+            	var targetClassNm = data.target.classList[3];
+                var that = this;
+                var sParam = {};
+                var bizDscd = data.bizDscd ? data.bizDscd : that.$el.find('#'+targetClassNm+' [data-form-param="bizDscd"]').val();
+                var $selectPdTpCd = that.$el.find('#'+targetClassNm+' [data-form-param="pdTpCd"]');
+                var $selectPdTmpltCd = that.$el.find('#'+targetClassNm+' [data-form-param="pdTmpltCd"]');
+                var $selectPdCd = that.$el.find('#'+targetClassNm+' [data-form-param="pdCd"]');
+
+
+                if(data.bizDscd) {
+                    that.$el.find('#'+targetClassNm+' [data-form-param="bizDscd"]').val(data.bizDscd);
+                }
+                
+                if (fn_isNull(bizDscd)) {
+                    //상품유형코드 초기화
+                    $selectPdTpCd.empty();
+                    $selectPdTpCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
+                    $selectPdTmpltCd.empty();
+                    $selectPdTmpltCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
+                    $selectPdCd.empty();
+                    $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
+                } else {
+                    //combobox 정보 셋팅
+                    sParam.className = targetClassNm+".CAPST004-pdTpCd-wrap";
+                    sParam.targetId = "pdTpCd";
+                    sParam.nullYn = "Y";
+                    sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                    //inData 정보 셋팅
+                    sParam.instCd = commonInfo.getInstInfo().instCd;
+                    sParam.bizDscd = bizDscd;
+                    sParam.pdTpCd = "";
+                    sParam.pdTmpltCd = "";
+                    sParam.pdCd = "";
+                    //상품유형코드 콤보데이터 load
+                    fn_getPdCodeList(sParam, this, null, function () { //상품콤보 설정 후 수행할 callback
+                    	if($selectPdTpCd[0].length<=1){
+                    		//로드할 상품콤보 목록이 없는 경우 없음 option을 추가
+                    		$selectPdTpCd.append($(document.createElement('option')).val("1").text(bxMsg('cbb_items.SCRNITM#none')));
+                    		//추가한 없음(1)옵션을 선택
+                    		$selectPdTpCd.val("1").prop("selected", true);
+                    	}
+                    });
+                }
+
+                //상품템플릿코드, 상품코드 초기화
+                $selectPdTmpltCd.empty();
+                $selectPdTmpltCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
+
+
+                $selectPdCd.empty();
+                $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
+            },
+
+
+            /**
+             * 상품 유형 코드 변경
+             */
+            selectProductTypeCodeOfDetail: function (data) {
+            	var targetClassNm = data.target.classList[3];
+                var that = this;
+                var sParam = {};
+                var bizDscd = data.bizDscd ? data.bizDscd : this.$el.find('#'+targetClassNm+' [data-form-param="bizDscd"]').val();
+                var pdTpCd = data.pdTpCd ? data.pdTpCd : this.$el.find('#'+targetClassNm+' [data-form-param="pdTpCd"]').val();
+                var $selectPdTmpltCd = this.$el.find('#'+targetClassNm+' [data-form-param="pdTmpltCd"]');
+                var $selectPdCd = this.$el.find('#'+targetClassNm+' [data-form-param="pdCd"]');
+
+
+                if (fn_isNull(pdTpCd)) {
+                    //상품템플릿코드 초기화
+                    $selectPdTmpltCd.empty();
+                    $selectPdTmpltCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
+                } else {
+                    //combobox 정보 셋팅
+                    sParam.className = targetClassNm+".CAPST004-pdTmpltCd-wrap";
+                    sParam.targetId = "pdTmpltCd";
+                    sParam.nullYn = "Y";
+                    sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                    //inData 정보 셋팅
+                    sParam.instCd = commonInfo.getInstInfo().instCd;
+                    sParam.bizDscd = bizDscd;
+                    sParam.pdTpCd = pdTpCd;
+                    sParam.pdTmpltCd = "";
+                    sParam.pdCd = "";
+                    //상품템플릿코드 콤보데이터 load
+                    fn_getPdCodeList(sParam, this, null, function () {
+                        if(data.pdTmpltCd) {
+                            that.$el.find('#'+targetClassNm+' [data-form-param="pdTmpltCd"]').val(data.pdTmpltCd);
+                        }
+                    });
+                }
+
+
+                //상품코드 초기화
+                $selectPdCd.empty();
+                $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
+            },
+
+
+            /**
+             * 상품 템플릿 코드 변경
+             */
+            selectProductTemplateCodeOfDetail: function (data) {
+            	var targetClassNm = data.target.classList[3];
+                var that = this;
+                var sParam = {};
+                var bizDscd = data.bizDscd ? data.bizDscd : this.$el.find('#'+targetClassNm+' [data-form-param="bizDscd"]').val();
+                var pdTpCd = data.pdTpCd ? data.pdTpCd : this.$el.find('#'+targetClassNm+' [data-form-param="pdTpCd"]').val();
+                var pdTmpltCd = data.pdTmpltCd ? data.pdTmpltCd : this.$el.find('#'+targetClassNm+' [data-form-param="pdTmpltCd"]').val();
+                var $selectPdCd = this.$el.find('#'+targetClassNm+' [data-form-param="pdCd"]');
+
+
+                if (fn_isNull(pdTmpltCd)) {
+                    //상품템플릿코드 초기화
+                    $selectPdCd.empty();
+                    $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
+                } else {
+                    //combobox 정보 셋팅
+                    sParam.className = targetClassNm+".CAPST004-pdCd-wrap";
+                    sParam.targetId = "pdCd";
+                    sParam.nullYn = "Y";
+                    sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                    //inData 정보 셋팅
+                    sParam.instCd = commonInfo.getInstInfo().instCd;
+                    sParam.bizDscd = bizDscd;
+                    sParam.pdTpCd = pdTpCd;
+                    sParam.pdTmpltCd = pdTmpltCd;
+                    sParam.pdCd = "";
+                    //상품중분류코드 콤보데이터 load
+                    fn_getPdCodeList(sParam, this, null, function () {
+                        if(data.pdCd) {
+                            that.$el.find('#'+targetClassNm+' [data-form-param="pdCd"]').val(data.pdCd);
+                        }
+                    });
+                }
+            },
+
+            selectProductCodeOfDetail: function (data) {
+            	var targetClassNm = data.target.classList[3];
+                this.$el.find('#'+targetClassNm+' [data-form-param="pdCd"]').val(data.pdCd);
+            },
+            
             /*
              * Toggle
              */

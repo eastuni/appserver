@@ -1,6 +1,0 @@
-OMM bankware.corebanking.externalproxy.commonconfigurator.dao.dto.CdAtmResponseCdOut
-<description="">
-{
-	String msgCd<length=20 description="메시지코드">;
-	String extrnlRspnsCd<length=20 description="대외응답코드">;
-}

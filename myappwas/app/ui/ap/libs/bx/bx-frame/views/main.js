@@ -96,7 +96,8 @@ define(
                 	// 서브 메뉴 리스트가 없으면 서버 에서 서브메뉴를 조회 한후 데이터가 있으면 MenuMap 에 넣는다.
                 	if(subMenuList.length  == 0) {
                 		var param = {};
-                		param.menuId = data.rootMenuId;
+                		param.menuId    = data.rootMenuId;
+                		param.userGrpCd = $.sessionStorage('userGrpCd'); 	// 2018.04.23  keewoong.hong  제품 표준전문헤더 항목 조정
                 		var linkData = {"header" : fn_getHeader("CAPSV0108405") , "CaMenuMgmtSvcGetUserChildrenMenuIn" : param};
                 		
                 		bxProxy.post(sUrl, JSON.stringify(linkData), {

@@ -49,6 +49,7 @@ define(
                         , 'click #btn-detail-save': 'savePSV003Detl'
                         , 'click #btn-detail-delete': 'deletePSV003Detl'
                         , 'click #btn-search-condition-inquire': 'select'
+                        , 'click #hstQryYn': 'resetsrvcRstrctnDtm'
                     }
 
 
@@ -74,6 +75,16 @@ define(
                         param.pdTmpltCd = this.$el.find('[data-form-param="pdTmpltCd"]').val(); // 상품템플릿
                         param.pdCd = this.$el.find('[data-form-param="pdCd"]').val(); // 상품코드
 
+		                if(this.$el.find('[data-form-param="hstQryYn"]').is(":checked")) {
+		                	param.srvcRstrctnDtm = "";
+		                }else {
+		                	param.srvcRstrctnDtm = this.$el.find('[data-form-param="srvcRstrctnDtm"]').val(); // 상품코드
+		                	srvcRstrctnTime      = this.$el.find('[data-form-param="srvcRstrctnTime"]').val(); // 상품코드
+		                	
+		                	// 시간일시 데이터 가공(ex. 2015-06-30 --> 2015-06-30T00:00:00+0900)
+		                	param.srvcRstrctnDtm = that.formatDate(param.srvcRstrctnDtm, srvcRstrctnTime);
+		                }
+                        
 
                         var linkData = {"header": fn_getHeader("CAPSV0038408"), "CaSrvcRstrctnDtlMgmtSvcGetSrvcRstrctnIn": param};
 
@@ -102,7 +113,32 @@ define(
                             }   // end of suucess: fucntion
                         });     // end of bxProxy
                     }
+                    /**
+                     *  이력조회여부 체크박스 클릭          
+                     */
+                    ,resetsrvcRstrctnDtm: function () {
+						//이력조회여부
+		                if(this.$el.find('[data-form-param="hstQryYn"]').is(":checked")) {
+		                	//제한일
+		                	this.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnDtm"]').val("");
+		                	this.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnDtm"]').prop("disabled", true);
+		                	//제한시간
+		                	this.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnTime"]').val("00:00:00");
+		                	this.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnTime"]').prop("disabled", true);
+		                	
+		                }else {
+		                	//제한일
+		                	this.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnDtm"]').val(getCurrentDate("yyyy-mm-dd"));
+		                	this.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnDtm"]').prop("disabled", false);
+		                	//제한시간
+		                	this.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnTime"]').val("00:00:00");
+		                	this.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnTime"]').prop("disabled", false);
+		                }
+                        
+                    }
+                    
                     ,setTimeInput: function () {
+                        this.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnTime"]').mask("99:99:99", {placeholder:"--:--:--"});
                         this.$el.find('#CAPSV003-detail-table [data-form-param="srvcRstrctnStartTime"]').mask("99:99:99", {placeholder:"--:--:--"});
                         this.$el.find('#CAPSV003-detail-table [data-form-param="srvcRstrctnEndTime"]').mask("99:99:99", {placeholder:"--:--:--"});
                     }
@@ -996,18 +1032,6 @@ define(
                         that.initFlag = true;
 
 
-//                        //제한시작일
-//                        that.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnStartDtm"]').val(getCurrentDate("yyyy-mm-dd"));
-//                        that.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnStartDtm"]').prop("disabled", false);
-////                        //제한시작시간
-//                        that.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnStartTime"]').val("00:00:00");
-//                        that.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnStartTime"]').prop("disabled", false);
-//                        //제한종료일
-//                        that.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnEndDtm"]').val(getCurrentDate("yyyy-mm-dd"));
-//                        that.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnEndDtm"]').prop("disabled", false);
-//                        //제한종료시간
-//                        that.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnEndTime"]').val("23:59:59");
-//                        that.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnEndTime"]').prop("disabled", false);
                         //제한유형
                         that.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnCd"]').val("");
                         that.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnCd"]').prop("disabled", false);
@@ -1033,7 +1057,17 @@ define(
                         that.$el.find('#CAPSV003-base-table [data-form-param="pdCd"]').val("");
                         that.$el.find('#CAPSV003-base-table [data-form-param="pdCd"]').prop("disabled", false);
 
+						//제한일
+						that.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnDtm"]').val(getCurrentDate("yyyy-mm-dd"));
+						that.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnDtm"]').prop("disabled", false);
+						//제한시간
+						that.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnTime"]').val("00:00:00");
+						that.$el.find('#CAPSV003-base-table [data-form-param="srvcRstrctnTime"]').prop("disabled", false);
 
+						//이력조회여부
+						that.$el.find('#CAPSV003-base-table [data-form-param="hstQryYn"]').prop("checked", false);
+
+						
                         //제한시작시간
                         that.$el.find('#CAPSV003-detail-table [data-form-param="srvcRstrctnStartTime"]').val("00:00:00");
                         that.$el.find('#CAPSV003-detail-table [data-form-param="srvcRstrctnStartTime"]').prop("disabled", false);

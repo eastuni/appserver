@@ -1,0 +1,67 @@
+<div class="modal-wrap">
+    {{#if authId}}<h2 class="bw-tt a-center">{{bxMsg 'setting.permission-edit'}}({{authId}})</h2>{{/if}}
+    {{#unless authId}}<h2 class="bw-tt a-center">{{bxMsg 'setting.permission-add'}}</h2>{{/unless}}
+    <section class="search-wrap add-bd2-t fix-h bx-no-draggable permission-setting-form">
+        <ul class="col-3 clr">
+            <li>
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-43">{{bxMsg 'setting.permission-id'}}</label>
+                    {{#if authId}}
+                    <input type="text" class="bw-input w-57" data-form-param="authId" value="{{authId}}" readonly />
+                    {{/if}}
+                    {{#unless authId}}
+                    <input type="text" class="bw-input w-57" data-form-param="authId" />
+                    {{/unless}}
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-43">{{bxMsg 'setting.permission-nm'}}</label>
+                    <input type="text" class="bw-input w-57" data-form-param="authNm" value="{{authNm}}" />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-43">{{bxMsg 'setting.permission-type'}}</label>
+                    <select class="bw-input ipt-select w-57" data-form-param="authTypeCd"></select>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-43">{{bxMsg 'setting.service-nm'}}</label>
+                    <input type="text" class="bw-input w-57" data-form-param="svcNm" value="{{svcNm}}" />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-43">{{bxMsg 'setting.operation-nm'}}</label>
+                    <input type="text" class="bw-input w-57" data-form-param="opNm" value="{{opNm}}" />
+                </div>
+            </li>
+            
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-43">{{bxMsg 'setting.use-yn'}}</label>
+                    <select class="bw-input ipt-select w-57" data-form-param="useYn">
+                        <option value="Y" >Y</option>
+                        <option value="N" >N</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+        <ul>
+    	    <li class="w-66">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-21">{{bxMsg 'setting.permission-desc'}}</label>
+                    <input type="text" class="bw-input w-79" data-form-param="authDesc" value="{{authDesc}}" />
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on save-permission-btn">{{bxMsg 'common.save'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

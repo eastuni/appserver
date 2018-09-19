@@ -1,0 +1,319 @@
+/* PAGING */
+.bx-paging {
+    display: none;
+}
+
+.bx-paging.on {
+    display: block;
+}
+
+/* EXTJS OVERRIDE */
+.x-body {
+    color: black;
+    background: #eee;
+    font: 12px/1 'Noto Sans KR',sans-serif;
+}
+
+.x-grid-view {
+    overflow-x: hidden !important;
+}
+
+.x-grid-header-ct {
+    border: 1px solid #eee;
+    background: #fff;
+}
+
+.x-grid-header-ct>.x-box-inner {
+    height: 29px !important;
+}
+
+.x-column-header-inner {
+    padding: 0;
+    font-size: 12px;
+    line-height: 29px;
+}
+
+.x-column-header-over {
+    background-color: #fff;
+}
+
+.x-grid-row, .x-grid-data-row {
+    height: 25px;
+}
+
+.x-grid-row-alt .x-grid-td {
+    background-color: white;
+}
+
+.x-grid-cell {
+    font: inherit;
+    border-color: #eeeeee;
+    font-size: 12px;
+    color: #666666;
+}
+
+.x-grid-cell-inner {
+    padding: 0;
+    line-height: 25px;
+}
+
+.x-grid-cell-inner-row-expander {
+    padding: 7px 6px 6px 6px;
+}
+
+.left-align .x-grid-cell-inner {
+    padding: 0 10px;
+}
+
+.x-grid-cell-inner>.bw-btn{
+    margin-top: -5px;
+}
+.x-grid-cell-inner>.bw-input[type="checkbox"],
+.x-grid-cell-inner>.bw-input[type="radio"] {
+    position: absolute;
+    margin-top: 2px;
+}
+
+.x-column-header-trigger {
+    border: #fff;
+    border-right: 1px dotted #aaa;
+}
+
+.x-panel-body-default {
+    border-color: #5b6dbf;
+}
+
+.x-grid-body {
+    top: 30px !important;
+    border-color: #eeeeee;
+    border-top-color: #5b6dbf;
+}
+
+.x-column-header {
+    border-right: 1px solid white;
+    background: white;
+    color: #5b6dbf;
+    letter-spacing: -.5px;
+    height: 29px !important;
+}
+
+.x-menu-item-active {
+    background-color: #F1F6FF;
+    border-color: #5b6dbf;
+}
+
+.x-grid-row-selected .x-grid-td,
+.x-grid-row-over .x-grid-td{
+    background-color: #F1F6FF;
+    border-bottom-color: #eeeeee;
+}
+
+.x-column-header-open .x-column-header-trigger,
+.x-column-header-open {
+    background-color: #F1F6FF;
+}
+
+.x-grid-rowbody {
+    font: inherit;
+    letter-spacing: 0;
+    color: #666666;
+    line-height: 15px;
+    font-size: 10px;
+}
+
+.x-tree-panel .x-grid-cell-treecolumn .x-grid-cell-inner,
+.x-tree-panel td:first-child .x-grid-cell-inner {
+    margin-top: 5px;
+    line-height: 0;
+}
+.x-tree-panel td:first-child .x-grid-cell-inner>.bw-input[type="checkbox"] {
+    margin-top: -2px;
+}
+
+.x-tree-node-text {
+    font-size: 12px;
+}
+.x-tree-icon, .x-tree-elbow-img, .x-tree-checkbox {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 16px;
+}
+
+/* GRID BUTTON */
+.bx-grid-header>.f-l>.bw-btn{
+    border: 1px solid #576cc5;
+    margin-right: 5px;
+    padding: 0 5px;
+    cursor: pointer;
+    font-size: 12px;
+    height: 25px;
+    line-height: 20px;
+    border-radius: 3px;
+    background: #576cc5;
+    color: white;
+}
+
+/* GRID EMPTY MSG */
+.x-grid-empty {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 40px;
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -20px;
+    text-align: center;
+    font: inherit;
+}
+/* two row header */
+.two-row-header-table .x-grid-header-ct>.x-box-inner {
+    height: 59px !important;
+}
+
+.two-row-header-table .x-grid-body {
+    top: 60px !important;
+}
+
+.two-row-header-table .x-column-header {
+    height: 59px !important;
+}
+
+
+/* long text header */
+.bx-grid-header-wrap .x-column-header-inner {
+    line-height: inherit;
+}
+.bx-grid-header-wrap .x-column-header-inner .x-column-header-text {
+    white-space: normal;
+}
+
+.grid-body-no-border .x-panel-body.x-grid-body {
+    border-color: transparent;
+    border-top-color: #5b6dbf;
+}
+
+.grid-header-no-border .x-grid-header-ct {
+    border: none;
+}
+
+.bx-grid-in-accordion {
+    padding: 0 !important;
+}
+.bx-grid-in-accordion .bx-grid-header,
+.bx-grid-in-accordion .x-grid-header-ct,
+.bx-grid-in-accordion .x-grid-body {
+    border-left: 0;
+    border-right: 0;
+}
+
+.no-dirty-cell .x-grid-dirty-cell {
+    background-image: inherit;
+}
+
+
+/* THEME */
+.theme1 .x-panel-body-default{
+    border-color: #555555;
+}
+.theme1 .x-grid-body{
+    border-color: #eeeeee;
+    border-top-color: #555555;
+}
+.theme1 .x-column-header{
+    color: #444444;
+}
+.theme1 .x-menu-item-active{
+    border-color: #555555;
+    background-color: #F1F1F1;
+}
+.theme1 .x-grid-row-selected .x-grid-td,
+.theme1 .x-grid-row-over .x-grid-td{
+    background-color: #F1F1F1;
+}
+.theme1 .x-column-header-open .x-column-header-trigger,
+.theme1 .x-column-header-open {
+    background-color: #F1F1F1;
+}
+.theme1 .bx-grid-header>.f-l>.bw-btn{
+    border: 1px solid #444444;
+    background: #444444;
+}
+
+.theme2 .x-panel-body-default{
+    border-color: #0e278f;
+}
+.theme2 .x-grid-body{
+    border-color: #eeeeee;
+    border-top-color: #0e278f;
+}
+.theme2 .x-column-header{
+    color: #0e278f;
+}
+.theme2 .x-menu-item-active{
+    border-color: #0e278f;
+    background-color: #F1F1F1;
+}
+.theme2 .x-grid-row-selected .x-grid-td,
+.theme2 .x-grid-row-over .x-grid-td{
+    background-color: #F1F1F1;
+}
+.theme2 .x-column-header-open .x-column-header-trigger,
+.theme2 .x-column-header-open {
+    background-color: #F1F1F1;
+}
+.theme2 .bx-grid-header>.f-l>.bw-btn{
+    border: 1px solid #0e278f;
+    background: #0e278f;
+}
+
+.theme3 .x-panel-body-default{
+    border-color: #6c0084;
+}
+.theme3 .x-grid-body{
+    border-color: #eeeeee;
+    border-top-color: #6c0084;
+}
+.theme3 .x-column-header{
+    color: #333333;
+}
+.theme3 .x-menu-item-active{
+    border-color: #6c0084;
+    background-color: #F1F1F1;
+}
+.theme3 .x-grid-row-selected .x-grid-td,
+.theme3 .x-grid-row-over .x-grid-td{
+    background-color: #F1F1F1;
+}
+.theme3 .x-column-header-open .x-column-header-trigger,
+.theme3 .x-column-header-open {
+    background-color: #F1F1F1;
+}
+.theme3 .bx-grid-header>.f-l>.bw-btn{
+    border: 1px solid #6c0084;
+    background: #6c0084;
+}
+
+/* 로우병합 */
+.grid-row-span .x-grid3-row {
+    border-bottom: 0;
+}
+.grid-row-span .x-grid3-col {
+    border-bottom: 1px solid #ededed;
+}
+.grid-row-span .row-span {
+    border-bottom: 1px solid #fff;
+}
+.grid-row-span .row-span-first {
+    position: relative;
+}
+.grid-row-span .row-span-first .x-grid3-cell-inner {
+    position: absolute;
+}
+.grid-row-span .row-span-last {
+    border-bottom: 1px solid #ededed;
+}
+
+/* 그리드 팝업 */
+.x-boundlist-floating {
+    z-index: 100000 !important;
+}

@@ -40,7 +40,7 @@ function __commonStringNumberDirective($compile, $filter, $rootScope, $timeout, 
                 		},
                 		'keyup' : function(e) {
                 			if (e.keyCode == ctrlKey || e.keyCode == cmdKey) _option.ctrlDown = false;
-                			__strNumberchk(e, iElement, _option);
+                			__vDecimal($scope, iElement, iAttrs, _option, $commonService);
                 		}
                 	});
                 	
@@ -111,7 +111,7 @@ function __strNumberchk(event, iElement, _option) {
     		|| keyID == 37 || keyID == 39) { // 화살표 <,  >
     	
     	// 소수점 사용
-    	if(_option.decimalPoint && _option.decimalPoint > 0) {
+    	if(_option.decimalPoint != null) {
 			
 	    	var valArr = val.split('.');
 	    	
@@ -130,4 +130,31 @@ function __strNumberchk(event, iElement, _option) {
       return false;
     }
 } // end __numberchk
+
+/**
+ * 소수점이하 자릿수 제한 및 2개 이상 소수점 삭제 
+ * @param $scope, iElement, iAttrs
+ */
+function __vDecimal($scope, iElement, iAttrs, _option, $commonService) {
+	var str = "" + iElement.val(); 
+	
+	var bExists = str.indexOf(".",0);
+	var strArr = str.split('.');
+		
+	if (bExists > -1) {
+		var decimalPointUseFlag = _option.decimalPoint && _option.decimalPoint > 0;
+		
+		$commonService.fn_apply({scope : $scope, fn : function() {
+			$scope[iAttrs.ngModel] = strArr[0] + "." + (decimalPointUseFlag ? strArr[1].substring(0, _option.decimalPoint) : strArr[1]);
+		}});
+	}
+	else {
+		$commonService.fn_apply({scope : $scope, fn : function() {
+			$scope[iAttrs.ngModel] = strArr[0];
+		}});
+	}
+	
+	typeof $scope.__endSetNumericData === "function" && $scope.__endSetNumericData();
+} // end __vComma
+
 module.exports = md;

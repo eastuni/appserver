@@ -1,0 +1,126 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'setting.studio-datasource-permission'}}
+    <p class="desc">{{bxMsg 'setting.studio-datasource-permission-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t connection-usage-status-tool-wrap">
+    <div class="f-l">
+        <h3 class="bw-desc d-block">{{bxMsg 'setting.connection-usage-status-per-users'}}</h3>
+    </div>
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap connection-usage-status-search-wrap">
+    <ul class="clr">
+        <li class="input-wrap w-33">
+            <label class="bw-label w-40">{{bxMsg 'setting.user-id'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="userId"/>
+        </li>
+        <li class="input-wrap w-33">
+            <label class="bw-label w-40">{{bxMsg 'setting.user-nm'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="userNm"/>
+        </li>
+    </ul>
+</section>
+<!--/END SEARCH AREA-->
+<!--GRID AREA-->
+<section class="connection-usage-status-grid-wrap"></section>
+<!--/END GRID AREA-->
+
+<!--BW-SUB TITLE * 컨텐츠 서브타이틀-->
+<h3 class="bw-stt add-mg-t">{{bxMsg 'setting.datasource-permission-management'}}
+    <p class="desc datasource-permission-management-title"></p>
+</h3>
+<!--/END BW-SUB TITLE-->
+<div class="module-wrap clr-bg inner-tab add-bd2-t">
+    <div class="module w-20">
+        <div class="module-inner add-bd add-bd2-t">
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <div class="bw-tool clr-bd-rl">
+            <div class="f-l">
+        		<h3 class="bw-desc d-block">{{bxMsg 'setting.connection-list'}}</h3>
+    		</div>
+            </div>
+            <!--/END BW-TOOL-->
+            <section class="bw-grid grid-body-no-border connection-list-grid-wrap"></section>
+        </div>
+    </div>
+
+    <div class="module w-35">
+        <div class="module-inner add-bd add-bd2-t clr-mg-l registered-users-wrap">
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <div class="bw-tool clr-bd-rl">
+                <div class="f-l">
+        		<h3 class="bw-desc d-block change-subtitle">{{bxMsg 'setting.connection-user-default-list'}}</h3>
+    			</div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+                </div>
+            </div>
+            <!--/END BW-TOOL-->
+            <!--SEARCH AREA * 검색 영역-->
+            <section class="search-wrap bxm-search-wrap">
+                <ul class="clr">
+                    <li class="input-wrap w-100">
+                        <label class="bw-label w-40">{{bxMsg 'setting.user-id'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="userId"/>
+                    </li>
+                    <li class="input-wrap w-100">
+                        <label class="bw-label w-40">{{bxMsg 'setting.user-nm'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="userNm"/>
+                    </li>
+                </ul>
+            </section>
+            <!--/END SEARCH AREA-->
+            <section class="bw-grid grid-header-no-border grid-body-no-border add-pd-b registered-users-grid-wrap"></section>
+        </div>
+    </div>
+
+    <div class="module w-10 h-300 add-mg-t">
+        <div class="module-inner clr-bg">
+            <div class="btn-wrap btn-trans">
+                <button type="button" class="bw-btn-txt right-btn"><i class="fa fa-chevron-right"></i></button>
+                <button type="button" class="bw-btn-txt left-btn"><i class="fa fa-chevron-left"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="module w-35">
+        <div class="module-inner add-bd add-bd2-t unregistered-users-wrap">
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <div class="bw-tool clr-bd-rl">
+            	<div class="f-l">
+        		<h3 class="bw-desc d-block">{{bxMsg 'setting.connection-no-registered-user-list'}}</h3>
+    			</div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+                </div>
+            </div>
+            <!--/END BW-TOOL-->
+            <!--SEARCH AREA * 검색 영역-->
+            <section class="search-wrap bxm-search-wrap">
+                <ul class="clr">
+                    <li class="input-wrap w-100">
+                        <label class="bw-label w-40">{{bxMsg 'setting.user-id'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="userId"/>
+                    </li>
+                    <li class="input-wrap w-100">
+                        <label class="bw-label w-40">{{bxMsg 'setting.user-nm'}}</label>
+                        <input type="text" class="bw-input w-60" data-form-param="userNm"/>
+                    </li>
+                </ul>
+            </section>
+            <!--/END SEARCH AREA-->
+            <section class="bw-grid grid-header-no-border grid-body-no-border add-pd-b unregistered-users-grid-wrap"></section>
+        </div>
+    </div>
+</div>

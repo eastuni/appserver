@@ -11,10 +11,15 @@ AUIACE0009,
 AUIACE0010,You can not proceed until the previous settlement step ends. Please execute again.
 AUIACE0011,There are no settlement steps you want to execute. Please select and run it again.
 AUIACE0012,It can be executed only when the settlement step is completed. Please try again after processing ends.
+AUIACE0015,In case of foreign cash acquisition and delivery, It can only be processed in cash or transfer. Check the input data of cash transfer distinction.
+AUIACE0016,Amount is mandatory value. Please check input value.
+AUIACE0017,You have to enter the count of other check when receiving or sending other check. Please check input value.
+AUIACE0018, Partial transfer amount should be smaller than withdrawal amount. Please check input amount.
 AUIARE0001,The arrangement Plan should not registered when arrangement is not active .
 AUIARE0002,Limit Arrangement do not support Repayment Please check the account information
 AUIARE0003,designated mobile phone number list is insufficient or exceeds the limit({0}) Please check the number of the designated mobile phones.
 AUIARE0004,designated account number list is insufficient or exceeds the limit({0}) Please check the number of the designated account numbers.
+AUIARE0005,If Sub Arrangement Service Type Code exists, it can not be deleted. Please remove Sub Arrangement Service Type Code.
 AUIASE0001,It's not an  Account Collateral. Please select an Account Collateral.
 AUIASE0002,There are no asset informations.  Please add asset information to calculate available loan amount.
 AUIASE0003,Please search market price of an apartment first. 
@@ -47,7 +52,7 @@ AUIATE0014,The person in charge of business is not registered. Would you like to
 AUIATE0015,The corporation information is not registered. Would you like to register new information? 
 AUIATE0016,Would you like to close department? 
 AUIATE0017,The user information cannot be found. Please check the inputs.  
-AUIATE0018,Your inputs are not valid. Please check again.  
+AUIATE0018,Your inputs are not valid. Please check again.  Please check customer information.
 AUIATE0019,There is no product selected. Please select your products.
 AUIATE0020,The risk appetite information is not registered. Would you like to register risk appetite information?  
 AUIATE0021,Password should includes alphabet, number, and special letter. 
@@ -135,6 +140,8 @@ AUICME0067,
 AUICME0068,user group/ channel can not be deleted with menu system Please delete the menu system
 AUICME0069,There is no Upper Class Please check again.
 AUICME0070,There is nothing to reflect. Please inquiry first.
+AUICME0071,Your password will expire soon. Are you sure you want to change your password?
+AUICME0072,Your password has expired. Are you sure you want to change your password?
 AUICUE0001,ID is too short. Please enter the ID for more than 6 characters.
 AUICUE0002,ID is too long. Please enter the ID within 10 characters.
 AUICUE0003,The length of the input value is not appropriate. Please check the length of the input value.
@@ -234,6 +241,7 @@ AUISCE0027,It is not in a restartable state. Please check the current status.
 AUISVE0001,There are duplicate values ​​in the grid. Please delete duplicate values ​​.
 AUISVE0002,A pop-up screen . Please enter a path directly .
 AUISVE0003,The JSON input type is wrong . Please check the JSON input.
+AUISVE0006,There is no error. please check again.
 BUIATE0001,We don't have any information about the risk appetite of yours. Would you like to register your risk appetite information? 
 BUICUE0001,Original password is incorrect. please check original password.
 BUIPYE0001,It is different what you entered account number with linked external main account number. Please, Check your input value.

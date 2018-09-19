@@ -41,14 +41,12 @@ define(
             // set Events
             events: {
 
-
-                /*
-                 * search-condition-area
-                 */
-                'change .CAPST001-bizDscd-wrap': 'changeBusinessDistinctCode',
-                'change .CAPST001-pdTpCd-wrap': 'changeProductTypeCode',
-                'change .CAPST001-pdTmpltCd-wrap': 'changeProductTemplateCode',
+                'change .CAPST001-bizDscd-wrap': 'selectBusinessDistinctCodeOfDetail',
+                'change .CAPST001-pdTpCd-wrap': 'selectProductTypeCodeOfDetail',
+                'change .CAPST001-pdTmpltCd-wrap': 'selectProductTemplateCodeOfDetail',
+                
                 'change .CAPST001-dpstDtHstMgmtWayCd-wrap': 'changeDpstDtHstMgmtWayCd',
+                
                 'click #btn-search-condition-reset': 'resetSearchCondition',
                 'click #btn-search-condition-inquire': 'inquireBalanceParameter',
                 'click #btn-search-condition-toggle': 'toggleSearchCondition',
@@ -668,13 +666,70 @@ define(
                         click: {
                             element: 'body',
                             fn: function () {
-                            	if(isProcess == false)
+//                            	if(isProcess == false)
                             		that.selectGridRecord();
                             }
                         }
                     }
                 });
             },
+            
+            /*
+             * Select a grid record
+             */
+            selectGridRecord: function () {
+                var that = this;
+
+                if(!this.CAPST001Grid.grid.getSelectionModel().selected.items[0]) return;
+                var selectedRecord = this.CAPST001Grid.grid.getSelectionModel().selected.items[0].data;
+
+
+                if (!selectedRecord) {
+                    return;
+                }
+
+
+                that.initFlag = false;
+                that.setRecordParam(selectedRecord, that);
+
+
+
+
+                that.$el.find('#detail-information-area [data-form-param="amtTpCd"]').prop("disabled", true);
+                that.$el.find('#detail-information-area [data-form-param="balTpCd"]').prop("disabled", true);
+
+
+                that.$el.find('#detail-information-area [data-form-param="amtTpCd"]').val(selectedRecord.amtTpCd);
+                that.$el.find('#detail-information-area [data-form-param="balTpCd"]').val(selectedRecord.balTpCd);
+
+
+                this.$el.find('#detail-information-area [data-form-param="trmHstMgmtWayCd"] ').val(selectedRecord.trmHstMgmtWayCd);
+                this.$el.find('#detail-information-area [data-form-param="dpstDtHstMgmtWayCd"]').val(selectedRecord.dpstDtHstMgmtWayCd);
+
+                if (selectedRecord.dailyBalHstMgmtYn == "Y")
+                    this.$el.find('#detail-information-area [data-form-param="dailyBalHstMgmtYn"]').prop("checked", true);
+                else
+                    this.$el.find('#detail-information-area [data-form-param="dailyBalHstMgmtYn"]').prop("checked", false);
+
+
+                if (selectedRecord.addSbtrctDrctnOpsitYn == "Y")
+                    this.$el.find('#detail-information-area [data-form-param="addSbtrctDrctnOpsitYn"]').prop("checked", true);
+                else
+                    this.$el.find('#detail-information-area [data-form-param="addSbtrctDrctnOpsitYn"]').prop("checked", false);
+
+
+                if (selectedRecord.linkUpdtYn == "Y")
+                    this.$el.find('#detail-information-area [data-form-param="linkUpdtYn"]').prop("checked", true);
+                else
+                    this.$el.find('#detail-information-area [data-form-param="linkUpdtYn"]').prop("checked", false);
+
+                if(selectedRecord.dpstDtHstMgmtWayCd == '04'){
+                	this.$el.find('#detail-information-area [data-form-param="trmHstMgmtWayCd"]').prop("disabled", true);
+                	this.$el.find('#detail-information-area [data-form-param="dailyBalHstMgmtYn"]').prop("disabled", true);
+                }
+
+            },
+
 
 
             /**
@@ -688,6 +743,17 @@ define(
 
                 /**
                  *  Business Distinction Code
+                 */
+                sParam = {};
+                sParam.className = "CAPST001-bizDscd-wrap";
+                sParam.targetId = "bizDscd";
+                sParam.nullYn = "Y";
+                sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
+                sParam.cdNbr = "80015";
+                fn_getCodeList(sParam, this);
+                
+                /**
+                 *  Business Distinction Code2
                  */
                 sParam = {};
                 sParam.className = "CAPST001-bizDscd-wrap";
@@ -748,47 +814,35 @@ define(
 
             },
 
-
+            
             /**
              * 업무 구분 코드 변경
              */
-            changeBusinessDistinctCode: function (e) {
+            selectBusinessDistinctCodeOfDetail: function (data) {
+            	var targetClassNm = data.target.classList[3];
                 var that = this;
-                var targetArea;
-                if (e) targetArea = $(e.target.closest("section")).parent().attr("id");
-                else targetArea = "detail-information-area";
-
-
-
-
                 var sParam = {};
-                var bizDscd = $('#' + targetArea + '  [data-form-param="bizDscd"]').val();
-                var $selectPdTpCd = $('#' + targetArea + '  [data-form-param="pdTpCd"]');
-                var $selectPdTmpltCd = $('#' + targetArea + '  [data-form-param="pdTmpltCd"]');
-                var $selectPdCd = $('#' + targetArea + '  [data-form-param="pdCd"]');
+                var bizDscd = data.bizDscd ? data.bizDscd : that.$el.find('#'+targetClassNm+' [data-form-param="bizDscd"]').val();
+                var $selectPdTpCd = that.$el.find('#'+targetClassNm+' [data-form-param="pdTpCd"]');
+                var $selectPdTmpltCd = that.$el.find('#'+targetClassNm+' [data-form-param="pdTmpltCd"]');
+                var $selectPdCd = that.$el.find('#'+targetClassNm+' [data-form-param="pdCd"]');
 
 
-
-
-
-
-                //상품템플릿코드, 상품코드 초기화
-                $selectPdTpCd.empty();
-                $selectPdTpCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-                $selectPdTmpltCd.empty();
-                $selectPdTmpltCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-                $selectPdCd.empty();
-                $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-
-
-                if (bizDscd == "") {
+                if(data.bizDscd) {
+                    that.$el.find('#'+targetClassNm+' [data-form-param="bizDscd"]').val(data.bizDscd);
+                }
+                
+                if (fn_isNull(bizDscd)) {
                     //상품유형코드 초기화
                     $selectPdTpCd.empty();
-                   // $selectPdTpCd.val("");
                     $selectPdTpCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
+                    $selectPdTmpltCd.empty();
+                    $selectPdTmpltCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
+                    $selectPdCd.empty();
+                    $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
                 } else {
                     //combobox 정보 셋팅
-                    sParam.className = "CAPST001-pdTpCd-wrap." + targetArea;
+                    sParam.className = targetClassNm+".CAPST001-pdTpCd-wrap";
                     sParam.targetId = "pdTpCd";
                     sParam.nullYn = "Y";
                     sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
@@ -798,53 +852,47 @@ define(
                     sParam.pdTpCd = "";
                     sParam.pdTmpltCd = "";
                     sParam.pdCd = "";
-
-
                     //상품유형코드 콤보데이터 load
-                    fn_getPdCodeList(sParam, self);
+                    fn_getPdCodeList(sParam, this, null, function () { //상품콤보 설정 후 수행할 callback
+                    	if($selectPdTpCd[0].length<=1){
+                    		//로드할 상품콤보 목록이 없는 경우 없음 option을 추가
+                    		$selectPdTpCd.append($(document.createElement('option')).val("1").text(bxMsg('cbb_items.SCRNITM#none')));
+                    		//추가한 없음(1)옵션을 선택
+                    		$selectPdTpCd.val("1").prop("selected", true);
+                    	}
+                    });
                 }
 
+                //상품템플릿코드, 상품코드 초기화
+                $selectPdTmpltCd.empty();
+                $selectPdTmpltCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
 
 
-
+                $selectPdCd.empty();
+                $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
             },
 
 
             /**
              * 상품 유형 코드 변경
              */
-            changeProductTypeCode: function (e) {
+            selectProductTypeCodeOfDetail: function (data) {
+            	var targetClassNm = data.target.classList[3];
                 var that = this;
-                var targetArea;
-                if (e) targetArea = $(e.target.closest("section")).parent().attr("id");
-                else targetArea = "detail-information-area";
-
-
-
-
                 var sParam = {};
-                var bizDscd = $('#' + targetArea + '  [data-form-param="bizDscd"]').val();
-                var pdTpCd = $('#' + targetArea + '  [data-form-param="pdTpCd"]').val();
+                var bizDscd = data.bizDscd ? data.bizDscd : this.$el.find('#'+targetClassNm+' [data-form-param="bizDscd"]').val();
+                var pdTpCd = data.pdTpCd ? data.pdTpCd : this.$el.find('#'+targetClassNm+' [data-form-param="pdTpCd"]').val();
+                var $selectPdTmpltCd = this.$el.find('#'+targetClassNm+' [data-form-param="pdTmpltCd"]');
+                var $selectPdCd = this.$el.find('#'+targetClassNm+' [data-form-param="pdCd"]');
 
 
-                var $selectPdTmpltCd = $('#' + targetArea + '  [data-form-param="pdTmpltCd"]');
-                var $selectPdCd = $('#' + targetArea + '  [data-form-param="pdCd"]');
-
-
-                //상품코드 초기화
-                $selectPdTmpltCd.empty();
-                $selectPdTmpltCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-                $selectPdCd.empty();
-                $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-
-
-                if (pdTpCd == "") {
+                if (fn_isNull(pdTpCd)) {
                     //상품템플릿코드 초기화
                     $selectPdTmpltCd.empty();
                     $selectPdTmpltCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
                 } else {
                     //combobox 정보 셋팅
-                    sParam.className = "CAPST001-pdTmpltCd-wrap." + targetArea;
+                    sParam.className = targetClassNm+".CAPST001-pdTmpltCd-wrap";
                     sParam.targetId = "pdTmpltCd";
                     sParam.nullYn = "Y";
                     sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
@@ -854,49 +902,41 @@ define(
                     sParam.pdTpCd = pdTpCd;
                     sParam.pdTmpltCd = "";
                     sParam.pdCd = "";
-
-
                     //상품템플릿코드 콤보데이터 load
-                    fn_getPdCodeList(sParam, self);
+                    fn_getPdCodeList(sParam, this, null, function () {
+                        if(data.pdTmpltCd) {
+                            that.$el.find('#'+targetClassNm+' [data-form-param="pdTmpltCd"]').val(data.pdTmpltCd);
+                        }
+                    });
                 }
 
 
+                //상품코드 초기화
+                $selectPdCd.empty();
+                $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
             },
 
 
             /**
              * 상품 템플릿 코드 변경
              */
-            changeProductTemplateCode: function (e) {
+            selectProductTemplateCodeOfDetail: function (data) {
+            	var targetClassNm = data.target.classList[3];
                 var that = this;
-                var targetArea;
-                if (e) targetArea = $(e.target.closest("section")).parent().attr("id");
-                else targetArea = "detail-information-area";
-
-
-
-
                 var sParam = {};
-                // 상품대분류코드
-                var bizDscd = $('#' + targetArea + '  [data-form-param="bizDscd"]').val();
-                var pdTpCd = $('#' + targetArea + '  [data-form-param="pdTpCd"]').val();
-                var pdTmpltCd = $('#' + targetArea + '  [data-form-param="pdTmpltCd"]').val();
+                var bizDscd = data.bizDscd ? data.bizDscd : this.$el.find('#'+targetClassNm+' [data-form-param="bizDscd"]').val();
+                var pdTpCd = data.pdTpCd ? data.pdTpCd : this.$el.find('#'+targetClassNm+' [data-form-param="pdTpCd"]').val();
+                var pdTmpltCd = data.pdTmpltCd ? data.pdTmpltCd : this.$el.find('#'+targetClassNm+' [data-form-param="pdTmpltCd"]').val();
+                var $selectPdCd = this.$el.find('#'+targetClassNm+' [data-form-param="pdCd"]');
 
 
-                var $selectPdCd = $('#' + targetArea + '  [data-form-param="pdCd"]');
-
-
-                $selectPdCd.empty();
-                $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
-
-
-                if (pdTmpltCd == "") {
+                if (fn_isNull(pdTmpltCd)) {
                     //상품템플릿코드 초기화
                     $selectPdCd.empty();
                     $selectPdCd.append($(document.createElement('option')).val("").text(bxMsg('cbb_items.SCRNITM#all')));
                 } else {
                     //combobox 정보 셋팅
-                    sParam.className = "CAPST001-pdCd-wrap." + targetArea;
+                    sParam.className = targetClassNm+".CAPST001-pdCd-wrap";
                     sParam.targetId = "pdCd";
                     sParam.nullYn = "Y";
                     sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
@@ -906,29 +946,21 @@ define(
                     sParam.pdTpCd = pdTpCd;
                     sParam.pdTmpltCd = pdTmpltCd;
                     sParam.pdCd = "";
-
-
-                    //상품코드 콤보데이터 load
-                    fn_getPdCodeList(sParam, self);
+                    //상품중분류코드 콤보데이터 load
+                    fn_getPdCodeList(sParam, this, null, function () {
+                        if(data.pdCd) {
+                            that.$el.find('#'+targetClassNm+' [data-form-param="pdCd"]').val(data.pdCd);
+                        }
+                    });
                 }
             },
-            
-            //입금일자별이력관리여부-유효기간기준인 경우에는 기간이력관리방법과 일일잔액이력여부를 선택 불가
-            changeDpstDtHstMgmtWayCd: function (e){
-            	
-            	var selectBox = self.$el.find('#detail-information-area [data-form-param="dpstDtHstMgmtWayCd"]')
-            	
-            	if(selectBox.val() == '04'){ //유효기간기준
-	               	self.$el.find('#detail-information-area [data-form-param="trmHstMgmtWayCd"]').prop("disabled", true);
-	               	self.$el.find('#detail-information-area [data-form-param="dailyBalHstMgmtYn"]').prop("disabled", true);
-            	}
-            	else{
-            		self.$el.find('#detail-information-area [data-form-param="trmHstMgmtWayCd"]').prop("disabled", false);
-	               	self.$el.find('#detail-information-area [data-form-param="dailyBalHstMgmtYn"]').prop("disabled", false);
-            	}
+
+            selectProductCodeOfDetail: function (data) {
+            	var targetClassNm = data.target.classList[3];
+                this.$el.find('#'+targetClassNm+' [data-form-param="pdCd"]').val(data.pdCd);
             },
-
-
+            
+            
             /*
              * Set parameters for the selected record
              */
@@ -1017,7 +1049,7 @@ define(
 
 
             	self.$el.find('#detail-information-area [data-form-param="pdCd"]').prop("disabled", true);
-            	isProcess = false;
+//            	isProcess = false;
                 recordParam = {};
             },
 
@@ -1136,65 +1168,6 @@ define(
             	this.resetDetailInformation();
                 this.CAPST001Grid.resetData();
                 this.$el.find("#searchResultCount").html(bxMsg('cbb_items.SCRNITM#srchRslt'));
-            },
-
-
-            /*
-             * Select a grid record
-             */
-            selectGridRecord: function () {
-                var that = this;
-                isProcess = true;
-
-
-                if(!this.CAPST001Grid.grid.getSelectionModel().selected.items[0]) return;
-                var selectedRecord = this.CAPST001Grid.grid.getSelectionModel().selected.items[0].data;
-
-
-                if (!selectedRecord) {
-                    return;
-                }
-
-
-                that.initFlag = false;
-                that.setRecordParam(selectedRecord, that);
-
-
-
-
-                that.$el.find('#detail-information-area [data-form-param="amtTpCd"]').prop("disabled", true);
-                that.$el.find('#detail-information-area [data-form-param="balTpCd"]').prop("disabled", true);
-
-
-                that.$el.find('#detail-information-area [data-form-param="amtTpCd"]').val(selectedRecord.amtTpCd);
-                that.$el.find('#detail-information-area [data-form-param="balTpCd"]').val(selectedRecord.balTpCd);
-
-
-                this.$el.find('#detail-information-area [data-form-param="trmHstMgmtWayCd"] ').val(selectedRecord.trmHstMgmtWayCd);
-                this.$el.find('#detail-information-area [data-form-param="dpstDtHstMgmtWayCd"]').val(selectedRecord.dpstDtHstMgmtWayCd);
-
-                if (selectedRecord.dailyBalHstMgmtYn == "Y")
-                    this.$el.find('#detail-information-area [data-form-param="dailyBalHstMgmtYn"]').prop("checked", true);
-                else
-                    this.$el.find('#detail-information-area [data-form-param="dailyBalHstMgmtYn"]').prop("checked", false);
-
-
-                if (selectedRecord.addSbtrctDrctnOpsitYn == "Y")
-                    this.$el.find('#detail-information-area [data-form-param="addSbtrctDrctnOpsitYn"]').prop("checked", true);
-                else
-                    this.$el.find('#detail-information-area [data-form-param="addSbtrctDrctnOpsitYn"]').prop("checked", false);
-
-
-                if (selectedRecord.linkUpdtYn == "Y")
-                    this.$el.find('#detail-information-area [data-form-param="linkUpdtYn"]').prop("checked", true);
-                else
-                    this.$el.find('#detail-information-area [data-form-param="linkUpdtYn"]').prop("checked", false);
-
-                if(selectedRecord.dpstDtHstMgmtWayCd == '04'){
-                	this.$el.find('#detail-information-area [data-form-param="trmHstMgmtWayCd"]').prop("disabled", true);
-                	this.$el.find('#detail-information-area [data-form-param="dailyBalHstMgmtYn"]').prop("disabled", true);
-                }
-
             },
 
 

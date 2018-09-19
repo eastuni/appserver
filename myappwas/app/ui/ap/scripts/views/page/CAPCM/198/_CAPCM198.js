@@ -60,11 +60,42 @@ define(
                     that.$el.html(that.tpl());
 
 
+                    // 2018.05.29  keewoong.hong  Subtask #10531 [CAS-Multilingual] (BPI 지원) 다국어 언어 추가 요청 (따갈로그어, 세부아노어)
+                    // 관리 하고자 하는 언어 1, 2, 3 선택                      
+                	var sParam = {};
+                	sParam.instCd  = $.sessionStorage('headerInstCd');
+                	sParam.cdNbr   = "10005";
+
+            		var linkData = {"header": fn_getHeader("CAPCM0038400"), "CaCmnCdSvcGetCdListByCdNbrIn": sParam};
+
+            		var lngCdNm2 = "";
+            		var lngCdNm3 = "";
+
+                    // ajax호출
+                    bxProxy.post(sUrl, JSON.stringify(linkData), {
+                        enableLoading: false
+                        , success: function (responseData) {
+
+                        	if(responseData.CaCmnCdSvcGetCdListByCdNbrOut.tblNm.length > 0) {
+                        		$(responseData.CaCmnCdSvcGetCdListByCdNbrOut.tblNm).each(function(idx, data) {
+                    				if(idx == 1) {lngCdNm2 = data.cdNm;} 
+                    				else if(idx == 2) {lngCdNm3 = data.cdNm;}
+                        		});
+                        		
+                        		// 중단 그리드 Title명 변경
+                        		that.CAPCM198Grid.columns[6].text = lngCdNm2;
+                        		that.CAPCM198Grid.columns[7].text = lngCdNm3;
+                        		
+                        	}
+                        }   // end of suucess: fucntion
+                    }); // end of bxProxy
+
+                    
                     /* ------------------------------------------------------------ */
                     that.CAPCM198Grid = new ExtGrid({
                         /* ------------------------------------------------------------ */
                         // 단일탭 그리드 컬럼 정의
-                        fields: ['rowIndex', 'atrbtDmnGrpCd', 'atrbtDmnNm', 'atrbtDmnEngNm', 'loginLngDmn','engNm','koreanNm', 'chineseNm']
+                        fields: ['rowIndex', 'atrbtDmnGrpCd', 'atrbtDmnNm', 'atrbtDmnEngNm', 'loginLngDmn','engNm','useLngWrdNm2', 'useLngWrdNm3']
                         , id: 'CAPCM198Grid'
                         , columns: [
 							{
@@ -95,8 +126,8 @@ define(
                             , {text: bxMsg('cbb_items.SCRNITM#abrvtnDmnEngNm'),width: 160,flex: 1,dataIndex: 'atrbtDmnEngNm',editor: 'textfield', style: 'text-align:center', align: 'left'}
                             , {text: bxMsg('cbb_items.SCRNITM#loginLngDmn'),width: 160,flex: 1,dataIndex: 'loginLngDmn',editor: 'textfield', style: 'text-align:center', align: 'left'}
                             , {text: bxMsg('cbb_items.AT#engNm'),width: 160,flex: 1,dataIndex: 'engNm',editor: 'textfield', style: 'text-align:center', align: 'left'}
-                            , {text: bxMsg('cbb_items.AT#koreanNm'),width: 160,flex: 1,dataIndex: 'koreanNm',editor: 'textfield', style: 'text-align:center', align: 'left'}
-                            , {text: bxMsg('cbb_items.AT#chineseNm'),width: 160,flex: 1,dataIndex: 'chineseNm',editor: 'textfield', style: 'text-align:center', align: 'left'}
+                            , {text: bxMsg('cbb_items.SCRNITM#lngCd')+'2',width: 160,flex: 1,dataIndex: 'useLngWrdNm2',editor: 'textfield', style: 'text-align:center', align: 'left'}
+                            , {text: bxMsg('cbb_items.SCRNITM#lngCd')+'3',width: 160,flex: 1,dataIndex: 'useLngWrdNm3',editor: 'textfield', style: 'text-align:center', align: 'left'}
                             , {
                              	xtype: 'actioncolumn', width: 80, align: 'center',text: "",
                              	items: [
@@ -340,10 +371,14 @@ define(
 
                 // 상세 저장 버튼 클릭
                 , clickSaveDetail : function(event) {
+                	
+                	/*
+                	 * 2018.05.21  keewoong.hong  Subtask #11372 : [CAS-Dictionary] (소스정비) local DA 역할을 연구소 공통직원으로 제한하는 로직 주석처리 필요 (역할 권한으로 처리하는 추가 반영이 필요함)
                  	if($.sessionStorage('staffId') !="0000000002" && $.sessionStorage('staffId') !="0000000214" && $.sessionStorage('staffId') !="000000000001210"  ){
                 		fn_alertMessage("", bxMsg('cbb_err_msg.AUICME0060'));
                 		return;
                 	}
+                	*/
                  	//배포처리[과제식별자 체크]
                     if (!fn_headerTaskIdCheck()){
                         return;
@@ -380,7 +415,7 @@ define(
                 }
 
 
-                //약어명 생성 Btn click
+                //약어명 생성 Btn click (사용하지 않음)
                 , fn_createStdAbrvtn: function () {
                     var that = this;
                     var sParam = {};

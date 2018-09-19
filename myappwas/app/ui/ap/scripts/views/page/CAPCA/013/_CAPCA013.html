@@ -1,0 +1,95 @@
+<!--
+@Screen number  CAPCA013
+@brief          
+@author         
+@history        2018.08.14      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPCA013-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPCA013'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPCA013'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#all'}}</p>
+			</h2>
+			<div class="layout-wrap">
+				<!-- START SEARCH AREA -->
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#srchCnd'}}</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPCA013-execute-all-validation">{{bxMsg 'cbb_items.SCRNITM#exctnAll'}}</button>
+							<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-search-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-CAPCA013-search"><i class="bw-icon i-30 i-search"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="btn-search-toggle" data-info="CAPCA013-grid"><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+					</div>
+					<!--/END BW-TOOL-->
+					<section class="search-wrap CAPCA013-search" id="CAPCA013-search">
+						<table class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-35" title="{{bxMsg 'cbb_items.AT#cmpntCd'}}">{{bxMsg 'cbb_items.AT#cmpntCd'}}</label>
+										<select class="bw-input ipt-select w-65 CAPCA013-cmpntCd-wrap" data-form-param="cmpntCd" ></select>
+									</div>
+								</td>
+								<td class="td-w-33">
+	                                <div class="input-wrap  clr">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#tblNm'}}">{{bxMsg 'cbb_items.AT#tblNm'}}</label>
+										<input type="text" class="bw-input w-70" data-form-param="tblNm" style="text-transform: uppercase;"/>
+									</div>
+								</td>
+								<td class="td-w-33">
+								 <div class="input-wrap  clr">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#columnNm'}}">{{bxMsg 'cbb_items.AT#columnNm'}}</label>
+										<input type="text" class="bw-input w-70" data-form-param="columnNm" style="text-transform: uppercase;"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-35" title="{{bxMsg 'cbb_items.SCRNITM#vldtnWay'}}">{{bxMsg 'cbb_items.SCRNITM#vldtnWay'}}</label>
+									<select class="bw-input ipt-select w-65 CAPCA013-vldtnWay-wrap" data-form-param="vldtnWay" ></select>
+								</div>
+								</td>
+								<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#InqryTrgt'}}">{{bxMsg 'cbb_items.SCRNITM#InqryTrgt'}}</label>
+									<select class="bw-input ipt-select w-70 CAPCA013-inqryTrgt-wrap" data-form-param="inqryTrgt"></select>
+								</div>
+								</td>
+								<td class="td-w-33">
+								</td>
+							</tr>		
+						</table>
+					</section>
+				<!-- END SEARCH AREA -->
+					
+				<!-- START GRID -->
+					<section class="grid-wrap">
+						<div class="bw-tool add-bd2-t add-mg-t">
+							<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#vldtnSmry'}} (<span id="rsltCnt">0</span>{{bxMsg 'cbb_items.SCRNITM#cnt'}})</h3>
+							</div>
+							<div class="btn-wrap fix-r">
+								<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPCA013-re-execute">{{bxMsg 'cbb_items.SCRNITM#reExctn'}}</button>
+								<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPCA013-error-detail">{{bxMsg 'cbb_items.SCRNITM#errDtl'}}</button>
+								<button type="button" class="bw-btn b-ctr" id="btn-grid-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+							</div>
+						</div>
+						<div class="CAPCA013Grid-present-list" id="CAPCA013Grid-present-list"></div>
+					</section>	
+				<!-- END OF GRID -->
+					
+        </section>
+    </section>
+</section>

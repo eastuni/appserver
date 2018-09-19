@@ -1,6 +1,0 @@
-OMM bankware.corebanking.externalproxy.ixjointnetwork.interfaces.dto.IxMissingNbrPrcsSvcIn
-<description="">
-{
-	String txDt<length=8 description="거래년월일">;
-	String intrmdryMsgMgmtNbr<length=12 description="중개기관전문관리번호">;
-}

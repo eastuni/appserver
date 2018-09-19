@@ -40,11 +40,13 @@ define(
             		, 'click #btn-request-reset' : 'clickResetRequestArea'
             		, 'click #btn-CAPSV302-result-grid-run' : 'taskResultProc'
                 	, 'click #btn-CAPSV302-result-recall' : 'taskResultRecall'
+                	, 'click #btn-CAPSV302-result-download' : 'taskResultDownload'
+                	, 'click #btn-CAPSV302-result-finish' : 'taskResultFinish'
 
                     , 'click #btn-CAPSV302-request-init' : 'taskRequestInit'
                 	, 'click #btn-CAPSV302-request-stop' : 'taskRequestStop'
                 	, 'click #btn-CAPSV302-request-cancel' : 'taskRequestCancel'
-                		
+                	                		
                 		
                 		
                 	, 'click #btn-CAPSV302-grid-excel' : 'taskgridExcel'
@@ -52,7 +54,8 @@ define(
                     , 'click #btn-CAPSV302-result-grid-excel' : 'resultGridExcel'
 
                     , 'click #btn-CAPSV302-result-server-grid-excel' : 'resultServerGridExcel'
-                    	
+                    , 'click #btn-CAPSV302-result-server-sql-download' : 'resultServerSqlDownload'
+                    
                     	
                     , 'click #btn-up-request-modal': 'requestDetailAreaModal'
                     , 'click #btn-up-request-grid': 'requestGridAreaModal'
@@ -153,8 +156,6 @@ define(
                     sParam.allNm = bxMsg('cbb_items.SCRNITM#all'); // 전체
                     sParam.cdNbr = "A1035";
                     fn_getCodeList(sParam, this);
-                    
-                    this.$el.find('#CAPSV302additionalSearchCndWrap').hide();
                     
                     this.CAPSV302ResultGrid.resetData();
                     this.$el.find("#result-gird-area").hide(); //배포결과
@@ -328,7 +329,6 @@ define(
 	                        click: {
 	                            element: 'body'
 	                            , fn: function (event) {
-	                                //더블클릭시 이벤트 발생
 	                                that.clickResultDetailGrid();
 	                            }
 	                        }
@@ -433,11 +433,12 @@ define(
 	        	                        		} else {
 	        	                        			var reqData = that.CAPSV302Grid.grid.getSelectionModel().selected.items[0];
 	        	                        			if (reqData) {
-	        	                        				var dstbWayCd = reqData.data.dstbWayCd; //배포방법
-	        	                                		if(record.get("dstbPrcsStsCd")=='01'){ //배포요청상태
+	        	                        				var dstbStsCd = reqData.data.dstbStsCd; //배포상태코드
+	        	                        				var dstbWayCd = reqData.data.dstbWayCd; //배포방법코드
+	        	                                		if(dstbStsCd == '01' && dstbWayCd != 'H'){ //배포요청상태면 재요청 가능. 단, 수기배포방식에서는 노출하지 않는다.
 	        	                                			rtnBtn = "<button type=\"button\" class=\"bw-btn-form add-mg-t-5\" id=\"btn-grid-recallDistr\">"+bxMsg('cbb_items.SCRNITM#btn_recallDistr')+"</button>";
 	        	                                		}
-	        	                                	}
+	        	                        			}
 	        	                        		}
 	        	                        		return rtnBtn;
 	        	                        	}
@@ -461,6 +462,33 @@ define(
 	        		                          }
 	        		                      }
 	                                 }
+                    	            , {xtype: 'actioncolumn', text: bxMsg('cbb_items.SCRNITM#dstbFin'), flex: 1, align: 'center', style: 'text-align:center'
+        	                        	, renderer: function (val, metaData, record, row, col, store, gridView) {
+        	                        		var rtnBtn = "-";
+        	                        		
+        	                        		if(record.get("dstbPrcsStsCd")=='01'){ //배포 실패이면 재실행 요청가능
+        	                        			var reqData = that.CAPSV302Grid.grid.getSelectionModel().selected.items[0];
+        	                        			if (reqData) {
+        	                        				var dstbWayCd = reqData.data.dstbWayCd;
+        	                        				var dstbStsCd = reqData.data.dstbStsCd;
+        	                        				if(dstbWayCd == 'H' && dstbStsCd == '01'){ //수기배포방식 && 배포요청상태면 배포완료 가능 
+        	                                			rtnBtn = "<button type=\"button\" class=\"bw-btn-form add-mg-t-5\" id=\"btn-grid-finishDistr\">"+bxMsg('cbb_items.SCRNITM#dstbFin')+"</button>";
+        	                                		}
+        	                        			}
+        	                        		}
+        	                        		return rtnBtn;
+        	                        	}
+        	                        	, listeners: {
+        		                          /**
+        		                           * 버튼 클릭 이벤트 등록
+        		                           */
+        		                          click: function (grid, rowEl, rowIdx, cellIdx, e, record) {
+        		                              if ($(e.target).hasClass('bw-btn-form')) {
+       		                            		  that.taskResultFinish(record);
+        		                              }
+        		                          }
+        		                      }
+                                 }
                     	            
             	            ] // end of columns
 		                    , listeners: {
@@ -529,9 +557,9 @@ define(
                     var sParam = {};
                     sParam.dstbRqstId = that.$el.find('.CAPSV302-base-table [data-form-param="dstbRqstId"]').val();
                     sParam.dstbTaskId = that.$el.find('.CAPSV302-base-table [data-form-param="dstbTaskId"]').val();
-                    sParam.dstbStsCd = that.$el.find('#CAPSV302additionalSearchCndWrap [data-form-param="dstbStsCd"]').val();
-                    var srchStartDtm = that.$el.find('#CAPSV302additionalSearchCndWrap [data-form-param="srchStartDtm"]').val();
-                    var srchEndDtm = that.$el.find('#CAPSV302additionalSearchCndWrap [data-form-param="srchEndDtm"]').val();
+                    sParam.dstbStsCd = that.$el.find('#CAPSV302-base-table [data-form-param="dstbStsCd"]').val();
+                    var srchStartDtm = that.$el.find('#CAPSV302-base-table [data-form-param="srchStartDtm"]').val();
+                    var srchEndDtm = that.$el.find('#CAPSV302-base-table [data-form-param="srchEndDtm"]').val();
                     if(srchStartDtm != ''){
                     	sParam.srchStartDtm = fn_getDateValue(srchStartDtm) + "000000";
                     }
@@ -560,8 +588,8 @@ define(
                 	this.$el.find('#CAPSV302-base-table [data-form-param="dstbRqstId"]').val("");
             		this.$el.find('#CAPSV302-base-table [data-form-param="dstbTaskId"]').val("");
             		this.$el.find('#CAPSV302-base-table [data-form-param="dstbStsCd"] option:eq(0)').attr("selected", "selected");
-            		fn_makeDatePicker(this.$el.find('#CAPSV302additionalSearchCndWrap [data-form-param="srchStartDtm"]'));
-                    fn_makeDatePicker(this.$el.find('#CAPSV302additionalSearchCndWrap [data-form-param="srchEndDtm"]'));
+            		fn_makeDatePicker(this.$el.find('#CAPSV302-base-table [data-form-param="srchStartDtm"]'));
+                    fn_makeDatePicker(this.$el.find('#CAPSV302-base-table [data-form-param="srchEndDtm"]'));
             		this.$el.find('#CAPSV302-base-table [data-form-param="dstbSrvrId"] option:eq(0)').attr("selected", "selected");
                 }
                 , clickResetRequestArea : function() {
@@ -706,6 +734,19 @@ define(
                             var srvrListArea =	that.$el.find('.CAPSV302-request-table-srvrList');
                             if(dstbEnvrnmntCd == that.dstbSrvrMList[i].dstbEnvrnmntCd){
                             	srvrListArea.append('<li>'+ (i+1) + '. ' +that.dstbSrvrMList[i].dstbSrvrNm+'</li>');
+                            	
+                            	if(that.dstbSrvrMList[i].lastStepYn == 'Y'){
+                            		sParam = {};
+                                    sParam.className = "CAPSV302-request-dstbWayCd-wrap";
+                                    sParam.targetId = "dstbWayCd";
+                                    sParam.nullYn = "Y";
+                                    sParam.allNm = bxMsg('cbb_items.SCRNITM#B_select'); // 선택
+                                    sParam.cdNbr = "A1006";
+                                    fn_getCodeList(sParam, this);
+                            	} else {
+                            		that.$el.find('.CAPSV302-request-table [data-form-param="dstbWayCd"]').find('option[value="H"]').remove();
+                            		that.$el.find('.CAPSV302-request-table [data-form-param="dstbWayCd"]').find('option[value="H"]').val('');
+                            	}
                             }
                         }
                     }
@@ -735,14 +776,25 @@ define(
                 }
                 
                 ,changeDstbWayCd: function () {
-                    var dstbWayCd = this.$el.find('.CAPSV302-request-table [data-form-param="dstbWayCd"]').val(); //배포방법 코드[I:즉시배포,R:예약배포]
-                    if(dstbWayCd == 'R'){
+                    var dstbWayCd = this.$el.find('.CAPSV302-request-table [data-form-param="dstbWayCd"]').val(); //배포방법 코드[I:즉시배포,R:예약배포,H:수기배포]
+                    switch (dstbWayCd) {
+					case 'R':
 //                    	this.$el.find('.CAPSV302-request-dstbWayCd-change').show(); //예약 일시 + 예약 시간
                     	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlDt"]').prop("disabled", false);
                     	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlHms"]').prop("disabled", false);
                     	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlDt"]').prop("readonly", false);
                     	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlHms"]').prop("readonly", false);
-                    } else {
+                    	break;
+					case 'H':
+//                    	this.$el.find('.CAPSV302-request-dstbWayCd-change').show(); //예약 일시 + 예약 시간
+                    	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlDt"]').prop("disabled", true);
+                    	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlHms"]').prop("disabled", true);
+                    	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlDt"]').prop("readonly", true);
+                    	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlHms"]').prop("readonly", true);
+                    	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlDt"]').val('');
+                    	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlHms"]').val('');
+                    	break;
+					default:
 //                    	this.$el.find('.CAPSV302-request-dstbWayCd-change').hide(); //예약 일시 + 예약 시간
                     	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlDt"]').prop("disabled", true);
                     	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlHms"]').prop("disabled", true);
@@ -750,7 +802,8 @@ define(
                     	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlHms"]').prop("readonly", true);
                     	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlDt"]').val('');
                     	this.$el.find('.CAPSV302-request-table [data-form-param="dstbSchdlHms"]').val('');
-                    }
+                    	break;
+					}
                 }
                 
 //                ,taskRequestSave:function(){
@@ -806,7 +859,6 @@ define(
 //                    ); // end of bxProxy
 //                }
                 
-                
                 ,taskRequestProc:function(){
                 	var that = this;
                     var reqAllData = this.CAPSV302RequestGrid.getAllData();
@@ -845,7 +897,7 @@ define(
 	                      	return;
 	                    }
 	                }
-                  
+	                
                   fn_confirmMessage(event, bxMsg('cbb_items.ABRVTN#run'), bxMsg('cbb_items.SCRNITM#runCnfrm'), that.taskRequestProcCall, that);
                 }
                 
@@ -902,22 +954,66 @@ define(
             		
                     sParam.dstbReqSrvrDtl = dstbReqSrvrDtl; //대상서버
                     
-                    var linkData = {"header": fn_getHeader('CAPSV0060302'), "CaDstbReqInfoIO": sParam};
-
+//                  var linkData = {"header": fn_getHeader('CAPSV0060302'), "CaDstbReqInfoIO": sParam};
+                    var linkData = {"header": fn_getHeader('CAPSV3020311'), "CaDstbReqInfoIO": sParam};
+                    
+                    var loading = $('#loading-dim');
+                    loading.show();
+                    
                     //ajax호출
                     bxProxy.post(sUrl
                         , JSON.stringify(linkData), {
-                            enableLoading: true,
+                            enableLoading: false,
                             success: function (responseData) {
                                 if (fn_commonChekResult(responseData)) {
 //                                	 var tbList = responseData.CaDstbTaskInfoIO.dstbTaskDtl;
-                                	 fn_alertMessage("", bxMsg('cbb_items.SCRNITM#success'));
-                                	 that.clickResetRequestArea();
-                                	 that.queryBaseArea();
+//                                	 fn_alertMessage("", bxMsg('cbb_items.SCRNITM#success'));
+//                                	 that.clickResetRequestArea();
+//                                	 that.queryBaseArea();
+                                	var sendList = {};
+                                	sendList.dstbReqTgtAndDataList = responseData.CaOnlyDstbReqOut.dstbReqTgtAndDataList;
+                                	 var linkData = {"header": fn_getHeader('CAPSV3020312'), "CaOnlyDstbSendIn": sendList};
+                                     bxProxy.post(sUrl
+                                         , JSON.stringify(linkData), {
+                                             enableLoading: false,
+                                             success: function (responseData) {
+                                                 if (fn_commonChekResult(responseData)) {
+//                                                     	 var tbList = responseData.CaDstbTaskInfoIO.dstbTaskDtl;
+                                                 	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#success'));
+                                                 	that.clickResetRequestArea();
+                                                 	that.queryBaseArea();
+                                                 }
+                                                 loading.hide();
+                                             },
+                                             error: function (){
+                                            	 loading.hide();
+                                             }// end of suucess: fucntion
+                                         }
+                                     ); // end of bxProxy
+                                } else {
+                                	loading.hide();
                                 }
-                            }   // end of suucess: fucntion
+                            },   // end of suucess: fucntion
+                            error: function (){
+                            	loading.hide();
+                            }// end of suucess: fucntion
                         }
                     ); // end of bxProxy
+                }
+                , downloadResultAsJson: function (sqlList){
+                	
+                	var strSql = '';
+                	$(sqlList).each(function(idx, sql){
+                		strSql += sql;
+                		strSql += '\n';
+                	});
+                	
+                	var downloadAnchorNode = document.createElement('a');
+                	downloadAnchorNode.setAttribute("href", "data:text/json;charset=utf-8," + encodeURIComponent(strSql));
+                	downloadAnchorNode.setAttribute("download", bxMsg('cbb_items.SCRNITM#dstbRqst') + ".sql");
+                	document.body.appendChild(downloadAnchorNode); // required for firefox
+                	downloadAnchorNode.click();
+                	downloadAnchorNode.remove();
                 }
                 
                 ,taskRequestInit :  function(){
@@ -1072,7 +1168,7 @@ define(
                 	if(item == undefined){return;}
                 	var that = this;
                     var reqAllData = this.CAPSV302ResultGrid.getAllData();
-            		
+                                        
             		//배포요청 가능한 요건정보가 없습니다.
             		if(reqAllData.length < 1){
             			fn_alertMessage("", bxMsg('cbb_err_msg.AUICME0062'));  
@@ -1145,6 +1241,12 @@ define(
                     	}
                 		this.$el.find('#CAPSV302-request-table [data-form-param="dstbWayCd"]').val(dstbWayCd);
                 		
+                		if(dstbWayCd == 'H'){
+                			this.$el.find('#btn-CAPSV302-result-server-sql-download').show();
+                		} else {
+                			this.$el.find('#btn-CAPSV302-result-server-sql-download').hide();
+                		}
+                		
 //                		that.changeDstbWayCd();
                 		that.clickTapResult(event);
                 		that.setChangeSaveMode();
@@ -1191,6 +1293,7 @@ define(
                                              that.CAPSV302ResultServerGrid.resetData();
                                          }
                                     }
+                                    that.changeDstbEnvrnmntCd();
                                 }   // end of suucess: fucntion
                             }
                         ); // end of bxProxy
@@ -1252,10 +1355,196 @@ define(
                 	}
                 }
                 
+                ,resultServerSqlDownload : function(record){
+                	var that = this;
+                	var selectedReq = that.CAPSV302Grid.grid.getSelectionModel().selected.items;
+                	if(selectedReq != undefined && selectedReq.length > 0){
+                		var dstbWayCd = selectedReq[0].data.dstbWayCd; //배포방식
+                		if(dstbWayCd !='H'){
+                			fn_alertMessage("", bxMsg('cbb_err_msg.AUICME0067'));  
+                			return;
+                		}
+                		that.record = record;
+                		fn_confirmMessage(event, bxMsg('cbb_items.SCRNITM#dstbFin'), bxMsg('cbb_items.SCRNITM#runCnfrm'), that.resultServerSqlDownloadCall, that);
+                	}
+                }
+                ,resultServerSqlDownloadCall: function (that) {
+                	// 과제정보조회
+                	var selectedReq = that.CAPSV302Grid.grid.getSelectionModel().selected.items;
+                	if(selectedReq != undefined && selectedReq.length > 0){
+                		var sParam = {};
+                		sParam.dstbTaskId = selectedReq[0].data.dstbTaskId; //과제ID
+                		sParam.dstbEnvrnmntCd = selectedReq[0].data.dstbEnvrnmntCd; //대상환경
+                		                		                		
+                		var linkData = {"header": fn_getHeader('CAPSV0060107'), "CaDstbReqInfoIO": sParam};
+                		
+                		//ajax호출
+                		bxProxy.post(sUrl, JSON.stringify(linkData), {
+                			enableLoading: true,
+                			success: function (responseData) {
+                				if (fn_commonChekResult(responseData)) {
+                					var dstbTaskDtlList = responseData.CaDstbTaskInfoIO.dstbTaskDtl;
+                					if (dstbTaskDtlList != undefined) {
+                						if(selectedReq != undefined && selectedReq.length > 0){
+                	                		var sParam = {};
+                	                		sParam.dstbRqstId = selectedReq[0].data.dstbRqstId; //배포요청식별자;
+                	                        sParam.dstbTaskId = selectedReq[0].data.dstbTaskId; //과제ID;
+                	                        sParam.dstbStsCd = selectedReq[0].data.dstbStsCd; //대상서버
+                	                        sParam.dstbWayCd = selectedReq[0].data.dstbWayCd; //대상서버
+                	                        sParam.dstbSchdlTmstmp = selectedReq[0].data.dstbSchdlTmstmp; //대상서버
+                	                        sParam.sndFinYn = "N"; //대상서버
+                	                        sParam.dstbRqstDscd="01";
+                	                        sParam.dstbEnvrnmntCd=selectedReq[0].data.dstbEnvrnmntCd; //대상서버
+                	                        
+                	                        var dstbTaskDtl = responseData.CaDstbTaskInfoIO.dstbTaskDtl;
+                	                        var srvrList = that.dstbSrvrMList;
+                	                        var dstbReqSrvrDtl = [];
+                	                		$(srvrList).each(function(idx, data) {
+                	                			if(sParam.dstbEnvrnmntCd == data.dstbEnvrnmntCd){
+                	                				var arryDtl = [];
+                	    	                		$(dstbTaskDtl).each(function(dIdx, dData) {
+                	    	                			arryDtl.push(
+                	    	                					{"dstbRqstId":sParam.dstbRqstId
+                	    	                						,"dstbTaskId":sParam.dstbTaskId
+                	    	                						,"dstbTaskChngSeqNbr":dData.dstbTaskChngSeqNbr
+                	    	                						,"dstbTaskChngHstSeqNbr":dData.dstbTaskChngHstSeqNbr
+                	    	                						,"dstbSrvrId":data.dstbSrvrId
+                	    	                						,"dstbSaveDscd":dData.dstbSaveDscd
+                	    	                					}
+                	    	                			);
+                	    	                		});
+                	    	                		
+                	    	            			dstbReqSrvrDtl.push(
+                	    	            					{"dstbRqstId":""
+                	    	            						,"dstbTaskId":sParam.dstbTaskId
+                	    	            						,"dstbEnvrnmntCd":sParam.dstbEnvrnmntCd
+                	    	            						,"dstbSrvrId":data.dstbSrvrId
+                	    	            						,"dstbPrcsStsCd":"01"
+                	    	            						,"dstbReqDtl":arryDtl
+                	    	            					}
+                	    	            			);
+                	                			}
+                	                		});
+                	                		
+                	                        sParam.dstbReqSrvrDtl = dstbReqSrvrDtl; //대상서버
+                	                        
+                	                        var linkData = {"header": fn_getHeader('CAPSV3020314'), "CaDstbReqInfoIO": sParam};
+                	                        
+                	                        var loading = $('#loading-dim');
+                	                        loading.show();
+                	                        
+                	                        //ajax호출
+                	                        bxProxy.post(sUrl
+                	                            , JSON.stringify(linkData), {
+                	                                enableLoading: false,
+                	                                success: function (responseData) {
+                	                                    if (fn_commonChekResult(responseData)) {
+                	                                    	var sendList = {};
+                	                                    	sendList.dstbReqTgtAndDataList = responseData.CaOnlyDstbReqOut.dstbReqTgtAndDataList;
+                	                                    	 var linkData = {"header": fn_getHeader('CAPSV3020312'), "CaOnlyDstbSendIn": sendList};
+                	                                         bxProxy.post(sUrl
+                	                                             , JSON.stringify(linkData), {
+                	                                                 enableLoading: false,
+                	                                                 success: function (responseData) {
+                	                                                     if (fn_commonChekResult(responseData)) {
+//                	                                                         	 var tbList = responseData.CaDstbTaskInfoIO.dstbTaskDtl;
+                	                                                     	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#success'));
+                	                                                     	that.clickResetRequestArea();
+                	                                                     	that.queryBaseArea();
+                	                                                     	var sqlList = responseData.CaOnlyDstbSendOut.dstbRqstSqlList;
+                	                                                     	if(sqlList != undefined && sqlList.length > 0){
+                	                                                     		that.downloadResultAsJson(sqlList);
+                	                                                     	} 
+                	                                                     }
+                	                                                     loading.hide();
+                	                                                 },
+                	                                                 error: function (){
+                	                                                	 loading.hide();
+                	                                                 }// end of suucess: fucntion
+                	                                             }
+                	                                         ); // end of bxProxy
+                	                                    }
+                	                                    loading.hide();
+                	                                },   // end of suucess: fucntion
+                	                                error: function (){
+                	                                	loading.hide();
+                	                                }// end of suucess: fucntion
+                	                            }
+                	                        ); // end of bxProxy
+                	                	}
+                					}
+                				}
+                			}   // end of suucess: fucntion
+                		}); // end of bxProxy
+                	}                   
+                }
+                                
+                ,taskResultFinish : function(record){
+                	var that = this;
+                	var selectedReq = that.CAPSV302Grid.grid.getSelectionModel().selected.items;
+                	if(selectedReq != undefined && selectedReq.length > 0){
+                		var dstbStsCd = selectedReq[0].data.dstbStsCd; //배포상태
+                		var dstbWayCd = selectedReq[0].data.dstbWayCd; //배포방식
+                		
+                		if (!dstbStsCd =='01'){
+                			fn_alertMessage("", bxMsg('cbb_err_msg.AUICME0066'));  
+                			return;
+                		}
+                		if(dstbWayCd !='H'){
+                			fn_alertMessage("", bxMsg('cbb_err_msg.AUICME0067'));  
+                			return;
+                		}
+                		that.record = record;
+                		fn_confirmMessage(event, bxMsg('cbb_items.SCRNITM#dstbFin'), bxMsg('cbb_items.SCRNITM#runCnfrm'), that.taskResultFinishCall, that);
+                	}
+                }
+                ,taskResultFinishCall: function (that) {
+                	var selectedReq = that.CAPSV302Grid.grid.getSelectionModel().selected.items;
+                	if(selectedReq != undefined && selectedReq.length > 0){
+                		////배포요청
+                		var sParam = {};
+                		sParam.dstbRqstId = selectedReq[0].data.dstbRqstId; //배포요청식별자;
+                		sParam.dstbTaskId = selectedReq[0].data.dstbTaskId; //과제ID;
+                		sParam.dstbStsCd = '05'; //배포상태[완료]
+                		sParam.dstbEnvrnmntCd = selectedReq[0].data.dstbEnvrnmntCd; //배포환경코드;
+                		sParam.sndFinYn = 'Y';
+                		sParam.dstbRsltErrCd = that.record.data.dstbRsltErrCd;
+                		sParam.dstbSrvrId = that.record.data.dstbSrvrId;
+                		sParam.dstbRqstDscd = selectedReq[0].data.dstbRqstDscd;
+                		
+                		var srvrDtl = {};
+                		srvrDtl.dstbRqstId = that.record.data.dstbRqstId;
+                		srvrDtl.dstbTaskId = that.record.data.dstbTaskId;
+                		srvrDtl.dstbSrvrId = that.record.data.dstbSrvrId;
+                		srvrDtl.dstbPrcsStsCd = '02';
+                		srvrDtl.dstbPrcsTmstmp = that.record.data.dstbPrcsTmstmp;
+                		
+                		var srvrDtlList = [];
+                		srvrDtlList.push(srvrDtl);
+                		
+                		sParam.dstbReqSrvrDtl = srvrDtlList;
+                		
+                		
+                		var linkData = {"header": fn_getHeader('CAPSV0060305'), "CaDstbReqInfoIO": sParam};
+                		
+                		//ajax호출
+                		bxProxy.post(sUrl
+                				, JSON.stringify(linkData), {
+                			enableLoading: true,
+                			success: function (responseData) {
+                				if (fn_commonChekResult(responseData)) {
+                					fn_alertMessage("", bxMsg('cbb_items.SCRNITM#success'));
+                					that.inquiryBaseData();
+                				}
+                			}   // end of suucess: fucntion
+                		}); // end of bxProxy    
+                	}
+                }
+                
                 
                 ,setDatePicker: function () {
-                    fn_makeDatePicker(this.$el.find('#CAPSV302additionalSearchCndWrap [data-form-param="srchStartDtm"]'));
-                    fn_makeDatePicker(this.$el.find('#CAPSV302additionalSearchCndWrap [data-form-param="srchEndDtm"]'));
+                    fn_makeDatePicker(this.$el.find('#CAPSV302-base-table [data-form-param="srchStartDtm"]'));
+                    fn_makeDatePicker(this.$el.find('#CAPSV302-base-table [data-form-param="srchEndDtm"]'));
 //                    fn_makeDatePicker(this.$el.find('#CAPSV302-request-table [data-form-param="dstbExecuteDt"]'));
                     fn_makeDatePicker(this.$el.find('#CAPSV302-request-table [data-form-param="dstbSchdlDt"]'));
                     
@@ -1314,23 +1603,20 @@ define(
                 			that.$el.find('.CAPSV302-request-table [data-form-param="dstbRqstId"]').val(selectedRecord.data.dstbRqstId);
                 		}
                 		
-                		if(dstbStsCd == '01' && dstbWayCd == 'R'){  //배포요청상태 && 예약배포인경우 배포중지가능
+                		if(dstbStsCd == '01' && dstbWayCd == 'R'){  // '배포요청'상태 && '예약배포'인경우 '배포중지' 가능
                 			that.$el.find("#btn-CAPSV302-request-stop").show();
                 		} else {
                 			that.$el.find("#btn-CAPSV302-request-stop").hide();
                 		}
-                		if(dstbStsCd == '01' || dstbStsCd == '03' || dstbStsCd == '99'){  //배포요청상태 || 배포중지 || 배포실패에서 가능
+                		if(dstbStsCd == '01' || dstbStsCd == '03' || dstbStsCd == '99'){  // '배포요청' || '배포중지' || '배포실패'상태인 경우 '배포취소' 가능
                 			that.$el.find("#btn-CAPSV302-request-cancel").show();
-                			if(dstbStsCd == '03'){ //배포중지
-                				that.$el.find("#btn-CAPSV302-request-init").show();
-                			}
                 		} else {
                 			that.$el.find("#btn-CAPSV302-request-cancel").hide();
                 		}
+                		if(dstbStsCd == '03'){ // '배포중지' 상태인 경우 '배포요청' 가능
+            				that.$el.find("#btn-CAPSV302-request-init").show();
+            			}
                 	}
-                }
-                , additionalSearchModal : function() {                	
-                	fn_pageLayerCtrl("#CAPSV302additionalSearchCndWrap", this.$el.find("#btnCAPSV302AdditionalSearchCndToggle"));
                 }
             })
             ; // end of Backbone.View.extend({

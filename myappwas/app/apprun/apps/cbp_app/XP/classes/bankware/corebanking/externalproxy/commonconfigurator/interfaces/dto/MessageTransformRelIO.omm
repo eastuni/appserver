@@ -1,9 +1,0 @@
-OMM bankware.corebanking.externalproxy.commonconfigurator.interfaces.dto.MessageTransformRelIO
-<description="">
-{
-	String extrnlTxCd<length=10 description="대외거래코드">;
-	String rqstRspnsDscd<length=1 description="요청응답구분코드">;
-	String msgTrnsfrmId<length=50 description="전문변환식별자">;
-	Integer pgNbr<length=5 description="페이지번호">;
-	Integer pgCnt<length=5 description="페이지당건수">;
-}

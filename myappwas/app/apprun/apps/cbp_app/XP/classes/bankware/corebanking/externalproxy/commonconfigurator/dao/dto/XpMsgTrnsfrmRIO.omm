@@ -1,9 +1,0 @@
-OMM bankware.corebanking.externalproxy.commonconfigurator.dao.dto.XpMsgTrnsfrmRIO
-<description="">
-{
-	String extrnlTxCd<length=10 description="대외거래코드">;
-	String rqstRspnsDscd<length=1 description="요청응답구분코드">;
-	String msgTrnsfrmId<length=50 description="표준전문변환식별자">;
-	Date lastChngTmstmp<length=20 description="최종변경일시">;
-	String lastChngGuid<length=40 description="최종변경GUID">;
-}

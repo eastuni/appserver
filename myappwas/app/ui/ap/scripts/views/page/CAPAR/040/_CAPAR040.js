@@ -711,9 +711,14 @@ define(
 
 					var srvcCd = "CAPAR0408102";	// save new one
 	            	$(that.oldData).each(function(key,value){
-	            		 if(value.cndCd == that.cndCd && value.instCd == sParam.instCd){
+	            		 if(value.cndCd == that.cndCd && 
+	            				 value.instCd == sParam.instCd && 
+	            				 value.bizDscd == sParam.bizDscd && 
+	            				 value.pdTpCd == sParam.pdTpCd &&
+	            				 value.pdTmpltCd == sParam.pdTmpltCd &&
+	            				 value.pdCd == sParam.pdCd){
 	            			 srvcCd = "CAPAR0408203";	// update
-	            		 } 
+	            		 }
 	            	});
 
 
@@ -790,7 +795,7 @@ define(
 
 
                     this.$el.find(".CAPAR040-grid01").html(this.CAPAR040Grid01.render({'height': CaGridHeight}));
-                    this.$el.find(".CAPAR040-grid02").html(this.CAPAR040Grid02.render({'height': CaGridHeight}));
+                    this.$el.find(".CAPAR040-grid02").html(this.CAPAR040Grid02.render({'height': "240px"}));
                 }
 
 

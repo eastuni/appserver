@@ -1,9 +1,0 @@
-OMM bxm.ccmainmng.share.dao.dto.SvcCntlProcCnt
-<description="">
-{
-	String domainId<length=20 description="도메인ID">;
-	Integer nodeNo<length=9 description="노드번호">;
-	String nodeNm<length=20 description="노드명">;
-	String useYn<length=20 description="사용여부">;
-	Integer pcsnCnt<length=9 description="프로세스개수">;
-}

@@ -12,15 +12,6 @@
         </layout>
     </appender>
 		
-		<appender name="applogdb" class="bxm.dft.logging.DefaultAsyncTableAppender">
-			<!-- BufferSize만큼 차지 않으면 로그가 DB 에 저장되지 않으므로 적절한 값을 설정할 필요가 있음. -->
-			<param name="BufferSize" value="1"/>
-			<param name="jndiName" value="java:/comp/env/BXMNXA"/>
-			<layout class="org.apache.log4j.PatternLayout">
-					<param name="ConversionPattern" value="[%-5.5p][%d{HH:mm:ss.SSS}][%F:%L] %m%n" />
-			</layout>
-		</appender>
-
     <logger name="com.atomikos">
       <level value="warn" />
     </logger>
@@ -28,6 +19,5 @@
     <root>
         <priority value="info" />
         <appender-ref ref="filelog" />
-        <appender-ref ref="applogdb" />
     </root>
 </log4j:configuration>

@@ -1,9 +1,0 @@
-OMM bankware.corebanking.externalproxy.systeminterfaceexecutor.dao.dto.XpIntrmdrySysCallClassDIO
-<description="중계시스템호출클래스상세 ">
-{
-	String rowId<length=50 description="Row ID">;
-	String intrmdrySysId<length=5 description="중계시스템식별자">;
-	String callClassNm<length=200 description="호출클래스명">;
-	Date lastChngTmstmp<length=30 description="최종변경일시">;
-	String lastChngGuid<length=40 description="최종변경GUID">;
-}

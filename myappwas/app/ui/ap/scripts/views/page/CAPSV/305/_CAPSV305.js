@@ -107,7 +107,7 @@ define(
                 	that.CAPSV305TableGrid = new ExtGrid({
                         /* ------------------------------------------------------------ */
                         // 단일탭 그리드 컬럼 정의
-                        fields: ['rowIndex', 'dstbTblId', 'lgclTblNm', 'pkVal', 'dplctnKeyValCntnt','initzCacheKeyVal','actvStsCd', 'lastChngId', 'lastChngTmstmp']
+                        fields: ['rowIndex', 'dstbTblId', 'lgclTblNm', 'pkVal', 'dplctnKeyValCntnt','initzCacheKeyVal','actvStsCd', 'dtoClassNm', 'dstbCtvdClassNm', 'dstbCtvdPckgNm', 'dstbCtvdTrgtTblYn',  'lastChngId', 'lastChngTmstmp']
                         , id: 'CAPSV305TableGrid'
                         , columns: [
 							{
@@ -139,6 +139,11 @@ define(
 	                                return val ? bxMsg('cbb_items.CDVAL#A0439' + val) : '';
 	                            }
 	                        }
+                            , {text: bxMsg('cbb_items.AT#dtoClassNm'),hidden: true,width: 200,flex: 1,dataIndex: 'dtoClassNm', style: 'text-align:center', align: 'center'}
+                            , {text: bxMsg('cbb_items.AT#dstbCtvdClassNm'),hidden: true,width: 200,flex: 1,dataIndex: 'initzCacheKeyVal', style: 'text-align:center', align: 'center'}
+                            , {text: bxMsg('cbb_items.AT#dstbCtvdPckgNm'),hidden: true,width: 200,flex: 1,dataIndex: 'dstbCtvdPckgNm', style: 'text-align:center', align: 'center'}
+                            , {text: bxMsg('cbb_items.AT#dstbCtvdTrgtTblYn'),hidden: true,width: 200,flex: 1,dataIndex: 'dstbCtvdTrgtTblYn', style: 'text-align:center', align: 'center'}
+
                             , {text: bxMsg('cbb_items.AT#lastChngId'),width: 130,flex: 1,dataIndex: 'lastChngId', style: 'text-align:center', align: 'center'}
                             , {text: bxMsg('cbb_items.AT#lastChngTmstmp'),width: 150,dataIndex: 'lastChngTmstmp', style: 'text-align:center', align: 'center'
                             	, type: 'date',
@@ -258,6 +263,11 @@ define(
                 	that.$el.find('.CAPSV305-target-table [data-form-param="lgclTblNm"]').val("");
                 	that.$el.find('.CAPSV305-target-table [data-form-param="initzCacheKeyVal"]').val("");
                 	that.$el.find('.CAPSV305-target-table [data-form-param="actvStsCd"]').val("");
+                	
+                	that.$el.find('.CAPSV305-target-table [data-form-param="dtoClassNm"]').val("");
+                	that.$el.find('.CAPSV305-target-table [data-form-param="dstbCtvdClassNm"]').val("");
+                	that.$el.find('.CAPSV305-target-table [data-form-param="dstbCtvdPckgNm"]').val("");
+                	that.$el.find('.CAPSV305-target-table [data-form-param="dstbCtvdTrgtTblYn"]').prop("checked", false);
                 	
                 	that.CAPSV305TableColumnsGrid.resetData();
                 }
@@ -385,6 +395,16 @@ define(
 //                    	that.$el.find('.CAPSV305-target-table [data-form-param="pkVal"]').val(selectedRecord.data.pkVal);
                     	that.$el.find('.CAPSV305-target-table [data-form-param="initzCacheKeyVal"]').val(selectedRecord.data.initzCacheKeyVal);
                     	that.$el.find('.CAPSV305-target-table [data-form-param="actvStsCd"]').val(selectedRecord.data.actvStsCd);
+                    	
+                    	that.$el.find('.CAPSV305-target-table [data-form-param="dtoClassNm"]').val(selectedRecord.data.dtoClassNm);
+                    	that.$el.find('.CAPSV305-target-table [data-form-param="dstbCtvdClassNm"]').val(selectedRecord.data.dstbCtvdClassNm);
+                    	that.$el.find('.CAPSV305-target-table [data-form-param="dstbCtvdPckgNm"]').val(selectedRecord.data.dstbCtvdPckgNm);
+                        
+                    	if (selectedRecord.data.dstbCtvdTrgtTblYn == "Y")
+                    		that.$el.find('.CAPSV305-target-table [data-form-param="dstbCtvdTrgtTblYn"]').prop("checked", true);
+                        else
+                        	that.$el.find('.CAPSV305-target-table [data-form-param="dstbCtvdTrgtTblYn"]').prop("checked", false);
+                    	
                     	var pkVal = selectedRecord.data.pkVal;
                     	if(pkVal != ''){
                     		that.currentPkArry = pkVal.split(',');
@@ -411,6 +431,12 @@ define(
                     sParam.pkVal = that.$el.find('.CAPSV305-target-table [data-form-param="pkVal"]').val();
                     sParam.dplctnKeyValCntnt = that.$el.find('.CAPSV305-target-table [data-form-param="dplctnKeyValCntnt"]').val();
                     sParam.actvStsCd = that.$el.find('.CAPSV305-target-table [data-form-param="actvStsCd"]').val();
+                    
+                    sParam.dtoClassNm = that.$el.find('.CAPSV305-target-table [data-form-param="dtoClassNm"]').val();
+                    sParam.dstbCtvdClassNm = that.$el.find('.CAPSV305-target-table [data-form-param="dstbCtvdClassNm"]').val();
+                    sParam.dstbCtvdPckgNm = that.$el.find('.CAPSV305-target-table [data-form-param="dstbCtvdPckgNm"]').val();
+                    
+                    sParam.dstbCtvdTrgtTblYn = that.getYn(that.$el.find('.CAPSV305-target-table [data-form-param="dstbCtvdTrgtTblYn"]'));
                     
                     if(that.$el.find('.CAPSV305-target-table [data-form-param="lgclTblNm"]').val().length > 50){
                     	fn_alertMessage("", bxMsg('cbb_err_msg.AUICUE0003') + ' ['+bxMsg('cbb_items.AT#lgclTblNm') +':50 byte]');  
@@ -464,7 +490,20 @@ define(
                     if(sParam.actvStsCd == ''){
                     	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#no-mandatory-data-msg') + "["+bxMsg('cbb_items.AT#actvStsCd')+"]");
                     	return;
-                    }  
+                    }
+                    
+                    if(sParam.dtoClassNm == ''){
+                    	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#no-mandatory-data-msg') + "["+bxMsg('cbb_items.AT#dtoClassNm')+"]");
+                    	return;
+                	}
+                    
+                    //배포정합성검증테이블대상여부 Y인 경우, 배포정합성검증클래스명은 반드시 기입
+                    if(sParam.dstbCtvdTrgtTblYn == 'Y'){
+                    	if(sParam.dstbCtvdClassNm == ''){
+	                    	fn_alertMessage("", bxMsg('cbb_items.SCRNITM#no-mandatory-data-msg') + "["+bxMsg('cbb_items.AT#dstbCtvdClassNm')+"]");
+	                    	return;
+                    	}
+                    }
                     
                     var linkData = {"header": fn_getHeader('CAPSV0060404'), "CaDstbTblMIO": sParam};
 
@@ -542,6 +581,14 @@ define(
                     if(keyID == 13) { //enter
                     	that.inquiryTableData();
                     }
+                }
+                
+                ,
+                getYn: function(obj){
+                	if($(obj).attr('checked'))
+                		return "Y";
+                	else
+                		return "N";
                 }
                 
                 , tableBaseModal : function() {

@@ -55,21 +55,7 @@
 	                            </div>
 							</td>
 						</tr>
-					</table>
-				</section>
-			</section>
-<!-- 추가검색조건 바 -->
-            <section class="bw-tool sub-tool">
-                <div class="f-l">
-                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#adtnlSrchCnd'}}</h3>
-                </div>
-                <div class="btn-wrap fix-r">
-                    <button type="button" class="bw-btn" id="btnCAPSV302AdditionalSearchCndToggle"><i class="bw-icon i-30 i-func-close"></i></button>
-                </div>
-            </section>
-            <!-- 추가검색조건 영역 -->
-            <section class="search-wrap" id="CAPSV302additionalSearchCndWrap">
-                  <table class="bx-info-table w-100">
+						
                       <tr>
                           <td class="td-w-33"> <!-- 조건코드 -->
                               <div class="input-wrap clr">
@@ -79,19 +65,22 @@
                           </td>
                          <td class="td-w-33">
 								<div class="input-wrap add-btn clr">
-									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#srchStartDtm'}}">{{bxMsg 'cbb_items.AT#srchStartDtm'}}</label>
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#inqryStartDt'}}">{{bxMsg 'cbb_items.AT#srchStartDtm'}}</label>
 									<input type="text" class="bw-input w-60 ipt-cal" data-form-param="srchStartDtm" />
 								</div>
 							</td>
 							<td class="td-w-33">
                                 <div class="input-wrap add-btn clr">
-									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#srchEndDtm'}}">{{bxMsg 'cbb_items.AT#srchEndDtm'}}</label>
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#inqryEndDt'}}">{{bxMsg 'cbb_items.AT#srchEndDtm'}}</label>
 									<input type="text" class="bw-input w-60 ipt-cal" data-form-param="srchEndDtm" />
 								</div>
 							</td>
                       </tr>
-                  </table>
-            </section>
+						
+					</table>
+				</section>
+			</section>
+
 
             <!-- Grid area -->
             <section class="grid-wrap">
@@ -220,6 +209,7 @@
 	                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#dstbRsltSrvr'}}</h3>
 	                </div>
 					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPSV302-result-server-sql-download">{{bxMsg 'cbb_items.ABRVTN#sql'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}</button>
 						<button type="button" class="bw-btn" id="btn-CAPSV302-result-server-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
 						<button type="button" class="bw-btn b-ctr" id="btn-up-result-server-grid" data-info="CAPSV302-result-server-grid"><i class="fa fa-forward fa-rotate-270"></i></button>
 					</div>
@@ -233,6 +223,8 @@
 					<div class="btn-wrap fix-r">
 						<button type="button" class="bw-btn" id="btn-CAPSV302-result-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
 						<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPSV302-result-recall">{{bxMsg 'cbb_items.SCRNITM#btn_recallDistr'}}</button>
+						<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPSV302-result-download">{{bxMsg 'cbb_items.SCRNITM#btn_downloadSql'}}</button>
+						<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPSV302-result-finish">{{bxMsg 'cbb_items.SCRNITM#btn_finishDistr'}}</button>
 					    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_run'}}" id="btn-CAPSV302-result-grid-run"><i class="bw-icon i-30 i-func-submit"></i></button>
 						<button type="button" class="bw-btn b-ctr" id="btn-up-result-grid" data-info="CAPSV302-result-grid"><i class="fa fa-forward fa-rotate-270"></i></button>
 					</div>

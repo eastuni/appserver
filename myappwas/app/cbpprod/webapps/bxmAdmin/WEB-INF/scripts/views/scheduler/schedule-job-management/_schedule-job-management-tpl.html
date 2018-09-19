@@ -1,0 +1,254 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'scheduler.schedule-job-management'}}
+    <p class="desc">{{bxMsg 'scheduler.schedule-job-management-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap bxm-search-wrap">
+    <ul class="clr">
+        <li class="input-wrap w-33">
+            <label class="bw-label w-40">
+                {{bxMsg 'scheduler.schedule-id'}}
+                <button type="button" class="bw-btn schedule-search-btn" title="{{bxMsg 'scheduler.schedule-search'}}"><i class="bw-icon i-20 i-func-search"></i></button>
+            </label>
+            <input type="text" class="bw-input w-60" data-form-param="scheduleId"/>
+        </li>
+        <li class="input-wrap w-33">
+            <label class="bw-label w-40">{{bxMsg 'scheduler.schedule-nm'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="scheduleNm"/>
+        </li>
+    </ul>
+    <ul class="clr">
+        <li class="input-wrap w-33">
+            <label class="bw-label w-40">
+                {{bxMsg 'scheduler.system'}}
+                <button type="button" class="bw-btn system-search-btn" title="{{bxMsg 'scheduler.system-search'}}"><i class="bw-icon i-20 i-func-search"></i></button>
+            </label>
+            <input type="text" class="bw-input w-60" data-form-param="sysId" />
+        </li>
+        <li class="input-wrap w-33">
+            <label class="bw-label w-40">
+                {{bxMsg 'scheduler.schedule-group'}}
+                <button type="button" class="bw-btn schedule-group-search-btn" title="{{bxMsg 'scheduler.schedule-group-search'}}"><i class="bw-icon i-20 i-func-search"></i></button>
+            </label>
+            <input type="text" class="bw-input w-60" data-form-param="scheduleGrpId" />
+        </li>
+    </ul>
+</section>
+<!--/END SEARCH AREA-->
+<!--GRID AREA-->
+<section class="bxm-grid-wrap"></section>
+<!--/END GRID AREA-->
+
+<!-- DETAIL AREA -->
+<h3 class="bw-stt add-mg-t">
+    {{bxMsg 'scheduler.schedule-job-details'}}
+    <p class="desc bxm-detail-title"></p>
+</h3>
+<section class="bw-tool add-bd2-t bx-grid-header detail-search-wrap">
+    <div class="f-l">
+        <button type="button" class="bw-btn b-ctr expand-detail-btn" title="{{bxMsg 'common.grid-expand'}}"><i class="fa fa-play fa-rotate-90"></i></button>
+        <button type="button" class="bw-btn b-ctr collapse-detail-btn" title="{{bxMsg 'common.grid-collapse'}}"><i class="fa fa-play fa-rotate-270"></i></button>
+    </div>
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn edit-btn" title="{{bxMsg 'common.edit'}}"><i class="bw-icon i-25 i-func-edit"></i></button>
+    </div>
+</section>
+<div class="bxm-detail-wrap bx-loding-wrap">
+    <section class="search-wrap clr fix-h">
+        <ul class="clr">
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'scheduler.system'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="sysId" readonly />
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'scheduler.schedule-id'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="scheduleId" readonly />
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'scheduler.schedule-nm'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="scheduleNm" readonly />
+                </div>
+            </li>
+        </ul>
+        <ul class="clr">
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'scheduler.schedule-group'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="scheduleGrpId" readonly />
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'scheduler.batch-job-id'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="jobId" readonly />
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'scheduler.job-exec-type-cd'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="jobExecTypeCd" data-code="BXMAD0028" readonly />
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'scheduler.use-yn'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="useYn" readonly />
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <div class="bw-accordion add-bd bxm-accordion-wrap">
+        <h3 class="clr-bd-t">{{bxMsg 'scheduler.basic-property'}}</h3>
+        <div class="basic-property">
+            <ul class="bw-form fix-center col-2">
+                <li>
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.estimate-elapsed-time-sec'}}</label>
+                    <input type="text" class="bw-input w-50" data-form-param="expectedElapsedTimeSec" readonly />
+                </li>
+                <li>
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.memory-size-mb'}}</label>
+                    <input type="text" class="bw-input w-50" data-form-param="memVal" readonly />
+                </li>
+                <li>
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.error-process-code'}}</label>
+                    <input type="text" class="bw-input w-50" data-form-param="errProcCd" data-code="BXMAD0020" readonly />
+                </li>
+                <li>
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.priority-code'}}</label>
+                    <input type="text" class="bw-input ipt-select w-50" data-form-param="importanceCd" data-code="BXMAD0018" readonly />
+                </li>
+                <li>
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.rerun-count'}}</label>
+                    <input type="text" class="bw-input ipt-select w-50" data-form-param="reExecCnt" readonly />
+                </li>
+                <li>
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.rerun-cycle-sec'}}</label>
+                    <input type="text" class="bw-input ipt-select w-50" data-form-param="reExecIntervalSec" readonly />
+                </li>
+                <li>
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.start-delay-process-yn'}}</label>
+                    <input type="text" class="bw-input ipt-select w-50" data-form-param="startDelayProcYn" readonly />
+                </li>
+                <li>
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.start-delay-waiting-sec'}}</label>
+                    <input type="text" class="bw-input ipt-select w-50" data-form-param="startDelayWaitSec" readonly />
+                </li>
+                <li>
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.completion-delay-process-yn'}}</label>
+                    <input type="text" class="bw-input ipt-select w-50" data-form-param="cmplDelayProcYn" readonly />
+                </li>
+                <li>
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.completion-delay-waiting-sec'}}</label>
+                    <input type="text" class="bw-input ipt-select w-50" data-form-param="cmplDelayWaitSec" readonly />
+                </li>
+                <li>
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.duplicate-execution-available-yn'}}</label>
+                    <input type="text" class="bw-input ipt-select w-50" data-form-param="concurrExecUseYn" readonly />
+                </li>
+                <li>
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.schedule-use-dt'}}</label>
+                    <input type="text" class="bw-input ipt-select w-24" data-form-param="scheduleUseStartDt" readonly />
+                    <span class="unit-desc">~</span>
+                    <input type="text" class="bw-input ipt-select w-24" data-form-param="scheduleUseEndDt" readonly />
+                </li>
+<!--                 <li class="li-left-align"> -->
+<!--                     <label class="bw-label w-45">{{bxMsg 'scheduler.duplicate-execution-available-yn'}}</label> -->
+<!--                     <input type="text" class="bw-input ipt-select w-50" data-form-param="concurrExecUseYn" readonly /> -->
+<!--                 </li> -->
+            </ul>
+        </div>
+
+        <h3>{{bxMsg 'scheduler.execution-parameter'}}</h3>
+        <div class="bx-grid-in-accordion execution-parameter-grid"></div>
+
+        <h3>{{bxMsg 'scheduler.type-info'}}</h3>
+        <div class="type-info">
+            <ul class="bw-form fix-center col-2">
+                <li>
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.schedule-type'}}</label>
+                    <input type="text" class="bw-input w-50" data-form-param="scheduleTypeCd" data-code="BXMAD0021" readonly />
+                </li>
+                <li>
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.detail-type'}}</label>
+                    <input type="text" class="bw-input w-50" data-form-param="scheduleSubCd" data-code="BXMAD0022" readonly />
+                </li>
+                <li class="w-100">
+                    <label class="bw-label w-22-5">{{bxMsg 'scheduler.schedule-registration-detail'}}</label>
+                    <input type="text" class="bw-input w-77-2" data-form-param="scheduleRegistrationDetail" readonly />
+                </li>
+            </ul>
+        </div>
+
+        <h3 class="pre-process-info-header">{{bxMsg 'scheduler.pre-process-info'}}</h3>
+        <div class="bx-grid-in-accordion pre-process-info-grid"></div>
+
+        <h3>{{bxMsg 'scheduler.post-process-info'}}</h3>
+        <div class="bx-grid-in-accordion post-process-info-grid"></div>
+
+        <h3>{{bxMsg 'scheduler.alarm-info'}}</h3>
+        <div class="alarm-info">
+            <ul class="bw-form fix-center col-2">
+                <li class="li-left-align">
+                    <label class="bw-label w-45">{{bxMsg 'scheduler.alarm-use-yn'}}</label>
+                    <input type="text" class="bw-input w-50" data-form-param="alarmUseYn" readonly />
+                </li>
+                <li class="w-100" data-type="OK">
+                    <label class="bw-label w-22-5">{{bxMsg 'scheduler.normal'}}
+                        <input type="checkbox" disabled/>
+                    </label>
+                    <input type="text" class="bw-input w-77-2" readonly />
+                </li>
+                <li class="w-100" data-type="ERROR">
+                    <label class="bw-label w-22-5">{{bxMsg 'scheduler.error'}}
+                        <input type="checkbox" disabled/>
+                    </label>
+                    <input type="text" class="bw-input w-77-2" readonly />
+                </li>
+                <li class="w-100" data-type="S_DELAY">
+                    <label class="bw-label w-22-5">{{bxMsg 'scheduler.start-delay'}}
+                        <input type="checkbox" disabled/>
+                    </label>
+                    <input type="text" class="bw-input w-77-2" readonly />
+                </li>
+                <li class="w-100" data-type="E_DELAY">
+                    <label class="bw-label w-22-5">{{bxMsg 'scheduler.completion-delay'}}
+                        <input type="checkbox" disabled/>
+                    </label>
+                    <input type="text" class="bw-input w-77-2" readonly />
+                </li>
+                <li class="w-100" data-type="F_OK">
+                    <label class="bw-label w-22-5">{{bxMsg 'scheduler.forced-normal'}}
+                        <input type="checkbox" disabled/>
+                    </label>
+                    <input type="text" class="bw-input w-77-2" readonly />
+                </li>
+                <li class="w-100" data-type="F_ERROR">
+                    <label class="bw-label w-22-5">{{bxMsg 'scheduler.forced-error'}}
+                        <input type="checkbox" disabled/>
+                    </label>
+                    <input type="text" class="bw-input w-77-2" readonly />
+                </li>
+            </ul>
+        </div>
+
+        <h3>{{bxMsg 'scheduler.manager-info'}}</h3>
+        <div class="bx-grid-in-accordion manager-info-grid"></div>
+    </div>
+</div>
+<!-- END DETAIL AREA -->

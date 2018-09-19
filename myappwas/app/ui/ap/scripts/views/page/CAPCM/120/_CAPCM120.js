@@ -212,7 +212,7 @@ define(
                 this.CAPCM120GridSearchResult = new ExtGrid({
                     // 그리드 컬럼 정의
                     fields: ['instCd', 'xtnAtrbtNm', 'xtnAtrbtDescCntnt', 'stdAtrbtVldtnUseYn', 'xtnAtrbtVrtnCmpsCd', 'stdAtrbtVldtnWayCd', 'stdAtrbtVldtnRuleCntnt', 'stdAtrbtVldtnXtnRuleCntnt'
-                             , 'atrbtVldtnWayCd', 'atrbtVldtnRuleCntnt', 'atrbtVldtnXtnRule', 'atrbtDfntnCntnt', 'rmkCntnt', 'lastChngTmstmp', 'tblNm']
+                             , 'atrbtVldtnWayCd', 'atrbtVldtnRuleCntnt', 'atrbtVldtnXtnRuleCntnt', 'atrbtVldtnXtnRule', 'atrbtDfntnCntnt', 'rmkCntnt', 'lastChngTmstmp', 'tblNm']
                     , id: 'CAPCM120GridSearchResult'
 
 

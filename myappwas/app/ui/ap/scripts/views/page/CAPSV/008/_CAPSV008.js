@@ -985,7 +985,7 @@ define(
                 that.inpDtoNm = param.inpDtoNm;
                 param.instCd  = $.sessionStorage('headerInstCd');
                 
-                var linkData = {"header": fn_getHeader("CAPSV0308401"), "CaStdSrvcIoMgmtSvcGetStdSrvcIOListIn": param};
+                var linkData = {"header": fn_getHeader("CAPSV0318401"), "CaStdSrvcIoMgmtSvcGetStdSrvcIOListIn": param};
 
                 // ajax호출
                 bxProxy.post(sUrl, JSON.stringify(linkData), {
@@ -1137,44 +1137,60 @@ define(
                     return;
                 }
                 
-                function saveData() {
-                    var sParam = {};
+                //필수입력항목체크
+				if(!that.$el.find('#base-attribute-area [data-form-param="srvcSts"]').val()) {
+					fn_alertMessage("",bxMsg("cbb_err_msg.AUICME0004") + "[" + bxMsg("cbb_items.SCRNITM#srvcSts") + "]");
+				}else if(!fn_getDateValue(that.$el.find('#base-attribute-area [data-form-param="aplyStartDt"]').val())){
+					fn_alertMessage("",bxMsg("cbb_err_msg.AUICME0004") + "[" + bxMsg("cbb_items.AT#aplyStartDt") + "]");
+				}else if(!that.$el.find('#base-attribute-area [data-form-param="logLvl"]').val()){
+					fn_alertMessage("",bxMsg("cbb_err_msg.AUICME0004") + "[" + bxMsg("cbb_items.AT#logLvlCd") + "]");
+				}else if(!that.$el.find('#base-attribute-area [data-form-param="timeoutSecond"]').val()){
+					fn_alertMessage("",bxMsg("cbb_err_msg.AUICME0004") + "[" + bxMsg("cbb_items.AT#timeoutScnd") + "]");
+				}else if(!that.$el.find('#base-attribute-area [data-form-param="txYn"]').val()){
+					fn_alertMessage("",bxMsg("cbb_err_msg.AUICME0004") + "[" + bxMsg("cbb_items.AT#txYn") + "]");
+				}else if(!fn_getTimeValue(that.$el.find('#base-attribute-area [data-form-param="txAblStartHms"]').val())){
+					fn_alertMessage("",bxMsg("cbb_err_msg.AUICME0004") + "[" + bxMsg("cbb_items.AT#txAblStartHms") + "]");
+				}else if(!fn_getTimeValue(that.$el.find('#base-attribute-area [data-form-param="txAblEndHms"]').val())){
+					fn_alertMessage("",bxMsg("cbb_err_msg.AUICME0004") + "[" + bxMsg("cbb_items.AT#txAblEndHms") + "]");
+				}else{
+					
+		            function saveData() {
+		            	
+		                var sParam = {};
 
-                    sParam.srvcCd 			= that.$el.find('#base-attribute-area [data-form-param="srvcCd"]').val();
-                    sParam.srvcStsCd		= that.$el.find('#base-attribute-area [data-form-param="srvcSts"]').val();
-                    sParam.aplyStartDt 		= fn_getDateValue(that.$el.find('#base-attribute-area [data-form-param="aplyStartDt"]').val());
-                    sParam.logLvlCd 		= that.$el.find('#base-attribute-area [data-form-param="logLvl"]').val();
-                    sParam.timeoutScnd 	= that.$el.find('#base-attribute-area [data-form-param="timeoutSecond"]').val();
-                    sParam.txYn 			= that.$el.find('#base-attribute-area [data-form-param="txYn"]').val();
-                    sParam.txAblStartHms 	= fn_getTimeValue(that.$el.find('#base-attribute-area [data-form-param="txAblStartHms"]').val());
-                    sParam.txAblEndHms 	    = fn_getTimeValue(that.$el.find('#base-attribute-area [data-form-param="txAblEndHms"]').val());
+		                sParam.srvcCd 			= that.$el.find('#base-attribute-area [data-form-param="srvcCd"]').val();
+		                sParam.srvcStsCd		= that.$el.find('#base-attribute-area [data-form-param="srvcSts"]').val();
+		                sParam.aplyStartDt 		= fn_getDateValue(that.$el.find('#base-attribute-area [data-form-param="aplyStartDt"]').val());
+		                sParam.logLvlCd 		= that.$el.find('#base-attribute-area [data-form-param="logLvl"]').val();
+		                sParam.timeoutScnd 		= that.$el.find('#base-attribute-area [data-form-param="timeoutSecond"]').val();
+		                sParam.txYn 			= that.$el.find('#base-attribute-area [data-form-param="txYn"]').val();
+		                sParam.txAblStartHms 	= fn_getTimeValue(that.$el.find('#base-attribute-area [data-form-param="txAblStartHms"]').val());
+		                sParam.txAblEndHms 	    = fn_getTimeValue(that.$el.find('#base-attribute-area [data-form-param="txAblEndHms"]').val());
 
-                    
+		                if(that.$el.find('#base-attribute-area [data-form-param="srvcUseYn"]').is(":checked")) {
+		                    sParam.srvcUseYn = "Y";
+		                }else {
+		                    sParam.srvcUseYn = "N";
+		                }
 
-                    if(that.$el.find('#base-attribute-area [data-form-param="srvcUseYn"]').is(":checked")) {
-                        sParam.srvcUseYn = "Y";
-                    }
-                    else {
-                        sParam.srvcUseYn = "N";
-                    }
+		                sParam.instCd = $.sessionStorage('headerInstCd'); // 헤더의 기관코드
 
-                    sParam.instCd = $.sessionStorage('headerInstCd'); // 헤더의 기관코드
+		                var linkData = {"header": fn_getHeader("CAPSV0088201"), "CaSrvcMgmtSvcChngIn": sParam};
+		                bxProxy.post(sUrl, JSON.stringify(linkData), {
+		                    enableLoading: true
+		                    , success: function (responseData) {
+		                        if (fn_commonChekResult(responseData)) {
+		                            fn_alertMessage("", bxMsg('cbb_items.SCRNITM#success'));
+		                        }
+		                    }   // end of suucess: fucntion
+		                }); // end of bxProxy	
+		            }					
+					
+					fn_confirmMessage(event, bxMsg('cbb_items.ABRVTN#save'), bxMsg('cbb_items.SCRNITM#screenSave'), saveData, this);
+				}
 
-                    var linkData = {"header": fn_getHeader("CAPSV0088201"), "CaSrvcMgmtSvcChngIn": sParam};
-
-                        // ajax호출
-                        bxProxy.post(sUrl, JSON.stringify(linkData), {
-                            enableLoading: true
-                            , success: function (responseData) {
-                                if (fn_commonChekResult(responseData)) {
-                                    fn_alertMessage("", bxMsg('cbb_items.SCRNITM#success'));
-                                }
-                            }   // end of suucess: fucntion
-                        }); // end of bxProxy
-                }
-
-                fn_confirmMessage(event, bxMsg('cbb_items.ABRVTN#save'), bxMsg('cbb_items.SCRNITM#screenSave'), saveData, this);
             },
+            
             
             /**
              * 서비스 출력항목 저장
@@ -1199,7 +1215,7 @@ define(
                     return;
                 }
                 
-                function saveData() {
+                function saveServiceInputData() {
                     var sParam = {};
 
                     sParam.inpDtoNm 		    = that.inpDtoNm;
@@ -1247,7 +1263,7 @@ define(
                     }); // end of bxProxy
                 }
 
-                fn_confirmMessage(event, bxMsg('cbb_items.ABRVTN#save'), bxMsg('cbb_items.SCRNITM#screenSave'), saveData, this);
+                fn_confirmMessage(event, bxMsg('cbb_items.ABRVTN#save'), bxMsg('cbb_items.SCRNITM#screenSave'), saveServiceInputData, this);
             },
             
             /**
@@ -1314,7 +1330,7 @@ define(
                     return;
                 }
                 
-                function saveData() {
+                function saveServiceProfileData() {
                     var sParam = {};
                     sParam.tblNm = [];
 
@@ -1356,7 +1372,7 @@ define(
                     }); // end of bxProxy
             }
 
-                fn_confirmMessage(event, bxMsg('cbb_items.ABRVTN#save'), bxMsg('cbb_items.SCRNITM#screenSave'), saveData, this);
+                fn_confirmMessage(event, bxMsg('cbb_items.ABRVTN#save'), bxMsg('cbb_items.SCRNITM#screenSave'), saveServiceProfileData, this);
             },
             
             /**

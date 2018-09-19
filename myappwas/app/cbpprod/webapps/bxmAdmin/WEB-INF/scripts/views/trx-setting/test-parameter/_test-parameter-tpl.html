@@ -1,0 +1,73 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'trx-setting.test-param-setting'}}
+    <p class="desc">{{bxMsg 'trx-setting.test-param-setting-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap test-param-search">
+    <!--INPUT TYPE1 * 분할 없이 INLINE-->
+    <ul class="clr">
+        <li class="input-wrap w-30">
+            <label class="bw-label w-40">{{bxMsg 'trx-setting.test-level'}}</label>
+            <select class="bw-input ipt-select w-60" data-form-param="testKeyTypeCd"></select>
+        </li>
+        <li class="input-wrap w-30">
+            <label class="bw-label w-40">{{bxMsg 'trx-setting.test-key-id'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="testKeyId"/>
+        </li>
+    </ul>
+    <!--/END INPUT TYPE1-->
+</section>
+<!--/END SEARCH AREA-->
+<!--GRID AREA-->
+<section class="test-param-grid"></section>
+<!--/END GRID AREA-->
+<!--BW-SUB TITLE * 컨텐츠 서브타이틀-->
+<h3 class="bw-stt add-mg-t">{{bxMsg 'trx-setting.test-param-setting-detail'}}<p class="desc test-param-detail-title"></p></h3>
+<!--/END BW-SUB TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn edit edit-test-param-btn" title="{{bxMsg 'common.edit'}}"><i class="bw-icon i-25 i-func-edit"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--INFO AREA * 상세 영역-->
+<section class="search-wrap clr test-param-detail bx-loding-wrap">
+    <ul class="col-2 clr">
+        <li>
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-30">{{bxMsg 'trx-setting.test-level'}}</label>
+                <input type="text" class="bw-input w-70" data-form-param="testKeyTypeCd" data-code="BXMRT0008" readonly/>
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'trx-setting.test-date'}}</label>
+                <input type="text" class="bw-input w-70" data-form-param="testDt" readonly>
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-30">{{bxMsg 'trx-setting.test-key-id'}}</label>
+                <input type="text" class="bw-input w-70" data-form-param="testKeyId" readonly/>
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'trx-setting.test-eai-id'}}</label>
+                <input type="text" class="bw-input w-70" data-form-param="testEaiId" data-code="BXMAD0026" readonly/>
+            </div>
+        </li>
+    </ul>
+</section>
+<!--/END INFO AREA-->

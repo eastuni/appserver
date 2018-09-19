@@ -1,0 +1,44 @@
+<div class="modal-wrap fix-h cal-wrapper cal-wrapper-small">
+    <div class="bw-cal-wrap w-100">
+        <h3 class="bw-tt a-center">{{bxMsg 'scheduler.estimate-start-datetime-edit'}}</h3>
+        <div class="search-wrap add-bd2-t bx-no-draggable">
+            <ul class="clr">
+                <li class="input-wrap w-100">
+                    <label class="bw-label w-40">{{bxMsg 'common.date'}}</label>
+                    <input type="text" class="bw-input ipt-cal a-center w-60" data-form-param="expectedStartDt" readonly/>
+                </li>
+            </ul>
+            <div class="input-wrap clr-mg time-wrap">
+                <label class="bw-label w-40">{{bxMsg 'common.time'}}</label>
+                <div class="input-wrap w-20">
+                    <input type="text" class="bw-input ipt-count a-right w-100" data-form-param="hour" value="12"/>
+                    <div class="input-right-text">{{bxMsg 'common.hour'}}</div>
+                    <div class="btn-wrap btn-count">
+                        <button type="button" class="btn-top bw-icon i-count-up"></button>
+                        <button type="button" class="btn-btm bw-icon i-count-down"></button>
+                    </div>
+                </div>
+                <div class="input-wrap w-20">
+                    <input type="text" class="bw-input ipt-count a-right w-100" data-form-param="minute" value="0"/>
+                    <div class="input-right-text">{{bxMsg 'common.min'}}</div>
+                    <div class="btn-wrap btn-count">
+                        <button type="button" class="btn-top bw-icon i-count-up"></button>
+                        <button type="button" class="btn-btm bw-icon i-count-down"></button>
+                    </div>
+                </div>
+                <div class="input-wrap w-20">
+                    <input type="text" class="bw-input ipt-count a-right w-100" data-form-param="second" value="0"/>
+                    <div class="input-right-text">{{bxMsg 'common.second'}}</div>
+                    <div class="btn-wrap btn-count">
+                        <button type="button" class="btn-top bw-icon i-count-up"></button>
+                        <button type="button" class="btn-btm bw-icon i-count-down"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-wrap a-center add-mg-t bx-no-draggable">
+            <button type="button" class="bw-btn-txt on save-btn">{{bxMsg 'common.save'}}</button>
+            <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+        </div>
+    </div>
+</div>

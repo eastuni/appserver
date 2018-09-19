@@ -90,6 +90,7 @@ function __numberchk(event, iElement, _option) {
     		|| keyID == 35 || keyID == 36 // home, end
     		|| keyID == 189 || keyID == 110 || keyID == 190 // -(189) .(110, 190)
     		|| keyID == 13 // enter
+    		|| keyID == 9  // tab
     		|| keyID == 37 || keyID == 39) { // 화살표 <,  >
     	
     	// 소수점 사용
@@ -112,6 +113,8 @@ function __numberchk(event, iElement, _option) {
     else {
       return false;
     }
+    
+    
 } // end __numberchk
 
 /**
@@ -119,7 +122,14 @@ function __numberchk(event, iElement, _option) {
  * @param $scope, iElement, iAttrs
  */
 function __vComma($scope, iElement, iAttrs, _option, $commonService) {
-	var str = "" + iElement.val().replace(/,/gi,'').replace(/^(0)([0-9]*)/,'$2'); // 콤마 제거
+	// 2018.07.24  keewoong.hong   keyDown 이벤트에서 한글을 filtering 하지 못함에 따라... (keyCode 229)
+	// keyUp 이벤트에서 한글이 제거된 값을 컴포넌트로 셋팅 후 진행한다. 중간에 셋팅하지 않으면 다음 keyDown 시 이전 한글이 살아남
+	// 다만, focus를 떠날 때도 체크를 해야 하나 그 부분은 수정하지 않음
+	// console.log(">>>>" + iElement.val() + "<<<");
+	var str = "" + iElement.val().replace(/[^\-0-9.,]/g,''); // 한글제거
+	iElement.val(str);  // 한글이 제거된 값을 다시 컴포넌트로 셋팅 
+	
+	str = str.replace(/,/gi,''); // 콤마 제거
 	
 	var regx = new RegExp(/(-?\d+)(\d{3})/);
 	var bExists = str.indexOf(".",0);

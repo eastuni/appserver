@@ -47,7 +47,7 @@ define(
 					, 'click #btn-move-down': 'moveConditionItemDown'
 					, 'click #btn-xtnAtrbt-move-up': 'moveXtnAtrbtItemUp'
 					, 'click #btn-xtnAtrbt-move-down': 'moveXtnAtrbtItemDown'
-					, 'click #btn-save-cnd-list': 'saveConditionList'
+					, 'click #btn-save-cnd-list': 'deleteConditionList'
 					, 'click #btn-save-class-list': 'saveClassList'
 					, 'click #btn-save-xtnAtrbt-list': 'saveXtnClassList'
 					, 'click #btn-grid-area-toggle': 'toggleGridArea'							
@@ -98,7 +98,7 @@ define(
 
 
                 	var that = this;
-
+                	that.deleteList = [];
 
                 	that.CAPAR030Grid01 = new ExtGrid({
                         // 그리드 컬럼 정의
@@ -136,6 +136,7 @@ define(
 													  }
 													  that.deleteList.push(record.data);
 
+													  console.log(that.deleteList);
 
 													  var totalIndex = grid.store.count() - 1;
 													  var deletedIndex = grid.store.indexOf(record);
@@ -335,6 +336,7 @@ define(
                         		$(value).attr("selected", "selected");
                         	}                    	
                         });
+                        this.$el.find('#CAPAR030-base-table [data-form-param="cndUseWayNm"]').prop("disabled", true);
 						break;
     				case 1:
     					this.$el.find('#CAPAR030-base-table [data-form-param="classNm"]').val(data.classNm);
@@ -393,16 +395,17 @@ define(
                 , fn_createTree : function() {
                 	var that = this;                 	
                     that.subViews['CAPAR030Tree'] = new bxTree({
-                   	   fields: {id: 'cd', value: 'cdNm'},
+                   	   fields: {id: 'arrSrvcTpCd', value: 'arrSrvcTpNm'},
                        // Tree Item - Checkbox 사용 여부
                           checkAble: false,
 
 
                           listeners: {
                               clickItem: function(itemId, itemData, currentTarget, e) {                            	  
-                            	  if(itemData.children.length == 0){
+                              	if(itemData.arrSrvcCmpntCd != null){
+                            		//arrSrvcCmpntCd가 null이면 컴포넌트코드라 판단
                             		  that.inquiryServiceData(itemData);		
-                              		  this.$el.val(itemData.cd);
+                              		  this.$el.val(itemData.arrSrvcTpCd);
                             	  }
                               }
                           }
@@ -422,33 +425,33 @@ define(
 //
 //
                 , selectTree : function() {
-                	var that = this;
-                	that.treeList = [];
+                
+                	
+                	  var that = this;
+                      var sParam = {};
+
+                      var linkData = {"header" : fn_getHeader("CAPAR1508402") , "CaArrSrvcTpMgmtSvcInqryIn" : sParam};
 
 
-                    var sParam = {};
-                    sParam.clHrarcyId = "ArrangementService";
+                      that.treeList = [];
 
 
-                    var linkData = {"header" : fn_getHeader("CAPAR0308401") , "CaArrCndSrvcMgmtSvcGetServiceTypeIn" : sParam};
+                      bxProxy.post(sUrl, JSON.stringify(linkData),{
+                          enableLoading: true,
+                          success: function (responseData) {
+                              if(fn_commonChekResult(responseData)) {
+                            	  that.subViews['CAPAR030Tree'].renderItem(responseData.CaArrSrvcTpMgmtSvcInqryListOut.srvcTpList);
+                                  that.treeList = responseData.CaArrSrvcTpMgmtSvcInqryListOut.srvcTpList;
 
-
-                    bxProxy.post(sUrl, JSON.stringify(linkData),{
-                 	   enableLoading: true,
-                        success: function (responseData) {
-                     	   if(fn_commonChekResult(responseData)) {		                      		  
-                     		   that.subViews['CAPAR030Tree'].renderItem(responseData.CaArrCndSrvcMgmtSvcGetServiceTypeOutList.tblList);
-                     		   that.treeList = responseData.CaArrCndSrvcMgmtSvcGetServiceTypeOutList.tblList;
-
-
-                     		  if(that.initData.param) {
-                     			  if(that.initData.param.scrnNm) {
-                     				  that.initTreeList();
-                     			  }
-                     		  }
-                     	   }
-                        }
-                    });
+                                  
+                                  if(that.initData.param) {
+                         			  if(that.initData.param.scrnNm) {
+                         				  that.initTreeList();
+                         			  }
+                         		  }
+                              }
+                          }
+                      });
                 }
 
 
@@ -500,32 +503,73 @@ define(
 
 
              	   $(that.treeList).each(function(idx, data) {
-             		   searchMenuList = that.selectMenu(searchMenuList, data, searchKey);
+             		   searchMenuList = that.findMatchingTreeItems(searchKey);
              	   });
 
 
              	   that.subViews['CAPAR030Tree'].renderItem(searchMenuList);
                 }
+                ,     /**
+                 * find and return matching tree items
+                 */
+                findMatchingTreeItems : function(key) {
+                    var searchTreeList = [];
 
 
-                , selectMenu : function(searchMenuList, obj,  inputValue) {                		
-                		for(var i = 0; i < obj.children.length; i++) {
-                			var temp001 = obj.children[i];
+                    $(this.treeList).each(function(idx, data) {
+                        
+                    	
+                    	//depth 1
+                    	var arrSrvcTpList = data.children;
+                        $(arrSrvcTpList).each(function(idx,data){
+                        	
+                        	var temp001 = data;
+                          
+                        	if ((temp001.arrSrvcTpCd.indexOf(key) > -1 || temp001.arrSrvcTpNm.indexOf(key) > -1)) {
+    	                           searchTreeList.push(temp001);
+    	                           return;
+    	                     }
+
+                        	//depth2
+                        	if(temp001.children.length!=0){
+                        		arrSrvcTpList = temp001.children;
+                        		
+                        		$(arrSrvcTpList).each(function(idx,data){
+                                	
+                                	var temp002 = data;
+                                  
+                                	if ((temp002.arrSrvcTpCd.indexOf(key) > -1 || temp002.arrSrvcTpNm.indexOf(key) > -1)) {
+            	                           searchTreeList.push(temp002);
+            	                           return;
+            	                     }
+                                	
+                                	//depth3
+                                	
+                                 	if(temp002.children.length!=0){
+                                		arrSrvcTpList = temp002.children;
+                                		
+                                		$(arrSrvcTpList).each(function(idx,data){
+                                        	
+                                        	var temp003 = data;
+                                          
+                                        	if ((temp003.arrSrvcTpCd.indexOf(key) > -1 || temp003.arrSrvcTpNm.indexOf(key) > -1)) {
+                    	                           searchTreeList.push(temp003);
+                    	                     }
+                                        });
+                                	}
+                                });
+                        	}
+                        	
+                        
+                        });
+                        
+                    });
 
 
-                			if(temp001.cdNm == inputValue) {
-	 	           				searchMenuList[searchMenuList.length] = temp001;	 	           				
-	 	           			}
-                		}
-
-
-                	return searchMenuList;
+                    return searchTreeList;
                 }
 
 
-//
-//
-//
                 , fn_enter : function(event) {
           	      	var event = event || window.event;
           	      	var keyID = (event.which) ? event.which : event.keyCode;
@@ -601,15 +645,18 @@ define(
 //
 //
           , saveConditionList:function (){
+
         	  var that = this;
+
         	  var sParam = {};        	
         	  sParam.arrCndList = [];
 
+        	  
         	//배포처리[과제식별자 체크]
               if (!fn_headerTaskIdCheck()){
                   return;
               }
-        	  function saveGrid() {
+              
         		  var instCd = {};
             	  if(commonInfo.getInstInfo().instCd) {
             		  instCd = commonInfo.getInstInfo().instCd;
@@ -642,7 +689,63 @@ define(
             		  enableLoading: true,
             		  success: function (responseData) {
             			  if(fn_commonChekResult(responseData)) {
+            				  that.deleteList = [];
             				  // do nothing
+            			  }
+            		  }
+            	  });
+
+
+          	}
+          
+          
+          , deleteConditionList:function (){
+        	  var that = this;
+        	  var sParam = {};        	
+        	  sParam.arrCndList = [];
+
+        	  console.log(that.deleteList);
+        	  
+        	//배포처리[과제식별자 체크]
+              if (!fn_headerTaskIdCheck()){
+                  return;
+              }
+        	  function saveGrid() {
+
+        		  var instCd = {};
+            	  if(commonInfo.getInstInfo().instCd) {
+            		  instCd = commonInfo.getInstInfo().instCd;
+            	  } else {
+            		  instCd = $.sessionStorage('headerInstCd'); // 헤더의 기관코드
+            	  } 
+            	  $(that.deleteList).each(function(key, value){
+            		  	var param = {};        	   	
+            	  		var treeSelected = that.$el.find(".bx-tree-root").find(".bx-tree-root");
+            	  		param.instCd = instCd; 
+            	   		param.arrSrvcTpCd = treeSelected.val();
+            	   		param.aplySeq = value.aplySeq;
+            	   		param.cndCd = value.cndCd;
+            	   		that.$el.find('.CAPAR030-base-table [data-form-param="cndUseWayNm"]').find('option').each(function(key, value1){
+            	   			if(value1.text == value.cndUseWayNm){
+            	   				param.cndUseWayCd = value1.value;
+            	   			}
+            	   		});
+            	   		sParam.arrCndList.push(param);
+            	  });
+            	  sParam.instCd = instCd;
+            	  sParam.arrSrvcTpCd =  that.$el.find(".bx-tree-root").find(".bx-tree-root").val();
+
+            	  console.log(sParam);
+
+            	  var linkData = {"header" : fn_getHeader("CAPAR0308201") , "CaArrCndListCntrlSrvcSaveIn" : sParam};
+
+
+            	  bxProxy.post(sUrl, JSON.stringify(linkData),{
+            		  enableLoading: true,
+            		  success: function (responseData) {
+            			  if(fn_commonChekResult(responseData)) {
+            				  that.deleteList = [];
+            				  that.saveConditionList();
             			  }
             		  }
             	  });
@@ -761,6 +864,7 @@ define(
             	this.$el.find('.CAPAR030-base-table [data-form-param="cndNm"]').val("");
             	this.$el.find('.CAPAR030-base-table [data-form-param="cndNm"]').prop("placeholder", bxMsg('cbb_items.SCRNITM#cndNm'));
         		this.$el.find('.CAPAR030-base-table [data-form-param="cndUseWayNm"] option:eq(0)').attr("selected", "selected");
+        		this.$el.find('.CAPAR030-base-table [data-form-param="cndUseWayNm"]').prop("disabled", false);
             }
 
 
@@ -819,7 +923,7 @@ define(
             	  });
 
 
-            	  var linkData = {"header" : fn_getHeader(srvcCd) , "ArrCndCntrlSrvcSaveIn" : sParam};
+            	  var linkData = {"header" : fn_getHeader(srvcCd) , "CaArrCndCntrlSrvcSaveIn" : sParam};
 
 
             	  bxProxy.post(sUrl, JSON.stringify(linkData),{
@@ -828,7 +932,8 @@ define(
             			  if(fn_commonChekResult(responseData)) {
             				  // reload grid
             				  var pParm = {};		
-            				  pParm.cd = sParam.arrSrvcTpCd;	
+            				  console.log(sParam.arrSrvcTpCd);
+            				  pParm.arrSrvcTpCd = sParam.arrSrvcTpCd;	
             				  that.inquiryServiceData(pParm);
             				  // TODO alert message
             			  }
@@ -873,7 +978,7 @@ define(
 						  if(fn_commonChekResult(responseData)) {
 							  // reload grid
 							  var pParm = {};		
-							  pParm.cd = sParam.arrSrvcTpCd;	
+							  pParm.arrSrvcTpCd = sParam.arrSrvcTpCd;
 							  that.inquiryServiceData(pParm);
 							  // TODO alert message
 						  }
@@ -936,7 +1041,7 @@ define(
 						  if(fn_commonChekResult(responseData)) {
 							  // reload grid
 							  var pParm = {};		
-							  pParm.cd = sParam.arrSrvcTpCd;	
+							  pParm.arrSrvcTpCd = sParam.arrSrvcTpCd;	
 							  that.inquiryServiceData(pParm);
 							  // TODO alert message
 						  }
@@ -957,11 +1062,11 @@ define(
 	    , inquiryServiceData: function (param) {	 
 	        // header 정보 set
 	        var that = this;
-	        that.deleteList == [];
+	        that.deleteList = [];
 
 
 	        var sParam = {};
-	        sParam.arrSrvcTpCd = param.cd;		
+	        sParam.arrSrvcTpCd = param.arrSrvcTpCd;		
 
 
 	   	  	var curTabIdx = that.checkCurrentTab();
@@ -1137,8 +1242,7 @@ define(
 //
                 , createGrid: function (onTab) {
                     var that = this;
-
-
+               
                     switch (onTab) {
 					case "tabPdCnd":
 						this.CAPAR030Grid = this.CAPAR030Grid01;
@@ -1160,7 +1264,7 @@ define(
                     var treeSelected = this.$el.find(".bx-tree-root").find(".bx-tree-root");
                     if(treeSelected.val()){
                     	var itemData = {};
-                    	itemData.cd = treeSelected.val();
+                    	itemData.arrSrvcTpCd = treeSelected.val();
                     	this.inquiryServiceData(itemData);
                     }                    	
                 } // end of createGrid

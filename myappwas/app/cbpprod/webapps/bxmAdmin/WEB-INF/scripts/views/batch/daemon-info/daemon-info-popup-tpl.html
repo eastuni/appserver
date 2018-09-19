@@ -1,0 +1,103 @@
+<div class="modal-wrap">
+    {{#if jobId}}<h2 class="bw-tt a-center">{{bxMsg 'batch.batch-daemon-edit'}}({{jobId}})</h2>{{/if}}
+    {{#unless jobId}}<h2 class="bw-tt a-center">{{bxMsg 'batch.batch-daemon-add'}}</h2>{{/unless}}
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t fix-h bx-no-draggable daemon-info-form">
+        <ul class="col-3 clr">
+            <li>
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-50">{{bxMsg 'batch.work-id'}}</label>
+                    {{#if jobId}}<input type="text" class="bw-input w-50" data-form-param="jobId" value="{{jobId}}" readonly />{{/if}}
+                    {{#unless jobId}}<input type="text" class="bw-input w-50" data-form-param="jobId" />{{/unless}}
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-50">{{bxMsg 'batch.work-nm'}}</label>
+                    <input type="text" class="bw-input w-50" data-form-param="jobNm" value="{{jobNm}}" />
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-50">{{bxMsg 'batch.app-nm'}}</label>
+                    {{#if jobId}}<input type="text" class="bw-input w-50" data-form-param="bxmAppId" value="{{bxmAppId}}" readonly />{{/if}}
+                    {{#unless jobId}}<input type="text" class="bw-input w-50" data-form-param="bxmAppId" />{{/unless}}
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-50">{{bxMsg 'batch.use-yn'}}</label>
+                    <select class="bw-input ipt-select w-50" data-form-param="useYn" >
+                        <option value="Y">Y</option>
+                        <option value="N">N</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-50">{{bxMsg 'batch.execute-node-num'}}<i class="fa fa-question-circle chr-c-yellow2" title="{{bxMsg 'batch.execute-node-num-msg'}}"></i></label>
+                    <input type="text" class="bw-input w-50" data-form-param="execNodeNoList" value="{{execNodeNoList}}"/>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-50">{{bxMsg 'batch.log-level'}}</label>
+                    <select class="bw-input ipt-select w-50" data-form-param="logLvNm"></select>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-50">{{bxMsg 'batch.parallel-execute-yn'}}</label>
+                    <select class="bw-input ipt-select w-50" data-form-param="parllExecYn">
+                        <option value="Y">Y</option>
+                        <option value="N">N</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-50">{{bxMsg 'batch.error-stop-yn'}}</label>
+                    <select class="bw-input ipt-select w-50" data-form-param="errStopYn">
+                        <option value="Y">Y</option>
+                        <option value="N">N</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-50">{{bxMsg 'batch.execute-time'}}<i class="fa fa-question-circle chr-c-yellow2" title="{{bxMsg 'batch.execute-time-msg'}}"></i></label>
+                    <select class="bw-input ipt-select w-30 interval-cron-select">
+                        <option value="INTERVAL">INTERVAL</option>
+                        <option value="CRON">CRON</option>
+                    </select>
+                    {{#if execIntervalSec}} <input type="text" class="bw-input w-20 a-center interval-cron-input" data-form-param="execIntervalSec" value="{{execIntervalSec}}"/>{{/if}}
+                    {{#if cronExecCfgVal}} <input type="text" class="bw-input w-20 a-center interval-cron-input"  data-form-param="cronExecCfgVal" value="{{cronExecCfgVal}}"/>{{/if}}
+                    {{#unless jobId}}<input type="text" class="bw-input w-20 interval-cron-input" data-form-param="execIntervalSec" value="{{execIntervalSec}}" />{{/unless}}
+                </div>
+            </li>
+        </ul>
+        <ul class="clr">
+            <li class="w-70">
+                <div class="input-wrap w-90 f-l">
+                    <label class="bw-label w-25">{{bxMsg 'batch.commit-setting-list'}}</label>
+                    <input type="text" class="bw-input w-75" data-form-param="commitCfgList" value="{{commitCfgList}}" readonly/>
+                </div>
+                <button type="button" class="bw-btn add-commit-setting-btn"><i class="bw-icon i-25 i-func-add"></i></button>
+            </li>
+            <li class="w-75">
+                <div class="input-wrap  fix-txtarea p-rel clr">
+                    <label class="bw-label w-20">{{bxMsg 'batch.execute-arg'}}</label>
+                    <div class="txt-wrap2 fix-size w-80 f-r">
+                        <textarea class="bw-textarea" data-form-param="execArgs"></textarea>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on save-daemon-info-btn">{{bxMsg 'common.save'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

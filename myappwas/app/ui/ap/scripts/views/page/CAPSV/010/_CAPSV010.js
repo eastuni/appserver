@@ -146,9 +146,9 @@ define(
                         , menuNm: ""
                         , scrnId: ""
                         , parmVal: ""
-                        , menuKoreanNm: ""
-                    	, menuEngNm: ""
-                		, menuChineseNm: ""
+                        , menuItmAtrbtNm1: ""
+                        , menuItmAtrbtNm2: ""
+                		, menuItmAtrbtNm3: ""
                         , dfltScrnTrgtYn: "N"
                         , txTpDscd: "C"
                        	, pstnNbr: ""
@@ -233,7 +233,7 @@ define(
 
                         	that.CAPSV010TreeGrid = new ExtTreeGrid({
                                 fields: ['menuPrcsngDscd', 'dfltScrnTrgtYn', 'menuNm', 'menuSeqNbr', 'menuId'
-                                         , 'scrnId', 'parmVal', 'iconNm', 'menuKoreanNm', 'menuEngNm', 'menuChineseNm'
+                                         , 'scrnId', 'parmVal', 'iconNm', 'menuItmAtrbtNm1', 'menuItmAtrbtNm2', 'menuItmAtrbtNm3'
                                          , 'children','txTpDscd','pstnNbr','upSeqNbr']
                                 , id: 'CAPSV010TreeGrid'
                                 , expanded: true
@@ -355,9 +355,9 @@ define(
                                     , {text: bxMsg('cbb_items.AT#iconNm'), dataIndex: 'iconNm', editor: 'textfield', style: 'text-align:center', align: 'center', flex : 1}
                                     , {text: "", dataIndex: 'menuSeqNbr', hidden : true}
                                     , {text: "", dataIndex: 'menuId', hidden : true}
-                                    , {text: "", dataIndex: 'menuKoreanNm', hidden : true}
-                                    , {text: "", dataIndex: 'menuEngNm', hidden : true}
-                                    , {text: "", dataIndex: 'menuChineseNm', hidden : true}
+                                    , {text: "", dataIndex: 'menuItmAtrbtNm1', hidden : true}
+                                    , {text: "", dataIndex: 'menuItmAtrbtNm2', hidden : true}
+                                    , {text: "", dataIndex: 'menuItmAtrbtNm3', hidden : true}
                                     , {text: "", dataIndex: 'txTpDscd', hidden : true}
                                     , {text: "", dataIndex: 'pstnNbr', hidden : true}
                                     , {text: "", dataIndex: 'upSeqNbr', hidden : true}
@@ -369,9 +369,9 @@ define(
 	                             	          					if (record.data.scrnId === null || record.data.scrnId === '') {
 	                                                                record.appendChild({
 	                                                                    children: null,
-	                                                                    menuKoreanNm: "",
-	                                                                    menuEngNm: "",
-	                                                                    menuChineseNm: "",
+	                                                                    menuItmAtrbtNm1: "",
+	                                                                    menuItmAtrbtNm2: "",
+	                                                                    menuItmAtrbtNm3: "",
 	                                                                    scrnId: "",
 	                                                                    parmVal: "",
 	                                                                    menuNm : "",
@@ -430,15 +430,11 @@ define(
                                             } // end of beforeedit
 		                                    , 'afteredit': function (editor, e) {
 		                                    	if(e.field == 'menuNm' && e.record.data.txTpDscd==="C") {
-                                                	if ($.sessionStorage('lngCd') === 'ko') {
-                	                        			e.record.set("menuKoreanNm", e.record.get("menuNm"));
-                	                        		}
-                	                        		else if($.sessionStorage('lngCd') === 'en') {
-                	                        			e.record.set("menuEngNm", e.record.get("menuNm"));
-                	                        		}
-                	                        		else if($.sessionStorage('lngCd') === 'zh') {
-                	                        			e.record.set("menuChineseNm", e.record.get("menuNm"));
-                	                        		}
+		                                    		
+		                                    		// Register menu names of all languages.
+		                                    		e.record.set("menuItmAtrbtNm1", e.record.get("menuNm"));
+		                                    		e.record.set("menuItmAtrbtNm2", e.record.get("menuNm"));
+		                                    		e.record.set("menuItmAtrbtNm3", e.record.get("menuNm"));
                                                 	
                                                 }
 		                                    	if(e.record.data.txTpDscd==="R"){
@@ -806,9 +802,9 @@ define(
                              sub.menuNm = data.menuNm;
                              sub.menuSeqNbr=data.menuSeqNbr;
 
-                             sub.menuKoreanNm = data.menuKoreanNm;
-                             sub.menuEngNm = data.menuEngNm;
-                             sub.menuChineseNm = data.menuChineseNm;
+                             sub.menuItmAtrbtNm1 = data.menuItmAtrbtNm1;
+                             sub.menuItmAtrbtNm2 = data.menuItmAtrbtNm2;
+                             sub.menuItmAtrbtNm3 = data.menuItmAtrbtNm3;
                              
 
                              sub.parmVal = data.parmVal;
@@ -833,9 +829,9 @@ define(
                         		 sub.menuNm = data.menuNm;
                         		 sub.menuSeqNbr=data.menuSeqNbr;
                         		 
-                        		 sub.menuKoreanNm = data.menuKoreanNm;
-                        		 sub.menuEngNm = data.menuEngNm;
-                        		 sub.menuChineseNm = data.menuChineseNm;
+                        		 sub.menuItmAtrbtNm1 = data.menuItmAtrbtNm1;
+                        		 sub.menuItmAtrbtNm2 = data.menuItmAtrbtNm2;
+                        		 sub.menuItmAtrbtNm3 = data.menuItmAtrbtNm3;
                         		 
                         		 
                         		 sub.parmVal = data.parmVal;

@@ -1,6 +1,0 @@
-OMM bankware.corebanking.externalproxy.message.interfaces.dto.KtCbMsgReqBillInfoDetailOutSnk
-<description="KT CB정보 응답-반복부(청구납입정보) Out">
-{
-	String srvcCntrctNbr<length=11 description="대체일련번호">;
-	bankware.corebanking.externalproxy.message.interfaces.dto.KtCbMsgReqBillDtlOutSnk bill_dtl<length=0 arrayReference="100" description="청구상세내역">;
-}

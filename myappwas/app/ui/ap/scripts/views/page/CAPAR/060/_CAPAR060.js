@@ -764,7 +764,7 @@ define(
 	  	var that = this;
      	var sParam = {};
      	sParam.cmpntCd = "ARB";
-       	sParam.classLayerTp = "ARR_XTN_ATRBT";
+       	sParam.classLayerTp = "AR_XTN_ATRBT";
      	sParam.classNm = that.$el.find('#CAPAR060-base-table [data-form-param="xtnAtrbtClassNm2"]').val();          
      	console.log(sParam);
      	var popupClassSearch = new PopupClassSearch(sParam);
@@ -785,7 +785,7 @@ define(
 
 
                     this.$el.find(".CAPAR060-grid01").html(this.CAPAR060Grid01.render({'height': CaGridHeight}));
-                    this.$el.find(".CAPAR060-grid02").html(this.CAPAR060Grid02.render({'height': CaGridHeight}));
+                    this.$el.find(".CAPAR060-grid02").html(this.CAPAR060Grid02.render({'height': "240px"}));
                 } // end of createGrid
 
 

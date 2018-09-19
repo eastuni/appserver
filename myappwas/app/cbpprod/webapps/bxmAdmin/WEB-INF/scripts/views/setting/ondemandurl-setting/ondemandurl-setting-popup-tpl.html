@@ -1,0 +1,57 @@
+<div class="modal-wrap">
+	{{#if batchUrl}}
+	<h2 class="bw-tt a-center">{{bxMsg 'setting.batch-edit'}}({{batchUrl}})</h2>
+	{{/if}} {{#unless batchUrl}}
+	<h2 class="bw-tt a-center">{{bxMsg 'setting.batch-add'}}</h2>
+	{{/unless}}
+	<!--SEARCH AREA * 검색 영역-->
+	<section
+		class="search-wrap add-bd2-t fix-h bx-no-draggable batchurl-setting-form">
+		<ul class="clr">
+			<li class="w-66">
+				<div class="input-wrap asterisk clr">
+					<label class="bw-label w-20">{{bxMsg 'setting.batch-driving-url'}}</label>
+					{{#if batchUrl}} <input type="text" class="bw-input w-80" data-form-param="batchUrl" value="{{batchUrl}}" readonly />{{/if}}
+					{{#unless batchUrl}} <input type="text" class="bw-input w-80" data-form-param="batchUrl"/>{{/unless}}
+				</div>
+			</li>
+		</ul>
+		<ul class="clr">
+			<li class="w-33">
+				<div class="input-wrap clr">
+					<label class="bw-label w-40">{{bxMsg 'setting.url-type'}}</label>
+					<select class="bw-input ipt-select w-60 url-type-select" data-form-param="urlTypeCd" data-code="BXMAD0041"></select>
+				</div>
+			</li>
+			<li class="w-33">
+				<div class="input-wrap clr">
+					<label class="bw-label w-40">{{bxMsg 'setting.batch-url-type'}}</label> 
+					<select class="bw-input ipt-select w-60" data-form-param="batchUrlTypeCd" data-code="BXMAD0004"></select>
+				</div>
+			</li>
+			<li class="w-33">
+				<div class="input-wrap clr">
+					<label class="bw-label w-40">{{bxMsg 'setting.use-yn'}}</label>
+					<select class="bw-input ipt-select w-60" data-form-param="useYn">
+						<option value="Y">Y</option>
+						<option value="N">N</option>
+					</select>
+				</div>
+			</li>
+		</ul>
+		<ul class="clr">
+			<li class="w-99">
+				<div class="input-wrap clr">
+					<label class="bw-label w-13">{{bxMsg 'setting.description'}}</label>
+					<input type="text" class="bw-input w-87" data-form-param="batchUrlDesc" value="{{batchUrlDesc}}" />
+				</div>
+			</li>
+		</ul>
+	</section>
+	<!--/END SEARCH AREA-->
+	<div class="btn-wrap add-mg bx-no-draggable">
+		<button type="button" class="bw-btn-txt on save-batchurl-btn">{{bxMsg 'common.save'}}</button>
+		<button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+	</div>
+	<button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

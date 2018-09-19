@@ -1,31 +1,9 @@
 namespace,cbb_err_msg
-AAPLNE0121, 
 AUIACE0001,系统错误。请向交易负责人咨询。 
-AUIACE0006, 
-AUIACE0007, 
-AUIACE0008, 
-AUIACE0009, 
-AUIACE0010, 
 AUIACE0011,没有您要执行的结算步骤。 请选择并再次运行。
 AUIACE0012,只有在结算步骤完成后才能执行。 处理结束后请重试。
+AUIACE0018,部分转账金额应小于取款金额。 请检查输入量。
 AUIARE0001,合约计划只有在合约状态为 
-AUIARE0003, 
-AUIARE0004, 
-AUIASE0001, 
-AUIASE0002, 
-AUIASE0003, 
-AUIASE0004, 
-AUIASE0005, 
-AUIASE0006, 
-AUIASE0007, 
-AUIASE0008, 
-AUIASE0009, 
-AUIASE0010, 
-AUIASE0011, 
-AUIASE0012, 
-AUIASE0013, 
-AUIASE0014, 
-AUIASE0015, 
 AUIATE0001,授权号码已经发出。请输入授权号码。 
 AUIATE0002,授权完成。 
 AUIATE0003,授权失败。 请检查输入值。
@@ -45,9 +23,6 @@ AUIATE0020,没有登入Risk Appetite信息。是否要登入此信息？
 AUIATE0021,密码必须由英文字母、数字、符号中两个以上组成。 
 AUIATE0022,密码必须输入6～20位。  
 AUIATE0026,下一个输入值全部输入或输入不全 
-AUIATE0032, 
-AUIATE0033, 
-AUIATE0034, 
 AUICME0001,不能使用大括号。 请删除大括号。
 AUICME0002,没有可删除的信息。 检查删除的错误信息。
 AUICME0003,包含服务器没有的信息。 检查信息。
@@ -90,25 +65,6 @@ AUICME0043,时间格式不正确。 请确认输入值。
 AUICME0044,There is no inserting data. Please check input value.
 AUICME0045,확인해주세요.테스트 확인해주세요.테스트
 AUICME0051,为了新注册批处理实例可是不见批处理 输入必准批处理名还是新注册批处理
-AUICME0052, 
-AUICME0053, 
-AUICME0054, 
-AUICME0055, 
-AUICME0056, 
-AUICME0057, 
-AUICME0058, 
-AUICME0059, 
-AUICME0060, 
-AUICME0061, 
-AUICME0062, 
-AUICME0063, 
-AUICME0064, 
-AUICME0065, 
-AUICME0066, 
-AUICME0067, 
-AUICME0068, 
-AUICME0069, 
-AUICME0070, 
 AUICUE0001,身份证号码太短。 请输入至少大于六位的有效身份证。
 AUICUE0002,身份证号码太长。 请输入10位以内的有效身份证。
 AUICUE0003,输入值长度有误。 请检查输入值长度。
@@ -159,17 +115,11 @@ AUILNE0022,申请期限为必输项。 请输入申请期限。
 AUILNE0026,申请信用申请时，无法输入筛选标识。 
 AUILNE0027,选择贷款申请区分 
 AUILNE0028,无论是相关交易取消的主要服务是强制性的检查. 
-AUILNE0029, 
-AUILNE0030, 
-AUIPDE0004, 
-AUIPDE0005, 
-AUIPDE0006, 
 AUISCE0004,未选择合约。 请选择合约。
 AUISCE0015,您输入的贷款金额已超过最高可贷金额， 请重新输入。
 AUISCE0016,已审批合约不可更改。 请确认已选合约。
 AUISCE0020,只允许选择一个合约。 请确认已选合约。
 AUISCE0025,贷款发放金额应大于0。 请确认输入值。
-AUISCE0027, 
 AUISVE0001,系统内有重复值。 请删除重复值。
 AUISVE0003,JSON输入格式不正确。 请确认JSON输入值。
 BUIATE0001,您未进行风险评估。是否要进行评估？ 

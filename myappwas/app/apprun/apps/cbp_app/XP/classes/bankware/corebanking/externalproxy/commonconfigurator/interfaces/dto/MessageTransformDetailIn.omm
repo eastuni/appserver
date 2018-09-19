@@ -1,6 +1,0 @@
-OMM bankware.corebanking.externalproxy.commonconfigurator.interfaces.dto.MessageTransformDetailIn
-<description="">
-{
-	String msgTrnsfrmId<length=50 description="메시지변환식별자">;
-	bankware.corebanking.externalproxy.commonconfigurator.interfaces.dto.MessageTransformDetailSub subList<length=0 arrayReference="1000" description="필드변환정보">;
-}

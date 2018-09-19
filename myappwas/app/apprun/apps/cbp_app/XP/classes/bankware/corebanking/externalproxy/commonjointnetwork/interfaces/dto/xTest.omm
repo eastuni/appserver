@@ -1,7 +1,0 @@
-OMM bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.xTest
-<description=" ">
-{
-	String custId<length=200 description="주메시지">;
-	Integer arrId<length=2 description="부가메시지 반복횟수">;
-	bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.EAICallSvcSubMsgDto sss<length=0 arrayReference="arrId" description="부가메시지 dto">;
-}

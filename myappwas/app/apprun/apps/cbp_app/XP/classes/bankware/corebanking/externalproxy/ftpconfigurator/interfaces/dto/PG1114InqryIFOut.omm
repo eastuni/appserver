@@ -1,7 +1,0 @@
-OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.PG1114InqryIFOut
-<description="">
-{
-	Integer listCnt<length=8 description="목록건수">;
-	bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.PG1114InqryIFSub list<length=20 arrayReference="listCnt" description="PG업무출금및입금내역(월보)">;
-	Integer totCnt<length=8 description="전체건수">;
-}

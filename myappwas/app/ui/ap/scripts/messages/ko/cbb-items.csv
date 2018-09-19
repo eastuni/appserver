@@ -1,8 +1,8 @@
 namespace,cbb_items
 AT#abrvtnDmnEngNm,도메인영문속성
-AT#abrvtnDmnGrpCd,
-AT#abrvtnDmnHangulNm,
-AT#abrvtnDmnNm,
+AT#abrvtnDmnGrpCd,속성도메인그룹코드
+AT#abrvtnDmnHangulNm,속성도메인한글명
+AT#abrvtnDmnNm,속성도메인명
 AT#accrualBasisYn,발생주의적용여부
 AT#accrualYn,발생주의여부
 AT#accruedBalOvrduIntAmt,미수잔액연체이자금액
@@ -37,7 +37,7 @@ AT#acctNbrgRuleClassNm,계좌채번규칙클래스명
 AT#acctNckNm,계좌별명
 AT#acctNm,계좌명
 AT#acctOpnCnt,계좌개설건수
-AT#acctOpnStampTax,계좌개설인지세       
+AT#acctOpnStampTax,계좌개설인지세
 AT#acctOwnrDt,예금주생일자
 AT#acctOwnrNm,예금주명
 AT#acctPswd,계좌비밀번호
@@ -54,13 +54,13 @@ AT#acctgBrnchCd,회계부점코드
 AT#acctgCd,계정코드
 AT#acctgCrncyCd,회계통화코드
 AT#acctgDeptId,회계부서식별자
-AT#acctgDmnthAcmltdAmt,계리월중누계액
+AT#acctgDmnthAcmltdAmt,계리월중적수금액
 AT#acctgDmnthDmstcAcmltdAmt,계리월중국내통화누계액
 AT#acctgDmstcAmt,회계원화금액
 AT#acctgDmstcCrncyBal,계리국내통화잔액
 AT#acctgDscd,회계구분코드
 AT#acctgDstnctnNm,계정구분
-AT#acctgDtrmAcmltdAmt,계리기중누계액
+AT#acctgDtrmAcmltdAmt,계리기중적수금액
 AT#acctgDtrmDmstcAcmltdAmt,계리기중국내통화누계액
 AT#acctgExmptnAmt,회계처리면제금액
 AT#acctgFrgnAmt,회계외화금액
@@ -95,9 +95,11 @@ AT#acptncFeeLevyDt,인수수수료징수년월일
 AT#acptncFeeRt,인수수수료율
 AT#acptncInfoCntnt,접수정보
 AT#acptncNewCnt,은행접수신규건수
-AT#acptncRspsnId,
+AT#acptncRspsnId,접수담당자ID
 AT#acptncStaffId,위임받는스태프식별자
 AT#acstnAcptncYn,고소장접수여부
+AT#actinPrgrsYn,경매진행여부
+AT#actinRgstrnInpDt,경매등기기입년월일
 AT#actinScsflBddrNm,경매낙찰인명
 AT#actinWinBidAmt,경매낙찰금액
 AT#actinWinBidDt,경매낙찰일자
@@ -148,6 +150,7 @@ AT#actualRcptAmt,실수납액
 AT#actualRsltEvltnSumScore,실적평가합계점수
 AT#actualTrnsfrAmt,실제이체금액
 AT#actvBtnVal,활성버튼
+AT#actvButtonVal,활성버튼값
 AT#actvStsCd,활동상태코드
 AT#actvUserYn,활동사용자여부
 AT#actvYn,활동여부
@@ -223,6 +226,7 @@ AT#afChngCntnt,변경후내용
 AT#afChngCustId,변경후고객식별자
 AT#afChngCustNm,변경후고객명
 AT#afChngCustUnqIdNbr,변경후실명번호
+AT#afChngDvdndAmt,변경후배당금액
 AT#afChngExprtnDt,변경후유효기일년월일
 AT#afChngLessRt,변경후LESS율
 AT#afChngMoreRt,변경후MORE율
@@ -241,12 +245,13 @@ AT#afDlyRpymntDt,연기후상환일자
 AT#afLastAprvlDt,최종승인일(이후)
 AT#afMtrtyOvrduYn,만기후연체여부
 AT#afOpnDt,신규년월일(이후)
+AT#afOvrduRpymntAmt,연체후상환금액
 AT#afPrcsngInfoCntnt,후처리정보
 AT#afPrdAmt,납기후금액
 AT#afPymntAgrmntBal,지급후약정잔액
 AT#afRdpstIntCalcnWhdrwlSumAmt,이자계산재예치후출금합산액
 AT#afTdyFrstUnpdDt,금일이후첫미지급일자
-AT#afTxBalAmt,
+AT#afTxBalAmt,거래후잔액
 AT#afTxInfoJson,거래후정보JSON
 AT#age,연령
 AT#agrmntAmt,약정금액
@@ -254,10 +259,10 @@ AT#agrmntAmtInqryYn,약정금액조회여부
 AT#agrmntBal,약정잔액
 AT#agrmntDocId,동의문서식별자
 AT#agrmntDocIssueId,동의문서발행식별자
-AT#agrmntDt,동의일자
+AT#agrmntDt,동의년월일
 AT#agrmntGoalCd,동의목적코드
 AT#agrmntHms,동의시분초
-AT#agrmntIntRt,약정금리
+AT#agrmntIntRt,약정이율
 AT#agrmntMkngDt,합의서작성일자
 AT#agrmntMndtryYn,동의필수여부
 AT#agrmntRt,약정이율
@@ -279,6 +284,9 @@ AT#aliasNm,별칭명
 AT#allotAmt,할부금액
 AT#allotAmtPerMnth,월별할부금액
 AT#allotCnt,할부건수
+AT#allwncBaseDt,충당금기준년월일
+AT#allwncRt,충당율
+AT#allwncSumAmt,충당금합계금액
 AT#alncCdAutoTlrMachineFeeAmt,제휴CDATM대행수수료
 AT#alncCmpnyTxUnqNbr,제휴사거래고유번호
 AT#alncCntrctNbr,제휴계약번호
@@ -331,10 +339,12 @@ AT#anlzdSalesAmt,연간매출액
 AT#answerCntnt,답변내용
 AT#answerTrgtId,답변대상식별자
 AT#answerTrgtTpCd,답변대상유형코드
+AT#apUseYn,AP사용여부
 AT#aplcntNm,개설의뢰인명
 AT#aplctnAcctNbr,신청계좌번호
 AT#aplctnAcptncBrnchCd,신청서접수점코드
 AT#aplctnAmt,신청금액
+AT#aplctnAprvlNbr,신청승인번호
 AT#aplctnArrId,신청계약식별자
 AT#aplctnBnkCd,신청은행코드
 AT#aplctnCd,어플리케이션코드
@@ -347,13 +357,14 @@ AT#aplctnDscd,신청구분코드
 AT#aplctnDt,신청일자
 AT#aplctnFailrCnt,신청오류건수
 AT#aplctnFeeQryYn,신청 수수료 조회 여부
-AT#aplctnHms,신청시각
+AT#aplctnHms,신청시분초
 AT#aplctnId,어플리케이션 ID
 AT#aplctnInfoCntnt,신청정보
 AT#aplctnNbr,신청번호
 AT#aplctnNm,어플리케이션명
 AT#aplctnPersonNm,신청인명
 AT#aplctnPrcsDscd,신청진행구분코드
+AT#aplctnQualityClCd,신청건전성분류코드
 AT#aplctnRsltCd,신청결과코드
 AT#aplctnRsltFailrCnt,신청결과오류건수
 AT#aplctnSeqNbr,신청일련번호
@@ -374,7 +385,9 @@ AT#aplyCltrlRcgntnRt,적용담보인정비율
 AT#aplyCndVal,적용조건값
 AT#aplyDescCntnt,적용사유
 AT#aplyDt,적용일자
+AT#aplyDtm,적용일시
 AT#aplyEndDt,적용종료일자
+AT#aplyEndDtm,적용종료일시
 AT#aplyEndHms,적용종료시간
 AT#aplyEndTmstmp,적용종료년월일시
 AT#aplyExRt,적용환율
@@ -382,6 +395,7 @@ AT#aplyExRtBaseDt,적용환율기준일자
 AT#aplyExRtDscd,적용환율구분코드
 AT#aplyExRtNth,적용환율회차
 AT#aplyFeeRt,적용수수료율
+AT#aplyHms,적용시간
 AT#aplyIntRt,적용금리
 AT#aplyIntRtInqryYn,적용금리조회여부
 AT#aplyIntRtKndCd,적용금리종류코드
@@ -397,7 +411,7 @@ AT#aplyMinIntRt,적용최소금리
 AT#aplyPrfIntRt,적용우대금리
 AT#aplyPrfRt,적용우대율
 AT#aplyPswdVldtnRuleCntnt,적용비밀번호검증규칙
-AT#aplyRt,적용이율
+AT#aplyRt,적용율
 AT#aplyRuleCntnt,적용규칙
 AT#aplyRuleId,적용규칙ID
 AT#aplySeq,적용순서
@@ -406,11 +420,17 @@ AT#aplyStartDtTm,적용시작년월일시
 AT#aplyStartHms,적용시작시간
 AT#aplyStartTmstmp,적용시작년월일시
 AT#aplyTaxRt,적용세율
+AT#aplyTmstmp,적용일시
 AT#aplyTrgtAmtDscd,적용대상금액구분
 AT#aplyYn,적용여부
 AT#appendFeeAmt,추가수수료금액
 AT#appendFeeCnt,추가수수료건수
+AT#applAplctnRsltCd,항고신청결과코드
+AT#applCloseDt,항고종국년월일
+AT#applDropDt,항고취하년월일
 AT#applDt,항고일자
+AT#applPrgrsCnfrmtnDt,항고진행확정년월일
+AT#applRsnCntnt,항고사유내용
 AT#applYn,항고여부
 AT#appliedArrInqryYn,신청상태계약조회여부
 AT#aprslAmt,감정금액
@@ -475,8 +495,8 @@ AT#aprvlCnclDtlHms,승인취소상세시각
 AT#aprvlCnclRsnCd,승인취소사유코드
 AT#aprvlCndCd,승인조건코드
 AT#aprvlCndDscd,결재조건구분코드
-AT#aprvlCndNbr,승인조건번호
-AT#aprvlCndUseYn,승인조건사용여부
+AT#aprvlCndNbr,결재조건번호
+AT#aprvlCndUseYn,결재조건사용여부
 AT#aprvlCntnt,승인내용
 AT#aprvlDemandDeptId,승인요청부서식별자
 AT#aprvlDemandDeptNm,승인요청부서명
@@ -496,7 +516,7 @@ AT#aprvlHms,승인시간
 AT#aprvlId,승인식별자
 AT#aprvlLineNbr,결재선번호
 AT#aprvlLineNm,결재선명
-AT#aprvlLvlNbr,승인레벨번호
+AT#aprvlLvlNbr,결재레벨번호
 AT#aprvlMrchntNbr,승인가맹점번호
 AT#aprvlMsgDscd,승인전문구분코드
 AT#aprvlNbr,승인번호
@@ -504,6 +524,7 @@ AT#aprvlOpnnCntnt,승인의견내용
 AT#aprvlPiamt,체킹
 AT#aprvlPrhbtnRsnCntnt,승인불가사유
 AT#aprvlPtrnDscd,결재패턴구분
+AT#aprvlQualityClCd,승인건전성분류코드
 AT#aprvlRgstrnStepId,결재라인등록스탭식별자
 AT#aprvlRgstrnStepNm,결재라인등록스탭명
 AT#aprvlRjctCntnt,승인거절내용
@@ -527,14 +548,14 @@ AT#aprvlStgePrcsSeqNbr,결재단계처리일련번호
 AT#aprvlStgeStsCd,결재단계상태코드
 AT#aprvlStsCd,승인상태
 AT#aprvlTmpltDscd,승인템플릿구분코드
-AT#aprvlTmpltId,승인템플릿식별자
+AT#aprvlTmpltId,결재템플릿식별자
 AT#aprvlTmpltLvlCd,승인템플릿레벨코드
 AT#aprvlTmpltLvlNbr,승인템플릿레벨번호
-AT#aprvlTmpltNm,승인템플릿명
-AT#aprvlTmstmp,승인일시
+AT#aprvlTmpltNm,결재템플릿명
+AT#aprvlTmstmp,승인타임스탬프
 AT#aprvlTpCd,승인유형
 AT#aprvlTrgtBizIdCntnt,승인대상업무식별키내용
-AT#aprvlTrgtSrvcCd,결재대상서비스코드
+AT#aprvlTrgtSrvcCd,승인대상서비스코드
 AT#aprvlTxDscd,승인거래구분
 AT#aprvlVldtnRqstCd,승인조건코드
 AT#aprvlVldtnRqstDtlCntnt,승인조건상세내용
@@ -545,7 +566,7 @@ AT#aptNm,아파트명
 AT#aptPriceSrcClCd,아파트시세원천구분코드
 AT#arbtrgRt,재정환율
 AT#areaCntnt,면적내용
-AT#areaKndCntnt,면적종류설명
+AT#areaKndCntnt,면적종류내용
 AT#areaKndDescCntnt,면적종류설명내용
 AT#areaNbrAddr,지번주소
 AT#areaSeqNbr,지역일련번호
@@ -578,6 +599,7 @@ AT#arrArrRelSeqNbr,계약계약관계일련번호
 AT#arrArrRelStsCd,계약계약관계상태코드
 AT#arrArrRelStsChngRsnCd,계약계약관계상태변경사유코드
 AT#arrAssetRelCd,계약자산관계코드
+AT#arrAssetRelSeqNbr,계약자산관계일련번호
 AT#arrAssetRelStsCd,계약자산관계상태코드
 AT#arrAssetRelStsChngRsnCd,계약자산관계상태변경사유코드
 AT#arrAtrbtValAdtnlKeyCntnt,계약속성값추가키내용
@@ -591,6 +613,7 @@ AT#arrBaseAcctgItmCd,계약기준계정과목코드
 AT#arrBnftRelSeqNbr,계약혜택관계일련번호
 AT#arrBnftRelStsCd,계약혜택관계상태코드
 AT#arrBnftRelStsChngRsnCd,계약혜택관계상태변경사유코드
+AT#arrBnftRelStsRsnCd,계약혜택관계상태사유코드
 AT#arrBrnchRelCd,계약부점관계코드
 AT#arrBrnchRelSeqNbr,계약부점관계일련번호
 AT#arrBrnchRelStsCd,계약부점관계상태코드
@@ -633,14 +656,14 @@ AT#arrDtlTrmntnDscd,계약상세해지구분
 AT#arrEddSeqNbr,계약EDD일련번호
 AT#arrEmplRelCd,계약직원관계코드
 AT#arrEmplRelSeqNbr,계약직원관계일련번호
-AT#arrEmplRelStsCd,
-AT#arrEmplRelStsChngRsnCd,
+AT#arrEmplRelStsCd,계약직원관계상태코드
+AT#arrEmplRelStsChngRsnCd,계약직원관계상태변경사유코드
 AT#arrEtcInfoCntnt,계약기타정보내용
 AT#arrEtcInfoDsNm,계약기타정보구분명
 AT#arrExtrnlIdNbr,계약외부식별번호
 AT#arrExtrnlIdNbrSeqNbr,계약외부식별번호일련번호
 AT#arrExtrnlIdNbrStsCd,계약외부식별번호상태코드
-AT#arrExtrnlIdNbrStsRsnCd,계약외부식별번호상태변경사유코드
+AT#arrExtrnlIdNbrStsRsnCd,계약외부식별번호상태사유코드
 AT#arrExtrnlIdNbrStsSeqNbr,계약외부식별번호상태일련번호
 AT#arrExtrnlIdNbrTpCd,계약외부식별번호유형
 AT#arrFinYn,정리완료여부
@@ -651,7 +674,7 @@ AT#arrGrpArrRelStsRsnCd,계약그룹계약관계상태사유코드
 AT#arrGrpAtrbtNm,계약그룹속성명
 AT#arrGrpAtrbtSeqNbr,계약그룹속성일련번호
 AT#arrGrpAtrbtStsCd,계약그룹속성상태코드
-AT#arrGrpAtrbtStsSeqNbr,계약그룹상태일련번호
+AT#arrGrpAtrbtStsSeqNbr,계약그룹속성상태일련번호
 AT#arrGrpAtrbtValJson,계약그룹속성값제이슨
 AT#arrGrpDescCntnt,계약그룹설명내용
 AT#arrGrpId,계약그룹식별자
@@ -681,7 +704,7 @@ AT#arrIssmdaInhrncId,계약발급매체고유식별자
 AT#arrIssmdaPrflAtrbtDescCntnt,계약발급매체프로파일속성설명내용
 AT#arrIssmdaPrflAtrbtNm,계약발급매체프로파일속성명
 AT#arrIssmdaPrflCntnt,계약발급매체프로파일내용
-AT#arrIssmdaPrflDescCntnt,계약발급매체프로파일설명
+AT#arrIssmdaPrflDescCntnt,계약발급매체프로파일설명내용
 AT#arrIssmdaPrflNm,계약발급매체프로파일명
 AT#arrIssmdaPsbkMsgSeqNbr,계약발급매체통장메시지일련번호
 AT#arrIssmdaRelSeqNbr,계약발급매체관계일련번호
@@ -722,6 +745,10 @@ AT#arrPlnStsChngRsnCd,계약계획상태변경사유코드
 AT#arrPrprtnAdtnStsCd,계약준비추가상태코드
 AT#arrPrprtnStepAdtnStsCd,계약준비단계추가상태코드
 AT#arrPrprtnStepStsCd,계약준비단계상태코드
+AT#arrPrtnrRelCd,계약파트너관계코드
+AT#arrPrtnrRelSeqNbr,계약파트너관계일련번호
+AT#arrPrtnrRelStsCd,계약파트너관계상태코드
+AT#arrPrtnrRelStsChngRsnCd,계약파트너관계상태변경사유코드
 AT#arrPsbkBkgSeqNbr,계약통장기장일련번호
 AT#arrPsbkEventSeqNbr,계약통장이벤트일련번호
 AT#arrRelCd,계약관계코드
@@ -731,6 +758,7 @@ AT#arrRelNm,계약관계명
 AT#arrRelSeqNbr,계약관계일련번호
 AT#arrRelStartDt,계약관계시작일자
 AT#arrRelStsCd,계약관계상태코드
+AT#arrRelStsChngRsnCd,계약관계상태변경사유코드
 AT#arrResrcRelCd,계약자원관계코드
 AT#arrResrcRelStsCd,계약자원관계상태코드
 AT#arrResrcRelStsChngRsnCd,계약자원관계상태변경사유코드
@@ -762,17 +790,18 @@ AT#arrSrvcBlckngStsRsnCd,계약서비스제한상태사유코드
 AT#arrSrvcBlckngTrgtNcsrTrgtCntnt,계약서비스제한대상내용
 AT#arrSrvcBlckngTrgtNcsrYn,계약서비스제한대상필요여부
 AT#arrSrvcCd,계약서비스코드
+AT#arrSrvcCmpntCd,계약서비스컴포넌트코드
 AT#arrSrvcTpCd,계약서비스유형
 AT#arrSrvcTpNm,계약서비스유형명
 AT#arrStaffRelCd,계약스태프관계코드
 AT#arrStaffRelSeqNbr,계약스태프관계일련번호
-AT#arrStaffRelStsCd,계약직원관계상태코드
-AT#arrStaffRelStsChngRsnCd,계약직원관계상태변경사유코드
+AT#arrStaffRelStsCd,계약스태프관계상태코드
+AT#arrStaffRelStsChngRsnCd,계약스태프관계상태변경사유코드
 AT#arrStrctrQryCd,계약구조조회코드
 AT#arrStsCd,계약상태
 AT#arrStsCdNm,계약상태코드명
 AT#arrStsChngDt,계약상태변경일자
-AT#arrStsChngRsnBizCd,계야상태변경사유업무코드
+AT#arrStsChngRsnBizCd,계약상태변경사유업무코드
 AT#arrStsChngRsnBizCdNbr,계약상태변경사유업무코드번호
 AT#arrStsChngRsnCd,상태변경사유
 AT#arrStsChngRsnRmkCntnt,계약상태변경사유비고내용
@@ -804,7 +833,7 @@ AT#asMainYn,주계약여부
 AT#ascndngSortYn,오름차순정렬여부
 AT#asctTxDpstWhdrwlDscd,연관거래입출금구분코드
 AT#asctTxPrcsDt,연관거래처리년월일
-AT#asctTxPrcsHms,연관거래프로세스시분초
+AT#asctTxPrcsHms,연관거래처리시분초
 AT#asctTxPrcsngDt,연관거래처리일자
 AT#asctTxPrcsngHm,연관거래처리시간
 AT#asctTxPrcsngHms,연관거래처리시분초
@@ -829,13 +858,15 @@ AT#asmItmTpCd,심사항목유형
 AT#asmItmVal,심사항목값
 AT#asmKndCd,심사종류코드
 AT#asmStsCd,심사상태
+AT#assGradeCd,ASS등급코드
+AT#assScore,ASS점수
 AT#assetAcqstnClCd,자산취득구분코드
 AT#assetAddrRegionClCd,자산지역분류코드
 AT#assetAddrRegionClCrtrCd,자산지역분류기준코드
 AT#assetAddrRegionClCrtrNm,자산지역분류기준명
 AT#assetAddrRegionClNm,자산지역분류명
 AT#assetAddrTpCd,자산주소유형
-AT#assetAlctnPrity,
+AT#assetAlctnPrity,자산배분순위
 AT#assetAndScrtyIntStsCd,자산설정상태코드
 AT#assetAndScrtyIntTxDscd,자산설정거래구분코드
 AT#assetAprslRelStsCd,자산감정관계상태코드
@@ -947,12 +978,13 @@ AT#atmtcPymntCnt,자동납부건수
 AT#atmtcRdpstAblCnt,자동재예치가능횟수
 AT#atmtcRdpstExctnCnt,자동재예치실행횟수
 AT#atmtdMachineTxDscd,자동화기기거래구분코드
+AT#atrbtCntnt,속성내용
 AT#atrbtCntntStsCd,속성내용상태코드
-AT#atrbtDescCntnt,속성설명
+AT#atrbtDescCntnt,속성설명내용
 AT#atrbtDfntnCntnt,속성정의내용
 AT#atrbtDmnEngNm,속성도메인영문명
 AT#atrbtDmnGrpCd,속성도메인그룹코드
-AT#atrbtDmnHangulNm,속성 도메인한글명
+AT#atrbtDmnHangulNm,속성도메인한글명
 AT#atrbtDmnKorNm,속성도메인한글명
 AT#atrbtDmnNm,속성도메인명
 AT#atrbtDscd,속성구분코드
@@ -965,9 +997,9 @@ AT#atrbtNmNrmlCrtnFinYn,속성 명 일반 생성 완료 여부
 AT#atrbtStartVal,속성시작값
 AT#atrbtTpCd,속성타입코드
 AT#atrbtVal,속성값
-AT#atrbtVldtnRuleCntnt,속성검증규칙
+AT#atrbtVldtnRuleCntnt,속성검증규칙내용
 AT#atrbtVldtnWayCd,속성검증방법코드
-AT#atrbtVldtnXtnRuleCntnt,속성검증확장규칙
+AT#atrbtVldtnXtnRuleCntnt,속성검증확장규칙내용
 AT#atrctnPathCd,유치경로
 AT#atrlAtrlCd,액터역할액터역할관계코드
 AT#atrlAtrlRelCd,액터역할액터역할관계코드
@@ -983,12 +1015,14 @@ AT#atrlDeptRelStsRsnCd,액터역할부서관계상태사유코드
 AT#atrlDeptRelStsRsnCntnt,액터역할부서관계상태사유내용
 AT#atrlDeptRelTpCd,액터역할부서관계유형코드
 AT#atrlId,액터역할식별자
+AT#atrlParmSeqNbr,액터역할파라미터일련번호
+AT#atrlParmStsCd,액터역할파라미터상태코드
 AT#atrlSeqNbr,액터역할일련번호
 AT#attemptNth,시도회차
 AT#auditTrgtYn,감사대상여부
 AT#authCd,인증코드
-AT#authDemandTmstmp,인증요청일시
-AT#authEfctvEndTmstmp,인증유효종료일시
+AT#authDemandTmstmp,인증요청타임스탬프
+AT#authEfctvEndTmstmp,인증유효종료타임스탬프
 AT#authEfctvTrmCd,인증유효기간코드
 AT#authErrAllwncCnt,인증에러허용횟수
 AT#authErrAtmptCnt,인증에러시도횟수
@@ -1013,12 +1047,13 @@ AT#autoRpymntYn,자동상환여부
 AT#autoTrnsfrStsCd,자동이체상태코드
 AT#autoTrnsfrWhdrwlAcctNbr,자동이체출금계좌번호
 AT#avgInvstmntAmt,평균투자금액
+AT#avgScsflBidValRt,평균낙찰가율
 AT#avlblCltrlAmt,가용담보금액
-AT#avlblYm,
+AT#avlblYm,유효년월
 AT#backupDscd,백업구분코드
 AT#backupPath,백업경로
 AT#bal,잔액
-AT#balAmt,잔액
+AT#balAmt,잔액금액
 AT#balChkAmt,타점권금액
 AT#balChngHstMgmtYn,잔액변경이력관리여부
 AT#balCrtfctIssueDt,잔액증명서발급일자
@@ -1033,7 +1068,7 @@ AT#balRflctnSkpYn,잔액반영제외여부
 AT#balRflctnYn,잔액반영여부
 AT#balSeqNbr,잔액일련번호
 AT#balSignCd,잔액부호코드
-AT#balTpCd,잔액유형
+AT#balTpCd,잔액유형코드
 AT#balTpCdNm,잔액유형코드명
 AT#balTpDscd,잔액유형구분
 AT#balTpNm,잔액유형명
@@ -1042,10 +1077,12 @@ AT#balUpdtDpstWhdrwlDscd,잔액갱신대상입출구분
 AT#balUpdtWayCd,잔액갱신방법코드
 AT#balVrfctnInqryDscd,잔액대사조회구분
 AT#bankingChargeBurdenDscd,BANKINGCHARGE부담구분코드
-AT#bannerImgUrl,bannerImgUrl
-AT#bannerNm,banner name
+AT#bannerImgUrl,배너이미지URL
+AT#bannerNm,배너명
 AT#bannerTpCd,배너유형코드
+AT#baseAmt,기본금액
 AT#baseCndCd,기준조건코드
+AT#baseCndNm,기준조건명
 AT#baseCrncyCashAmt,기준통화현금금액
 AT#baseCrncyCashTxAmt,기준통화현금거래금액
 AT#baseCrncyCd,기준통화코드
@@ -1073,6 +1110,7 @@ AT#baseIntRtAplyWayCd,기준금리적용방식코드
 AT#baseIntRtAplyWayDscd,기준금리적용방식구분
 AT#baseIntRtAplyWayDscdNm,기준금리적용방식구분코드명
 AT#baseIntRtCd,기준금리코드
+AT#baseIntRtDataTpDscd,기준금리데이터유형구분코드
 AT#baseIntRtDt,기준금리년월일
 AT#baseIntRtKndCd,기준금리종류코드
 AT#baseIntRtKndCdNm,기준금리종류코드명
@@ -1122,18 +1160,22 @@ AT#batchSeqNbr,배치일련번호
 AT#batchSndRcvdDscd,뱃치송수신구분코드
 AT#batchTxCd,배치거래코드
 AT#bathCnt,욕실수
-AT#bckgrndColorVal,배경색
-AT#bdyVal,바디
+AT#bckgrndColorVal,배경색값
+AT#bdtalAcctgItmCd,대손충당금계정과목코드
+AT#bdtalAcmltnAmt,대손충당적립금액
+AT#bdtalCalcnTrgtAmt,대손충당산출대상금액
+AT#bdyVal,바디값
 AT#beanNm,빈명
 AT#beginAmt,착수금액
 AT#bfAcctgBal,전일계리잔액
+AT#bfAddr,이전주소
 AT#bfAddrHrarcyCd,이전주소체계코드
 AT#bfAddrId,이전주소식별자
 AT#bfAplctnDt,이전신청년월일
 AT#bfArrExtrnlIdNbr,이전계약외부식별번호
 AT#bfAtrbtCntnt,이전속성내용
 AT#bfAtrlAtrlRelStsCd,변경전액터역할액터역할관계상태코드
-AT#bfAtrlDeptRelStsCd,변경전액터역할부서관계상태코드
+AT#bfAtrlDeptRelStsCd,변경전액터역할부서상태코드
 AT#bfBaseDt,전기준일
 AT#bfBfBizDt,전전영업일자
 AT#bfBfDt,전전일자
@@ -1153,6 +1195,7 @@ AT#bfChngAtrbtCntnt,변경전속성내용
 AT#bfChngAtrbtNm,변경전속성명
 AT#bfChngBal,변경전잔액
 AT#bfChngBalDt,변경전잔액일자
+AT#bfChngBondRpymntStrtgCd,변경전채권회수전략코드
 AT#bfChngCardId,교체전카드식별자
 AT#bfChngClAmt,변경전분류금액
 AT#bfChngCndCdCntnt,변경전조건코드내용
@@ -1208,12 +1251,14 @@ AT#bfPrcsngInfoCntnt,전처리정보
 AT#bfPrdAmt,납기내금액
 AT#bfRelStartDt,이전관계시작일자
 AT#bfRltdAcctNbr,이전관련계좌번호
+AT#bfRprsnId,변경전관련인식별자
 AT#bfStlmntDt,전결산일자
 AT#bfStlmntNxtDt,전결산익일
 AT#bfTrnsfrAcctgBal,전일대체계리잔액
 AT#bfTxInfoJson,거래전정보JSON 
-AT#bfXtnAtrbtCntnt,이전확장속성내용
+AT#bfXtnAtrbtCntnt,변경전확장속성내용
 AT#bfYrEndBal,전년말잔액
+AT#bfZipCd,이전우편번호
 AT#bfchngCardNbr,변경전카드번호
 AT#bic,SWIFT은행식별코드[BIC]
 AT#bicBnkNm,BIC은행명
@@ -1235,7 +1280,7 @@ AT#biddingTmstmp,입찰 일시
 AT#biddingTrmCnt,입찰 기간
 AT#bigMnyObtrRcpntInquireTxUnqNbr,거액타행이체수취조회거래고유번호
 AT#billAddr,청구주소
-AT#billAmt,Bill Amount
+AT#billAmt,청구금액
 AT#billCtgryAmt,권종금액
 AT#billCtgryCd,권종코드
 AT#billCtgryCnt,권종매수
@@ -1260,7 +1305,7 @@ AT#billZipCd,청구우편번호
 AT#binId,빈식별자
 AT#bindCardInqryYn,연결카드조회여부
 AT#bindTpCd,연계유형
-AT#birthDay,
+AT#birthDay,생일
 AT#birthDt,생년월일
 AT#birthFrstHousePrchsFundsYn,생애최초주택구입자금여부
 AT#bizCd,업무코드
@@ -1270,7 +1315,7 @@ AT#bizClsgDeptCnt,업무마감부점수
 AT#bizClsgDt,업무마감일자
 AT#bizClsgHms,업무마감시각
 AT#bizClsgTlrCnt,업무마감텔러수
-AT#bizCmpntCd,비즈컴포넌트유형코드
+AT#bizCmpntCd,업무컴포넌트코드
 AT#bizCtgryCd,당사업종
 AT#bizCtgryNm,업종명
 AT#bizDsNm,업무구분명
@@ -1278,9 +1323,9 @@ AT#bizDscd,업무구분코드
 AT#bizDscdNm,업무구분코드명
 AT#bizDt,당영업일자
 AT#bizDtBillCtgryAmt,당영업일권종금액
-AT#bizDtChkAmt,금영업일타점금액
+AT#bizDtChkAmt,영업일타점금액
 AT#bizDtCnt,영업일수
-AT#bizDtCrncyAmt,금일시재금액
+AT#bizDtCrncyAmt,영업일통화금액
 AT#bizDtbillCtgryAmt,당영업일권종금액
 AT#bizEndHms,영업종료시각
 AT#bizIdNbr,사업자등록번호
@@ -1309,7 +1354,7 @@ AT#bizTxHstKeyCntnt,업무거래이력키내용
 AT#bizTxKeyCntnt,업무거래키내용
 AT#bizUnqIdNbr,사업자등록번호
 AT#bizUnqKeyVal,업무고유키
-AT#bizYn,
+AT#bizYn,업무개시여부
 AT#bkgClassNm,기장클래스명
 AT#bkgCntnt,기장내용
 AT#bkgLineNbr,기장줄번호
@@ -1386,6 +1431,7 @@ AT#blockTrgtIp,제한대상IP
 AT#blockedYn,거래제한여부
 AT#blwUndrDscd,이하미만구분
 AT#blwUndrDscdNm,이하미만구분코드명
+AT#blwYn,이하여부
 AT#bndlPdYn,복합상품여부
 AT#bnfclOwnrIdYn,실소유자실명확인여부
 AT#bnfclOwnrNm,실소유자명
@@ -1431,8 +1477,9 @@ AT#bnkMsgMgmtNbr,타행전문관리번호
 AT#bnkMsgSndHms,타행전문전송시각
 AT#bnkNm,은행명
 AT#bnkOfcCd,은행부점코드
+AT#bnkQualityClCd,은행건전성분류코드
 AT#bnkRcptDsbldCnt,은행접수해지건수
-AT#bnkSndHms,타행전송시각
+AT#bnkSndHms,타행전문전송시분초
 AT#bnkStsCd,은행상태코드
 AT#bnkTmpryDsbldCnt,은행임의해지건수
 AT#bnkTxAmt,자기앞거래금액
@@ -1445,18 +1492,28 @@ AT#bnkrptcySuspendDt,부도유예일자
 AT#bnkrptcySuspendRsnCntnt,부도유예사유내용
 AT#bnkrptcyTxAmt,부도거래금액
 AT#bnkrptcyWhdrwlCnt,부도출금건수
+AT#bondBillOutpDt,채권계산서출력년월일
 AT#bondCntnt,채권내용
+AT#bondDlgtnStsCd,채권위임상태코드
 AT#bondDscd,채권구분
+AT#bondMaxAmt,채권최고금액
 AT#bondReportDt,채권신고일자
 AT#bondReportSbmtYn,채권신고서제출여부
+AT#bondRpymntStrtgCd,채권회수전략코드
+AT#bondRstrctrArrId,채권조정계약식별자
 AT#bondRstrctrDscd,채권조정구분코드
 AT#bondRstrctrDt,채권조정일자
+AT#bondRstrctrExpnsAmt,채권조정비용금액
 AT#bondRstrctrId,채권조정식별자
+AT#bondRstrctrIntAmt,채권조정이자금액
+AT#bondRstrctrPrncplAmt,채권조정원금금액
 AT#bondRstrctrStsCd,채권조정상태코드
-AT#borderColorVal,선색
-AT#borderWidthVal,선너비
-AT#boxShadowColorVal,그림자색
-AT#boxShadowVal,그림자
+AT#bondStsCd,채권상태코드
+AT#bondStsNm,채권상태명
+AT#borderColorVal,선색값
+AT#borderWidthVal,선너비값
+AT#boxShadowColorVal,박스그림자색값
+AT#boxShadowVal,박스그림자값
 AT#brnchAbrvtnNm,부점약어명
 AT#brnchAddr,지점주소
 AT#brnchBizCd,지점업무코드
@@ -1476,6 +1533,7 @@ AT#brnchKorNm,부점한글명
 AT#brnchNm,지점명
 AT#brnchOfcMsgCd,지점전문코드
 AT#brnchOfcNm,지점명
+AT#brnchRelCd,부점관계코드
 AT#brnchRtndAmtContrastDfrncAmt,부점보유액대비차액
 AT#brnchTpDscd,지점유형구분코드
 AT#brwrId,대출자 식별자
@@ -1531,6 +1589,7 @@ AT#calcnBaseAmtTpCd,계산기준금액유형
 AT#calcnBaseCndYn,계산기준조건여부
 AT#calcnBaseMtrtyDt,계산기준만기일자
 AT#calcnBaseStartDt,계산기준시작일자
+AT#calcnBaseTrmCnt,계산기준
 AT#calcnClassNm,계산클래스명
 AT#calcnCmpsElmntTmpltSeqNbr,계산구성요소템플릿일련번호
 AT#calcnDayCnt,계산일수
@@ -1565,6 +1624,9 @@ AT#calcnSrvcTpCd,계산서비스유형코드
 AT#calcnStartBal,계산시작잔액
 AT#calcnStartDt,계산시작일자
 AT#calcnTotAmt,계산총금액
+AT#calcnTrgtAmt,계산대상금액
+AT#calcnTrgtAmtDscd,계산대상금액구분코드
+AT#calcnTrmCnt,계산기간수
 AT#calcnUnitCndCd,계산단위조건코드
 AT#calcnUnitCndNm,계산단위조건명
 AT#calcnUnitDscd,계산단위구분코드
@@ -1676,17 +1738,17 @@ AT#cbScrngCd,CB평점코드
 AT#ccAlarmNbr,센터컷 알람 번호
 AT#ccId,센터컷처리식별자
 AT#ccLogTpCd,센터컷로그유형코드
-AT#ccMainUrl,
+AT#ccMainUrl,센터컷메인URL
 AT#ccStartHm,센터컷시작시분
 AT#ccYn,센터컷여부
 AT#cd,상세코드
 AT#cdAbrvtnNm,코드약어명
-AT#cdAtrbtNm,코드속성이름
+AT#cdAtrbtNm,코드속성명
 AT#cdAutoTlrMachineDscd,CDATM구분코드
 AT#cdAutoTlrMachineGiroNbr,CDATM지로번호
-AT#cdAutoTlrMachineHndlngFeeAmt,
+AT#cdAutoTlrMachineHndlngFeeAmt,취급수수료
 AT#cdAutoTlrMachineTrmnlNbr,CDATM단말기번호
-AT#cdDescCntnt,코드설명
+AT#cdDescCntnt,코드설명내용
 AT#cdMachineDscd,CD기구분코드
 AT#cdMachinePrcsNbr,CD기처리번호
 AT#cdNbr,코드
@@ -1700,6 +1762,7 @@ AT#cdRandomNbr,CD난수내용
 AT#cdTrnsfrmDstnctnYn,코드변환구분여부
 AT#cdTxAblCnt,코드거래가능횟수
 AT#cdTxPsblCnt,CD거래가능횟수
+AT#cdVal,코드값
 AT#cdatmDscd,CDATM구분코드
 AT#cddActorNm,고객확인의무고객명
 AT#cddEngNm,고객확인의무영문명
@@ -1756,7 +1819,7 @@ AT#chkYn,확인여부
 AT#chngAfCnfrmtnPswd,변경후비밀번호확인
 AT#chngAfCntnt,변경후내용
 AT#chngAfHms,변환후시분초
-AT#chngAfHms1,
+AT#chngAfHms1,변환후시분초
 AT#chngAplctnRsltCd,변경신청결과코드
 AT#chngBfClntNm,변경전고객명
 AT#chngBfCntnt,변경전내용
@@ -1767,7 +1830,10 @@ AT#chngDscd,변경구분
 AT#chngDt,변경일자
 AT#chngDvisnCd,변경부서코드
 AT#chngHms,변경시간
+AT#chngItmNm,변경항목명
 AT#chngLnAgrmntAmt,변경약정금액
+AT#chngLonPdCd,대환상품코드
+AT#chngLonSchdldDt,대환예정년월일
 AT#chngLonTrgtAmt,(D)대환대상금액
 AT#chngMtrtyDt,변경만기일자
 AT#chngOcrTmstmp,변경발생일시
@@ -1793,6 +1859,8 @@ AT#chngYn,변경여부
 AT#chnlCd,채널코드
 AT#chnlDscd,채널구분
 AT#choicDt,선정일자
+AT#chrncChkRsltCd,정합성검증결과코드
+AT#chrncDataListJson,정합성데이터목록제이슨
 AT#cityGunGuAddr,시군구주소
 AT#cityGunGuBldgNm,시군구건물명
 AT#cityGunGuCd,시군구코드
@@ -1813,11 +1881,12 @@ AT#clHrarcyNm,분류체계명
 AT#clHrarcyUsageDscd,분류체계용도구분
 AT#clId,분류식별자
 AT#clNm,분류명
-AT#clStrctrCntnt,
+AT#clStrctrCntnt,분류체계내용
 AT#clStrctrDscd,분류체계구분
 AT#clStrctrNm,분류체계명
 AT#clStrctrTpCd,분류체계유형구분코드
-AT#clStrctrUseDscd,
+AT#clStrctrUsageDscd,분류구조사용구분코드
+AT#clStrctrUseDscd,분류체계용도구분코드
 AT#clTrgtTpCd,분류대상유형
 AT#claimAdjstmntYn,채권조정여부
 AT#claimAmt,채권금액
@@ -1828,18 +1897,23 @@ AT#classNm,클래스명
 AT#classOprtnNm,클래스오퍼레이션명
 AT#classTpCd,클래스유형
 AT#clcltSctnAdjstmntWayCd,계산구간조정방법코드
+AT#clctnAblYn,추심가능여부
 AT#clctnBal,추심잔액
 AT#clctnBldgYn,집합건물여부
 AT#clctnFrgnCrncyChkPdCd,외화수표추심상품코드
+AT#clctnPrhbtnBondYn,추심금지채권여부
+AT#clctnPrhbtnRsnCd,추심불가사유코드
 AT#clctnPymntAcctNbr,추심대금지급계좌
 AT#clctnRefNbr,추심참조번호
+AT#clctnReportYn,추심신고여부
 AT#clctnWhdrwlTrgtBal,추심지급대상잔액
 AT#clgtPymntCustNbr,총괄납부고객번호
 AT#clgtRspblPersonDeptNm,총괄담당자 부서명
 AT#clgtRspblPersonNm,총괄담당자 성명
-AT#clntNm,
+AT#clntNm,의뢰인성명
 AT#closeAcctgInqryYn,폐지계정과목포함조회여부
 AT#closeDt,졸업일자
+AT#closeRsnCd,종국사유코드
 AT#clrncDt,정리일자
 AT#clrncInstRcptTrmntnCnt,결제원접수해지건수
 AT#clrncPlnCntnt,정리계획내용
@@ -1877,7 +1951,7 @@ AT#clsgPrsntStsInqryDscd,마감현황조회구분
 AT#clsgStsCd,마감상태
 AT#clsgTmstmp,마감일시
 AT#clsgTrgtYn,마감대상여부
-AT#clsrBrnchMgmtBrnchCd,폐쇄지점관리지점코드
+AT#clsrBrnchMgmtBrnchCd,폐쇄지점관리부점코드
 AT#clsrDt,폐쇄일자
 AT#cltrlAmt,담보금액
 AT#cltrlAprvlAmt,담보승인금액
@@ -1914,6 +1988,7 @@ AT#cmnChkVal,공통체크
 AT#cmnClndrVal,공통달력
 AT#cmnCndYn,공통조건여부
 AT#cmnCntnt,공통내용
+AT#cmnFeeCndCd,공통수수료조건코드
 AT#cmnNm,공통명
 AT#cmnRadioVal,공통라디오
 AT#cmnctnNetworkStsCd,통신망상태코드
@@ -1966,15 +2041,18 @@ AT#cmpsCndTpCd,구성조건유형
 AT#cmpsCndValCntnt,구성조건값내용
 AT#cmpsCndYn,구성조건여부
 AT#cmpsElmntCndCd,구성요소조건코드
+AT#cmpsElmntCndNm,구성요소조건명
 AT#cmpsFgrsCnt,구성자리수
 AT#cmpsSeq,구성순서
 AT#cmpsSeqNbr,구성일련번호
 AT#cmpsStartPstnCnt,구성시작위치수
+AT#cmpttnCnt,경합사항수
+AT#cmpttnSeqNbr,경합일련번호
 AT#cmpxAbrvtnYn,복합약어여부
 AT#cmpxCndCmpsSeq,복합조건구성순서
 AT#cmpxCndYn,복합조건여부
 AT#cmpxEngAbrvtnNm,복합영문약어명
-AT#cmpxFtrDescCntnt,단지특징설명
+AT#cmpxFtrDescCntnt,단지특징설명내용
 AT#cmpxHighestFloorCnt,단지최고층수
 AT#cmpxLowestFloorCnt,단지최저층수
 AT#cmpxPdLinkAcctNbr,복합상품연계계좌번호
@@ -1998,9 +2076,9 @@ AT#cnclDt,취소일자
 AT#cnclFeeAmt,취소수수료
 AT#cnclHms,최소시분초
 AT#cnclHndlngMsgNbr,취소취급전문번호
-AT#cnclHndlngNbr,
+AT#cnclHndlngNbr,취소취급번호
 AT#cnclIntrmdryMsgMgmtNbr,취소중개기관전문관리번호
-AT#cnclIntrmdryMsgSndTmstmp,취소중개기관전문전송일시
+AT#cnclIntrmdryMsgSndTmstmp,취소중개기관전문전송타임스탬프
 AT#cnclMsgCreateClassNm,취소전문생성클래스명
 AT#cnclMsgMgmtNbr,취소전문관리번호
 AT#cnclNonFinSumAmt,취소미완료합계금액
@@ -2019,8 +2097,8 @@ AT#cnclTrgtTxSeqNbr,취소대상거래일련번호
 AT#cnclTxCntrMsgMgmtNbr,취소거래센터전문관리번호
 AT#cnclTxDt,취소거래일자
 AT#cnclTxGuid,취소거래GUID
-AT#cnclTxGuidId,
-AT#cnclTxHms,취소거래시각
+AT#cnclTxGuidId,취소거래GUID
+AT#cnclTxHms,취소거래시분초
 AT#cnclTxMsgTraceNbr,취소거래전문추적번호
 AT#cnclTxSeqNbr,취소거래일련번호
 AT#cnclTxYn,취소거래여부
@@ -2032,6 +2110,7 @@ AT#cndAplyTrgtDscd,조건적용대상구분코드
 AT#cndBtwnRelTpCd,조건간관계유형
 AT#cndBtwnRelTpCdNm,조건간관계유형코드명
 AT#cndCd,조건코드
+AT#cndCdCnt,조건코드수
 AT#cndChngKndCd,조건변경종류코드
 AT#cndClDscd,조건분류구분
 AT#cndClassNm,조건클래스명
@@ -2076,7 +2155,7 @@ AT#cndValNullYn,조건값NULL여부
 AT#cndValQryCntnt,조건값조회내용
 AT#cndVldtnWayCd,조건검증방법코드
 AT#cndXtnVal,조건확장값
-AT#cndvBtwnRelTpCd,
+AT#cndvBtwnRelTpCd,조건값간관계유형코드
 AT#cnfdntlAcctYn,기밀계좌여부
 AT#cnfrmAuthDataCntnt,인증확인데이터내용
 AT#cnfrmChargeBurdenDscd,CONFIRMCHARGE부담구분코드
@@ -2091,15 +2170,23 @@ AT#cnfrmtnFeeBurdenDscd,확인수수료부담구분코드
 AT#cnfrmtnHms,확정시각
 AT#cnfrmtnMtrtyDt,확정만기년월일
 AT#cnfrmtnPswd,확정비밀번호
+AT#cnfrmtnYn,확정여부
 AT#cnsgnmntDt,위임일자
 AT#cnsgnmntDtBasePrice,수탁일기준가격
 AT#cnsgnmntDtStdEvltnBasePrice,수탁일과표기준가격
 AT#cnsgnmntEndDt,위임종료일자
+AT#cnsltnCntnt,상담내용
+AT#cnsltnStsCd,상담상태코드
+AT#cnsltnTpCd,상담유형코드
+AT#cnsltnTrgtNm,상담대상자명
+AT#cnstncyDataListJson,정합성데이터목록제이슨
 AT#cnstrctnCmpnyNm,시공사명
 AT#cnstrctnUnitPriceBaseYr,신축단가기준년도
 AT#cnstrctnUnitPriceSeqNbr,신축단가일련번호
 AT#cnt,건
 AT#cntAmtDscd,건수금액구분
+AT#cntctCntnt,접촉내용
+AT#cntctDscd,접촉구분코드
 AT#cntctDt,연락일자
 AT#cntctMthdDscd,연락수단구분코드
 AT#cntctMthdTpCd,연락수단유형
@@ -2117,10 +2204,12 @@ AT#cntctPntSupplInfoCntnt,연락처위치추가정보내용
 AT#cntctPntTpCd,연락처위치유형
 AT#cntctPrhbtnDscd,연락금지구분
 AT#cntctPrhbtnRgstrnRsnCd,연락금지등록사유코드
-AT#cntctPrhbtnRvctnRsnCd,연락금치해제사유코드
+AT#cntctPrhbtnRvctnRsnCd,연락금지해제사유코드
 AT#cntctPrhbtnSeqNbr,연락금지일련번호
 AT#cntctPrhbtnTpCd,연락금지유형
+AT#cntctStaffId,접촉스태프식별자
 AT#cntctTelNbr,연락전화번호
+AT#cntctTmstmp,접촉일시
 AT#cntngntFeeAmt,성공보수금액
 AT#cntngntFeeRt,성공보수율
 AT#cntnntDscd,대륙구분
@@ -2171,15 +2260,17 @@ AT#cntrprtCustId,상대고객식별자
 AT#cntrprtFnclInstBrnchCd,상대금융기관지점코드
 AT#cntrprtFnclInstCd,상대금융기관코드
 AT#cntrprtInstBal,상대기관잔액
-AT#cntrprtSysSrvcCdCntnt,상대시스템서비스코드
+AT#cntrprtSysSrvcCdCntnt,상대시스템서비스코드내용
 AT#cntrprtTxDt,상대거래일자
 AT#cntrprtTxHstSeqNbr,상대거래내역일련번호
 AT#cntrprtTxSeqNbr,상대거래일련번호
 AT#cntrprtyBnkCrdtPrcsngDt,상대은행입금처리년월일
 AT#cntrprtyBnkPrcsngDt,상대은행처리년월일
+AT#cntrprtyDeputyNm,상대방대리인명
 AT#cntrprtyRefNbr,상대참조번호
 AT#cntrprtyRgstrnDscd,협약관계등록구분코드
 AT#cntrprtyRgstrnYn,협약업체등록여부
+AT#cntrprtyTelNbr,상대방전화번호
 AT#cntrprtyUseAgrmntArrId,상대방이용약정계약식별자
 AT#cnvrsnRt,전환비율
 AT#columnId,컬럼ID
@@ -2205,21 +2296,25 @@ AT#corpnKndCd,기업종류
 AT#corpnPublicYn,기업공개여부
 AT#corpnRgstrnNbr,법인등록번호
 AT#corpnTax,법인세
+AT#costAmt,비용금액
 AT#costDtlSeqNbr,비용상세일련번호
 AT#costOcrAmt,비용발생금액
 AT#costOcrDt,비용발생일자
 AT#costOfClsgTheTrgtYn,원가결산대상여부
 AT#costPymntDt,비용지급일자
+AT#costRdctnAmt,비용감면금액
 AT#costSeqNbr,비용일련번호
 AT#couponNbr,이표번호
 AT#couponStsCd,쿠폰상태코드
+AT#cpUseYn,CP사용여부
 AT#cprtCorpNm,협력기업명
 AT#crctnAmt,보정금액
 AT#crctnCnclDscd,정정취소구분코드
 AT#crctnEngWrdYn,영문단어스펠링정확여부
-AT#crctnRflctnRmtncDt,
+AT#crctnRflctnRmtncDt,정정반영이체일자
 AT#crctnRmtncDt,정정반영일자
 AT#crctnRsnCntnt,정정사유내용
+AT#crctnSeqNbr,보정일련번호
 AT#crdbltyScore,신뢰성 점수
 AT#crdtAmt,대변금액
 AT#crdtAplctnBsicLmtAmt,신용신청기초한도금액
@@ -2245,6 +2340,7 @@ AT#crdtDfltWhdrwlTxAmt,대변부도출금거래금액
 AT#crdtDfltWhdrwlTxCnt,대변부도출금거래건수
 AT#crdtDpstBnkFeeAmt,대변입금은행수수료
 AT#crdtDpstWhdrwlDscd,대변입출구분코드
+AT#crdtExRt,신용환산율
 AT#crdtFeeAmt,대변수수료
 AT#crdtGradeCd,신용등급코드
 AT#crdtIncmpltTxAmt,대변미완료거래금액
@@ -2263,6 +2359,7 @@ AT#crdtOffrFormCd,신용제공형태코드
 AT#crdtRatingGradeCd,신용등급
 AT#crdtRatingScore,신용 등급 점수
 AT#crdtRcvryAgreeDt,신용회복동의일자
+AT#crdtRcvryDtlItmCd,신용회복상세과목코드
 AT#crdtRcvryRcptNbr,신용회복접수번호
 AT#crdtSaleUseAmt,신용판매이용금액
 AT#crdtSaleUseTotAmt,신용판매이용총금액
@@ -2309,7 +2406,7 @@ AT#crosRt,CROSS율
 AT#crosTxYn,교차거래여부
 AT#crptnWhdrwlAcctNbr,부정인출계좌번호
 AT#crptnWhdrwlDt,부정인출년월일
-AT#crptnWhdrwlHms,부정인출시각
+AT#crptnWhdrwlHms,부정인출시분초
 AT#crptnWhdrwlInstBrnchCd,부정인출금융기관부점코드
 AT#crptnWhdrwlInstCd,부정인출금융기관코드
 AT#crptnWhdrwlInstCdBrnchCd,부정출금기관코드지점코드
@@ -2346,8 +2443,8 @@ AT#crtnEfctvDt,생성유효년월일
 AT#crtnTxDt,생성거래일자
 AT#crtnTxSeqNbr,생성거래일련번호
 AT#crygForwardEndDt,이월종료일
-AT#crygFrwrdEndDt,
-AT#crygFrwrdStartDt,
+AT#crygFrwrdEndDt,이월종료일
+AT#crygFrwrdStartDt,이월시작일
 AT#cryngForwardCmltvTotAmt,이월누계금액
 AT#cryngForwardCnclCmltvTotAmt,이월취소누계금액
 AT#cryngForwardEndDt,이월종료일
@@ -2357,7 +2454,7 @@ AT#ctSndCd,C/T송부코드
 AT#ctcptStsCd,연락처상태코드
 AT#ctcptStsRsnCd,연락처상태사유코드
 AT#ctcptTestCd,연락처테스트코드
-AT#ctcptTpCd,연락처위치유형
+AT#ctcptTpCd,연락처유형코드
 AT#ctyFormRsdncYn,도시형생활주택여부
 AT#ctyPrvncAddr,시도주소
 AT#cucuRelCd,고객고객관계코드
@@ -2481,8 +2578,9 @@ AT#custLmtChngDeptId,고객한도변경부서식별자
 AT#custLmtChngDscd,고개한도변경구분코드
 AT#custLmtChngRsnCd,고객한도변경사유코드
 AT#custLmtChngRsnCntnt,고객한도변경사유내용
-AT#custLmtChngStaffId,고객한도변경스테프식별자
+AT#custLmtChngStaffId,고객한도변경스태프식별자
 AT#custLmtTpCd,고객한도유형
+AT#custLoinHstSeqNbr,고객로그인이력일련번호
 AT#custLoinInfoStsCd,고객로그인정보상태코드
 AT#custLoinInfoStsRsnCd,고객로그인정보상태사유코드
 AT#custMgmtNbr,고객관리번호
@@ -2505,6 +2603,7 @@ AT#custRiskEvltnGradeScore,확인의무점수
 AT#custRoleStsCd,고객역할상태코드
 AT#custRoleStsChngRsnCd,고객역할상태변경사유코드
 AT#custRprsnId,고객관련인식별자
+AT#custRprsnLoinHstSeqNbr,고객관련인로그인이력일련번호
 AT#custRprsnNm,고객관련인명
 AT#custRprsnRoleCd,고객관련인역할코드
 AT#custRprsnRoleStsCd,고객관련인역할상태코드
@@ -2546,7 +2645,7 @@ AT#custdRelStsChngRsnCntnt,고객부서관계상태변경사유내용
 AT#custgRelStsChngRsnCd,고객그룹관계상태변경사유코드
 AT#custgRelStsChngRsnCntnt,고객그룹관계상태변경사유내용
 AT#custrPersonRoleStsChngRsnCd,고객관련인역할상태변경사유코드
-AT#custrRoleStsCd,고객고객관련인역할상태코드
+AT#custrRoleStsCd,고객관련인역할상태코드
 AT#custrRoleStsChngRsnCd,고객관련인역할상태변경사유코드
 AT#custrRoleStsChngRsnCntnt,고객관련인역할상태변경사유내용
 AT#custsRelStsChngRsnCd,고객스태프관계상태변경코드
@@ -2577,6 +2676,19 @@ AT#dataTotCnt,데이터총건수
 AT#dataTpCd,데이터유형
 AT#dataUseDscd,데이터사용구분
 AT#dataUseInstCd,데이터사용기관코드
+AT#dataVldtnDescCntnt,데이터검증설명내용
+AT#dataVldtnErrCnt,데이터검증오류수
+AT#dataVldtnHms,데이터검증시분초
+AT#dataVldtnMysqlCntnt,데이터검증Mysql내용
+AT#dataVldtnOracleCntnt,데이터검증Oracle내용
+AT#dataVldtnRsltCntnt,데이터검증결과내용
+AT#dataVldtnRsltDscd,데이터검증결과구분코드
+AT#dataVldtnSeqNbr,데이터검증일련번호
+AT#dataVldtnSqlCntnt,데이터검증SQL내용
+AT#dataVldtnSqlId,데이터검증SQL식별자
+AT#dataVldtnStaffId,데이터검증스태프식별자
+AT#dataVldtnUseYn,데이터검증사용여부
+AT#dataVldtnWayCd,데이터검증방법코드
 AT#day,일
 AT#dayClcltMthdCd,일수계산방법코드
 AT#dayClsgBal,일마감잔액
@@ -2590,7 +2702,8 @@ AT#dbsdBal,차변잔액
 AT#dbsdSumAmt,차변합계금액
 AT#dcFeeAmt,할인료금액
 AT#dcFeeRt,할인료율
-AT#dcmlPntLen,소수점자리수
+AT#dcmbrSpcfcPymntDay,12월확정약정납입일
+AT#dcmlPntLen,소수점길이
 AT#dcsnEndDt,확정종료일
 AT#dcsnIntRtCntnt,확정금리내용
 AT#dcsnItmDscd,결정항목구분
@@ -2627,10 +2740,12 @@ AT#debtGrntAmt,채무보증금액
 AT#debtGrntOcrDt,채무보증발생일자
 AT#debtGrntVarDt,채무보증변동일자
 AT#debtInfoDscd,부채정보구분코드
+AT#debtRelDscd,채무관계구분코드
 AT#debtSumAmt,(E)부채합계금액
 AT#debtorCrdtLmtAmt,차주신용한도금액
 AT#debtorCustId,채무자고객식별자
 AT#debtorCustNm,채무자고객명
+AT#debtorCustRelCd,채무자고객관계코드
 AT#debtorGrntrDscd,채무자보증인구분코드
 AT#debtorNm,채무자명
 AT#debtorOwnrDscd,채무자소유자구분코드
@@ -2638,7 +2753,7 @@ AT#debtorOwnrRelCd,채무자소유자관계코드
 AT#debtorOwnrRelDscd,채무자소유자관계구분코드
 AT#debtorPhoneNbr,채무자전화번호
 AT#delDt,삭제일자
-AT#delStaffId,삭제스테프식별자
+AT#delStaffId,삭제스태프식별자
 AT#delYn,삭제여부
 AT#demandCnt,요청건수
 AT#demandDeptId,요청부서식별자
@@ -2652,6 +2767,7 @@ AT#demandStaffCntnt,요청스태프내용
 AT#demandStaffId,요청스태프식별자
 AT#demandStaffNm,요청스태프명
 AT#demandStartDt,요청시작일자
+AT#demandTelNbr,요청전화번호
 AT#demandTmstmp,요청일시
 AT#demandUserNbr,요청사용자번호
 AT#depoAcctNbr,예치환계좌번호
@@ -2695,6 +2811,8 @@ AT#deputyRlnmNbr,대리인실명번호
 AT#desiredAmtExcsBidAcceptYn,희망금액초과낙찰수용여부
 AT#desiredAmtExcsPrmsnMaxAmt,희망금액초과허용최대금액
 AT#desiredLnAmt,희망 대출 금액
+AT#desiredPymntDt,희망이수년월일
+AT#desiredPymntNth,희망납입회차
 AT#dfctCntnt,흠결사항내용
 AT#dfltAmt,부도금액
 AT#dfltAthrtyCd,기본권한코드
@@ -2709,14 +2827,18 @@ AT#dfltNteKndCd,부도어음종류코드
 AT#dfltRoleDelYn,소속부서삭제여부
 AT#dfltRsnCd,부도사유코드
 AT#dfltRvctnDt,부도해제일자
+AT#dfltRvctnRsnCntnt,부도해제사유내용
 AT#dfltScrnTrgtYn,초기화면대상여부
 AT#dfltStartMnth,체납시작월
 AT#dfltTrmCnt,체납기간수
 AT#dfltVal,기본값
 AT#dfltValCntnt,초기값내용
-AT#dfltWhdrwlCnt,기본출금건수
+AT#dfltWhdrwlCnt,부도출금건수
 AT#dfltWhdrwlSeqNbr,부도출금일련번호
 AT#dfltYn,기본여부
+AT#dfndLwstAmt,피고소송가액
+AT#dfndPersonNm,피고인명
+AT#dfndScndryPtcptNm,피고보조참가인명
 AT#dfnsTax,방위세
 AT#dfnsTaxRt,방위세율
 AT#dfrdExctnPrcsCd,후행실행처리코드
@@ -2730,7 +2852,7 @@ AT#dfrdSeqNbr,후행일련번호
 AT#dfrdTxCd,후행트랜잭션코드
 AT#dfrdTxSeqNbr,후행거래일련번호
 AT#dfrmntTrmCnt,거치기간
-AT#dfrncAdjstmntAmt,조정대상금액
+AT#dfrncAdjstmntAmt,차액조정금액
 AT#dfrncAmt,차액
 AT#dfrncBal,차이잔액
 AT#dfrncCashAmt,현금차액
@@ -2748,20 +2870,31 @@ AT#dlgtdMarginRt,위임마진율
 AT#dlgtnActorNm,위임스태프명
 AT#dlgtnAprvlStaffId,위임승인스태프식별자
 AT#dlgtnAprvlStaffNm,위임승인스태프명
+AT#dlgtnCnclRsnCd,위임취소사유코드
+AT#dlgtnCnclRsnCntnt,위임취소사유내용
 AT#dlgtnDeptId,위임부서식별자
 AT#dlgtnDeptNm,위임부서명
+AT#dlgtnDscd,위임구분코드
 AT#dlgtnRoleId,위임역할아이디
 AT#dlgtnSeqNbr,위임일련번호
 AT#dlgtnStaffId,위임스태프식별자
 AT#dlgtnStaffNm,위임스태프명
-AT#dlgtnStsCd,위임상태
+AT#dlgtnStsCd,위임상태코드
+AT#dlgtnYm,위임년월
+AT#dlnBlckngCnt,기한제한횟수
+AT#dlnDayMnthCnt,기한일월수
 AT#dlnprftlossDt,기한이익상실년월일
 AT#dlnprftlossRsnCd,기한이익상실사유코드
+AT#dlnprftlossRsnCntnt,기한이익상실사유내용
+AT#dlnprftlossRvctnDt,기한이익상실해제년월일
+AT#dlnprftlossRvctnRsnCntnt,기한이익상실해제사유내용
+AT#dlnprftlossStsCd,기한이익상실상태코드
 AT#dlnprftlossYn,기한이익상실여부
 AT#dlvryAmt,배송금액
 AT#dlvryCmltvTotAmt,인도누계금액
 AT#dlvryCnclCmltvTotAmt,인도취소누계금액
 AT#dlvryDscd,배송구분
+AT#dlvryDt,송달년월일
 AT#dlvryFinDt,배송완료일자
 AT#dlvryFinRgstrnDt,배송완료등록일자
 AT#dlvryNoFinCnt,배송미완료건수
@@ -2788,7 +2921,7 @@ AT#dmnCntnt,도메인내용
 AT#dmnDscd,도메인구분
 AT#dmnNm,도메인명
 AT#dmnthDmstcMnyRcvdAcmltdAmt,월중국내통화입금적수금액
-AT#dmnthMnyRcvdAcmltdAmt,월중입금금액
+AT#dmnthMnyRcvdAcmltdAmt,월중입금적수금액
 AT#dmnthWhdrwlAcmltdAmt,월중출금적수
 AT#dmrNm,이의신청자명
 AT#dmstcAmt,원화금액
@@ -2818,11 +2951,11 @@ AT#docCd,문서코드
 AT#docCntnt,문서내용
 AT#docId,문서아이디
 AT#docIdListJson,문서식별자목록제이슨
-AT#docIssueCntnt,발행문서내용
+AT#docIssueCntnt,문서발행내용
 AT#docIssueId,문서발행 식별자
 AT#docIssueStsCd,문서발행상태코드
 AT#docIssueStsChngRsnCd,문서발생상태변경사유코드
-AT#docIssueStsChngRsnCntnt,문서발행상태변경구분내용
+AT#docIssueStsChngRsnCntnt,문서발행상태변경사유내용
 AT#docKndCd,문서종류코드
 AT#docMkngTpCd,문서작성유형
 AT#docNm,문서명
@@ -2840,13 +2973,15 @@ AT#docsArvlNatCd,서류도착국가코드
 AT#dongBlwAddr,동이하주소
 AT#dongNm,동명
 AT#dplctnAblYn,중복가능여부
-AT#dplctnKeyValCntnt,배포중복체크키값내용
+AT#dplctnActinYn,중복경매여부
+AT#dplctnKeyVal,중복키값
+AT#dplctnKeyValCntnt,중복키값
 AT#dplctnTxYn,중복거래여부
 AT#dpndntCndYn,종속조건여부
 AT#dpsrNm,예금주
 AT#dpsrRlnmNbr,예금주실명번호
-AT#dpstAReportNonRcvAmt,
-AT#dpstAReportNonRcvCnt,
+AT#dpstAReportNonRcvAmt,입금보고미수신금액
+AT#dpstAReportNonRcvCnt,입금보고미수신건수
 AT#dpstAcctCustTxDscd,수신계좌고객거래구분코드
 AT#dpstAcctDscd,입금계좌구분
 AT#dpstAcctDt,입금일자
@@ -2857,6 +2992,7 @@ AT#dpstAcctOwnrNm,입금계좌예금주
 AT#dpstAcctStsCd,예치금계좌활동상태코드
 AT#dpstAcctUseYn,예치금계좌사용여부
 AT#dpstAmt,입금금액
+AT#dpstArrId,공탁계약식별자
 AT#dpstArrIntRtTpCd,수신계약금리유형
 AT#dpstBnkBrnchCd,입금은행점코드
 AT#dpstBnkCd,입금은행코드
@@ -2877,8 +3013,10 @@ AT#dpstInsrncArrIntRt,예보약정이율
 AT#dpstInstMsgCd,수신기관전문코드
 AT#dpstIntCalcnDtlAplyFrctnCnt,수신이자계산상세적용단수
 AT#dpstIntXtnInfoJson,수신이자확장정보JSON
+AT#dpstKndCd,공탁종류코드
 AT#dpstLmtAmt,보증금한도금액
 AT#dpstMtrtyDt,입금만기일자
+AT#dpstNm,예금자명
 AT#dpstNonRcvAmt,입금미수신금액
 AT#dpstNonRcvCnt,입금미수신건수
 AT#dpstOpnAmt,수신신규금액
@@ -2888,10 +3026,13 @@ AT#dpstPsbkDsplyCntnt,입금통장표시내용
 AT#dpstRcvdAmt,예수금
 AT#dpstRmkCntnt,입금거래적요
 AT#dpstRmkDscd,수신적요구분
+AT#dpstRpymntAmt,공탁회수금액
 AT#dpstRqstAmt,입금의뢰 금액
 AT#dpstRqstCnt,입금의뢰 건수
 AT#dpstRspnsCd,입금응답코드
 AT#dpstRtrnIntAmtTpSprtnYn,수신환입이자금액유형분리여부
+AT#dpstScrtsCnt,공탁증권수
+AT#dpstSeqNbr,공탁일련번호
 AT#dpstSrchCrtrCd,수신검색기준코드
 AT#dpstSrvcBlckngTpCd,수신서비스제한코드
 AT#dpstSumAmt,입금합계금액
@@ -2910,13 +3051,14 @@ AT#dpstWhdrwlDt,입출금년월일
 AT#dpstWhdrwlDtlSeqNbr,입출상세일련번호
 AT#dpstWhdrwlTxExstncYn,입출거래유무
 AT#dpstlmAmt,예적금금액
+AT#dpstrNm,피공탁자명
 AT#drctBankingAcctNbr,다이렉트뱅킹계좌번호
 AT#drctBankingRdpstTrgtPdCd,다이렉트뱅킹재예치대상상품코드
 AT#drctBankingSrcAcctBnkNm,다이렉트뱅킹원천계좌은행이름
 AT#drctBankingSrcAcctNbr,다이렉트뱅킹원천계좌번호
 AT#drctCostRt,직접원가율
 AT#drctRcptCnfrmYn,직접접수승인여부
-AT#drctnDescCntnt,방향설명
+AT#drctnDescCntnt,방향설명내용
 AT#dropDscd,취하구분
 AT#dropDt,취하일자
 AT#dropRsnCd,취하사유코드
@@ -2986,34 +3128,66 @@ AT#dsplyRuleNm,표시규칙명
 AT#dsplyTmstmp,표시시간
 AT#dsplyYn,표시여부
 AT#dspsblIncomeAmt,월평균가처분소득금액
+AT#dspslAmt,매각금액
+AT#dspslPrhbtnBondYn,매각금지채권여부
+AT#dspslPrhbtnYn,매각금지여부
 AT#dsrAnlzdPiamtRpymntAmt,DSR연원리금상환금액
 AT#dsrCmplncRt,DSR규제비율
 AT#dsrOthrDebtAnlzdPiamtRpymntAmt,DSR기타부채의연원리금상환금액
 AT#dsrStsfctnYn,DSR충족여부
 AT#dstbAfChngCntnt,배포변경후내용
 AT#dstbBfChngCntnt,배포변경전내용
-AT#dstbChngStsDscd,과제변경상태구분코드
+AT#dstbChngStsDscd,배포변경상태구분코드
+AT#dstbChrncTrgtTblYn,배포정합성대상테이블여부
 AT#dstbCnfrmtnTxCd,배포확인거래코드
 AT#dstbCnstncyChkIntrfcId,배포정합성검증인터페이스식별자
-AT#dstbEnvrnmntCd,배포환경구분코드
-AT#dstbEnvrnmntCdCntnt,배포환경내용
+AT#dstbCtvdClassNm,배포정합성검증클래스명
+AT#dstbCtvdDt,배포정합성검증년월일
+AT#dstbCtvdDtlEndHms,배포정합성검증종료상세시분초
+AT#dstbCtvdDtlStartHms,배포정합성검증시작상세시분초
+AT#dstbCtvdEndHms,배포정합성검증종료시분초
+AT#dstbCtvdErrCnt,배포정합성검증오류건수
+AT#dstbCtvdErrKndCd,배포정합성검증오류유형코드
+AT#dstbCtvdErrSeqNbr,배포정합성검증오류일련번호
+AT#dstbCtvdOriginCnt,배포정합성검증원천건수
+AT#dstbCtvdOriginCntnt,배포정합성검증원천내용
+AT#dstbCtvdPckgNm,배포정합성검증패키지명
+AT#dstbCtvdPkCntnt,배포정합성검증PK내용
+AT#dstbCtvdPrgrsCd,배포정합성검증진행코드
+AT#dstbCtvdPrgrsDt,배포정합성검증진행년월일
+AT#dstbCtvdPrgrsHms,배포정합성검증진행시분초
+AT#dstbCtvdRqstDt,배포정합성검증요청년월일
+AT#dstbCtvdRqstSeqNbr,배포정합성검증요청일련번호
+AT#dstbCtvdRsltCd,배포정합성검증결과코드
+AT#dstbCtvdSeqNbr,배포정합성검증일련번호
+AT#dstbCtvdStartHms,배포정합성검증시작시분초
+AT#dstbCtvdTrgtCnt,배포정합성검증대상건수
+AT#dstbCtvdTrgtCntnt,배포정합성검증대상내용
+AT#dstbCtvdTrgtPkCntnt,배포정합성검증대상PK내용
+AT#dstbCtvdTrgtSeqNbr,배포정합성검증대상일련번호
+AT#dstbCtvdTrgtTblYn,배포정합성검증대상테이블여부
+AT#dstbCvTrgtTblYn,배포정합성검증대상테이블여부
+AT#dstbDplctnKeyValCntnt,배포중복체크키값내용
+AT#dstbEnvrnmntCd,배포환경코드
+AT#dstbEnvrnmntCdCntnt,배포환경코드내용
 AT#dstbExctnEndTmstmp,배포실행종료일시
-AT#dstbExctnTmstmp,
-AT#dstbExecuteTmstmp,배포실행일시
+AT#dstbExctnTmstmp,배포실행일시
+AT#dstbExecuteTmstmp,배포실행타임스탬프
 AT#dstbFinYn,배포완료여부
 AT#dstbId,배포식별자
 AT#dstbIntrfcId,배포인터페이스식별자
 AT#dstbParmCd,배포파라미터코드
 AT#dstbParmVal,배포파라미터값
-AT#dstbPkValCntnt,배포PK키값내용
+AT#dstbPkValCntnt,배포PK값내용
 AT#dstbPrcsStsCd,배포처리상태코드
-AT#dstbPrcsTmstmp,배포처리일시
+AT#dstbPrcsTmstmp,배포처리타임스탬프
 AT#dstbRqstDscd,배포요청유형구분코드
 AT#dstbRqstId,배포요청식별자
+AT#dstbRqstSqlCntnt,배포요청SQL내용
 AT#dstbRsltErrCd,배포결과에러코드
 AT#dstbRsltErrCntnt,배포결과에러내용
 AT#dstbSaveDscd,배포저장구분코드
-AT#dstbSchdlTmstmp,배포예약일시
+AT#dstbSchdlTmstmp,배포예약타임스탬프
 AT#dstbSeqNbr,배포일련번호
 AT#dstbSetDscd,배포설정속성구분코드
 AT#dstbSetSeqNbr,환경설정일련번호
@@ -3021,10 +3195,10 @@ AT#dstbSetVal,배포설정속성값
 AT#dstbSrvrId,배포서버식별자
 AT#dstbSrvrNm,배포서버명
 AT#dstbSrvrUrl,배포서버URL
-AT#dstbStaffId,배포담당자staffId
+AT#dstbStaffId,배포스태프식별자
 AT#dstbStaffNm,배포담당자명
 AT#dstbStsCd,배포상태코드
-AT#dstbStsDscd,
+AT#dstbStsDscd,배포상태코드
 AT#dstbTaskChngHstSeqNbr,배포과제변경이력일련번호
 AT#dstbTaskChngSeqNbr,배포과제변경일련번호
 AT#dstbTaskDtlCntnt,배포과제상세내용
@@ -3035,6 +3209,7 @@ AT#dstbTblId,배포테이블식별자
 AT#dstbTpDscd,배포유형구분코드
 AT#dstbTrgtScrnYn,배포대상화면여부
 AT#dstbTrgtSrvrUrl,배포대상서버URL
+AT#dstbTrgtTblYn,배포대상테이블여부
 AT#dstbWayCd,배포방식코드
 AT#dstntnNatCd,도착국가코드
 AT#dstntnPortNm,도착항명
@@ -3047,6 +3222,7 @@ AT#dtAtrbtCd,일자속성코드
 AT#dtBizNbrChkYn,생년월일(사업자등록번호) Check 여부
 AT#dtCalcnRsltVal,날짜계산결과값
 AT#dtCnvrsnExctnYn,일자전환수행여부
+AT#dtDlyYn,기일연기여부
 AT#dtFormatCd,날짜형식코드
 AT#dtNbr,날짜번호
 AT#dtWeekDscd,요일구분
@@ -3065,7 +3241,7 @@ AT#dtlCntctPntCntnt,상세연락처내용
 AT#dtlCntnt,상세내용
 AT#dtlDscd,세부구분코드
 AT#dtlMediaDscd,상세매체구분코드
-AT#dtlMsgCntnt,상세메지시내용
+AT#dtlMsgCntnt,상세메시지내용
 AT#dtlScrnDscd,상세화면구분코드
 AT#dtlScrnId,상세화면ID
 AT#dtlSeqNbr,상세일련번호
@@ -3083,7 +3259,8 @@ AT#dtlTaxNmThreeAmt,상세세목3금액
 AT#dtlTaxNmTwoAdtnAmt,상세세목2가산금
 AT#dtlTaxNmTwoAmt,상세세목2금액
 AT#dtlsErrMsgCd,세부오류전문코드
-AT#dtoClassNm,DTO 클래스명
+AT#dtoClassNm,DTO클래스명
+AT#dtoLvlNbr,DTO레벨번호
 AT#dtoNm,DTO명
 AT#dtoStsCd,DTO상태코드
 AT#dtoTpCd,DTO 유형
@@ -3094,7 +3271,7 @@ AT#dtogRelStsCd,부서조직관계상태코드
 AT#dtogRelStsChngRsnCd,부서조직관계상태변경사유코드
 AT#dtogRelStsChngRsnCntnt,부서조직관계상태변경사유내용
 AT#dtrmDmstcMnyRcvdAcmltdAmt,기중국내통화입금누계액
-AT#dtrmMnyRcvdAcmltdAmt,기중입금누계액
+AT#dtrmMnyRcvdAcmltdAmt,기중입금적수금액
 AT#dtrmWhdrwlAcmltdAmt,기중출금적수
 AT#dtsBlockGuid,DTS블록GUID
 AT#dtsRcvryYn,분산거래서비스복구여부
@@ -3112,10 +3289,12 @@ AT#dueDlgncSeqNbr,확인의무일련번호
 AT#dueDlgncStsCd,확인의무상태코드
 AT#dueDlgncStsRsnCd,확인의무상태사유코드
 AT#dueDlgncStsRsnCntnt,확인의무상태사유내용
+AT#duedtElpsdNotEndCnt,기일경과 미종료건수
 AT#duedtEndDt,기일종료년월일
 AT#duedtMgmtBizTpCd,기일관리업무유형
 AT#duedtMgmtDt,기일관리일자
 AT#duedtMgmtDtlTpCd,기일관리상세유형
+AT#duedtMgmtStrtgCd,기일관리전략코드
 AT#duedtQryDscd,기일조회구분코드
 AT#duedtStartDt,기일시작년월일
 AT#duedtTotRpymntAmt,기일도래총상환금액
@@ -3129,6 +3308,15 @@ AT#duringTrmNetProfitAmt,당기순이익
 AT#dutyCd,직무코드
 AT#dvdAmt,분할금액
 AT#dvdndAmt,배당금액
+AT#dvdndChngYn,배당변경여부
+AT#dvdndDemandDt,배당요구기일
+AT#dvdndDt,배당년월일
+AT#dvdndExpctdAmt,배당예상금액
+AT#dvdndLegalActionId,배당법무식별자
+AT#dvdndObjctnYn,배당이의여부
+AT#dvdndRankingNbr,배당순위
+AT#dvdndSumAmt,배당금합계금액
+AT#dvdndTpCd,배당유형코드
 AT#dvlpTaskCntnt,개발과제내용
 AT#dvlpTaskEndDt,개발과제종료일자
 AT#dvlpTaskId,개발과제ID
@@ -3157,7 +3345,7 @@ AT#easyTrnsfrWhdrwlArrId,간편송금출금계약식별자
 AT#easyTrnsfrWhdrwlInfoJson,간편송금발신정보제이슨
 AT#easyTrnsfrWhdrwlStsCd,간편송금발신상태코드
 AT#ecludRsnCd,제외이유코드
-AT#edctnEnvrnmntDescCntnt,교육환경설명
+AT#edctnEnvrnmntDescCntnt,교육환경설명내용
 AT#edctnTax,교육세
 AT#edctnTaxRt,교육세율
 AT#eddExctnYn,EDD수행여부
@@ -3179,6 +3367,7 @@ AT#efctvStartDt,유효시작일자
 AT#efctvStartDtCnt,유효시작일자건수
 AT#efctvStartHms,유효시작시간
 AT#efctvTrmCnt,유효기간
+AT#efctvTrmCntCrtrCd,유효기간기준코드
 AT#elctrncAddr,전자주소
 AT#elctrncFnclMediaDscd,전자금융매체구분코드
 AT#elctrncFnclMgmtUserId,E금융관리사용자ID
@@ -3235,6 +3424,7 @@ AT#endDtm,종료일시
 AT#endHms,종료시각
 AT#endHousehldAddr,종료호주소
 AT#endMktgDt,홍보종료일자
+AT#endMnthCnt,종료월수
 AT#endNbr,끝번호
 AT#endNbrAddr,종료번지주소
 AT#endNth,종료회차
@@ -3261,7 +3451,7 @@ AT#engNm,영문명
 AT#engNoticeMsgNm,영문통지메시지명
 AT#engRoadNm,영문도로명
 AT#engWrdNm,영문단어
-AT#englishNm,
+AT#englishNm,영문명
 AT#enterSucssYn,입력성공여부
 AT#entrCmpnyDt,입사일자
 AT#entrprsNm,업체명
@@ -3269,6 +3459,8 @@ AT#entryCupldInfoJson,입출내역연동정보JSON
 AT#entrySeqNbr,입출일련번호
 AT#envrnmntImprvmntBurdenAmt,환경개선부담금
 AT#eqlDfrncIncrsAmt,등차체증액
+AT#erlyDlgtnRsnCd,조기위임사유코드
+AT#erlyDlgtnTrgtYn,조기위임대상여부
 AT#erlyRnwYn,조기갱신여부
 AT#erlyRpymntFeeRdctnExmptnRt,조기상환수수료감면율
 AT#erlyRpymntFeeRmkCntnt,조기상환수수료적요내용
@@ -3278,12 +3470,18 @@ AT#erlyRpymntPrncplYn,조기상환원금여부
 AT#erlyRpymntYn,조기상환여부
 AT#erlyTrmntnFeeAmt,중도해지수수료
 AT#erlyTrmntnPdCnt,중도해지상품수
+AT#erlyTrnsfrdTrgtYn,조기이관대상여부
+AT#erlyWarngFrstStgeClassNm,조기경보1단계클래스명
 AT#erlyWarngPrctnryClassNm,조기경보요주의클래스
 AT#erlyWarngRsnCd,조기경보사유코드
 AT#erlyWarngRsnCntnt,조기경보사유내용
+AT#erlyWarngRstrctnDt,조기경보제한년월일
 AT#erlyWarngRvctnCmntCntnt,조기경보해제의견
+AT#erlyWarngRvctnDt,조기경보해제년월일
 AT#erlyWarngRvctnRsnCntnt,조기경보해제사유
+AT#erlyWarngScndStgeClassNm,조기경보2단계클래스명
 AT#erlyWarngStepDscd,조기경보단계구분
+AT#erlyWarngStrtgCd,조기경보전략코드
 AT#erlyWarngStsCd,조기경보상태코드
 AT#ernrDscd,소득자구분코드
 AT#errAmt,에러금액
@@ -3291,13 +3489,13 @@ AT#errCd,에러코드
 AT#errCnt,에러건수
 AT#errCntnt,오류내용
 AT#errDstnctnMsgCd,오류구분전문코드
-AT#errDtlCntnt,오류상세내용
+AT#errDtlCntnt,에러상세내용
 AT#errGuid,에러GUID
 AT#errInfoCntnt,에러내용
 AT#errItmNbr,에러항목번호
 AT#errLvlCd,에러레벨
 AT#errMsgCd,에러메시지코드
-AT#errMsgCntnt,오류메시지내용
+AT#errMsgCntnt,에러메시지내용
 AT#errOcrDt,에러발생년월일
 AT#errPrcsStsCd,에러처리상태코드
 AT#errPrcsTpCd,에러처리유형코드
@@ -3314,14 +3512,16 @@ AT#errSeqNbr,에러일련번호
 AT#errSkpYn,에러SKIP여부
 AT#errStopCndCd,오류중지조건
 AT#errStopYn,에러중지여부
-AT#errTmstmp,에러일시
-AT#errTxCnt,오류거래건수
+AT#errTmstmp,에러타임스탬프
+AT#errTxCnt,에러거래건수
 AT#errYn,에러여부
 AT#errorSeqNbrNbr,에러순번
 AT#estblshmntDt,설립일자
 AT#estmtCapitalScaleDscd,추정자산규모구분
-AT#estmtMarketPrice,시가추정금액
+AT#estmtLossAmt,추정손실금액
+AT#estmtMarketPrice,시가추정가격
 AT#etcAcctClrncPlnDt,기타계정정리예정일자
+AT#etcAcctDscd,기타계정구분코드
 AT#etcAcctInfoJson,기타계정정보제이슨
 AT#etcAmt,기타금액
 AT#etcCd,기타코드
@@ -3337,7 +3537,8 @@ AT#etcReportStsCd,기타신고상태코드
 AT#etcReportTpCd,기타신고유형코드
 AT#etcStampCnt,기타인지건수
 AT#etcStampTax,기타인지세
-AT#etcTxAmt,기타거래건수
+AT#etcTxAmt,기타거래금액
+AT#etcTxCnt,기타거래건수
 AT#euroCrncyUseYn,유로통화사용여부
 AT#eventCd,이벤트코드
 AT#evltnAfBal,평가후잔액
@@ -3379,7 +3580,7 @@ AT#exRtNthCd,환율회차코드
 AT#exTmpltCd,환템플릿코드
 AT#exclsvDscd,한편넣기구분코드
 AT#exclsvInclsvDscd,한편양편구분코드
-AT#exclsvRsdntlAreaVal,전용면적
+AT#exclsvRsdntlAreaVal,전용면적값
 AT#excptnAcctListJson,예외계좌목록제이슨
 AT#excptnAprvlRsnCd,예외승인사유코드
 AT#excptnEngAbrvtnNm,예외영어약어명
@@ -3390,11 +3591,12 @@ AT#exctnCd,실행코드
 AT#exctnClsgDt,실행마감일자
 AT#exctnCntnt,이행내용
 AT#exctnCyclScnd,실행주기초
-AT#exctnDt,이행일자
+AT#exctnDt,실행일자
 AT#exctnHms,실행시분초
 AT#exctnInfoCntnt,실행정보내용
 AT#exctnModeDscd,실행모드구분코드
 AT#exctnNbr,실행번호
+AT#exctnNth,실행회차
 AT#exctnRsltRgstrnYn,실행결과등록여부
 AT#exctnRtrctnYn,실행철회여부
 AT#exctnSeqNbr,실행일련번호
@@ -3440,8 +3642,9 @@ AT#exprtnDtProfitLossStartDt,기한이익상실시작일자
 AT#exprtnPlcNm,유효기일장소명
 AT#exprtrNm,수출자명
 AT#exstngInvstmntContainYn,기존투자포함여부
+AT#extndParmOneYn,확장파라미터1여부
 AT#extnsnDscd,연장구분코드
-AT#extnsnHms,연장시각
+AT#extnsnHms,연장시분초
 AT#extnsnSeqNbr,확장일련번호
 AT#extrnlAsyncSndTxYn,대외취급거래여부
 AT#extrnlAuditTrgtYn,외부감사대상여부
@@ -3478,7 +3681,7 @@ AT#extrnlRspnsCdNm,대외응답코드명
 AT#extrnlRspnsNm,대외응답명
 AT#extrnlSalePdCd,외부판매상품코드
 AT#extrnlSrvcCd,대외서비스코드
-AT#extrnlSubBizDscd,대외부업무구분코드
+AT#extrnlSubBizDscd,대외업무세부구분코드
 AT#extrnlSubBizNm,대외세부업무명
 AT#extrnlTxCd,대외거래코드
 AT#faceVal,액면금액
@@ -3492,6 +3695,7 @@ AT#feeAdtnAmt,수수료가산금액
 AT#feeAdtnIntRt,수수료가산금리
 AT#feeAlctnBnkCd,수수료배분은행코드
 AT#feeAmt,수수료금액
+AT#feeAplyDscd,수수료적용구분코드
 AT#feeAplyFormulaCntnt,수수료적용산식
 AT#feeBaseAmt,수수료기준금액
 AT#feeBurdenDscd,수수료부담주체구분코드
@@ -3505,17 +3709,17 @@ AT#feeCnclYn,수수료취소여부
 AT#feeCndCd,수수료 조건코드
 AT#feeCndNm,수수료 조건명
 AT#feeCnt,수수료건수
-AT#feeDcAmt,
-AT#feeDcCntnt,
+AT#feeDcAmt,할인금액
+AT#feeDcCntnt,수수료할인내용
 AT#feeDcIntgrtnLmtCd,수수료할인통합한도코드
 AT#feeDcIntgrtnLmtCntnt,수수료할인통합한도내용
 AT#feeDcIntgrtnLmtNm,수수료할인통합한도명
 AT#feeDcMaxAmt,할인가능최대금액
 AT#feeDcMinAmt,할인가능최소금액
-AT#feeDcNm,
-AT#feeDcRt,
-AT#feeDcSeqNbr,
-AT#feeDcStsCd,
+AT#feeDcNm,수수료할인명
+AT#feeDcRt,할인율
+AT#feeDcSeqNbr,수수료할인일련번호
+AT#feeDcStsCd,수수료할인상태코드
 AT#feeDcsnAmt,수수료 결정금액
 AT#feeDmstcAmt,수수료원화금액
 AT#feeDscd,요금구분
@@ -3544,6 +3748,7 @@ AT#feeLevyDscd,수수료징수구분코드
 AT#feeLevyMaxAmt,수수료징수최대금액
 AT#feeLevyMinAmt,수수료징수최소금액
 AT#feeLevyRt,수수료징수료율
+AT#feeOcrAmt,수수료발생금액
 AT#feeRdctnDscd,수수료감면구분코드
 AT#feeRdctnRsnCd,수수료감면사유코드
 AT#feeRdctnTxDt,수수료감면거래일자
@@ -3591,10 +3796,11 @@ AT#fillerCntnt,필러내용
 AT#filterCnt,Filter건수
 AT#finDt,완료일자
 AT#finYnCd,완료여부코드
+AT#findPrprtyId,발견재산식별자
 AT#findPrprtyYn,발견재산여부
 AT#firmBankingCorpnCd,펌뱅킹업체코드
 AT#firmSize,기업규모
-AT#firstFixedIntRtAplyTrmDscd,
+AT#firstFixedIntRtAplyTrmDscd,최초고정금리적용기간구분코드
 AT#fitAge,Fit Age
 AT#fiveHndrdWonBillAmt,오백원권
 AT#fiveThsndWonBillAmt,오천원권
@@ -3602,6 +3808,8 @@ AT#fixedAmt,고정금액
 AT#fixedCashBal,고정잔액
 AT#fixedFeeIncrsAmt,고정수수료증가금액
 AT#fixedIntRt,고정이율
+AT#fixedTrmDataTpDscd,고정기간데이터유형구분코드
+AT#fixedTrmRefCndCd,고정기간참조조건코드
 AT#fixedTxtCntnt,고정텍스트내용
 AT#flagCntnt,플래그내용
 AT#flawRsnCd,하자사유코드
@@ -3621,6 +3829,8 @@ AT#fldLnpWayCntnt,필드정렬방식내용
 AT#fldNm,필드명
 AT#fldScrptCntnt,필드스크립트내용
 AT#fldSrchTxCd,필드검색거래코드
+AT#fldTpCd,컬럼타입코드
+AT#fldVal,필드값
 AT#fltngCyclUnitCd,변동주기단위코드
 AT#fltngCyclVal,변동주기값
 AT#fltngIntRtCyclUnitCd,변동금리주기단위코드
@@ -3640,13 +3850,13 @@ AT#fnclInstId,금융기관식별자
 AT#fnclInstMsgMgmtNbr,금융기관전문관리번호
 AT#fnclInstMsgTrnsmsnHms,금융기관전문전송시간
 AT#fnclTxYn,재무거래여부
-AT#fncrNm,
-AT#fncrNmLen,
+AT#fncrNm,송금인명
+AT#fncrNmLen,송금인명길이
 AT#fnctnDscd,기능구분
 AT#fnctnNbr,기능번호
 AT#fnctnNm,함수명
 AT#fndtnRegionNbr,기초지역번호
-AT#fndtnRsnNbr,
+AT#fndtnRsnNbr,기초지역번호
 AT#fndtnSeqNbr,근기일련번호
 AT#fnlCmpltnStepNm,최종완료스텝명
 AT#fnlDstntnNatCd,최종도착국가코드
@@ -3654,11 +3864,11 @@ AT#fnlDstntnNm,최종도착지명
 AT#fnlLoinChnlCd,최종로그인채널코드
 AT#fnlLoinChnlDscd,최종로그인채널구분
 AT#fnlYn,최종여부
-AT#fontColorVal,글색
-AT#fontFamilyVal,글꼴
-AT#fontSize,크기
-AT#fontStyleVal,글꼴style
-AT#fontWeightVal,글꼴weight
+AT#fontColorVal,글색값
+AT#fontFamilyVal,글꼴값
+AT#fontSize,글꼴크기
+AT#fontStyleVal,글꼴스타일값
+AT#fontWeightVal,글꼴굵기값
 AT#footerCntnt,Footer
 AT#formulaAsRdblFormCntnt,금리계산식
 AT#formulaBaseDt,산식기준일자
@@ -3667,6 +3877,7 @@ AT#formulaCndCd,산식조건코드
 AT#formulaCndClassNm,산식조건클래스명
 AT#formulaCntnt,공식내용
 AT#formulaDscd,산식구분코드
+AT#formulaId,산식식별자
 AT#formulaNm,산식명
 AT#formulaSeqNbr,산식일련번호
 AT#formulaStsCd,산식상태코드
@@ -3716,13 +3927,14 @@ AT#frgnTxHotspotDeptId,외화거래집중부서식별자
 AT#frgncExMsgGrpAtrbtNm,외환전문그룹속성명
 AT#frgncExMsgTagAtrbtCntnt,외환전문태그속성내용
 AT#frgncExMsgTagAtrbtNm,외환전문태그속성명
-AT#frgncExProfitDlgAplyFrctnCnt,
+AT#frgncExProfitDlgAplyFrctnCnt,환전이익매매기준율적용단수
 AT#frgncExTradePrncpl,외국환매매원금
-AT#frontDoorStrctrDescCntnt,현관구조설명
+AT#frontDoorStrctrDescCntnt,현관구조설명내용
 AT#frozenCmltvAmt,동결누적금액
 AT#frqntUsingAcctNbr,자주쓰는계좌
 AT#frstAncmntNth,최초고시회차
 AT#frstAplyIntRt,최초적용금리
+AT#frstAplyRt,최초적용이율
 AT#frstCatalogId,첫번째 카탈로그 식별자
 AT#frstChngYn,최초변경여부
 AT#frstCrtInspctnAmt,최초법원사정금액
@@ -3732,6 +3944,7 @@ AT#frstFixedIntRtAplyTrmDscd,최초고정금리적용기간구분
 AT#frstFixedIntRtAplyTrmDscdNm,최초고정금리적용기간구분코드명
 AT#frstIntRcptCd,초회이자수납코드
 AT#frstIssueDt,최초발급일자
+AT#frstMnthRpymntAmt,최초월상환금액
 AT#frstNthRcptAmt,초회수납금액
 AT#frstOpnDt,최초개시일자
 AT#frstOprtnStaffId,1차운영스태프식별자
@@ -3753,6 +3966,8 @@ AT#frstStartHms,최초시작시각
 AT#frstStartTmstmp,최초시작시간
 AT#frstTmRcptAmt,초회수납금액
 AT#frstTrnsmsnHms,최초전송시간
+AT#fssLnAmrtztnAplctnOutpDt,금감원상각신청서출력년월일
+AT#fssRevenueReportOutpDt,금감원편입보고서출력년월일
 AT#ftcsubAcptncNbr,결제원접수번호
 AT#ftcsubRcptNewCnt,결제원접수신규건수
 AT#ftpFileNm,일괄전송파일명
@@ -3776,12 +3991,12 @@ AT#fundRefundDpstAcctNbr,자금반환입금계좌번호
 AT#fundRefundRqstAmt,자금반환요청금액
 AT#fundRefundRqstCnt,자금반환요청건수
 AT#fundsAdjstmntAmt,자금조정금액
-AT#fundsAdjstmntBaseRt,
-AT#fundsAdjstmntDsbrsAmt,
+AT#fundsAdjstmntBaseRt,자금조정기준금리
+AT#fundsAdjstmntDsbrsAmt,자금조정지급금
 AT#fundsAdjstmntDscd,자금조정구분코드
 AT#fundsAdjstmntStlmntAmt,자금조정정산금액
 AT#fundsCmpsKndCd,자금구성종류코드
-AT#fundsDscd,
+AT#fundsDscd,자금구분코드
 AT#fundsKndCd,자금종류코드
 AT#fundsRcvCrncyAmt,자금인수통화
 AT#fundsRcvOthrChkAmt,자금인수타점권
@@ -3857,7 +4072,7 @@ AT#gndrDscd,성별구분
 AT#gndrDscdNm,성별구분코드명
 AT#gnrlAge,일반나이
 AT#gnrlRcvdAmt,총계정입금금액
-AT#gnrlWhdrwlAmt,
+AT#gnrlWhdrwlAmt,총계정출금금액
 AT#goalCntnt,목표내용
 AT#goalFailrLastTxSeqNbr,목표실패최종거래일련번호
 AT#goodsShpmntDt,물품선적년월일
@@ -3903,12 +4118,12 @@ AT#hangulInstNm,한글기관명
 AT#hdOfcBizNbr,본사사업자등록번호
 AT#hdOfcYn,본사여부
 AT#hdngYn,숨김여부
-AT#hdrCntnt,헤더
+AT#hdrCntnt,헤더내용
 AT#hdrInfoCntnt,헤더정보내용
 AT#hdrSeqNbr,헤더부일련번호
 AT#healthChkCyclVal,헬스체크주기값
-AT#heatingFuelDescCntnt,난방연료설명
-AT#heatingSysDescCntnt,난방방식설명
+AT#heatingFuelDescCntnt,난방연료설명내용
+AT#heatingSysDescCntnt,난방방식설명내용
 AT#hideFundRefundDpstAcctNbr,Hide자금반환입금계좌번호
 AT#hideMnyRcvngAcctNbr,Hide입금계좌번호
 AT#hideOrgnlTxRcpntAcctNbr,hide원거래수취계좌번호
@@ -3923,6 +4138,8 @@ AT#highestFloorCnt,최고층수
 AT#hiredDt,입사일자
 AT#hldCashAmt,보유시재금액
 AT#hldyCnt,공휴일수
+AT#hldyDfrdBalOvrduBaseDt,휴일이연잔액연체기준년월일
+AT#hldyDfrdOvrduBaseDt,휴일이연연체기준년월일
 AT#hldyDscd,휴일구분
 AT#hldyPrcsngWayCd,휴일처리방법코드
 AT#hldyYn,휴일여부
@@ -3963,7 +4180,7 @@ AT#hndlngFnclInstNm,취급금융기관명
 AT#hndlngFnclNrmlAmt,취급금융기관정상금액
 AT#hndlngFnclNrmlCnt,취급금융기관정상건수
 AT#hndlngInqryCnt,취급조회건수
-AT#hndlngInstBrnchCd,취급기관점별코드
+AT#hndlngInstBrnchCd,취급기관부점코드
 AT#hndlngInstCd,취급기관코드
 AT#hndlngMgmtMsgPrcsngYn,취급관리전문반영여부
 AT#hndlngMsgMgmtNbr,취급전문관리번호
@@ -4013,6 +4230,7 @@ AT#hshVal,해시값
 AT#hshldrCustRltdCd,세대주고객관계코드
 AT#hshldrNm,세대주성명
 AT#hshldrYn,세대주여부
+AT#hstQryYn,이력조회여부
 AT#hstSeqNbr,이력일련번호
 AT#icCardInfoCntnt,IC카드정보내용
 AT#icCardRltdInfoCntnt,IC카드관련정보내용
@@ -4082,7 +4300,7 @@ AT#incomeTaxRt,소득세율
 AT#incpbltyCnt,불능건수
 AT#incrsAmtDt,증액일자
 AT#incrsVal,증가값
-AT#inctvButtonVal,비활성버튼
+AT#inctvButtonVal,비활성버튼값
 AT#inctvUserYn,비활동사용자여부
 AT#indrctCostRt,간접원가율
 AT#indsDscd,산업구분
@@ -4094,6 +4312,7 @@ AT#indvBizRelCd,개인사업자관계코드
 AT#indvBizYn,개인사업자여부
 AT#indvExRtAthrznNbr,개별환율승인번호
 AT#indvFctrRt,개별요인율
+AT#indvRhbltnPrcsStsCd,개인회생진행상태코드
 AT#infoOfferAgrmntYn,정보제공동의여부
 AT#infoRgstrnOriginTpCd,정보등록원천유형
 AT#infoSmtnDscd,정보성집계구분코드
@@ -4128,6 +4347,7 @@ AT#inpRcptYn,입력수납여부
 AT#inpScrnAtmtdCrtnYn,입력화면자동생성여부
 AT#inpTotAmt,입력금액합계
 AT#inpTxDt,입력거래일자
+AT#inpXtnAtrbtExstncYn,입력확장속성존재여부
 AT#inpYn,입력여부
 AT#inqryAgrmntCd,조회동의코드
 AT#inqryBaseDscd,조회기준구분코드
@@ -4194,6 +4414,7 @@ AT#installTpCntnt,설치유형내용
 AT#installZipCd,설치우편번호
 AT#instlmntAmt,적립금액
 AT#instlmntAmtFrctnTpCd,할부금단수구분코드
+AT#instlmntBal,할부잔액
 AT#instlmntCyclDscd,적립주기구분코드
 AT#instlmntDay,적립일
 AT#instlmntFrctnAplyWayCd,할부금우수리적용방법코드
@@ -4219,9 +4440,11 @@ AT#intBaseDay,이자기준일
 AT#intCalcnBalEndDt,이자계산잔액시작년월일
 AT#intCalcnBalStartDt,이자제외잔액시작일
 AT#intCalcnBaseDayCnt,이자계산기준일수
+AT#intCalcnBaseDayCntDscd,이자계산기준일수구분코드
 AT#intCalcnBasePrdCd,이자계산기준기간코드
 AT#intCalcnDayCnt,이자계산일수
 AT#intCalcnEndDt,이자계산종료일자
+AT#intCalcnFrctnPrcsngDscd,이자계산단수처리구분코드
 AT#intCalcnFrctnTpCd,이자계산단수구분코드
 AT#intCalcnInfoCntnt,이자계산정보
 AT#intCalcnMnthCnt,이자계산월수
@@ -4230,6 +4453,8 @@ AT#intCalcnRcptTrmCd,이자수납기간코드
 AT#intCalcnRmkCntnt,이자계산적요
 AT#intCalcnSctnDscd,이자계산구간구분코드
 AT#intCalcnStartDt,이자계산시작일자
+AT#intCalcnTpCd,이자계산유형코드
+AT#intCalcnTrgtYn,이자계산대상여부
 AT#intCalcnUnitDscd,이자계산단위구분코드
 AT#intCalcnWayCd,금리계산식
 AT#intClcltPreDsTpCd,이자계산선후취구분유형코드
@@ -4249,10 +4474,13 @@ AT#intFrgncAmt,이자외화금액
 AT#intGrcPrdEndDt,이자유예종료일자
 AT#intGrcPrdStartDt,이자유예시작일자
 AT#intIncomeAmt,이자소득금액
+AT#intInqryDscd,이자조회구분코드
 AT#intKndCd,이자종류코드
 AT#intOnlyGrcNth,거치기간회차
+AT#intOvrduDayCnt,이자연체일수
 AT#intOvrduDscd,이자연체구분코드
 AT#intOvrduIntAmt,이자연체이자금액
+AT#intOvrduMnthCnt,이자연체월수
 AT#intOvrduStartDt,이자연체시작일자
 AT#intPymntAplySchdldDt,이자납입적용예정일자
 AT#intPymntCnt,이자지급횟수
@@ -4276,7 +4504,9 @@ AT#intPymntTrmDscd,이자지급기간구분코드
 AT#intRcptTrmCd,이자수납기간코드
 AT#intRcptTrmDscd,이자수납기간구분코드
 AT#intRcptYn,이자수납여부
+AT#intRdctnAmt,이자감면금액
 AT#intRdctnExmptnDayCnt,이자감면일수
+AT#intRpymntAmt,이자상환금액
 AT#intRpymntSchdldDt,이자상환예정일자
 AT#intRt,금리
 AT#intRtAddSbtrctDscd,금리가감구분
@@ -4286,10 +4516,12 @@ AT#intRtAplyBaseDt,금리적용기준일자
 AT#intRtAplyWayCd,금리적용방식코드
 AT#intRtAplyWayCdNm,금리적용방식코드명
 AT#intRtCmpsCndCd,금리구성조건코드
+AT#intRtCmpsElmntYn,금리구성요소여부
 AT#intRtCmptnCntnt,금리산출의견
 AT#intRtCmptnDt,금리산출일자
 AT#intRtCndCd,금리조건코드
 AT#intRtCnfrmtnDscd,금리확정구분
+AT#intRtCnfrmtnYn,금리확정여부
 AT#intRtDataTpCd,금리데이터유형코드
 AT#intRtDataTpCdNm,금리데이터유형코드명
 AT#intRtDcsnCndCd,금리결정조건코드
@@ -4298,6 +4530,7 @@ AT#intRtDscntAplyMnthCnt,금리할인적용개월
 AT#intRtElmntAsRdblFormCntnt,금리요소가독성형식내용
 AT#intRtExRtDscd,금리환율구분
 AT#intRtFormulaCntnt,금리산식내용
+AT#intRtNxtRbldDt,금리다음재산정년월일
 AT#intRtSprdAplyFormulaCd,금리스프레드적용산식코드
 AT#intRtSprdAplyFormulaCdNm,금리스프레드적용산식코드명
 AT#intRtStrctrCd,금리체계코드
@@ -4337,8 +4570,8 @@ AT#intrmdryBnkNm,중계은행명
 AT#intrmdryInstCd,중개기관코드
 AT#intrmdryMsgMgmtNbr,중개기관전문관리번호
 AT#intrmdryMsgSndDtHms,중개기관전문전송일시
-AT#intrmdryMsgSndHms,결제원전문전송시각
-AT#intrmdryMsgSndTmstmp,중개기관전문전송시각
+AT#intrmdryMsgSndHms,결제원전문전송시분초
+AT#intrmdryMsgSndTmstmp,중개기관전문전송타임스탬프
 AT#intrmdryRmtncYn,중계송금여부
 AT#intrmdrySysId,중계시스템식별자
 AT#intrnlBrnchMvmntPdCd,내부지점이동상품코드
@@ -4397,7 +4630,7 @@ AT#invstrId,투자자ID
 AT#inwardRmtncPdCd,타발송금상품코드
 AT#ipAddr,IP주소
 AT#ipctCd,중요증서코드
-AT#ipctClCd,중요증서분류구분코드
+AT#ipctClCd,중요증서분류코드
 AT#ipctClNm,중요증서분류명
 AT#ipctEndNbr,중요증서종료번호
 AT#ipctNbr,중요증서번호
@@ -4413,7 +4646,7 @@ AT#ipctTxRsnCd,중요증서거래사유코드
 AT#ipctTxStsCd,중요증서거래상태코드
 AT#ipctTxTpCd,중요증서거래유형코드
 AT#isAcctgItmCd,IS계정과목코드
-AT#isCrctnEngWrd,
+AT#isCrctnEngWrd,영문단어스펠링정확여부
 AT#isFrgnCrncyYn,외화여부
 AT#isMainCardYn,주카드여부
 AT#isNewDelYn,신규삭제여부
@@ -4433,6 +4666,7 @@ AT#issueBnkNm,발행은행명
 AT#issueCmpnyCd,발행회사코드
 AT#issueCnfrmNbr,발급확인번호
 AT#issueCnt,발급매수
+AT#issueCouponCnt,발행쿠폰수
 AT#issueCustId,발급고객식별자
 AT#issueDt,발급일자
 AT#issueFormCd,발행형태코드
@@ -4441,9 +4675,9 @@ AT#issueHms,발급시간
 AT#issueInfoCntnt,발급 정보
 AT#issueInstDscd,발행기관분류코드
 AT#issueInstId,발행기관식별번호
-AT#issueLngCd,발급언어
-AT#issueMediaId,이슈 미디어 식별자
-AT#issueMediaTpCd,이슈미디어유형코드
+AT#issueLngCd,발행언어코드
+AT#issueMediaId,발행매체식별자
+AT#issueMediaTpCd,발행매체유형코드
 AT#issueNth,발급회차
 AT#issueTpCd,발행형태
 AT#issueTxSeqNbr,발급거래일련번호
@@ -4476,7 +4710,7 @@ AT#jobInfoRgstrnYn,직장정보등록여부
 AT#jobKndCd,직업종류코드
 AT#jobNm,작업명
 AT#jobTitlCd,직위코드
-AT#jointCdDscd,은행연합회공통코드
+AT#jointCdDscd,공동코드구분코드
 AT#jointHouseDscd,공동주택구분
 AT#jointNetworkClCd,공동망종별코드
 AT#jointNetworkDscd,공동망구분코드
@@ -4494,7 +4728,8 @@ AT#jsonCmbBoxCntnt,제이슨콤보박스내용
 AT#jsonKeySeq,제이슨키순번
 AT#jsonKeyValCntnt,제이슨키값내용
 AT#jstcDeptNm,재판부명
-AT#kbfnFundsTrnsfrSerialNbr,
+AT#jstcDeptTelNbr,재판부전화번호
+AT#kbfnFundsTrnsfrSerialNbr,한국은행자금이체일련번호
 AT#kbfnHndlngInstAcctBrnchCd,한국은행금융망취급기관계정개설처
 AT#kbfnInstAcctBrnchCd,한국은행금융망계정지점코드
 AT#kbfnOpnInstAcctBrnchCd,한국은행금융망개설기관계정지점코드
@@ -4562,16 +4797,22 @@ AT#lastChngEmplNbr,최종변경사원번호
 AT#lastChngGuid,최종변경GUID
 AT#lastChngId,최종변경식별자
 AT#lastChngStaffId,최종변경스태프식별자
-AT#lastChngTmstmp,최종변경시간
+AT#lastChngTmstmp,최종변경타임스탬프
 AT#lastChngUserNbr,최종변경사용자번호
 AT#lastCnfrmtnDt,최종승인일자
 AT#lastDstbEnvrnmntCd,최종배포환경코드
+AT#lastDvdndTrmntDt,최종배당종결년월일
+AT#lastFeeDcsnAmt,최종수수료할인값
+AT#lastFeeDcsnRt,최종수수료할인율
+AT#lastFeeDscntAmt,최종수수료할인값
+AT#lastFeeDscntRt,최종수수료할인율
 AT#lastInstlmntPymntDt,최종적금납입일자
 AT#lastInstlmntPymntNth,최종적금납입회차
 AT#lastIntCalcnAcmltdAmt,최종이자계산적수금액
 AT#lastIntCalcnDt,최종이자계산일자
 AT#lastIntOvrduIntCalcnDt,최종이자연체이자계산일자
 AT#lastIntPymntCnt,최종이자지급횟수
+AT#lastIntPymntDt,최종이자납입년월일
 AT#lastIntrmdryMsgMgmtNbr,최종중개기관전문관리번호
 AT#lastLnArrId,최종대출계약식별자
 AT#lastLnBalOvrduIntCalcnDt,최종대출잔액연체이자계산일자
@@ -4587,7 +4828,8 @@ AT#lastPrcsDt,최종작업일자
 AT#lastPrcsngNbr,최종처리번호
 AT#lastPrntDt,최종인자일자
 AT#lastPsbkBkgDt,최종통장기장일자
-AT#lastPsbkBkgLnCnt,
+AT#lastPsbkBkgIssueNth,최종통장기장발급회차
+AT#lastPsbkBkgLnCnt,최종통장기장행수
 AT#lastPsbkBkgPgCnt,최종통장기장장수
 AT#lastPsbkBkgRowCnt,최종통장기장행수
 AT#lastPsbkBkgSideCnt,최종통장기장면수
@@ -4597,6 +4839,7 @@ AT#lastPsbkIssueNth,최종통장발급회차
 AT#lastPswdErrDt,최종비밀번호오류일자
 AT#lastPymntAmt,차감지급금액
 AT#lastPymntNth,최종납입회차
+AT#lastReleaseDt,최종출시년월일
 AT#lastRpymntDt,최종상환년월일
 AT#lastRpymntPrncplOvrduIntCalcnDt,최종상환원금연체이자계산일자
 AT#lastRpymntSchdldDt,최종상환예정년월일
@@ -4649,7 +4892,7 @@ AT#leafNodeYn,최하위노드여부
 AT#leapYrDayCnt,윤년일수
 AT#leapYrUseYn,윤년사용여부
 AT#leapYrYn,윤년여부
-AT#leaseDpstAmt,임차보증금액
+AT#leaseDpstAmt,임대보증금액
 AT#leaseGnrlTxAmt,임대일반거래가금액
 AT#leaseIncomeAmt,임대소득금액
 AT#leaseMaxAmt,임대상한가금액
@@ -4663,24 +4906,30 @@ AT#leaseYn,임차여부
 AT#legalActionCostDscd,법무비용구분
 AT#legalActionDscd,법무구분
 AT#legalActionDt,법무기일자
+AT#legalActionDtCntnt,법무기일내용
 AT#legalActionDtDscd,법무기일구분
 AT#legalActionDtHms,법무기일시간
+AT#legalActionDtLctnNm,법무기일장소명
 AT#legalActionDtNth,법무기일차수
 AT#legalActionDtRsltDscd,법무기일결과구분
 AT#legalActionDtSeqNbr,법무기일일련번호
 AT#legalActionDtTrtmntCntnt,법무기일조치내용
 AT#legalActionDtTrtmntDt,법무기일조치일자
 AT#legalActionId,법무식별자
+AT#legalActionLrgClCd,법무대분류코드
+AT#legalActionRltdPersonDscd,법무관련인구분코드
 AT#legalActionStaffId,법무스태프식별자
 AT#legalActionStsCd,법무상태코드
+AT#legalActionYn,법적조치여부
 AT#legalRt,법정이율
+AT#legalStaffNm,법무사명
 AT#len,길이
 AT#lenderUnqIdNbr,금융제공자고유식별번호
 AT#lenderYn,금융제공자
 AT#lendingArrId,투자계약식별자
 AT#lessAmt,LESS금액
 AT#lessRt,LESS율
-AT#letterSpacingVal,문자간격
+AT#letterSpacingVal,문자간격값
 AT#levyAblMaxAmt,징수가능최대금액
 AT#levyAblMinAmt,징수가능최소금액
 AT#levyAcctNbr,징수계좌번호
@@ -4720,7 +4969,8 @@ AT#lgRdmptnYn,L/G회수여부
 AT#lgRefNbr,L/G참조번호
 AT#lgclExctnSysId,논리실행시스템
 AT#lgclTblNm,논리테이블명
-AT#lineHeightVal,줄간격
+AT#lienYn,유치권유무
+AT#lineHeightVal,줄간격값
 AT#linkAcctInstId,연계계좌금융기관식별자
 AT#linkAcctNbr,연계계좌번호
 AT#linkInstCd,연결기관코드
@@ -4729,13 +4979,14 @@ AT#linkScrnNbr,연결화면번호
 AT#linkSndRcvDscd,연계송신수신구분코드
 AT#linkToExtrnlAcctPdCd,외부결제계좌연계상품코드
 AT#linkUpdtYn,연계갱신여부
-AT#linkUrl,link URL
+AT#linkUrl,링크URL
 AT#linkedMsgTraceNbr,연결전문추적번호
 AT#linkedSndRcvdDscd,연계송수신구분코드
 AT#liquorTax,주세
 AT#listBsicValDsgntnYn,목록기본값지정여부
 AT#listBsicValExstncYn,목록조건값존재여부
 AT#listCd,목록코드
+AT#listCdCnt,목록조건수
 AT#listCdNm,목록코드명
 AT#listCndBaseVal,목록조건기본값
 AT#listCndCnt,목록조건수
@@ -4779,8 +5030,24 @@ AT#lnAcntsQryDscd,여신계좌조회조건코드
 AT#lnAgrmntAmt,대출약정금액
 AT#lnAgrmntTrmntnYn,대출약정해지여부
 AT#lnAmrtztnAmt,상각금액
+AT#lnAmrtztnAplctnCostAmt,상각신청비용금액
+AT#lnAmrtztnAplctnDeptId,상각신청부서식별자
+AT#lnAmrtztnAplctnIntAmt,상각신청이자금액
+AT#lnAmrtztnAplctnPrncplAmt,상각신청원금금액
 AT#lnAmrtztnBal,상각잔액
+AT#lnAmrtztnDscd,상각구분코드
 AT#lnAmrtztnDt,상각년월일
+AT#lnAmrtztnMnth,상각월
+AT#lnAmrtztnPrcsngCostAmt,상각처리비용금액
+AT#lnAmrtztnPrcsngErrCd,상각처리에러코드
+AT#lnAmrtztnPrcsngErrCntnt,상각처리에러내용
+AT#lnAmrtztnPrcsngIntAmt,상각처리이자금액
+AT#lnAmrtztnPrcsngPrncplAmt,상각처리원금금액
+AT#lnAmrtztnPrcsngSchdldDt,상각처리예정년월일
+AT#lnAmrtztnRtrnRsnCd,상각반송사유코드
+AT#lnAmrtztnSeqNbr,상각일련번호
+AT#lnAmrtztnStsCd,상각상태코드
+AT#lnAmrtztnYr,상각년도
 AT#lnAmt,대출금액
 AT#lnAplctnAmt,대출신청금액
 AT#lnAplctnCmltvAmt,대출신청누적금액
@@ -4883,6 +5150,9 @@ AT#lnkngAcctMainYn,연결계좌메인여부
 AT#lnkngAcctNbr,연결계좌번호
 AT#lnkngAcctOwnrNm,연결계좌소유자명
 AT#lnkngLgQryYn,연결L/G조회여부
+AT#lnkngScrnId,연결화면식별자
+AT#lnkngScrnNm,연결화면명
+AT#lnkngScrnUrl,연결화면URL
 AT#lnkngYn,연결여부
 AT#localAndBizDscd,지역및사업장구분
 AT#localFileNm,로컬파일명
@@ -4896,9 +5166,9 @@ AT#logIntrfcKeyId,로그인터페이스키식별자
 AT#logLvlCd,로그레벨코드
 AT#logSeqNbr,로그일련번호
 AT#loinDt,로그인일자
-AT#loinHms,로그인시간
+AT#loinHms,로그인시분초
 AT#loinIdNbr,로그인식별번호
-AT#loinIp,로그인 IP
+AT#loinIp,로그인IP
 AT#loinLngDmnNm,로그인언어도메인명
 AT#loinLngDocNm,로그인언어문서명
 AT#loinPswdAlphbtCmpsYn,로그인비밀번호알파벳구성여부
@@ -4969,17 +5239,17 @@ AT#manualCmpnstnAmt,수기보정금액
 AT#manualCmpnstnUseYn,수기보정사용여부
 AT#manualCrctnAmt,수기보정금액
 AT#manualCrctnUseYn,수기보정사용여부
-AT#manualEntryAccruedExpnsAmt,비온라인미지급비용금액
-AT#manualEntryAccruedIncomeAmt,비온라인미수수익금액
+AT#manualEntryAccruedExpnsAmt,수기미지급비용금액
+AT#manualEntryAccruedIncomeAmt,수기미수수익금액
 AT#manualEntryBal,비온라인잔액
 AT#manualEntryFrgnBal,비온라인외화잔액
-AT#manualEntryLdgrAdjstmntAmt,비온라인장부조정금액
-AT#manualEntryPrepaidExpnsAmt,비온라인선급비용금액
+AT#manualEntryLdgrAdjstmntAmt,수기장부조정금액
+AT#manualEntryPrepaidExpnsAmt,수기선급비용금액
 AT#manualEntryPrmsnDscd,비온라인처리허용구분코드
 AT#manualEntryPrmsnDvisnCd,비온라인처리허용구분코드
 AT#manualEntryRcvdAmt,비온라인입금금액
 AT#manualEntryTxRmkCntnt,비온라인입출거래비고내용
-AT#manualEntryUnrndRevenueAmt,비온라인선수수익금액
+AT#manualEntryUnrndRevenueAmt,수기선수수익금액
 AT#manualEntryWhdrwlAmt,비온라인출금금액
 AT#manualLdgrAdjstmntAmt,수기장부조정금액
 AT#manualPrepaidExpnsAmt,수기선급비용금액
@@ -4988,6 +5258,7 @@ AT#manualUnrndRevenueAmt,수기선수수익금액
 AT#mappingTpDscd,매핑유형구분코드
 AT#marginRt,마진율
 AT#marketExRt,시장환율
+AT#marketPriceAmt,시세금액
 AT#marketPriceEstmtMthdCd,시가추정방법코드
 AT#maskRvctnIdNbr,마스킹해제주민등록번호
 AT#maskTpCd,마스킹유형
@@ -5004,6 +5275,7 @@ AT#maxBnftRt,최대우대할인율
 AT#maxCndVal,최대조건값
 AT#maxDscntRt,최대할인율
 AT#maxFeeAmt,최대수수료금액
+AT#maxFeeRt,최대수수료율
 AT#maxFixedFeeAmt,최대고정수수료금액
 AT#maxIntRt,최대이율
 AT#maxInvstmntAmt,최대 투자 금액
@@ -5047,6 +5319,7 @@ AT#memoInflowPath,메모유입경로
 AT#memoInflowRouteCd,메모유입경로코드
 AT#memoInflowRouteScrnNbr,메모유입경로화면번호
 AT#memoInflowRouteScrnNbrCd,메모유입경로화면번호코드
+AT#memoInflowScrnNbr,메모유입화면번호
 AT#memoNm,메모명
 AT#memoSeqNbr,메모일련번호
 AT#menuAtrbtNm,메뉴속성명
@@ -5056,7 +5329,7 @@ AT#menuId,메뉴식별자
 AT#menuItmAtrbtNm,메뉴항목속성명
 AT#menuItmNm,메뉴항목명
 AT#menuKoreanNm,메뉴 한글명
-AT#menuLvlVal,메뉴레벨
+AT#menuLvlVal,메뉴레벨값
 AT#menuNbr,메뉴 번호
 AT#menuNm,메뉴명
 AT#menuPrcsngDscd,메뉴처리유형코드
@@ -5080,6 +5353,7 @@ AT#minBiddingAmt,최저입찰금액
 AT#minCndVal,최소조건값
 AT#minDscntRt,최소할인율
 AT#minFeeAmt,최소수수료금액
+AT#minFeeRt,최소수수료율
 AT#minFixedFeeAmt,최소고정수수료금액
 AT#minIntRt,최소이율
 AT#minInvstmntAmt,최소 투자 금액
@@ -5106,7 +5380,8 @@ AT#mktgEndDt,홍보종료일자
 AT#mktgStartDt,홍보시작일자
 AT#mltplIssueAblYn,복수발급가능여부
 AT#mltplLoinSesnPsblYn,로그인세션중복가능여부
-AT#mltplYn,
+AT#mltplRowYn,복수행여부
+AT#mltplYn,복수여부
 AT#mndtryCustInfoUseAgrmntTpCd,필수고객정보활용동의유형
 AT#mndtryCustInfoUseAgrmntTpCntnt,필수고객정보활용동의유형내용
 AT#mndtryNegtnCndAutoBuildYn,필수협상조건자동생성여부
@@ -5115,7 +5390,7 @@ AT#mndtryYn,필수 여부
 AT#mnfctrCmpnyNm,제조회사명
 AT#mnfctrDt,제조일자
 AT#mnfctrYr,제조년도
-AT#mnthAvgBal,월중평잔
+AT#mnthAvgBal,월평균잔액
 AT#mnthCnt,매월
 AT#mnthEndBal,월말잔액
 AT#mnthEndBizDt,월말영업일자
@@ -5141,7 +5416,7 @@ AT#mnyRcvdAcctCustTxDscd,입금계좌고객거래구분
 AT#mnyRcvdAcctDstrntYn,입금계좌압류여부
 AT#mnyRcvdAcctInstId,입금계좌기관식별자
 AT#mnyRcvdAcctNbr,입금계좌번호
-AT#mnyRcvdAcctOwnrNm,입금계좌예금주명
+AT#mnyRcvdAcctOwnrNm,입금계좌소유자명
 AT#mnyRcvdAcctTxRmkCntnt,입금계좌거래적요
 AT#mnyRcvdAmt,입금금액
 AT#mnyRcvdAmtKndDscd,입금금액종류구분
@@ -5231,7 +5506,7 @@ AT#msgChkClassNm,전문검증클래스명
 AT#msgCmpsSeqNbr,전문구성일련번호
 AT#msgCntnt,메시지내용
 AT#msgCntntCd,메시지내용코드
-AT#msgCnvrsnNm,
+AT#msgCnvrsnNm,전문변환명
 AT#msgDataDscd,전문데이터구분코드
 AT#msgDemandDscd,전문요청구분
 AT#msgDemandTmstmp,전문작성일시
@@ -5241,7 +5516,7 @@ AT#msgFormDscd,전문형식구분
 AT#msgFormatDtoNm,전문포맷DTO명
 AT#msgHdrCntnt,전문헤더내용
 AT#msgId,메시지ID
-AT#msgLen,전문길이
+AT#msgLen,메시지길이
 AT#msgNbr,전문번호
 AT#msgPerTpCd,전문종별코드
 AT#msgPrcsRsltCd,전문처리결과코드
@@ -5260,6 +5535,7 @@ AT#msgSndTmstmp,전문전송일시
 AT#msgTagCd,전문태그코드
 AT#msgTagCntnt,전문태그내용
 AT#msgTagCntntStsCd,전문태그내용상태코드
+AT#msgTagNm,전문태그명
 AT#msgTagOptionCd,전문태그옵션코드
 AT#msgTpDscd,메시지유형구분코드
 AT#msgTraceNbr,전문추적번호
@@ -5267,14 +5543,15 @@ AT#msgTrnsfrmEngNm,전문변환영문명
 AT#msgTrnsfrmId,메시지변환식별자
 AT#msgTrnsfrmIdSrchCrtrCd,전문변환검색기준코드
 AT#msgTrnsfrmInpWayDscd,입력변환방식코드
+AT#msgTrnsfrmNm,메시지변환명
 AT#msgTrnsmsnTmstmp,전문전송년월일시
 AT#msgTxTmstmp,전문거래년월일시
-AT#msngNbrHms,결번시각
+AT#msngNbrHms,결번시분초
 AT#msngNbrMsgMgmtNbr,결번전문관리번호
 AT#msngNbrPrcsDscd,결번처리구분코드
-AT#msngNbrRgstrnHms,결번등록시각
-AT#msngNbrRspnsRcvHms,결번응답수신시각
-AT#msngNbrSndHms,결번전송시각
+AT#msngNbrRgstrnHms,결번등록시분초
+AT#msngNbrRspnsRcvHms,결번응답수신시분초
+AT#msngNbrSndHms,결번전송시분초
 AT#mstKeyCntnt,마스터키내용
 AT#mstKeyVersionCntnt,마스터키버젼내용
 AT#msurUnitCd,측정단위
@@ -5283,7 +5560,7 @@ AT#msurUnitDscd,측정단위구분
 AT#msurUnitDscdNm,측정단위구분코드명
 AT#msurUnitTpDscd,측정단위유형구분
 AT#mtchngDataCntnt,매칭데이터내용
-AT#mthdExplntnCntnt,메소드설명
+AT#mthdExplntnCntnt,메소드설명내용
 AT#mthdNm,메소드명
 AT#mthrAcctNbr,모계좌번호
 AT#mthrArrAcctNbr,모계약계좌번호
@@ -5292,8 +5569,11 @@ AT#mthrArrBalMgmtSkpYn,모계약잔액관리제외여부
 AT#mthrArrId,모계약식별자
 AT#mthrArrStsCd,모계약상태코드
 AT#mthrAssetId,모자산식별자
+AT#mthrCaseNbr,모사건번호
+AT#mthrCaseNm,모사건명
 AT#mthrInstYn,모기관여부
 AT#mthrPdCd,모상품코드
+AT#mthrPntCd,모포인트코드
 AT#mthrTlrYn,모출납여부
 AT#mthrTntInstId,모기관식별자
 AT#mtrtyDayCnt,만기일수
@@ -5348,7 +5628,7 @@ AT#negtnIntRtStsChngRsnCntnt,네고금리상태변경사유내용
 AT#negtnLvlDscd,협상레벨
 AT#negtnRefNbr,매입참조번호
 AT#netAssetCntnt,순자산
-AT#netDt,
+AT#netDt,차액결제년월일
 AT#netStlmntAmt,차액결제금액
 AT#netStlmntDt,차액결제년월일
 AT#networkMgmtInfoCntnt,통신망관리정보내용
@@ -5413,6 +5693,12 @@ AT#notBkgCnt,미기장건수
 AT#notBkgStartDt,미기장시작년월일
 AT#notFinMdfctnArrId,미완료변경계약식별자
 AT#notFinPrcsTrgtCd,미완료처리대상코드
+AT#notLevyAgrmntIntAmt,미회수약정이자
+AT#notLevyBalOvrduIntAmt,미회수잔액연체이자
+AT#notLevyIntCalcnDt,미징수이자계산년월일
+AT#notLevyIntDscd,미징수이자구분코드
+AT#notLevyIntPrncplAmt,미회수원금
+AT#notLevyOvrduIntAmt,미회수연체이자
 AT#noticeDemandEndDt,통지요청종료일자
 AT#noticeDemandEndTmstmp,통지요청종료 타임스탬프
 AT#noticeDemandRsltCd,통지요청결과코드
@@ -5460,6 +5746,7 @@ AT#nrmlPrcsYn,정상처리여부
 AT#nrmlPrcsngAmt,정상처리금액
 AT#nrmlPrcsngCnt,정상처리건수
 AT#nrmlPsbkIssueNth,정상통장발급회차
+AT#nrmlRt,정상이율
 AT#nrmlYn,정상여부
 AT#nrsdncCustYn,비거주고객여부
 AT#nteItrchPlcCd,어음교환소코드
@@ -5511,6 +5798,9 @@ AT#nxtPgExstncYn,다음페이지존재여부
 AT#nxtPrncplRpymntSchdldDt,다음원금상환예정일자
 AT#nxtPymntDt,다음납입일자
 AT#nxtPymntDtAplyDscd,다음납입일적용구분코드
+AT#nxtPymntDtBaseDscd,다음납입일산정기준일구분코드
+AT#nxtPymntDtHldyAplyDscd,다음납입일휴일시적용구분코드
+AT#nxtPymntDtSpcfcMnthDscd,다음납입일산정특정월구분코드
 AT#nxtPymntDtWayCd,다음납입일산정방식코드
 AT#nxtRpymntNth,다음납입회차
 AT#nxtRpymntSchdldDt,다음상환예정년월일
@@ -5522,6 +5812,7 @@ AT#nxtWflowId,다음워크플로우식별자
 AT#objctnAmt,이의금액
 AT#objctnAplctnDt,이의신청일자
 AT#objctnRsnCntnt,이의사유내용
+AT#objctnYn,이의여부
 AT#objctvtyScore,객관성 점수
 AT#obstclFnclInstCd,장애금융기관코드
 AT#obstclRcvryBnkCd,장애회복은행코드
@@ -5538,7 +5829,7 @@ AT#ofcDtlAddrCntnt,직장상세주소
 AT#ofcNm,직장명
 AT#ofcPostCd,직장우편번호
 AT#ofcTelNbr,직장전화번호
-AT#offrCndCd,
+AT#offrCndCd,제공조건코드
 AT#offrCndStsDscd,제공조건상태구분
 AT#oilCmpnyCd,정유사코드
 AT#oilKndCd,유종코드
@@ -5601,7 +5892,7 @@ AT#opnHms,신규시각
 AT#opnIncmpltAmt,개설미완료금액
 AT#opnIncmpltCnt,개설미완료건수
 AT#opnInqryCnt,개설조회건수
-AT#opnInstBrnchCd,개설기관점별코드
+AT#opnInstBrnchCd,개설기관부점코드
 AT#opnInstCd,개설기관코드
 AT#opnInstRspnsCd,개설기관응답코드
 AT#opnMgmtMsgPrcsngYn,개설관리전문반영여부
@@ -5635,6 +5926,7 @@ AT#oprtrCd,연산자코드
 AT#oprtrNbr,조작자번호
 AT#oprtrUserNbr,조작자사용자번호
 AT#optionAncmntNth,특정고시회차
+AT#oracleRowId,오라클물리주소
 AT#orderAblAmt,주문가능금액
 AT#orderDtlsLnPdCd,발주내역대출상품코드
 AT#orderDtlsPdCd,발주내역상품코드
@@ -5643,17 +5935,19 @@ AT#orentAge,동양연령
 AT#orgnlAcptncStaffId,원접수스태프식별자
 AT#orgnlBatchNbr,원배치번호
 AT#orgnlBatchSeqNbr,원배치일련번호
+AT#orgnlBillAmt,원청구금액
 AT#orgnlBnkFnclInstBrnchCd,원거래타행금융기관부점코드
 AT#orgnlBnkFnclInstCd,원거래타행금융기관코드
 AT#orgnlBnkTxMsgMgmtNbr,원거래타행전문관리번호
-AT#orgnlBnkTxMsgSndHms,원거래타행전문전송시각
+AT#orgnlBnkTxMsgSndHms,원거래타행전문전송시분초
 AT#orgnlDscntAmt,원할인금액
 AT#orgnlJointNetworkTxDscd,원거래거래구분코드
 AT#orgnlOurFnclInstBrnchCd,원거래당행금융기관부점코드
 AT#orgnlOurFnclInstCd,원거래당행금융기관코드
 AT#orgnlOurTxMsgMgmtNbr,원거래당행전문관리번호
-AT#orgnlOurTxMsgSndHms,원거래당행전문전송시각
+AT#orgnlOurTxMsgSndHms,원거래당행전문전송시분초
 AT#orgnlPinId,원PIN번호
+AT#orgnlQualityClCd,원건전성분류코드
 AT#orgnlRcptDt,원수납년월일
 AT#orgnlSaleAcptncDt,원매출접수일자
 AT#orgnlSaleDt,원매출일자
@@ -5664,25 +5958,25 @@ AT#orgnlTxBnkTxMsgSndHms,원거래타행전문전송일시각
 AT#orgnlTxCntnt,원거래내용
 AT#orgnlTxCntrMsgMgmtNbr,원거래센터전문관리번호
 AT#orgnlTxCntrMsgSndDt,원거래센터전문전송일시일자
-AT#orgnlTxCntrMsgSndDtm,원거래센터전문전송시간
+AT#orgnlTxCntrMsgSndDtm,원거래센터전문전송일시
 AT#orgnlTxCntrMsgSndTmstmp,원거래센터전문전송일시
 AT#orgnlTxDscd,원거래구분코드
 AT#orgnlTxDt,원거래일자
 AT#orgnlTxDtlSeqNbr,원거래상세일련번호
 AT#orgnlTxFeeAlctnBnkCd,원거래수수료배분은행코드
-AT#orgnlTxFundTrnsfrSeqNbr,원거래자금대체일련번호
+AT#orgnlTxFundTrnsfrSeqNbr,원거래자금이체일련번호
 AT#orgnlTxFundsRmtncSerialNbr,원거래자금이체일련번호
 AT#orgnlTxGiroMsgMgmtNbr,원거래지로전문관리번호
-AT#orgnlTxGlobalId,
+AT#orgnlTxGlobalId,원거래GUID
 AT#orgnlTxGuid,원거래GUID
-AT#orgnlTxGuidId,
+AT#orgnlTxGuidId,원거래GUID
 AT#orgnlTxHndlngFnclInstBrnchCd,원거래취급금융기관부점코드
 AT#orgnlTxHndlngFnclInstCd,원거래취급금융기관코드
 AT#orgnlTxHndlngInstCd,원거래취급기관코드
 AT#orgnlTxHndlngMsgMgmtNbr,원거래취급전문관리번호
 AT#orgnlTxHndlngMsgSndTmstmp,원거래취급전문전송일시
 AT#orgnlTxIntrmdryMsgMgmtNbr,원거래중개기관전문관리번호
-AT#orgnlTxIntrmdryMsgSndHms,원거래중개기관전문전송시각
+AT#orgnlTxIntrmdryMsgSndHms,원거래중개기관전문전송시분초
 AT#orgnlTxIntrmdryMsgSndTmstmp,원거래중계기관전문전송일시
 AT#orgnlTxMatchYn,원거래일치여부
 AT#orgnlTxMatchYnCd,원거래일치여부코드
@@ -5696,12 +5990,12 @@ AT#orgnlTxOpnMsgMgmtNbr,원거래개설전문관리번호
 AT#orgnlTxOpnMsgSndTmstmp,원거래개설전문전송일시
 AT#orgnlTxPymntAmt,원거래납부금액
 AT#orgnlTxPymntFormDscd,원거래납부형태구분코드
-AT#orgnlTxRcpntAcctNbr,원거래계좌번호
+AT#orgnlTxRcpntAcctNbr,원거래수취계좌번호
 AT#orgnlTxRcpntBnkCd,원거래수취은행코드
 AT#orgnlTxRefYn,원거래참조여부
 AT#orgnlTxRspnsCd,원거래응답코드
 AT#orgnlTxSeqNbr,원거래일련번호
-AT#orgnlTxTxDscd,원공동망거래구분코드
+AT#orgnlTxTxDscd,원거래거래구분코드
 AT#orgnlTxTxOpnDt,원거래거래개시일
 AT#orgnlTxUnqMgmtNbr,원거래고유관리번호
 AT#orgnlTxUnqNbr,원거래고유번호
@@ -5765,7 +6059,7 @@ AT#otpWrngPswdEntryCnt,OTP비밀번호오류수
 AT#otstndngAmt,미수금
 AT#ourAcctNbr,이체결제계좌번호
 AT#ourBnkMsgMgmtNbr,당행전문관리번호
-AT#ourBnkSndHms,당행전문전송시각
+AT#ourBnkSndHms,당행전문전송시분초
 AT#outpAtrbtNm,출력속성명
 AT#outpAtrbtVal,출력속성값
 AT#outpCnt,건수
@@ -5786,25 +6080,43 @@ AT#overUpLmtAcmltdAmt,상한초과적수금액
 AT#ovrdrftAmt,대월금액
 AT#ovrdrftMaxBal,대월최고잔액
 AT#ovrduAmt,연체금액
+AT#ovrduAssignEndDt,연체배정종료년월일
+AT#ovrduAssignStartDt,연체배정시작년월일
 AT#ovrduBaseDt,연체기준년월일
+AT#ovrduBaseDtHldyAplyDscd,연체기준일휴일시적용방법구분코드
+AT#ovrduCnsltnCnt,연체상담횟수
+AT#ovrduDayCnt,연체일수
 AT#ovrduDscd,연체구분
 AT#ovrduDtCmptnTpCd,연체일자산출구분코드
 AT#ovrduEndDt,연체종료일자
+AT#ovrduGrcCyclCnt,연체유예주기
+AT#ovrduGrcDayDscd,연체유예년월일구분코드
+AT#ovrduGrcEndDt,연체유예종료일자
+AT#ovrduGrcNth,유예회차수
+AT#ovrduGrcNthCnt,연체유예회차수
+AT#ovrduGrcStartDt,연체유예시작일자
 AT#ovrduIntAmt,연체이자
 AT#ovrduIntAplyMthdDscd,연체이자적용방법구분코드
 AT#ovrduIntAplyTpCd,연체이자적용구분코드
 AT#ovrduIntAplyYn,연체이자적용여부
+AT#ovrduIntCalcnBaseDayCntDscd,연체이자계산기준일수구분코드
 AT#ovrduIntExmptnEndDt,연체이자면제종료일자
 AT#ovrduIntRdctnAmt,연체이자감면금액
+AT#ovrduIntRt,연체금리
 AT#ovrduIntSumAmt,상환연체이자합계
+AT#ovrduNth,연체회차
 AT#ovrduPrncpl,연체원금
 AT#ovrduRckngDt,연체기산일자
 AT#ovrduRsnCd,연체사유코드
+AT#ovrduRspblStaffId,연체담당스태프식별자
 AT#ovrduRt,연체이율
+AT#ovrduRvctnRsnCd,연체해제사유코드
+AT#ovrduRvctnRsnCntnt,연체해제사유내용
 AT#ovrduStartDt,연체시작일자
 AT#ovrduTrgtIntAmt,연체대상이자
 AT#ovrduTrgtPrncpl,연체대상원금
 AT#ovrduYn,연체여부
+AT#ovrrdGradeCd,오버라이드등급코드
 AT#ovrsAcptncBnkDebitDt,해외인수은행차기년월일
 AT#ovrsBnkBic,해외은행BIC
 AT#ovrsDebitDt,해외차기년월일
@@ -5824,6 +6136,7 @@ AT#ownBrnchCd,자점코드
 AT#ownCmpnyDsbrsAmt,당사지급금액
 AT#ownCmpnyDsbrsFeeAmt,당사지급수수료금액
 AT#ownCmpnyDstrbtAmt,당사배분금액
+AT#ownCmpnyLwstAmt,당사소송가액
 AT#ownCmpnyRcpntAmt,당사수취금액
 AT#ownCmpnyRcpntFeeAmt,당사수취수수료금액
 AT#ownDpstInstlmntYn,당행예적금여부
@@ -5852,7 +6165,7 @@ AT#parcelOutPriceYn,분양권시세여부
 AT#parkingCnt,주차대수
 AT#parmAtrbtNm,파라미터속성명
 AT#parmCntnt,파라메터 내용.
-AT#parmExplntnCntnt,파라미터설명
+AT#parmExplntnCntnt,파라미터설명내용
 AT#parmId,PAR아이디
 AT#parmKorExplntnCntnt,파라미터터한글설명
 AT#parmNm,파라미터명
@@ -5874,7 +6187,7 @@ AT#payerAcctOpnShopCd,납부자계좌개설점코드
 AT#payerAddr,납부자주소
 AT#payerBizNbr,납부자사업자등록번호
 AT#payerCmpsCntnt,납부자구성체계내용
-AT#payerCnfrmInfoCntnt,납부자확인정보
+AT#payerCnfrmInfoCntnt,납부자확인정보내용
 AT#payerCnfrmNbr,납부자확인번호
 AT#payerDigitCnt,납부자번호자릿수
 AT#payerDsNm,납부자구분명
@@ -5917,6 +6230,8 @@ AT#pdClTpCd,상품분류유형
 AT#pdClTpHrarcyCd,상품분류체계유형코드
 AT#pdCmpxCndTierNbr,상품복합조건계층번호
 AT#pdCncptCntnt,상품 컨셉 내용
+AT#pdCndBaseDt,상품조건기준년월일
+AT#pdCndBaseHms,상품조건기준시분초
 AT#pdCndCd,상품조건
 AT#pdCndGrpRelStsDscd,상품/조건그룹관계상태구분
 AT#pdCndStsCd,상품조건상태코드
@@ -5967,8 +6282,9 @@ AT#pdTpCd,상품유형코드
 AT#pdTpCdNm,상품유형코드명
 AT#pdTpDscd,상품유형구분
 AT#pdTpNm,상품유형명
+AT#pdTrgtRelCd,상품대상관계코드
 AT#pdUsedAmt,상품소진액
-AT#pensionIncomeAmt,
+AT#pensionIncomeAmt,연금소득금액
 AT#perTpCd,종별코드
 AT#periodicTrnsfrPdCd,정기이체상품코드
 AT#personFeeAmt,당사자수수료금액
@@ -5982,14 +6298,14 @@ AT#pgTotCnt,총페이지
 AT#phoneAcctNbr,휴대폰계좌번호
 AT#phoneBillAmt,휴대폰결제금액
 AT#phoneBillYn,휴대폰결제여부
-AT#phoneNbr,
+AT#phoneNbr,전화번호
 AT#phsclMediaYn,물리매체여부
 AT#phsclTblNm,물리테이블명
 AT#piamtNm,원리금명
 AT#pinPswd,pin비밀번호
 AT#pinValidDataCntnt,pin유효데이터내용
 AT#pkSeq,PK순서
-AT#pkVal,pk키값
+AT#pkVal,PK값
 AT#pldngDtAssignAplctnYn,변론기일지정신청여부
 AT#pledgeCnfrmtnDt,질권확정일자
 AT#pledgeSettingAmt,질권설정금액
@@ -6002,6 +6318,9 @@ AT#plnExctnHms,계획실행시분초
 AT#plnExctnInfoCntnt,계획실행정보내용
 AT#plnHms,계획시간
 AT#plnSeqNbr,계획일련번호
+AT#plnfLwstAmt,원고소송가액
+AT#plnfPersonNm,원고인명
+AT#plnfScndryPrtcptnPersonNm,원고보조참가인명
 AT#plrlYn,복수여부
 AT#pltclCorpnCntnt,정치적기업내용
 AT#pltclCorpnDscd,정치적기업구분
@@ -6011,15 +6330,22 @@ AT#pltclPersonDscd,정치적인물구분
 AT#pltclPersonYn,정치적인물여부
 AT#pltnmCardGradeCd,플래디넘카드등급
 AT#pntCd,포인트코드
+AT#pntCustRelCd,포인트고객관계코드
 AT#pntInstlmntAmt,포인트적립금액
 AT#pntNbr,포인트번호
+AT#pntNm,포인트명
+AT#pntStsCd,포인트상태코드
+AT#pntTmpltCd,포인트템플릿코드
+AT#pntTmpltNm,포인트템플릿명
+AT#pntTpCd,포인트유형코드
+AT#pntTpNm,포인트유형명
 AT#pntTrmntnRsnCd,포인트해지사유코드
 AT#pntUseSalePrcsCd,포인트사용매출처리코드
 AT#policeMsgMgmtNbr,경찰청전문관리번호
 AT#policeMsgSndTmstmp,경찰청전문전송시간
 AT#policeNetworkLnkngYn,경찰망연결여부
 AT#policeSndDt,경찰청전송년월일
-AT#policeSndHms,경찰청전송시각
+AT#policeSndHms,경찰청전송시분초
 AT#popupCntnt,팝업
 AT#popupCreateYn,이전상세주소내용
 AT#popupScrnYn,팝업화면여부
@@ -6034,6 +6360,7 @@ AT#postVarNm,포스트변수명
 AT#postVarTpCd,포스트변수유형코드
 AT#ppsamId,Ppsam식별자
 AT#prcdPrcsId,선행프로세스식별자
+AT#prcdScrnId,선행화면식별자
 AT#prcdSeqNbr,선행일련번호
 AT#prcdTrmCrctnAmt,전기보정금액
 AT#prcdrCntnt,절차내용
@@ -6052,7 +6379,7 @@ AT#prcsBrnchNm,처리부점명
 AT#prcsCd,처리코드
 AT#prcsClassNm,처리클래스명
 AT#prcsCnt,처리건수
-AT#prcsDescCntnt,프로세스설명
+AT#prcsDescCntnt,프로세스설명내용
 AT#prcsDscd,처리구분코드
 AT#prcsDt,조회기준년일자
 AT#prcsDvisnKndCd,처리부서종류코드
@@ -6067,7 +6394,7 @@ AT#prcsSeq,처리순서
 AT#prcsSkpCnt,Process Skip건수
 AT#prcsStsCd,진행상태코드
 AT#prcsTmCnfrmCd,처리시점확인코드
-AT#prcsTmstmp,처리일시
+AT#prcsTmstmp,처리타임스탬프
 AT#prcsUserNbr,처리사용자번호
 AT#prcsYn,처리여부
 AT#prcsngAmt,처리금액
@@ -6096,7 +6423,7 @@ AT#prdDlnDt,기한일
 AT#prdDscd,납기내후구분코드
 AT#prdDscdNm,납기내후구분코드명
 AT#prdDt,납기일자
-AT#prdPostAmt,
+AT#prdPostAmt,납기후금액
 AT#prePostAcqstnDscd,선후취구분
 AT#prePostAcqstnDscdNm,선후취구분코드명
 AT#premiumAmt,권리금
@@ -6110,6 +6437,8 @@ AT#prfClaimSeqNbr,선순위채권일련번호
 AT#prfCndCmpxStrctrId,우대조건복합구조식별자
 AT#prfCndSeqNbr,우대조건일련번호
 AT#prfCndTpDscd,우대조건유형구분
+AT#prfCntnt,선순위내용
+AT#prfDscd,선순위구분코드
 AT#prfExRt,우대환율
 AT#prfExRtDscd,환율우대구분
 AT#prfIntCndYn,우대금리조건여부
@@ -6118,6 +6447,9 @@ AT#prfIntRtAplyTmCdNm,우대금리적용시점코드명
 AT#prfIntRtAplyTmDscd,우대금리적용시점구분
 AT#prfIntRtAprvlDt,우대금리승인일자
 AT#prfIntRtCmptnBaseDt,우대금리산출기준일자
+AT#prfIntRtCndCd,우대금리조건코드
+AT#prfIntRtPrvsnCndCd,우대금리제공조건코드
+AT#prfYn,선순위유무
 AT#prflDscd,프로파일구분코드
 AT#prfrdPstnMinAmt,권장포지션최소금액
 AT#prfrncCntctPntYn,선호연락처여부
@@ -6125,6 +6457,7 @@ AT#prftAmt,이익금액
 AT#prgrsRt,진행율
 AT#prgrsStsCd,진행상태
 AT#prgrsStsDscd,진행상태구분
+AT#priceAmt,시세가액
 AT#priceBaseDt,시세기준일자
 AT#priceCrtrCd,시세기준구분코드
 AT#priceInvstgtnDt,시세조사일자
@@ -6134,6 +6467,7 @@ AT#priceInvstgtnMthdCd,시세조사방법코드
 AT#priceInvstgtnRspblPersonNm,시세조사처담당자명
 AT#prity,우선순위
 AT#prityCd,우선순위코드
+AT#pritySeqNbr,우선순위번호
 AT#prjctDscd,프로젝트 구분
 AT#prlExctnCnt,병렬실행건수
 AT#prlPrcsSeq,병렬처리일련번호
@@ -6147,6 +6481,8 @@ AT#prmryItmCntnt,주요항목내용
 AT#prmryNatYn,주요국여부
 AT#prmryTrmCnt,어음기간
 AT#prmryUseCrncyCd,주요사용통화코드
+AT#prmsryAmt,약속금액
+AT#prmsryDt,약속년월일
 AT#prmsryMtrtyDt,어음만기일자
 AT#prmsryNteAmt,약속어음금액
 AT#prmsryRckngDt,어음기산일자
@@ -6154,6 +6490,9 @@ AT#prmsryTrmCnt,어음기간일수
 AT#prncpl,원금
 AT#prncplAcctNbr,피보증인계좌번호
 AT#prncplAmtAdtnDt,원가일자
+AT#prncplAmtPymntCyclDscd,원금납입주기구분코드
+AT#prncplCalcnFrctnDscd,원금계산단수구분코드
+AT#prncplCalcnFrctnPrcsngDscd,원금계산단수처리구분코드
 AT#prncplContrastRpymntRt,원금대비회수율
 AT#prncplCyclUnitCd,원금주기단위코드
 AT#prncplCyclVal,원금주기값
@@ -6161,10 +6500,13 @@ AT#prncplDvdndAmt,원금배당금
 AT#prncplFeeDscd,원금수수료구분코드
 AT#prncplIntRefDscd,원금이자참조구분코드
 AT#prncplIntRpymntAllwncAcctCnt,원리금상환허용계좌수
+AT#prncplOvrduDayCnt,원금연체일수
 AT#prncplOvrduIntAmt,원금연체이자금액
+AT#prncplOvrduMnthCnt,원금연체월수
 AT#prncplOvrduStartDt,원금연체시작일자
 AT#prncplPrcsngDscd,원금처리구분코드
 AT#prncplRdctnAmt,원금감면금액
+AT#prncplRpymntAmt,원금상환금액
 AT#prncplRpymntCyclListCntnt,원금상환주기리스트내용
 AT#prncplRpymntCyclVal,원금상환주기
 AT#prncplRpymntSchdldDt,원금상환예정일자
@@ -6173,7 +6515,7 @@ AT#prncplRpymntWayNm,원금상환방법명
 AT#prncplSocialScrtyNbr,피보증인신분증번호
 AT#prncplSocialScrtyNbrDscd,피보증인신분증번호구분코드
 AT#prncplTrmUnitCdVal,원금기간단위코드값
-AT#prntDt,출력일자
+AT#prntDt,출력년월일
 AT#prntHms,출력시분초
 AT#prntKndCd,장표종류 
 AT#prntMthdDscd,인자방법구분코드
@@ -6184,7 +6526,7 @@ AT#profitRt,수익률
 AT#proxyCostRefundInstCd,대행비용반환기관코드
 AT#proxyCostRefundYnCd,대행비용반환여부코드
 AT#proxyPrcsDlyCnt,대행처리지연응답건수
-AT#proxyPrcsIncmpltCnt,대행처리미완료건수
+AT#proxyPrcsIncmpltCnt,대행처리개설미완료건수
 AT#proxyPrcsNoRspnsCnt,대행처리무응답건수
 AT#proxyPrcsObstclCnt,대행처리개설장애건수
 AT#proxyPrcsOpnIncmpltCnt,대행처리개설미완료건수
@@ -6198,11 +6540,17 @@ AT#prprtySurveyFinDt,재산조사완료일자
 AT#prprtySurveyId,재산조사식별자
 AT#prprtySurveyRsnCd,재산조사사유코드
 AT#prprtySurveyStsCd,재산조사상태코드
+AT#prprtySurveyYn,재산조사여부
+AT#prpymntDayAplyWayDscd,선납일수적용방법구분코드
 AT#prpymntDayCnt,선납일수
 AT#prpymntNbrOfDaysAplyYn,선납일수적용여부
 AT#prpymntRtrnYn,선납환출여부
 AT#prpymntUseAvlblYn,선납사용가능여부
+AT#prpymntsAmt,가지급금
+AT#prpymntsArrId,가지급계약식별자
+AT#prpymntsBdtalAcmltnAmt,가지급대손충당적립금액
 AT#prpymntsRdctnAmt,가지급금감면금액
+AT#prpymntsRtndCnt,가지급보유건수
 AT#prscrptnAbandonDt,시효포기일자
 AT#prscrptnAbandonRsnCd,시효포기사유코드
 AT#prscrptnDscd,시효구분
@@ -6225,9 +6573,16 @@ AT#prtcptnBnkCnt,참가은행수
 AT#prtcptnBnkCntnt,참가은행정보
 AT#prtcptnInstCd,참가기관코드
 AT#prtlBidAcceptYn,부분낙찰수용여부
+AT#prtlDsbrsmntAmt,분할지급금액
+AT#prtlDsbrsmntDt,분할지급일
+AT#prtlDsbrsmntStsDscd,분할지급상태구분코드
 AT#prtlRcptYn,부분수납여부
 AT#prtlRpymntAfRpymntDscd,일부상환후상환구분
 AT#prtlRpymntAmtRndUnitVal,분할상환금단수처리단위값
+AT#prtlRpymntNotClrncAmt,일부상환미정리금액
+AT#prtlRpymntSumPrncplAmt,일부상환원금합계
+AT#prtlRpymntTotPrncpl,
+AT#prtlRpymntTxDt,일부상환거래일
 AT#prtlShpmntPrmsnYn,분할선적허용여부
 AT#prtlTrmntnAmt,분할해지금액
 AT#prtlTrnsfrAmt,일부대체금액
@@ -6244,8 +6599,8 @@ AT#prtnrNbr,파트너번호
 AT#prtnrStaffRelStsCd,파트너스태프관계상태코드
 AT#prtnrStsCd,파트너상태코드
 AT#prtnrStsChngRsnCd,파트너상태변경사유코드
-AT#prtnrStsChngRsnCntnt,파트너상태변경사유코드
-AT#prtnrStsSeqNbr,파트너유형일련번호
+AT#prtnrStsChngRsnCntnt,파트너상태변경사유내용
+AT#prtnrStsSeqNbr,파트너상태일련번호
 AT#prtnrTpCd,파트너유형
 AT#prtnrXtnAtrbtStsCd,파트너확장속성상태코드
 AT#prtnrdRelSeqNbr,파트너부서관계일련번호
@@ -6265,6 +6620,7 @@ AT#prvsCrdtChkItmCd,사전신용점검항목코드
 AT#prvsCrdtChkRsltCd,신용점검결과
 AT#prvsGuid,이전GUID
 AT#prvsLoinTmstmp,이전로그인일시
+AT#prvsNxtPymntDt,전다음납입년월일
 AT#prvsStepNm,이전스텝명
 AT#prvsnCndCd,제공조건코드
 AT#prvsnCndExistYn,제공조건존재여부
@@ -6278,7 +6634,7 @@ AT#psbkBal,통장잔액
 AT#psbkBaseRowCnt,통장기준행수
 AT#psbkBaseSideCnt,통장기준면수
 AT#psbkBkgCntnt,통장기장내용
-AT#psbkBkgColumnCnt,통장기장열
+AT#psbkBkgColumnCnt,통장기장열수
 AT#psbkBkgDscd,통장기장구분
 AT#psbkBkgEditAtrbtJson,통장기장편집속성JSON
 AT#psbkBkgEditAtrbtNm,통장기장편집속성명
@@ -6286,10 +6642,10 @@ AT#psbkBkgEditAtrbtVal,통장기장편집속성값
 AT#psbkBkgEditAtrbtValJson,통장기장편집속성값JSON
 AT#psbkBkgEditClassNm,통장기장편집클래스명
 AT#psbkBkgPrity,통장기장순서
-AT#psbkBkgRowCnt,통장기장행
+AT#psbkBkgRowCnt,통장기장행수
 AT#psbkBkgSeq,통장기장순서
 AT#psbkBkgSeqNbr,통장기장일련번호
-AT#psbkBkgSideCnt,통장기장면
+AT#psbkBkgSideCnt,통장기장면수
 AT#psbkBkgYnClassNm,통장기장여부클래스명
 AT#psbkCmpresnEndDt,통장압축종료년월일
 AT#psbkCmpresnMthdDscd,통장압축방법구분코드
@@ -6334,7 +6690,7 @@ AT#psbkPrflCntnt,통장프로파일내용
 AT#psbkPrflDescCntnt,통장프로파일설명
 AT#psbkPrflNm,통장프로파일명
 AT#psbkPrntAbrvtnNm,통장인자약어명
-AT#psbkPrntCntnt,통장인자문구내용
+AT#psbkPrntCntnt,통장인자내용
 AT#psbkPrntCustNm,통장인자고객명
 AT#psbkPrntNm,통장인자명
 AT#psbkPrntTpCd,통장인자문구유형코드
@@ -6378,6 +6734,8 @@ AT#pswdEncrptnWayCd,비밀번호암호화방식코드
 AT#pswdErrAllwncCnt,비밀번호에러허용횟수
 AT#pswdErrCnt,비밀번호오휴횟수
 AT#pswdErrCntExcsYn,비밀번호오류횟수초과여부
+AT#pswdExprtnDscd,비밀번호만료구분코드
+AT#pswdExprtnSchdldDayCnt,비밀번호만료예정일수
 AT#pswdLockExprtnDtm,비밀번호잠금만료시간
 AT#pswdLockTmCd,비밀번호잠금시간코드
 AT#pswdLockTmTrmCnt,비밀번호잠금시간기간수
@@ -6394,6 +6752,7 @@ AT#ptdtRelStsCd,파트너부서관계상태코드
 AT#ptdtRelStsChngRsnCd,파트너부서관계상태변경사유코드
 AT#ptdtRelStsChngRsnCntnt,파트너부서관계상태변경사유내용
 AT#ptdtRelTpCd,파트너부서관계유형코드
+AT#ptnSbmtDt,소장제출년월일
 AT#publicAncmntDscd,공시구분
 AT#publicAncmntYn,공시송달여부
 AT#publicCmpnyYn,공기업여부
@@ -6402,6 +6761,7 @@ AT#publicRecordLandClCd,공부지목코드
 AT#pureDebtLmtInqryInfoCntnt,순채무한도조회정보내용
 AT#pureStlmntAmt,순수결제금액
 AT#pureStlmntAmtSignCntnt,순수결제금액부호내용
+AT#purposeRtDscd,목적률구분코드
 AT#pushDscd,발송구분코드
 AT#pushMsgCntnt,푸시 메시지 내용
 AT#pushMsgNm,푸시 메시지명
@@ -6476,27 +6836,31 @@ AT#qickTrnsfrPymntInfoJson,퀵송금결제정보제이슨
 AT#qickTrnsfrRqstInfoJson,퀵송금요청정보제이슨
 AT#qickTrnsfrSndInfoJson,퀵송금발신정보제이슨 
 AT#qnty,수량
-AT#qntyAreaVal,수량면적
+AT#qntyAreaVal,수량면적값
 AT#qryCrtrDsNm,조회기준구분코드명
 AT#qryCrtrDscd,조회기준구분코드
 AT#qryEndDt,조회종료일
 AT#qryEndHms,조회종료시간
-AT#qrySeq,
+AT#qrySeq,조회순서
 AT#qryStartDt,조회시작일
 AT#qryStartHms,조회시작시간
 AT#qryUnitCd,조회구분단위
 AT#qstnCntnt,질문내용
 AT#qstnSeqNbr,질문일련번호
-AT#qstnrId,질문식별자
+AT#qstnrId,질문지식별자
+AT#qualityClBaseAmt,건전성분류기분금액
 AT#qualityClBaseYm,건전성분류기준년월
 AT#qualityClCd,건전성분류코드
+AT#qualityClDt,건전성분류년월일
 AT#qualityClRsnCd,건전성분류사유코드
 AT#qualityClRsnCntnt,건전성분류사유
+AT#qualityClTpArrId,건전성분류유형계약식별자
+AT#qualityClTpCd,건전성분류유형코드
 AT#quickTrnsfrPymntInfoJson,퀵송금결제정보제이슨
 AT#quickTrnsfrRqstInfoJson,퀵송금요청정보제이슨
 AT#quickTrnsfrWhdrwlInfoJson,퀵송금발신정보제이슨 
 AT#randomNbr,난수
-AT#rankingNbr,순위
+AT#rankingNbr,순위번호
 AT#rchrgAmt,충전금액
 AT#rckngDt,기산일자
 AT#rckngDtCmprsnYn,기산일비교여부
@@ -6549,11 +6913,11 @@ AT#rcvHms,수령시간
 AT#rcvRtrnDscd,인수반납구분코드
 AT#rcvSndFrgnAmt,인도인수외화금액
 AT#rcvSndOthrChkCnt,인도인수타점권매수
-AT#rcvSrvcCd,
+AT#rcvSrvcCd,수신서비스코드
 AT#rcvSrvcTxCd,수신서비스거래코드
 AT#rcvStaffId,접수담당자ID
 AT#rcvTmstmp,수신시간
-AT#rcvTrnsfrAmt,대체인수금액
+AT#rcvTrnsfrAmt,인수대체금액
 AT#rcvTxSeqNbr,인수거래일련번호
 AT#rcvUserId,수신 사용자ID
 AT#rcvUserNbr,인수사용자번호
@@ -6565,7 +6929,7 @@ AT#rcvdCnclAmt,입금취소금액
 AT#rcvdCnclCnt,입금취소건수
 AT#rcvdDeptNm,삳대부서명
 AT#rcvdDfrncAmt,입금차액
-AT#rcvdErrCd,수신오류코드
+AT#rcvdErrCd,수신에러코드
 AT#rcvdRsltCd,수신결과
 AT#rcvdSrvcCd,수신서비스코드
 AT#rcvdSysId,수신시스템식별자
@@ -6581,7 +6945,7 @@ AT#rcvrCtcptCntnt,수신자연락처내용
 AT#rcvrDsNm,수신자구분
 AT#rcvrDscd,수신구분
 AT#rcvrEmailAddr,수신자전자우편
-AT#rcvrId,수신자ID
+AT#rcvrId,수신자식별자
 AT#rcvrNm,수신자명
 AT#rcvrTelNbr,수신자전화번호
 AT#rcvrTpCd,수신자유형코드
@@ -6606,7 +6970,7 @@ AT#readCnt,Read건수
 AT#readSkpCnt,Read Skip건수
 AT#reagrmntDt,재약정일자
 AT#realAplyRt,실제적용율
-AT#realBalAmt,
+AT#realBalAmt,실잔액
 AT#realNmAuthId,실명인증식별자
 AT#realNmAuthStsCd,실명인증상태코드
 AT#realNmAuthWayCd,실명인증방식코드
@@ -6645,23 +7009,23 @@ AT#recordLen,레코드길이
 AT#recordRsnCd,등재사유코드
 AT#redCashRcvdAmt,적서현금입금금액
 AT#redCashRcvdCnt,적서현금입금건수
-AT#redCashWhdrwlAmt,적서현금출금금액
-AT#redCashWhdrwlCnt,적서현금출금건수
-AT#redChkRcvdAmt,적서타점입금금액
-AT#redChkRcvdCnt,적서타점입금건수
-AT#redChkWhdrwlAmt,적서타점출금금액
-AT#redChkWhdrwlCnt,적서타점출금건수
+AT#redCashWhdrwlAmt,주서현금출금금액
+AT#redCashWhdrwlCnt,주서현금출금건수
+AT#redChkRcvdAmt,주서타점입금금액
+AT#redChkRcvdCnt,주서타점입금건수
+AT#redChkWhdrwlAmt,주서타점출금금액
+AT#redChkWhdrwlCnt,주서타점출금건수
 AT#redDmstcMnyRcvdAmt,적자국내통화입금금액
 AT#redMnyRcvdAmt,주서입금금액
-AT#redTrnsfrRcvdAmt,적서대체입금금액
-AT#redTrnsfrRcvdCnt,적서대체입금건수
-AT#redTrnsfrWhdrwlAmt,적서대체출금금액
-AT#redTrnsfrWhdrwlCnt,적서대체출금건수
+AT#redTrnsfrRcvdAmt,주서대체입금금액
+AT#redTrnsfrRcvdCnt,주서대체입금건수
+AT#redTrnsfrWhdrwlAmt,주서대체출금금액
+AT#redTrnsfrWhdrwlCnt,주서대체출금건수
 AT#redWhdrwlAmt,주서출금금액
 AT#reduceAmt,감액금액
-AT#refAtrbtDescCntnt,참조속성설명
+AT#refAtrbtDescCntnt,참조속성설명내용
 AT#refAtrbtHldClassNm,참조속성보유클래스명
-AT#refAtrbtNm,참조속성
+AT#refAtrbtNm,참조속성명
 AT#refAtrbtVal,참조속성값
 AT#refBalTpCd,참조잔액유형코드
 AT#refBalTpCdNm,참조잔액유형코드명
@@ -6687,7 +7051,7 @@ AT#refIntRt,참조이율
 AT#refKeyVal,참조Key값
 AT#refObjCd,참조객체코드
 AT#refObjNm,참조객체명
-AT#refObjVarNm,참조속성변수명
+AT#refObjVarNm,참조객체변수명
 AT#refPdCd,참조상품코드
 AT#refPdCdNm,참조상품코드명
 AT#refRefCndCd,참조조건구성코드
@@ -6712,32 +7076,38 @@ AT#relActorUnqIdNbrTpCd,관계액터고유식별번호유형코드
 AT#relArrId,관계계약식별자
 AT#relBrnchCd,관계부점코드
 AT#relChngRqstNbr,관련변경요청번호
+AT#relCntnt,관계내용
 AT#relCustGradeCd,관계고객등급코드
 AT#relDeptId,관계부서식별자
 AT#relDeptNm,관계부서명
 AT#relEfctvEndDt,관계유효종료일자
 AT#relEfctvStartDt,관계유효시작일자
 AT#relEndDt,관계종료일자
-AT#relMndtryYn,관계 필수 여부
+AT#relMndtryYn,관계필수여부
 AT#relObjCd,관계오브젝트코드
 AT#relObjDscd,관계오브젝트구분
 AT#relObjKeyVal,관련오브젝트Key값
 AT#relObjTpCd,관련오브젝트유형코드
-AT#relPlrlYn,관계 복수 여부 
+AT#relPdInfoDscd,관계상품정보구분코드
+AT#relPlrlYn,관계복수여부
 AT#relSeqNbr,관계일련번호
 AT#relStartDt,관계시작일자
 AT#relStsCd,관계상태
 AT#relStsChngRsnCd,관계상태변경사유코드
+AT#relTpCd,관계유형코드
 AT#relayCntrMsgNbr,중계센터전문번호
 AT#relayCntrSndDt,중계센터전송년월일
-AT#relayCntrSndHms,중계센터전송시각
-AT#releaseInfoCntnt,출시데이터내용
-AT#releaseInfoKeyVal,출시데이터키값
+AT#relayCntrSndHms,중계센터전송시분초
+AT#releaseDataCntnt,출시데이터내용
+AT#releaseDataKeyVal,출시데이터키값
+AT#releaseInfoCntnt,출시정보내용
+AT#releaseInfoKeyVal,출시정보키값
 AT#releaseInfoKndKeyVal,출시데이터종류키값
 AT#releaseInfoKndNm,출시데이터종류명
 AT#releaseNbr,출급번호
 AT#renterNm,임차인명
 AT#renterRelDscd,임차인관계구분코드
+AT#replyCrdtrAmt,회신채권금액
 AT#reportAprvlCntnt,신고결재내용
 AT#reportAprvlDeptId,신고결재부서식별자
 AT#reportAprvlDeptNm,신고결재부서명
@@ -6754,7 +7124,7 @@ AT#reportRgstrnDeptId,신고등록부서식별자
 AT#reportRgstrnDeptNm,신고등록부서명
 AT#reportRgstrnDt,신고등록일자
 AT#reportRgstrnHms,신고등록시간
-AT#reportRgstrnStaffId,신고등록스테프식별자
+AT#reportRgstrnStaffId,신고등록스태프식별자
 AT#reportRgstrnStaffNm,신고등록스테프명
 AT#reportRvctnCntnt,신고해제내용
 AT#reportRvctnDeptId,신고해제부서식별자
@@ -6781,7 +7151,7 @@ AT#retireDt,퇴사일자
 AT#retryMsgCreateClassNm,재처리전문생성클래스명
 AT#reuseAblYn,재사용가능여부
 AT#rflctnNcsrYn,반영필요여부
-AT#rgnlCd,지역구분코드
+AT#rgnlCd,광역코드
 AT#rgnlCityCd,광역시도코드
 AT#rgstrn,등록
 AT#rgstrnAcctNbr,신고계좌번호
@@ -6835,7 +7205,8 @@ AT#rlnmNbrChkYn,실명번호체크여부
 AT#rltdAcctAlInqryYn,관련계좌전체조회여부
 AT#rltdAcctAutoRpymntYn,관계계좌자동상환여부
 AT#rltdAcctBal,관련계좌잔액
-AT#rltdAcctNbr,상대계좌번호
+AT#rltdAcctCnt,관련계좌수
+AT#rltdAcctNbr,관련계좌번호
 AT#rltdAcctgBal,상대계정잔액
 AT#rltdAcctgItmCd,상대계정과목코드
 AT#rltdAcctgItmNm,상대계정과목명
@@ -6851,6 +7222,7 @@ AT#rltdAtrlCd,관련액터역할코드
 AT#rltdBizObjId,관련업무객체식별자
 AT#rltdBizObjNm,관련업무오브젝트명
 AT#rltdBrnchCd,관련부점코드
+AT#rltdCaseCnt,관련사건수
 AT#rltdCndCd,관련조건코드
 AT#rltdCndListCd,관련조건목록코드
 AT#rltdCndListNm,관련조건목록명
@@ -6858,6 +7230,7 @@ AT#rltdCndVal,관련조건값
 AT#rltdCorpnId,관련법인식별자
 AT#rltdCrncyCd,상대통화코드
 AT#rltdCrncyPstnAmt,상대통화포지션금액
+AT#rltdCustCnt,관련고객수
 AT#rltdCustId,관련고객식별자
 AT#rltdCustNm,관련고객명
 AT#rltdDeptActorId,관련부서액터식별자
@@ -6866,6 +7239,7 @@ AT#rltdDeptNm,상대부서
 AT#rltdDocIssueId,관련문서발행식별자
 AT#rltdFxMsgMgmtNbr,관련외환전문관리번호
 AT#rltdId,관련 식별자
+AT#rltdIsAcctgItmCd,관련IS계정과목코드
 AT#rltdLegalActionId,관련법무식별자
 AT#rltdMsgTxDscd,관련전문거래구분코드
 AT#rltdNm,관련 이름
@@ -6873,12 +7247,13 @@ AT#rltdPersonDscd,관련인구분코드
 AT#rltdPersonSeqNbr,관련인일련번호
 AT#rltdPrcsId,관련프로세스식별자
 AT#rltdPrcsNm,관련프로세스명
+AT#rltdPrtnrId,관련파트너식별자
 AT#rltdSeqNbr,상대일련번호
-AT#rltdStaffId,관련스태프식별자
-AT#rltdStaffNm,관련스태프명
+AT#rltdStaffId,상대스태프식별자
+AT#rltdStaffNm,상대스태프명
 AT#rltdTxSeqNbr,관련거래일련번호
 AT#rltvDeptNm,상대부서명
-AT#rmbrsBnkBic,
+AT#rmbrsBnkBic,상환은행BIC
 AT#rmbrsBnkNm,상환은행명
 AT#rmbrsmntBnkBic,상환은행BIC
 AT#rmbrsmntClaimYn,상환청구여부
@@ -6888,6 +7263,7 @@ AT#rmnCyclCnt,남은주기수
 AT#rmnPsbkLineCnt,잔여통장라인건수
 AT#rmnPyablAmt,잔여지불가능금액
 AT#rmnRpymntAblAmt,남은상환가능금액
+AT#rmndAccruedDpstIntAmt,잔존미수이자
 AT#rmndEarningAmt,잔존수익금액
 AT#rmndYrCnt,잔존년수
 AT#rmtncAmt,송금금액
@@ -6900,7 +7276,7 @@ AT#rmtncDt,이체일자
 AT#rmtncFeeLevyDscd,송금수수료징수구분코드
 AT#rmtncInfoCnt,이체정보건수
 AT#rmtncInfoSeqNbr,이체정보순번
-AT#rmtncPersonRealNm,
+AT#rmtncPersonRealNm,송금인실명
 AT#rmtncPrdDt,이체납기년월일
 AT#rmtncRefNbr,송금참조번호
 AT#rmtncTxDt,이체거래일자
@@ -6969,6 +7345,7 @@ AT#rpymntAmt,상환금액
 AT#rpymntAvlblAmt,회수가능금액
 AT#rpymntBaseDtKndCd,상환기준일자종류코드
 AT#rpymntCnt,상환횟수
+AT#rpymntCostAmt,변제비용
 AT#rpymntCrncyCd,상환통화코드
 AT#rpymntCyclNbr,상환횟수
 AT#rpymntDt,상환일자
@@ -6983,7 +7360,9 @@ AT#rpymntMthdCd,상환방식코드
 AT#rpymntMthdCdInqryYn,상환방식코드조회여부
 AT#rpymntPlnRgstrnYn,변제계획등록여부
 AT#rpymntPrityRgstrnYn,정리순서등록여부
+AT#rpymntPrmsnDt,변제인가년월일
 AT#rpymntPrncpl,상환원금
+AT#rpymntPrncplAmt,변제원금
 AT#rpymntPrpymntsAmt,상환가지급금액
 AT#rpymntRpymntAcctNbr,상환/지급 계좌번호
 AT#rpymntRsdncTax,환출주민세
@@ -6997,15 +7376,19 @@ AT#rpymntSchdldEndDt,상환예정년월일(To)
 AT#rpymntSchdldStartDt,상환예정년월일(From)
 AT#rpymntSeq,상환순서
 AT#rpymntSeqDscd,상환순서구분코드
+AT#rpymntStartDt,변제시작년월일
 AT#rpymntStsCd,상환상태코드
 AT#rpymntStsNm,상환상태명
 AT#rpymntStsPrntCd,상환상태인자코드
 AT#rpymntTpDscd,상환유형구분
+AT#rpymntTrgtPrncpl,상환대상원금
+AT#rpymntTrmCnt,변제기간
 AT#rpymntTxAmt,상환거래금액
 AT#rpymntTxDt,환출거래일자
 AT#rpymntTxSeqNbr,환출거래일련번호
 AT#rpymntTxYn,상환거래여부
-AT#rpymntWayCd,상환방법코드
+AT#rpymntWayCd,상환방법구분코드
+AT#rpymntWayDscd,상환방법구분코드
 AT#rpymntWayNm,상환방법명
 AT#rpymntYn,상환여부
 AT#rqerCustId,의뢰인고객식별자
@@ -7031,10 +7414,11 @@ AT#rqstFnclInstTotAmt,의뢰금융기관누계금액
 AT#rqstFnclInstTotCnt,의뢰금융기관누계건수
 AT#rqstFnclNrmlAmt,의뢰금융기관정상금액
 AT#rqstFnclNrmlCnt,의뢰금융기관정상건수
-AT#rqstInfoCntnt,
+AT#rqstInfoCntnt,의뢰인정보내용
 AT#rqstInstMsgMgmtNbr,의뢰기관전문관리번호
 AT#rqstInstMsgSndTmstmp,의뢰기관전문전송시간
 AT#rqstMsgNbr,요청전문번호
+AT#rqstRsltCd,요청결과코드
 AT#rqstRspnsDscd,요청응답구분
 AT#rqstSeqNbr,신청일련번호
 AT#rqstTmstmp,신청일시
@@ -7046,7 +7430,7 @@ AT#rsdncLctnIsoNatCd,거주소재지ISO국가코드
 AT#rsdncTax,주민세
 AT#rsdncTaxRt,주민세율
 AT#rsdntDscd,거주자구분
-AT#rsdntEnvrnmntDescCntnt,주거환경설명
+AT#rsdntEnvrnmntDescCntnt,주거환경설명내용
 AT#rsdntYn,거주자여부
 AT#rsdntlCmrclDscd,주거용상업용구분코드
 AT#rsltCd,결과코드
@@ -7056,6 +7440,7 @@ AT#rsltDtlCd,결과상세코드
 AT#rsltMsgCntnt,결과메시지내용
 AT#rsltMsgPrcsngStsCd,결과전문처리상태코드
 AT#rsltRcvSrvcCd,결과수신서비스코드
+AT#rsltSeqNbr,결과일련번호
 AT#rsltTmstmp,결과일시
 AT#rsltTrnsmsnYn,결과전송여부
 AT#rspblBrnchCd,담당부점코드
@@ -7067,7 +7452,7 @@ AT#rspblPersonTelNbr,담당자전화번호
 AT#rspblPersonUserNbr,담당자사용자번호
 AT#rspblStaffId,담당스태프식별자
 AT#rspblUserNbr,담당사용자번호
-AT#rspnsCd,뱃치응답코드
+AT#rspnsCd,응답코드
 AT#rspnsCdNm,응답코드명
 AT#rspnsDscd,응답구분코드
 AT#rspnsDtoNm,응답DTO명
@@ -7091,6 +7476,7 @@ AT#rsrvtnTrnsfrTmDscd,예약이체시간구분
 AT#rsrvtnYn,예약가능여부
 AT#rstrctnDt,제한일자
 AT#rstrctnEndDt,제한종료일자
+AT#rstrctrIntRt,조정금리
 AT#rt,율
 AT#rtAmtDscd,율금액구분코드
 AT#rtMsurUnitCd,율측정단위코드
@@ -7098,6 +7484,7 @@ AT#rtMsurUnitCdNm,율측정단위코드명
 AT#rtMsurUnitDscd,율측정단위구분
 AT#rtTrmDscd,이율기간구분
 AT#rtndAmtContrastDfrncAmt,보유대비차액
+AT#rtndBondCnt,보유채권건수
 AT#rtrmntDt,퇴직일자
 AT#rtrnAblYn,반납가능여부
 AT#rtrnAmt,수익
@@ -7129,6 +7516,8 @@ AT#rvctnDeptId,해제부서식별자
 AT#rvctnDeptNm,해제부서명
 AT#rvctnDt,해제일자
 AT#rvctnHms,해제시간
+AT#rvctnRsnCd,해제사유코드
+AT#rvctnRsnCntnt,해제사유내용
 AT#rvctnSrvcBlckngStsBizCd,해제서비스제한상태업무코드
 AT#rvctnSrvcBlckngStsBizCdNbr,해제서비스제한상태업무코드번호
 AT#rvctnStaffId,해제스태프식별자
@@ -7141,8 +7530,8 @@ AT#rvlvngAgrmntBillRt,리볼빙약정청구율
 AT#rvlvngMemberChargeYnChangeDt,리볼빙회원변경여부변경일자
 AT#rvlvngMemberYn,리볼빙회원여부
 AT#rvlvngYn,리볼빙여부
-AT#rvrsdIntAmt,환출이자금액
-AT#rvrsdTax,환입세금금액
+AT#rvrsdIntAmt,환입이자금액
+AT#rvrsdTax,환출세금금액
 AT#safCreateCd,SAF생성코드
 AT#safUpdtYn,SAF변경여부
 AT#salableAmt,판매가능잔액
@@ -7158,11 +7547,17 @@ AT#saleDt,판매일
 AT#saleDtlsLnPdCd,판매내역대출상품코드
 AT#saleDtlsPdCd,판매내역상품코드
 AT#saleEndDt,판매종료일자
+AT#saleEndDtm,판매종료일시
+AT#saleEndHms,판매종료시분초
+AT#saleEndTmstmp,판매종료일시
 AT#saleLnLmtAgrmntPdCd,판매대출한도약정상품코드
 AT#salePdCd,매출상품코드
 AT#salePrfrmncAmt,매출실적금액
 AT#saleSeqNbr,매출일련번호
 AT#saleStartDt,판매시작일자
+AT#saleStartDtm,판매시작일시
+AT#saleStartHms,판매시작시분초
+AT#saleStartTmstmp,판매시작일시
 AT#saleTotAmt,매출합계금액
 AT#salesAmt,매출금액
 AT#salesDscd,매출액구분
@@ -7191,6 +7586,7 @@ AT#schdlDayGenWayCd,스케쥴일전환방법코드
 AT#schdlTpCd,스케줄유형
 AT#schdldPrcsBrnchCd,예정처리부점코드
 AT#schdldPrcsUserNbr,예정처리사용자번호
+AT#schldtlYn,집행권원여부
 AT#scnd,초
 AT#scndAplyRt,적용이율2
 AT#scndCatalogId,두번째카탈로그식별자
@@ -7249,6 +7645,7 @@ AT#scrtyQstnrMinLen,보안질문최소길이
 AT#scsflBidCnt,낙찰건수
 AT#scsflBidRt,경락율
 AT#scsflBidRtTrmCd,경락율기간코드
+AT#scsflBidValRt,낙찰가율
 AT#scsflBidValSumAmt,낙찰가합계금액
 AT#sctnAplyTaxRt,구간적용세율
 AT#sctnClsgBal,구간마감잔액
@@ -7294,7 +7691,9 @@ AT#sesnEfctvHms,세션유효시간
 AT#sesnId,세션식별자
 AT#sesnKeyCntnt,세션키내용
 AT#settingDcsnDscd,예정확정구분코드
+AT#settingSeqNbr,설정일련번호
 AT#sgstnEngWrdNm,제안영문단어명
+AT#sharesRt,지분율
 AT#sheetDscd,장표구분코드
 AT#shopLeaseRegionDscd,상가임대차지역구분코드
 AT#shopOwnDscd,소유점포규모
@@ -7305,7 +7704,7 @@ AT#shpmntNatCd,선적국가코드
 AT#shpmntPortNm,선적항명
 AT#shrnAreaVal,공유면적
 AT#shrnDt,공유년월일
-AT#shrnDvisnCd,
+AT#shrnDvisnCd,공유부서코드
 AT#shrnHms,공유시분초
 AT#shrnObjId,공유오브젝트ID
 AT#shrnSeqNbr,공유일련번호
@@ -7315,6 +7714,7 @@ AT#shrnTrgtDscd,공유대상구분
 AT#shrnUserNbr,공유사용자번호
 AT#shrngDeptCd,공유부서코드
 AT#siggAddr,시군구주소
+AT#signCd,부호코드
 AT#signCntnt,서명내용
 AT#simpleGiroPymntNbr,간편지로납부번호
 AT#simplePymntAmt,간편납부금액
@@ -7364,6 +7764,7 @@ AT#smsRcvrTelNbr,SMS수신자전화번호
 AT#smsSndYn,SMS발송여부
 AT#smtnAmt,집계금액
 AT#smtnBaseDt,집계기준일자
+AT#smtnCnt,집계건수
 AT#smtnItmCd,집계항목코드
 AT#smtnTrgtTxDscd,집계대상거래구분
 AT#sndAfBackupPathCntnt,전송후백업경로내용
@@ -7397,12 +7798,14 @@ AT#sndRcvFrgnAmt,인도인수외화금액
 AT#sndRcvMsgNbr,송수신전문번호
 AT#sndRcvMsgTraceNbr,송수신전문추적번호
 AT#sndRcvPrcsngHms,송수신처리시분초
+AT#sndRcvRmkCntnt,인도인수비고내용
 AT#sndRcvRspnsCd,송수신응답코드
 AT#sndRcvRspnsMsgCntnt,송수신응답메시지내용
+AT#sndRcvTmstmp,송신수신타임스탬프
 AT#sndRcvTraceNbr,송수신추적번호
-AT#sndRcvTrgtDscd,인도인수대상구분
+AT#sndRcvTrgtDscd,현금대체구분코드
 AT#sndRcvdDscd,송수신구분
-AT#sndRcvdTmstmp,송수신일시
+AT#sndRcvdTmstmp,송신수신타임스탬프
 AT#sndStaffId,발송스태프식별자
 AT#sndSysId,송신시스템식별자
 AT#sndTmstmp,전송시분초
@@ -7420,10 +7823,14 @@ AT#sndrPswd,송신자암호
 AT#sndrPswdNm,전송자암호명
 AT#sndrTelNbr,발신자전화번호
 AT#snpshtDt,스냅샷일자
-AT#snpshtHms,스냅샷시각
+AT#snpshtHms,스냅샷시분초
 AT#socialNbr,신분증번호
-AT#sortSeqNbr,정렬순서
+AT#sortSeqNbr,정렬순서번호
 AT#spcfcHndlngBrnchCd,특정취급부점코드
+AT#specialBondRevenueCostAmt,특수채권편입비용금액
+AT#specialBondRevenueDt,특수채권편입년월일
+AT#specialBondRevenueIntAmt,특수채권편입이자금액
+AT#specialBondRevenuePrncpl,특수채권원금
 AT#specialBondRprtngDscd,특수채권명세구분
 AT#specialCnsmptnTax,국세특별소비세
 AT#specialDlvryAddrCd,특별송달지주소코드
@@ -7438,7 +7845,7 @@ AT#specialRpymntDscd,특별상환구분
 AT#specialRuralDvlpmntTax,농어촌특별세
 AT#speedInqryAcctListJson,스피드조회계좌목록제이슨
 AT#spldHousehldCnt,공급세대수
-AT#splyAreaVal,공급면적
+AT#splyAreaVal,공급면적값
 AT#splyChnFnncInqryDscd,SCF조회구분코드
 AT#splyChnFnncLnLmtAgrmntPdCd,SCF대출한도약정상품코드
 AT#splyChnFnncThirdPartyPdCd,SCF3자기업상품코드
@@ -7473,6 +7880,7 @@ AT#spvsrBrnchCntnt,책임자부점내용
 AT#spvsrStaffCntnt,책임자 스태프 내용
 AT#spvsrStaffId,책임스태프식별자
 AT#spvsrStaffNm,관리스테프명
+AT#sqlErrYn,SQL에러여부
 AT#sqntlPrcsngKeyVal,순차처리키값
 AT#srcDataCntnt,원천데이터내용
 AT#srcSysFileNm,소스시스템파일명
@@ -7504,9 +7912,10 @@ AT#srvcOutpClassNm,서비스출력클래스명
 AT#srvcPrcsngCd,서비스처리코드
 AT#srvcPrflAtrbtNm,서비스프로파일속성명
 AT#srvcPrflCntnt,서비스프로파일내용
-AT#srvcPrflDescCntnt,서비스프로파일설명
+AT#srvcPrflDescCntnt,서비스프로파일설명내용
 AT#srvcPrflNm,서비스프로파일명
 AT#srvcRstrctnCd,서비스제한코드
+AT#srvcRstrctnDtm,서비스제한일시
 AT#srvcRstrctnEndDtm,서비스제한종료일시
 AT#srvcRstrctnEndTmstmp,서비스제한종료일시
 AT#srvcRstrctnRgstrnRsnCntnt,서비스제한등록사유내용
@@ -7535,6 +7944,7 @@ AT#staffCnt,스태프건수
 AT#staffEmplymntTpCd,스태프고용유형
 AT#staffExmntnCmntCntnt,직원심사의견
 AT#staffId,스태프식별자
+AT#staffLoinHstSeqNbr,스태프로그인이력일련번호
 AT#staffNm,스태프명
 AT#staffRoleChngRsnCd, 스태프역할상태변경사유코드
 AT#staffRoleChngRsnCntnt,스태프역할상태변경사유
@@ -7544,7 +7954,7 @@ AT#staffRoleStsChngRsnCd,스태프역할상태변경사유코드
 AT#staffRoleStsChngRsnCntnt,스태프역할상태변경사유내용
 AT#staffSeqNbr,스태프일련번호
 AT#staffStsCd,스태프상태코드
-AT#staffStsChngRsnCd,사용자상태변경사유코드
+AT#staffStsChngRsnCd,스태프상태변경사유코드
 AT#staffStsChngRsnCntnt,스태프상태변경사유내용
 AT#staffTpCd,스태프유형
 AT#staffTxSeqNbr,스태프거래일련번호
@@ -7556,6 +7966,7 @@ AT#startDt,시작일자
 AT#startDtm,시작일시
 AT#startHousehldAddr,시작호주소
 AT#startMktgDt,홍보시작일자
+AT#startMnthCnt,시작월수
 AT#startNbr,시작번호
 AT#startNbrAddr,시작번지주소
 AT#startNth,시작회차
@@ -7607,7 +8018,7 @@ AT#stlmntAfAccruedIntAmt,결산후미지급이자금액
 AT#stlmntAfAccuredIntAmt,결산후미지급분이자금액
 AT#stlmntAfBal,결산후잔액
 AT#stlmntAfIntTrgtBal,결산후이자대상잔액
-AT#stlmntAmt,결제금액
+AT#stlmntAmt,정산금액
 AT#stlmntBaseDt,결산기준일자
 AT#stlmntBfBal,결산전잔액
 AT#stlmntBfIntTrgtBal,결산전이자대상잔액
@@ -7617,6 +8028,7 @@ AT#stlmntClassNm,정산클래스명
 AT#stlmntCmpnstnBizCd,결산보정업무코드
 AT#stlmntCmpnstnBizNm,결산보정업무명
 AT#stlmntCmpnstnDscd,결산보정구분
+AT#stlmntCrctnBizNm,결산보정업무명
 AT#stlmntCrctnDscd,결산보정구분코드
 AT#stlmntDscd,결산구분
 AT#stlmntDt,결제일자
@@ -7633,6 +8045,7 @@ AT#stlmntPrcsSeqNbr,정산처리일련번호
 AT#stlmntPrcsngYn,정산처리여부
 AT#stlmntPrgrsDscd,결산진행구분
 AT#stlmntPrgrsPrcsStsCd,결산진행처리상태코드
+AT#stlmntSchdldDt,정산예정년월일
 AT#stlmntTotAmt,정산총금액
 AT#stndngOrderAcctNbr,자동이체계좌번호
 AT#stndngOrderAgrmntId,이체계약식별번호
@@ -7652,6 +8065,7 @@ AT#stopDayCnt,정지일수
 AT#stopSqntlPrcsngKeyYn,순차처리키중지여부
 AT#storageQnty,보관수량
 AT#strnDt,strnDt
+AT#strtgGradeCd,전략등급코드
 AT#stsCd,상태코드
 AT#stsChngArrId,상태변경계약식별자
 AT#stsChngBrnchCd,상태변경부점코드
@@ -7664,7 +8078,7 @@ AT#stsChngStaffId,상태변경스태프식별자
 AT#stsChngTmstmp,상태변경일시
 AT#stsChngTrmnlNbr,상태변경단말번호
 AT#stsChngTxDt,상태변경거래일자
-AT#stsChngTxHms,상태변경거래시각
+AT#stsChngTxHms,상태변경거래시분초
 AT#stsChngTxIssueOthrArrId,상태변경거래발행타계약식별자
 AT#stsChngTxSeqNbr,상태변경거래일련번호
 AT#stsChngUserNbr,상태변경사용자번호
@@ -7677,7 +8091,15 @@ AT#stsStartHms,상태시작시간
 AT#stutDongAddrCntnt,법정동주소
 AT#stutDongCd,법정동코드
 AT#stutDongDtlAddr,법정동상세주소
+AT#styleActvButtonVal,스타일활성버튼값
+AT#styleBdyVal,스타일바디값
+AT#styleFooterCntnt,스타일하단내용
+AT#styleHdrCntnt,스타일헤더내용
+AT#styleInctvButtonVal,스타일비활성버튼값
+AT#stylePopupCntnt,스타일팝업내용
 AT#styleSeqNbr,스타일일련번호
+AT#styleThemeDfltYn,스타일테마기본여부
+AT#styleTxtCntnt,스타일텍스트내용
 AT#subAcctNbr,부계좌번호
 AT#subArrId,부계약식별자
 AT#subDtoCnt,서브DTO 카운트
@@ -7686,10 +8108,12 @@ AT#subMsgCntnt,부가메시지내용
 AT#subPdNm,부상품명
 AT#sucssCnt,성공건수
 AT#sucssYn,성공여부
+AT#sueAplctnDt,제소신청년월일
+AT#sueAplctnPersonNm,제소신청자
 AT#sumAmrtztnAmt,합계할부상환금액
 AT#sumAmt,합계
 AT#supplFeeAdjstmntAmt,추가수수료조정금액
-AT#supplFeeAmt,
+AT#supplFeeAmt,추가수수료조정금액
 AT#supplInfoFormDscd,추가정보형태구분
 AT#supplInfoVal,추가정보값
 AT#supplRmkCntnt,추가비고내용
@@ -7704,10 +8128,11 @@ AT#syncDscd,동기 구분코드
 AT#syncKndDscd,동기화종류구분코드
 AT#synchAsyncDscd,동기비동기구분코드
 AT#synchrnzrDfntnNm,synchrnzr정의명
-AT#synchrnzrId,synchrnzr식별자
+AT#synchrnzrId,SYNCHRNZR식별자
 AT#synchrnzrNm,Synchronizer명
 AT#sysCd,시스템코드
 AT#sysCntnt,시스템설명
+AT#sysDbmsDscd,시스템DBMS구분코드
 AT#sysEnvrnmntDscd,시스템환경구분코드
 AT#sysErrMsgCntnt,시스템에러메시지내용
 AT#sysExmntnRsltCd,시스템심사결과
@@ -7719,7 +8144,7 @@ AT#sysIntrfcId,시스템인터페이스식별자
 AT#sysIntrfcMsgTpCd,메시지유형
 AT#sysIntrfcMsgTrnsfrmEngNm,시스템인터페이스전문변환영문명
 AT#sysIntrfcMsgTrnsfrmId,전문변환식별자
-AT#sysIntrfcMsgTrnsfrmNm,전문변환명
+AT#sysIntrfcMsgTrnsfrmNm,시스템인터페이스전문변환명
 AT#sysIntrfcMthdCd,시스템인터페이스방식코드
 AT#sysIntrfcNm,시스템인터페이스명
 AT#sysIntrfcStsCd,시스템인터페이스상태코드
@@ -7747,7 +8172,7 @@ AT#taxAmtTpCd,세금금액유형
 AT#taxAplyBaseDt,세금적용기준년월일
 AT#taxCd,과세코드
 AT#taxCdKorNm,세율코드한글명
-AT#taxCdNm,
+AT#taxCdNm,세율코드명
 AT#taxFreeOverAmtPrcsAgrmntYn,비과세초과금액처리동의여부
 AT#taxKndCd,세금종류코드
 AT#taxKndDscd,과세종류구분
@@ -7775,6 +8200,7 @@ AT#taxRtSctnSeqNbr,세율구간일련번호
 AT#taxRtSmallClCd,세율소분류코드
 AT#taxStdAmt,과표금액
 AT#taxTpCd,세금유형
+AT#taxTpCdNm,세금유형코드명
 AT#taxTrgtCntnt,과세대상내용
 AT#taxUnchrgdRsnCd,세금미부과사유코드
 AT#taxtnBaseDt,과세 신고 기준일자
@@ -7815,6 +8241,7 @@ AT#tdTpDscd,유형
 AT#tdTrnsfrAcctgBal,당일대체계리잔액
 AT#tdyBal,금일잔액
 AT#tdyBalSumAmt,금일잔액합계
+AT#tdyBlckngCnt,당일제한횟수
 AT#tdyCrncyBal,금일잔액통화
 AT#tdyDplctnTrnsfrYn,당일중복이체여부
 AT#tdyDpstCrncyAmt,금일입금통화
@@ -7823,6 +8250,7 @@ AT#tdyDpstSumAmt,금일입금합계
 AT#tdyLastStsYn,당일최종상태여부
 AT#tdyOthrChkBal,금일잔액타점권
 AT#tdyPymntTradeAmt,당일결제매매금액
+AT#tdyPymntTrgtAmt,금일납입대상금액
 AT#tdyRpymntAmt,오늘상환금액
 AT#tdyWhdrwlCrncyAmt,금일출금통화
 AT#tdyWhdrwlOthrChkAmt,금일출금타점권
@@ -7851,7 +8279,9 @@ AT#theAvgBal3Mnths,3개월평잔
 AT#theAvgBal6Mnths,6개월평잔
 AT#themeDfltYn,테마기본여부
 AT#themeDscd,테마구분
+AT#thingDscd,물건구분코드
 AT#thingKndCd,물건종류코드
+AT#thingListCnt,물건목록수
 AT#thirdPartyArrId,3자기업계약식별자
 AT#thirdPartyBizNbr,제3자기업사업자번호
 AT#thirdPartyCltrlYn,제3자담보여부
@@ -7865,7 +8295,7 @@ AT#tierElmntCntnt,계층요소내용
 AT#tierHstExistYn,계층이력존재여부
 AT#tierNbr,계층번호
 AT#tierSeqNbr,계층일련번호
-AT#timeoutHms,타임아웃발생시각
+AT#timeoutHms,타임아웃발생시분초
 AT#timeoutRgstrnYn,타이머등록여부
 AT#timeoutScnd,타임아웃초
 AT#timeoutSrvcCd,타임아웃서비스코드
@@ -7888,6 +8318,7 @@ AT#tmOutHms,TIMEOUT시간
 AT#tmOutSchdldHms,TIMEOUT예정시간
 AT#tmZoneCd,타임존코드
 AT#tmpltTblNm,임시테이블명
+AT#tmpryDpstAmt,가수금금액
 AT#tmpryDpstTrgtYn,가수금대상여부
 AT#tmpryDstrntCaseNbr,가압류사건번호
 AT#tmpryExRt,임의환율
@@ -7901,6 +8332,7 @@ AT#tmpryTrmntnRgstrnRqstCnt,임의해지 등록의뢰건수
 AT#tmstmp,타임스탬프
 AT#tntInstId,기관식별자
 AT#tntInstNm,테넌트기관명
+AT#totAmt,총금액
 AT#totAplctnCnt,총신청건수
 AT#totAprslAmt,총감정금액
 AT#totAprvlAplctnAmt,총승인신청금액
@@ -7912,6 +8344,7 @@ AT#totBalWhdrwlBlckngYn,전체잔액출금제한여부
 AT#totCnt,총 건수
 AT#totCntInqryYn,전체건수조회여부
 AT#totCostAmt,비용총금액
+AT#totCouponCnt,전체쿠폰수
 AT#totCrncyTxCnt,총거래건수통화
 AT#totCyclCnt,총주기수
 AT#totDataCnt,총계데이터건수
@@ -7955,7 +8388,7 @@ AT#totRmtncCnt,총송금건수
 AT#totRoomCnt,총방수
 AT#totRpymntAmt,총상환금액
 AT#totRpymntIntAmt,총상환이자금액
-AT#totRpymntPrchsIntAmt,총상환환입이자금액
+AT#totRpymntPrchsIntAmt,총상환이자금액
 AT#totRpymntPrncpl,총상환원금
 AT#totRpymntRtrnIntAmt,총상환환출이자금액
 AT#totRqstCnt,총의뢰건수
@@ -7977,10 +8410,10 @@ AT#totWhdrwlCnt,총출금건수
 AT#totWthdrwAmt,총인출금액
 AT#trackAcctChkSignCd,트랙계좌검증부호코드
 AT#trackCntnt,트랙내용
-AT#trackThreeCntnt,
-AT#trackThreeDataCntnt,
-AT#trackTwoCntnt,
-AT#trackTwoDataCntnt,
+AT#trackThreeCntnt,트랙3내용
+AT#trackThreeDataCntnt,트랙3내용
+AT#trackTwoCntnt,트랙2내용
+AT#trackTwoDataCntnt,트낵2내용
 AT#tradeAmt,매매금액
 AT#tradeArrCnfrmStsCd,매매계약확정상태코드
 AT#tradeArrCnfrmYn,매매계약확정여부
@@ -7997,16 +8430,20 @@ AT#tradeGoodsNm,매매물품명
 AT#tradeItmNm,매매품목
 AT#tradeMaxAmt,매매상한가금액
 AT#tradeMinAmt,매매하한가금액
+AT#tralDscd,심급구분코드
+AT#tralNm,심급명
+AT#tralTrgtYn,심급대상여부
 AT#tranrDscd,거래자구분
 AT#tranrNm,거래자성명
 AT#treeTpCd,트리유형코드
 AT#trfcCardFnctnCd,교통카드기능코드
 AT#trfcEnvrnmntCntnt,교통환경내용
-AT#trfcEnvrnmntDescCntnt,교통환경설명
+AT#trfcEnvrnmntDescCntnt,교통환경설명내용
 AT#trfcTax,교통세
 AT#trgtAmt,대상금액
 AT#trgtAmtChngYn,목표금액변경여부
 AT#trgtAmtSucssYn,목표금액달성여부
+AT#trgtCd,대상코드
 AT#trgtColumnNm,대상컬럼명
 AT#trgtDataCntnt,대상데이터내용
 AT#trgtDeptId,대상부서식별자
@@ -8043,9 +8480,9 @@ AT#trmnlMacAddr,단말MAC주소
 AT#trmnlNbr,단말번호
 AT#trmntCnt,해지차수
 AT#trmntDt,종결일자
-AT#trmntRsnCd,해지사유코드
+AT#trmntRsnCd,종결사유코드
 AT#trmntRsnCntnt,종결사유
-AT#trmntYn,
+AT#trmntYn,해지여부
 AT#trmntnBaseDt,해지기준일자
 AT#trmntnCorpNm,해지기업
 AT#trmntnCupldTrgtPdCd,해지연동대상상품코드
@@ -8076,7 +8513,7 @@ AT#trnsfrFeeAmt,이체수수료금액
 AT#trnsfrFormulaCntnt,변환공식내용
 AT#trnsfrHldyPrcsngDscd,이체일휴일시처리구분
 AT#trnsfrHms,이체시각
-AT#trnsfrKndCd,변환종류
+AT#trnsfrKndCd,변환종류코드
 AT#trnsfrKndDesc,변환종류설명
 AT#trnsfrKndDescCntnt,변환종류설명내용
 AT#trnsfrOriginKeyAtrbtListCntnt,변환원천키속성리스트내용
@@ -8090,7 +8527,7 @@ AT#trnsfrPrcsngEndHms,이체처리종료시간
 AT#trnsfrPrcsngStartDt,이체처리시작일자
 AT#trnsfrPrcsngStartHms,이체처리시작시간
 AT#trnsfrPrcsngStsCd,이체처리상태코드
-AT#trnsfrPrdDt,대체납기년월일
+AT#trnsfrPrdDt,이체납기년월일
 AT#trnsfrRcvSlipCnt,대체입금전표매수
 AT#trnsfrRcvdAmt,대체입금금액
 AT#trnsfrRcvdDmstcAmt,대체입금국내금액
@@ -8119,12 +8556,14 @@ AT#trnsmsnStsCd,전송상태코드
 AT#trnsprtMeansCd,운송수단코드
 AT#trshpmtPrmsnYn,환적허용여부
 AT#trtmntCntnt,조치내용
+AT#trtmntDt,조치년월일
 AT#trustRcptYn,수입화물대도여부
 AT#tsaAuthKeyJson,TSA인증키제이슨
 AT#tsaAuthKeyVal,TSA인증키제이슨
-AT#tsaId,tsaId
+AT#tsaId,TSA식별자
 AT#tstCntnt,test content
-AT#tstRspnsCrtnClassNm,테스트응답클래스명
+AT#tstOtstndngAmt,
+AT#tstRspnsCrtnClassNm,테스트응답생성클래스명
 AT#ttBuyExRt,전신환매입환율
 AT#ttSellExRt,전신환매도환율
 AT#ttlUseYn,TTL사용여부
@@ -8167,6 +8606,7 @@ AT#txDtlCntntJson,거래상세내용JSON
 AT#txDtlFnctnCd,거래상세기능코드
 AT#txEndDt,거래종료일자
 AT#txEndHms,트랜잭션 종료 시간
+AT#txFeeAmt,거래수수료
 AT#txFnclInstBrnchCd,거래금융기관지점코드
 AT#txFnclInstCd,거래금융기관코드
 AT#txFnctnCd,거래기능코드
@@ -8193,13 +8633,17 @@ AT#txNbr,거래번호
 AT#txNetStlmntAmt,거래차액결제금액
 AT#txNetStlmntDscd,거래차액구분코드
 AT#txNm,거래명
+AT#txNrmlIntAmt,거래정상이자금액
 AT#txOcrDt,거래발생년월일
 AT#txOpnHms,거래개시시분초
 AT#txOutpLogCntnt,거래출력로그내용
+AT#txOvrduIntAmt,거래연체이자금액
 AT#txPrcsEndHms,거래처리종료시간
 AT#txPrcsStartHms,거래처리시작시간
 AT#txPriceAmt,거래시세금액
 AT#txPriceSeqNbr,거래시세일련번호
+AT#txPrncplAmt,거래원금금액
+AT#txPrpymntsAmt,거래가지급금액
 AT#txPswd,거래비밀번호
 AT#txPswdAlphbtCmpsYn,거래비밀번호알파벳구성여부
 AT#txPswdAlphbtMndtryYn,거래비밀번호알파벳필수여부
@@ -8223,8 +8667,8 @@ AT#txRpymntPrncplOvrduIntSumAmt,거래상환원금연체이자합계금액
 AT#txRpymntPrncplSumAmt,거래상환원금합계금액
 AT#txRpymntPsblAmt,거래상환가능금액
 AT#txRpymntSumAmt,거래상환합계금액
-AT#txRqstTmstmp,거래요청일시
-AT#txRspnsTmstmp,거래응답일시
+AT#txRqstTmstmp,거래요청타임스탬프
+AT#txRspnsTmstmp,거래응답타임스탬프
 AT#txRstrctnAmt,거래제한금액
 AT#txRstrctnAmtCrncyCd,거래제한금액통화코드
 AT#txRstrctnCd,거래제한코드
@@ -8269,7 +8713,7 @@ AT#txtCndEndVal,텍스트조건종료값
 AT#txtCndStartVal,텍스트조건시작값
 AT#txtCndVal,입력조건값
 AT#txtCntnt,Text
-AT#txtDcrtnVal,밑줄
+AT#txtDcrtnVal,텍스트밑줄값
 AT#txtKeyVal,텍스트키값
 AT#txtSeqNbr,텍스트일련번호
 AT#txtSortWayVal,문자정렬방식
@@ -8295,8 +8739,8 @@ AT#unmaskRqstScrnId,마스킹해제 요청 화면식별자
 AT#unmaskRsnCd,해제사유코드
 AT#unmaskRsnCntnt,해제사유상세
 AT#unmaskRsnDtlCntnt,마스킹해제 사유상세내용
-AT#unmaskSeqNbr,마스킹해제일련번호
-AT#unmaskTmstmp,마스킹해제일시
+AT#unmaskSeqNbr,마스킹해제상세번호
+AT#unmaskTmstmp,마스킹해제타임스탬프
 AT#unpdCyclCnt,미상환건수
 AT#unprcsdAmt,미처리금액
 AT#unprcsdCnt,미처리건수
@@ -8311,10 +8755,11 @@ AT#upAcctgItmCd,상위계정과목코드
 AT#upAcctgItmNm,상위계정과목명
 AT#upAmtTpCd,상위금액유형코드
 AT#upAmtTpCdNm,상위금액유형코드명
-AT#upAprvlLvlNbr,상위승인레벨번호
+AT#upAprvlLvlNbr,상위결재레벨번호
 AT#upAprvlTmpltId,상위결재템플릿식별자
 AT#upArrIssmdaInhrncId,상위계약발급매체고유식별자
 AT#upArrIssmdaTpCd,상위발급매체유형
+AT#upArrSrvcTpCd,상위계약서비스유형코드
 AT#upAssetClCd,상위자산분류코드
 AT#upBrnchCd,상위부점코드
 AT#upCalcnRuleCmpsElmntId,상위계산규칙구성요소식별자
@@ -8324,6 +8769,8 @@ AT#upCdNbr,상위코드
 AT#upCdNbrNm,상위코드명
 AT#upClId,상위분류식별자
 AT#upClNm,상위분류명
+AT#upCmpsElmntId,상위구성요소식별자
+AT#upCmpsElmntRelTpDscd,상위구성요소구분코드
 AT#upDeptId,상위부서식별자
 AT#upDeptNm,상위부서명
 AT#upDeptYn,상위부서여부
@@ -8334,7 +8781,7 @@ AT#upRoadNm,상위도로명
 AT#upSeqNbr,상위일련번호
 AT#updtJdgmntMthdNm,갱신판단메소드명
 AT#url,Url
-AT#usCnvrsnRt,대미환산율
+AT#usCnvrsnRt,미화환산율
 AT#usageRegionDscd,용도지역구분코드
 AT#usanceDayCnt,기한부일수
 AT#usanceKndCd,기한부종류코드
@@ -8345,6 +8792,7 @@ AT#useAblYn,이용가능여부
 AT#useAgrmntAcctNbr,이용약정계좌번호
 AT#useAmt,사용금액
 AT#useArrId,이용약정식별자
+AT#useAtrbtNm,사용속성명
 AT#useAvlblYn,사용가능여부
 AT#useCdNbr,사용코드번호
 AT#useCnt,사용매수
@@ -8353,7 +8801,7 @@ AT#useEntrprsAbrvtnNm,이용업체약칭명
 AT#useEntrprsAprvlNbr,이용업체승인번호
 AT#useEntrprsDpstDt,이용업체입금년월일
 AT#useEntrprsMsgMgmtNbr,이용업체전문관리번호
-AT#useEntrprsNm,사용업체명
+AT#useEntrprsNm,이용업체명
 AT#useInstAcptncNewCnt,이용기관접수신규건수
 AT#useInstClCd,이용기관분류코드
 AT#useInstCmpnyNm,이용기관상호명
@@ -8391,6 +8839,7 @@ AT#useYm,사용년월
 AT#useYn,사용여부
 AT#useYr,이용년도
 AT#usedAmt,소진액
+AT#usedCouponCnt,사용쿠폰수
 AT#userAge,사용자나이
 AT#userClassNm,사용자클래스명
 AT#userGrpCd,사용자그룹코드
@@ -8422,6 +8871,7 @@ AT#varCyclRefCndCdNm,변동주기참조조건코드명
 AT#varDescCntnt,변수설명
 AT#varDt,변동년월일
 AT#varFrqRefCndCd,변동주기참조조건코드
+AT#varFrqRefCndCdNm,변동주기참조조건명
 AT#varId,변수식별자
 AT#varIntRtAplyCyclCnt,변동금리적용주기수
 AT#varIntRtAplyWayCd,변동금리적용방식코드
@@ -8436,6 +8886,8 @@ AT#varVal,변수값
 AT#vaultStaffId,금고 스태프 식별자
 AT#villaRowHouseYn,빌라연립여부
 AT#vldtnClassNm,검증클래스명
+AT#vldtnEndDt,검증종료일자
+AT#vldtnEndHms,검증종료시각
 AT#vldtnErrOvrrdYn,오류무시여부
 AT#vldtnFinYn,검증완료여부
 AT#vldtnNbr,검증번호
@@ -8443,6 +8895,8 @@ AT#vldtnPswd,검증비밀번호
 AT#vldtnRsltCntnt,검증결과
 AT#vldtnRsltMsgCntnt,검증결과메시지
 AT#vldtnRuleCntnt,검증규칙
+AT#vldtnStartDt,검증시작일자
+AT#vldtnStartHms,검증시작시각
 AT#vlntrPymntTrgtYn,자진납부대상여부
 AT#vltnCarNbr,위반차량번호
 AT#vltnCntnt,위반내용
@@ -8452,6 +8906,7 @@ AT#vrtlAcctCustId,가상계좌고객번호
 AT#vrtlAcctNbr,가상계좌번호
 AT#vrtlAcctYn,가상계좌여부
 AT#vrtlAcctYnInqryYn,가상계좌여부조회여부
+AT#vrtlArrId,가상계약식별자
 AT#vrtnArrYn,변형계약포함여부
 AT#vrtnEngAbrvtnNm,변형영문약어명
 AT#vrtnSrcArrId,변형원계약식별자
@@ -8473,7 +8928,7 @@ AT#wflowDescCntnt,워크플로우설명
 AT#wflowGrpTpCd,워크플로우그룹유형
 AT#wflowId,워크플로우식별자
 AT#wflowIdKeyVal,Workflow식별자키
-AT#wflowInstncId,Workflow인스턴스식별자
+AT#wflowInstncId,워크플로우인스턴스식별자
 AT#wflowNm,워크플로우명
 AT#wflowPrgrsStsCd,워크플로우진행상태코드
 AT#wflowStsCd,워크플로우상태코드
@@ -8482,7 +8937,7 @@ AT#wflowUseYn,workflow사용여부
 AT#whdrwlAblAmt,출금가능금액
 AT#whdrwlAblAmtInqryYn,출금가능금액조회여부
 AT#whdrwlAblBalInitzTrgtYn,출금가능잔액초기화대상여부
-AT#whdrwlAblBalInitzYn,출금가능금액초기화여부
+AT#whdrwlAblBalInitzYn,출금가능잔액초기화여부
 AT#whdrwlAcctAmt,출금계좌금액
 AT#whdrwlAcctBal,출금계좌잔액
 AT#whdrwlAcctBrnchCd,출금계좌점코드
@@ -8493,8 +8948,9 @@ AT#whdrwlAcctNbrBackInfoCntnt,출금계좌번호뒤정보내용
 AT#whdrwlAcctNbrFrontInfoCntnt,출금계좌번호앞정보내용
 AT#whdrwlAcctOwnrNm,출금계좌예금주명
 AT#whdrwlAcctPswd,출금계좌비밀번호
+AT#whdrwlAcctYn,출금계좌여부
 AT#whdrwlAmt,출금금액
-AT#whdrwlBnkBrnchCd,출금은행점별코드
+AT#whdrwlBnkBrnchCd,출금은행부점코드
 AT#whdrwlBnkCd,출금은행코드
 AT#whdrwlBnkOfcMsgCd,출금은행지점전문코드
 AT#whdrwlClsDscd,탈회해지구분
@@ -8509,7 +8965,7 @@ AT#whdrwlDsbldCnt,출금불능건수
 AT#whdrwlDt,출금일자
 AT#whdrwlEmplId,해지자직원번호
 AT#whdrwlFeeAmt,출금수수료
-AT#whdrwlFnclInstBrnchCd,출금금융기관지점코드
+AT#whdrwlFnclInstBrnchCd,출금금융기관부점코드
 AT#whdrwlFnclInstCd,출금금융기관코드
 AT#whdrwlFnclInstMsgMgmtNbr,출금금융기관전문관리번호
 AT#whdrwlFnclInstNm,출금금융기관명
@@ -8520,7 +8976,7 @@ AT#whdrwlInstBrnchCd,출금기관점별코드
 AT#whdrwlInstCd,출금기관코드
 AT#whdrwlInstMsgMgmtNbr,출금기관전문관리번호
 AT#whdrwlInstMsgSndDtm,출금기관전문전송일시
-AT#whdrwlInstMsgSndTmstmp,출금기관전문전송타입스탬프
+AT#whdrwlInstMsgSndTmstmp,출금기관전문전송타임스탬프
 AT#whdrwlInstNm,출금기관명
 AT#whdrwlInstRprsntnCd,출금기관대표코드
 AT#whdrwlLmtChkYn,출금한도체크여부
@@ -8530,7 +8986,7 @@ AT#whdrwlNrmlAmt,출금정상금액
 AT#whdrwlNrmlCnt,출금정상건수
 AT#whdrwlNth,출금회차
 AT#whdrwlOrderJson,출금순서제이슨
-AT#whdrwlPersonNm,
+AT#whdrwlPersonNm,출금자명
 AT#whdrwlPsbkDsplyCntnt,출금통장표시내용
 AT#whdrwlRmkCntnt,출금적요내용
 AT#whdrwlRqstAmt,출금의뢰금액
@@ -8547,6 +9003,7 @@ AT#whdrwlTxRmkCntnt,출금거래적요
 AT#whdrwlYn,출금여부
 AT#winBidFeeAmt,대출낙찰수수료
 AT#winLwstAmt,승소금액
+AT#winLwstRt,승소율
 AT#workCostRt,업무원가율
 AT#workTpCd,직종유형
 AT#wrd1,단어
@@ -8559,39 +9016,41 @@ AT#wthdrwPsbkDsplyCntnt,출금통장표시내용
 AT#wthdrwStopAcctNbr,인출정지계좌번호
 AT#wthldngTaxFreeYn,수신이자세금면제여부
 AT#xaTxDscd,XA거래 구분코드
+AT#xpMsgCntnt,대외메시지내용
+AT#xpStsCd,대외상태코드
 AT#xtnAtrbtAfChngCntnt,확장속성변경후내용
 AT#xtnAtrbtAplyPdCntnt,확장속성적용상품내용
 AT#xtnAtrbtBfChngCntnt,확장속성변경전내용
 AT#xtnAtrbtClassNm,확장속성클래스명
 AT#xtnAtrbtCntnt,확장속성내용
 AT#xtnAtrbtDescCntnt,확장속성설명
-AT#xtnAtrbtEightYn,
+AT#xtnAtrbtEightYn,확장파라미터8여부
 AT#xtnAtrbtEndCntnt,확장속성종료내용
-AT#xtnAtrbtFiveYn,
-AT#xtnAtrbtFourYn,
+AT#xtnAtrbtFiveYn,확장파라미터5여부
+AT#xtnAtrbtFourYn,확장파라미터4여부
 AT#xtnAtrbtJsonCntnt,확장속성JSON내용
-AT#xtnAtrbtNineYn,
-AT#xtnAtrbtNm,확장속성확장속성명
-AT#xtnAtrbtOneYn,
+AT#xtnAtrbtNineYn,확장파라미터9여부
+AT#xtnAtrbtNm,확장속성명
+AT#xtnAtrbtOneYn,확장파라미터1여부
 AT#xtnAtrbtOriginTblNm,확장속성원천테이블명
 AT#xtnAtrbtPdCd,확장속성상품
 AT#xtnAtrbtPdJdgmntYn,확장속성상품판단여부
 AT#xtnAtrbtPhsclTblNm,확장속성물리테이블명
-AT#xtnAtrbtSevenYn,
-AT#xtnAtrbtSixYn,
+AT#xtnAtrbtSevenYn,확장파라미터7여부
+AT#xtnAtrbtSixYn,확장파라미터6여부
 AT#xtnAtrbtStartCntnt,확장속성시작내용
 AT#xtnAtrbtStsCd,확장속성상태코드
-AT#xtnAtrbtTenYn,
-AT#xtnAtrbtThreeYn,
+AT#xtnAtrbtTenYn,확장파라미터10여부
+AT#xtnAtrbtThreeYn,확장파라미터3여부
 AT#xtnAtrbtTpCd,확장속성유형
-AT#xtnAtrbtTwoYn,
+AT#xtnAtrbtTwoYn,확장파라미터2여부
 AT#xtnAtrbtUseYn,확장 속성 사용 여부
 AT#xtnAtrbtVal,확장속성값
 AT#xtnAtrbtVrtnCmpsCd,확장속성변형구성코드
 AT#xtnAtrbtXtnArtbtNm,확장속성확장속성명
 AT#xtnAtrbtXtnAtrbtNm,확장속성확장속성명
 AT#xtnAtrbtYn,확장속성여부
-AT#xtnCdClassNm,확장코드클래스이름
+AT#xtnCdClassNm,확장코드클래스명
 AT#xtnCdTblNm,확장코드테이블명
 AT#xtnCnt,연장횟수
 AT#xtnDscd,연장구분코드
@@ -8600,16 +9059,16 @@ AT#xtnInfoCntnt,확장정보내용
 AT#xtnInfoId,확장정보식별자
 AT#xtnInfoNcsrYn,확장정보필요여부
 AT#xtnInfoNm,확장정보명
-AT#xtnParmEightYn,
-AT#xtnParmFiveYn,
-AT#xtnParmFourYn,
-AT#xtnParmNineYn,
-AT#xtnParmOneYn,
-AT#xtnParmSevenYn,
-AT#xtnParmSixYn,
-AT#xtnParmTenYn,
-AT#xtnParmThreeYn,
-AT#xtnParmTwoYn,
+AT#xtnParmEightYn,확장파라미터8여부
+AT#xtnParmFiveYn,확장파라미터5여부
+AT#xtnParmFourYn,확장파라미터4여부
+AT#xtnParmNineYn,확장파라미터9여부
+AT#xtnParmOneYn,확장파라미터1여부
+AT#xtnParmSevenYn,확장파라미터7여부
+AT#xtnParmSixYn,확장파라미터6여부
+AT#xtnParmTenYn,확장파라미터10여부
+AT#xtnParmThreeYn,확장파라미터3여부
+AT#xtnParmTwoYn,확장파라미터2여부
 AT#xtnParmYn,확장파라미터여부
 AT#xtnPrmsryExCd,연장어음교환소코드
 AT#xtnPrmsryExTotCnt,연장어음교환소총갯수
@@ -8620,7 +9079,7 @@ AT#xtrctIssueDt,초본발급일자
 AT#ymNth,년월(회)차
 AT#ymNthDscd,년월회차구분
 AT#yn,여부
-AT#yrAvgBal,기중평잔
+AT#yrAvgBal,년평균잔액
 AT#yrDayCnt,년일수
 AT#yrMarginRt,기중이문율
 AT#yrMnthCnt,년월수
@@ -8660,7 +9119,8 @@ ABRVTN#accrued,미수의
 ABRVTN#acct,계좌
 ABRVTN#acctg,회계
 ABRVTN#acdnt,사고
-ABRVTN#acmltd,accumulated
+ABRVTN#acmltd,누적된
+ABRVTN#acmltn,적립
 ABRVTN#acnts,계좌목록
 ABRVTN#acptnc,접수
 ABRVTN#acptr,인수자
@@ -8721,7 +9181,7 @@ ABRVTN#annuity,연금, 연금보험
 ABRVTN#answer,답변
 ABRVTN#antn,주석
 ABRVTN#any,어떠한
-ABRVTN#aplcnt,applicant
+ABRVTN#aplcnt,신청인
 ABRVTN#aplctn,신청
 ABRVTN#aplnt,항고인
 ABRVTN#aply,적용
@@ -8791,6 +9251,7 @@ ABRVTN#bddr,입찰자
 ABRVTN#bdngmthdcd,입찰방식 코드
 ABRVTN#bdngnfrmtnsmry,biddinginformationsummary
 ABRVTN#bdrctnl,양방향의
+ABRVTN#bdtal,대손충당
 ABRVTN#bdy,몸체
 ABRVTN#bean,자바빈
 ABRVTN#begin,시작하다
@@ -8825,7 +9286,7 @@ ABRVTN#bnfcry,수익자
 ABRVTN#bnft,혜택
 ABRVTN#bnk,은행
 ABRVTN#bnkrptcy,파산
-ABRVTN#bnrmgrl,Banner Image URL
+ABRVTN#bnrmgrl,베너이미지URL
 ABRVTN#bond,채권
 ABRVTN#book,책
 ABRVTN#border,경계
@@ -8883,6 +9344,7 @@ ABRVTN#choic,선택
 ABRVTN#chr,문자
 ABRVTN#chrgbl,과세
 ABRVTN#chrgng,과금
+ABRVTN#chrnc,정합성
 ABRVTN#chrstc,특징
 ABRVTN#circuit,회로
 ABRVTN#city,시, 도
@@ -8928,9 +9390,10 @@ ABRVTN#cmps,구성
 ABRVTN#cmpst,복합된
 ABRVTN#cmptn,산출
 ABRVTN#cmptr,컴퓨터
+ABRVTN#cmpttn,경합
 ABRVTN#cmpx,복합
 ABRVTN#cmrcl,상업
-ABRVTN#cmsn,commission
+ABRVTN#cmsn,수수료
 ABRVTN#cncl,취소
 ABRVTN#cnclCnfrmtn,확정취소
 ABRVTN#cnclbl,취소가능한
@@ -8969,7 +9432,7 @@ ABRVTN#cntry,국가
 ABRVTN#cnts,counts
 ABRVTN#cnvrsn,변환
 ABRVTN#cnvrtd,환산된
-ABRVTN#coa,Chart of Account
+ABRVTN#coa,계정과목
 ABRVTN#coin,동전
 ABRVTN#color,색
 ABRVTN#column,열
@@ -9025,15 +9488,17 @@ ABRVTN#custg,고객그룹
 ABRVTN#custr,고객고객관련인
 ABRVTN#custs,고객스태프
 ABRVTN#cvln,민간인
-ABRVTN#cvrng,
+ABRVTN#cvrng,뎦개
 ABRVTN#cycl,주기
 ABRVTN#daily,일일
 ABRVTN#data,데이터
 ABRVTN#day,일
 ABRVTN#days,일수
+ABRVTN#dbms,데이터베이스관리시스템
 ABRVTN#dc,할인
 ABRVTN#dcdng,복호화
 ABRVTN#dclrtn,선언
+ABRVTN#dcmbr,12월
 ABRVTN#dcml,소수
 ABRVTN#dcrtn,장식
 ABRVTN#dcsn,확정
@@ -9060,6 +9525,7 @@ ABRVTN#dfct,흠결
 ABRVTN#dfctn,탈퇴
 ABRVTN#dflt,디폴트
 ABRVTN#dfnbl,정의가능한
+ABRVTN#dfnd,피고
 ABRVTN#dfns,방위
 ABRVTN#dfntn,정의
 ABRVTN#dfrd,후행
@@ -9102,6 +9568,7 @@ ABRVTN#dpndnt,종속
 ABRVTN#dpsr,예금주
 ABRVTN#dpst,입금
 ABRVTN#dpstWhdrwlDfrncAmt,입출금차액
+ABRVTN#dpstr,피공탁자
 ABRVTN#drct,직접
 ABRVTN#drctn,방향
 ABRVTN#drop,취하
@@ -9122,6 +9589,7 @@ ABRVTN#dsply,전시
 ABRVTN#dspnsr,지급기
 ABRVTN#dsprvl,미승인
 ABRVTN#dspsbl,가처분
+ABRVTN#dspsl,매각
 ABRVTN#dsrgrd,무시
 ABRVTN#dstb,배포
 ABRVTN#dstnctn,구분
@@ -9165,6 +9633,7 @@ ABRVTN#elmnt,요소
 ABRVTN#elpsd,경과
 ABRVTN#email,이메일
 ABRVTN#embs,엠보싱
+ABRVTN#emdong,읍면동
 ABRVTN#empl,종업원
 ABRVTN#emplymnt,고용
 ABRVTN#empty,없음
@@ -9278,6 +9747,7 @@ ABRVTN#frozen,동결
 ABRVTN#frq,빈발
 ABRVTN#frqnt,자주
 ABRVTN#frst,첫번째
+ABRVTN#fss,금융감독원
 ABRVTN#ftcsub,결제원
 ABRVTN#ftp,FTP
 ABRVTN#ftr,특성
@@ -9376,6 +9846,7 @@ ABRVTN#imprvmnt,개선
 ABRVTN#impstn,부과
 ABRVTN#imptn,귀책
 ABRVTN#imptnt,중요
+ABRVTN#in,안
 ABRVTN#incdnt,사건
 ABRVTN#incdntl,부수
 ABRVTN#inclsv,한편넣기
@@ -9565,6 +10036,7 @@ ABRVTN#member,맴버
 ABRVTN#memo,메모
 ABRVTN#memory,메모리
 ABRVTN#menu,메뉴
+ABRVTN#meta,메타
 ABRVTN#mgmt,관리
 ABRVTN#micro,아주작은것
 ABRVTN#min,최소
@@ -9673,7 +10145,7 @@ ABRVTN#only,오직
 ABRVTN#operand,피연산자
 ABRVTN#opn,개시
 ABRVTN#opnn,의견
-ABRVTN#opnt, 상대방
+ABRVTN#opnt,상대방
 ABRVTN#oprtn,가동
 ABRVTN#oprtng,운용
 ABRVTN#oprtnl,오퍼레이션
@@ -9688,6 +10160,7 @@ ABRVTN#ordnc,법령
 ABRVTN#ordnry,보통
 ABRVTN#orent,동양인
 ABRVTN#orgnl,원래의
+ABRVTN#orgntn,시작
 ABRVTN#orgnztn,조직
 ABRVTN#origin,원천
 ABRVTN#othr,기타, 타
@@ -9728,7 +10201,7 @@ ABRVTN#pension,연금
 ABRVTN#per,당
 ABRVTN#periodic,정기
 ABRVTN#person,인
-ABRVTN#pg,page
+ABRVTN#pg,페이지
 ABRVTN#phone,전화
 ABRVTN#photo,사진
 ABRVTN#phscl,물리적
@@ -9739,9 +10212,10 @@ ABRVTN#pldng,변론
 ABRVTN#pledge,질권
 ABRVTN#pledgee,질권자
 ABRVTN#pln,계획
-ABRVTN#plrl,복수(複數)
+ABRVTN#plnf,원고
+ABRVTN#plrl,복수
 ABRVTN#pltcl,정치적
-ABRVTN#pltnm, 플래티늄
+ABRVTN#pltnm,플래티늄
 ABRVTN#pnt,점
 ABRVTN#police,경찰
 ABRVTN#policy,보험증권
@@ -9749,7 +10223,7 @@ ABRVTN#popup,팝업
 ABRVTN#port,포트
 ABRVTN#portal,포탈
 ABRVTN#post,후
-ABRVTN#postal,우편
+ABRVTN#postal,우편의
 ABRVTN#posting,포스팅
 ABRVTN#prcd,앞선
 ABRVTN#prcdr,프로시져
@@ -9790,6 +10264,7 @@ ABRVTN#proxy,대행
 ABRVTN#prprtn,준비
 ABRVTN#prprty,재산
 ABRVTN#prpsd,제안된
+ABRVTN#prpsty,성향
 ABRVTN#prpymnt,선납
 ABRVTN#prpymnts,가지급금
 ABRVTN#prscrptn,시효
@@ -9842,6 +10317,7 @@ ABRVTN#random,난수
 ABRVTN#ranking,순위
 ABRVTN#rating,등급
 ABRVTN#ratio,비율
+ABRVTN#rbld,재산정
 ABRVTN#rcgntn,인정
 ABRVTN#rchrg,재충전
 ABRVTN#rckng,기산
@@ -9856,7 +10332,7 @@ ABRVTN#rcv,인수
 ABRVTN#rcvb,대출채권
 ABRVTN#rcvd,수신
 ABRVTN#rcvdTrnsfrAmt,인수금액
-ABRVTN#rcvng,receiving
+ABRVTN#rcvng,수신의
 ABRVTN#rcvr,수신자
 ABRVTN#rcvry,복구
 ABRVTN#rdbl,가독성
@@ -9913,6 +10389,7 @@ ABRVTN#rgstrbl,등록가능한
 ABRVTN#rgstrn,등록
 ABRVTN#rgstrtn,재등록
 ABRVTN#rhbltn,회생
+ABRVTN#ri,리
 ABRVTN#right,권리
 ABRVTN#risk,위험
 ABRVTN#rjct,거절
@@ -9967,7 +10444,7 @@ ABRVTN#rsn,사유
 ABRVTN#rspbl,책임
 ABRVTN#rspns,응답
 ABRVTN#rspnsblty,책임
-ABRVTN#rsrvd,reserved
+ABRVTN#rsrvd,예약된
 ABRVTN#rsrvtn,예약
 ABRVTN#rstrctn,제한
 ABRVTN#rstrctr,구조조정
@@ -10007,6 +10484,7 @@ ABRVTN#scale,규모
 ABRVTN#scf,SCF
 ABRVTN#schdl,스케줄
 ABRVTN#schdld,예정된
+ABRVTN#schldtl,집행권원
 ABRVTN#schm,스키마
 ABRVTN#school,학교테스트2
 ABRVTN#scnd,초
@@ -10112,6 +10590,7 @@ ABRVTN#std,표준
 ABRVTN#step,단계
 ABRVTN#stge,단계
 ABRVTN#stlmnt,결산
+ABRVTN#stmnt,내역서
 ABRVTN#stndng,고정적인
 ABRVTN#stndrdztn,표준화
 ABRVTN#stock,주식
@@ -10126,6 +10605,7 @@ ABRVTN#string,문자열
 ABRVTN#stripe,줄무늬
 ABRVTN#strn,개시
 ABRVTN#strng,저장
+ABRVTN#strtg,전략
 ABRVTN#sts,상태
 ABRVTN#stsfctn,만족
 ABRVTN#stut,법정
@@ -10133,6 +10613,7 @@ ABRVTN#style,스타일
 ABRVTN#stylesheet,스타일시트
 ABRVTN#sub,서브
 ABRVTN#sucss,성공
+ABRVTN#sue,제소
 ABRVTN#sum,합계
 ABRVTN#super,우수한
 ABRVTN#supervisor,spvsr
@@ -10175,6 +10656,7 @@ ABRVTN#timer,타이머
 ABRVTN#timing,타이밍
 ABRVTN#titl,명칭
 ABRVTN#tlcmnctns,통신
+ABRVTN#tlgrphc,전신의
 ABRVTN#tlr,텔러
 ABRVTN#tm,시각
 ABRVTN#tmplt,템플릿
@@ -10188,6 +10670,7 @@ ABRVTN#tp,유형
 ABRVTN#trace,추적
 ABRVTN#track,트랙
 ABRVTN#trade,매매
+ABRVTN#tral,심급
 ABRVTN#tranr,취급자
 ABRVTN#transit,수송
 ABRVTN#tree,트리
@@ -10308,7 +10791,7 @@ ABRVTN#won,원
 ABRVTN#work,일
 ABRVTN#wrd,단어
 ABRVTN#write,쓰기
-ABRVTN#wrng,wrong
+ABRVTN#wrng,잘못된
 ABRVTN#wthdrw,인출
 ABRVTN#wthldng,원천징수
 ABRVTN#xml,XML
@@ -12210,7 +12693,7 @@ CDVAL#11602ATB,액터 베이스
 CDVAL#11602BFBat,혜택 배치 
 CDVAL#11602BFS,혜택 서비스
 CDVAL#11602BPS,비즈니스파트너 서비스
-CDVAL#11602CAB,계산베이스
+CDVAL#11602CAB,컨피규레이션베이스
 CDVAL#11602CAS,관리포탈 서비스
 CDVAL#11602CIB,신용정보 베이스
 CDVAL#11602CLB,담보 배치
@@ -12219,6 +12702,7 @@ CDVAL#11602CMB,공통 베이스
 CDVAL#11602CMBat,공통 배치
 CDVAL#11602CMS,공통 서비스
 CDVAL#11602CPS,컨피규레이션포탈 서비스
+CDVAL#11602CRB,계산베이스
 CDVAL#11602CRBat,신용보고 배치
 CDVAL#11602CRS,신용보고 서비스
 CDVAL#11602CUBat,고객 배치
@@ -12231,6 +12715,9 @@ CDVAL#11602DTS,부서 서비스
 CDVAL#11602EDS,Training Service
 CDVAL#11602FXS,외환 서비스
 CDVAL#11602IAS,내부계좌 서비스
+CDVAL#11602LCB,여신사후 베이스
+CDVAL#11602LCBat,여신사후 배치
+CDVAL#11602LCS,여신사후 서비스
 CDVAL#11602LNBat,여신 배치
 CDVAL#11602LNS,여신 서비스
 CDVAL#11602MTS,모니터링/컨트롤 서비스
@@ -12258,32 +12745,33 @@ CDVAL#11602XPB,대외연계 베이스
 CDVAL#11602XPBat,대외연계 배치
 CDVAL#11602XPS,대외연계 서비스
 CDVAL#11603ACB,회계 베이스
-CDVAL#11603ACS,회계서비스
+CDVAL#11603ACS,회계 서비스
 CDVAL#11603ARB,계약 베이스
 CDVAL#11603ARS,계약 서비스
 CDVAL#11603BFS,혜택 서비스
-CDVAL#11603BPS,비즈니스파트너서비스
-CDVAL#11603CAS,컨피규레이션포탈 관리 서비스
-CDVAL#11603CLS,담보서비스
+CDVAL#11603BPS,비즈니스파트너 서비스
+CDVAL#11603CAS,관리포탈 서비스
+CDVAL#11603CLS,담보 서비스
 CDVAL#11603CMS,공통 서비스
-CDVAL#11603CPS,컨피규레이션포탈서비스
+CDVAL#11603CPS,컨피규레이션포탈 서비스
 CDVAL#11603CRS,신용보고 서비스
-CDVAL#11603CUS,고객서비스
+CDVAL#11603CUS,고객 서비스
 CDVAL#11603DPBat,수신 배치
-CDVAL#11603DPS,수신서비스
-CDVAL#11603DTS,부서서비스
+CDVAL#11603DPS,수신 서비스
+CDVAL#11603DTS,부서 서비스
 CDVAL#11603FXS,외환 서비스
 CDVAL#11603IAS,내부계좌 서비스
-CDVAL#11603LNS,여신서비스
+CDVAL#11603LCS,여신사후 서비스
+CDVAL#11603LNS,여신 서비스
 CDVAL#11603MTS,모니터링/컨트롤 서비스
 CDVAL#11603NPS,비은행권 이체 서비스
-CDVAL#11603PDS,상품서비스
+CDVAL#11603PDS,상품 서비스
 CDVAL#11603PPS,P2P 서비스
-CDVAL#11603PYS,결재서비스
+CDVAL#11603PYS,결제 서비스
 CDVAL#11603SCS,SCF 서비스
-CDVAL#11603SFS,스태프서비스
+CDVAL#11603SFS,스태프 서비스
 CDVAL#11603UES,심사 서비스
-CDVAL#11603UPS,사용자포탈서비스
+CDVAL#11603UPS,사용자포탈 서비스
 CDVAL#11603WAS,자산 서비스
 CDVAL#11603XPS,대외연계 서비스
 CDVAL#1190101,대기 Task
@@ -12376,6 +12864,9 @@ CDVAL#1192405,계약/고객관련인
 CDVAL#1192406,계약/문서
 CDVAL#1192407,계약/자산
 CDVAL#1192408,계약/발급매체
+CDVAL#1192409,계약/혜택
+CDVAL#1192410,계약/자산
+CDVAL#1192411,계약/파트너
 CDVAL#11929AC,회계
 CDVAL#11929AR,계약
 CDVAL#11929AS,자산
@@ -12646,6 +13137,7 @@ CDVAL#11973ForeignExchangeBuy,환전매입(회국환매입)
 CDVAL#11973ForeignExchangeSell,환전매도(회국환매도)
 CDVAL#11973IncreaseLimit,한도증액
 CDVAL#11973IncreaseTermExtension,한도증액기간연장
+CDVAL#11973IntRtReduceDemand,금리인하요구권
 CDVAL#11973InterRealTmTrnsfrIn,당발타행즉시입금이체
 CDVAL#11973InterRealTmTrnsfrOut,타행즉시이체
 CDVAL#11973InterRsvatnTrnsfrOut,당발타행예약이체
@@ -12664,6 +13156,7 @@ CDVAL#11973IssueBalCertificate,잔액증명서발급
 CDVAL#11973IssueBankName,발행은행명
 CDVAL#11973IssueLg,수입화물선취보증서발행
 CDVAL#11973IssuePsbk,통장발행
+CDVAL#11973Loan,여신
 CDVAL#11973LoanIntCapitalization,여신이자원가
 CDVAL#11973ModifyBalanceSweep,초과잔액이체약정변경
 CDVAL#11973ModifyCltrl,담보변경
@@ -12724,7 +13217,7 @@ CDVAL#11973ResetPswdErrorNmda,무매체비밀번호 오류 초기화
 CDVAL#11973ResetPswdVldtnError,비빌번호오류 초기화 
 CDVAL#11973SavePsbkReBkg,통장재기장저장
 CDVAL#11973ScfRelatedLoanAgreement,SCF관련여신약정
-CDVAL#11973ScfTradeIrregularPayment,SCF비정기적 결제
+CDVAL#11973ScfTradeIrregularPayment,SCF비정기적결제
 CDVAL#11973ScfTradePayment,SCF결제
 CDVAL#11973SchdlRealTmTrnsfr,즉시이체예약
 CDVAL#11973SchdldRealTmTrnsfr,즉시이체예약
@@ -12759,6 +13252,8 @@ CDVAL#11973refundImportOpenCharge,수입개설수수료환출
 CDVAL#11973registerBlAcptncMtrtyDt,B/L인수만기일등록
 CDVAL#11973registerBlStlmntMtrtyDt,B/L결제만기일등록
 CDVAL#11973test,test
+CDVAL#11973testSrvcCd,테스트서비스수정본
+CDVAL#11973testSrvcCd2,테스트하위서비스유형
 CDVAL#119751,미혼
 CDVAL#119752,결혼
 CDVAL#11976001,관리직(사무직)
@@ -12831,6 +13326,7 @@ CDVAL#1230807,계약발급매체유형코드
 CDVAL#1230808,확인의무구분코드
 CDVAL#1230809,계약문서관계코드
 CDVAL#1230810,파트너상세유형코드
+CDVAL#1230811,계약자산관계코드
 CDVAL#1231001,신규입사
 CDVAL#1231002,퇴사
 CDVAL#1231003,휴직
@@ -13344,6 +13840,7 @@ CDVAL#4002701,통지목적
 CDVAL#4002702,마케팅목적
 CDVAL#40028R,수신
 CDVAL#40028S,송신
+CDVAL#4002901,우편
 CDVAL#4002903,이메일
 CDVAL#4002904,SMS
 CDVAL#50000A,정상
@@ -13399,6 +13896,7 @@ CDVAL#50001T06,재예치
 CDVAL#50001T07,계좌분할해지
 CDVAL#50001T08,고객통합해지
 CDVAL#50001T09,심사실행해지
+CDVAL#50001U01,철회
 CDVAL#50001V01,신청승인
 CDVAL#50001W01,낙찰
 CDVAL#50001X01,접수
@@ -13550,7 +14048,8 @@ CDVAL#500224,무시
 CDVAL#500231,등록
 CDVAL#500232,종료
 CDVAL#500233,등록취소
-CDVAL#500234,종료취소
+CDVAL#500234,감액
+CDVAL#500235,증액
 CDVAL#5002401,원금균등분할상환
 CDVAL#5002402,원리금분활상환
 CDVAL#5002403,만기일시상환
@@ -13598,6 +14097,7 @@ CDVAL#5002504103,년간누적금액(캘린더기준)
 CDVAL#5002504201,년간입금금액(신규일기준)
 CDVAL#5002504202,년간출금금액(신규일기준)
 CDVAL#5002504203,년간누적금액(신규일기준)
+CDVAL#5002505001,분기출금액
 CDVAL#5002509001,총지급금액
 CDVAL#5002509002,총입금금액
 CDVAL#5002509003,총상환금액
@@ -13819,6 +14319,7 @@ CDVAL#500373,일부대체
 CDVAL#500374,타통화대체
 CDVAL#5003801,선취
 CDVAL#5003802,후취
+CDVAL#500382,후취
 CDVAL#5003901,정기상환
 CDVAL#5003902,조기상환
 CDVAL#5003903,회차상환
@@ -13905,6 +14406,7 @@ CDVAL#8000001,일
 CDVAL#8000002,주
 CDVAL#8000003,월
 CDVAL#8000004,년
+CDVAL#8000005,분기
 CDVAL#800010,해당없음
 CDVAL#800011,캘린더
 CDVAL#800012,신규일
@@ -14120,6 +14622,24 @@ CDVAL#999A013016,전남
 CDVAL#999A013017,경북
 CDVAL#999A013018,경남
 CDVAL#999A013019,제주
+CDVAL#999A13980,대지
+CDVAL#999A13981,산
+CDVAL#999A13990,미부여
+CDVAL#999A13991,부여
+CDVAL#999A14000,읍면
+CDVAL#999A14001,동
+CDVAL#999A14002,미부여
+CDVAL#999A14010,비공동주택
+CDVAL#999A14011,공동주택
+CDVAL#999A14020,지상
+CDVAL#999A14021,지하
+CDVAL#999A14022,공중
+CDVAL#999A140331,건물번호 부여
+CDVAL#999A140332,999A140332
+CDVAL#999A140334,변동
+CDVAL#999A140363,건물번호 폐지
+CDVAL#999A140372,건물군내 일부 건물 폐지
+CDVAL#999A140373,건물군내 일부 건물 생성
 CDVAL#A00011,판매계약
 CDVAL#A0002A,활동
 CDVAL#A0002C,취소
@@ -14150,18 +14670,19 @@ CDVAL#A0009UI,화면
 CDVAL#A00102,활동
 CDVAL#A00103,종료
 CDVAL#A00105,중단
-CDVAL#A0012ACB,회계 베이스 컴포넌트
-CDVAL#A0012ARB,계약 베이스 컴포넌트
-CDVAL#A0012ASB,자산 베이스 컴포넌트
-CDVAL#A0012ATB,액터 베이스 컴포넌트
+CDVAL#A0012ACB,회계 베이스
+CDVAL#A0012ARB,계약 베이스
+CDVAL#A0012ASB,자산 베이스
+CDVAL#A0012ATB,액터 베이스
 CDVAL#A0012CIB,신용정보 베이스
-CDVAL#A0012CMB,어플리케이션 공통 베이스 컴포넌트
-CDVAL#A0012DCB,문서 베이스 컴포넌트
-CDVAL#A0012PDB,상품 베이스 컴포넌트
-CDVAL#A0012SMB,시스템공통 베이스 컴포넌트
-CDVAL#A0012STB,정산 베이스 컴포넌트
-CDVAL#A0012SVB,서비스관리 베이스 컴포넌트
-CDVAL#A0012WFB,워크플로우 베이스 컴포넌트
+CDVAL#A0012CMB,공통 베이스
+CDVAL#A0012DCB,문서 베이스
+CDVAL#A0012LCB,여신사후 베이스
+CDVAL#A0012PDB,상품 베이스
+CDVAL#A0012SMB,시스템공통 베이스
+CDVAL#A0012STB,정산 베이스
+CDVAL#A0012SVB,서비스관리 베이스
+CDVAL#A0012WFB,워크플로우 베이스
 CDVAL#A00141,지폐
 CDVAL#A00142,주화
 CDVAL#A00151,마감전
@@ -14300,8 +14821,8 @@ CDVAL#A00551,정상
 CDVAL#A00552,취소
 CDVAL#A00553,정정
 CDVAL#A00554,정정취소
-CDVAL#A0056CM_ATRBT_VLDTR_COMPLEX,복합DTO검증
-CDVAL#A0056CM_ATRBT_VLDTR_SIMPLE,단순DTO검증
+CDVAL#A0056CM_ATRBT_VLDTR_COMPLEX,속성복합검증클래스
+CDVAL#A0056CM_ATRBT_VLDTR_SIMPLE,속성단순검증클래스
 CDVAL#A0058P,허용
 CDVAL#A006201,표준코드
 CDVAL#A006204,표준서브셋코드
@@ -14319,7 +14840,8 @@ CDVAL#A006800003,비고객SMS본인인증
 CDVAL#A006800004,비고객E-mail본인인증
 CDVAL#A006800005,고객E-mail본인인증
 CDVAL#A006800006,고객제신고
-CDVAL#A006800007,테스트
+CDVAL#A006800007,IndvStaffSMSSelfAuth
+CDVAL#A006800008,Test2
 CDVAL#A006800011,test7
 CDVAL#A006800012,test12
 CDVAL#A006800013,test12
@@ -15483,6 +16005,7 @@ CDVAL#A0099OG,원거래
 CDVAL#A010001,비과세
 CDVAL#A010002,소액부징수
 CDVAL#A010003,생계형
+CDVAL#A0100111,배당소득세
 CDVAL#A0101101,약정금리
 CDVAL#A0101102,중도해지금리
 CDVAL#A0101103,만기후금리
@@ -15786,6 +16309,7 @@ CDVAL#A0217CMBat,공통 배치
 CDVAL#A0217CRBat,신용보고 배치
 CDVAL#A0217CUBat,고객 배치
 CDVAL#A0217DPBat,수신 배치
+CDVAL#A0217LCBat,여신사후 배치
 CDVAL#A0217LNBat,여신 배치
 CDVAL#A0217PYBat,이체 배치
 CDVAL#A0217SCBat,SCF 배치
@@ -16384,43 +16908,45 @@ CDVAL#A0437A,정상
 CDVAL#A0437L,신청
 CDVAL#A0437V,승인
 CDVAL#A0437X,심사
-CDVAL#A0438ACB,회계 베이스 컴포넌트
+CDVAL#A0438ACB,회계 베이스
 CDVAL#A0438ACS,회계 서비스
-CDVAL#A0438ARB,계약 베이스 컴포넌트
-CDVAL#A0438ASB,자산 베이스 컴포넌트
-CDVAL#A0438ATB,액터 베이스 컴포넌트
+CDVAL#A0438ARB,계약 베이스
+CDVAL#A0438ASB,자산 베이스
+CDVAL#A0438ATB,액터 베이스
 CDVAL#A0438BFS,혜택 서비스
 CDVAL#A0438BPS,비즈니스파트너 서비스
 CDVAL#A0438CAB,계산베이스
 CDVAL#A0438CIB,신용정보 베이스
-CDVAL#A0438CLS,담보서비스
-CDVAL#A0438CMB,어플리케이션 공통 베이스 컴포넌트
+CDVAL#A0438CLS,담보 서비스
+CDVAL#A0438CMB,공통 베이스
 CDVAL#A0438CMS,공통 서비스
 CDVAL#A0438CPS,컨피규레이션포탈 서비스
 CDVAL#A0438CRS,신용보고 서비스
 CDVAL#A0438CUS,고객 서비스
-CDVAL#A0438DCB,문서 베이스 컴포넌트
+CDVAL#A0438DCB,문서 베이스
 CDVAL#A0438DPS,수신 서비스
 CDVAL#A0438DTS,부서 서비스
 CDVAL#A0438EDS,Training Service
 CDVAL#A0438FXS,외환 서비스
 CDVAL#A0438IAS,내부계좌 서비스
+CDVAL#A0438LCB,여신사후 베이스
+CDVAL#A0438LCS,여신사후 서비스
 CDVAL#A0438LNS,여신 서비스
 CDVAL#A0438MTS,모니터링/컨트롤 서비스
 CDVAL#A0438NPS,비은행권 이체 서비스
-CDVAL#A0438PDB,상품 베이스 컴포넌트
+CDVAL#A0438PDB,상품 베이스
 CDVAL#A0438PDS,상품 서비스
 CDVAL#A0438PPS,P2P 서비스
 CDVAL#A0438PYS,결제 서비스
 CDVAL#A0438SCS,SCF 서비스
 CDVAL#A0438SFS,스태프 서비스
-CDVAL#A0438SMB,시스템공통 베이스 컴포넌트
-CDVAL#A0438STB,정산 베이스 컴포넌트
-CDVAL#A0438SVB,서비스관리 베이스 컴포넌트
+CDVAL#A0438SMB,시스템공통 베이스
+CDVAL#A0438STB,정산 베이스
+CDVAL#A0438SVB,서비스관리 베이스
 CDVAL#A0438UES,심사 서비스
 CDVAL#A0438UPS,사용자포탈 서비스
-CDVAL#A0438WFB,워크플로우 베이스 컴포넌트
-CDVAL#A0438XPB,대외연계 베이스 컴포넌트
+CDVAL#A0438WFB,워크플로우 베이스
+CDVAL#A0438XPB,대외연계 베이스
 CDVAL#A0438XPS,대외연계 서비스
 CDVAL#A043901,활동
 CDVAL#A043902,비활동
@@ -16651,6 +17177,7 @@ CDVAL#A050999900002,비고객SMS인증
 CDVAL#A050999900003,비고객 email 인증
 CDVAL#A050999900004,고객실명인증
 CDVAL#A050999900005,고객 email 인증
+CDVAL#A050999900007,IndvStaffSMSSelfAuth
 CDVAL#A0509STDA,
 CDVAL#A0509STDA00001,개인고객SMS인증
 CDVAL#A0509STDA00002,테스트
@@ -17443,6 +17970,9 @@ CDVAL#A059303,부재중
 CDVAL#A059304,퇴사
 CDVAL#A059401,퇴사
 CDVAL#A0595001,운영채권
+CDVAL#A0595002,차량리스
+CDVAL#A059501,운영채권
+CDVAL#A059502,차량리스
 CDVAL#A05961,개인
 CDVAL#A05962,법인
 CDVAL#A05963,동업 기관
@@ -19174,6 +19704,7 @@ CDVAL#A100503,배포중지
 CDVAL#A100504,배포취소
 CDVAL#A100505,배포완료
 CDVAL#A100599,배포실패
+CDVAL#A1006H,수기배포요청
 CDVAL#A1006I,즉시배포
 CDVAL#A1006R,예약배포
 CDVAL#A100701,미처리
@@ -19294,7 +19825,7 @@ CDVAL#A1039201,한국신용정보원 신용관리대상정보
 CDVAL#A1039202,한국신용정보원 개인/채무보증
 CDVAL#A104001,일반
 CDVAL#A104002,취소
-CDVAL#A104003,테스트2
+CDVAL#A104003,테스트4
 CDVAL#A1041C01,보증인
 CDVAL#A1041C02,대리인
 CDVAL#A1041C03,수익자
@@ -19349,6 +19880,10 @@ CDVAL#A104811,심사/채권관리 업무 업체
 CDVAL#A104812,차량/물건관리 업무 업체
 CDVAL#A1048P11,심사/채권관리 업무 업체
 CDVAL#A1048P12,차량/물건관리 업무 업체
+CDVAL#A104901,이자에대한연체
+CDVAL#A104902,잔액에대한연체
+CDVAL#A104903,회차별유예휴잔액연체
+CDVAL#A104904,지정기간유예후잔액연체
 CDVAL#A105204,파트너기관
 CDVAL#A105205,파트너소속부서
 CDVAL#A1053100,신용대출
@@ -19516,6 +20051,7 @@ CDVAL#A110302,분행
 CDVAL#A110303,지행
 CDVAL#A110401,정규직
 CDVAL#A110402,계약직
+CDVAL#A110411,가상스태프
 CDVAL#A110502,스태프(지점)
 CDVAL#A110503,스태프(고객팀)
 CDVAL#A110504,시스템
@@ -19861,6 +20397,23 @@ CDVAL#A113001,MD5
 CDVAL#A113002,SHA
 CDVAL#A113003,DES
 CDVAL#A113004,AES
+CDVAL#A1130A1,개인식별정보 암호화
+CDVAL#A1130B1,대외연계용 암호화 (은행연합회)
+CDVAL#A1130C1,패스워드 암호화
+CDVAL#A1130D1,기타정보용 암호화
+CDVAL#A1130H01,SHA-256
+CDVAL#A1130H02,SHA-512
+CDVAL#A1130H11,SHA3-256
+CDVAL#A1130H12,SHA3-512
+CDVAL#A1130H21,SHAKE128
+CDVAL#A1130H22,SHAKE256
+CDVAL#A1130P01,RSA
+CDVAL#A1130S01,AES-128
+CDVAL#A1130S02,AES-192
+CDVAL#A1130S03,AES-256
+CDVAL#A1130S11,DES
+CDVAL#A1130S21,SEED
+CDVAL#A1130S22,ARIA
 CDVAL#A113100,대상
 CDVAL#A113101,정상
 CDVAL#A113102,종료
@@ -19908,11 +20461,11 @@ CDVAL#A1141AR_EXTRNL_ID_NBRG,외부식별번호 채번클래스
 CDVAL#A1141AR_PSBK_MSG_EDTR,통장메시지편집클래스
 CDVAL#A1141AR_PSBK_MSG_VLDTR,통장기장여부클래스
 CDVAL#A1141AR_PSWD_VLDTR,계좌비밀번호검증클래스
-CDVAL#A1141AR_SRVC_VLDTN,서비스검증규칙클래스
+CDVAL#A1141AR_SRVC_VLDTR,서비스검증규칙클래스
 CDVAL#A1141AR_XTN_ATRBT,계약확장속성클래스
 CDVAL#A1141AT_MBRSHP_CRTN,회원계약자동생성클래스
-CDVAL#A1141CM_ATRBT_VLDTN_COMPLEX,속성복합검증클래스
-CDVAL#A1141CM_ATRBT_VLDTN_SIMPLE,속성단순검증클래스
+CDVAL#A1141CM_ATRBT_VLDTR_COMPLEX,속성복합검증클래스
+CDVAL#A1141CM_ATRBT_VLDTR_SIMPLE,속성단순검증클래스
 CDVAL#A1141CM_XTN_CODE,코드클래스
 CDVAL#A1141ST_BAL_UPD,잔액갱신클래스
 CDVAL#A1141ST_BAL_UPD_DCSN,잔액갱신판단클래스
@@ -19936,6 +20489,255 @@ CDVAL#A1147M,월
 CDVAL#A1147Y,년
 CDVAL#A115301,차용인
 CDVAL#A115302,공동차용인
+CDVAL#A122101,주파트너
+CDVAL#A1311BIGINT,BIGINT
+CDVAL#A1311CHAR,CHAR
+CDVAL#A1311CLOB,CLOB
+CDVAL#A1311DATE,DATE
+CDVAL#A1311DECIMAL,DECIMAL
+CDVAL#A1311DOUBLE,DOUBLE
+CDVAL#A1311FLOAT,FLOAT
+CDVAL#A1311INTEGER,INTEGER
+CDVAL#A1311TIMESTAMP,TIMESTAMP
+CDVAL#A1311TINYINT,TINYINT
+CDVAL#A1311VARCHAR,VARCHAR
+CDVAL#A1359,DTO상태코드
+CDVAL#A135901,활동
+CDVAL#A135902,비활동
+CDVAL#A1360,계약발급매체제한코드
+CDVAL#A1360001,분실
+CDVAL#A1361,상태코드
+CDVAL#A13611,활동
+CDVAL#A13612,비활동
+CDVAL#A1362,세금유형코드
+CDVAL#A1362110,이자소득세
+CDVAL#A1362111,배당소득세
+CDVAL#A1362112,주민세
+CDVAL#A1362113,농어촌특별세
+CDVAL#A1362114,방위세
+CDVAL#A1363,상품조건세부유형코드
+CDVAL#A136308,금리
+CDVAL#A136311,우대금리
+CDVAL#A136312,가산금리
+CDVAL#A1365ACS,회계 서비스
+CDVAL#A1365ARS,계약 서비스
+CDVAL#A1365BFS,혜택 서비스
+CDVAL#A1365BPS,비즈니스파트너 서비스
+CDVAL#A1365CAS,관리포탈 서비스
+CDVAL#A1365CLS,담보 서비스
+CDVAL#A1365CMS,공통 서비스
+CDVAL#A1365CRS,신용보고 서비스
+CDVAL#A1365CUS,고객 서비스
+CDVAL#A1365DPS,수신 서비스
+CDVAL#A1365DTS,부서 서비스
+CDVAL#A1365FXS,외환 서비스
+CDVAL#A1365IAS,내부계좌 서비스
+CDVAL#A1365LCS,여신사후 서비스
+CDVAL#A1365LNS,여신 서비스
+CDVAL#A1365MTS,모니터링/컨트롤 서비스
+CDVAL#A1365NPS,비은행권 이체 서비스
+CDVAL#A1365PDS,상품 서비스
+CDVAL#A1365PPS,P2P 서비스
+CDVAL#A1365PYS,결제 서비스
+CDVAL#A1365SCS,SCF 서비스
+CDVAL#A1365SFS,스태프 서비스
+CDVAL#A1365UES,심사 서비스
+CDVAL#A1365UPS,사용자포탈 서비스
+CDVAL#A1365WAS,자산 서비스
+CDVAL#A1365XPS,대외연계 서비스
+CDVAL#A136701,정상
+CDVAL#A136702,종료
+CDVAL#A136703,취소
+CDVAL#A136704,무시
+CDVAL#A136801,신규
+CDVAL#A136802,해지
+CDVAL#A136901,정상
+CDVAL#A136902,종료
+CDVAL#A136903,취소
+CDVAL#A136904,무시
+CDVAL#A137101,정상
+CDVAL#A137102,종료
+CDVAL#A137103,취소
+CDVAL#A137104,무시
+CDVAL#A137201,신규
+CDVAL#A137202,해지
+CDVAL#A137301,신규
+CDVAL#A137302,해지
+CDVAL#A137401,신규
+CDVAL#A137402,해지
+CDVAL#A137501,신규
+CDVAL#A137502,해지
+CDVAL#A137601,신규
+CDVAL#A137602,해지
+CDVAL#A137701,정상
+CDVAL#A137702,종료
+CDVAL#A137703,취소
+CDVAL#A137704,무시
+CDVAL#A137801,정상
+CDVAL#A137802,종료
+CDVAL#A137803,취소
+CDVAL#A137804,무시
+CDVAL#A137901,정상
+CDVAL#A137902,종료
+CDVAL#A137903,취소
+CDVAL#A137904,무시
+CDVAL#A138001,정상
+CDVAL#A138002,종료
+CDVAL#A138003,취소
+CDVAL#A138004,무시
+CDVAL#A138101,정상
+CDVAL#A138102,종료
+CDVAL#A138103,취소
+CDVAL#A138104,무시
+CDVAL#A138201,정상
+CDVAL#A138202,종료
+CDVAL#A138203,취소
+CDVAL#A138204,무시
+CDVAL#A138301,신규
+CDVAL#A138302,해지
+CDVAL#A138401,정상
+CDVAL#A138402,종료
+CDVAL#A138403,취소
+CDVAL#A138404,무시
+CDVAL#A1386,자산주소유형코드
+CDVAL#A138601,소재지
+CDVAL#A138602,소유자주소
+CDVAL#A1387,자산지역구분코드
+CDVAL#A138701,담보인정비율지역코드
+CDVAL#A138702,담보인정비율지역코드
+CDVAL#A138703,주거임대차지역코드
+CDVAL#A13980,대지
+CDVAL#A13981,산
+CDVAL#A13990,미부여
+CDVAL#A13991,부여
+CDVAL#A14000,읍면
+CDVAL#A14001,동
+CDVAL#A14002,미부여
+CDVAL#A14010,비공동주택
+CDVAL#A14011,공동주택
+CDVAL#A14020,지상
+CDVAL#A14021,지하
+CDVAL#A14022,공중
+CDVAL#A140331,건물번호 부여
+CDVAL#A140332,변동
+CDVAL#A140334,변동
+CDVAL#A140363,건물번호 폐지
+CDVAL#A140372,건물군내 일부 건물 폐지
+CDVAL#A140373,건물군내 일부 건물 생성
+CDVAL#A141201,외부감정
+CDVAL#A141301,아파트시세
+CDVAL#A144301,정상
+CDVAL#A144302,비밀번호만료경고
+CDVAL#A144303,비밀번호만료
+CDVAL#A145501,신규
+CDVAL#A145502,입금
+CDVAL#A145503,일부상환
+CDVAL#A145504,완제
+CDVAL#A145509,결산
+CDVAL#A14561,이자계산시작일익일부터이자계산종료일까지
+CDVAL#A14562,이자계산시작일부터이자계산종료일전일까지
+CDVAL#A14571,365일
+CDVAL#A14572,360일
+CDVAL#A14573,캘린더일수 기준
+CDVAL#A14581,월단위월
+CDVAL#A14582,일단위일
+CDVAL#A14583,월단위일
+CDVAL#A145901,소숫점이하다섯째자리
+CDVAL#A145902,소숫점이하넷째자리
+CDVAL#A145903,소숫점이하셋째자리
+CDVAL#A145904,소숫점이하둘째자리
+CDVAL#A145905,소숫점이하첫째자리
+CDVAL#A145906,1단위
+CDVAL#A145907,10단위
+CDVAL#A145908,100단위
+CDVAL#A145909,1000단위
+CDVAL#A146001,1
+CDVAL#A146002,10
+CDVAL#A146003,100
+CDVAL#A146004,1,000
+CDVAL#A146005,10,000
+CDVAL#A146006,100,000
+CDVAL#A146007,1,000,000
+CDVAL#A146008,10,000,000
+CDVAL#A146009,100,000,000
+CDVAL#A146101,월
+CDVAL#A146102,분기
+CDVAL#A146106,반기
+CDVAL#A146112,년
+CDVAL#A146199,일시납
+CDVAL#A146201,월
+CDVAL#A146202,분기
+CDVAL#A146206,반기
+CDVAL#A146212,년
+CDVAL#A146299,일시납
+CDVAL#A14631,년
+CDVAL#A14632,월
+CDVAL#A14633,일
+CDVAL#A146401,기준일로부터 특정주기개월
+CDVAL#A146402,특정확정일
+CDVAL#A146403,특정확정일 + 12월 특정일
+CDVAL#A14651,휴일인경우 익영업일
+CDVAL#A14652,말일
+CDVAL#A14653,특정확정일
+CDVAL#A14654,특정확정+12월변동
+CDVAL#A14655,특정확정변동
+CDVAL#A14661,해당약정일
+CDVAL#A14671,선납일수 적용하지 않음
+CDVAL#A14672,지연이자 > 잔액연체이자 구간 순서대로 적용
+CDVAL#A14673,잔액연체 > 지연이자 구간 순서대로 적용
+CDVAL#A14674,지연이자 구간만 적용
+CDVAL#A147401,원금균등분할상환
+CDVAL#A147402,원리금분할상환
+CDVAL#A147403,일시상환
+CDVAL#A147404,수시상환
+CDVAL#A147405,체증식
+CDVAL#A147410,혼합만기+원금균등
+CDVAL#A147411,혼합만기+원리금균등
+CDVAL#A147420,고객원금지정분할상환
+CDVAL#A147421,할부금고정분할상환
+CDVAL#A147422,불균등상환
+CDVAL#A148301,결산원가
+CDVAL#A148302,가결산
+CDVAL#A148305,이자지급
+CDVAL#A148306,일부출금
+CDVAL#A148308,예금자정보추출
+CDVAL#A14861,휴일인경우익영업일
+CDVAL#A14862,휴일인경우익영업일의익일
+CDVAL#A14871,선취
+CDVAL#A14872,후취
+CDVAL#A150601,데이터송신요청
+CDVAL#A150602,데이터수신중
+CDVAL#A150603,데이터수신완료
+CDVAL#A150604,검증시작
+CDVAL#A150605,검증종료
+CDVAL#A1506B1,데이터송신요청대기
+CDVAL#A1506E1,데이터송신요청오류
+CDVAL#A1506E2,데이터수신오류
+CDVAL#A1507AP,AP Only
+CDVAL#A1507CP,CP Only
+CDVAL#A1507DF,Diff
+CDVAL#A151501,정상
+CDVAL#A151502,오류
+CDVAL#A1526001,001 CA개발 (MySQL)
+CDVAL#A1526002,002 테스트
+CDVAL#A1526003,003 개발 Mysql (Admin)
+CDVAL#A1526004,004 테스트 Mysql (Admin)
+CDVAL#A1526005,005 개발 Oracle (Admin)
+CDVAL#A1526006,006 테스트 Oracle (Admin)
+CDVAL#A1556CD,코드검증
+CDVAL#A1556RI,RI검증
+CDVAL#A1556VL,값검증
+CDVAL#A15601,전체
+CDVAL#A15602,정상
+CDVAL#A15603,데이터오류
+CDVAL#A15604,SQL에러
+CDVAL#A157901,입금가산 출금감산
+CDVAL#A157903,큰값으로덮어쓰기
+CDVAL#A157904,작은값으로덮어쓰기
+CDVAL#A157905,개별처리
+CDVAL#A157909,해당사항없음
+CDVAL#A16001,정상
+CDVAL#A16002,종료
 CDVAL#C000801,고객식별자
 CDVAL#C000802,고객관련인식별자
 CDVAL#C000901,국내통화
@@ -20208,6 +21010,23 @@ CDVAL#STDAA013018,경남
 CDVAL#STDAA013019,제주
 CDVAL#STDAA05412,test
 CDVAL#STDAA0541test,test
+CDVAL#STDAA13980,대지
+CDVAL#STDAA13981,산
+CDVAL#STDAA13990,미부여
+CDVAL#STDAA13991,부여
+CDVAL#STDAA14000,읍면
+CDVAL#STDAA14001,동
+CDVAL#STDAA14002,미부여
+CDVAL#STDAA14010,비공동주택
+CDVAL#STDAA14011,공동주택
+CDVAL#STDAA14020,지상
+CDVAL#STDAA14021,지하
+CDVAL#STDAA14022,공중
+CDVAL#STDAA140331,건물번호 부여
+CDVAL#STDAA140334,건물번호 변경
+CDVAL#STDAA140363,건물번호 폐지
+CDVAL#STDAA140372,건물군내 일부 건물 폐지
+CDVAL#STDAA140373,건물군내 일부 건물 생성
 CDVAL#T0001AFN,아프가니
 CDVAL#T0001CNY,위안
 CDVAL#T0001EUR,유로
@@ -20227,18 +21046,18 @@ CDVAL#null1,b
 CDVAL#null2,a
 CD#10000,여부 
 CD#10001,속성타입코드
-CD#10002,속성검증구분코드
+CD#10002,속성검증방법코드
 CD#10005,언어코드
 CD#10006,거래구분코드
 CD#11001,사용자그룹코드
 CD#11301,채번방식구분코드
-CD#11302,초과채번구분코드
+CD#11302,초과채번처리코드
 CD#11303,Prefix유형코드
 CD#11304,초기화주기코드
 CD#11305,제어센터유형코드
 CD#11306,제어성격코드
 CD#11307,휴일구분코드
-CD#11308,서비스제한유형코드
+CD#11308,서비스제한코드
 CD#11309,서비스프로파일속성명
 CD#11310,기관파라미터유형코드
 CD#11601,요일구분코드
@@ -20254,14 +21073,14 @@ CD#11907,화면필드패턴코드
 CD#11908,화면생성패턴코드
 CD#11909,데이터사용구분코드
 CD#11910,채번구성방법코드
-CD#11911,Workflow 승인유형 구분코드
-CD#11913,다국어변환종류코드
+CD#11911,승인유형코드
+CD#11913,변환종류코드
 CD#11914,삭제여부코드
 CD#11915,코드번호유형코드
 CD#11921,영역구분코드
 CD#11924,계약관계종류코드
 CD#11929,프로젝트 구분 코드
-CD#11930,인바운드채널코드
+CD#11930,채널구분코드
 CD#11933,액터유형코드
 CD#11934,액터상세유형코드
 CD#11935,관계상태변경사유코드
@@ -20288,7 +21107,7 @@ CD#11961,액터명유형코드
 CD#11962,고객상태변경사유코드
 CD#11963,신청인상태코드
 CD#11964,액터액터관계코드
-CD#11965,고유식별번호변경사유코드
+CD#11965,액터고유식별번호상태사유코드
 CD#11966,인증유형코드
 CD#11967,연락방식유형코드
 CD#11968,연락처위치유형코드
@@ -20355,7 +21174,7 @@ CD#50016,가감구분코드
 CD#50020,계약서비스제한코드
 CD#50021,계약서비스제한요청자구분코드
 CD#50022,계약서비스제한상태코드
-CD#50023,계약서비스제한상태변경사유코드
+CD#50023,계약서비스제한상태사유코드
 CD#50024,대출상환방식코드
 CD#50025,잔액유형코드
 CD#50026,금액유형코드
@@ -20446,7 +21265,7 @@ CD#A0038,마감처리구분코드
 CD#A0039,마감현황조회구분코드
 CD#A0041,신청상태코드
 CD#A0044,스태프역할상태변경사유코드
-CD#A0045,인자방법유형코드
+CD#A0045,출력방법유형코드
 CD#A0046,발행매체유형코드
 CD#A0047,문서유형코드
 CD#A0048,문서상태코드
@@ -20460,7 +21279,7 @@ CD#A0055,정상취소정정구분코드
 CD#A0056,클래스레이어유형코드 서브셋
 CD#A0065,외부신용등급코드
 CD#A0068,통지메시지코드
-CD#A0072,정보활용동의목적코드
+CD#A0072,동의목적코드
 CD#A0076,인증대상유형코드
 CD#A0077,통지대상유형코드
 CD#A0078,계약종류코드
@@ -20474,8 +21293,8 @@ CD#A0092,고객거래구분코드
 CD#A0094,금액유형구분코드
 CD#A0095,과세유형코드
 CD#A0096,과세방법코드
-CD#A0097,인터페이스상태코드
-CD#A0098,인터페이스방식코드
+CD#A0097,시스템인터페이스상태코드
+CD#A0098,시스템인터페이스방식코드
 CD#A0099,취소정정유형코드
 CD#A0100,세금미부과사유코드
 CD#A0101,금리구분코드
@@ -20527,9 +21346,9 @@ CD#A0160,환전부가서비스종류코드
 CD#A0168,환전유형코드
 CD#A0178,수수료구분코드
 CD#A0196,수수료할인유형코드
-CD#A0198,고객사고신고유형코드
-CD#A0199,고객사고신고등록사유코드
-CD#A0200,고객사고신고해제사유코드
+CD#A0198,고객사고유형코드
+CD#A0199,고객사고등록사유코드
+CD#A0200,고객사고해제사유코드
 CD#A0203,고객관련인역할코드
 CD#A0204,계약조건변경서비스유형코드
 CD#A0205,계약고객관련인관계코드
@@ -20572,7 +21391,7 @@ CD#A0302,고객관련인역할상태코드
 CD#A0303,고객역할상태변경사유코드
 CD#A0304,고객관련인역할상태변경사유코드
 CD#A0305,협약관계등록구분코드
-CD#A0306,한국시도코드
+CD#A0306,광역시도코드
 CD#A0307,고객문서관계코드
 CD#A0321,조건간관계코드
 CD#A0322,조건값간관계코드
@@ -20657,7 +21476,7 @@ CD#A0432,경매방식구분코드
 CD#A0433,계약상품규칙유형코드
 CD#A0434,계약상품관계코드
 CD#A0435,입금일자별이력관리방법코드
-CD#A0437,활동중계약상태코드
+CD#A0437,여신계약활동중상태코드
 CD#A0438,베이스서비스컴포넌트코드
 CD#A0439,활동상태코드
 CD#A0440,통화코드
@@ -20706,7 +21525,7 @@ CD#A0505,로그인유형코드
 CD#A0506,메모유입경로코드
 CD#A0507,상품부가정보유형코드
 CD#A0508,조건군템플릿유형코드
-CD#A0509,본인인증코드
+CD#A0509,인증코드
 CD#A0510,오류중지여부
 CD#A0511,이체수수료징수구분코드
 CD#A0523,test
@@ -20897,7 +21716,7 @@ CD#A0729,블록스타일코드
 CD#A0730,버튼 스타일 코드
 CD#A0731,확정일유형코드
 CD#A0732,명의변경사유코드
-CD#A0733,수신자유형코드
+CD#A0733,수신자구분코드
 CD#A0734,중지잡이익계약상태코드
 CD#A0735,신용장종류코드
 CD#A0736,수입용도구분코드
@@ -21047,11 +21866,11 @@ CD#A0881,확인의무구분코드
 CD#A0882,강화된고객확인의무거래목적구분코드
 CD#A0883,강화된고객확인의무자금출처구분코드
 CD#A0884,고객확장값유형코드
-CD#A0885,고객확인의무구분코드
-CD#A0886,강화된확인의무구분코드
+CD#A0885,고객확인의무대상구분코드
+CD#A0886,강화된고객확인의무대상구분코드
 CD#A0887,수입조건변경종류코드
 CD#A0888,중요증서코드
-CD#A0889,중요증서 분류구분 코드
+CD#A0889,중요증서분류코드
 CD#A0890,중요증서거래유형코드
 CD#A0891,값산출방법구분코드
 CD#A0892,매출액구분코드
@@ -21090,7 +21909,7 @@ CD#A0924,전결권구분코드
 CD#A0925,심사상태코드
 CD#A0926,부결사유코드
 CD#A0927,CSS등급구분코드
-CD#A0928,개인신용평가등급코드
+CD#A0928,신용평가등급코드
 CD#A0929,BSS등급코드
 CD#A0930,사전신용점검항목코드
 CD#A0931,내부외부정보구분코드
@@ -21126,7 +21945,7 @@ CD#A0960,보험고객관계코드
 CD#A0961,건물사용구분코드
 CD#A0962,물건종류코드
 CD#A0963,단위구분코드
-CD#A0964,채무자소유자관계코드
+CD#A0964,채무자소유자관계구분코드
 CD#A0965,자산인정비율예외적용사유코드
 CD#A0966,자산취득구분코드
 CD#A0967,담보조회구분코드
@@ -21161,7 +21980,7 @@ CD#A0995,자산스태프관계상태코드
 CD#A0996,자산스태프관계코드
 CD#A0997,기일조회구분코드
 CD#A0998,계약발급매체프로파일속성명
-CD#A0999,중요증서사유코드
+CD#A0999,중요증서거래사유코드
 CD#A1000,고객등급종류유형코드
 CD#A1001,파트너스태프관계상태코드
 CD#A1002,파트너스태프관계상태변경사유코드
@@ -21171,7 +21990,7 @@ CD#A1005,배포상태코드
 CD#A1006,배포방식코드
 CD#A1007,배포처리상태코드
 CD#A1008,배포저장구분코드
-CD#A1009,배포설정속성구분코드
+CD#A1009,배포파라미터코드
 CD#A1010,사전신용점검결과코드
 CD#A1011,사전신용정검결과코드
 CD#A1012,상위계산규칙구성요소관계유형구분코드
@@ -21196,15 +22015,15 @@ CD#A1030,채무자소유자구분코드
 CD#A1031,원금수수료구분코드
 CD#A1032,규칙적용대상구분코드
 CD#A1033,통장메시지파라미터유형코드
-CD#A1034,배포과제변경상태구분코드
-CD#A1035,배포환경구분코드
+CD#A1034,배포변경상태구분코드
+CD#A1035,배포환경코드
 CD#A1036,자산설정관계서브셋상태코드
 CD#A1037,액터역할코드
 CD#A1038,개인사전신용적검항목코드
 CD#A1039,개인사전신용점검항목코드
 CD#A1040,배포요청유형구분코드
 CD#A1041,액터역할액터역할관계코드
-CD#A1042,액터역할부서관계코드
+CD#A1042,액터역할부서관계유형코드
 CD#A1043,파트너상세유형코드
 CD#A1044,자산분류코드
 CD#A1045,파트너유형코드
@@ -21274,7 +22093,6 @@ CD#A1109,유가증권종류코드
 CD#A1110,채권종류코드
 CD#A1111,보증서종류코드
 CD#A1112,부동산종류코드
-CD#A1113,전문데이터구분코드
 CD#A1114,기타신고유형코드
 CD#A1115,기타신고상태코드
 CD#A1117,개인심사진행상태코드
@@ -21290,7 +22108,7 @@ CD#A1126,재예치적용대상금액구분코드
 CD#A1127,이자지급주기구분코드
 CD#A1128,마스킹해제사유코드
 CD#A1129,마스킹유형코드
-CD#A1130,암호화 유형코드
+CD#A1130,암호화유형코드
 CD#A1131,확인의무상태코드
 CD#A1133,수납구분코드
 CD#A1134,워크플로우승인상태코드
@@ -21309,6 +22127,93 @@ CD#A1147,이자계산이율기간구분코드
 CD#A1151,문서목록
 CD#A1152,CDATM응답코드
 CD#A1153,차용인유형코드
+CD#A1186,사건구분코드
+CD#A1187,사건구분코드
+CD#A1189,개인회생진행상태코드
+CD#A1190,관할법원코드
+CD#A1193,종결사유코드
+CD#A1194,법무대분류코드
+CD#A1195,법무기일구분코드
+CD#A1196,직업직위코드
+CD#A1198,채권위임상태코드
+CD#A1199,연체구분코드
+CD#A1200,위임취소사유코드
+CD#A1214,상담상태코드
+CD#A1215,위임구분코드
+CD#A1220,계약자산관계코드
+CD#A1221,계약파트너관계코드
+CD#A1226,계약혜택관계
+CD#A1227,종국사유코드
+CD#A1228,목적률구분코드
+CD#A1229,항고신청결과코드
+CD#A1230,해제사유코드
+CD#A1231,신용회복상세과목코드
+CD#A1245,심급구분코드
+CD#A1246,입금계좌구분코드
+CD#A1247,기타계정구분코드
+CD#A1248,수신적요구분코드
+CD#A1311,컬럼타입코드
+CD#A1359,DTO상태코드
+CD#A1360,계약발급매체제한코드
+CD#A1361,상태코드
+CD#A1362,세금유형코드
+CD#A1363,상품조건세부유형코드
+CD#A1365,계약서비스컴포넌트코드
+CD#A1367,고객관련인확장속성상태코드
+CD#A1368,고객로그인정보상태사유코드
+CD#A1369,고객로그인정보상태코드
+CD#A1370,고객사고등록사유코드
+CD#A1371,고객확장속성상태코드
+CD#A1372,관련인로그인정보상태사유코드
+CD#A1373,액터명상태사유코드
+CD#A1374,액터역할부서관계상태사유코드
+CD#A1375,액터역할액터역할관계상태사유코드
+CD#A1376,확인의무상태사유코드
+CD#A1377,액터고유식별번호상태코드
+CD#A1378,액터명상태코드
+CD#A1379,액터역할부서관계상태코드
+CD#A1380,액터역할액터역할관계상태코드
+CD#A1381,액터역할파라미터상태코드
+CD#A1382,연락처상태코드
+CD#A1383,연락처상태사유코드
+CD#A1384,파트너확장속성상태코드
+CD#A1386,자산주소유형코드
+CD#A1387,자산지역분류코드
+CD#A1398,산번지구분코드
+CD#A1399,상세주소구분코드
+CD#A1400,읍면동구분코드
+CD#A1401,공동주택구분코드
+CD#A1402,지하구분코드
+CD#A1403,이동사유코드
+CD#A1412,시세조사방법코드
+CD#A1413,평가자료구분코드
+CD#A1443,비밀번호만료구분코드
+CD#A1455,거래유형구분코드
+CD#A1456,이자계산구간구분코드
+CD#A1457,이자계산기준일수구분코드
+CD#A1458,이자계산단위구분코드
+CD#A1459,이자계산단수구분코드
+CD#A1460,원금계산단수구분코드
+CD#A1461,이자납입주기구분코드
+CD#A1462,원금납입주기구분코드
+CD#A1463,연체유예년월일구분코드
+CD#A1464,다음납입일산정방식코드
+CD#A1465,다음납입일휴일시적용구분코드
+CD#A1466,약정납입일구분코드
+CD#A1467,선납일수적용방법구분코드
+CD#A1474,상환방법구분코드
+CD#A1483,이자조회구분코드
+CD#A1486,연체기준일휴일시적용구분코드
+CD#A1487,이자선후취구분코드
+CD#A1506,배포정합성검증진행코드
+CD#A1507,배포정합성검증오류유형코드
+CD#A1515,배포정합성검증결과코드
+CD#A1519,배포정합성검증결과코드
+CD#A1526,배포서버코드
+CD#A1556,데이터검증방법코드
+CD#A1560,데이터검증결과조회구분코드
+CD#A1579,잔액갱신방법서브셋코드
+CD#A1600,비밀번호상태코드
 CD#C0009,총계정계정별입출내역조회구분코드
 CD#C0015,비온라인처리허용구분코드
 CD#C0016,서비스업무구분코드
@@ -23398,6 +24303,7 @@ CMPX_ABRVTN#BSS,BSS
 CMPX_ABRVTN#CB,CB
 CMPX_ABRVTN#CDD,CDD
 CMPX_ABRVTN#CSS,CSS
+CMPX_ABRVTN#CV,정합성 검증
 CMPX_ABRVTN#Crdrkprm,리스크프리미엄
 CMPX_ABRVTN#CrdtRtg,신용평가
 CMPX_ABRVTN#Cucu,고객고객
@@ -23412,25 +24318,50 @@ CMPX_ABRVTN#Dtsf,부서스태프
 CMPX_ABRVTN#EAI,기업응용프로그램통합
 CMPX_ABRVTN#EDD,EDD
 CMPX_ABRVTN#IPCT,중요증서
+CMPX_ABRVTN#KFTC,한국금융결제원
 CMPX_ABRVTN#LTV,LTV
 CMPX_ABRVTN#Prtnrd,파트너부서
 CMPX_ABRVTN#Prtnrs,파트너 스태프
 CMPX_ABRVTN#Ptdt,파트너부서
 CMPX_ABRVTN#TC,여행자 수표
 CMPX_ABRVTN#UE,심사
+CMPX_ABRVTN#adri,리
 CMPX_ABRVTN#adsbt,가감
 CMPX_ABRVTN#amt,금액
+CMPX_ABRVTN#ap,어드민포탈
+CMPX_ABRVTN#ass,신청평점기준
+CMPX_ABRVTN#atat,액터액터
+CMPX_ABRVTN#atdt,액터부서
+CMPX_ABRVTN#atrl,액터역할
 CMPX_ABRVTN#bal,잔액
 CMPX_ABRVTN#bdngnfrmtnsmry,입찰정보요약
+CMPX_ABRVTN#bfaf,전후
 CMPX_ABRVTN#bl,선하증권
 CMPX_ABRVTN#bnkhr,뱅크아워
+CMPX_ABRVTN#bs,재무상태표
+CMPX_ABRVTN#bsis,BSIS
+CMPX_ABRVTN#bss,행동평점기준
+CMPX_ABRVTN#btsd,양변
+CMPX_ABRVTN#cb,CB
 CMPX_ABRVTN#cc,센터컷
 CMPX_ABRVTN#cd,현급지급기
-CMPX_ABRVTN#cdatm,cdatm
+CMPX_ABRVTN#cdatm,CDATM
+CMPX_ABRVTN#cdd,CDD
 CMPX_ABRVTN#chkYn,예아니오여부
 CMPX_ABRVTN#cms,cms
 CMPX_ABRVTN#cnt,건수
+CMPX_ABRVTN#cp,컨피규레이션포탈
 CMPX_ABRVTN#cptlcst,자본비용
+CMPX_ABRVTN#crdrkprm,신용리스크프리미엄
+CMPX_ABRVTN#crdtrtg,신용평가
+CMPX_ABRVTN#css,CSS
+CMPX_ABRVTN#ctcpt,연락대상
+CMPX_ABRVTN#ctvd,정합성검증
+CMPX_ABRVTN#cucu,고객고객
+CMPX_ABRVTN#cudt,고객부서
+CMPX_ABRVTN#cugp,고객그룹
+CMPX_ABRVTN#cusf,고객스태프
+CMPX_ABRVTN#dbms,DBMS
 CMPX_ABRVTN#dc,체킹2
 CMPX_ABRVTN#di,중복정보
 CMPX_ABRVTN#dlnprftloss,기한이익상실
@@ -23438,25 +24369,35 @@ CMPX_ABRVTN#dmfr,국내외
 CMPX_ABRVTN#dmnth,월중
 CMPX_ABRVTN#dpstlm,예적금
 CMPX_ABRVTN#dscd,구분코드
-CMPX_ABRVTN#dstp,구별유형
+CMPX_ABRVTN#dsr,DSR
+CMPX_ABRVTN#dstp,구분유형
+CMPX_ABRVTN#dti,DTI
 CMPX_ABRVTN#dtm,일시
+CMPX_ABRVTN#dtog,부서조직
+CMPX_ABRVTN#dtrm,기중
+CMPX_ABRVTN#dts,DTS
+CMPX_ABRVTN#dtsf,부서스태프
 CMPX_ABRVTN#duedlgnc,실사
+CMPX_ABRVTN#eai,EAI
+CMPX_ABRVTN#edd,EDD
 CMPX_ABRVTN#endMonth,월말
 CMPX_ABRVTN#extnprd,기한연장
 CMPX_ABRVTN#fep,전위처리기
 CMPX_ABRVTN#fx,외환
 CMPX_ABRVTN#gmt,평균시
-CMPX_ABRVTN#hfcgf,주택금융신용보증기금
+CMPX_ABRVTN#hfcgf,한국금융신용보증기금
 CMPX_ABRVTN#hm,시분
 CMPX_ABRVTN#hms,시분초
-CMPX_ABRVTN#hmss,시분초밀리세컨드
-CMPX_ABRVTN#ic,집적회로
+CMPX_ABRVTN#hmss,시분초밀리초
+CMPX_ABRVTN#ic,집접회로
 CMPX_ABRVTN#impcrtfct,중요증서
 CMPX_ABRVTN#imptcrtct,중요증서
 CMPX_ABRVTN#imptcrtfct,중요증서
 CMPX_ABRVTN#incdchrg,부대비용
 CMPX_ABRVTN#introfc,본지점
-CMPX_ABRVTN#iso,국제표준화기구
+CMPX_ABRVTN#ipct,중요증서
+CMPX_ABRVTN#is,손익계산서
+CMPX_ABRVTN#iso,ISO
 CMPX_ABRVTN#issmda,발급매체
 CMPX_ABRVTN#jdgmrgt,전결권
 CMPX_ABRVTN#kbfn,한국은행금융망
@@ -23468,7 +24409,9 @@ CMPX_ABRVTN#ked,KED
 CMPX_ABRVTN#kftc,금융결제원
 CMPX_ABRVTN#lc,신용장
 CMPX_ABRVTN#lg,수입화물선취보증
+CMPX_ABRVTN#lo,여신사전
 CMPX_ABRVTN#lqdtprmm,유동성프리미엄
+CMPX_ABRVTN#ltv,LTV
 CMPX_ABRVTN#mci,멀티채널인터페이스
 CMPX_ABRVTN#nftf,비대면
 CMPX_ABRVTN#nodeTp,노드유형
@@ -23481,18 +24424,25 @@ CMPX_ABRVTN#pk,주요한키
 CMPX_ABRVTN#pl,기한상실
 CMPX_ABRVTN#pot,시점
 CMPX_ABRVTN#ppsam,전자화폐발행기관 보안장비
+CMPX_ABRVTN#ptdt,파트너부서
 CMPX_ABRVTN#rcv,접수
 CMPX_ABRVTN#rlstt,부동산
+CMPX_ABRVTN#rprsn,관련인
 CMPX_ABRVTN#saf,저장전달
 CMPX_ABRVTN#save,카드세이브
 CMPX_ABRVTN#tax,세금
+CMPX_ABRVTN#tc,여행자수표
 CMPX_ABRVTN#test,test2
 CMPX_ABRVTN#treeTp,트리유형
 CMPX_ABRVTN#tsa,시점확인서비스
+CMPX_ABRVTN#tt,전신환
 CMPX_ABRVTN#ttl,유지 시간
+CMPX_ABRVTN#ue,심사
 CMPX_ABRVTN#xa,xa
+CMPX_ABRVTN#xp,대외연계
 CMPX_ABRVTN#ym,년월
 CMPX_ABRVTN#yn,여부
+CMPX_ABRVTN#주택금융신용보증기금,주택금융신용보증기금
 DMN#ASM_ID,심사식별자
 DMN#Prity,우선순위
 DMN#addr,주소
@@ -23500,7 +24450,7 @@ DMN#age,나이
 DMN#amt,금액
 DMN#bal,잔액
 DMN#cd,코드
-DMN#cnt,건수
+DMN#cnt,수
 DMN#cntnt,내용
 DMN#code,코드
 DMN#day,일
@@ -23523,6 +24473,7 @@ DMN#nm,명
 DMN#nth,회차
 DMN#path,경로
 DMN#price,가격
+DMN#priority,prity
 DMN#prncpl,원금
 DMN#pswd,비밀번호
 DMN#qnty,량
@@ -23619,6 +24570,7 @@ DOC#SampleDoc03,닥북_샘플03
 DOC#SampleDoc04,닥북_샘플04
 DOC#SampleDoc05,닥북_샘플05
 DOC#SampleDoc06,닥북_샘플06 (테스트용)
+DOC#StaffSMSAuthorization,스태프SMS인증요청
 DOC#TermDepositTerms,거치식예금약관
 DOC#Test,테스트1
 DOC#Test1,test1
@@ -24009,7 +24961,7 @@ MENU#204_249,워크플로우진행현황
 MENU#204_25,상품통합조회
 MENU#204_250,여신취소
 MENU#204_251,약정
-MENU#204_252,고객목록조회(BPI)
+MENU#204_252,여신상환_테스트
 MENU#204_26,상품그룹조회
 MENU#204_27,공통조건조회
 MENU#204_28,분류체계조회
@@ -24986,7 +25938,15 @@ MENU#235_153,클래스
 MENU#235_154,클래스
 MENU#235_155,클래스반영
 MENU#235_156,서비스반영
+MENU#235_157,배포관리
+MENU#235_158,배포파라미터
+MENU#235_159,데이터검증
 MENU#235_16,전사
+MENU#235_160,데이터검증현황관리
+MENU#235_161,계약서비스유형
+MENU#235_162,데이터검증관리
+MENU#235_163,데이터검증결과조회
+MENU#235_164,고객멤버쉽규칙
 MENU#235_17,페이지
 MENU#235_18,배너
 MENU#235_19,텍스트내용
@@ -27007,13 +27967,71 @@ MENU#277_375,마스킹해제이력
 MENU#277_376,여신상담신청
 MENU#277_377,취소
 MENU#277_378,여신취소
+MENU#277_379,여신사후
 MENU#277_38,기타계정정리
+MENU#277_380,부도연체
+MENU#277_381,연체내역조회
+MENU#277_382,자산건전성
+MENU#277_383,채권추심
+MENU#277_384,채권조정
+MENU#277_385,법적절차
+MENU#277_386,대손상각
+MENU#277_387,대손상각 진행관리
+MENU#277_388,대손상각 진행내역조회
+MENU#277_389,대손상각 처리
 MENU#277_39,내부계좌신규
+MENU#277_390,법적절차 현황조회
+MENU#277_391,고객별 법적절차 현황조회
+MENU#277_392,민사집행
+MENU#277_393,독촉절차
+MENU#277_394,민사소송
+MENU#277_395,경매
+MENU#277_396,배당
+MENU#277_397,공탁금발생
+MENU#277_398,공탁금 명세조회
+MENU#277_399,가지급금 발생
 MENU#277_4,담보
 MENU#277_40,내부자계약신규
+MENU#277_400,비용명세서
+MENU#277_401,개인회생 진행관리
+MENU#277_402,개인회생 현황조회
+MENU#277_403,개인회생 상환
+MENU#277_404,개인파산/면책 진행관리
+MENU#277_405,개인파산/면책 현황조회
+MENU#277_406,신용회복 진행관리
+MENU#277_407,신용회복 채권신고서 작성
+MENU#277_408,신용회복 일괄등록
+MENU#277_409,신용회복 일괄상환
 MENU#277_41,거래저널관리
+MENU#277_410,신용회복 현황조회
+MENU#277_411,채권종합정보조회
+MENU#277_412,재산조사 의뢰/결과 등록
+MENU#277_413,추심위임 대상조회
+MENU#277_414,추심위임 결과조회
+MENU#277_415,추심담당자 배정결과
+MENU#277_416,추심위임 회수내역 조회
+MENU#277_417,추심위임 실적현황 조회
+MENU#277_418,추심위임 상환내역 조회
+MENU#277_419,건전성 분류현황 조회(과목별)
 MENU#277_42,환율관리
+MENU#277_420,고정이하 분류여신 내역조회
+MENU#277_421,건전성(고객별) 일일 현황조회
+MENU#277_422,건전성 분류 현황조회(계좌/기간별)
+MENU#277_423,건전성 분류 현황조회(차주/기간별)
+MENU#277_424,건전성 재분류 신청
+MENU#277_425,건전성 재분류 승인
+MENU#277_426,차주별 건전성분류 적용 관리
+MENU#277_427,계좌별 건전성분류 적용 관리
+MENU#277_428,건전성분류 기준관리(신용유의별)
+MENU#277_429,연체이력조회
 MENU#277_43,중요증서관리
+MENU#277_430,무수익여신 등록관리
+MENU#277_431,무수익여신 내역조회
+MENU#277_432,무수익고객 내역조회
+MENU#277_433,무수익고객 상세조회
+MENU#277_434,이자계산시뮬레이션
+MENU#277_435,상환스케쥴조회_테스트
+MENU#277_436,대출상환 테스트
 MENU#277_44,중요증서정보관리
 MENU#277_46,중요증서재고관리
 MENU#277_49,중요증서현황조회
@@ -28117,6 +29135,14 @@ MENU#297_157,클래스
 MENU#297_158,클래스반영
 MENU#297_159,서비스반영
 MENU#297_16,전사
+MENU#297_160,계약서비스유형
+MENU#297_161,배포정합성검증
+MENU#297_162,배포정합성검증실행
+MENU#297_163,데이터검증
+MENU#297_164,데이터검증현황관리
+MENU#297_165,데이터검증관리
+MENU#297_166,데이터검증결과조회
+MENU#297_167,고객멤버쉽규칙
 MENU#297_17,페이지
 MENU#297_18,배너
 MENU#297_19,텍스트내용
@@ -31418,8 +32444,8 @@ PD_LSTCND_CDVAL#Y0017N,부
 PD_LSTCND_CDVAL#Y0017Y,여
 PD_LSTCND_CDVAL#Y0018N,부
 PD_LSTCND_CDVAL#Y0018Y,여
-PD_LSTCND_CDVAL#Y0020N,No
-PD_LSTCND_CDVAL#Y0020Y,Yes
+PD_LSTCND_CDVAL#Y0020N,부
+PD_LSTCND_CDVAL#Y0020Y,여
 PD_LSTCND_CDVAL#Y0021N,부
 PD_LSTCND_CDVAL#Y0021Y,여
 PD_LSTCND_CDVAL#Y0025N,부
@@ -31963,7 +32989,6 @@ PD#rqstTm,요청시간
 PD#runSmry,실행요약
 PD#scanCode,Scan qrcode or barcode
 PD#wmpWhdwScrNm,청약취소
-SCRNITM#,가맹점정보
 SCRNITM# aplcableLimit,적용가능한도
 SCRNITM# marginAmt,마진금액
 SCRNITM#15Days,15일전
@@ -32001,6 +33026,7 @@ SCRNITM#B_close,닫기
 SCRNITM#B_closing,마감
 SCRNITM#B_code,코드
 SCRNITM#B_collect,수금
+SCRNITM#B_copy,복사
 SCRNITM#B_delete,삭제
 SCRNITM#B_deploy,적용
 SCRNITM#B_deposit,입금
@@ -32095,7 +33121,9 @@ SCRNITM#CAPWF507-TREE-TITLE,결재조건목록
 SCRNITM#CNY,위안
 SCRNITM#CentercutForcedEnd,비정상종료처리
 SCRNITM#Claim,내 Task로 할당
+SCRNITM#CmpttnHis,경합내역
 SCRNITM#CorpRspblPrsnInfoChng,기업담당자정보변경
+SCRNITM#CrdtDebt,채권채무자
 SCRNITM#CrdtOffrFormCd,신용제공형태
 SCRNITM#CrncyCnvrtr,환율계산기
 SCRNITM#DOWN,하위
@@ -32113,6 +33141,7 @@ SCRNITM#IncrsUnitAmt,증가단위금액
 SCRNITM#Individual Business,개인사업자
 SCRNITM#IndvLmtDscd,개별한도구분
 SCRNITM#InqryCnd,조사 현황
+SCRNITM#InqryTrgt,조회대상
 SCRNITM#IntCalcnRslt,이자 계산 결과
 SCRNITM#IntRtAplyWayCd,금리적용방식코드
 SCRNITM#IntRtCmptnInfo,금리산출요소
@@ -32164,6 +33193,7 @@ SCRNITM#SUE029,결재결과등록
 SCRNITM#SUP906_04,기업고객검색
 SCRNITM#Sell / Buy,매수매도
 SCRNITM#Student,학생
+SCRNITM#TEST_TEST,test345123
 SCRNITM#TcSellInfoArea,T/C매도정보
 SCRNITM#Test11,Test11
 SCRNITM#Threshold,
@@ -32188,12 +33218,16 @@ SCRNITM#accntDtl,계좌상세
 SCRNITM#accruedDpstIntIqry,미수이자 조회
 SCRNITM#acct,계좌
 SCRNITM#acctActvtn,계좌 활성화
+SCRNITM#acctAdd,계좌추가
 SCRNITM#acctBeenReset,계좌가 초기화되었습니다.
 SCRNITM#acctBrowse,계좌조회
 SCRNITM#acctCd,계정코드
+SCRNITM#acctDel,계좌삭제
 SCRNITM#acctDtl,계좌상세
 SCRNITM#acctDtlSrch,계좌상세조회
 SCRNITM#acctInfo,계좌 정보
+SCRNITM#acctInfoAdd,계좌정보추가
+SCRNITM#acctInfoChng,계좌정보변경
 SCRNITM#acctInfoInqry,계좌정보조회
 SCRNITM#acctList,계좌목록
 SCRNITM#acctMgmt,계좌 관리
@@ -32357,6 +33391,7 @@ SCRNITM#answerTrgtTpCd,답변대상유형코드
 SCRNITM#anualAcmltnAmtClndrBase,년간누적금액(캘린더기준)
 SCRNITM#anualAcmltnAmtOpnDayBase,년간누적금액(신규일기준)
 SCRNITM#anually,Annually
+SCRNITM#apCntnt,AP내용
 SCRNITM#aplcableLimit,적용가능한도
 SCRNITM#aplcntArea,신청인정보
 SCRNITM#aplctnCncl,신청취소
@@ -32527,8 +33562,10 @@ SCRNITM#arrRelStartDt,계약관계시작일자
 SCRNITM#arrSrchDscd,계약조회구분
 SCRNITM#arrSrvcBlckngCntnt,서비스제한내용
 SCRNITM#arrSrvcBlckngRqerDscd,계약서비스제한요청자구분
+SCRNITM#arrSrvcCmpntCd,계약서비스컴포넌트코드
 SCRNITM#arrSrvcTp,계약서비스유형
 SCRNITM#arrSrvcTpCd,계약서비스유형
+SCRNITM#arrSrvcTpNm,계약서비스유형명
 SCRNITM#arrStsCd,계약상태
 SCRNITM#arrStsCdChkMsg,계약상태를 확인하세요.
 SCRNITM#arrStsChngDt,계약상태변경일자
@@ -32654,7 +33691,7 @@ SCRNITM#balOvrduStartDt,잔액연체시작일자
 SCRNITM#balSrchMsg,먼저 잔액조회를 하셔야 됩니다.
 SCRNITM#balSum,잔액합계
 SCRNITM#balTp,잔액유형
-SCRNITM#balTpCd,잔액유형
+SCRNITM#balTpCd,잔액유형코드
 SCRNITM#balTpCdNm,잔액유형코드명
 SCRNITM#balTpDscd,잔액유형구분
 SCRNITM#balTpDstnctn,잔액유형구분
@@ -32732,7 +33769,7 @@ SCRNITM#biddingRslt,입찰결과
 SCRNITM#biddingSucss,입찰 성공
 SCRNITM#biddingTimeChkMsg,입찰마감시간이 올바르지 않습니다.
 SCRNITM#biddingTimeRmnMsg,입찰마감시간이 아직 남아있습니다.
-SCRNITM#billAmt,Bill Amount
+SCRNITM#billAmt,청구금액
 SCRNITM#billCtgry,권종
 SCRNITM#billCtgryForm,권종형태
 SCRNITM#billCtgryFormDscd,권종형태구분
@@ -32850,12 +33887,15 @@ SCRNITM#bsicVal,기본값
 SCRNITM#bsisDscd,BSIS구분
 SCRNITM#bsisDstnctn,BSIS구분
 SCRNITM#btnAdd,추가
+SCRNITM#btnAplctnCncl,신청취소
 SCRNITM#btnAprvlCncl,결재취소
 SCRNITM#btnAprvlCndExctnRgstn,승인이행등록
 SCRNITM#btnAprvlLineDsgntn,결재선지정
 SCRNITM#btnAprvlRgstn,결재등록
 SCRNITM#btnCltrlAmtCmptn,담보가액산출
+SCRNITM#btnDlgtnCncl,위임취소
 SCRNITM#btnDtiDsrCmptn,DTI/DSR산출
+SCRNITM#btnHstQry,접촉이력조회
 SCRNITM#btnIntRtDtl,금리상세조회
 SCRNITM#btnLnlnkng,여신연결등록
 SCRNITM#btnLtvCmptn,LTV산출
@@ -32869,6 +33909,7 @@ SCRNITM#btnStyle,버튼 스타일
 SCRNITM#btnSysAssAsm,시스템심사
 SCRNITM#btnTmplt,버튼템플릿
 SCRNITM#btnUserRule,사용자판정 등록
+SCRNITM#btn_downloadSql,SQL 다운로드
 SCRNITM#btn_dtoCashDelete,DTO캐시초기화
 SCRNITM#btn_recallDistr,재요청
 SCRNITM#btsdAcct,양변계정
@@ -32925,7 +33966,9 @@ SCRNITM#cardOwnrRel,카드소유자발급자관계
 SCRNITM#cardOwnrRelCd,카드소유자발급자관계
 SCRNITM#cardTpCd,카드유형
 SCRNITM#cardWhdrwlDt,카드탈회일자
+SCRNITM#caseBasCntnt,사건기본내용
 SCRNITM#caseDscd,사건구분
+SCRNITM#caseRltdPerson,사건관련인
 SCRNITM#caseRltdPersonDscd,사건관련인구분
 SCRNITM#cash,현금
 SCRNITM#cash2,현금자산
@@ -33057,6 +34100,8 @@ SCRNITM#classSubTitie,정의 : 계약 계좌 번호 채번
 SCRNITM#classTpCd,클래스유형
 SCRNITM#clcltdRpymntAmt,예상 상환 금액
 SCRNITM#clcltrRevenue,수익률계산
+SCRNITM#clctnRqst,추심의뢰
+SCRNITM#clctnRspblPerson,추심담당자
 SCRNITM#clctr,수금자
 SCRNITM#clearDt,정리일자
 SCRNITM#clearStaff,해제 직원
@@ -33117,6 +34162,7 @@ SCRNITM#cmprsnPrntRgstrnDt,압축인자설정일자
 SCRNITM#cmpsCndTpCd,구성조건유형
 SCRNITM#cmpsStartPstn,구성시작위치
 SCRNITM#cmpsWay,구성방식
+SCRNITM#cmpttnHisRegt,경합내역등록
 SCRNITM#cmpxAbrvtnRgstrnVrfctn,복합단어등록 검증
 SCRNITM#cmpxAplyMthd,복합적용방법
 SCRNITM#cmpxCndYn,복합조건여부
@@ -33129,6 +34175,8 @@ SCRNITM#cnclNotFinWhdrwlCnclPrcsDscd,취소미완료출금취소처리구분
 SCRNITM#cnclRmkCntnt,취소적요
 SCRNITM#cnclTrgtTxDt,취소대상거래일자
 SCRNITM#cnclTxDt,취소거래일자
+SCRNITM#cncrnPsn,이해관계인
+SCRNITM#cncrnPsnRegt,이해관계인등록
 SCRNITM#cnct,연결
 SCRNITM#cnd,조건
 SCRNITM#cndBtwnRel,조건간관계
@@ -33181,6 +34229,7 @@ SCRNITM#cnsgnmntDt,위임일자
 SCRNITM#cnsgnmntEndDt,위임종료일자
 SCRNITM#cnsltnArrId,상담계약식별자
 SCRNITM#cnsltnId,상담식별자
+SCRNITM#cnsltnRgstrn,상담등록
 SCRNITM#cnsltnSts,상담상태
 SCRNITM#cnt,건
 SCRNITM#cntAmtDscd,건수금액구분
@@ -33212,6 +34261,7 @@ SCRNITM#cntctPrhbtnTpCd,연락금지유형
 SCRNITM#cntctTp,접촉유형
 SCRNITM#cntctfficeFax,직장fax연락
 SCRNITM#cntnntDscd,대륙구분
+SCRNITM#cntntLctn,데이터위치
 SCRNITM#cntrCtLogTpCd,센터컷로그유형
 SCRNITM#cntrCtPrcsngDt,센터컷처리일자
 SCRNITM#cntrctAmt,계약금액
@@ -33275,6 +34325,8 @@ SCRNITM#correctAnswer,정답
 SCRNITM#costOcrDt,비용발생일자
 SCRNITM#costPymntDt,비용지급일자
 SCRNITM#countDown,카운트다운
+SCRNITM#cpCnt,CP건수
+SCRNITM#cpCntnt,CP내용
 SCRNITM#cptlFgrs,자산액
 SCRNITM#crAtrbtList,계산속성목록
 SCRNITM#crUnitCd,계산단위코드
@@ -33290,6 +34342,7 @@ SCRNITM#crdtAmt,대변금액
 SCRNITM#crdtCardTrmntnDt,신용카드해지일자
 SCRNITM#crdtCash,대변 현금액
 SCRNITM#crdtDbt,Credit Or Debit
+SCRNITM#crdtDebtRegt,채권채무자등록
 SCRNITM#crdtGrade,CB등급
 SCRNITM#crdtInfoQryUseAgrmntYn,신용정보활용동의
 SCRNITM#crdtInvstgtn,신용조사
@@ -33349,6 +34402,7 @@ SCRNITM#custAcdntReportTpCd,고객사고신고유형
 SCRNITM#custActionTpCd,고객활동유형
 SCRNITM#custAplyIntRt,대고객적용금리
 SCRNITM#custAttr,고객 속성
+SCRNITM#custBasInfo,고객기본정보
 SCRNITM#custBaseAtrbt,고객 기본 속성
 SCRNITM#custCloseCnfrm,정말 이 고객을 해지하시겠습니까?
 SCRNITM#custCrtfctAplctn,고객증명서신청
@@ -33380,6 +34434,8 @@ SCRNITM#custInfoUseAgrmntTpCd,고객정보활용동의유형
 SCRNITM#custInqryTrgt,고객조회대상
 SCRNITM#custList,고객목록
 SCRNITM#custLmtTpCd,고객한도유형
+SCRNITM#custMbrshpRule,고객멤버쉽규칙
+SCRNITM#custMbrshpRuleAtrbt,고객멤버쉽규칙 속성
 SCRNITM#custNbr,고객번호
 SCRNITM#custNm,고객명
 SCRNITM#custNm(familyNm),고객명(성)
@@ -33423,12 +34479,14 @@ SCRNITM#dataChkMsg,데이터가 수정되지 않았습니다.
 SCRNITM#dataDscd,데이터구분
 SCRNITM#dataTpCd,데이터유형
 SCRNITM#dataUseDscd,데이터사용구분
+SCRNITM#dataVldtnErrDtl,데이터검증오류상세
 SCRNITM#dateRule,날짜를 확인하세요. 날짜 형식은 "YYYY-MM-DD" 형식이어야 합니다.
 SCRNITM#day,일
 SCRNITM#dayCnt,일수
 SCRNITM#dayStartBal,일 시작 잔액
 SCRNITM#days,일수
 SCRNITM#dbCdtDstnctn,차대변구분
+SCRNITM#dcsnDt,확정일자
 SCRNITM#dcsnItmDscd,결정항목구분
 SCRNITM#debit,차변
 SCRNITM#debitAmt,차변금액
@@ -33507,6 +34565,8 @@ SCRNITM#deptSts,부서상태
 SCRNITM#deptTp,부서유형
 SCRNITM#deptTree,부서 트리
 SCRNITM#desiredItrRate,희망 금리
+SCRNITM#desiredPymntDt,희망이수년월일
+SCRNITM#desiredPymntNth,희망납입회차
 SCRNITM#detail-view2,상세보기
 SCRNITM#details,상세
 SCRNITM#dfltDt,부도일자
@@ -33528,6 +34588,8 @@ SCRNITM#dlgtId,위임자 아이디
 SCRNITM#dlgtNm,위임자 명
 SCRNITM#dlgtnCntnts,위임내용
 SCRNITM#dlgtnDetailInfo,위임 상세 정보
+SCRNITM#dlgtnRcpt,위임접수
+SCRNITM#dlgtnRpymnt,위임회수
 SCRNITM#dlgtnStaffNm,위임스태프명
 SCRNITM#dlvryDscd,배송구분
 SCRNITM#dlvryFinDt,배송완료일자
@@ -33579,6 +34641,7 @@ SCRNITM#dontRemberTxPwd,거래비밀번호가 기억나지 않습니다.
 SCRNITM#downloadComplete,다운로드가 완료되었습니다
 SCRNITM#downloadfile,파일다운로드
 SCRNITM#dplctnAbl,중복가능
+SCRNITM#dplctnKeyValCntnt,중복키값
 SCRNITM#dpsr,예금주
 SCRNITM#dpstAcctDscd,입금계좌구분
 SCRNITM#dpstAcctDt,입금일자
@@ -33587,6 +34650,8 @@ SCRNITM#dpstAcctNbr,수신계좌번호
 SCRNITM#dpstAcctOwnrNm,입금계좌예금주
 SCRNITM#dpstAfMtrtyDtInt,수신만기후이자
 SCRNITM#dpstAmt,입금금액
+SCRNITM#dpstAmtMgmt,공탁금관리
+SCRNITM#dpstAmtOcr,공탁금발생
 SCRNITM#dpstArrIntRtTpCd,수신계약금리유형
 SCRNITM#dpstBnk,입금은행
 SCRNITM#dpstCertiInfoMsg,전자 형식의 수신 증명만 제공할 수 있습니다. 서면 형식의 수신 증명이 필요하면 고객센터에 연락해 주세요.
@@ -33603,6 +34668,7 @@ SCRNITM#dpstNrmlInt,수신일반이자
 SCRNITM#dpstPd,예금상품
 SCRNITM#dpstPdNm,수신상품명
 SCRNITM#dpstRmkDscd,수신적요구분
+SCRNITM#dpstRprting,공탁명세
 SCRNITM#dpstRslt,신규결과
 SCRNITM#dpstSucss,완료상위 계좌로 바로 입금 처리되었습니다.
 SCRNITM#dpstTpCd,입금유형
@@ -33638,8 +34704,15 @@ SCRNITM#dscntRtAmtDscd,할인율금액구분
 SCRNITM#dscrdDt,폐기일자
 SCRNITM#dsinvstmntnfrmtnsmry,투자회수 정보 요약
 SCRNITM#dstbCncl,배포취소
+SCRNITM#dstbCtvdDtlList,배포정합성검증 상세목록
+SCRNITM#dstbCtvdExcRslt,배포정합성검증수행결과
+SCRNITM#dstbCtvdList,배포정합성검증목록
+SCRNITM#dstbCtvdRslt,배포정합성수행결과
+SCRNITM#dstbErrDtlCntnt,배포대상테이블 오류상세내용
+SCRNITM#dstbErrList,배포대상테이블 오류목록
 SCRNITM#dstbExecuteEndDt,배포실행 종료일자
 SCRNITM#dstbExecuteStartDt,배포실행 시작일자
+SCRNITM#dstbFin,배포완료 
 SCRNITM#dstbRqst,배포요청
 SCRNITM#dstbRslt,배포결과
 SCRNITM#dstbRsltSrvr,배포대상서버
@@ -33674,12 +34747,18 @@ SCRNITM#dtrmMnyRcvdAmt,기중입금금액
 SCRNITM#dtrmWhdrwlAcmltdAmt,기중출금적수
 SCRNITM#due,기일
 SCRNITM#dueDtToPstpn,연기대상상환일자
+SCRNITM#duedateInfo,기일정보
+SCRNITM#duedateInfoChng,기일정보변경
 SCRNITM#duedt,기일
+SCRNITM#duedtInfoMgmt,기일정보관리
+SCRNITM#duedtInfoRegt,기일정보등록
 SCRNITM#duedtMgmtBizTpCd,기일관리업무유형
 SCRNITM#duedtMgmtDt,기일관리일자
 SCRNITM#duedtMgmtDtlTpCd,기일관리상세유형
 SCRNITM#duringTheMnthFrstTrnsfrDt,월중최초이체일자
 SCRNITM#duringTheMnthLastTrnsfrDt,월중최종이체일자
+SCRNITM#dvdndCaseRegt,배당사건등록
+SCRNITM#dvdndInfo,배당정보
 SCRNITM#dvlpmnt,개발
 SCRNITM#dvlpmntBaseTxDt,개발용기준거래일자
 SCRNITM#dvsnsStates,분할 구역
@@ -33761,8 +34840,11 @@ SCRNITM#erlyRpymntFee,조기상환수수료
 SCRNITM#erlyTrmntn,중도해지
 SCRNITM#erlyTrmntnDt,중도해지일
 SCRNITM#erlyWarngStepDscd,조기경보단계구분
+SCRNITM#errDtl,에러상세보기
+SCRNITM#errDtlCntnt,에러상세내용
 SCRNITM#errLvlCd,에러레벨
 SCRNITM#errMsgCd,에러메시지코드
+SCRNITM#errTpCd,오류유형
 SCRNITM#error,에러 처리 되었습니다.
 SCRNITM#errorAllwncCnt,에러허용횟수
 SCRNITM#errorLog,에러로그
@@ -33792,11 +34874,13 @@ SCRNITM#exRtMarginInfo,환율마진정보
 SCRNITM#excelUpload,엑셀파일 업로드
 SCRNITM#exclude,exclude
 SCRNITM#excptnAprvlRsn,예외승인사유
+SCRNITM#exctnAll,전체수행
 SCRNITM#exctnClsgDt,실행마감일자
-SCRNITM#exctnDt,이행일자
+SCRNITM#exctnDt,실행일자
 SCRNITM#exctnHst,수행 내역
 SCRNITM#exctnRslt,실행결과
 SCRNITM#exctnTrmntn,해지 실행
+SCRNITM#exctnVldtn,검증수행
 SCRNITM#exctnYn,이행여부
 SCRNITM#execAutoInvstFixAmt,매영업일 7:00pm에 자동투자됩니다.
 SCRNITM#executeAutoDpst,매영업일 7:00pm에 자동입금됩니다.
@@ -33893,6 +34977,7 @@ SCRNITM#finance,재테크
 SCRNITM#financial,금융
 SCRNITM#findId,ID 찾기
 SCRNITM#findIdPswd,ID/비밀번호 찾기
+SCRNITM#findPrprty,발견재산
 SCRNITM#findPswd,비밀번호 찾기
 SCRNITM#findPswdUsingClphn,휴대폰 인증을 통한 비밀번호 찾기
 SCRNITM#findPswdUsingScrtyQstn,보안질문을 통한 비밀번호 찾기
@@ -33992,6 +35077,7 @@ SCRNITM#glPrcsngStsDscd,총계정처리상태구분
 SCRNITM#globalCmnt,종합의견
 SCRNITM#gndrCd,성별
 SCRNITM#gndrDscd,성별구분
+SCRNITM#gnrtSql,SQL변환
 SCRNITM#goPublic,기업공개
 SCRNITM#goodsDtls,물품상세
 SCRNITM#goodsDtlsAtrbt,물품상세 속성
@@ -34142,6 +35228,8 @@ SCRNITM#inqryCndDstnctn,조회조건구분
 SCRNITM#inqryDstnctn,조회구분
 SCRNITM#inqryDt,조회일자
 SCRNITM#inqryEndDt,조회종료일자
+SCRNITM#inqryInst,조회기관
+SCRNITM#inqryInstNm,조회기관
 SCRNITM#inqryKnd,조회종류
 SCRNITM#inqryKndDscd,조회 종류
 SCRNITM#inqryKndDstnctn,조회종류구분
@@ -34336,6 +35424,7 @@ SCRNITM#lbltyTot,부채합계
 SCRNITM#lbrIncomeAmt,근로소득금액
 SCRNITM#lbrIncomeDscd,근로소득구분
 SCRNITM#lcCntrtInfoArea,신용장/계약서 정보
+SCRNITM#lcDpstAmt,공탁금액
 SCRNITM#lcInfo,신용장정보
 SCRNITM#lcInfoArea,신용장 정보
 SCRNITM#lcnsNo,사업자 등록번호
@@ -34347,6 +35436,7 @@ SCRNITM#leapYrYnDesc,※ 윤년여부: 여신이자계산시 윤년을 적용할
 SCRNITM#leaseCntnt,임대차내역
 SCRNITM#leaseIncomeAmt,임대소득금액
 SCRNITM#leaseRgstrn,임대차등록
+SCRNITM#legActnSts,법적조치현황
 SCRNITM#legalActionCostDscd,법무비용구분
 SCRNITM#legalActionDscd,법무구분
 SCRNITM#legalActionDt,법무기일자
@@ -34354,6 +35444,7 @@ SCRNITM#legalActionDtDscd,법무기일구분
 SCRNITM#legalActionDtHms,법무기일시간
 SCRNITM#legalActionDtRsltDscd,법무기일결과구분
 SCRNITM#legalActionDtTrtmntDt,법무기일조치일자
+SCRNITM#legalActionMgmt,법무사관리
 SCRNITM#legalCl,고객상세유형
 SCRNITM#levyBase,징수기준
 SCRNITM#levyBaseDscd,징수기준구분
@@ -34558,6 +35649,7 @@ SCRNITM#mbrshpAtmtcCreateRuleClassNm,회원계약자동생성규칙클래스
 SCRNITM#mbrshpOpn,회원가입
 SCRNITM#mdfctn,정정
 SCRNITM#mdfyAddrInfo,변경주소정보
+SCRNITM#mdfySql,SQL수정
 SCRNITM#measrDscd,조치사항구분
 SCRNITM#mediaDscd,매체구분
 SCRNITM#memberBrdnInstlmntMnth,회원부담할부개월수
@@ -34906,7 +35998,9 @@ SCRNITM#overevryTransDay7pm,매일 {0}원을 초과하는 금액 자동 입금
 SCRNITM#ovrZero,금액은 0 이상이어야 합니다.
 SCRNITM#ovrduDscd,연체구분
 SCRNITM#ovrduEndDt,연체종료일자
+SCRNITM#ovrduGrcCyclCnt,연체유예주기
 SCRNITM#ovrduIntAmt,연체이자
+SCRNITM#ovrduIntAplyMthdDscd,연체이자적용방법구분코드
 SCRNITM#ovrduStartDt,연체시작일자
 SCRNITM#ownBnkAlreadyLonAmt,(A)당행기대출금액
 SCRNITM#ownBnkTxRsnTpCd,당행거래사유유형
@@ -34915,7 +36009,9 @@ SCRNITM#ownOthrBnkDpstlmLonAmt,(C)당타행예적금대출금액
 SCRNITM#ownOthrDpstlmLon,당타행예적금대출
 SCRNITM#ownedShopScale,소유점포규모
 SCRNITM#owner,소유자
+SCRNITM#ownrAdtnlInfo,소유자추가정보
 SCRNITM#ownrCntnt,소유자내역
+SCRNITM#ownrIdAdtnlInfo,소유자추가정보
 SCRNITM#ownrshpChngRsn,명의변경사유
 SCRNITM#ownrshpRgstrnDt,소유권등기일자
 SCRNITM#pageList,화면 목록
@@ -35007,12 +36103,14 @@ SCRNITM#phoneSerialNbr,전화 고유번호
 SCRNITM#phoneSerialTelNbr,전화 고유번호
 SCRNITM#phoneTelExchngNbr,전화 국번호
 SCRNITM#phoneUnqNbr,전화 고유번호
+SCRNITM#pkCntnt,PK내용
 SCRNITM#pledgeCnfrmtnDt,질권확정일자
 SCRNITM#pledgeSettingDt,질권설정일자
 SCRNITM#pledgeeCustId,질권자고객식별자
 SCRNITM#plnDt,계획일자
 SCRNITM#plnHms,계획시간
 SCRNITM#plnd,정기
+SCRNITM#plnfdfnd,원고/피고
 SCRNITM#plsChckCashAcct,현금계좌를 확인하세요.
 SCRNITM#plsinptOTP,Please input OTP:
 SCRNITM#pltnmCardGradeCd,플래디넘카드등급
@@ -35079,6 +36177,7 @@ SCRNITM#prflDs,프로파일 구분
 SCRNITM#prflInfo,프로파일정보
 SCRNITM#prflNm,프로파일명
 SCRNITM#prftFgrs,이익액
+SCRNITM#prgrsInfo,진행정보
 SCRNITM#prgrsStsCd,진행상태
 SCRNITM#prgrsStsDscd,진행상태구분
 SCRNITM#priceBaseDt,시세기준일자
@@ -35109,6 +36208,10 @@ SCRNITM#provideCnd,제공조건
 SCRNITM#prprtyInfo,재산정보
 SCRNITM#prprtyRightRstrctnDscd,권리제한유형
 SCRNITM#prprtySurveyFinDt,재산조사완료일자
+SCRNITM#prprtySurveyRqst,재산조사의뢰
+SCRNITM#prpymntsAmt,가지급금
+SCRNITM#prpymntsDtlAmt,가지급금상세
+SCRNITM#prpymntsOcrAmt,가지급금발생
 SCRNITM#prscrptnAbandonDt,시효포기일자
 SCRNITM#prscrptnDscd,시효구분
 SCRNITM#prscrptnExpctdDt,시효예정일자
@@ -35249,6 +36352,7 @@ SCRNITM#rdpstExctn,재예치 신규실행
 SCRNITM#reCalcnMthd,재계산방법
 SCRNITM#reDepositAcctNbr,지급계좌번호
 SCRNITM#reDistribution,재배포
+SCRNITM#reExctn,재수행
 SCRNITM#reExmntn,다시 인증하기
 SCRNITM#reLoin,가입하신 ID로 다시 로그인 해주세요.
 SCRNITM#rePrcsng,재처리
@@ -35284,6 +36388,7 @@ SCRNITM#refCnd,참조조건
 SCRNITM#refCndValAplyDscd,참조금리조회시점구분
 SCRNITM#refInstCdCntnt,신규기관생성시 복제대상 기관입니다.
 SCRNITM#refInstNm,참조기관명
+SCRNITM#refObj,참조객체
 SCRNITM#refObjNm,참조객체명
 SCRNITM#refPd,참조상품
 SCRNITM#refPdCnd,참조상품조건
@@ -35316,6 +36421,8 @@ SCRNITM#relEndDt,관계종료일자
 SCRNITM#relInfo,관계정보
 SCRNITM#relNm,관계명
 SCRNITM#relObjDscd,관계오브젝트구분
+SCRNITM#relOwnCmpny,관련당사자
+SCRNITM#relOwnCmpnyRegt,관련당사자등록
 SCRNITM#relStartDt,관계시작일자
 SCRNITM#relSts,관계상태
 SCRNITM#relStsCd,관계상태
@@ -35323,6 +36430,7 @@ SCRNITM#relStsCdChngRsn,관계변경사유
 SCRNITM#relStsCdChngRsnCntnt,관계변경사유내용
 SCRNITM#relStsChngRsn,관계변경사유
 SCRNITM#relStsChngRsnCntnt,관계변경사유내용
+SCRNITM#relThingSetRegt,관련물건설정등록
 SCRNITM#relTp,관계유형
 SCRNITM#relVal,관계값
 SCRNITM#reltv,비고(결재조건등)
@@ -35366,6 +36474,7 @@ SCRNITM#rgstEddMsg,EDD 정보등록이 추가로 필요합니다.
 SCRNITM#rgstId,요청 식별자
 SCRNITM#rgstNewRprsntn,대표 신규등록
 SCRNITM#rgstRprsnttv,대표 신규등록
+SCRNITM#rgstSucss,등록 완료
 SCRNITM#rgstrnCnclDt,등록취소일자
 SCRNITM#rgstrnDept,등록부서
 SCRNITM#rgstrnDt,등록일자
@@ -35396,9 +36505,12 @@ SCRNITM#rjctdRsnCd,부결사유코드
 SCRNITM#rjctdRsnCntnt,부결사유내용
 SCRNITM#rlstOfLnAprvl,대출 승인 결과
 SCRNITM#rltdAcct,관련계좌
+SCRNITM#rltdAcctRprting,관련계좌명세
+SCRNITM#rltdAcctSts,관련계좌현황
 SCRNITM#rltdAcctgItmCd,상대계정과목코드
 SCRNITM#rltdAtrbtDscd,관련속성구분
 SCRNITM#rltdAtrbtTpCd,관련속성유형
+SCRNITM#rltdCaseMgmt,관련사건관리
 SCRNITM#rltdCrncyCd,상대통화코드
 SCRNITM#rltdCust,관련고객
 SCRNITM#rltdCustNm,관련고객명
@@ -35408,8 +36520,11 @@ SCRNITM#rltdDoc,관련 문서
 SCRNITM#rltdLnCntnt,관련여신내역
 SCRNITM#rltdPd,관련 상품
 SCRNITM#rltdPersonId,고객관련인식별자
-SCRNITM#rltdStaffId,관련스태프식별자
-SCRNITM#rltdStaffNm,관련스태프명
+SCRNITM#rltdStaffId,상대스태프식별자
+SCRNITM#rltdStaffNm,상대스태프명
+SCRNITM#rltdThing,관련물건
+SCRNITM#rltdThingMgmt,관련물건관리
+SCRNITM#rltdThingSetInfo,관련물건설정정보
 SCRNITM#rlteStaff,관련 직원
 SCRNITM#rltvCorp,협력기업
 SCRNITM#rltvDept,상대점
@@ -35529,7 +36644,9 @@ SCRNITM#rpymntSchdldDt,상환예정일자
 SCRNITM#rpymntSts,상환상태
 SCRNITM#rpymntTpDscd,상환유형구분
 SCRNITM#rpymntTrmUnit,상환기간단위
+SCRNITM#rpymntTxCntnt,상환거래내역
 SCRNITM#rpymntTxDt,환출거래일자
+SCRNITM#rpymntWayCd,상환방법구분코드
 SCRNITM#rpymntin7d,7일 이내 상환금액
 SCRNITM#rpynw,즉시상환
 SCRNITM#rqer,요청자
@@ -35805,7 +36922,7 @@ SCRNITM#sndDt,발송일자
 SCRNITM#sndMediaTpCd,발송매체유형
 SCRNITM#sndRcvDscd,인도인수구분
 SCRNITM#sndRcvDstnctn,인도인수구분
-SCRNITM#sndRcvTrgtDscd,인도인수대상구분
+SCRNITM#sndRcvTrgtDscd,현금대체구분코드
 SCRNITM#sndRcvTrgtDstnctn,인도인수대상구분
 SCRNITM#sndRcvdDscd,송수신구분
 SCRNITM#sndTrgtTpDscd,발송대상형태구분
@@ -35843,6 +36960,7 @@ SCRNITM#spvsrDept,감독부서
 SCRNITM#spvsrDeptId,감독부서식별자
 SCRNITM#spvsrList,책임자목록
 SCRNITM#spvsrStaffIdCntnt,책임자스태프내용
+SCRNITM#sql-generate-msg,SQL을 변화하시겠습니까? 기존 작성된 SQL(Mysql,Oracle)은 사라집니다.
 SCRNITM#srchAddr,주소 검색
 SCRNITM#srchAsmItmTblRslt,심사속성테이블명세
 SCRNITM#srchCnd,검색 조건
@@ -35998,6 +37116,7 @@ SCRNITM#subsAmt,청약금액
 SCRNITM#subscrbFinMsg,총 신청금액 
 SCRNITM#success,정상 처리 되었습니다.
 SCRNITM#successActvAcct,계좌활성화되었습니다.
+SCRNITM#successChange,변경완료
 SCRNITM#sucssRealNmAuth,실명인증이 성공했습니다.
 SCRNITM#sumAmt,합계
 SCRNITM#sumWithSubDept,하위부서합산
@@ -36078,7 +37197,7 @@ SCRNITM#termsAgreed,약관동의여부
 SCRNITM#termsAgrmntView,약관보기
 SCRNITM#termsAgrmntYn,약관동의여부
 SCRNITM#termsAndConditions,T&C
-SCRNITM#test,test444
+SCRNITM#test,test2
 SCRNITM#test1,test1
 SCRNITM#test2,
 SCRNITM#test5,test5
@@ -36176,15 +37295,18 @@ SCRNITM#transNm,거래종류
 SCRNITM#transfer,이체
 SCRNITM#transferManager,담당자이관
 SCRNITM#transferManagerErr,미시작, 진행대기, 진행중 스텝만 담당자이관이 가능합니다.
+SCRNITM#trdDebt,제3채무자
+SCRNITM#trdDebtRegt,제3채무자등록
 SCRNITM#treeService,서비스 구성
 SCRNITM#trfcCardFnctn,교통카드기능
 SCRNITM#trgt,목표
 SCRNITM#trgtAmt,대상금액
 SCRNITM#trgtAmtInfo,※ 목표금액 기준시, 원리금 계산 결과는 실제와 차이가 있을 수 있습니다.
 SCRNITM#trgtBidding,입찰 대상
-SCRNITM#trgtCnt,목표 건수
+SCRNITM#trgtCnt,대상건수
 SCRNITM#trgtCust,대상 고객
 SCRNITM#trgtInfo,대상정보
+SCRNITM#trgtInstNm,대상기관
 SCRNITM#trgtInstlmntAmtBase,목표금액기준여부
 SCRNITM#trgtList,대상 목록
 SCRNITM#trgtPd,목표 상품
@@ -36350,6 +37472,7 @@ SCRNITM#upAcct,상위 계정
 SCRNITM#upAcctgItmCd,상위계정과목코드
 SCRNITM#upAmtTpCd,상위금액유형코드
 SCRNITM#upArrIssmdaTpCd,상위발급매체유형
+SCRNITM#upArrSrvcTpCd,상위계약서비스유형코드
 SCRNITM#upCdNbr,상위코드
 SCRNITM#upCdNbrNm,상위코드명
 SCRNITM#upClass,상위클래스
@@ -36394,11 +37517,16 @@ SCRNITM#varIntRtCyclBaseDayDscd,변동금리주기기준일구분
 SCRNITM#varLvl,변수레벨
 SCRNITM#variable,변수
 SCRNITM#variableRange,변수범위
+SCRNITM#vdDt,검증일자
+SCRNITM#vdSeqNbr,검증일련번호
 SCRNITM#verify,검증
 SCRNITM#view,보기
 SCRNITM#vldtn,검 증
+SCRNITM#vldtnDesc,검증설명
+SCRNITM#vldtnErrCntntInqry,검증오류내역조회
 SCRNITM#vldtnErrorOvrrd,오류무시여부
 SCRNITM#vldtnRuleCntnt,검증규칙
+SCRNITM#vldtnSmry,검증현황
 SCRNITM#vldtnWay,검증방법
 SCRNITM#vltAmt,금고 금액
 SCRNITM#vntrCorp,벤쳐기업여부
@@ -36497,8 +37625,8 @@ SCRNITM#yourRiskLevel,당신의 Risk Level :
 SCRNITM#yrMarginRt,기중이문율
 SCRNITM#yrPl,기중손익
 SCRNITM#yuan,위안
+SCRNITM#zipSndPlcNm,우편물발송지
 SCRNITM#환입환출구분,prchsRtrnDs
-SCRN_DESC#,고객이 은행에 외화수표를 매입하거나 추심 의뢰시 처리하는 업무.
 SCRN_DESC#CAPAC002,계정과목 및 계정처리 가능점을 관리합니다.
 SCRN_DESC#CAPAC010,상품유형별 분개 규칙을 관리합니다.
 SCRN_DESC#CAPAC030,통화별 권종을 관리하고 시재관리 대상 여부를 선택합니다.
@@ -36516,6 +37644,7 @@ SCRN_DESC#CAPAR110,계약관계에 따라 처리할 업무규칙을 관리합니
 SCRN_DESC#CAPAR120,계약 업무 처리시 상품에 따라 처리할 업무규칙을 관리합니다.
 SCRN_DESC#CAPAR130,계약간 관계에 정의 가능한 상품목록을 관리합니다.
 SCRN_DESC#CAPAR140,계약발급매체의 통장메시지 정보를 관리합니다.
+SCRN_DESC#CAPAR150,계약처리규칙 정의대상인 게약서비스 유형을 추가하고 변경한다.
 SCRN_DESC#CAPAS010,자산유형별 자산종류코드를 관리합니다.
 SCRN_DESC#CAPAS020,지역분류별 담보소재지의 지역코드를 관리합니다.
 SCRN_DESC#CAPAS030,지역별 소액보증금을 관리합니다.
@@ -36529,6 +37658,14 @@ SCRN_DESC#CAPAT302,고객이 시스템을 이용하기 위해 접근하여 사�
 SCRN_DESC#CAPAT401,고객레벨의 규제 및 업무처리를 위한 파라미터를 관리합니다.
 SCRN_DESC#CAPAT402,고객 신규 등록시 기본 고객등급을 지정합니다.
 SCRN_DESC#CAPAT403,고객 신규 등록시 받아야 할 동의 목록을 관리합니다.
+SCRN_DESC#CAPAT404,고객/파트너멤버쉽을 체결하기 위한 상품과 해당상품의 조건을 결정하기 위한 클래스를 정의한다.
+SCRN_DESC#CAPCA001,배포대상 테이블의 정합성을 검증하고 조회한다.
+SCRN_DESC#CAPCA002,배포대상 테이블의 정합성 검증 수행간 오류내역을 조회한다.
+SCRN_DESC#CAPCA003,배포정합성검증이 수행가능한지 확인하고 수행한다.
+SCRN_DESC#CAPCA011,데이터검증을 위한 Sql을 관리합니다. 검증Sql을 선택하여 수행합니다.
+SCRN_DESC#CAPCA012,수행된 데이터검증 결과이력을 검색할 수 있습니다.
+SCRN_DESC#CAPCA013,데이터검증 SQL별 현황을 관리하고 데이터검증 전체수행,재수행 합니다.
+SCRN_DESC#CAPCA014,수행된 데이터검증의 상세 오류내역을 관리합니다.
 SCRN_DESC#CAPCM005,각종 식별자 및 계좌번호 등의 채번 규칙을 관리합니다.
 SCRN_DESC#CAPCM010,속성에 대한 이름, 유형, 검증방법 등을 정의합니다. 여기서 등록되지 않은 속성은 확장속성에서 조회할 수 없습니다.
 SCRN_DESC#CAPCM011,단어를 조회/생성할 수 있습니다.
@@ -36845,6 +37982,81 @@ SCRN_DESC#SFX982,예치환거래은행 계좌를 신규로 등록 , 해지 합�
 SCRN_DESC#SIA001,회계처리를 위한 내부 관리용 계정을 신규 등록합니다.
 SCRN_DESC#SIA002,회계처리를 위한 내부 관리용 계정을 조회합니다.
 SCRN_DESC#SIA004,회계처리를 위한 내부 관리용 계정을 정리합니다.
+SCRN_DESC#SLC001, 
+SCRN_DESC#SLC002, 
+SCRN_DESC#SLC003, 
+SCRN_DESC#SLC004, 
+SCRN_DESC#SLC005, 
+SCRN_DESC#SLC006, 
+SCRN_DESC#SLC201, 
+SCRN_DESC#SLC202, 
+SCRN_DESC#SLC203, 
+SCRN_DESC#SLC204, 
+SCRN_DESC#SLC205, 
+SCRN_DESC#SLC206, 
+SCRN_DESC#SLC207, 
+SCRN_DESC#SLC208, 
+SCRN_DESC#SLC209, 
+SCRN_DESC#SLC210, 
+SCRN_DESC#SLC301, 
+SCRN_DESC#SLC302, 
+SCRN_DESC#SLC303, 
+SCRN_DESC#SLC304, 
+SCRN_DESC#SLC305, 
+SCRN_DESC#SLC306, 
+SCRN_DESC#SLC307, 
+SCRN_DESC#SLC308, 
+SCRN_DESC#SLC309, 
+SCRN_DESC#SLC380, 
+SCRN_DESC#SLC381, 
+SCRN_DESC#SLC382, 
+SCRN_DESC#SLC383, 
+SCRN_DESC#SLC384, 
+SCRN_DESC#SLC385, 
+SCRN_DESC#SLC401, 
+SCRN_DESC#SLC402, 
+SCRN_DESC#SLC403, 
+SCRN_DESC#SLC404, 
+SCRN_DESC#SLC405, 
+SCRN_DESC#SLC406, 
+SCRN_DESC#SLC407, 
+SCRN_DESC#SLC408, 
+SCRN_DESC#SLC409, 
+SCRN_DESC#SLC410, 
+SCRN_DESC#SLC411, 
+SCRN_DESC#SLC412, 
+SCRN_DESC#SLC413, 
+SCRN_DESC#SLC414, 
+SCRN_DESC#SLC480, 
+SCRN_DESC#SLC481, 
+SCRN_DESC#SLC501, 
+SCRN_DESC#SLC502, 
+SCRN_DESC#SLC503, 
+SCRN_DESC#SLC504, 
+SCRN_DESC#SLC505, 
+SCRN_DESC#SLC506, 
+SCRN_DESC#SLC507, 
+SCRN_DESC#SLC508, 
+SCRN_DESC#SLC509, 
+SCRN_DESC#SLC510, 
+SCRN_DESC#SLC511, 
+SCRN_DESC#SLC580, 
+SCRN_DESC#SLC581, 
+SCRN_DESC#SLC582, 
+SCRN_DESC#SLC583, 
+SCRN_DESC#SLC584, 
+SCRN_DESC#SLC585, 
+SCRN_DESC#SLC586, 
+SCRN_DESC#SLC587, 
+SCRN_DESC#SLC588, 
+SCRN_DESC#SLC589, 
+SCRN_DESC#SLC590, 
+SCRN_DESC#SLC591, 
+SCRN_DESC#SLC592, 
+SCRN_DESC#SLC593, 
+SCRN_DESC#SLC601, 
+SCRN_DESC#SLC602, 
+SCRN_DESC#SLC603, 
 SCRN_DESC#SLN001,고객의 대출 계좌의 거래를 취소합니다.
 SCRN_DESC#SLN002,고객의 대출 신청건을 등록하거나 변경/취소합니다.
 SCRN_DESC#SLN003,대출 약정 결과를 보여줍니다.
@@ -36928,13 +38140,13 @@ SCRN_DESC#SUE026,심사완료된 신청건의 결재선을 지정합니다.
 SCRN_DESC#SUE029,결재자가 본 신청건의 결재결과를 등록합니다.
 SCRN_DESC#SUE035,심사 진행중인 신청목록을 조회합니다.
 SCRN_DESC#SUE037,승인된 내역을 조회합니다.
+SCRN_DESC#clctnRspblPerson,추심담당자
 SCRN_DESC#faxIdTelNbr,팩스 식별번호
 SCRN_DESC#mgmt,관리
 SCRN_DESC#roleAttr,역할 속성
 SCRN_DESC#rpptA8,예금, 국채 외에 다른 금융상품에 투자를 하지 않는다. 
 SCRN_DESC#test,test
 SCRN_DESC#txtStyle,텍스트 스타일
-SCRN#,이자계산 시뮬레이터
 SCRN#001,거래로그
 SCRN#CAPAC002,계정과목
 SCRN#CAPAC010,분개규칙
@@ -36944,7 +38156,7 @@ SCRN#CAPAM020,신용평가등급
 SCRN#CAPAM030,심사규제항목
 SCRN#CAPAR010,산식
 SCRN#CAPAR030,서비스처리규칙
-SCRN#CAPAR040,상품조건클래스
+SCRN#CAPAR040,상품조건규칙
 SCRN#CAPAR060,확장속성규칙
 SCRN#CAPAR080,계약서비스제한
 SCRN#CAPAR090,발급매체템플릿
@@ -36953,6 +38165,7 @@ SCRN#CAPAR110,계약관계규칙
 SCRN#CAPAR120,계약상품규칙
 SCRN#CAPAR130,계약간관계상품규칙
 SCRN#CAPAR140,통장메시지
+SCRN#CAPAR150,계약서비스유형
 SCRN#CAPAS010,자산종류
 SCRN#CAPAS020,자산지역
 SCRN#CAPAS030,임대차보호기준
@@ -36967,6 +38180,14 @@ SCRN#CAPAT302,보안수준
 SCRN#CAPAT401,고객파라미터
 SCRN#CAPAT402,고객기본등급
 SCRN#CAPAT403,고객정보활용동의
+SCRN#CAPAT404,고객멤버쉽규칙
+SCRN#CAPCA001,배포정합성검증
+SCRN#CAPCA002,배포정합성검증 오류내역
+SCRN#CAPCA003,배포정합성검증실행
+SCRN#CAPCA011,데이터검증관리
+SCRN#CAPCA012,데이터검증결과조회
+SCRN#CAPCA013,데이터검증현황관리
+SCRN#CAPCA014,데이터검증오류상세조회
 SCRN#CAPCM005,채번
 SCRN#CAPCM010,표준속성
 SCRN#CAPCM011,단어
@@ -37678,6 +38899,7 @@ SCRN#SCM503,ToDo List (portlet)
 SCRN#SCM900,서비스 검색
 SCRN#SCM901,법정동 검색
 SCRN#SCM902,마스킹 해제 요청
+SCRN#SCM903,비밀번호 변경
 SCRN#SCMT01,포틀렛 테스트 1
 SCRN#SCMT02,포틀렛테스트2
 SCRN#SCNAC010,스태프거래내역조회
@@ -38021,6 +39243,81 @@ SCRN#SIA001,기타계정 신규
 SCRN#SIA002,기타계정 목록조회
 SCRN#SIA003,가수/가지급 변경
 SCRN#SIA004,가수/가지급 정리
+SCRN#SLC001,연체 내역조회
+SCRN#SLC002,연체이력 조회
+SCRN#SLC003,무수익여신 등록관리
+SCRN#SLC004,무수익여신 내역조회
+SCRN#SLC005,무수익고객 내역조회
+SCRN#SLC006,무수익고객 상세조회
+SCRN#SLC201,과목별 건전성 분류현황 조회
+SCRN#SLC202,고정이하 분류여신 내역조회
+SCRN#SLC203,고객별 건전성 일일 분류 현황조회
+SCRN#SLC204,계좌별 기간별 건전성 분류 현황조회
+SCRN#SLC205,차주별 기간별 건전성 분류 현황조회
+SCRN#SLC206,건전성 재분류 신청
+SCRN#SLC207,건전성 재분류 승인
+SCRN#SLC208,차주별 건전성분류 적용 관리
+SCRN#SLC209,계좌별 건전성분류 적용 관리
+SCRN#SLC210,신용유의코드별 건전성분류 기준관리
+SCRN#SLC301,채권종합정보조회
+SCRN#SLC302,재산조사 의뢰
+SCRN#SLC303,추심위임 대상조회
+SCRN#SLC304,추심위임 의뢰
+SCRN#SLC305,추심위임 결과조회
+SCRN#SLC306,추심담당자 배정결과
+SCRN#SLC307,추심위임 회수내역 조회
+SCRN#SLC308,추심위임 실적현황 조회
+SCRN#SLC309,추심위임 대상 일반상환내역 조회
+SCRN#SLC380,금지채권 조회
+SCRN#SLC381,채권상태변경 이력조회
+SCRN#SLC382,추심위임 이력조회
+SCRN#SLC383,접촉이력조회
+SCRN#SLC384,위탁업체 담당자 조회
+SCRN#SLC385,위탁업체 검색
+SCRN#SLC401,개인회생 진행관리
+SCRN#SLC402,개인회생 현황조회
+SCRN#SLC403,개인회생 상환
+SCRN#SLC404,개인파산/면책 진행관리
+SCRN#SLC405,개인파산/면책 현황조회
+SCRN#SLC406,신용회복 진행관리
+SCRN#SLC407,신용회복 채권신고서 작성
+SCRN#SLC408,신용회복 일괄등록
+SCRN#SLC409,신용회복 일괄상환
+SCRN#SLC410,신용회복 현황조회
+SCRN#SLC411,채권조정 진행관리
+SCRN#SLC412,채권조정 승인
+SCRN#SLC413,채권조정 현황조회
+SCRN#SLC414,채권조정 상환
+SCRN#SLC480,법적조치 계좌등록
+SCRN#SLC481,신용회복 계좌등록
+SCRN#SLC501,법적절차 현황조회
+SCRN#SLC502,고객별 법적절차 현황조회
+SCRN#SLC503,민사집행
+SCRN#SLC504,독촉절차
+SCRN#SLC505,민사소송
+SCRN#SLC506,경매
+SCRN#SLC507,배당
+SCRN#SLC508,공탁금 발생
+SCRN#SLC509,공탁금 명세조회
+SCRN#SLC510,가지급금 발생
+SCRN#SLC511,비용명세서
+SCRN#SLC580,법적조치 계좌추가
+SCRN#SLC581,법적조치계좌삭제
+SCRN#SLC582,채권채무자 등록
+SCRN#SLC583,제3채무자 등록
+SCRN#SLC584,원고/피고 등록
+SCRN#SLC585,이해관계인 등록
+SCRN#SLC586,관련당사자 등록
+SCRN#SLC587,경합내역 등록
+SCRN#SLC588,기일정보 추가/변경
+SCRN#SLC589,관련물건 추가/변경
+SCRN#SLC590,관련물건설정 등록
+SCRN#SLC591,관련사건 추가/변경
+SCRN#SLC592,가지급금 내역 추가
+SCRN#SLC593,가지급금 내역 삭제
+SCRN#SLC601,대손상각 진행관리
+SCRN#SLC602,대손상각 진행관리 조회
+SCRN#SLC603,대손상각 처리
 SCRN#SLN001,여신취소
 SCRN#SLN002,여신상담신청
 SCRN#SLN003,약정결과조회
@@ -38093,6 +39390,8 @@ SCRN#SPD015,이자계산 시뮬레이션
 SCRN#SPD016,가맹점그룹조회
 SCRN#SPD017,상환스케쥴 조회
 SCRN#SPD018,계산통합조회
+SCRN#SPD040,상환스케쥴조회 테스트
+SCRN#SPD041,대출상환 테스트
 SCRN#SPP001,대출현황조회
 SCRN#SPP010,P2P 대출 신청 / 승인 목록
 SCRN#SPP011,대출목록
@@ -38173,7 +39472,7 @@ SCRN#SPY032,자동이체처리결과조회
 SCRN#SPY060,이체거래내역조회
 SCRN#SPY060-1,최근이체계좌목록조회
 SCRN#SPY100,내부 계좌 신규
-SCRN#SPY101,내부 자계약 신규
+SCRN#SPY101,내부 계약 신규
 SCRN#SPY150,내부계약목록조회
 SCRN#SPY900,최근이체계좌목록검색
 SCRN#SSC100,SCF 이용약정 등록현황 조회
@@ -38343,7 +39642,6 @@ SCRN#nxtStge,다음단계
 SCRN#popup-service,서비스 검색
 SCRN#srvcCd,서비스코드
 SCRN#srvcRstrctnEndTmstmp,서비스제한종료일시
-SRVC#,잔액매니저 테스트
 SRVC#AXX9038401,example 90333
 SRVC#AXX9058401,example 905
 SRVC#CAPAC0018100,계정과목저장
@@ -38391,6 +39689,7 @@ SRVC#CAPAR0208401,회원계약신규화면조회
 SRVC#CAPAR0208402,계약변경화면조회
 SRVC#CAPAR0308102,Save service related condition
 SRVC#CAPAR0308103,확장속성클래스 서비스연결
+SRVC#CAPAR0308201,조건관련서비스목록삭제
 SRVC#CAPAR0308203,Update service related condition
 SRVC#CAPAR0308204,Update service list related condition
 SRVC#CAPAR0308205,계약확장속성 변경
@@ -38466,6 +39765,11 @@ SRVC#CAPAR1408401,통장메시지정보조회
 SRVC#CAPAR1408402,통장메시지정보저장
 SRVC#CAPAR1408403,통장메시지정보삭제
 SRVC#CAPAR1408404,통장메시지정보목록조회
+SRVC#CAPAR1408405,통장메시지내용목록저장
+SRVC#CAPAR1508301,계약서비스유형정보삭제
+SRVC#CAPAR1508401,계약서비스유형정보단건조회
+SRVC#CAPAR1508402,계약서비스유형트리조회
+SRVC#CAPAR1508501,계약서비스유형정보저장
 SRVC#CAPAS0100101,자산종류등록
 SRVC#CAPAS0100401,자산종류조회
 SRVC#CAPAS0100501,자산종류삭제
@@ -38504,8 +39808,23 @@ SRVC#CAPAT1005035,고객기본등급코드 목록 조회
 SRVC#CAPAT1005036,고객기본등급코드 목록 조회
 SRVC#CAPAT1005037,고객기본등급코드 목록 변경
 SRVC#CAPAT1005038,고객기본등급코드 목록 삭제
+SRVC#CAPAT4040101,액터역할파라미터등록
+SRVC#CAPAT4040201,액터역할파라미터변경
+SRVC#CAPAT4040301,액터역할파라미터목록삭제
+SRVC#CAPAT4040401,액터역할파라미터목록조회
+SRVC#CAPCA0118301,데이터검증규칙목록삭제
+SRVC#CAPCA0118401,데이터검증규칙목록조회
+SRVC#CAPCA0118402,데이터검증규칙조회
+SRVC#CAPCA0118501,데이터검증규칙저장
+SRVC#CAPCA0118502,데이터검증SQL변환
+SRVC#CAPCA0128401,데이터검증결과목록조회
+SRVC#CAPCA0138101,데이터검증전체수행
+SRVC#CAPCA0138102,데이터검증목록수행
+SRVC#CAPCA0138401,데이터검증현황조회
+SRVC#CAPCA0148401,데이터검증오류상세목록조회
 SRVC#CAPCM0018400,코드명으로코드목록조회
 SRVC#CAPCM0038400,코드목록조회
+SRVC#CAPCM0038401,다수의 코드목록 조회
 SRVC#CAPCM0058101,채번규칙기본정보등록
 SRVC#CAPCM0058201,채번규칙기본수정
 SRVC#CAPCM0058202,채번규칙상세저장
@@ -38756,6 +40075,8 @@ SRVC#CAPST0068500,수수료산식검증
 SRVC#CAPST0078100,수수료산식 조건 등록
 SRVC#CAPST0078300,수수료산식 조건 삭제
 SRVC#CAPST0078400,수수료산식 조건 조회
+SRVC#CAPSV0008501,배포검증요청
+SRVC#CAPSV0008510,배포데이터추출
 SRVC#CAPSV0018401,제어센터목록조회
 SRVC#CAPSV0028101,제어센터기본등록
 SRVC#CAPSV0028102,제어센터상세저장
@@ -38785,6 +40106,7 @@ SRVC#CAPSV0060103,배포과제기본 생성 서비스
 SRVC#CAPSV0060104,배포과제기본 수정 서비스
 SRVC#CAPSV0060105,배포대상요건목록 서비스
 SRVC#CAPSV0060106,배포 변경이력 조회
+SRVC#CAPSV0060107,배포대상요건목록 서비스
 SRVC#CAPSV0060201,배포대상수신API
 SRVC#CAPSV0060202,배포타겟시스템요건반영서비스
 SRVC#CAPSV0060203,배포요청대상 상태업데이트 서비스
@@ -38866,6 +40188,10 @@ SRVC#CAPSV0608300,화면사용자권한삭제
 SRVC#CAPSV0608301,화면사용자권한목록삭제
 SRVC#CAPSV0608400,화면사용자권한조회
 SRVC#CAPSV0608401,화면사용자권한목록조회
+SRVC#CAPSV3020311,배포대상내역저장
+SRVC#CAPSV3020312,배포요청전송
+SRVC#CAPSV3020313,배포요청 저장및전송
+SRVC#CAPSV3020314,배포대상내역저장조회
 SRVC#CAPSV9008401,서비스목록조회
 SRVC#CAPWF0118401,워크플로우 목록 조회
 SRVC#CAPWF0128401,워크플로우 조회
@@ -38883,6 +40209,7 @@ SRVC#CAPWF4028401,결재조건상세조회
 SRVC#CAPWF4028402,책임자승인 조건정보 조회
 SRVC#CAPWF5018101,결재탬플릿명세 저장
 SRVC#CAPWF5018102,결재템플릿기본 저장
+SRVC#CAPWF5018103,승인템플릿 복사
 SRVC#CAPWF5018301,결재탬플릿명세 삭제
 SRVC#CAPWF5018302,결제템플릿기본 삭제
 SRVC#CAPWF5018401,결재탬플릿목록조회
@@ -39484,6 +40811,7 @@ SRVC#PMT0838401,센터컷 로그 조회
 SRVC#PMT0858401,센터컷오류목록조회
 SRVC#PMT0908100,워크플로우등록
 SRVC#PMT0908101,워크플로우변수등록
+SRVC#PMT0908102,워크플로우 복사
 SRVC#PMT0908197,워크플로우생성
 SRVC#PMT0908198,워크플로우승인테스트
 SRVC#PMT0908199,워크플로우테스트
@@ -39540,7 +40868,7 @@ SRVC#PMT9998201,연동거래체크서비스
 SRVC#PMT9998202,연동거래콜리서비스
 SRVC#PMT9998401,헬스체크서비스
 SRVC#PMT9998501,센터컷처리유닛브로커실행
-SRVC#PMT9998502,centercut unit processing
+SRVC#PMT9998502,센터컷 샘플 서비스2
 SRVC#PSF0010001,Register Individual Staff
 SRVC#PSF0010002,Register No Unique Idenditication Individual Staff
 SRVC#PSF0010401,Get Login ID Number
@@ -39824,6 +41152,9 @@ SRVC#SAR0009904,계약계획 테스트 서비스
 SRVC#SAR0009905,계약비밀번호 테스트 서비스
 SRVC#SAR0009906,계약추가속성 테스트 서비스
 SRVC#SAR0009907,ArrReal테스트
+SRVC#SAR0009908,ArrReal테스트 (관계)
+SRVC#SAR0009909,ArrReal 테스트서비스 (정보)
+SRVC#SAR0009910,계약그룹테스트서비스
 SRVC#SAR0010400,거래내역조회
 SRVC#SAR0010401,거래기본정보조회
 SRVC#SAR0010402,입출내역조회
@@ -39860,6 +41191,11 @@ SRVC#SAR0118401,계약계획실행이력조회
 SRVC#SAR0119900,계약 멤버쉽 테스트서비스
 SRVC#SAR0129900,계약 테스트 서비스
 SRVC#SAR0139900,계약내부계약 테스트 서비스
+SRVC#SAR0149900,구조계약 테스트 서비스
+SRVC#SAR0149901,가상계약 테스트 서비스
+SRVC#SAR0159900,계약금리조회테스트서비스
+SRVC#SAR0159901,계약금리재산정테스트서비스
+SRVC#SAR0159902,계약금리재산출테스트서비스
 SRVC#SAR0208100,계약관련계좌등록
 SRVC#SAR0208200,계약관련계좌변경
 SRVC#SAR0208300,계약관련계좌삭제
@@ -39928,7 +41264,14 @@ SRVC#SAR99Y0178,계약조건 테스트서비스
 SRVC#SBF0010103,적용후보혜택등록
 SRVC#SBF0010401,사용가능쿠폰목록조회
 SRVC#SBF0010402,고객적용혜택후보목록조회
+SRVC#SBF0100401,상품혜택적용 상세조회
+SRVC#SBF0100402,승인정보 생성
+SRVC#SBF0100403,서비스적용 시뮬레이션
+SRVC#SBF0100404,카드정보 팝업 조회
 SRVC#SBF9020401,API Ba 테스트
+SRVC#SBF9030401,혜택조건 테스트 서비스
+SRVC#SBF9040401,혜택 테스트 서비스
+SRVC#SBF9050401,혜택 매니저 테스트 서비스
 SRVC#SBP0008101,파트너 테스트 서비스
 SRVC#SBP1230101,파트너등록
 SRVC#SBP1230102,파트너계약신규
@@ -40114,6 +41457,7 @@ SRVC#SCU1138401,고객로그인 ID 조회
 SRVC#SCU1138402,핸드폰번호중복여부체크
 SRVC#SCU1138403,로그인Id중복체크
 SRVC#SCU1138404,고객신분증번호 등록여부 체크
+SRVC#SCU1141001,고유식별번호종료
 SRVC#SCU1148201,개인고객정보변경
 SRVC#SCU1148202,실명번호변경
 SRVC#SCU1148203,액터액터관계변경
@@ -40356,6 +41700,7 @@ SRVC#SDP0120400,출금계약검증
 SRVC#SDP0130101,수신원가결산입금 센터컷
 SRVC#SDP0130200,정기예금이자지급
 SRVC#SDP0130300,정기예금이자지급(센터컷)
+SRVC#SDP0130400,이자지급가능횟수조회
 SRVC#SDP0131101,Deposit Capitalization Settlement for Center Cut Test
 SRVC#SDP0140000,가입ADD조회서비스
 SRVC#SDP0140200,수신일부출금
@@ -40668,6 +42013,7 @@ SRVC#SLN9980401,Settlement Test
 SRVC#SLN9990001,P2P 거래 테스트
 SRVC#SLN9999990,여신 테스트
 SRVC#SLN9999991,여신 테스트
+SRVC#SLN9999992,여신 대외 인터페이스
 SRVC#SNP0000000,내부결제계약신규
 SRVC#SNP0010100,현금 충전
 SRVC#SNP0020100,출금 요청
@@ -40760,6 +42106,12 @@ SRVC#SPD9130401,상품 템플릿 테스트 서비스
 SRVC#SPD9140401,상품거래서비스 테스트 서비스
 SRVC#SPD9150401,포인트조건 테스트 서비스
 SRVC#SPD9160401,포인트 테스트 서비스
+SRVC#SPD9170401,연체기준일산정
+SRVC#SPD9170402,다음납입일계산
+SRVC#SPD9170403,희망이수기간 및 계산구간 산출
+SRVC#SPD9170405,유형별 구간세분화 테스트
+SRVC#SPD9170406,이자계산통합테스트
+SRVC#SPD9170407,CrLnIcAssembler 테스트
 SRVC#SPD9990401,상품조회테스트1
 SRVC#SPD9990402,상품조회테스트2
 SRVC#SPD9990403,BSCSvcInfo Test
@@ -40953,6 +42305,8 @@ SRVC#SSF1020501,스태프 소속부서정보 등록
 SRVC#SSF1020502,스태프 소속부서정보 변경
 SRVC#SSF1020503,스태프역할등록
 SRVC#SSF1020504,스태프 역할 변경
+SRVC#SSF1218102,비밀번호 찾기를 위한 SMS 전송요청
+SRVC#SSF1218401,본인인증확인
 SRVC#SSF1508201,스태프확장속성목록조회
 SRVC#SSF2000001,부서별사용자목록조회
 SRVC#SSF2000002,부서별 스태프 역할목록조회

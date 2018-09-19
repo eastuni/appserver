@@ -1,8 +1,0 @@
-OMM bankware.corebanking.externalproxy.message.interfaces.dto.ArsGiroHst2
-<description="0420/0430: 지로대금 일괄 납부 (재)취소 Array">
-{
-	String orgnlTxUnqNbr<length=12 description="원거래고유번호">;
-	String pymntAmt<length=10 description="납부금액">;
-	String fillerCntnt10<length=10 description="FILLER10">;
-	String prcsRspnsCd<length=3 description="처리응답코드">;
-}

@@ -1,0 +1,178 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'online.link-flow-management'}}
+    <p class="desc">{{bxMsg 'online.link-flow-management-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+
+<!--연동 플로우 목록-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<section class="search-wrap link-flow-management-search">
+    <ul class="clr">
+        <li class="input-wrap w-25">
+            <label class="bw-label w-40">{{bxMsg 'online.link-representative-code'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="linkMainCd"/>
+        </li>
+        <li class="input-wrap w-25">
+            <label class="bw-label w-40">{{bxMsg 'online.start-trading-code'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="linkStartTrxCd"/>
+        </li>
+    </ul>
+</section>
+<section class="link-flow-management-grid"></section>
+<!--/END 연동 플로우 목록-->
+
+<!--연동 플로우 상세-->
+<h3 class="bw-stt add-mg-t">{{bxMsg 'online.link-flow-management-detail'}}<p class="desc link-flow-management-detail-title"></p></h3>
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn edit-link-flow-management-btn" data-mode="read" title="{{bxMsg 'common.edit'}}">
+            <i class="bw-icon i-25 i-func-edit"></i>
+        </button>
+        <button type="button" class="bw-btn save-link-flow-management-btn" data-mode="edit" title="{{bxMsg 'common.save'}}" style="display: none;">
+            <i class="bw-icon i-25 i-func-save"></i>
+        </button>
+        <button type="button" class="bw-btn cancel-link-flow-management-btn" data-mode="edit" title="{{bxMsg 'common.cancel'}}" style="display: none;">
+            <i class="bw-icon i-15 bw-close"></i>
+        </button>
+    </div>
+</section>
+<section class="search-wrap clr link-flow-management-detail bx-loding-wrap">
+    <span class="bw-stt">#{{bxMsg 'online.link-processing-flowchart'}}({{bxMsg 'online.link-representative-code'}}:<p class="desc link-flow-management-detail-title"></p>)</span>
+    <div class="clr">
+        <section class="add-bd w-65 f-l link-flow-chart" style="min-width: 625px; min-height: 405px; height: 405px;"></section>
+        <ul class="add-bd w-34 f-r link-flow-description">
+            <li class="link-flow-description-title">
+                <span class="bw-stt">{{bxMsg 'online.linkedTrxProperties'}}</span>
+            </li>
+            <li>
+                <span class="link-flow-description-icon-wrapper"><i class="bw-icon i-flowchart-link"></i></span>
+                <span>{{bxMsg 'online.link-trading-division'}}</span>
+            </li>
+            <li>
+                <span class="link-flow-description-icon-wrapper"><i class="bw-icon i-flowchart-confirm2"></i></span>
+                <span>{{bxMsg 'online.linkedOutputMapping'}}</span>
+            </li>
+            <li>
+                <span class="link-flow-description-icon-wrapper"><i class="bw-icon i-flowchart-output"></i></span>
+                <span>{{bxMsg 'online.linkedOutputProcessingPgm'}}</span>
+            </li>
+
+            <li class="link-flow-description-title">
+                <span class="bw-stt">{{bxMsg 'online.subTrxProperties'}}</span>
+            </li>
+            <li>
+                <span class="link-flow-description-icon-wrapper"><i class="bw-icon i-flowchart-start"></i></span>
+                <span>{{bxMsg 'online.launchTrx'}}</span>
+            </li>
+            <li>
+                <span class="link-flow-description-icon-wrapper"><i class="bw-icon i-flowchart-tx"></i></span>
+                <span>{{bxMsg 'online.txProcessingType'}}</span>
+            </li>
+
+            <li class="link-flow-description-title">
+                <span class="bw-stt">{{bxMsg 'online.subTrxTransformProperties'}}</span>
+            </li>
+            <li>
+                <span class="link-flow-description-icon-wrapper"><i class="bw-icon i-flowchart-check"></i></span>
+                <span>{{bxMsg 'online.inputConfirm'}}</span>
+            </li>
+            <li>
+                <span class="link-flow-description-icon-wrapper"><i class="bw-icon i-flowchart-confirm"></i></span>
+                <span>{{bxMsg 'online.inputMapping'}}</span>
+            </li>
+            <li>
+                <span class="link-flow-description-icon-wrapper"><i class="bw-icon i-flowchart-pre"></i></span>
+                <span>{{bxMsg 'online.linkPreProcessPgm'}}</span>
+            </li>
+            <li>
+                <span class="link-flow-description-icon-wrapper"><i class="bw-icon i-flowchart-post"></i></span>
+                <span>{{bxMsg 'online.linkPostProcessPgm'}}</span>
+            </li>
+            <li>
+                <span class="link-flow-description-icon-wrapper"><i class="bw-icon i-flowchart-output-division"></i></span>
+                <span>{{bxMsg 'online.basic-output'}}</span>
+            </li>
+            <li>
+                <span class="link-flow-description-icon-wrapper"><i class="bw-icon i-flowchart-output-save"></i></span>
+                <span>{{bxMsg 'online.outputSave'}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <span class="bw-stt add-mg-t">#{{bxMsg 'online.link-flow-main-detail'}}</span>
+    <section class="search-wrap clr read-only-wrap link-flow-chart-main">
+        <ul class="clr">
+            <li class="w-34">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-40">{{bxMsg 'online.start-trading-code'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="linkStartTrxCd" data-pk="true" disabled/>
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'online.start-trading-name'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="linkStartTrxNm" data-pk="true" disabled/>
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'online.use-yn'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="useYn" disabled>
+                        <option value="Y">Y</option>
+                        <option value="N">N</option>
+                    </select>
+                </div>
+            </li>
+            <li class="w-34">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'online.link-representative-code'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="linkMainCd" data-pk="true" disabled/>
+                </div>
+            </li>
+            <li class="w-33">
+                <div class="input-wrap clr">
+                    <label class="bw-label modified-pwd w-40">{{bxMsg 'online.link-trading-division'}}</label>
+                    <input type="text" class="bw-input w-60" data-form-param="linkTrxTypeCd" data-code="BXMAD0034" data-pk="true" disabled/>
+                </div>
+            </li>
+        </ul>
+        <ul class="clr">
+            <li class="w-34">
+                <div class="input-wrap clr">
+                    <label class="bw-label modified-check-pwd w-40">{{bxMsg 'online.link-output-confirm-yn'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="linkOutputCheckYn" disabled>
+                        <option value="Y">Y</option>
+                        <option value="N">N</option>
+                    </select>
+                </div>
+            </li>
+            <li class="w-66">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-20">{{bxMsg 'online.link-output-confirm-fqn'}}</label>
+                    <input type="text" class="bw-input w-80" data-form-param="linkOutputFqn" disabled/>
+                </div>
+            </li>
+            <li class="w-34">
+                <div class="input-wrap clr">
+                    <label class="bw-label modified-check-pwd w-40">{{bxMsg 'online.link-output-mapping-division'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="linkOutputMappingType" disabled></select>
+                </div>
+            </li>
+        </ul>
+
+        <div class="link-out-mapping-grid-wrap">
+            <span class="bw-stt">{{bxMsg 'online.link-output-mapping-detail'}}</span>
+            <div class="add-bd2-t link-out-mapping-grid"></div>
+        </div>
+    </section>
+
+    <span class="bw-stt add-mg-t">#{{bxMsg 'online.link-flow-detail-information'}}</span>
+    <div class="add-bd read-only-wrap link-flow-detail-accordion"></div>
+</section>
+<!--/END Image 상세-->

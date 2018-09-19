@@ -3,11 +3,13 @@ define(
      	'bx/common/common-info',
         'text!app/views/page/CAPMT/090/_CAPMT090.html',
         'bx-component/ext-grid/_ext-grid'
+        , 'app/views/page/popup/CAPMT/popup-copy'
     ],
     function (
         commonInfo,
         tpl,
-        ExtGrid
+        ExtGrid,
+        PopupWfCopy
     ) {
 
 
@@ -17,6 +19,7 @@ define(
         var recordParam = null;
         var deleteList = [];
         var initFlag = true;
+        var copyParam = {};
 
         /**
          * Backbone
@@ -32,31 +35,25 @@ define(
             },
             // set Events
             events: {
-
-
                 /*
                  * search-condition-area
                  */
                 'click #btn-search-condition-reset': 'resetSearchCondition',
                 'click #btn-search-condition-inquire': 'inquireSearchCondition',
                 'click #btn-search-condition-toggle': 'toggleSearchCondition',
-
-
                 /*
                  * search-result-area
                  */
                 'click #btn-search-result-reset': 'resetSearchResult',
+                'click #btn-search-result-copy': 'copySelectRow',
                 'click #btn-search-result-save': 'saveSearchResult',
                 'click #btn-search-result-toggle': 'toggleSearchResult',
-
-
                 /*
                  * baseAtrbt-area
                  */
                 'click #btn-baseAtrbt-reset': 'resetBasicAttribute',
                 'click #btn-baseAtrbt-save': 'saveWorkflow',
                 'click #btn-baseAtrbt-toggle': 'toggleBasicAttribute',
-
                 /*
                  * 
                  */
@@ -64,7 +61,6 @@ define(
                 'click #CAPMT090-manage-variable-btn': 'manageVariable',
                 'click #CAPMT090-manage-role-btn': 'manageRole'
             },
-
 
             /**
              * initialize
@@ -78,22 +74,8 @@ define(
                 this.createGrid();
                 self = this;
                 
-//                comboStore2 = Ext.create('Ext.data.Store', {
-//                	fields: ['cd', 'cdNm'],
-//                    data : [
-//                        {cd: 'N',   cdNm: '표준'},
-//                        {cd: 'A',    cdNm: '승인'},
-//                        {cd: 'E',     cdNm: '편집'},
-//                        {cd: 'F', cdNm: '운영'},
-//                        {cd: 'C', cdNm: '마감'},
-//                        {cd: 'T', cdNm: '폐기'},
-//                        {cd: 'D', cdNm: '삭제'}
-//                    ]
-//                });
-                
-                
-                header = fn_getHeader("CAPCM0038400");
-                sParam = {};
+                var header = fn_getHeader("CAPCM0038400");
+                var sParam = {};
                 sParam.cdNbr = "A1092";
                 var linkData1 = {
                     "header": header,
@@ -113,14 +95,9 @@ define(
                             }
                         }
                     }
-   	              
-
-
    	          ], {
                     success: function () {}
                 });
-
-                
                 
                 sParam = {};
                 sParam.className = "search-condition-area.CAPMT090-workflowStsCd-wrap";
@@ -160,19 +137,15 @@ define(
 
 
             setComboStore: function () {
-                header = fn_getHeader("CAPCM0038400");
+                var header = fn_getHeader("CAPCM0038400");
 
 
-                sParam = {};
+                var sParam = {};
                 sParam.cdNbr = "80015";
                 var linkData1 = {
                     "header": header,
                     "CaCmnCdSvcGetCdListByCdNbrIn": sParam
                 };
-
-
-
-
 
                 bxProxy.all([
    	              // 상품대분류코드
@@ -189,8 +162,6 @@ define(
                         }
                     }
    	              // 금액유형코드 콤보코드 로딩
-   	              
-
 
    	          ], {
                     success: function () {}
@@ -213,7 +184,6 @@ define(
                              'instncCnt', 'wflowDescCntnt',  'wflowBizDscd', 'lastChngGuid'],
                     id: 'CAPMT090Grid',
                     columns: [
-
 
                          /*
                           *  Row index
@@ -376,15 +346,6 @@ define(
                         },
 
 
-                       
-
-
-        
-
-
-                      
-
-
                         /*
                          * 관리번호
                          */
@@ -394,11 +355,6 @@ define(
                             dataIndex: 'prjArrNo',
                             hidden: true
                         },
-
-
-
-
-
 
                         /*
                          * Delete
@@ -421,9 +377,6 @@ define(
                                 }
                             ]
                         }
-
-
-
 
                      ], // end of columns
 
@@ -529,8 +482,6 @@ define(
                                  if (tbList != null || tbList.length > 0) {
                                      that.CAPMT090Grid.setData(tbList);
                                      that.$el.find(".searchResultCount").html(bxMsg('cbb_items.SCRNITM#srchRslt') + " (" + fn_setComma(totCnt) + " " + bxMsg('cbb_items.SCRNITM#cnt') + ")");
-
-
                                  }
                              }
                          }
@@ -538,13 +489,6 @@ define(
                  });
                  
             },
-            
-           
-
-
-
-
-
 
             /*
              * Rest search condition area
@@ -572,7 +516,6 @@ define(
                 this.CAPMT090Grid.resetData();
                 this.$el.find(".searchResultCount").html(bxMsg('cbb_items.SCRNITM#srchRslt'));
             },
-            
 
             /*
              * Reset basic attribute
@@ -592,10 +535,7 @@ define(
                 this.$el.find('#baseAtrbt-area  [data-form-param="manageVariable"]').hide();
                 this.$el.find('#baseAtrbt-area  [data-form-param="manageRole"]').hide();
 
-
             },
-
-
 
             /*
              * Select a grid record
@@ -603,18 +543,14 @@ define(
             selectGridRecord: function () {
                 var that = this;
 
-
                 if(!this.CAPMT090Grid.grid.getSelectionModel().selected.items[0]) return;
                 var selectedRecord = this.CAPMT090Grid.grid.getSelectionModel().selected.items[0].data;
-
 
                 if (!selectedRecord) {
                     return;
                 }
 
-
                 that.initFlag = false;
-
 
                 this.$el.find('#baseAtrbt-area  [data-form-param="workflowId"]').val(selectedRecord.wflowId);
                 this.$el.find('#baseAtrbt-area  [data-form-param="workflowNm"]').val(selectedRecord.wflowNm);
@@ -663,17 +599,55 @@ define(
 	            	this.$el.find('#baseAtrbt-area  [data-form-param="workflowStsCd"] option[value="D"]').hide();           
 	            }
             
-                
             },
 
+            /*
+             * copy select workflow 
+             */
+            copySelectRow: function(){
+                if(!this.CAPMT090Grid.grid.getSelectionModel().selected.items[0]) return;
+                var data = this.CAPMT090Grid.grid.getSelectionModel().selected.items[0].data;
 
+                if (!data) {
+                    return;
+                }
+                
+    			var that = this;
+    			that.copyParam = {};
+    			that.copyParam.wflowId= data.wflowId;
+    			that.copyParam.instCd= commonInfo.getInstInfo().instCd;
+    			
+    			var popupParam={};
+    			popupParam.fromInstNm=commonInfo.getInstInfo().instNm;
+    			popupParam.fromWflowNm=data.wflowNm;
+    			
+    			var popupWfCopy = new PopupWfCopy(popupParam);
+    			popupWfCopy.render();
 
+    			popupWfCopy.on('popUpSetData', function(data) {
+    				 that.copyParam.instCd2 = data.instCd;
+    				 that.copyParam.wflowNm = data.wflowNm;
+    				 var linkData = {"header": fn_getHeader("PMT0908102"), "WorkflowMgmtSvcIO":  that.copyParam};
+    				 // ajax호출
+    				 bxProxy.post(sUrl, JSON.stringify(linkData), {
+    					 enableLoading: true
+    					 , success: function (responseData) {
+    						 if (fn_commonChekResult(responseData)) {
+    							 fn_alertMessage("", bxMsg('cbb_items.SCRNITM#success'));
+    							 that.deleteList = [];
+    							 that.inquireSearchCondition();
+    							 that.resetBasicAttribute();
+    						 }
+    					 }   // end of suucess: fucntion
+    				 }); // end of bxProxy
+    			});
+            },
+            
             /*
              * Confirm delete item
              */
             saveSearchResult: function(){
             	var that = this;
-
 
             	/*
             	 * if delete list is empty
@@ -688,16 +662,13 @@ define(
 //                    return;
 //                }
 
-
                 function saveData() {
                     var table = [];
                     var sParam = {};
 
-
                     $(that.deleteList).each(function(idx, data) {
                         var sub = {};
                         sub.instCd = commonInfo.getInstInfo().instCd;
-
 
                         sub.wflowId = data.wflowId;
                         sub.wflowNm=data.wflowNm;
@@ -706,16 +677,11 @@ define(
                         sub.wflowDescCntnt=data.wflowDescCntnt;
                         sub.wflowTpCd=data.wflowTpCd;
                         sub.lastChngGuid=data.lastChngGuid;
-
                         
                         table.push(sub);
                     });
 
-
                     sParam.tblNm = table;
-
-
-
 
                     var linkData = {"header": fn_getHeader("PMT0908301"), "WorkflowMgmtSvcIOList": sParam};
 
@@ -727,7 +693,6 @@ define(
                             if (fn_commonChekResult(responseData)) {
                                 fn_alertMessage("", bxMsg('cbb_items.SCRNITM#success'));
 
-
                                 that.deleteList = [];
                                 that.inquireSearchCondition();
                                 that.resetBasicAttribute();
@@ -736,10 +701,8 @@ define(
                     }); // end of bxProxy
                 }
 
-
                 fn_confirmMessage(event, bxMsg('cbb_items.SCRNITM#B_delete'), bxMsg('cbb_items.SCRNITM#data-delete-msg'), saveData, this);
             },
-
 
             /*
              * save workflow
@@ -799,7 +762,6 @@ define(
             
             manageStep: function(){
 
-
             	this.$el.trigger({
                     type: 'open-conts-page',
                     pageHandler: 'CAPMT091',
@@ -858,14 +820,12 @@ define(
             	});
             },
 
-
             getYn: function(obj){
             	if($(obj).attr('checked'))
             		return "Y";
             	else
             		return "N";
             },
-
 
             fillBlank: function(obj){
             	if(obj != "")
@@ -874,7 +834,6 @@ define(
             		return '@';
             },
 
-
             unFillBlank: function(obj){
             	if(obj == "@")
             		return "";
@@ -882,15 +841,7 @@ define(
             		return obj;
             }
 
-
-
-
-
-
-
-
         }); // end of Backbone.View.extend({
-
 
         return CAPMT090View;
     } // end of define function

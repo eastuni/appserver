@@ -62,6 +62,73 @@ define(
                     that.initData = initData;
 
 
+                    // 2018.05.29  keewoong.hong  Subtask #10531 [CAS-Multilingual] (BPI 지원) 다국어 언어 추가 요청 (따갈로그어, 세부아노어)
+                    // 관리 하고자 하는 언어 1, 2, 3 선택                      
+                	var sParam = {};
+                	sParam.instCd  = $.sessionStorage('headerInstCd');
+                	sParam.cdNbr   = "10005";
+
+            		var linkData = {"header": fn_getHeader("CAPCM0038400"), "CaCmnCdSvcGetCdListByCdNbrIn": sParam};
+
+            		
+                    that.lngCd1 = "";
+                    that.lngCd2 = "";
+                    that.lngCd3 = "";
+                    
+            		var lngCdNm1 = "";
+            		var lngCdNm2 = "";
+            		var lngCdNm3 = "";
+
+                    // ajax호출
+                    bxProxy.post(sUrl, JSON.stringify(linkData), {
+                        enableLoading: false
+                        , success: function (responseData) {
+
+                        	if(responseData.CaCmnCdSvcGetCdListByCdNbrOut.tblNm.length > 0) {
+                        		$(responseData.CaCmnCdSvcGetCdListByCdNbrOut.tblNm).each(function(idx, data) {
+                    				if(idx == 0) {
+                    					lngCdNm1 = data.cdNm;
+                    					that.lngCd1 = data.cd;
+                    				} else if(idx == 1) {
+                    					lngCdNm2 = data.cdNm;
+                    					that.lngCd2 = data.cd;
+                    				} else if(idx == 2) {
+                    					lngCdNm3 = data.cdNm;
+                    					that.lngCd3 = data.cd;
+                    				}
+                        		});
+                        		
+                        		// 하단 상세 항목 타이틀 변경 (에러메시지)
+                        		that.$el.find("#CAPCM090-detail-table #label_msgCntntTrnsfrRsltVal1").text(lngCdNm1 + bxMsg('cbb_items.AT#msgCntnt'));
+                        		that.$el.find("#CAPCM090-detail-table #label_msgCntntTrnsfrRsltVal2").text(lngCdNm2 + bxMsg('cbb_items.AT#msgCntnt'));
+                        		that.$el.find("#CAPCM090-detail-table #label_msgCntntTrnsfrRsltVal3").text(lngCdNm3 + bxMsg('cbb_items.AT#msgCntnt'));
+                        		that.$el.find("#CAPCM090-detail-table #label_msgCntntTrnsfrRsltVal1").prop("title", lngCdNm1 + bxMsg('cbb_items.AT#msgCntnt'));
+                        		that.$el.find("#CAPCM090-detail-table #label_msgCntntTrnsfrRsltVal2").prop("title", lngCdNm2 + bxMsg('cbb_items.AT#msgCntnt'));
+                        		that.$el.find("#CAPCM090-detail-table #label_msgCntntTrnsfrRsltVal3").prop("title", lngCdNm3 + bxMsg('cbb_items.AT#msgCntnt'));
+                        		
+                        		// 하단 상세 항목필드 placeholer 변경 (에러메시지)
+                        		that.$el.find('#CAPCM090-detail-table [data-form-param="msgCntntTrnsfrRsltVal1"]').prop("placeholder", lngCdNm1 + bxMsg('cbb_items.AT#msgCntnt'));
+                        		that.$el.find('#CAPCM090-detail-table [data-form-param="msgCntntTrnsfrRsltVal2"]').prop("placeholder", lngCdNm2 + bxMsg('cbb_items.AT#msgCntnt'));
+                        		that.$el.find('#CAPCM090-detail-table [data-form-param="msgCntntTrnsfrRsltVal3"]').prop("placeholder", lngCdNm3 + bxMsg('cbb_items.AT#msgCntnt'));
+                        		
+                        		// 하단 상세 항목 타이틀 변경 (조치메시지)
+                        		that.$el.find("#CAPCM090-detail-table #label_trtmntCntntTrnsfrRsltVal1").text(lngCdNm1 + bxMsg('cbb_items.AT#trtmntCntnt'));
+                        		that.$el.find("#CAPCM090-detail-table #label_trtmntCntntTrnsfrRsltVal2").text(lngCdNm2 + bxMsg('cbb_items.AT#trtmntCntnt'));
+                        		that.$el.find("#CAPCM090-detail-table #label_trtmntCntntTrnsfrRsltVal3").text(lngCdNm3 + bxMsg('cbb_items.AT#trtmntCntnt'));
+                        		that.$el.find("#CAPCM090-detail-table #label_trtmntCntntTrnsfrRsltVal1").prop("title", lngCdNm1 + bxMsg('cbb_items.AT#trtmntCntnt'));
+                        		that.$el.find("#CAPCM090-detail-table #label_trtmntCntntTrnsfrRsltVal2").prop("title", lngCdNm2 + bxMsg('cbb_items.AT#trtmntCntnt'));
+                        		that.$el.find("#CAPCM090-detail-table #label_trtmntCntntTrnsfrRsltVal3").prop("title", lngCdNm3 + bxMsg('cbb_items.AT#trtmntCntnt'));
+                        		
+                        		// 하단 상세 항목필드 placeholer 변경 (조치메시지)
+                        		that.$el.find('#CAPCM090-detail-table [data-form-param="trtmntCntntTrnsfrRsltVal1"]').prop("placeholder", lngCdNm1 + bxMsg('cbb_items.AT#trtmntCntnt'));
+                        		that.$el.find('#CAPCM090-detail-table [data-form-param="trtmntCntntTrnsfrRsltVal2"]').prop("placeholder", lngCdNm2 + bxMsg('cbb_items.AT#trtmntCntnt'));
+                        		that.$el.find('#CAPCM090-detail-table [data-form-param="trtmntCntntTrnsfrRsltVal3"]').prop("placeholder", lngCdNm3 + bxMsg('cbb_items.AT#trtmntCntnt'));
+                        		
+                        	}
+                        }   // end of suucess: fucntion
+                    }); // end of bxProxy
+                    
+                    
                     that.comboStore1 = {}; // 메시지구분
                     that.comboStore2 = {}; // 채널
                     that.comboStore3 = {}; // 업무구분
@@ -473,16 +540,16 @@ define(
                     that.$el.find('.CAPCM090-detail-table [data-form-param="errorLvlCd"] option:eq(0)').attr("selected", "selected");
 
 
-                    that.$el.find('.CAPCM090-detail-table [data-form-param="koMsgCntnt"]').val("");
-                    that.$el.find('.CAPCM090-detail-table [data-form-param="koTrtmntCntnt"]').val("");
+                    that.$el.find('.CAPCM090-detail-table [data-form-param="msgCntntTrnsfrRsltVal1"]').val("");
+                    that.$el.find('.CAPCM090-detail-table [data-form-param="trtmntCntntTrnsfrRsltVal1"]').val("");
 
 
-                    that.$el.find('.CAPCM090-detail-table [data-form-param="enMsgCntnt"]').val("");
-                    that.$el.find('.CAPCM090-detail-table [data-form-param="enTrtmntCntnt"]').val("");
+                    that.$el.find('.CAPCM090-detail-table [data-form-param="msgCntntTrnsfrRsltVal2"]').val("");
+                    that.$el.find('.CAPCM090-detail-table [data-form-param="trtmntCntntTrnsfrRsltVal2"]').val("");
 
 
-                    that.$el.find('.CAPCM090-detail-table [data-form-param="zhMsgCntnt"]').val("");
-                    that.$el.find('.CAPCM090-detail-table [data-form-param="zhTrtmntCntnt"]').val("");
+                    that.$el.find('.CAPCM090-detail-table [data-form-param="msgCntntTrnsfrRsltVal3"]').val("");
+                    that.$el.find('.CAPCM090-detail-table [data-form-param="trtmntCntntTrnsfrRsltVal3"]').val("");
 
 
                  // pk readonly 처리
@@ -688,42 +755,16 @@ define(
                      sParam.msgScrnSrvrDscd = that.$el.find('.CAPCM090-detail-table [data-form-param="msgScrnSrvrDscd"]').val();
                      sParam.errLvlCd = that.$el.find('.CAPCM090-detail-table [data-form-param="errorLvlCd"]').val();
 
-//
-//                     if (sParam.prjctDscd === '' || sParam.prjctDscd === undefined || sParam.prjctDscd === null) {
-//                         alertMessage.error(bxMsg('cbb_err_msg.AUICME0015'));
-//
-//
-//                         return;
-//                     }
-//
-//
-//                     if (sParam.msgScrnSrvrDscd === '' || sParam.msgScrnSrvrDscd === undefined || sParam.msgScrnSrvrDscd === null) {
-//                         alertMessage.error(bxMsg('cbb_err_msg.AUICME0022'));
-//
-//
-//                         return;
-//                     }
-//
-//
-//                     if (sParam.errLvlCd === '' || sParam.errLvlCd === undefined || sParam.errLvlCd === null) {
-//                         alertMessage.error(bxMsg('cbb_err_msg.AUICUE0007'));
-//
-//
-//                         return;
-//                     }
-//
-//
-//                     if (sParam.msgCd != '' && sParam.msgCd.substring(3, 5) != sParam.prjctDscd) {
-//                         alertMessage.error(bxMsg('cbb_err_msg.AUICME0016'));
-//
-//
-//                         return;
-//                     }
 
-
-                     sParam.errMsgList = that.setErrMsgList(sParam, 'ko', sParam.errMsgList, that);
-                     sParam.errMsgList = that.setErrMsgList(sParam, 'en', sParam.errMsgList, that);
-                     sParam.errMsgList = that.setErrMsgList(sParam, 'zh', sParam.errMsgList, that);
+                     if (that.lngCd1 != null && that.lngCd1 != "") {
+                    	 sParam.errMsgList = that.setErrMsgList(sParam, that.lngCd1, '1', sParam.errMsgList, that);
+                     }
+                     if (that.lngCd2 != null && that.lngCd2 != "") {
+                    	 sParam.errMsgList = that.setErrMsgList(sParam, that.lngCd2, '2', sParam.errMsgList, that);
+                     }
+                     if (that.lngCd3 != null && that.lngCd3 != "") {
+                    	 sParam.errMsgList = that.setErrMsgList(sParam, that.lngCd3, '3', sParam.errMsgList, that);
+                     }
 
 
                      var linkData = {"header": fn_getHeader("CAPCM0908101"),"CaErrMsgMgmtSvcSaveErrMsgListIn": sParam};
@@ -746,7 +787,7 @@ define(
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////  에러메시지목록 설정                    /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////                
-                , setErrMsgList : function(sParam, lngCd, errMsgList, that) {
+                , setErrMsgList : function(sParam, lngCd, idx, errMsgList, that) {
                 	var record = {};
 
 
@@ -757,8 +798,8 @@ define(
 
                     record.chnlCd = that.$el.find('.CAPCM090-detail-table [data-form-param="chnlCd"]').val();
                     record.lngCd = lngCd;
-                    record.msgCntnt = that.$el.find('.CAPCM090-detail-table [data-form-param="'+lngCd+'MsgCntnt"]').val();
-                    record.trtmntCntnt = that.$el.find('.CAPCM090-detail-table [data-form-param="'+lngCd+'TrtmntCntnt"]').val();
+                    record.msgCntnt = that.$el.find('.CAPCM090-detail-table [data-form-param="msgCntntTrnsfrRsltVal'+idx+'"]').val();
+                    record.trtmntCntnt = that.$el.find('.CAPCM090-detail-table [data-form-param="trtmntCntntTrnsfrRsltVal'+idx+'"]').val();
                     errMsgList.push(record);
 
 
@@ -821,8 +862,19 @@ define(
 
 
                                         $(tbList).each(function(idx, data) {
-                                        	that.$el.find('.CAPCM090-detail-table [data-form-param="'+data.lngCd+'MsgCntnt"]').val(data.msgCntnt);
-                                            that.$el.find('.CAPCM090-detail-table [data-form-param="'+data.lngCd+'TrtmntCntnt"]').val(data.trtmntCntnt);
+
+                                        	// 2018.05.30  keewoong.hong  사용언어에 맞게 값을 셋팅함.
+                            				if(data.lngCd == that.lngCd1) {
+                            					that.$el.find('.CAPCM090-detail-table [data-form-param="msgCntntTrnsfrRsltVal1"]').val(data.msgCntnt);
+                            					that.$el.find('.CAPCM090-detail-table [data-form-param="trtmntCntntTrnsfrRsltVal1"]').val(data.trtmntCntnt);
+                            				} else if(data.lngCd == that.lngCd2) {
+                            					that.$el.find('.CAPCM090-detail-table [data-form-param="msgCntntTrnsfrRsltVal2"]').val(data.msgCntnt);
+                            					that.$el.find('.CAPCM090-detail-table [data-form-param="trtmntCntntTrnsfrRsltVal2"]').val(data.trtmntCntnt);
+                            				} else if(data.lngCd == that.lngCd3) {
+                            					that.$el.find('.CAPCM090-detail-table [data-form-param="msgCntntTrnsfrRsltVal3"]').val(data.msgCntnt);
+                            					that.$el.find('.CAPCM090-detail-table [data-form-param="trtmntCntntTrnsfrRsltVal3"]').val(data.trtmntCntnt);
+                            				}
+                            				
                                         });
 
 

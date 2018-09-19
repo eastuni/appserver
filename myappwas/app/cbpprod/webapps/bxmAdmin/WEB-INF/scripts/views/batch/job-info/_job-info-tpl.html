@@ -1,0 +1,122 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'batch.batch-job-manage'}}
+    <p class="desc">{{bxMsg 'batch.batch-job-manage-msg'}}</p>
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap job-info-search">
+    <!--INPUT TYPE1 * 분할 없이 INLINE-->
+    <ul class="col-3 clr batch-type-field">
+        <li class="input-wrap">
+            <div>
+                <label class="bw-label w-35">{{bxMsg 'batch.batch-type'}}</label>
+                <select type="text" class="bw-input ipt-select w-65" data-form-param="jobTypeCd"></select>
+            </div>
+        </li>
+    </ul>
+    <ul class="col-3 clr">
+        <li class="input-wrap">
+            <label class="bw-label w-35">{{bxMsg 'batch.job-id'}}</label>
+            <input type="text" class="bw-input w-65" data-form-param="jobId"/>
+        </li>
+        <li class="input-wrap">
+            <label class="bw-label w-35">{{bxMsg 'batch.job-nm'}}</label>
+            <input type="text" class="bw-input w-65" data-form-param="jobNm"/>
+        </li>
+    </ul>
+    <!--/END INPUT TYPE1-->
+</section>
+<!--/END SEARCH AREA-->
+<!--GRID AREA-->
+<section class="bw-grid job-info-grid"></section>
+<!--/END GRID AREA-->
+<!--BW-SUB TITLE * 컨텐츠 서브타이틀-->
+<h3 class="bw-stt add-mg-t">{{bxMsg 'batch.batch-job-detail'}}<p class="desc job-info-detail-title"></p></h3>
+<!--/END BW-SUB TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn edit edit-job-info-btn" title="{{bxMsg 'common.edit'}}">
+            <i class="bw-icon i-25 i-func-edit"></i>
+        </button>
+        <button type="button" class="bw-btn f-r run-job-btn" title="{{bxMsg 'common.run'}}">
+            <i class="svg-icon i-25 i-start-2"></i>
+        </button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--INFO AREA * 상세 영역-->
+<section class="search-wrap clr job-info-detail bx-loding-wrap">
+    <ul class="col-3 clr batch-type-field">
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.batch-type'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="jobTypeCd" data-code="BXMAD0012" readonly />
+            </div>
+        </li>
+    </ul>
+    <ul class="col-3 clr">
+        <li>
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.job-id'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="jobId" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.job-nm'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="jobNm" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap asterisk clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.app-nm'}}</label>
+                <input type="text" class="bw-input w-50" data-form-param="bxmAppId" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.use-yn'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="useYn" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-40">{{bxMsg 'batch.log-level'}}</label>
+                <input type="text" class="bw-input w-60" data-form-param="logLvNm" data-code="BXMAD0009" readonly />
+            </div>
+        </li>
+        <li>
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.duplicate-execution-yn'}}</label>
+                <input type="text" class="bw-input w-50" data-form-param="dupExecUseYn" readonly />
+            </div>
+        </li>
+    </ul>
+    <ul class="clr">
+        <li class="input-wrap w-33">
+            <label class="bw-label w-40">{{bxMsg 'batch.job-allowed-date'}}</label>
+            <input type="text" class="bw-input w-25" data-form-param="jobUseStartDt" readonly/>
+            <input type="text" class="bw-input w-7" value="~" readonly/>
+            <input type="text" class="bw-input w-25" data-form-param="jobUseEndDt" readonly/>
+        </li>
+    </ul>
+    <ul class="clr">
+        <li class="w-65">
+            <div class="input-wrap clr">
+                <label class="bw-label w-20">{{bxMsg 'batch.commit-setting-list'}}</label>
+                <input type="text" class="bw-input w-80" data-form-param="commitCfgList" readonly />
+            </div>
+        </li>
+    </ul>
+</section>
+<!--/END INFO AREA-->

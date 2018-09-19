@@ -84,7 +84,7 @@
 					</td>
 					<td class="td-w-33">
 						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#rltdAcctNbr%}" data-i18n-title="{%=cbb_items.AT#rltdAcctNbr%}"></label>
-							<input type="text"  maxlength='16' dec='0' common-string-number-only-directive class="bw-input a-left"   data-form-param="rltdAcctNbr" />
+							<input type="text"  maxlength='16' dec='0' class="bw-input a-left"   data-form-param="rltdAcctNbr" />
 							<button type="button" class="bw-btn fix-r" ng-click="SIA004Ctrl.rltdAcctNbr_Onclick()" id="btn-rltdAcctNbr-search"><i class="bw-icon i-20 i-search"></i></button>
 						</div>
 					</td>
@@ -95,7 +95,7 @@
 			<section class=" bw-tool add-bd2-t add-mg-t" >
 			<div class="f-l">
 				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
-				<h3 class="bw-desc">({{SIA004Ctrl.gridListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				<h3 class="bw-desc">({{SIA004_SIA004Ctrl.gridListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
 			</div>
 			<div class="btn-wrap fix-r">
 				<button type="button" class="bw-btn"  id="btnGridExcel" ng-click="SIA004Ctrl.btnGridExcel_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i></button>
@@ -140,7 +140,7 @@
 			<tr  name="tr_srchRsltDtl" >
 				<td class="td-w-33">
 					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#bal%}" data-i18n-title="{%=cbb_items.AT#bal%}"></label>
-						<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="balAmt2"  common-numeric-only-directive ng-model='balAmt2Amt'/>
+						<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="balAmt2"  common-numeric-only-directive ng-model='balAmt2'/>
 					</div>
 				</td>
 				<td class="td-w-33">
@@ -157,7 +157,7 @@
 			<tr  name="tr_srchRsltDtl" >
 				<td class="td-w-33">
 					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#rltdAcctNbr%}" data-i18n-title="{%=cbb_items.AT#rltdAcctNbr%}"></label>
-						<input type="text"  maxlength='16' dec='0' common-string-number-only-directive class="bw-input a-left"  readonly="readonly" data-form-param="rltdAcctNbr2" />
+						<input type="text"  maxlength='16' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="rltdAcctNbr2" />
 					</div>
 				</td>
 				<td class="td-w-33">
@@ -184,7 +184,7 @@
 				</td>
 				<td class="td-w-33">
 					<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#arrId%}" data-i18n-title="{%=cbb_items.AT#arrId%}"></label>
-						<input type="text"  maxlength='40' dec='0' class="bw-input a-left"   data-form-param="arrId" />
+						<input type="text"  maxlength='30' dec='0' class="bw-input a-left"   data-form-param="arrId" />
 					</div>
 				</td>
 			</tr>
@@ -204,8 +204,8 @@
 	<table class="w-100" >
 		<tr  name="tr_clrExctn" >
 			<td class="w-50">
-				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#txTotAmt%}" data-i18n-title="{%=cbb_items.AT#txTotAmt%}"></label>
-					<input type="text"  dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="txTotAmt" />
+				<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#txTotAmt%}" data-i18n-title="{%=cbb_items.AT#txTotAmt%}"></label>
+					<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="txTotAmt"  common-numeric-only-directive ng-model='txTotAmt'/>
 				</div>
 			</td>
 			<td class="w-50">
@@ -215,24 +215,24 @@
 		<tr  name="tr_clrExctn" >
 			<td class="w-50">
 				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#cashTxAmt%}" data-i18n-title="{%=cbb_items.AT#cashTxAmt%}"></label>
-					<input type="text"  dec='2' class="bw-input "   data-form-param="cashTxAmt"  common-numeric-only-directive ng-model='cashTxAmtAmt'/>
+					<input type="text"  dec='2' class="bw-input "   data-form-param="cashTxAmt"  common-numeric-only-directive ng-model='cashTxAmt'/>
 				</div>
 			</td>
 			<td class="w-50">
 				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#chkTxAmt%}" data-i18n-title="{%=cbb_items.AT#chkTxAmt%}"></label>
-					<input type="text"  dec='2' class="bw-input "   data-form-param="chkTxAmt"  common-numeric-only-directive ng-model='chkTxAmtAmt'/>
+					<input type="text"  dec='2' class="bw-input "   data-form-param="chkTxAmt"  common-numeric-only-directive ng-model='chkTxAmt'/>
 				</div>
 			</td>
 		</tr>
 		<tr  name="tr_clrExctn" >
 			<td class="w-50">
 				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#othrChkTxAmt%}" data-i18n-title="{%=cbb_items.AT#othrChkTxAmt%}"></label>
-					<input type="text"  dec='2' class="bw-input "   data-form-param="othrChkTxAmt"  common-numeric-only-directive ng-model='othrChkTxAmtAmt'/>
+					<input type="text"  dec='2' class="bw-input "   data-form-param="othrChkTxAmt"  common-numeric-only-directive ng-model='othrChkTxAmt'/>
 				</div>
 			</td>
 			<td class="w-50">
 				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#trnsfrTxAmt%}" data-i18n-title="{%=cbb_items.AT#trnsfrTxAmt%}"></label>
-					<input type="text"  dec='2' class="bw-input "   data-form-param="trnsfrTxAmt"  common-numeric-only-directive ng-model='trnsfrTxAmtAmt'/>
+					<input type="text"  dec='2' class="bw-input "   data-form-param="trnsfrTxAmt"  common-numeric-only-directive ng-model='trnsfrTxAmt'/>
 				</div>
 			</td>
 		</tr>
@@ -240,19 +240,19 @@
 			<td class="w-50">
 				<div class="input-wrap fix-label asterisk clr" >
 					<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#crncy%}" data-i18n-title="{%=cbb_items.SCRNITM#crncy%}"></label>
-					<select class="bw-input ipt-select"  ng-model="SIA004_SIA004Ctrl.crncyCdSelectedValue" ng-change="SIA004Ctrl.crncyCd_OnChange()" data-form-param="crncyCd"></select>
+					<select class="bw-input ipt-select"  ng-model="SIA004Ctrl.crncyCdSelectedValue" ng-change="SIA004Ctrl.crncyCd_OnChange()" data-form-param="crncyCd"></select>
 				</div>
 			</td>
 			<td class="w-50">
 				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aplyBaseExRt%}" data-i18n-title="{%=cbb_items.AT#aplyBaseExRt%}"></label>
-					<input type="text"  dec='5' class="bw-input "  readonly="readonly" data-form-param="aplyBaseExRt"  common-numeric-only-directive ng-model='aplyBaseExRtAmt'/>
+					<input type="text"  dec='5' class="bw-input "  readonly="readonly" data-form-param="aplyBaseExRt"  common-numeric-only-directive ng-model='aplyBaseExRt'/>
 				</div>
 			</td>
 		</tr>
 		<tr  name="tr_clrExctn" >
 			<td class="w-50">
 				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#frgnTxAmt%}" data-i18n-title="{%=cbb_items.AT#frgnTxAmt%}"></label>
-					<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="frgnTxAmt"  common-numeric-only-directive ng-model='frgnTxAmtAmt'/>
+					<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="frgnTxAmt"  common-numeric-only-directive ng-model='frgnTxAmt'/>
 				</div>
 			</td>
 			<td class="w-50">
@@ -262,12 +262,12 @@
 		<tr  name="tr_clrExctn" >
 			<td class="w-50">
 				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#frgnTrnsfrAmt%}" data-i18n-title="{%=cbb_items.AT#frgnTrnsfrAmt%}"></label>
-					<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="frgnTrnsfrAmt"  common-numeric-only-directive ng-model='frgnTrnsfrAmtAmt'/>
+					<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="frgnTrnsfrAmt"  common-numeric-only-directive ng-model='frgnTrnsfrAmt'/>
 				</div>
 			</td>
 			<td class="w-50">
 				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#frgnTrnsfrDmstcCrncyAmt%}" data-i18n-title="{%=cbb_items.AT#frgnTrnsfrDmstcCrncyAmt%}"></label>
-					<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="frgnTrnsfrDmstcCrncyAmt"  common-numeric-only-directive ng-model='frgnTrnsfrDmstcCrncyAmtAmt'/>
+					<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="frgnTrnsfrDmstcCrncyAmt"  common-numeric-only-directive ng-model='frgnTrnsfrDmstcCrncyAmt'/>
 				</div>
 			</td>
 		</tr>
@@ -288,7 +288,7 @@
 		<tr  name="tr_clrExctn" >
 			<td class="w-50" colspan="2">
 				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#rmkCntnt%}" data-i18n-title="{%=cbb_items.AT#rmkCntnt%}"></label>
-					<input type="text"  maxlength='4000' dec='0' class="bw-input a-left"   data-form-param="rmk3" />
+					<input type="text"  maxlength='200' dec='0' class="bw-input a-left"   data-form-param="rmk3" />
 				</div>
 			</td>
 		</tr>

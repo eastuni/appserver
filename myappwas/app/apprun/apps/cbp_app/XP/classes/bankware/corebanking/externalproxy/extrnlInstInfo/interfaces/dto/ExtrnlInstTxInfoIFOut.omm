@@ -1,7 +1,0 @@
-OMM bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstTxInfoIFOut
-<description="대외기관거래정보관리 ">
-{
-	Integer cnt<length=9 description="출력건수">;
-	bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstTxInfoIFOutSub list<length=0 arrayReference="cnt" description="출력리스트">;
-	Integer totCnt<length=9 description="전체건수">;
-}

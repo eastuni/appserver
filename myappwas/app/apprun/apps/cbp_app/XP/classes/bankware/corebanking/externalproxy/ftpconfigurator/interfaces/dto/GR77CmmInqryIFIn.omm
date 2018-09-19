@@ -1,9 +1,0 @@
-OMM bankware.corebanking.externalproxy.ftpconfigurator.interfaces.dto.GR77CmmInqryIFIn
-<description="인터넷지로 지방세입금">
-{
-	String startDt<length=8 description="시작일">;
-	String endDt<length=8 description="종료일">;
-	String txYm<length=6 description="거래년월">;
-	Integer pgNbr<length=9 description="페이지번호">;
-	Integer pgCnt<length=9 description="출력건수">;
-}

@@ -87,7 +87,7 @@ function __service($commonService, $commonModal, $timeout){
             }
             
             var pdCndVal = {};
-            if (data.pdCndVal != null) {
+            if (!$commonService.fn_isEmpty(data.pdCndVal)) {
                 var pdCndVal = JSON.parse(data.pdCndVal);
             }
             
@@ -245,34 +245,109 @@ function __service($commonService, $commonModal, $timeout){
                 elInput.attr("disabled", true);
             }
             
-            if (data.cndTpCd == "02" && data.pdCndValAsRdblFormCntnt != null && data.pdCndValAsRdblFormCntnt.indexOf('msurUnitNm') == -1) {
-            	var dotSplitedVal = basicVal.split(".");
-            	var decimalFormat = "#,###";
-            	if (dotSplitedVal[1]) {
-            		elInput.attr("dec", dotSplitedVal[1].length);
-            		decimalFormat = "#,###." + dotSplitedVal[1];
+            // 범위형 조건인 경우
+            if (data.cndTpCd == "02" && data.pdCndValAsRdblFormCntnt != null){
+            	
+            	// 조건값 측정단위
+            	var msurUnitCd = JSON.parse(data.pdCndVal).msurUnitCd;
+            	
+            	// 금액
+            	if(msurUnitCd === undefined){
+            		
+            		// 조건 기본값에 따라 소수점 처리
+            		var decimalLength = 0;
+                	var dotSplitedVal = basicVal.split(".");
+                	var decimalFormat = "#,###";
+                	if (dotSplitedVal[1] > 0) {
+                		decimalLength = dotSplitedVal[1].length;
+                		decimalFormat = "#,###." + dotSplitedVal[1];
+                	}
+                	
+                    // 금액 comma 처리
+                    if (basicVal != "") {
+                    	basicVal = Ext.util.Format.number(parseInt(basicVal), decimalFormat);
+                    }
+                    
+                    // 조건 증가값에 따라 소수점처리
+                    var incrsVal = JSON.parse(data.pdCndVal).incrsVal;
+                    var dotSplitedIncrsVal = incrsVal.split(".");
+                    if (dotSplitedIncrsVal[1] > 0) {
+                    	decimalLength = Math.max(decimalLength, dotSplitedIncrsVal[1].length);
+                    }
+                    
+                    elInput.addClass("ng-pristine ng-valid a-right ng-empty ng-touched");
+                    elInput.attr("common-numeric-only-directive", "");
+                    elInput.attr("id", "amount");
+                    elInput.attr("dec", decimalLength);                            		
+
+                // 백분율
+            	} else if(msurUnitCd == "11" || msurUnitCd == "12"){
+            		
+            		// 조건 기본값에 따라 소수점 처리
+            		var decimalLength = 0;
+                	var dotSplitedVal = basicVal.split(".");
+                	if (dotSplitedVal[1] > 0) {
+                		decimalLength = dotSplitedVal[1].length;
+                	}
+                	
+            		// 조건 증가값에 따라 소수점처리
+                    var incrsVal = JSON.parse(data.pdCndVal).incrsVal;
+                    var dotSplitedIncrsVal = incrsVal.split(".");
+                    if (dotSplitedIncrsVal[1] > 0) {
+                    	decimalLength = Math.max(decimalLength, dotSplitedIncrsVal[1].length);
+                    }
+                    
+                    elInput.addClass("ng-pristine ng-valid a-right ng-empty ng-touched");
+                    elInput.attr("common-string-number-only-directive", "");
+                    elInput.attr("id", "percent");
+                    elInput.attr("dec", decimalLength);
+                    
+            	// 기간
+            	} else {
+            		// 기간 소수점 제거 처리
+                    if (!$commonService.fn_isEmpty(basicVal)) {
+                    	basicVal = parseInt(basicVal);
+                    }
+                    elInput.attr("common-string-number-only-directive", "");
+                    elInput.attr("id", "term");
+                    
+                }
+            	elInput.attr("ng-model", data.cndCd);
+                elInput.attr("ng-init", elInput.attr("ng-model")+ "='" +basicVal+ "'");
+            
+                
+            // 금리형 조건인 경우
+        	} else if (data.cndTpCd == "03" && data.pdCndValAsRdblFormCntnt != null){
+            	
+            	var basicVal = JSON.parse(data.pdCndVal).bsicIntRtIntRt;
+            	if (basicVal == null){
+            		basicVal = "";
+            	}
+            	                
+                elInput.addClass("ng-pristine ng-valid a-right ng-empty ng-touched");
+                elInput.attr("common-string-number-only-directive", "");
+                elInput.attr("id", "interest");
+                elInput.attr("dec", 0);
+                elInput.attr("ng-model", data.cndCd);
+                elInput.attr("ng-init", elInput.attr("ng-model")+ "='" +basicVal+ "'");
+            
+                
+            // 수수료형 조건인 경우
+            } else if (data.cndTpCd == "04" && data.pdCndValAsRdblFormCntnt != null){
+            	
+            	var basicVal = JSON.parse(data.pdCndVal).bsicRt;
+            	if (basicVal == null){
+            		basicVal = "";
             	}
             	
-                // 금액 comma 처리
-                if (basicVal != "") {
-                	basicVal = Ext.util.Format.number(parseInt(basicVal), decimalFormat);
-                }
-                
                 elInput.addClass("ng-pristine ng-valid a-right ng-empty ng-touched");
-                elInput.attr("id", "amount");
-                elInput.attr("common-numeric-only-directive", "");
+                elInput.attr("common-string-number-only-directive", "");
+                elInput.attr("id", "fee");
+                elInput.attr("dec", 0);
                 elInput.attr("ng-model", data.cndCd);
                 elInput.attr("ng-init", elInput.attr("ng-model")+ "='" +basicVal+ "'");
-            } else if(data.cndTpCd == "02" && data.pdCndValAsRdblFormCntnt != null && data.pdCndValAsRdblFormCntnt.indexOf('msurUnitNm') > -1) {
-                // 기간 소수점 제거 처리
-                if (!$commonService.fn_isEmpty(basicVal)) {
-                	basicVal = parseInt(basicVal);
-                }
-                elInput.attr("id", "term");
-                elInput.attr("ng-model", data.cndCd);
-                elInput.attr("ng-init", elInput.attr("ng-model")+ "='" +basicVal+ "'");
-            }
-
+                
+            }           
             elInput.val(basicVal);
 
             elDiv.append(elInput);
@@ -1234,7 +1309,7 @@ function __service($commonService, $commonModal, $timeout){
 	                inputParam.cndCd = $(this).val();
 	
 	                if($(this).parent().next().find(".arrCndVal").attr("id") == "amount"){
-	                	inputParam.txtCndVal = $commonService.fn_removeComma($(this).parent().next().find(".arrCndVal").val());
+	                	inputParam.txtCndVal = $commonService.fn_removeCommaToStr($(this).parent().next().find(".arrCndVal").val());
 	                }else{
 	                	inputParam.txtCndVal = $(this).parent().next().find(".arrCndVal").val();
 	                }

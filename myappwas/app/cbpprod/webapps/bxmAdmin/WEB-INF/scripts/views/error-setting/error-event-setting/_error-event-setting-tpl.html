@@ -1,0 +1,184 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'error-setting.error-event-condition-management'}}
+</h2>
+<!--/END BW-TITLE-->
+<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<!--/END BW-TOOL-->
+<!--SEARCH AREA * 검색 영역-->
+<section class="search-wrap error-event-search">
+    <!--INPUT TYPE1 * 분할 없이 INLINE-->
+    <ul class="clr">
+        <li class="w-25">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'error-setting.condition-name'}}</label>
+                <input type="text" class="bw-input w-70" data-form-param="cndtNm"/>
+            </div>
+        </li>
+        <li class="w-25">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'error-setting.trading-target'}}</label>
+                <select class="bw-input ipt-select w-70" data-form-param="trxTargetCd"></select>
+            </div>
+        </li>
+        <li class="w-35 trx-cd-wrap">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">
+                    {{bxMsg 'error-setting.trading-code'}}
+                    <button type="button" class="bw-btn trx-code-search-btn" title="{{bxMsg 'error-setting.search-trading-target'}}">
+                        <i class="bw-icon i-20 i-func-search"></i>
+                    </button>
+                </label>
+                <input type="text" class="bw-input w-70" data-form-param="trxCd" readonly/>
+            </div>
+        </li>
+        <li class="w-15">
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'error-setting.use-yn'}}</label>
+                <select class="bw-input ipt-select w-50" data-form-param="useYn">
+                    <option value="">{{bxMsg 'common.all'}}</option>
+                    <option value="Y">Y</option>
+                    <option value="N">N</option>
+                </select>
+            </div>
+        </li>
+    </ul>
+    <ul class="clr">
+        <li class="w-25">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'error-setting.error-target'}}</label>
+                <select class="bw-input ipt-select w-70" data-form-param="errTargetCd"></select>
+            </div>
+        </li>
+        <li class="w-35 err-cd-wrap">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">
+                    {{bxMsg 'error-setting.error-code'}}
+                    <button type="button" class="bw-btn err-code-search-btn" title="{{bxMsg 'error-setting.search-error-code'}}">
+                        <i class="bw-icon i-20 i-func-search"></i>
+                    </button>
+                </label>
+                <input type="text" class="bw-input w-70" data-form-param="errCd"/>
+            </div>
+        </li>
+        <li class="w-35 sql-err-cd-wrap">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'error-setting.sql-error-code'}}</label>
+                <input type="text" class="bw-input w-70" data-form-param="sqlErrCd"/>
+            </div>
+        </li>
+    </ul>
+    <ul class="clr">
+        <li class="w-25">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'error-setting.standard-period'}}</label>
+                <select class="bw-input ipt-select w-70" data-form-param="stdPerdCd"></select>
+            </div>
+        </li>
+        <li class="w-25">
+            <div class="input-wrap clr">
+                <label class="bw-label w-30">{{bxMsg 'error-setting.control-system'}}</label>
+                <select class="bw-input ipt-select w-70" data-form-param="ctrlCd"></select>
+            </div>
+        </li>
+    </ul>
+    <!--/END INPUT TYPE1-->
+</section>
+<!--/END SEARCH AREA-->
+<!--GRID AREA-->
+<section class="error-event-grid"></section>
+<!--/END GRID AREA-->
+<!--BW-SUB TITLE * 컨텐츠 서브타이틀-->
+<h3 class="bw-stt add-mg-t">{{bxMsg 'error-setting.error-event-condition-detail'}}<p class="desc error-event-detail-title"></p></h3>
+<!--/END BW-SUB TITLE-->
+<!--INFO AREA * 상세 영역-->
+<section class="bw-tool add-bd2-t bx-grid-header detail-search-wrap">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn edit-error-event-btn" title="{{bxMsg 'common.edit'}}"><i class="bw-icon i-25 i-func-edit"></i></button>
+    </div>
+</section>
+<div class="error-event-detail bx-loding-wrap">
+    <section class="sub-section">
+        <h4>{{bxMsg 'error-setting.basic-information'}}</h4>
+        <ul class="bw-form fix-center">
+            <li class="w-33">
+                <label class="bw-label w-35">{{bxMsg 'error-setting.condition-name'}}</label>
+                <input type="text" class="bw-input w-55" data-form-param="cndtNm" readonly>
+                <input type="hidden" data-form-param="cndtUid" >
+            </li>
+            <li class="w-33">
+                <label class="bw-label w-35">{{bxMsg 'error-setting.use-yn'}}</label>
+                <input type="text" class="bw-input w-55" data-form-param="useYn" readonly>
+            </li>
+        </ul>
+    </section>
+    <section class="sub-section">
+        <h4>{{bxMsg 'error-setting.condition-information'}}</h4>
+        <ul class="bw-form fix-center">
+            <li class="w-33">
+                <label class="bw-label w-35">{{bxMsg 'error-setting.trading-target'}}</label>
+                <input type="text" class="bw-input w-55" data-form-param="trxTargetCd" data-code="BXMDF0011" readonly>
+            </li>
+            <li class="w-33 trx-cd-wrap">
+                <label class="bw-label w-35">{{bxMsg 'error-setting.trading-code'}}</label>
+                <input type="text" class="bw-input w-55" data-form-param="trxCd" readonly>
+            </li>
+        </ul>
+        <ul class="bw-form fix-center">
+            <li class="w-33">
+                <label class="bw-label w-35">{{bxMsg 'error-setting.error-target'}}</label>
+                <input type="text" class="bw-input w-55" data-form-param="errTargetCd" data-code="BXMDF0012" readonly>
+            </li>
+            <li class="w-33 err-cd-wrap">
+                <label class="bw-label w-35">{{bxMsg 'error-setting.error-code'}}</label>
+                <input type="text" class="bw-input w-55" data-form-param="errCd" readonly>
+            </li>
+            <li class="w-33 sql-err-cd-wrap">
+                <label class="bw-label w-35">{{bxMsg 'error-setting.sql-error-code'}}</label>
+                <input type="text" class="bw-input w-55" data-form-param="sqlErrCd" readonly>
+            </li>
+        </ul>
+        <ul class="bw-form fix-center">
+            <li class="w-33">
+                <label class="bw-label w-35">{{bxMsg 'error-setting.standard-period'}}</label>
+                <input type="text" class="bw-input w-55" data-form-param="stdPerdCd" data-code="BXMDF0013" readonly>
+            </li>
+            <li class="w-33">
+                <label class="bw-label w-35">{{bxMsg 'error-setting.standard-count'}}</label>
+                <input type="text" class="bw-input w-55" data-form-param="stdCnt" readonly>
+            </li>
+        </ul>
+        <ul class="bw-form fix-center">
+            <li class="w-33">
+                <label class="bw-label w-35">{{bxMsg 'error-setting.control-system'}}</label>
+                <input type="text" class="bw-input w-55" data-form-param="ctrlCd" data-code="BXMDF0014" readonly>
+            </li>
+        </ul>
+    </section>
+    <section class="sub-section">
+        <ul class="bw-form fix-center">
+            <li class="w-25">
+                <label class="bw-label w-35">{{bxMsg 'error-setting.register-date'}}</label>
+                <input type="text" class="bw-input w-55" data-form-param="regOccurDttm" readonly>
+            </li>
+            <li class="w-25">
+                <label class="bw-label w-35">{{bxMsg 'error-setting.registrant-id'}}</label>
+                <input type="text" class="bw-input w-55" data-form-param="regUserId" readonly>
+            </li>
+            <li class="w-25">
+                <label class="bw-label w-35">{{bxMsg 'error-setting.last-changed-date'}}</label>
+                <input type="text" class="bw-input w-55" data-form-param="modifyOccurDttm" readonly>
+            </li>
+            <li class="w-25">
+                <label class="bw-label w-35">{{bxMsg 'error-setting.last-changed-user'}}</label>
+                <input type="text" class="bw-input w-55" data-form-param="modifyUserId" readonly>
+            </li>
+        </ul>
+    </section>
+</div>

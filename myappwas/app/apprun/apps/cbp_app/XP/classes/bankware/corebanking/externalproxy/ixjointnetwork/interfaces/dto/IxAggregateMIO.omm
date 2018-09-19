@@ -1,7 +1,0 @@
-OMM bankware.corebanking.externalproxy.ixjointnetwork.interfaces.dto.IxAggregateMIO
-<description="">
-{
-	String cnclDscd<length=1 description="취소구분코드">;
-	BigDecimal txCnt<length=17 description="거래건수">;
-	BigDecimal txAmt<length=17 description="거래금액">;
-}

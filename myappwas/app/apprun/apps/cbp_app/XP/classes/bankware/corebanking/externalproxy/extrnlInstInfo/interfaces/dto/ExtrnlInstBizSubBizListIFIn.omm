@@ -1,6 +1,0 @@
-OMM bankware.corebanking.externalproxy.extrnlInstInfo.interfaces.dto.ExtrnlInstBizSubBizListIFIn
-<description=" ">
-{
-	String extrnlInstCd<length=6 description="대외기관코드">;
-	String extrnlBizDscd<length=6 description="대외업무구분코드">;
-}

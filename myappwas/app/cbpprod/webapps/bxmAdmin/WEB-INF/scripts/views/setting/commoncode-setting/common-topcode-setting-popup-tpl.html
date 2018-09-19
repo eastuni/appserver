@@ -1,0 +1,50 @@
+<div class="modal-wrap">
+    <h2 class="bw-tt a-center">{{bxMsg 'setting.top-code-add'}}</h2>
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t bx-no-draggable common-topcode-setting-form">
+        <!--INPUT TYPE2 -->
+        <ul class="clr">
+            <li class="w-50">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-40">{{bxMsg 'setting.category'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="category"></select>
+                </div>
+            </li>
+            <li class="w-50">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-40">{{bxMsg 'setting.sub-category'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="subCategory"></select>
+                </div>
+            </li>
+            <li class="w-100">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-20">{{bxMsg 'setting.parent-code'}}</label>
+                    <select class="bw-input ipt-select w-80" data-form-param="parentCdId"></select>
+                </div>
+            </li>
+            <li class="w-80">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-25">{{bxMsg 'setting.code-id'}}</label>
+                    <input type="text" class="bw-input bw-center-input w-35 a-center" data-form-param="cdId" readonly/>
+                    <input type="text" class="bw-input w-40 a-center" data-form-param="cdIdNo" placeholder="0001" />
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" class="w-50 bw-input ipt-radio auto-generate-check" />{{bxMsg 'setting.auto-generate'}}
+            </li>
+            <li class="w-100">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-20">{{bxMsg 'setting.code-nm'}}</label>
+                    <input type="text" class="bw-input w-80" data-form-param="cdNm" />
+                </div>
+            </li>
+        </ul>
+        <!--/END INPUT TYPE2-->
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on save-common-topcode-btn">{{bxMsg 'common.save'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>

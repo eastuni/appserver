@@ -1,6 +1,0 @@
-OMM bankware.corebanking.externalproxy.commonconfigurator.dao.dto.SystemIntrfcCdOut
-<description="">
-{
-	String sysIntrfcId<length=40 description="시스템인터페이스식별자">;
-	String sysIntrfcNm<length=200 description="시스템인터페이스명">;
-}

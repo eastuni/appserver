@@ -1,0 +1,48 @@
+<section id="step-bar">
+    <ul class="step-bar">
+        <li class="first-step half-bar application-btn on">{{bxMsg 'app-deploy.application'}}</li>
+        <li class="last-step half-bar start-deploy-btn">{{bxMsg 'app-deploy.instance'}}</li>
+    </ul>
+</section>
+
+<section class="app-select-page">
+    <div class="app-deploy-desc">{{bxMsg 'app-deploy.app-select-instruction'}}</div>
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap pre-deploy-app-search">
+        <ul class="clr w-100">
+            <li class="input-wrap bw-selector add-mg-r on" data-value="serverPath">
+                <input type="text" value="{{bxMsg 'app-deploy.server-path'}}" readonly/>
+            </li>
+<!--             <li class="input-wrap bw-selector input-right-selector" data-value="svnUrl"> -->
+<!--                 <input type="text" value="{{bxMsg 'app-deploy.svn'}}" readonly/> -->
+<!--             </li> -->
+            <li class="input-wrap search-input w-60">
+                <input type="text" class="bw-input w-90" data-form-param="path" /><button type="button" class="bw-btn app-search-btn" title="{{bxMsg 'app-deploy.app-search'}}"><i class="bw-icon i-20 i-func-search"></i></button>
+            </li>
+            <li class="f-r">
+                <button type="button" class="bw-btn step-btn on next-btn instance-btn">{{bxMsg 'common.next'}}</button>
+            </li>
+        </ul>
+    </section>
+    <!--GRID AREA-->
+    <section class="grid-list-section bx-loding-wrap">
+        <div class="grid-list"></div>
+    </section>
+</section>
+
+<section class="instance-select-page" style="display: none;">
+    <div class="app-deploy-desc">{{bxMsg 'app-deploy.instance-select-instruction'}}</div>
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap pre-deploy-app-search">
+        <ul class="clr w-100">
+            <li class="f-r">
+                <button type="button" class="bw-btn step-btn prev-btn application-btn">{{bxMsg 'common.prev'}}</button>
+                <button type="button" class="bw-btn step-btn on start-deploy-btn">{{bxMsg 'app-deploy.deploy-btn'}}</button>
+            </li>
+        </ul>
+    </section>
+    <!--GRID AREA-->
+    <section class="grid-list-section bx-loding-wrap">
+        <div class="grid-list"></div>
+    </section>
+</section>

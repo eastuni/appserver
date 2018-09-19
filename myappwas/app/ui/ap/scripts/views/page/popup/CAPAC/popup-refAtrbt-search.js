@@ -55,6 +55,8 @@ define(
                 sParam.className = "refObjCd-wrap";
                 sParam.targetId = "refObjCd";
                 sParam.nullYn = "Y";
+//                sParam.nullYn = "Y";
+                sParam.allNm = bxMsg('cbb_items.SCRNITM#all');
                 sParam.cdNbr = "A0050";
                 fn_getCodeList(sParam, this);   // 참조객체유형코드
             },
@@ -215,10 +217,21 @@ define(
                 this.setComboBoxes();
                 this.show();
 
-
                 if(!fn_isNull(this.initData)) {
                     if(!fn_isNull(this.initData.refObjCd)) {
-                        this.$el.find("#search-condition-area [data-form-param='refObjCd']").val(this.initData.refObjCd);
+                    	
+                    	var ele = document.getElementById('refObjCdBox');
+                    	
+                    	for ( i = 0, j = ele.length; i < j; i++ ) { 
+	                    	if( ele.options[i].value == val ) { 
+		                    	ele.options[i].selected = true; 
+		                    	break; 
+	                    	} 
+                    	}
+                    	
+//                    	$("#refObjCdBox").val(this.initData.refObjCd).attr("selected", "selected");
+                    	
+//                        this.$el.find("#search-condition-area [data-form-param='refObjCd']").val(this.initData.refObjCd);
                     }
 
 
@@ -232,25 +245,29 @@ define(
                     }
 
 
-                    this.setSearchCondition();
+                    this.setSearchCondition(this.initData);
                 }
             },
 
 
             setSearchCondition: function (data) {
-                this.fn_loadList();
+                this.fn_loadList(data);
             },
 
 
 //
 //
 //
-            fn_loadList: function () {
+            fn_loadList: function (data) {
                 var that = this;
                 var sParam = {};
 
 
-                sParam.refObjCd     = that.$el.find("#search-condition-area [data-form-param='refObjCd']").val();
+                if (data != null) {
+                	sParam.refObjCd     = data.refObjCd;
+                } else {
+                	sParam.refObjCd     = that.$el.find("#search-condition-area [data-form-param='refObjCd']").val();
+                }
                 sParam.refAtrbtNm   = that.$el.find("#search-condition-area [data-form-param='refAtrbtNm']").val();
                 sParam.refAtrbtDescCntnt = that.$el.find("#search-condition-area [data-form-param='refAtrbtDescCntnt']").val();
 
@@ -267,6 +284,11 @@ define(
 
 
                             if(list != null) {
+                            	
+                            	
+                            	$("#refObjCdBox").val(sParam.refObjCd).attr("selected", "selected");
+                            	
+                            	
                                 that.popupRefAtrbtSearchGrid.setData(list);
                                 that.$el.find("#searchResultCount").html(bxMsg('cbb_items.SCRNITM#srchRslt')+" ("+fn_setComma(totCnt)+" "+bxMsg('cbb_items.SCRNITM#cnt')+")");
                                 that.$el.find('#btn-popup-select').removeClass('on');

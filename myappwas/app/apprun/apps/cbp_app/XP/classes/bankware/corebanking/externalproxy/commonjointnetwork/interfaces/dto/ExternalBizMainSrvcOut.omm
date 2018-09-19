@@ -1,5 +1,0 @@
-OMM bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.ExternalBizMainSrvcOut
-<description="">
-{
-	String msgCntnt<length=541 description="서비스응답메시지">;
-}

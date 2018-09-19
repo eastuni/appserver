@@ -12,21 +12,6 @@
 <title>Start RI</title>
 </head>
 <body>
-	<%
-		RIValidator instance = RIValidator.getInstance();
-
-		long currentTimeMillis = System.currentTimeMillis();
-		long diffTime = currentTimeMillis - instance.getLastRunningTime();
-		if (diffTime > 60000L) {
-			instance.startRIValidationThread();
-		} else {
-			long waitTime = (60000L - diffTime) / 1000L;
-			out.println("It's Cool Time. Wait " + waitTime + " seconds.");
-		}
-
-		String status = "RI Valdation Thread " + (instance.isRunning() ? "is Running." : "is stoped.");
-		status += "\n" + instance.getExecutedRuleCnt() + "/" + instance.getTotalRIRuleCnt();
-		out.println(status);
-	%>
+	Start RI  is moved to Configuration Portal.<br>
 </body>
 </html>

@@ -73,6 +73,7 @@ a {color:#757575;}
 .i-close {background-position:-100% -600%;}
 .i-func-refresh {background-position:-200% 0;}
 .bw-btn:disabled .i-func-refresh {background-position:-300% 0;}
+.i-func-copy {background-position:0 -100%;}
 .i-func-xls {background-position:-200% -100%;}
 .bw-btn:disabled .i-func-xls {background-position:-300% -100%;}
 .i-func-add {background-position:-200% -200%;}

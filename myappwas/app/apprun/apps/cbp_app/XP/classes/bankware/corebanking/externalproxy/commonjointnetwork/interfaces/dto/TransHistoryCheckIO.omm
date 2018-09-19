@@ -1,7 +1,0 @@
-OMM bankware.corebanking.externalproxy.commonjointnetwork.interfaces.dto.TransHistoryCheckIO
-<description="">
-{
-	Boolean dplctnTxYn<length=20 description="중복거래여부">;
-	String extrnlRspnsCd<length=3 description="대외응답코드">;
-	String msgTraceNbr<length=20 description="타행환개설기관번호(원거래유지하기위해)">;
-}

@@ -1,0 +1,43 @@
+<div class="modal-wrap fix-h">
+    <h2 class="bw-tt a-center">{{bxMsg 'common.standard-out-log-detail'}}</h2>
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t fix-h bx-no-draggable">
+        <ul class="col-3 clr">
+            <li style="display: none;">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'common.execution-no'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="execNo"></select>
+                </div>
+            </li>
+        </ul>
+        <ul class="col-3 clr real-time-activated real-time-selectors" style="display: none;">
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'batch.request-kb'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="fileReadSize">
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'batch.waiting-interval-time'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="waitingInterval">
+                        <option value="3000">3</option>
+                    </select>
+                </div>
+            </li>
+        </ul>
+        <pre class="a-left add-mg add-bd" data-form-param="logMessages"></pre>
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable log-down-activated">
+        <button type="button" class="bw-btn-txt on ok-btn">{{bxMsg 'common.ok'}}</button>
+    </div>
+    <div class="btn-wrap add-mg bx-no-draggable real-time-activated" style="display: none;">
+        <button type="button" class="bw-btn-txt on request-btn">{{bxMsg 'batch.request'}}</button>
+        <button type="button" class="bw-btn-txt on pause-btn" disabled>{{bxMsg 'batch.pause'}}</button>
+        <button type="button" class="bw-btn-txt ok-btn">{{bxMsg 'batch.done'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable ok-btn"></button>
+</div>

@@ -1,5 +1,0 @@
-OMM bankware.corebanking.externalproxy.igjointnetwork.interfaces.dto.PymntMemoModIFOut
-<description="납부내역 메모수정 OUT">
-{
-	String rspnsCd<length=3 description="응답코드">;
-}

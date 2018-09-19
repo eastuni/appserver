@@ -60,11 +60,58 @@ define(
                     that.$el.html(that.tpl());
 
 
+                    // 2018.05.29  keewoong.hong  Subtask #10531 [CAS-Multilingual] (BPI 지원) 다국어 언어 추가 요청 (따갈로그어, 세부아노어)
+                    // 관리 하고자 하는 언어 1, 2, 3 선택                      
+                	var sParam = {};
+                	sParam.instCd  = $.sessionStorage('headerInstCd');
+                	sParam.cdNbr   = "10005";
+
+            		var linkData = {"header": fn_getHeader("CAPCM0038400"), "CaCmnCdSvcGetCdListByCdNbrIn": sParam};
+
+            		var lngCdNm2 = "";
+            		var lngCdNm3 = "";
+
+                    // ajax호출
+                    bxProxy.post(sUrl, JSON.stringify(linkData), {
+                        enableLoading: false
+                        , success: function (responseData) {
+
+                        	if(responseData.CaCmnCdSvcGetCdListByCdNbrOut.tblNm.length > 0) {
+                        		$(responseData.CaCmnCdSvcGetCdListByCdNbrOut.tblNm).each(function(idx, data) {
+                            		if(data.cd != "en"  &&  lngCdNm2 == "") {
+                            			lngCdNm2 = data.cdNm;
+                            		} else if(data.cd != "en"  &&  lngCdNm3 == "") {
+                            			lngCdNm3 = data.cdNm;
+                            		}
+                    				
+                        		});
+                        		
+                        		// 하단 상세 항목 타이틀 변경
+                        		that.$el.find("#CAPCM197-detail-table #label_trnsfrRsltVal2").text(lngCdNm2);
+                        		that.$el.find("#CAPCM197-detail-table #label_trnsfrRsltVal3").text(lngCdNm3);
+                        		
+                        		that.$el.find("#CAPCM197-detail-table #label_trnsfrRsltVal2").prop("title", lngCdNm2);
+                        		that.$el.find("#CAPCM197-detail-table #label_trnsfrRsltVal3").prop("title", lngCdNm3);
+                        		
+                        		// 하단 상세 항목필드 placeholer 변경
+                        		that.$el.find('#CAPCM197-detail-table [data-form-param="trnsfrRsltVal2"]').prop("placeholder", lngCdNm2);
+                        		that.$el.find('#CAPCM197-detail-table [data-form-param="trnsfrRsltVal3"]').prop("placeholder", lngCdNm3);
+                        		
+                        		// 중단 그리드 Title명 변경
+                        		that.CAPCM197Grid.columns[4].text = lngCdNm2;
+                        		that.CAPCM197Grid.columns[5].text = lngCdNm3;
+                        		
+                        	}
+                        }   // end of suucess: fucntion
+                    }); // end of bxProxy
+
+                    
+
                     /* ------------------------------------------------------------ */
                     that.CAPCM197Grid = new ExtGrid({
                         /* ------------------------------------------------------------ */
                         // 단일탭 그리드 컬럼 정의
-                        fields: ['rowIndex', 'engWrdNm', 'cmpxEngAbrvtnNm', 'useLngWrdNm', 'koreanNm', 'chineseNm']
+                        fields: ['rowIndex', 'engWrdNm', 'cmpxEngAbrvtnNm', 'useLngWrdNm', 'useLngWrdNm2', 'useLngWrdNm3']
                         , id: 'CAPCM197Grid'
                         , columns: [
 							{
@@ -83,8 +130,8 @@ define(
                             , {text: bxMsg('cbb_items.SCRNITM#engWrdNm'),width: 160,flex: 1, dataIndex: 'engWrdNm',editor: 'textfield', style: 'text-align:center', align: 'left'}
                             , {text: bxMsg('cbb_items.SCRNITM#cmpxEngAbrvtn'),width: 160,flex: 1,dataIndex: 'cmpxEngAbrvtnNm',editor: 'textfield', style: 'text-align:center', align: 'left'}
                             , {text: bxMsg('cbb_items.SCRNITM#loginLngWrd'),width: 160,flex: 1,dataIndex: 'useLngWrdNm',editor: 'textfield', style: 'text-align:center', align: 'left'}
-                            , {text: bxMsg('cbb_items.AT#koreanNm'),width: 160,flex: 1,dataIndex: 'koreanNm',editor: 'textfield', style: 'text-align:center', align: 'left'}
-                            , {text: bxMsg('cbb_items.AT#chineseNm'),width: 160,flex: 1,dataIndex: 'chineseNm',editor: 'textfield', style: 'text-align:center', align: 'left'}                            , {
+                            , {text: bxMsg('cbb_items.SCRNITM#lngCd')+'2',width: 160,flex: 1,dataIndex: 'useLngWrdNm2',editor: 'textfield', style: 'text-align:center', align: 'left'}
+                            , {text: bxMsg('cbb_items.SCRNITM#lngCd')+'3',width: 160,flex: 1,dataIndex: 'useLngWrdNm3',editor: 'textfield', style: 'text-align:center', align: 'left'}                            , {
                              	xtype: 'actioncolumn', width: 80, align: 'center',text: "",
                              	items: [
 												{
@@ -199,8 +246,8 @@ define(
 
                 	that.$el.find('.CAPCM197-detail-table [data-form-param="engWrdNm"]').val("");
                 	that.$el.find('.CAPCM197-detail-table [data-form-param="cmpxEngAbrvtnNm"]').val("");
-                	that.$el.find('.CAPCM197-detail-table [data-form-param="koreanNm"]').val("");
-                	that.$el.find('.CAPCM197-detail-table [data-form-param="chineseNm"]').val("");
+                	that.$el.find('.CAPCM197-detail-table [data-form-param="trnsfrRsltVal2"]').val("");
+                	that.$el.find('.CAPCM197-detail-table [data-form-param="trnsfrRsltVal3"]').val("");
 
 
                 	that.$el.find('.CAPCM197-detail-table [data-form-param="engWrdNm"]').prop("readonly", false);
@@ -347,8 +394,8 @@ define(
                 	 sParam.engWrdNm = that.$el.find('.CAPCM197-detail-table [data-form-param="engWrdNm"]').val();       //영문단어명
                      sParam.cmpxEngAbrvtnNm = that.$el.find('.CAPCM197-detail-table [data-form-param="cmpxEngAbrvtnNm"]').val();       //표준영문약어명
                      sParam.vrtnEngAbrvtnNm = that.$el.find('.CAPCM197-detail-table [data-form-param="vrtnEngAbrvtnNm"]').val();       //변형영문약어명
-                     sParam.koreanNm = that.$el.find('.CAPCM197-detail-table [data-form-param="koreanNm"]').val(); // 한글명
-                     sParam.chineseNm = that.$el.find('.CAPCM197-detail-table [data-form-param="chineseNm"]').val(); // 중문명
+                     sParam.useLngWrdNm2 = that.$el.find('.CAPCM197-detail-table [data-form-param="trnsfrRsltVal2"]').val(); // 한글명
+                     sParam.useLngWrdNm3 = that.$el.find('.CAPCM197-detail-table [data-form-param="trnsfrRsltVal3"]').val(); // 중문명
 
 
                      if(sParam.cmpxEngAbrvtnNm.length >= 6 ){
@@ -395,8 +442,8 @@ define(
 
                     // 영문단어명 뺴고 초기화
                     that.$el.find('.CAPCM197-detail-table [data-form-param="cmpxEngAbrvtnNm"]').val("");
-                	that.$el.find('.CAPCM197-detail-table [data-form-param="koreanNm"]').val("");
-                	that.$el.find('.CAPCM197-detail-table [data-form-param="chineseNm"]').val("");
+                	that.$el.find('.CAPCM197-detail-table [data-form-param="trnsfrRsltVal2"]').val("");
+                	that.$el.find('.CAPCM197-detail-table [data-form-param="trnsfrRsltVal3"]').val("");
 
 
                 	that.$el.find('.CAPCM197-detail-table [data-form-param="engWrdNm"]').prop("readonly", false);
@@ -450,8 +497,8 @@ define(
                     } else {
                     	that.$el.find('.CAPCM197-detail-table [data-form-param="engWrdNm"]').val(selectedRecord.data.engWrdNm);
                     	that.$el.find('.CAPCM197-detail-table [data-form-param="cmpxEngAbrvtnNm"]').val(selectedRecord.data.cmpxEngAbrvtnNm);
-                    	that.$el.find('.CAPCM197-detail-table [data-form-param="koreanNm"]').val(selectedRecord.data.koreanNm);
-                    	that.$el.find('.CAPCM197-detail-table [data-form-param="chineseNm"]').val(selectedRecord.data.chineseNm);
+                    	that.$el.find('.CAPCM197-detail-table [data-form-param="trnsfrRsltVal2"]').val(selectedRecord.data.useLngWrdNm2);
+                    	that.$el.find('.CAPCM197-detail-table [data-form-param="trnsfrRsltVal3"]').val(selectedRecord.data.useLngWrdNm3);
 
 
                     	that.$el.find('.CAPCM197-detail-table [data-form-param="engWrdNm"]').prop("readonly", true);

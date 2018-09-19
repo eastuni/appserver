@@ -1,0 +1,243 @@
+<h2 class="bw-tt">{{bxMsg 'error-setting.error-statistics'}}</h2>
+<section class="tab-title add-bd2-b">
+    <ul>
+        <li rel="first-tab" class="first-tab on-tab">
+            <a>{{bxMsg 'error-setting.error-statistics-by-date'}}
+                <span class="tab-bg"></span>
+                <span class="tab-bg-before"></span>
+            </a>
+        </li>
+        <li rel="second-tab" class="second-tab">
+            <a>{{bxMsg 'error-setting.error-statistics-by-period'}}
+                <span class="tab-bg"></span>
+                <span class="tab-bg-before"></span>
+            </a>
+        </li>
+        <li rel="last-tab" class="last-tab">
+            <a>{{bxMsg 'error-setting.error-statistics-by-condition'}}
+                <span class="tab-bg"></span>
+                <span class="tab-bg-before"></span>
+            </a>
+        </li>
+    </ul>
+</section>
+
+<section id="error-statistics-first-tab" class="module-wrap clr-bg tabs">
+    <section class="bw-tool">
+        <div class="btn-wrap fix-r">
+            <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+            <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+        </div>
+    </section>
+    <section class="search-wrap bxm-search-wrap">
+        <ul class="clr">
+            <li class="input-wrap w-35">
+                <label class="bw-label w-40">{{bxMsg 'error-setting.occurrence-date'}}</label>
+                <input type="text" class="bw-input ipt-cal a-center w-60" data-form-param="occurDt" readonly/>
+            </li>
+            <li class="input-wrap w-35">
+                <label class="bw-label w-40">{{bxMsg 'error-setting.sales-date'}}</label>
+                <input type="text" class="bw-input ipt-cal a-center w-60" data-form-param="bizDt" readonly/>
+            </li>
+        </ul>
+    </section>
+    <div class="module-wrap md-db add-mg-t-half">
+        <div class="module w-100">
+            <div class="module-inner md-lc">
+                <h3 class="db-tt">{{bxMsg 'error-setting.error-occur-count-by-hour'}}</h3>
+                <canvas class="bw-chart chart-ll error-occur-count-by-hour-chart"></canvas>
+            </div>
+        </div>
+        <div class="module w-33-3">
+            <div class="module-inner h-list error-occur-top5-trading-code-chart">
+                <h3 class="db-tt">{{bxMsg 'error-setting.error-occur-top5-trading-code'}}</h3>
+                <canvas class="bw-chart chart-ml"></canvas>
+
+                <div class="bw-grid error-code-list add-mg-t-half">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>{{bxMsg 'error-setting.trading-code'}}</td>
+                            <td>{{bxMsg 'error-setting.error-occur-count'}}</td>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="module w-33-3">
+            <div class="module-inner h-list error-occur-top5-channel-code-chart">
+                <h3 class="db-tt">{{bxMsg 'error-setting.error-occur-top5-channel-code'}}</h3>
+                <canvas class="bw-chart chart-ml"></canvas>
+
+                <div class="bw-grid error-code-list add-mg-t-half">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>{{bxMsg 'error-setting.channel-code'}}</td>
+                            <td>{{bxMsg 'error-setting.error-occur-count'}}</td>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="module w-33-3">
+            <div class="module-inner h-list md-lc error-occur-top5-error-code-chart">
+                <h3 class="db-tt">{{bxMsg 'error-setting.error-occur-top5-error-code'}}</h3>
+                <canvas class="bw-chart chart-ml"></canvas>
+
+                <div class="bw-grid error-code-list add-mg-t-half">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>{{bxMsg 'error-setting.error-code'}}</td>
+                            <td>{{bxMsg 'error-setting.error-occur-count'}}</td>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="error-statistics-second-tab" class="module-wrap clr-bg tabs" style="display: none;">
+    <section class="bw-tool">
+        <div class="btn-wrap fix-r">
+            <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+            <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+        </div>
+    </section>
+    <section class="search-wrap bxm-search-wrap">
+        <ul class="clr">
+            <li class="input-wrap w-45">
+                <label class="bw-label w-30">{{bxMsg 'error-setting.occurrence-date'}}</label>
+                <input type="text" class="bw-input ipt-cal a-center w-30 no-border-radius" data-form-param="occurDtStart" readonly/>
+                <span type="text" class="bw-input w-10 no-border-radius">~</span>
+                <input type="text" class="bw-input ipt-cal a-center w-30" data-form-param="occurDtEnd" readonly/>
+            </li>
+            <li class="input-wrap w-45">
+                <label class="bw-label w-30">{{bxMsg 'error-setting.sales-date'}}</label>
+                <input type="text" class="bw-input ipt-cal a-center w-30 no-border-radius" data-form-param="bizDtStart" readonly/>
+                <span type="text" class="bw-input w-10 no-border-radius">~</span>
+                <input type="text" class="bw-input ipt-cal a-center w-30" data-form-param="bizDtEnd" readonly/>
+            </li>
+        </ul>
+    </section>
+    <div class="module-wrap md-db add-mg-t-half">
+        <div class="module w-100">
+            <div class="module-inner md-lc">
+                <h3 class="db-tt">{{bxMsg 'error-setting.error-occur-count-by-date'}}</h3>
+                <canvas class="bw-chart chart-ll error-occur-count-by-date-chart"></canvas>
+            </div>
+        </div>
+        <div class="module w-33-3">
+            <div class="module-inner h-list error-occur-top5-trading-code-chart">
+                <h3 class="db-tt">{{bxMsg 'error-setting.error-occur-top5-trading-code'}}</h3>
+                <canvas class="bw-chart chart-ml"></canvas>
+
+                <div class="bw-grid error-code-list add-mg-t-half">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>{{bxMsg 'error-setting.trading-code'}}</td>
+                            <td>{{bxMsg 'error-setting.error-occur-count'}}</td>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="module w-33-3">
+            <div class="module-inner h-list error-occur-top5-channel-code-chart">
+                <h3 class="db-tt">{{bxMsg 'error-setting.error-occur-top5-channel-code'}}</h3>
+                <canvas class="bw-chart chart-ml"></canvas>
+
+                <div class="bw-grid error-code-list add-mg-t-half">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>{{bxMsg 'error-setting.channel-code'}}</td>
+                            <td>{{bxMsg 'error-setting.error-occur-count'}}</td>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="module w-33-3">
+            <div class="module-inner h-list md-lc error-occur-top5-error-code-chart">
+                <h3 class="db-tt">{{bxMsg 'error-setting.error-occur-top5-error-code'}}</h3>
+                <canvas class="bw-chart chart-ml"></canvas>
+
+                <div class="bw-grid error-code-list add-mg-t-half">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>{{bxMsg 'error-setting.error-code'}}</td>
+                            <td>{{bxMsg 'error-setting.error-occur-count'}}</td>
+                        </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="error-statistics-last-tab" class="module-wrap clr-bg tabs" style="display: none;">
+    <section class="bw-tool">
+        <div class="btn-wrap fix-r">
+            <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+            <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+        </div>
+    </section>
+    <section class="search-wrap bxm-search-wrap">
+        <ul class="clr">
+            <li class="input-wrap w-35">
+                <label class="bw-label w-40">{{bxMsg 'error-setting.occurrence-date'}}</label>
+                <input type="text" class="bw-input ipt-cal a-center w-60" data-form-param="occurDt" readonly/>
+            </li>
+            <li class="input-wrap w-35">
+                <label class="bw-label w-40">{{bxMsg 'error-setting.sales-date'}}</label>
+                <input type="text" class="bw-input ipt-cal a-center w-60" data-form-param="bizDt" readonly/>
+            </li>
+        </ul>
+    </section>
+    <section class="condition-grid"></section>
+
+    <h3 class="bw-stt add-mg-t">{{bxMsg 'error-setting.condition-name'}}<p class="desc condition-title"></p></h3>
+    <div class="module-wrap md-db add-mg-t-half">
+        <div class="module w-50">
+            <div class="module-inner h-list error-count-chart">
+                <h3 class="db-tt">
+                    {{bxMsg 'error-setting.error-count-graph'}}
+                </h3>
+                <ul class="clr fix-r add-mg-t">
+                    <li class="w-100">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40">
+                                {{bxMsg 'error-setting.trading-code'}}<button type="button" class="bw-btn trx-code-search-btn" style="display: none;" disabled="disabled" title="{{bxMsg 'error-setting.search-trading-target'}}"><i class="bw-icon i-20 i-func-search"></i></button>
+                            </label>
+                            <input type="text" class="bw-input w-60" data-form-param="trxCd" readonly/>
+                        </div>
+                    </li>
+                </ul>
+                <canvas class="bw-chart chart-ll h-360"></canvas>
+            </div>
+        </div>
+        <div class="module w-50">
+            <div class="module-inner h-list md-lc error-occur-top5-error-code-chart">
+                <h3 class="db-tt">{{bxMsg 'error-setting.error-occur-log'}}</h3>
+                <div class="event-grid add-bd2-t"></div>
+            </div>
+        </div>
+    </div>
+</section>

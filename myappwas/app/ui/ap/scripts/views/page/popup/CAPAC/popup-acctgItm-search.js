@@ -11,45 +11,33 @@ define(
         IndexPaging,
         Popup
     ) {
+    	// page number.
+		var pgNbr = 1;
+    	
         var popupacctgItmSearch = Popup.extend({
 
-
-            templates: {
+        	templates: {
                 'tpl': tpl
             },
-
 
             attributes: {
                 'style': 'width: 1020px; height: 800px;'
             },
 
-
             events: {
                 'click #btn-search-condition-reset': 'reset', // 초기화
                 'click #btn-search-condition-inquire': 'selectList', // 목록조회
-
-
                 'click #btn-search-result-toggle': 'toggleSearchResult', // 그리드영역 접기
                 'click #btn-search-condition-toggle': 'toggleSearchCondition', // 조회영역 접기
-
-
                 'click #btn-popup-select': 'fn_select' // 선택버튼클릭
             },
-
-
-
-
-//
-//
-//
+            
+            // 조회영역 접기
             toggleSearchCondition : function() {
                 fn_pageLayerCtrl(this.$el.find("#search-condition-area"), this.$el.find("#btn-search-condition-toggle"));
             },
 
-
-//
-//
-//
+            // 초기화
             reset : function() {
                 this.$el.find("#search-condition-area [data-form-param='acctgDstnctn'] option:eq(0)").attr("selected", "selected");
                 this.$el.find("#search-condition-area [data-form-param='bsisDstnctn'] option:eq(0)").attr("selected", "selected");
@@ -57,57 +45,53 @@ define(
                 this.$el.find("#search-condition-area [data-form-param='acctgItmNm']").val("");
             },
 
-
-            init_pagingInfo : function() {
-          	   var that = this;
-          	   that.pgNbr = 1; // 페이지번호
-          	   that.pgCnt = 500; // 페이지건수
-          	   that.acctgList = [];
-             },
-//
-//
-//
+            // 목록조회
             selectList : function() {
-            	this.init_pagingInfo();
+            	var that = this;
+           	   	pgNbr = 1; // 페이지번호
+           	   	
                 this.fn_loadList();
             },
-//
-//
-//
-            selectNextList : function() {
-            	this.pageNum++;
-            	this.fn_loadList();
-            },
 
-
-//
-//
-//
+            // 그리드영역 접기
             toggleSearchResult : function() {
                 fn_pageLayerCtrl(this.$el.find("#popup-acctgItm-search-grid"), this.$el.find("#btn-search-result-toggle"));
             },
 
-
-
-
-//
-//
-//
             initialize: function (initData) {
-                $.extend(this, initData);
+                
+            	var that = this;
+            	
+            	/***** paging *****/
+            	this.$el.html(this.tpl());
+            	
+            	$.extend(this, initData);
 
-
+                
                 this.enableDim = true;
                 this.initData = initData;
                 this.createGrid();
+                
+                /***** paging *****/
+                var pagingParam = {};
+//                pagingParam.pageSize = bwgPageSize; // 조회건수 server config.js의 건수 20건으로 설정
+                pagingParam.pageSize = 100; // 조회건수 
+                pagingParam.naviSize = 15; // 페이징에 보여줄 건수 1 2 3 4 5 6 7 8 9 10
+                
+                that.subViews['indexPaging'] = new IndexPaging(pagingParam);
+                that.$el.find(".paging-area").html(that.subViews['indexPaging'].render());
+        
+		        // 페이징 버튼 클릭시 조회 호출
+		        that.listenTo(that.subViews['indexPaging'], 'paginSetData', function(param) {
+		        	pgNbr = param;
+		        	that.fn_loadList();
+		        });
             },
-
 
             createGrid: function () {
                 var that = this;
 
-
-                this.popupAcctgItmSearchGrid = new ExtGrid({
+                that.popupAcctgItmSearchGrid = new ExtGrid({
                     // 그리드 컬럼 정의
                     fields: ['rowIndex', 'acctgDscd', 'acctgItmCd', 'acctgItmNm', 'titlAcctgClCd', 'realTitlAcctgYn' ,'glOutpLvlDscd']
                     , id: 'popupAcctgItmSearchGrid'
@@ -218,23 +202,17 @@ define(
                         }
                     }
                 });
+                
+                that.$el.find(".popup-acctgItm-search-grid").html(that.popupAcctgItmSearchGrid.render({'height': '420px'}));
+//                that.$el.find(".popup-acctgItm-search-grid").html(that.popupAcctgItmSearchGrid.render({'height': CaPopGridHeight}));
             },
 
-
-//
-//
-//
             render: function () {
-                this.$el.html(this.tpl());
-                this.$el.find(".popup-acctgItm-search-grid").html(this.popupAcctgItmSearchGrid.render({'height': CaPopGridHeight}));
-
 
                 this.setComboBoxes();
                 this.show();
 
-
                 console.log(this.initData);
-
 
                 if(!fn_isNull(this.initData)) {
                     if(!fn_isNull(this.initData.acctgDscd)) {
@@ -247,7 +225,6 @@ define(
             setComboBoxes: function () {
                 var sParam = {};
 
-
                 // combobox 정보 셋팅
                 sParam.className = "PopupAcctgItmSrch-acctgDstnctn-wrap";
                 sParam.targetId = "acctgDstnctn";
@@ -256,7 +233,6 @@ define(
                 sParam.cdNbr = "51011"; // 회계구분코드
                 // 콤보데이터 load
                 fn_getCodeList(sParam, this);
-
 
                 sParam = {};
                 // combobox 정보 셋팅
@@ -269,104 +245,56 @@ define(
                 fn_getCodeList(sParam, this);
             },
 
-
             setSearchCondition: function (data) {
                 var that = this;
 
-
                 console.log(data);
-
 
                 if(data) {
                     that.$el.find('#search-condition-area [data-form-param="acctgDstnctn"]').val(data.acctgDscd);
                     that.$el.find('#search-condition-area [data-form-param="bsisDstnctn"]').val(data.bsisDscd);
                 }
-
-
                 that.fn_loadList();
             },
 
-
-//
-//
-//
             fn_loadList: function () {
                 var that = this;
                 var sParam = {};
 
-
-                // sParam.cdNbrTpCd    = that.$el.find("#search-condition-area [data-form-param='cdKnd']").val();
                 sParam.instCd       = $.sessionStorage('headerInstCd');
                 sParam.acctgDscd    = that.$el.find("#search-condition-area [data-form-param='acctgDstnctn']").val();
                 sParam.bsisDscd     = that.$el.find("#search-condition-area [data-form-param='bsisDstnctn']").val();
                 sParam.acctgItmCd   = that.$el.find("#search-condition-area [data-form-param='acctgItmCd']").val();
                 sParam.acctgItmNm   = that.$el.find("#search-condition-area [data-form-param='acctgItmNm']").val();
                 sParam.closeAcctgInqryYn = "Y";
-                sParam.pgNbr = that.pgNbr;
-                sParam.pgCnt = that.pgCnt;
-
+                sParam.pgNbr = pgNbr;
+                sParam.pgCnt = 100;
 
                 var linkData = {"header": fn_getHeader("CAPAC0018402"), "CaCoaMgmtSvcGetCoaListIn": sParam};
-
 
                 //ajax 호출
                 bxProxy.post(sUrl, JSON.stringify(linkData), {
                     success: function (responseData) {
                         if (fn_commonChekResult(responseData)) {
-                        	var tbLists = [];
-                        	var list = responseData.CaCoaMgmtSvcGetCoaTreeListOut.children;
-                        	if(list != null) {
-                        		if(that.pgNbr == 1) {
-                            		that.popupAcctgItmSearchGrid.setData(list);
-                            		tbLists = list;
-                            	}
-
-
-                       		   else {
-                       			   // 다음
-                       			   tbLists = that.popupAcctgItmSearchGrid.getAllData().concat(list);
-                       			   that.popupAcctgItmSearchGrid.setData(tbLists);
-                       		   }
-
-
-                        		if(responseData.CaCoaMgmtSvcGetCoaTreeListOut.inqryCnt > that.$el.find('.popup-acctgItm-search-grid').find('.x-grid-data-row').length) {
-                        			// 다음버튼 활성화
-                        			that.$el.find('.nxt-btn').prop("disabled", false);
-                        		}
-
-
-                        		if(sParam.acctgItmCd.length > 0 || sParam.acctgItmCd.length > 0) {
-                        			// 다음버튼 비활성화
-                        			that.$el.find('.nxt-btn').prop("disabled", true);
-                        		}
-
-
-                        		that.$el.find('.x-grid-table td:nth-child(6):contains("Y")').parent().find('td').css("background-color","gainsboro");
-                        	}
-
-
-                            if (tbLists != null) {
-                            	var totCnt = tbLists.length;
+                        	var tbList = responseData.CaCoaMgmtSvcGetCoaTreeListOut.children;
+                        	var totCnt = responseData.CaCoaMgmtSvcGetCoaTreeListOut.inqryCnt;
+                        	
+                        	/***** paging *****/
+                        	if (tbList != null) {
+                        		that.subViews['indexPaging'].setPaging(pgNbr, totCnt);
+                                that.popupAcctgItmSearchGrid.setData(tbList);
                                 that.$el.find("#searchResultCount").html(bxMsg('cbb_items.SCRNITM#srchRslt')+" ("+fn_setComma(totCnt)+" "+bxMsg('cbb_items.SCRNITM#cnt')+")");
-                            }
-
-
-                            that.$el.find('#btn-popup-select').removeClass('on');
-                        }
-                    }   // end of suucess: fucntion
+                        	} else {
+                        		that.PopupServiceGrid.resetData();
+                        	}
+                        }   // end of suucess: fucntion
+                    }
                 });
             },
 
-
-
-
-//
-//
-//
             fn_select: function () {
                 var selectedData = this.popupAcctgItmSearchGrid.grid.getSelectionModel().selected.items[0];
                 var param = {};
-
 
                 if (!selectedData) {
                     return;
@@ -377,18 +305,10 @@ define(
                 this.close();
             },
 
-
-//
-//
-//
             afterClose : function() {
                 this.remove();
             }
-
-
         });
-
-
         return popupacctgItmSearch;
     }
 );

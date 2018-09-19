@@ -1,0 +1,172 @@
+<!--BW-TITLE *컨텐츠 메인 타이틀-->
+<h2 class="bw-tt">
+    {{bxMsg 'batch.before-image-search'}}
+    <p class="desc">{{bxMsg 'batch.before-image-search-msg'}}</p>
+    <div class="f-r header-wrap">
+        <label class="desc transaction-date">{{bxMsg 'batch.transaction-date'}} :</label>
+        <input type="text" class="bw-input ipt-cal a-center add-bd" data-form-param="trxDt" readonly/>
+        <select class="bw-input ipt-select reload-interval-select">
+            <option value="">{{bxMsg 'common.no-auto-refresh'}}</option>
+            <option value="10000">10{{bxMsg 'common.second'}}</option>
+            <option value="30000" selected>30{{bxMsg 'common.second'}}</option>
+            <option value="60000">60{{bxMsg 'common.second'}}</option>
+        </select>
+        <button type="button" class="bw-btn refresh-btn" title="{{bxMsg 'common.refresh'}}"><i class="bw-icon i-25 i-func-refresh"></i></button>
+    </div>
+</h2>
+<!--/END BW-TITLE-->
+
+<!--Before Image 통계-->
+<div class="bxm-db">
+    <h3 class="bw-stt add-mg-t">{{bxMsg 'batch.before-image-search-stat'}}</h3>
+    <div class="module-wrap md-db">
+        <div class="module w-40 statistics-by-table-chart-wrap">
+            <div class="module-inner">
+                <h3 class="db-tt">{{bxMsg 'batch.statistics-by-table'}}</h3>
+                <canvas class="bw-chart chart-m statistics-by-table-chart"></canvas>
+            </div>
+        </div>
+        <div class="module w-60 calibration-result-statistics-chart-wrap">
+            <div class="module-inner md-lc">
+                <h3 class="db-tt">{{bxMsg 'batch.calibration-result-statistics'}}</h3>
+                <canvas class="bw-chart chart-m w-90 calibration-result-statistics-chart"></canvas>
+                <div class="legend-wrap">
+                    <div class="legend-item-wrap">
+                        <i class="bw-icon i-15" style="background: #3F48CC; width: 40px; height: 12px;"></i>
+                        <label>{{bxMsg 'batch.normal'}}</label>
+                    </div>
+                    <span class="legend-item-wrap">
+                        <i class="bw-icon i-15" style="background: #F03E46; width: 40px; height: 12px;"></i>
+                        <label>{{bxMsg 'batch.error'}}</label>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="before-image-search-statics-grid"></section>
+<!--/END Image 통계-->
+
+
+<!--Before Image 목록-->
+<h3 class="bw-stt add-mg-t">{{bxMsg 'batch.before-image-search-list'}}</h3>
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn reset-search-btn" title="{{bxMsg 'common.search-reset'}}"><i class="bw-icon i-25 i-func-reset"></i></button>
+        <button type="button" class="bw-btn search-btn" title="{{bxMsg 'common.search'}}"><i class="bw-icon i-25 i-func-search"></i></button>
+    </div>
+</section>
+<section class="search-wrap before-image-search-list-search">
+    <ul class="clr">
+        <li class="input-wrap w-30">
+            <label class="bw-label w-40">{{bxMsg 'batch.table-name'}}</label>
+            <input type="text" class="bw-input w-60" data-form-param="tableNm"/>
+        </li>
+        <li class="input-wrap w-30">
+            <label class="bw-label w-40">{{bxMsg 'batch.transaction-date'}}</label>
+            <input type="text" class="bw-input ipt-cal a-center w-60 " data-form-param="trxDt" readonly/>
+        </li>
+        <li class="input-wrap w-30">
+            <label class="bw-label w-40">{{bxMsg 'batch.calibration-result'}}</label>
+            <select class="bw-input ipt-select w-60" data-form-param="revertResultCd">
+           		<option value="">{{bxMsg 'common.all'}}</option>
+            	<option value="normal">{{bxMsg 'batch.normal'}}</option>
+            	<option value="error">{{bxMsg 'batch.error'}}</option>
+            </select>
+        </li>
+    </ul>
+</section>
+<section class="before-image-search-list-grid"></section>
+<!--/END Image 목록-->
+
+<!--Before Image 상세-->
+<h3 class="bw-stt add-mg-t">{{bxMsg 'batch.before-image-search-detail'}}</h3>
+<section class="bw-tool add-bd2-t"></section>
+<section class="search-wrap clr before-image-search-detail bx-loding-wrap">
+    <ul class="clr">
+        <li class="w-66">
+            <div class="input-wrap clr">
+                <label class="bw-label w-25">{{bxMsg 'batch.guid'}}</label>
+                <input type="text" class="bw-input w-75" data-form-param="guid" readonly />
+            </div>
+        </li>
+        <li class="w-34">
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.transaction-code'}}</label>
+                <input type="text" class="bw-input w-50" data-form-param="trxCd" readonly />
+            </div>
+        </li>
+        <li class="w-33">
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.table-name'}}</label>
+                <input type="text" class="bw-input w-50" data-form-param="tableNm" readonly />
+            </div>
+        </li>
+        <li class="w-33">
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.transaction-date'}}</label>
+                <input type="text" class="bw-input w-50" data-form-param="trxDt" readonly />
+            </div>
+        </li>
+        <li class="w-34">
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.processing-date'}}</label>
+                <input type="text" class="bw-input w-50" data-form-param="procDttm" readonly />
+            </div>
+        </li>
+        <li class="w-33">
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.sql-type'}}</label>
+                <input type="text" class="bw-input w-50" data-form-param="sqlTypeCd" data-code="BXMAD0033" readonly />
+            </div>
+        </li>
+        <li class="w-33">
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.before-and-after'}}</label>
+                <input type="text" class="bw-input w-50" data-form-param="dataBefAftTypeCd" data-code="BXMAD0032" readonly />
+            </div>
+        </li>
+        <li class="w-34">
+            <div class="input-wrap clr">
+                <label class="bw-label w-50">{{bxMsg 'batch.calibration-result'}}</label>
+                <input type="text" class="bw-input w-50" data-form-param="revertResultCd"  data-code="BXMAD0031"readonly />
+            </div>
+        </li>
+<!--         <li class="w-100"> -->
+<!--             <div class="input-wrap fix-txtarea h-half p-rel clr"> -->
+<!--                 <label class="bw-label w-15">{{bxMsg 'batch.list-of-all-column-names'}}</label> -->
+<!--                 <div class="txt-wrap2 fix-size w-85 f-r"> -->
+<!--                     <textarea class="bw-textarea" data-form-param="allColumnNmList" readonly></textarea> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </li> -->
+<!--         <li class="w-100"> -->
+<!--             <div class="input-wrap fix-txtarea h-half p-rel clr"> -->
+<!--                 <label class="bw-label w-15">{{bxMsg 'batch.list-of-pk-column-names'}}</label> -->
+<!--                 <div class="txt-wrap2 fix-size w-85 f-r"> -->
+<!--                     <textarea class="bw-textarea" data-form-param="pkColumnNmList" readonly></textarea> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </li> -->
+<!--         <li class="w-100"> -->
+<!--             <div class="input-wrap fix-txtarea h-half p-rel clr"> -->
+<!--                 <label class="bw-label w-15">{{bxMsg 'batch.list-of-pk-column-values'}}</label> -->
+<!--                 <div class="txt-wrap2 fix-size w-85 f-r"> -->
+<!--                     <textarea class="bw-textarea" data-form-param="pkColumnValList" readonly></textarea> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </li> -->
+<!--         <li class="w-100"> -->
+<!--             <div class="input-wrap fix-txtarea h-half p-rel clr"> -->
+<!--                 <label class="bw-label w-15">{{bxMsg 'batch.sql-input-data'}}</label> -->
+<!--                 <div class="txt-wrap2 fix-size w-85 f-r"> -->
+<!--                     <textarea class="bw-textarea" data-form-param="sqlInputData" readonly></textarea> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </li> -->
+    </ul>
+
+    <div class="change-data-detail"></div>
+</section>
+<!--/END Image 상세-->

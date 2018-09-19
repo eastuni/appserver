@@ -436,7 +436,7 @@ define(
                 }
 
 
-                this.$el.find('#numbering-rule-composition-attribute-area [data-form-param="refAtrbtNm"]').prop('disabled', true);
+                //this.$el.find('#numbering-rule-composition-attribute-area [data-form-param="refAtrbtNm"]').prop('disabled', true);
             },
 
 
@@ -718,7 +718,7 @@ define(
                 this.$el.find('#numbering-rule-composition-attribute-area [data-form-param="cmpsFgrsCnt"]').val("");
                 this.$el.find('#numbering-rule-composition-attribute-area [data-form-param="startNbr"]').val("");
                 this.$el.find('#numbering-rule-composition-attribute-area [data-form-param="nbrgTierYn"]').prop("checked", false);
-                this.$el.find('#numbering-rule-composition-attribute-area [data-form-param="refAtrbtNm"]').prop('disabled', false);
+                //this.$el.find('#numbering-rule-composition-attribute-area [data-form-param="refAtrbtNm"]').prop('disabled', false);
             },
 
 

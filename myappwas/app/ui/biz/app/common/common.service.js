@@ -13,6 +13,7 @@ md.service('$commonService', __service);
 function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootScope, $state){
     var subMenuList = [];
     var _messageData = {};
+	var I18N;	// 2018.09.10 다국어 성능향상
 
     return {
     	getFileData : function(url_){
@@ -192,76 +193,156 @@ function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootSc
             return CommonInfo;
         },
 
-        /**
-         * 콤보박스생성
+		/**
+         * 화면에서 필요한 코드 여러개를 한번에 조회함.
+		 * 조회한 코드는 sessionStorage에 저장 후, 이후 코드 조회는
+		 * 서비스를 거치지 않고 로컬 저장소에서 가져온다.
+		 * 
+		 * 코드를 일괄로 조회할 경우 각 화면의 컨트롤러 최상단에서 이 함수를 호출한다.
+		 * 동기로 서비스를 호출하므로 먼저 모든 코드를 조회한 후 다음 서비스 호출작업이 이뤄진다.
+		 * 
+		 * sParam : 코드리스트
+		 * 
+		 * usage : SCU123 아래 소스를 페이지의 컨트롤러 상단에 추가
+		 * var codeListTest = {"cdNbrList":[{"cdNbr":"40019"},{"cdNbr":"40018"},{"cdNbr":"40010"}]};
+		 * $commonService.fn_getMultiCodeList(codeListTest);
+		 * @jinyeong.park
+         */
+		fn_getMultiCodeList : function(sParam) {
+			var cdNbrListParam = sParam.cdNbrList;
+			var param = new Array();
+
+			//session storage에 없는 코드만 리스트에 넣는다.
+			for(var idx in cdNbrListParam) {
+				if(!$.sessionStorage(cdNbrListParam[idx].cdNbr)) {
+					param.push(cdNbrListParam[idx]);
+				}
+			}
+
+			var cdNbrList = param;
+			if(cdNbrList.length > 0) {
+				var sendParam = {
+					cdNbrList
+				}
+				var linkData = {"header": this.fn_getHeader("CAPCM0038401"), "CaCmnCdSvcGetCdListByCdNbrListIn": sendParam};
+				var responseData = $commonProxy.fn_callSyncSvc(sUrl, linkData, {
+					enableLoading : false
+				});
+
+				if (responseData != null){
+					var tblNm = responseData.CaCmnCdSvcGetCdListByCdNbrListOut.tblNm;	
+					for(var idx in tblNm) {
+						$.sessionStorage(tblNm[idx].cdNbr, tblNm[idx].cdNbrList);
+					}
+				}
+			}
+		},
+
+		/**
+         * 코드를 조회하여 콤보박스생성
+		 * 코드 조회 시 sessionStorage에 있는지 확인
+		 * @jinyeong.park
          */
         fn_getCodeList : function(sParam) {
             var param = {};
             var that = this;
-            param.cdNbr = sParam.cdNbr;
+			param.cdNbr = sParam.cdNbr;
+			var sessionCode = $.sessionStorage(param.cdNbr);
 
-//            console.log(sParam);
+			//session storage에 코드 여부 확인
+			var selectArea = $("[data-form-param=\"" + sParam.targetId + "\"]");
+			if (sParam.ctrlId) {
+				selectArea = $("#" + sParam.ctrlId).find("[data-form-param=\"" + sParam.targetId + "\"]");
+			}
+			if (sParam.tabId) {
+				selectArea = $("#" + sParam.tabId).find("[data-form-param=\"" + sParam.targetId + "\"]");
+			}
+			
+			/**
+			 * 조건1 : 세션스토리지에 코드가 있는지 확인
+			 * 조건2 : 팝업인지 확인
+			 * 조건3 : 빈 option 추가되지 않도록 select속성에 ng-modlel있는지 확인
+			 * 조건4 : 화면에서 항상 캐시가 아닌 서버에서 가져와야하는 코드인지 확인
+			 */
+			if(sessionCode && selectArea[0] && !selectArea[0].hasAttribute("ng-model") && !sParam.reload) {
 
-            var linkData = {"header": this.fn_getHeader("CAPCM0038400"), "CaCmnCdSvcGetCdListByCdNbrIn": param};
+				//콤보생성
+				that.fn_makeComboByCode(sParam, sessionCode);
 
-            $commonProxy.fn_callAsyncSvc(sUrl, linkData, {
-            	enableLoading : false, // 로딩바 여부
-            	success : function(responseData) {
+			} else {
+				var linkData = {"header": this.fn_getHeader("CAPCM0038400"), "CaCmnCdSvcGetCdListByCdNbrIn": param};
 
-                    var selectArea = $("[data-form-param=\"" + sParam.targetId + "\"]");
-                    if (sParam.ctrlId != undefined && sParam.ctrlId != ""){
-                    	selectArea = $("#" + sParam.ctrlId).find("[data-form-param=\"" + sParam.targetId + "\"]");
-                    }
-                    if (sParam.tabId != undefined && sParam.tabId != ""){
-                    	selectArea = $("#" + sParam.tabId).find("[data-form-param=\"" + sParam.targetId + "\"]");
-                    }
-                    selectArea.empty();
-                    if (sParam.disabled) {
-                        selectArea.attr("disabled", true);
-                    };
-
-                    if (sParam.hidden) {
-                        selectArea.attr("hidden", true);
-                    };
-                    if (sParam.nullYn == "Y") {
-                    	var option;
-                    	if(sParam.blankTitle){
-	                        option = $(document.createElement('option')).val("").text(sParam.blankTitle);
-	                    } else {
-	                    	option = $(document.createElement('option')).val("").text(" ");
-	                    }
-                        selectArea.append(option);
-                    };
-
-                    $(responseData.CaCmnCdSvcGetCdListByCdNbrOut.tblNm).each(function (idx, item) {
-                        var optionText = item.cdNm;
-                        var option = $(document.createElement('option')).val(item.cd).text(optionText);
-                        
-                        if (sParam.viewType) {
-                            if (sParam.viewType == "ValNm") {
-                                option = $(document.createElement('option')).val(item.cd).text(item.cd + " " + optionText);
-                            }
-                            else if (sParam.viewType == "val") {
-                                option = $(document.createElement('option')).val(item.cd).text(item.cd);
-                            } else if (sParam.viewType == "Nm") {
-                                option = $(document.createElement('option')).val(item.cd).text(optionText);
-                            }
-                        }
-                        selectArea.append(option);
-                        
-                        typeof sParam.fn === 'function' && sParam.fn();
-                    });
-
-                    if (sParam.selectVal) {
-                        selectArea.find('option[value=' + sParam.selectVal + ']').attr('selected', true);
-                        //sectionArea.change();
-                    };
-            	},
-            	error : function(data, status, headers, config) {
-            		console.log(status);
-            	}
-            });
-        },
+				$commonProxy.fn_callAsyncSvc(sUrl, linkData, {
+					enableLoading : false, // 로딩바 여부
+					success : function(responseData) {
+						
+						var responseCode = responseData.CaCmnCdSvcGetCdListByCdNbrOut.tblNm;
+						
+						//콤보생성
+						that.fn_makeComboByCode(sParam, responseCode);
+						
+						//조회한 코드를 sessionStorage에 저장
+						$.sessionStorage(sParam.cdNbr, responseCode);
+					},
+					error : function(data, status, headers, config) {
+						console.log(status);
+					}
+				});
+			}
+            
+		},
+		
+		/**
+		 * 기존 코드로 콤보박스 생성하는 내용을 함수로 분리
+		 * @jinyeong.park
+		 */
+		fn_makeComboByCode : function(sParam, sessionCode) {
+			var selectArea = $("[data-form-param=\"" + sParam.targetId + "\"]");
+			if (sParam.ctrlId != undefined && sParam.ctrlId != "") {
+				selectArea = $("#" + sParam.ctrlId).find("[data-form-param=\"" + sParam.targetId + "\"]");
+			}
+			if (sParam.tabId != undefined && sParam.tabId != "") {
+				selectArea = $("#" + sParam.tabId).find("[data-form-param=\"" + sParam.targetId + "\"]");
+			}
+			selectArea.empty();
+			if (sParam.disabled) {
+				selectArea.attr("disabled", true);
+			}
+			if (sParam.hidden) {
+				selectArea.attr("hidden", true);
+			}
+			if (sParam.nullYn == "Y") {
+				var option;
+				if (sParam.blankTitle) {
+					option = $(document.createElement('option')).val("").text(sParam.blankTitle);
+				}
+				else {
+					option = $(document.createElement('option')).val("").text(" ");
+				}
+				selectArea.append(option);
+			}
+			$(sessionCode).each(function (idx, item) {
+				var optionText = item.cdNm;
+				var option = $(document.createElement('option')).val(item.cd).text(optionText);
+				if (sParam.viewType) {
+					if (sParam.viewType == "ValNm") {
+						option = $(document.createElement('option')).val(item.cd).text(item.cd + " " + optionText);
+					}
+					else if (sParam.viewType == "val") {
+						option = $(document.createElement('option')).val(item.cd).text(item.cd);
+					}
+					else if (sParam.viewType == "Nm") {
+						option = $(document.createElement('option')).val(item.cd).text(optionText);
+					}
+				}
+				selectArea.append(option);
+				typeof sParam.fn === 'function' && sParam.fn();
+			});
+			if (sParam.selectVal) {
+				selectArea.find('option[value=' + sParam.selectVal + ']').attr('selected', true);
+				//sectionArea.change();
+			}
+		},
         
         /**
          * 콤보박스생성
@@ -327,6 +408,11 @@ function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootSc
                         selectArea.find('option[value=' + sParam.selectVal + ']').attr('selected', true);
                         //sectionArea.change();
                     };
+                    
+					//조회한 코드를 sessionStorage에 저장
+					var responseCode = responseData.CaCmnCdSvcGetCdListByCdNbrOut.tblNm;
+					$.sessionStorage(sParam.cdNbr, responseCode);
+
             	},
             	error : function(data, status, headers, config) {
             		console.log(status);
@@ -354,7 +440,6 @@ function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootSc
             } else {
                 serviceCd = "SPD0010401";
             }
-            
             var linkData = {"header": this.fn_getHeader(serviceCd), "PdTxSrvcMgmtSvcIn": param};
             
             $commonProxy.fn_callAsyncSvc(sUrl, linkData, {
@@ -363,7 +448,7 @@ function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootSc
                     //var elSelect = $("#"+sParam.targetId);
                     var elSelect = $("[data-form-param=\"" + sParam.targetId + "\"]");
                     if (sParam.ctrlId != undefined && sParam.ctrlId != ""){
-                    	selectArea = $("#" + sParam.ctrlId).find("[data-form-param=\"" + sParam.targetId + "\"]");
+                    	elSelect = $("#" + sParam.ctrlId).find("[data-form-param=\"" + sParam.targetId + "\"]");
                     }
                     if (sParam.tabId != undefined && sParam.tabId != ""){
                     	elSelect = $("#" + sParam.tabId).find("[data-form-param=\"" + sParam.targetId + "\"]");
@@ -441,25 +526,41 @@ function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootSc
             elSelect.attr("id", sParam.targetId);
 
             elDiv.append(elSelect);
-        },
+		},
+		/*
+		 * 코드 조회 시 sessionStorage에 있는지 확인
+		 * @jinyeong.park
+		 */
         comboStoreFn : function(cdNbr){
     		var param = {};
     		var comboStore;
-    		  param.cdNbr = cdNbr;
-
-    		  var linkData = {"header": this.fn_getHeader("CAPCM0038400"), "CaCmnCdSvcGetCdListByCdNbrIn": param};
-    		  var response = $commonProxy.fn_callSyncSvc(sUrl, linkData, {
-    		  	enableLoading : false
-    		  });
-    		  if (response != null){
-    			  if (response.CaCmnCdSvcGetCdListByCdNbrOut != null) {
-    				  comboStore = new Ext.data.Store({
-    				      fields: ['cd', 'cdNm'],
-    				      data: response.CaCmnCdSvcGetCdListByCdNbrOut.tblNm
-    				  });
-    			  }
-    		  };
-    		  return comboStore;
+			param.cdNbr = cdNbr;
+			var sessionCode = $.sessionStorage(param.cdNbr);
+			if(sessionCode) {
+				comboStore = new Ext.data.Store({
+					fields: ['cd', 'cdNm'],
+					data: sessionCode
+				});
+			} else {
+				var linkData = {"header": this.fn_getHeader("CAPCM0038400"), "CaCmnCdSvcGetCdListByCdNbrIn": param};
+				var response = $commonProxy.fn_callSyncSvc(sUrl, linkData, {
+					enableLoading : false
+				});
+				if (response != null){
+					if (response.CaCmnCdSvcGetCdListByCdNbrOut != null) {
+						comboStore = new Ext.data.Store({
+							fields: ['cd', 'cdNm'],
+							data: response.CaCmnCdSvcGetCdListByCdNbrOut.tblNm
+						});
+					}
+					
+					//조회한 코드를 sessionStorage에 저장
+					var responseCode = response.CaCmnCdSvcGetCdListByCdNbrOut.tblNm;
+					$.sessionStorage(param.cdNbr, responseCode);
+					
+				};
+			}
+    		return comboStore;
     	},
     	comboFillFn : function(sParam){
                 var selectArea = $("[data-form-param=\"" + sParam.targetId + "\"]");
@@ -525,7 +626,7 @@ function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootSc
             var that = this;
             param.cdNbr = sParam.cdNbr;
 
-            var linkData = {"header": this.fn_getHeader("PCM0038400"), "CmnCdSvc06In": param};
+            var linkData = {"header": this.fn_getHeader("CAPCM0038400"), "CmnCdSvc06In": param};
 
             $commonProxy.fn_callAsyncSvc(sUrl, linkData, {
             	enableLoading : false, // 로딩바 여부
@@ -537,7 +638,8 @@ function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootSc
 
             		var fristVal = "";
 
-            		$(data.CmnCdSvcGetCdListByCdNbrOut.tblNm).each(function (idx, item) {
+                    $(responseData.CaCmnCdSvcGetCdListByCdNbrOut.tblNm).each(function (idx, item) {
+            			
             			var optionText = item.cdNm;
             			var optionValue = item.cd;
             			if (idx == 0) {
@@ -562,10 +664,10 @@ function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootSc
             		targetArea.html(selectArea);
 
             		if (sParam.selectVal) {
-            			that.$el.find('input:radio[name=' + sParam.targetId + ']:input:radio[value=' + sParam.selectVal + ']').attr("checked", true);
+            			targetArea.find("#" + sParam.targetId + "_" + sParam.selectVal).attr("checked", true);
             		}
             		else {
-            			that.$el.find('input:radio[name=' + sParam.targetId + ']:input:radio[value=' + fristVal + ']').attr("checked", true);
+            			targetArea.find("#" + sParam.targetId + "_" + fristVal).attr("checked", true);
             		}
 
             		if (sParam.disabled) {
@@ -577,6 +679,11 @@ function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootSc
             		}
 
             		typeof fn === 'function' && fn();
+            		
+					//조회한 코드를 sessionStorage에 저장
+					var responseCode = responseData.CaCmnCdSvcGetCdListByCdNbrOut.tblNm;
+					$.sessionStorage(sParam.cdNbr, responseCode);
+            		
             	},
             	error : function(data, status, headers, config) {
             		console.log(status);
@@ -779,6 +886,7 @@ function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootSc
             header.chnlDscd = $.sessionStorage("chnlDscd");
             header.scrnId = $.sessionStorage("scrnId");
             header.custRprsnId = $.sessionStorage("custRprsnId");// customer related person identification for commit
+            header.aprvlId = $.sessionStorage("aprvlId"); // 2018.06.22 keewoong.hong  add
 
             return header;
         },
@@ -921,9 +1029,14 @@ function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootSc
 
     	/**
     	 * message confirm
+		 * parameter
+		 * param : dialog info
+		 * fn_ok : click ok function
+		 * fn_cancel : click cancel function
+    	 * @jinyeong.park
     	 */
-    	alertConfirm : function(param, fn) {
-    		 //confirm
+    	alertConfirm : function(param, fn_ok, fn_cancel) {
+    		 //create confirm dialog
     		 $().bxDialog({
     		    type : 'default',
     		    width : 0,
@@ -936,11 +1049,15 @@ function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootSc
     		 }).confirm({
     			 title: param.title ? param.title : '',
 				 content: param.content ? param.content : '',
+				//click ok button function
 				 onConfirm: function(e){
-					 typeof fn === 'function' && fn(param);
+					 typeof fn_ok === 'function' && fn_ok(param);
 					 this.hide();
 				 },
+				//click cancel button function
 				 onClose: function(e){
+					 typeof fn_cancel === 'function' && fn_cancel(param);
+					 this.hide();
 				 }
     		});
     	},
@@ -998,6 +1115,7 @@ function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootSc
     	/**
     	 * 화면 다국어 생성
     	 */
+    	/*
     	makeBxI18n : function(param) {
     		
     		var i18n = $().bxI18n({
@@ -1009,6 +1127,41 @@ function __service($http, $q, $commonConfig, $commonProxy, $commonModal, $rootSc
     		});
 
     		return i18n;
+    	},
+    	*/
+    	makeBxI18n : function(param) {
+			if(I18N == undefined){
+				var i18n = $().bxI18n({
+					langType: $.sessionStorage('lngCd'),
+					langDatas: _messageData,
+					enableStorage: false
+				}).init(function(){
+					//this.translate();
+				});
+
+				I18N = i18n;
+			}
+			
+			//I18N.translate();
+			makeI18nCustom();
+			return I18N;
+
+			function makeI18nCustom(){
+				var $els = $('[data-i18n]');
+				for(var i = 0 ; i < $els.length;i++){
+					var $item = $($els[i]);
+
+					var value = $item.attr('data-i18n');
+					if(value.indexOf('cbb_item') >= 0){
+						$item.removeAttr('data-i18n');
+	
+						var idx = value.lastIndexOf('.');
+						var val = value.substring(idx+1,value.length -2);
+						var langData = _messageData[$.sessionStorage('lngCd')].cbb_items[val];
+						$item.text(langData);
+					}
+				}
+			}
     	},
 
     	/**

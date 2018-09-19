@@ -128,14 +128,14 @@ define(
                         attr = 'background-color';
 
 
-                        that.$el.find('[data-form-param="' + element.themeDscd + '"] .header + .sp-replacer').css(attr, element.hdrCntnt);
-                        that.$el.find('[data-form-param="' + element.themeDscd + '"] .popup + .sp-replacer').css(attr, element.popup);
-                        that.$el.find('[data-form-param="' + element.themeDscd + '"] .footerCntnt + .sp-replacer').css(attr, element.footerCntnt);
-                        that.$el.find('[data-form-param="' + element.themeDscd + '"] .theme-wrap').css(attr, element.bdyVal);
+                        that.$el.find('[data-form-param="' + element.themeDscd + '"] .header + .sp-replacer').css(attr, element.styleHdrCntnt);
+                        that.$el.find('[data-form-param="' + element.themeDscd + '"] .popup + .sp-replacer').css(attr, element.stylePopupCntnt);
+                        that.$el.find('[data-form-param="' + element.themeDscd + '"] .footerCntnt + .sp-replacer').css(attr, element.styleFooterCntnt);
+                        that.$el.find('[data-form-param="' + element.themeDscd + '"] .theme-wrap').css(attr, element.styleBdyVal);
                     }
 
 
-                    if(element.themeDfltYn == 'Y') {
+                    if(element.styleThemeDfltYn == 'Y') {
                         that.$el.find('input[value="' + element.themeDscd + '"]').prop('checked', true);
                     }
 
@@ -212,21 +212,21 @@ define(
 
                     sParam.instCd       = $.sessionStorage('headerInstCd');
                     sParam.themeDscd    = radioValue;
-                    sParam.bdyVal          = that.$el.find(theme + ' .theme-wrap').css('background-color');
+                    sParam.styleBdyVal  = that.$el.find(theme + ' .theme-wrap').css('background-color');
                     sParam.styleSeqNbr  = parseInt(that.$el.find(theme + ' .styleSeqNbr').val());
-                    sParam.themeDfltYn  = 'Y';
+                    sParam.styleThemeDfltYn  = 'Y';
 
 
                     if(radioValue == '04') {
                         attr = 'background-color';
-                        sParam.hdrCntnt          = that.$el.find(theme + ' .header + .sp-replacer').css(attr);
-                        sParam.popupCntnt        = that.$el.find(theme + ' .popup + .sp-replacer').css(attr);
-                        sParam.footerCntnt       = that.$el.find(theme + ' .footerCntnt + .sp-replacer').css(attr);
+                        sParam.styleHdrCntnt          = that.$el.find(theme + ' .header + .sp-replacer').css(attr);
+                        sParam.stylePopupCntnt        = that.$el.find(theme + ' .popup + .sp-replacer').css(attr);
+                        sParam.styleFooterCntnt       = that.$el.find(theme + ' .footerCntnt + .sp-replacer').css(attr);
                     } else {
                         attr = 'background-color';
-                        sParam.hdrCntnt          = that.$el.find(theme + ' .header').css(attr);
-                        sParam.popupCntnt        = that.$el.find(theme + ' .popup').css(attr);
-                        sParam.footerCntnt       = that.$el.find(theme + ' .footer').css(attr);
+                        sParam.styleHdrCntnt          = that.$el.find(theme + ' .header').css(attr);
+                        sParam.stylePopupCntnt        = that.$el.find(theme + ' .popup').css(attr);
+                        sParam.styleFooterCntnt       = that.$el.find(theme + ' .footer').css(attr);
                     }
 
 

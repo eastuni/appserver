@@ -60,43 +60,31 @@
                                 </div>
 							</td>
 						</tr>
+						
+	                      <tr>
+	                          <td class="td-w-33"> <!-- 조건코드 -->
+	                              <div class="input-wrap clr">
+	                                  <label class="bw-label w-31-5" title="{{bxMsg 'cbb_items.AT#dstbTaskStsCd'}}">{{bxMsg 'cbb_items.AT#dstbTaskStsCd'}}</label>
+									  <select class="bw-input w-68-5 ipt-select CAPSV301-base-dstbTaskStsCd-wrap" data-form-param="dstbTaskStsCd"></select>
+	                              </div>
+	                          </td>
+	                          <td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#inqryStartDt'}}">{{bxMsg 'cbb_items.AT#srchStartDtm'}}</label>
+										<input type="text" class="bw-input w-60 ipt-cal" data-form-param="srchStartDtm" />
+									</div>
+								</td>
+								<td class="td-w-33">
+			                              <div class="input-wrap clr">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#inqryEndDt'}}">{{bxMsg 'cbb_items.AT#srchEndDtm'}}</label>
+										<input type="text" class="bw-input w-60 ipt-cal" data-form-param="srchEndDtm" />
+									</div>
+								</td>
+	                      </tr>
+						
 					</table>
 				</section>
 			</section>
-			<!-- 추가검색조건 바 -->
-            <section class="bw-tool sub-tool">
-                <div class="f-l">
-                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#adtnlSrchCnd'}}</h3>
-                </div>
-                <div class="btn-wrap fix-r">
-                    <button type="button" class="bw-btn" id="btnAdditionalSearchCndToggle"><i class="bw-icon i-30 i-func-close"></i></button>
-                </div>
-            </section>
-            <!-- 추가검색조건 영역 -->
-            <section class="search-wrap" id="additionalSearchCndWrap">
-                  <table class="bx-info-table w-100">
-                      <tr>
-                          <td class="td-w-33"> <!-- 조건코드 -->
-                              <div class="input-wrap clr">
-                                  <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dstbTaskStsCd'}}">{{bxMsg 'cbb_items.AT#dstbTaskStsCd'}}</label>
-								  <select class="bw-input w-60 ipt-select CAPSV301-base-dstbTaskStsCd-wrap" data-form-param="dstbTaskStsCd"></select>
-                              </div>
-                          </td>
-                          <td class="td-w-33">
-								<div class="input-wrap clr">
-									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#srchStartDtm'}}">{{bxMsg 'cbb_items.AT#srchStartDtm'}}</label>
-									<input type="text" class="bw-input w-60 ipt-cal" data-form-param="srchStartDtm" />
-								</div>
-							</td>
-							<td class="td-w-33">
-		                              <div class="input-wrap clr">
-									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#srchEndDtm'}}">{{bxMsg 'cbb_items.AT#srchEndDtm'}}</label>
-									<input type="text" class="bw-input w-60 ipt-cal" data-form-param="srchEndDtm" />
-								</div>
-							</td>
-                      </tr>
-                  </table>
-            </section>
 
             <!-- Grid area -->
             <section class="grid-wrap">

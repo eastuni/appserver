@@ -104,7 +104,7 @@
 			<td class="td-w-33">
 				<div class="input-wrap fix-label asterisk clr" >
 					<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#instantDsbrsmnt%}" data-i18n-title="{%=cbb_items.SCRNITM#instantDsbrsmnt%}"></label>
-					<select class="bw-input ipt-select"  data-form-param="cupldPymntYn"></select>
+					<select class="bw-input ipt-select"  ng-model="SLN022Ctrl.cupldPymntYnSelectedValue" ng-change="SLN022Ctrl.cupldPymntYn_OnChange()" data-form-param="cupldPymntYn"></select>
 				</div>
 			</td>
 			<td class="td-w-33">

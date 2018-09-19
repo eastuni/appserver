@@ -1,7 +1,0 @@
-OMM bankware.corebanking.externalproxy.message.interfaces.dto.KtCbMsgReqCustTheftInfoOutSnk
-<description="KT CB정보 응답-결과반복부의 명의도용정보 Out">
-{
-	String custTheftRqstDt<length=8 description="명의도용접수일자">;
-	String custTheftRsnCntnt<length=200 description="명의도용귀책사유">;
-	String custTheftStsCntnt<length=120 description="명의도용상태">;
-}

@@ -1,0 +1,64 @@
+<div class="modal-wrap">
+    {{#if msgId}}<h2 class="bw-tt a-center">{{bxMsg 'trx-setting.common-message-edit'}}({{msgId}})</h2>{{/if}}
+    {{#unless msgId}}<h2 class="bw-tt a-center">{{bxMsg 'trx-setting.common-message-add'}}</h2>{{/unless}}
+    <!--SEARCH AREA * 검색 영역-->
+    <section class="search-wrap add-bd2-t fix-h bx-no-draggable common-message-form">
+        <ul class="clr">
+            <li class="w-33">
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-40">{{bxMsg 'trx-setting.message-id'}}</label>
+                    {{#if msgId}} <input type="text" class="bw-input w-60" data-form-param="msgId" value="{{msgId}}" readonly/>{{/if}}
+                    {{#unless msgId}} <input type="text" class="bw-input w-60" data-form-param="msgId"/>{{/unless}}
+                </div>
+            </li>
+            {{#unless msgId}}
+            <li>
+                <input type="checkbox" class="w-50 bw-input ipt-radio generate-id-check">{{bxMsg 'trx-setting.generate-id'}}
+            </li>
+            {{/unless}}
+        </ul>
+        <ul class="col-3 clr">
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'trx-setting.message-level'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="msgBizGrpId"></select>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40">{{bxMsg 'trx-setting.message-type'}}</label>
+                    <select class="bw-input ipt-select w-60" data-form-param="msgTypeCd"></select>
+                </div>
+            </li>
+            <li>
+                <div class="input-wrap asterisk clr">
+                    <label class="bw-label w-40">{{bxMsg 'trx-setting.language-cd'}}</label>
+                    {{#if msgId}}<select class="bw-input ipt-select w-60" data-form-param="langCd" disabled></select>{{/if}}
+                    {{#unless msgId}}<select class="bw-input ipt-select w-60" data-form-param="langCd"></select>{{/unless}}
+                </div>
+            </li>
+        </ul>
+        <ul class="clr">
+            <li class="w-100">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-13">{{bxMsg 'trx-setting.default-message'}}</label>
+                    <input type="text" class="bw-input w-87" data-form-param="basicMsgCtt" value="{{basicMsgCtt}}"/>
+                </div>
+            </li>
+            <li class="w-100">
+                <div class="input-wrap fix-txtarea h-half p-rel clr">
+                    <label class="bw-label w-13">{{bxMsg 'trx-setting.detail-message'}}</label>
+                    <div class="txt-wrap2 fix-size w-87 f-r">
+                        <textarea class="bw-textarea" data-form-param="detailMsgCtt"></textarea>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <!--/END SEARCH AREA-->
+    <div class="btn-wrap add-mg bx-no-draggable">
+        <button type="button" class="bw-btn-txt on save-common-message-btn">{{bxMsg 'common.save'}}</button>
+        <button type="button" class="bw-btn-txt cancel-btn">{{bxMsg 'common.cancel'}}</button>
+    </div>
+    <button type="button" class="bw-close i-20 ff-r bx-no-draggable cancel-btn"></button>
+</div>
