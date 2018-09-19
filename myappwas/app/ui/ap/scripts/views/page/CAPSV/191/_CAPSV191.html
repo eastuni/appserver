@@ -1,0 +1,72 @@
+<!--
+@Screen number  CAPSV191
+@brief          후행조회
+@author         sungwon.kim
+@history        2016.09.20  UI전환
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPSV191-wrap">
+
+
+            <!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+                {{bxMsg 'cbb_items.SCRN#CAPSV191'}}
+                <p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPSV191'}}</p>
+                <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#all'}}</p>
+            </h2>
+
+
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <section class="bw-tool add-bd2-t">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" id="btn-search-condition-reset" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn" id="btn-search-condition-add" title="{{bxMsg 'cbb_items.SCRNITM#add'}}"><i class="bw-icon i-30 i-func-add"></i></button>
+                    <button type="button" class="bw-btn" id="btn-search-condition-inquiry" title="{{bxMsg 'cbb_items.SCRNITM#search'}}"><i class="bw-icon i-30 i-func-search"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-search-condition-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+
+
+            <!--SEARCH CONDITION AREA * 검색 조건 영역-->
+            <section id="CAPSV191-base-table">
+                <section class="search-wrap">
+                    <div class="w-100 clr">
+                            <div class="input-wrap clr">
+                                <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dfrdId'}}">{{bxMsg 'cbb_items.AT#dfrdId'}}</label>
+                                <input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#dfrdId'}}" data-form-param="dfrdId"/>
+                            </div>
+                    </div>
+                </section>
+            </section>
+            <!--/END SEARCH CONDITION AREA -->
+
+
+            <!--SEARCH RESULT AREA * 검색 결과 영역-->
+            <section class="grid-wrap">
+                <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                <div class="bw-tool add-bd2-t add-mg-t">
+                    <div class="f-l">
+                        <h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#inqRslt'}} (<span id="rsltCnt">0</span>{{bxMsg 'cbb_items.SCRNITM#cnt'}})</h3>
+                    </div>
+                    <div class="btn-wrap fix-r">
+                        <button type="button" class="bw-btn b-ctr" id="btn-search-result-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                    </div>
+                </div>
+                <!--/END BW-TOOL-->
+
+
+                <!-- GRID AREA -->
+                <section class="CAPSV191Grid"></section>
+                <!-- END GRID AREA -->
+            </section>
+            <!--/END SEARCH RESULT AREA-->
+        </section>
+    </section>
+</section>

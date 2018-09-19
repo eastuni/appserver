@@ -1,0 +1,134 @@
+/* component/detail-info.scss */
+.bxt-detail-info {
+    margin: 10px 0;
+    font-size: 12px;
+
+    background: white;
+
+    .button-group {
+        margin-top: 10px;
+
+        text-align: center;
+    }
+}
+
+.summary-info-wrap {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    bottom: 10px;
+    overflow: auto;
+    margin: 0;
+    width: 550px;
+}
+
+.bxt-info-table,
+.bx-info-table{
+    table-layout: fixed;
+    width: 100%;
+
+    & > tr, & > tbody > tr {
+        margin: 10px 0;
+        height: 30px;
+
+        & > th, & > td {
+            position: relative;
+            border: 1px solid #d0d0d0;
+        }
+
+        & > th {
+            padding: 3px 10px;
+            text-align: left;
+            min-width: 100px;
+            max-width: 200px;
+            background: #f3f6fa;
+            font-weight: normal;
+        }
+
+        & > td {
+            padding: 3px 5px;
+            min-width: 150px;
+
+            &.num-data {
+                text-align: right;
+            }
+
+            &.has-unit {
+                position: relative;
+                padding-right: 28px;
+
+                .value-unit {
+                    display: inline-block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    margin: 3px 0;
+
+                    height: 24px;
+                    width: 28px;
+
+                    line-height: 24px;
+                    text-align: center;
+                }
+            }
+
+            .bx-form-item {
+                padding: 4px;
+                width: 100%;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                background: white;
+                height: 24px;
+
+                &:disabled {
+                    background: #eee;
+                    color: black;
+                }
+            }
+
+            textarea {
+                height: 50px;
+            }
+
+            .bx-icon-medium {
+                position: absolute;
+                top: 8px;
+                right: 15px;
+            }
+        }
+    }
+
+    .red-notice {
+        color: red;
+    }
+}
+
+
+.summary-chart-wrap {
+    margin-left: 560px;
+    width: auto;
+    height: 152px;
+    border: 1px solid #d0d0d0;
+}
+
+/* CBB Style */
+.cbb .bx-info-table {
+    & > tr, & > tbody > tr {
+        & > th, & > td {
+            border: none;
+        }
+
+        & > th {
+            width: 150px;
+            max-width: 150px;
+
+            background: none;
+            text-align: right;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            word-wrap: normal;
+            overflow: hidden;
+        }
+    }
+}

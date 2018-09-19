@@ -1,0 +1,142 @@
+<!--
+@Screen number  CAPMT099
+@brief          workflow progress status
+@author         jisub.lee
+@history        2017.04.20      initial
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPMT099-wrap">
+            <!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+				{{bxMsg 'cbb_items.SCRN#CAPMT099'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPMT099'}}</p>
+				<!-- 설정대상기관 -->
+                        <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+			</h2>
+            <!--/END BW-TITLE-->
+
+					<!--BW-TOOL SEARCH CONDITION AREA * 아이콘 버튼을 포함하는 툴바-->
+		            <section class="bw-tool add-bd2-t">
+		                <div class="f-l">
+		                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+		                </div>
+		                <div class="btn-wrap fix-r">
+		                    <button type="button" class="bw-btn" id="btn-search-condition-reset" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+		                    <button type="button" class="bw-btn" id="btn-search-condition-inquire" title="{{bxMsg 'cbb_items.SCRNITM#search'}}"><i class="bw-icon i-30 i-func-search"></i></button>
+		                    <button type="button" class="bw-btn b-ctr" id="btn-search-condition-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+		                </div>
+		            </section>
+		            <!--/END BW-TOOL-->
+
+
+		            <!--SEARCH CONDITION AREA * 검색 조건 영역-->
+		            <section id="search-condition-area">
+		                <section class="search-wrap">
+		                    <table class="w-100">
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#workflowNm'}}</label>
+                                    <input type="text" class="bw-input w-58 search-condition-area" data-form-param="workflowNm" />
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#bizDscd'}}</label>
+                                    <select class="bw-input w-60 ipt-select search-condition-area CAPMT099-wflowBizDscd-wrap" data-form-param="wflowBizDscd"></select>
+                                </div>
+                            </td>
+							<td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#varVal'}}</label>
+                                    <input type="text" class="bw-input w-58 search-condition-area" data-form-param="varVal" />
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap add-btn clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#staffId'}}</label>
+                                    <input type="text" class="bw-input w-58 search-condition-area" data-form-param="staffId" />
+                                    <button type="button" class="bw-btn fix-r" id="btn-staff-search"><i class="bw-icon i-30 i-search"></i></button>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#staffNm'}}</label>
+                                    <input type="text" class="bw-input w-58 search-condition-area" data-form-param="staffId" />
+                                </div>
+                            </td>
+                            
+                        </tr>
+
+                    </table>
+		                </section>
+		            </section>
+		            <!--/END SEARCH CONDITION AREA -->
+
+
+
+            <!-- workflow progress status -->
+            <div class="bw-tool add-bd2-t add-mg-t">
+                <div class="f-l">
+                    <h3 class="bw-desc searchResultCount">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                	<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-search-result-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-search-result-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>                
+                  </div>
+            </div>
+            <!--/END BW-TOOL-->
+
+
+            <!--workflow progress status -->
+            <section class="grid-wrap" id="search-result-area">
+                <!--GRID AREA -->
+                <div class="CAPMT099Grid" id="CAPMT099Grid"></div>
+                <!--/END GRID AREA-->
+            </section>
+
+
+
+            
+            
+            
+            
+            <!-- BW-TOOL Step progress status -->
+            <div class="bw-tool add-bd2-t add-mg-t">
+                <div class="f-l">
+                    <h3 class="bw-desc ">{{bxMsg 'cbb_items.SCRNITM#stepStatusProgress'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                	<button class="bw-btn-form unit add-mg-t-5 baseAtrbt-area"  data-form-param="transferManager" id="CAPMT099-transfer-manager-btn" style="display:none" >{{bxMsg 'cbb_items.SCRNITM#transferManager'}}</button>
+                	<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-search-result-reset2"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-search-result-toggle2"><i class="fa fa-forward fa-rotate-270"></i></button>                
+                  </div>
+            </div>
+            <!--/END BW-TOOL-->
+
+
+            <!-- BW-TOOL Step progress status -->
+            <section class="grid-wrap" id="search-result-area2">
+                <!--GRID AREA -->
+                <div class="CAPMT099Grid2" id="CAPMT099Grid2"></div>
+                <!--/END GRID AREA-->
+            </section>
+
+		
+
+
+
+
+        </section>
+    </section>
+</section>
+<!--/END MAIN CONTENTS-->
+
+
+

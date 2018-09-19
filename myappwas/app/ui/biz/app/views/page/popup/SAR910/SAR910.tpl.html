@@ -1,0 +1,128 @@
+
+	<section  id='SAR910' ng-init="SAR910Ctrl.init()">
+		<div   id="serviceTitle"  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SAR910%}">
+			</div>
+			<div   class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SAR910Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+						<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SAR910Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+						<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SAR910Ctrl.btnSchToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+					</section>
+				<section  id="secSrchCnd"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_secSrchCnd" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label asterisk clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#acctSrchDscd%}" data-i18n-title="{%=cbb_items.SCRNITM#acctSrchDscd%}"></label>
+								<select class="bw-input ipt-select"  ng-model="SAR910Ctrl.childArrSrchDscdSelectedValue" ng-change="SAR910Ctrl.childArrSrchDscd_OnChange()" data-form-param="childArrSrchDscd"></select>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#acctNbr%}" data-i18n-title="{%=cbb_items.AT#acctNbr%}"></label>
+								<input type="text"  maxlength='16' dec='0' common-string-number-only-directive class="bw-input a-left"   data-form-param="popupAcctNbr" />
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+								<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="popupCustId" />
+							</div>
+						</td>
+					</tr>
+					<tr  name="tr_secSrchCnd" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#bizDscd%}" data-i18n-title="{%=cbb_items.AT#bizDscd%}"></label>
+								<select class="bw-input ipt-select"  ng-model="SAR910Ctrl.popupBizDscdSelectedValue" ng-change="SAR910Ctrl.popupBizDscd_OnChange()" data-form-param="popupBizDscd"></select>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#pdTp%}" data-i18n-title="{%=cbb_items.SCRNITM#pdTp%}"></label>
+								<select class="bw-input ipt-select"  ng-model="SAR910Ctrl.popupPdTpCdSelectedValue" ng-change="SAR910Ctrl.popupPdTpCd_OnChange()" data-form-param="popupPdTpCd"></select>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#pdTmplt%}" data-i18n-title="{%=cbb_items.SCRNITM#pdTmplt%}"></label>
+								<select class="bw-input ipt-select"  ng-model="SAR910Ctrl.popupPdTmpltCdSelectedValue" ng-change="SAR910Ctrl.popupPdTmpltCd_OnChange()" data-form-param="popupPdTmpltCd"></select>
+							</div>
+						</td>
+					</tr>
+					<tr  name="tr_secSrchCnd" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#pdCd%}" data-i18n-title="{%=cbb_items.AT#pdCd%}"></label>
+								<select class="bw-input ipt-select"  data-form-param="popupPdCd"></select>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label asterisk clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#inqryTrmntnAcctYn%}" data-i18n-title="{%=cbb_items.AT#inqryTrmntnAcctYn%}"></label>
+								<select class="bw-input ipt-select"  data-form-param="inqryTrmntnAcctYn"></select>
+							</div>
+						</td>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+			</section>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#acctInfoInqry%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnInfoToggle" ng-click="SAR910Ctrl.btnInfoToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+			<section  id="acctInfoInqry"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_acctInfoInqry" >
+					<td class="td-w-33" colspan="3">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#pdNm%}" data-i18n-title="{%=cbb_items.AT#pdNm%}"></label>
+							<input type="text"  maxlength='300' dec='0' class="bw-input a-left"   data-form-param="pdNm" />
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_acctInfoInqry" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="custId1" />
+						</div>
+					</td>
+					<td class="td-w-33" colspan="2">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SAR910Ctrl.custArrListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnacctNbrInfoGridToggle" ng-click="SAR910Ctrl.btnacctNbrInfoGridToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+			<section  id="srchRslt"  >
+				<div id="SAR910_custArrList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+	</div>
+	<div   class="modal-footer btn-wrap add-mg">
+		<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="SAR910Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+		<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SAR910Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+	</div>
+</div>
+</section>

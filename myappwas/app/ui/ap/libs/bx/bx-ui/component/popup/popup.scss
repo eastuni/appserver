@@ -1,0 +1,230 @@
+/* component/popup.scss */
+
+.bx-popup {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    display: none;
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    z-index: 11;
+    background: #fff;
+    cursor: move;
+
+    &.inner-popup {
+        position: absolute;
+        display: block;
+        left: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    &.is-active {
+        display: block;
+    }
+
+    .bx-popup-header {
+        padding: 5px 0;
+        border-bottom: 1px solid #ccc;
+
+        .bx-popup-title {
+            padding-left: 7px;
+            border-left: 4px solid #3b5998;
+            font-weight: bold;
+        }
+    }
+
+    .bx-popup-body {
+
+        &.bx-popup-detail {
+            .contents-body {
+                background: white;
+                padding: 0;
+
+                .contents-wrap {
+                    padding: 0;
+                }
+            }
+        }
+
+        .contents-body {
+            padding: 0 10px;
+//            margin: 5px 5px 0px 5px;
+            background: #f3f6fa;
+
+            .contents-wrap {
+                overflow: auto;
+                padding: 0 5px;
+            }
+
+            .conts-section {
+                margin-top: 5px;
+                margin-bottom: 15px;
+            }
+        }
+    }
+    .bx-context-menu {
+        z-index: 9;
+    }
+
+    .bx-popup-closer {
+        float: right;
+        cursor: pointer;
+    }
+
+    .bx-popup-closer:hover {
+        background-color: #ccc;
+        border-radius: 50%; 
+    }
+
+    footer {
+        margin-top: 15px;
+        padding: 0;
+        border-top: none;
+        overflow: auto;
+
+        .popup-notice{
+            float: left;
+            line-height: 30px;
+        }
+
+        .bx-btn{
+            float: right;
+        }
+        
+        .next-btn{
+            margin-right: 5px;
+        }
+    }
+
+    &[data-mode=view] {
+        .date-picker {
+            .calendar-btn,
+            .calendar-reset-btn {
+                display: none;
+            }
+        }
+    }
+
+    &[data-mode=edit] {
+        .date-picker {
+            .calendar-btn,
+            .calendar-reset-btn {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+#dim, #inner-dim {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 10;
+}
+
+#dim {
+    position: fixed;
+}
+
+#inner-dim {
+    position: absolute;
+    display: block;
+}
+
+
+/* pm select popup*/
+.bx-popup.pm-test-select-popup {
+    top: 50%;
+
+    width: 1000px;
+    height: 500px;
+
+    margin-left: -500px;
+    margin-top: -250px;
+    
+    .bxt-popup-filter-wrap{
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      
+        & > * {
+            display: inline-block;
+            
+        }
+        
+        h4 {
+            display: inline-block;
+        }
+        
+        section {
+            margin-right: 20px;
+            margin-bottom: 2px;
+        }
+        
+        .filter-item-title {
+            margin-right: 20px;
+        }
+        
+        button {
+            float: right;
+        }
+        
+        .next-btn {
+            margin-right: 5px;
+            width: 80px;
+        }
+    }
+    
+    .bxt-popup-grid-wrap {
+        width: 100%;
+        height: 100%;
+        padding: 20px 0;
+        
+        .bx-popup-grid-title {
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .bx-popup-grid-conts {
+            width: 100%;
+            height: 255px;
+            padding-top: 5px;
+        }
+    }
+}
+
+/* pm retrieve popup*/
+.bx-popup.pm-test-retrieve-popup {
+    th {
+        text-align: left;
+        width: 130px;
+    }
+    
+    td {
+        width: 200px;
+        padding: 10px;
+        
+        input {
+          width: 100%;
+        }
+        
+        select {
+          width: 100%;
+        }
+        
+        textarea {
+          width: 100%;
+          background: white;
+          height: 60px;
+        }
+    }
+}
+
+.red-notice {
+    color: red;
+}

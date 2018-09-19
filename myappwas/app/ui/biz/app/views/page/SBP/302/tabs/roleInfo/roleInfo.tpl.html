@@ -1,0 +1,71 @@
+
+			<section class=" bw-tool add-bd2-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#deptHldRoleList%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnRoleInfoToggle" ng-click="SBP302_roleInfoCtrl.btnRoleInfoToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+		<section  id="roleInfoTab"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_roleInfoTab" >
+				<td class="td-w-33" colspan="3">
+					<table class="w-100"  id="secRoleTmplt" >
+						<tr  name="tr_secRoleTmplt" >
+							<td class="td-w-33">
+								<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#deptRoleTmplt%}" data-i18n-title="{%=cbb_items.SCRNITM#deptRoleTmplt%}"></label>
+									<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="roleTmpltNm" />
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#roleTmpltId%}" data-i18n-title="{%=cbb_items.AT#roleTmpltId%}"></label>
+									<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="roleTmpltId" />
+								</div>
+							</td>
+							<td>&nbsp;</td>
+						</tr>
+					</table>
+			</td>
+		</tr>
+		<tr  name="tr_roleInfoTab" >
+			<td class="td-w-33" colspan="3">
+				<div id="SBP302_roleInfo_roleList" >
+					<section class="bw-grid"></section>
+				</div>
+			</td>
+		</tr>
+	</table>
+</section>
+	<section class=" bw-tool add-bd2-t add-mg-t" >
+	<div class="f-l">
+		<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#deptHldRoleSetting%}"></h3>
+	</div>
+	<div class="btn-wrap fix-r">
+		<button type="button" class="bw-btn"  id="btnRoleAttrReset" ng-click="SBP302_roleInfoCtrl.btnRoleAttrReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+		<button type="button" class="bw-btn"  id="btnRoleAttrSave" ng-click="SBP302_roleInfoCtrl.btnRoleAttrSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i></button>
+		<button type="button" class="bw-btn b-ctr"  id="btnRoleAttrToggle" ng-click="SBP302_roleInfoCtrl.btnRoleAttrToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+	</div>
+	</section>
+<section  id="secAttr"  class="search-wrap">
+<table class="w-100" >
+	<tr  name="tr_secAttr" >
+		<td class="td-w-33">
+			<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#roleId%}" data-i18n-title="{%=cbb_items.AT#roleId%}"></label>
+				<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="roleId" />
+			</div>
+		</td>
+		<td class="td-w-33">
+			<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#roleNm%}" data-i18n-title="{%=cbb_items.AT#roleNm%}"></label>
+				<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="roleNm" />
+			</div>
+		</td>
+		<td class="td-w-33">
+			<div class="input-wrap fix-label clr" >
+				<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#authGrantYn%}" data-i18n-title="{%=cbb_items.SCRNITM#authGrantYn%}"></label>
+				<select class="bw-input ipt-select"  data-form-param="authYn"></select>
+			</div>
+		</td>
+	</tr>
+</table>
+</section>

@@ -1,0 +1,41 @@
+
+		<section   >
+			<section class=" bw-tool add-bd2-t" >
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnOwnerToggle" ng-click="SCL120_tabOwnerCtrl.btnOwnerToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+			<section  id="grpOwner"  >
+				<div id="SCL120_tabOwner_aprslOwnerList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+			<section class=" bw-tool add-bd2-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#OwnrCntnt%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnExtReset" ng-click="SCL120_tabOwnerCtrl.btnExtReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+				<button type="button" class="bw-btn"  id="btnExtPlus" ng-click="SCL120_tabOwnerCtrl.btnExtPlus_Onclick()" title=""><i class="bw-icon i-30 i-func-add"></i></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnExtToggle" ng-click="SCL120_tabOwnerCtrl.btnExtToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+		<section  id="grpOwnerCntnt"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_grpOwnerCntnt" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr asterisk clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#ownrCustId%}" data-i18n-title="{%=cbb_items.AT#ownrCustId%}"></label>
+						<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="ownrCustId" />
+						<button type="button" class="bw-btn fix-r" ng-click="SCL120_tabOwnerCtrl.ownrCustId_Onclick()" id="btn-ownrCustId-search"><i class="bw-icon i-20 i-search"></i></button>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#ownrNm%}" data-i18n-title="{%=cbb_items.AT#ownrNm%}"></label>
+						<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="ownrNm" />
+					</div>
+				</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+	</section>

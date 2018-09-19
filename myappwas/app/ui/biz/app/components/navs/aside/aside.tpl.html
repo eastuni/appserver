@@ -1,0 +1,24 @@
+<div id="aside" class="aside" ng-init="asideCtrl.asideClose()">
+
+    <div class="bw-slide portlets-modal-area" id="bw-portlets-modal">
+        <section class="sidemenu">
+            <section class="portlets-main-content-wrap" id="portlets-main-content-wrap">
+            <!-- 포틀렛 컨텐츠 영역 -->
+            </section>
+            <section>
+                <button type="button" class="bw-btn-fold fix-btm" id="aside_close" ng-click="asideCtrl.asideClose()"><i class="fa i-30 fa-angle-double-right"></i></button>
+            </section>
+        </section>
+    </div>
+	<section>
+         <button type="button" class="bw-btn-fold fix-btm" id="aside_open" ng-click="asideCtrl.asideOpen()" style="display: none;"><i class="fa i-30 fa-angle-double-left"></i></button>
+         <ul class="fav" id="portlets">
+	    	<li class="bw-btn bx-primary-menu-item" id="{{item.scrnId}}" ng-repeat="item in asideCtrl.asideList" repeat-aside-directive>
+	    		<i class="bw-icon i-30 {{item.iconNm}}"></i>
+	    	</li> 
+<!-- 	    	<li class="bw-btn bx-primary-menu-item"> -->
+<!-- 	    		<i class="bw-icon i-30 i-mng-online"></i> -->
+<!-- 	    	</li> -->
+	    </ul>
+     </section>
+</div>

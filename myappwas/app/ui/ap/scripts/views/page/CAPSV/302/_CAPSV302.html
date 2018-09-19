@@ -1,0 +1,245 @@
+<!--
+@Screen number  CAPSV302
+@brief          배포[배포요청관리]
+@author         신홍균
+@history        2017.06.01      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPSV302-wrap">
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPSV302'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPSV302'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#all'}}</p>
+			</h2>
+
+			<!--/END BW-TITLE-->
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<section class="bw-tool add-bd2-t">
+				<div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+                </div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-base-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-base-search"><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-base-search-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+
+
+			<!--SEARCH AREA * 검색 영역-->
+			<section class="CAPSV302-base-table" id="CAPSV302-base-table">
+				<section class="search-wrap">
+					<table class="w-100">
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dstbRqstId'}}">{{bxMsg 'cbb_items.AT#dstbRqstId'}}</label>
+                                    <input type="text" class="bw-input w-60"  id="searchKey" data-form-param="dstbRqstId" />
+                                </div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dstbTaskId'}}">{{bxMsg 'cbb_items.AT#dstbTaskId'}}</label>
+									<input type="text" class="bw-input w-60"  id="searchKey" data-form-param="dstbTaskId" />
+                                </div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+                                    <label class="bw-label w-40 " title="{{bxMsg 'cbb_items.AT#dstbEnvrnmntCd'}}">{{bxMsg 'cbb_items.AT#dstbEnvrnmntCd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV302-base-dstbEnvrnmntCdwrap" data-form-param="dstbEnvrnmntCd"></select>
+	                            </div>
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+<!-- 추가검색조건 바 -->
+            <section class="bw-tool sub-tool">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#adtnlSrchCnd'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" id="btnCAPSV302AdditionalSearchCndToggle"><i class="bw-icon i-30 i-func-close"></i></button>
+                </div>
+            </section>
+            <!-- 추가검색조건 영역 -->
+            <section class="search-wrap" id="CAPSV302additionalSearchCndWrap">
+                  <table class="bx-info-table w-100">
+                      <tr>
+                          <td class="td-w-33"> <!-- 조건코드 -->
+                              <div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dstbStsCd'}}">{{bxMsg 'cbb_items.AT#dstbStsCd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV302-base-dstbStsCd-wrap" data-form-param="dstbStsCd"></select>
+                                </div>
+                          </td>
+                         <td class="td-w-33">
+								<div class="input-wrap add-btn clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#srchStartDtm'}}">{{bxMsg 'cbb_items.AT#srchStartDtm'}}</label>
+									<input type="text" class="bw-input w-60 ipt-cal" data-form-param="srchStartDtm" />
+								</div>
+							</td>
+							<td class="td-w-33">
+                                <div class="input-wrap add-btn clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#srchEndDtm'}}">{{bxMsg 'cbb_items.AT#srchEndDtm'}}</label>
+									<input type="text" class="bw-input w-60 ipt-cal" data-form-param="srchEndDtm" />
+								</div>
+							</td>
+                      </tr>
+                  </table>
+            </section>
+
+            <!-- Grid area -->
+            <section class="grid-wrap">
+				<!-- tab 없는 그리드 영역 -->
+				<div class="bw-tool add-bd2-t add-mg-t">
+					<div class="f-l">
+	                    <h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+	                </div>
+					<div class="btn-wrap fix-r">
+					<!-- 그리드 버튼 영역 -->
+						<button type="button" class="bw-btn" id="btn-CAPSV302-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
+						<button type="button" class="bw-btn b-ctr" id="btn-up-grid" data-info="CAPSV031-grid1"><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+				</div>
+				<div class="CAPSV302-grid" id="CAPSV302-grid"></div>
+			</section>
+
+
+			<!--TAB MENU-->
+			<section class="tab-title add-mg-t" id="tab-title">
+				<ul>
+					<li class="tab first-tab on-tab" id="tab-CAPSV302-request">
+						<a href="#" title="{{bxMsg 'cbb_items.SCRNITM#CAPSV302-REQUEST-LIST-TITLE'}}">{{bxMsg 'cbb_items.SCRNITM#CAPSV302-REQUEST-LIST-TITLE'}}
+							<span class="tab-bg"></span>
+							<span class="tab-bg-before"></span>
+						</a>
+					</li>
+					<li class="tab last-tab" id="tab-CAPSV302-result">
+						<a href="#" title="{{bxMsg 'cbb_items.SCRNITM#CAPSV302-RESULT-LIST-TITLE'}}">{{bxMsg 'cbb_items.SCRNITM#CAPSV302-RESULT-LIST-TITLE'}}
+							<span class="tab-bg"></span>
+							<span class="tab-bg-before"></span>
+						</a>
+					</li>							
+				</ul>
+			</section>
+			<!--/END TAB MENU-->
+			<!-- 배포요청 상세 -->
+            <section class="grid-wrap" id="request-grid-area">
+				<div class="bw-tool add-bd2-t">
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPSV302-request-init">{{bxMsg 'cbb_items.SCRNITM#dstbRqst'}}</button>
+						<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPSV302-request-stop">{{bxMsg 'cbb_items.SCRNITM#dstbStop'}}</button>
+						<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPSV302-request-cancel">{{bxMsg 'cbb_items.SCRNITM#dstbCncl'}}</button>
+						<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-request-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+						<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#dstbRun'}}" id="btn-CAPSV302-request-grid-run"><i class="bw-icon i-30 i-func-submit"></i></button>
+						<button type="button" class="bw-btn b-ctr" id="btn-up-request-modal" data-info="CAPSV302-request-grid"><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+				</div>
+				
+				<section class="CAPSV302-request-table" id="CAPSV302-request-table">
+					<section class="search-wrap">
+						<table class="w-100">
+							<tr>
+								<td class="td-w-25">
+									<div class="input-wrap clr">
+	                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dstbRqstId'}}">{{bxMsg 'cbb_items.AT#dstbRqstId'}}</label>
+	                                    <input type="text" class="bw-input w-60"  id="searchKey" data-form-param="dstbRqstId"  readonly="readonly"/>
+	                                </div>
+								</td>
+								<td class="td-w-25">
+									<div class="input-wrap  asterisk clr">
+	                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dstbTaskId'}}">{{bxMsg 'cbb_items.AT#dstbTaskId'}}</label>
+										<input type="text" class="bw-input w-60"  id="searchKey" data-form-param="dstbTaskId" />
+	                                </div>
+								</td>
+								<td class="td-w-25">
+									<div class="input-wrap  asterisk clr">
+	                                    <label class="bw-label w-40 " title="{{bxMsg 'cbb_items.AT#dstbEnvrnmntCd'}}">{{bxMsg 'cbb_items.AT#dstbEnvrnmntCd'}}</label>
+										<select class="bw-input w-60 ipt-select CAPSV302-request-dstbEnvrnmntCdwrap" data-form-param="dstbEnvrnmntCd"></select>
+	                                </div>
+								</td>
+								<td class="td-w-25">
+									<ul class="col-2 clr CAPSV302-request-table-srvrList">
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<td class="td-w-25">
+									<div class="input-wrap  asterisk clr">
+	                                    <label class="bw-label w-40 " title="{{bxMsg 'cbb_items.AT#dstbStsCd'}}">{{bxMsg 'cbb_items.AT#dstbStsCd'}}</label>
+										<select class="bw-input w-60 ipt-select CAPSV302-request-dstbStsCd-wrap" data-form-param="dstbStsCd"></select>
+	                                </div>
+								</td>
+								
+								<td class="td-w-25">
+									<div class="input-wrap  asterisk clr">
+	                                    <label class="bw-label w-40 " title="{{bxMsg 'cbb_items.AT#dstbWayCd'}}">{{bxMsg 'cbb_items.AT#dstbWayCd'}}</label>
+										<select class="bw-input w-60 ipt-select CAPSV302-request-dstbWayCd-wrap" data-form-param="dstbWayCd"></select>
+	                                </div>
+								</td>
+								<td class="td-w-25">
+									<div class="input-wrap add-btn clr CAPSV302-request-dstbWayCd-change">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dstbSchdlTmstmp'}}">{{bxMsg 'cbb_items.AT#dstbSchdlTmstmp'}}</label>
+										<input type="text" class="bw-input w-60 ipt-cal" data-form-param="dstbSchdlDt"/>
+	                                </div>
+								</td>
+								<td class="td-w-25">
+									<div class="input-wrap clr CAPSV302-request-dstbWayCd-change">
+										<input type="text" class="bw-input w-100 ipt-time" data-form-param="dstbSchdlHms" placeholder="--:--:--"/>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</section>
+				</section>
+				<!-- Grid area -->
+	            <section class="grid-wrap CAPSV302-request-grid-area">
+					<!-- tab 없는 그리드 영역 -->
+					<div class="bw-tool add-bd-t add-mg-t">
+						<div class="f-l">
+		                    <h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#chngHst'}}</h3>
+		                </div>
+		                <div class="btn-wrap fix-r">
+		                	<button type="button" class="bw-btn" id="btn-CAPSV302-request-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="btn-up-request-grid" ><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+					</div>
+					<div class="CAPSV302-request-grid" id="CAPSV302-request-grid"></div>
+				</section>
+			</section>
+
+			<!-- 배포결과-->
+            <section class="grid-wrap" id="result-gird-area">
+				<div class="bw-tool add-bd2-t">
+					<div class="f-l">
+	                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#dstbRsltSrvr'}}</h3>
+	                </div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn" id="btn-CAPSV302-result-server-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
+						<button type="button" class="bw-btn b-ctr" id="btn-up-result-server-grid" data-info="CAPSV302-result-server-grid"><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+				</div>
+				<div class="CAPSV302-result-server-grid" id="CAPSV302-result-server-grid"></div>
+				
+				<div class="bw-tool add-bd2-t" style="display:none">
+					<div class="f-l">
+	                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#dstbRslt'}}</h3>
+	                </div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn" id="btn-CAPSV302-result-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
+						<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPSV302-result-recall">{{bxMsg 'cbb_items.SCRNITM#btn_recallDistr'}}</button>
+					    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_run'}}" id="btn-CAPSV302-result-grid-run"><i class="bw-icon i-30 i-func-submit"></i></button>
+						<button type="button" class="bw-btn b-ctr" id="btn-up-result-grid" data-info="CAPSV302-result-grid"><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+				</div>
+				<div class="CAPSV302-result-grid" id="CAPSV302-result-grid"  style="display:none"></div>
+			</section>
+			
+        </section>
+    </section>
+</section>

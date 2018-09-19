@@ -1,0 +1,90 @@
+
+	<section  id='SCM501' ng-init="SCM501Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SCM501%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SCM501%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="resetBtn" ng-click="SCM501Ctrl.resetBtn_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn"  id="searchBtn" ng-click="SCM501Ctrl.searchBtn_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr"  id="toggle1Btn" ng-click="SCM501Ctrl.toggle1Btn_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+			<section  id="srchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_srchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlDemandStaffId%}" data-i18n-title="{%=cbb_items.AT#aprvlDemandStaffId%}"></label>
+							<input type="text"  maxlength='100' dec='0' class="bw-input a-left"   data-form-param="aprvlDemandStaffId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SCM501Ctrl.aprvlDemandStaffId_Onclick()" id="btn-aprvlDemandStaffId-search"><i class="bw-icon i-20 i-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlDemandStaffNm%}" data-i18n-title="{%=cbb_items.AT#aprvlDemandStaffNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"   data-form-param="aprvlDemandStaffNm" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlStsCd%}" data-i18n-title="{%=cbb_items.AT#aprvlStsCd%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="aprvlStsCd"></select>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_srchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlStaffId%}" data-i18n-title="{%=cbb_items.AT#aprvlStaffId%}"></label>
+							<input type="text"  maxlength='100' dec='0' class="bw-input a-left"   data-form-param="aprvlStaffId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SCM501Ctrl.aprvlStaffId_Onclick()" id="btn-aprvlStaffId-search"><i class="bw-icon i-20 i-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlStaffNm%}" data-i18n-title="{%=cbb_items.AT#aprvlStaffNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"   data-form-param="aprvlStaffNm" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<span data-form-param=""   ></span>
+					</td>
+				</tr>
+				<tr  name="tr_srchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#inqryStartDt%}" data-i18n-title="{%=cbb_items.AT#inqryStartDt%}"></label>
+							<div id="inqryStartDt" ></div>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#inqryEndDt%}" data-i18n-title="{%=cbb_items.AT#inqryEndDt%}"></label>
+							<div id="inqryEndDt" ></div>
+						</div>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SCM501Ctrl.SCM501GridCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="excelBtn" ng-click="SCM501Ctrl.excelBtn_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i></button>
+				<button type="button" class="bw-btn b-ctr"  id="toggle2Btn" ng-click="SCM501Ctrl.toggle2Btn_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+			<section  id="srchRslt"  >
+				<div id="SCM501_SCM501Grid" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+	</section>
+</section>

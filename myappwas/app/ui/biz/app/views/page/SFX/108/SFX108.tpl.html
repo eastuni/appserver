@@ -1,0 +1,52 @@
+
+	<section  id='SFX108' ng-init="SFX108Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SFX108%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SFX108%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnOpnMsgRgstrnReset" ng-click="SFX108Ctrl.btnOpnMsgRgstrnReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn"  id="btnOpnMsgRgstrnSch" ng-click="SFX108Ctrl.btnOpnMsgRgstrnSch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn"  id="btnOpnMsgRgstrnSave" ng-click="SFX108Ctrl.btnOpnMsgRgstrnSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnOpnMsgRgstrnToggle" ng-click="SFX108Ctrl.btnOpnMsgRgstrnToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+			<section  id="srchCndTable"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_srchCndTable" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#fxRefNbr%}" data-i18n-title="{%=cbb_items.AT#fxRefNbr%}"></label>
+							<input type="text"  maxlength='20' dec='0' class="bw-input a-left"   data-form-param="fxRefNbr" />
+							<button type="button" class="bw-btn fix-r" ng-click="SFX108Ctrl.fxRefNbr_Onclick()" id="btn-fxRefNbr-search"><i class="bw-icon i-20 i-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#fxMsgMgmtNbr%}" data-i18n-title="{%=cbb_items.AT#fxMsgMgmtNbr%}"></label>
+							<input type="text"  maxlength='10' dec='0' common-string-number-only-directive class="bw-input a-left"   data-form-param="fxMsgMgmtNbr" />
+						</div>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#msgForm%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnFxMsgScreenGenerationAreaToggle" ng-click="SFX108Ctrl.btnFxMsgScreenGenerationAreaToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+		<section  id="fxMsgScreenGenerationArea"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_fxMsgScreenGenerationArea" >
+			</tr>
+		</table>
+	</section>
+</section>
+</section>

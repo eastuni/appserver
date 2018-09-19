@@ -1,0 +1,125 @@
+
+	<section  id='SDP102' ng-init="SDP102Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SDP102%}" />
+			</h2>
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnReset" ng-click="SDP102Ctrl.btnReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn"  id="btnSearch" ng-click="SDP102Ctrl.btnSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnToggle" ng-click="SDP102Ctrl.btnToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div   id="pdTpCd-wrap"  >
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div   id="pdTmpltCd-wrap"  >
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div   id="pdCd-wrap"  >
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#calcnBaseAmt%}" data-i18n-title="{%=cbb_items.AT#calcnBaseAmt%}"></label>
+							<input type="text"  dec='2' class="bw-input "   data-form-param="calcnBaseAmt"  common-numeric-only-directive ng-model='calcnBaseAmtAmt'/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#arrTrmMnthCnt%}" data-i18n-title="{%=cbb_items.AT#arrTrmMnthCnt%}"></label>
+							<input type="text"  dec='0' class="bw-input "   data-form-param="arrTrmMnthCnt"  common-numeric-only-directive ng-model='arrTrmMnthCntAmt'/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<span data-form-param=""   ></span>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#trgtInstlmntAmtBaseYn%}" data-i18n-title="{%=cbb_items.AT#trgtInstlmntAmtBaseYn%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="trgtInstlmntAmtBaseYn"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#cmpndIntCalcnYn%}" data-i18n-title="{%=cbb_items.AT#cmpndIntCalcnYn%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="cmpndIntCalcnYn"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#adtnlIntRt%}" data-i18n-title="{%=cbb_items.AT#adtnlIntRt%}"></label>
+							<input type="text"  dec='4' class="bw-input "   data-form-param="adtnlIntRt"  common-numeric-only-directive ng-model='adtnlIntRtAmt'/>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseAtrbt%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnBasicToggle" ng-click="SDP102Ctrl.btnBasicToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+		<section  id="secBaseArea"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_secBaseArea" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#prncpl%}" data-i18n-title="{%=cbb_items.AT#prncpl%}"></label>
+						<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="prncpl"  common-numeric-only-directive ng-model='prncplAmt'/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aplyIntRt%}" data-i18n-title="{%=cbb_items.AT#aplyIntRt%}"></label>
+						<input type="text"  dec='4' class="bw-input "  readonly="readonly" data-form-param="aplyIntRt"  common-numeric-only-directive ng-model='aplyIntRtAmt'/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#pretaxIntAmt%}" data-i18n-title="{%=cbb_items.AT#pretaxIntAmt%}"></label>
+						<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="pretaxIntAmt"  common-numeric-only-directive ng-model='pretaxIntAmtAmt'/>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_secBaseArea" >
+				<td class="td-w-33" colspan="3">
+					<span data-form-param="aplyRtInfo"  data-i18n="{%=cbb_items.SCRNITM#aplyRtInfo%}" ></span>
+				</td>
+			</tr>
+			<tr  name="tr_secBaseArea" >
+				<td class="td-w-33" colspan="3">
+					<span data-form-param="trgtAmtInfo"  data-i18n="{%=cbb_items.SCRNITM#trgtAmtInfo%}" ></span>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<section   class="w-100">
+		<section class=" bw-tool add-bd2-t add-mg-t" >
+		<div class="f-l">
+			<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+			<h3 class="bw-desc">({{SDP102Ctrl.tblCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+		</div>
+		<div class="btn-wrap fix-r">
+			<button type="button" class="bw-btn b-ctr"  id="btnExtToggle" ng-click="SDP102Ctrl.btnExtToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+		</div>
+		</section>
+		<section  id="secSrchRslt"  class="w-100">
+			<div id="SDP102_tbl" >
+				<section class="bw-grid"></section>
+			</div>
+		</section>
+	</section>
+</section>
+</section>

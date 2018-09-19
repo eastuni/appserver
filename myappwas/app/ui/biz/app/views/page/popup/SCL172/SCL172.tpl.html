@@ -1,0 +1,83 @@
+
+	<section  id='SCL172' ng-init="SCL172Ctrl.init()">
+		<div   id="ScreenId"  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SCL172%}">
+			</div>
+			<div   class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SCL172Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+						<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SCL172Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+						<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SCL172Ctrl.btnSchToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+					</section>
+				<section  id="secSrchCnd"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_secSrchCnd" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label asterisk clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#aptPriceSrcClCd%}" data-i18n-title="{%=cbb_items.AT#aptPriceSrcClCd%}"></label>
+								<select class="bw-input ipt-select"  ng-model="SCL172_SCL172Ctrl.aptPriceSrcClCdSelectedValue" ng-change="SCL172Ctrl.aptPriceSrcClCd_OnChange()" data-form-param="aptPriceSrcClCd"></select>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label asterisk clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#cityPrvncCd%}" data-i18n-title="{%=cbb_items.AT#cityPrvncCd%}"></label>
+								<select class="bw-input ipt-select" disabled ng-model="SCL172_SCL172Ctrl.cityPrvncCdSelectedValue" ng-change="SCL172Ctrl.cityPrvncCd_OnChange()" data-form-param="cityPrvncCd"></select>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label asterisk clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#cityGunGuCd%}" data-i18n-title="{%=cbb_items.AT#cityGunGuCd%}"></label>
+								<select class="bw-input ipt-select" disabled ng-model="SCL172_SCL172Ctrl.cityGunGuCdSelectedValue" ng-change="SCL172Ctrl.cityGunGuCd_OnChange()" data-form-param="cityGunGuCd"></select>
+							</div>
+						</td>
+					</tr>
+					<tr  name="tr_secSrchCnd" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label asterisk clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#emdongCd%}" data-i18n-title="{%=cbb_items.AT#emdongCd%}"></label>
+								<select class="bw-input ipt-select" disabled ng-model="SCL172_SCL172Ctrl.emdongCdSelectedValue" ng-change="SCL172Ctrl.emdongCd_OnChange()" data-form-param="emdongCd"></select>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label asterisk clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#priceBaseDt%}" data-i18n-title="{%=cbb_items.AT#priceBaseDt%}"></label>
+								<div id="priceBaseDt" ></div>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aptNm%}" data-i18n-title="{%=cbb_items.AT#aptNm%}"></label>
+								<input type="text"  maxlength='300' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="aptNm" />
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section   class="w-100">
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+					<h3 class="bw-desc">({{SCL172_SCL172Ctrl.gridListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SCL172Ctrl.btnGridToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+				<section  id="srchRslt"  class="w-100">
+					<div id="gridList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div   class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="SCL172Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+			<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SCL172Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+		</div>
+	</div>
+</section>

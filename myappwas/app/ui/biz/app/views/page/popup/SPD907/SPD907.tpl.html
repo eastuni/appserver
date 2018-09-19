@@ -1,0 +1,105 @@
+
+
+<!-- 목록조건값 상세팝업 -->
+<section ng-init="SPD907Ctrl.init()" SPD907-wrap-directive>
+	<div>
+		<!-- 조건정보 -->
+		<section class="pd-cnd-info">
+			<!-- 타이틀바 -->
+			<section class="bw-tool add-bd2-t">
+				<div class="f-1">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#cndInfo%}"></h3>
+				</div>
+			</section>
+
+			<!-- 내용 -->
+			<section class="condition-wrap search-wrap" id = "SPD907ConditionInfoWrap">
+				<table class="bx-info-table w-100">
+					<tr>
+						<td class="td-w-33">
+							<!-- 조건코드 -->
+							<div class="input-wrap fix-label clr">
+								<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#cndCd%}"></label>
+								<div class="td-desc-wrap clr">
+									<input type="text" class="bw-input cndCd"
+										value={{conditionInfo.cndCd}} readonly="true" />
+								</div>
+							</div>
+						</td>
+						<td class="td-w-66" colspan="2">
+							<!-- 조건명 -->
+							<div class="input-wrap fix-label clr">
+								<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#cndNm%}"></label>
+								<div class="td-desc-wrap clr">
+									<input type="text" class="bw-input cndNm"
+										value={{conditionInfo.cndNm}} readonly="true" />
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="td-w-100" colspan="3">
+							<!-- 적용기간 -->
+							<div class="input-wrap fix-label clr">
+								<label class="bw-label"
+									data-i18n="{%=cbb_items.SCRNITM#aplyTrm%}"></label>
+								<div class="td-desc-wrap clr">
+									<input type="text" class="bw-input aplyStartDt"
+										value={{conditionInfo.aplyTrm}} readonly="true" />
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="td-w-33">
+							<!-- 조건유형 -->
+							<div class="input-wrap fix-label clr">
+								<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#cndTp%}"></label>
+								<div class="td-desc-wrap clr">
+									<input type="text" class="bw-input cndTpCd"
+										value={{conditionInfo.cndTp}} readonly="true" />
+								</div>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<!-- 조건구조 -->
+							<div class="input-wrap fix-label clr">
+								<label class="bw-label"
+									data-i18n="{%=cbb_items.SCRNITM#cndStrctr%}"></label>
+								<div class="td-desc-wrap clr">
+									<input type="text" class="bw-input cmpxCndYn"
+										value={{conditionInfo.cndStrctr}} readonly="true" />
+								</div>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<!-- 복합적용방법 -->
+							<div class="input-wrap fix-label clr">
+								<label class="bw-label"
+									data-i18n="{%=cbb_items.SCRNITM#cmpxAplyMthd%}"></label>
+								<div class="td-desc-wrap clr">
+									<input type="text" class="bw-input tierAplyCalcnWayCd"
+										value={{conditionInfo.tierAplyCalcnWayCdNm}} readonly="true" />
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>					
+						<td class="td-w-33"></td>
+					</tr>
+				</table>
+			</section>
+		</section>
+	</div>
+
+	<div class="modal-body">
+		<div id="SPD907cmpx-cnd-val-grid"></div>
+	</div>
+
+	<div class="modal-footer btn-wrap add-mg">
+		<button type="button" class="bw-btn-txt on" id="btnCancel"
+			ng-click="SPD907Ctrl.btnCancel_Onclick()" title="">
+			<span data-i18n="{%=cbb_items.ABRVTN#chk%}" />
+		</button>
+	</div>
+</section>

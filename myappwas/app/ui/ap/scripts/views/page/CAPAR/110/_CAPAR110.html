@@ -1,0 +1,184 @@
+<!--
+@Screen number  CAPAR110
+@brief          계약 업무 처리시 관계에 따라 처리할 업무규칙을 관리합니다.
+@author         Jungyeon Lee
+@history        2016.06.29      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPAR110-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPAR110'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPAR110'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}
+			</h2>
+
+
+			<div class="layout-wrap">	
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-base-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-search"><i class="bw-icon i-30 i-search"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="btn-up-base"><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+					</div>
+					<!--/END BW-TOOL-->
+					<section class="search-wrap CAPAR110-base-table" id="CAPAR110-base-table">
+						<table class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr asterisk">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#arrRelKndCd'}}">{{bxMsg 'cbb_items.SCRNITM#arrRelKnd'}}</label>
+										<select class="bw-input ipt-select w-70 arrRelKndCd-wrap" data-form-param="arrRelKndCd"></select>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#arrRelCd'}}">{{bxMsg 'cbb_items.SCRNITM#arrRel'}}</label>
+										<select class="bw-input ipt-select w-70 arrRelCd-wrap" data-form-param="arrRelCd"></select>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#arrStsCd'}}">{{bxMsg 'cbb_items.SCRNITM#arrStsCd'}}</label>
+										<select class="bw-input ipt-select w-70 arrStsCd-wrap" data-form-param="arrStsCd"></select>
+									</div>
+								</td>
+							</tr>	
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#bizDscd'}}">{{bxMsg 'cbb_items.SCRNITM#bizDscd'}}</label>
+										<select class="bw-input ipt-select w-70 bizDscd-wrap" data-form-param="bizDscd"></select>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#pdTpCd'}}">{{bxMsg 'cbb_items.SCRNITM#pdTpCd'}}</label>
+										<select class="bw-input ipt-select w-70 pdTpCd-wrap" data-form-param="pdTpCd"></select>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#pdTmpltCd'}}">{{bxMsg 'cbb_items.SCRNITM#pdTmpltCd'}}</label>
+										<select class="bw-input ipt-select w-70 pdTmpltCd-wrap" data-form-param="pdTmpltCd"></select>
+									</div>
+								</td>
+							</tr>	
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#pdCd'}}">{{bxMsg 'cbb_items.SCRNITM#pdCd'}}</label>
+										<select class="bw-input ipt-select w-70 pdCd-wrap" data-form-param="pdCd"></select>
+									</div>
+								</td>
+							</tr>						
+						</table>
+					</section>
+
+
+					<div class="bw-tool add-bd2-t add-mg-t">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}} (<span id="rsltCnt">0</span>{{bxMsg 'cbb_items.SCRNITM#cnt'}})</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn" id="btn-CAPAR110-grid-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="btn-up-grid"><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+					</div>
+
+
+					<section class="grid-wrap">
+						<div class="CAPAR110-grid" id="CAPAR110-grid"></div>
+					</section>					
+
+
+					<br>
+					<br>
+
+
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#baseAtrbt'}}</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-detail-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save2'}}" id="btn-detail-save"><i class="bw-icon i-30 i-func-save"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="btn-up-detail"><i class="fa fa-forward fa-rotate-270"></i></button>							
+						</div>
+					</div>
+					<!--/END BW-TOOL-->
+					<section class="search-wrap CAPAR110-detail-table" id="CAPAR110-detail-table">
+						<table class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr asterisk">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#arrRelKndCd'}}">{{bxMsg 'cbb_items.SCRNITM#arrRelKnd'}}</label>
+										<select class="bw-input ipt-select w-70 CAPAR110-arrRelKndCd-wrap" data-form-param="arrRelKndCd"></select>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr asterisk">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#arrRelCd'}}">{{bxMsg 'cbb_items.SCRNITM#arrRel'}}</label>
+										<select class="bw-input ipt-select w-70 CAPAR110-arrRelCd-wrap" data-form-param="arrRelCd"></select>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr asterisk">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#arrStsCd'}}">{{bxMsg 'cbb_items.SCRNITM#arrStsCd'}}</label>
+										<select class="bw-input ipt-select w-70 CAPAR110-arrStsCd-wrap" data-form-param="arrStsCd"></select>
+									</div>
+								</td>
+							</tr>	
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr asterisk">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#bizDscd'}}">{{bxMsg 'cbb_items.SCRNITM#bizDscd'}}</label>
+										<select class="bw-input ipt-select w-70 CAPAR110-bizDscd-wrap" data-form-param="bizDscd"></select>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#pdTpCd'}}">{{bxMsg 'cbb_items.SCRNITM#pdTpCd'}}</label>
+										<select class="bw-input ipt-select w-70 CAPAR110-pdTpCd-wrap" data-form-param="pdTpCd"></select>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#pdTmpltCd'}}">{{bxMsg 'cbb_items.SCRNITM#pdTmpltCd'}}</label>
+										<select class="bw-input ipt-select w-70 CAPAR110-pdTmpltCd-wrap" data-form-param="pdTmpltCd"></select>
+									</div>
+								</td>
+							</tr>	
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#pdCd'}}">{{bxMsg 'cbb_items.SCRNITM#pdCd'}}</label>
+										<select class="bw-input ipt-select w-70 CAPAR110-pdCd-wrap" data-form-param="pdCd"></select>
+									</div>
+								</td>
+								<td class="td-w-33">
+                                    <input type="checkbox" class="bw-input ipt-radio f-l" id="relMndtryYn" data-form-param="relMndtryYn"/>
+                                    <label class="bw-label fix-lh">{{bxMsg 'cbb_items.AT#relMndtryYn'}}</label>
+                                </td>
+                                <td class="td-w-33">
+                                    <input type="checkbox" class="bw-input ipt-radio f-l" id="relPlrlYn" data-form-param="relPlrlYn"/>
+                                    <label class="bw-label fix-lh">{{bxMsg 'cbb_items.AT#relPlrlYn'}}</label>
+                                </td>
+							</tr>					
+						</table>
+					</section>
+			</div>
+        </section>
+    </section>
+</section>

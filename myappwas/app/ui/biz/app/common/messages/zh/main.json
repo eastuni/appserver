@@ -1,0 +1,13 @@
+{
+    "namespace": "main",
+    "messages": {
+        "select-menu-msg": "选择选单。",
+        "sign-out-msg": "您要退出吗？",
+
+        "max-page-msg": "最多可保留的选项卡数为五。 请关闭其他选项卡，然后重试。",
+        "no-page-msg": "页面还没有被开出来。",
+
+        "clock-in-msg": "您想注册上班吗？",
+        "clock-out-msg": "您想注册下班吗？"
+    }
+}

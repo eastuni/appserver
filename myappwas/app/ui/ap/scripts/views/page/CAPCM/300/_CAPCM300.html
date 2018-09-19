@@ -1,0 +1,124 @@
+<!--
+@Screen number  CAPCM300
+@brief          앱의 기본 색상 테마를 관리합니다.
+@author         김병구
+@history        2016.06.20      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPCM300-wrap">
+
+
+            <!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+                {{bxMsg 'cbb_items.SCRN#CAPCM300'}}
+                <p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPCM300'}}</p>
+                <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p> 
+            </h2>
+
+
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <section class="bw-tool add-bd2-t">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#baseColor'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.ABRVTN#undo'}}" id="btn-base-color-undo"><i class="bw-icon i-30 i-func-undo"></i></button>
+                    <button type="button" class="bw-btn" id="btn-base-color-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-base-color-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+
+
+            <!--BASE COLOR AREA * 기본 색상 영역-->
+            <section id="base-color-area">
+                <section class="search-wrap">
+                    <table class="w-100">
+                        <tr>
+                            <td class="w-25 a-center">
+                                <input type="radio" name="themeGroup" class="bw-input ipt-radio" value="01" checked>
+                            </td>
+                            <td class="w-25 a-center">
+                                <input type="radio" name="themeGroup" class="bw-input ipt-radio" value="02">
+                            </td>
+                            <td class="w-25 a-center">
+                                <input type="radio" name="themeGroup" class="bw-input ipt-radio" value="03">
+                            </td>
+                            <td class="w-25 a-center">
+                                <input type="radio" name="themeGroup" class="bw-input ipt-radio" value="04">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="w-25 a-center">
+                                <label class="bw-label">{{bxMsg 'cbb_items.SCRNITM#defaultColorThm1'}}</label>
+                            </td>
+                            <td class="w-25 a-center">
+                                <label class="bw-label">{{bxMsg 'cbb_items.SCRNITM#defaultColorThm2'}}</label>
+                            </td>
+                            <td class="w-25 a-center">
+                                <label class="bw-label">{{bxMsg 'cbb_items.SCRNITM#defaultColorThm3'}}</label>
+                            </td>
+                            <td class="w-25 a-center">
+                                <label class="bw-label">{{bxMsg 'cbb_items.SCRNITM#userDfnColorThm'}}</label>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="a-center">
+                                <div class="theme-frame add-mg-t-10" id="defaultTheme1" data-form-param="01">
+                                    <div class="theme-wrap">
+                                        <button class="btn-theme header">{{bxMsg 'cbb_items.SCRNITM#header'}}</button>
+                                        <button class="btn-theme popup">{{bxMsg 'cbb_items.SCRNITM#popupWindow'}}</button>
+                                        <button class="btn-theme body">{{bxMsg 'cbb_items.SCRNITM#bodyBgrnd'}}</button>
+                                        <button class="btn-theme footer">{{bxMsg 'cbb_items.SCRNITM#footer'}}</button>
+                                        <input type="text" class="styleSeqNbr" style="display:none;"/>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="a-center">
+                                <div class="theme-frame add-mg-t-10" id="defaultTheme2" data-form-param="02">
+                                    <div class="theme-wrap">
+                                        <button class="btn-theme header">{{bxMsg 'cbb_items.SCRNITM#header'}}</button>
+                                        <button class="btn-theme popup">{{bxMsg 'cbb_items.SCRNITM#popupWindow'}}</button>
+                                        <button class="btn-theme body">{{bxMsg 'cbb_items.SCRNITM#bodyBgrnd'}}</button>
+                                        <button class="btn-theme footer">{{bxMsg 'cbb_items.SCRNITM#footer'}}</button>
+                                        <input type="text" class="styleSeqNbr" style="display:none;"/>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="a-center">
+                                <div class="theme-frame add-mg-t-10" id="defaultTheme3" data-form-param="03">
+                                    <div class="theme-wrap">
+                                        <button class="btn-theme header">{{bxMsg 'cbb_items.SCRNITM#header'}}</button>
+                                        <button class="btn-theme popup">{{bxMsg 'cbb_items.SCRNITM#popupWindow'}}</button>
+                                        <button class="btn-theme body">{{bxMsg 'cbb_items.SCRNITM#bodyBgrnd'}}</button>
+                                        <button class="btn-theme footer">{{bxMsg 'cbb_items.SCRNITM#footer'}}</button>
+                                        <input type="text" class="styleSeqNbr" style="display:none;"/>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="a-center">
+                                <div class="theme-frame add-mg-t-10" id="userTheme" data-form-param="04">
+                                    <div class="theme-wrap">
+                                        <input type="text" class="header"/>
+                                        <input type="text" class="popup"/>
+                                        <input type="text" class="body"/>
+                                        <input type="text" class="footer"/>
+                                        <input type="text" class="styleSeqNbr" style="display:none;"/>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+            <!--/END BASE COLOR AREA -->
+        </section>
+    </section>
+</section>

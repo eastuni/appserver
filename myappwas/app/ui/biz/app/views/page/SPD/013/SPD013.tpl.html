@@ -1,0 +1,115 @@
+<section  id='SPD013' ng-init="SPD013Ctrl.init()" SPD013-wrap-directive>
+  <section>
+    <h2 class="bw-tt">
+      <span data-i18n="{%=cbb_items.SCRN#SPD013%}" />
+    </h2>
+
+    <section class="bw-tool add-bd2-t add-mg-t" >
+      <div class="f-l">
+        <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#calcnUnitAtrbt%}"></h3>
+      </div>
+      <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn"  id="btnCrReset" ng-click="SPD013Ctrl.btnCrReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+        <button type="button" class="bw-btn"  id="btnCrSubmit" ng-click="SPD013Ctrl.btnCrSubmit_Onclick()" title=""><i class="bw-icon i-30 i-func-submit"></i></button>
+        <button type="button" class="bw-btn b-ctr"  id="btnCrToggle" ng-click="SPD013Ctrl.btnCrToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+      </div>
+    </section>
+
+    <section id="crArea" class="search-wrap">
+      <table class="w-100">
+        <tr name="tr_crArea">
+          <td class="td-w-33">
+			<div class="input-wrap fix-label clr" >
+				<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#txDt%}"></label>
+				<div id="aplyStartDt"></div>
+			</div>
+          </td>
+          <td class="td-w-33">
+            <div id="srvcTpCd-wrap">
+            </div>
+          </td>
+          <td class="td-w-33">
+            <div id="crUnitCd-wrap">
+            </div>
+          </td>
+        </tr>
+    </table>
+    <table class="w-100">
+		<tr name="tr_pdArea" >
+			<td class="td-w-25">
+				<div id="bizDscd-wrap">
+				</div>
+			</td>
+			<td class="td-w-25">
+				<div id="pdTpCd-wrap">
+				</div>
+			</td>
+			<td class="td-w-25">
+				<div id="pdTmpltCd-wrap">
+				</div>
+			</td>
+			<td class="td-w-25">
+				<div id="pdCd-wrap">
+				</div>
+			</td>
+		</tr>
+      </table>
+      <!--<div id="dtrmnCndList" class="w-33">
+      </div>  -->
+    </section>
+
+<section class="bw-tool add-bd2-t add-mg-t" >
+  <div class="f-l">
+    <!--<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseAtrbt%}"></h3>  -->
+    <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#calcnRuleCndVal%}"></h3>
+  </div>
+  <div class="btn-wrap fix-r">
+    <button type="button" class="bw-btn"  id="btnCndReset" ng-click="SPD013Ctrl.btnCndReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+    <button type="button" class="bw-btn b-ctr"  id="btnCndToggle" ng-click="SPD013Ctrl.btnCndToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+  </div>
+</section>
+
+<!--  조건 섹션    -->
+<section  id="calcRuleCndScreenGenerationArea"  class="search-wrap">
+  <table class="w-100 baseCndArea" >
+    <tr name="tr_baseCndArea" >
+      <td class="td-w-25">
+        <div class="input-wrap fix-label clr" ><label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#txAmt%}" ></label>
+          <input type="text"  class="bw-input" data-form-param="txAmt"  />
+        </div>
+      </td>
+      <td class="td-w-25">
+        <div class="input-wrap fix-label clr" ><label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#totTxCnt%}" ></label>
+          <input type="text"  class="bw-input" data-form-param="totTxCnt" value ="1"  />
+        </div>
+      </td>
+      <td class="td-w-25">
+        <div id="crncyCd-wrap">
+        </div>
+      </td>
+      <td class="td-w-25">
+        <div id="crncyCd-wrap">
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="w-100 createCndListArea">
+  </table>
+</section>
+
+<section class="bw-tool add-bd2-t add-mg-t" >
+  <div class="f-l">
+    <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#calcnRslt%}"></h3>
+  </div>
+  <div class="btn-wrap fix-r">
+    <button type="button" class="bw-btn b-ctr"  id="btnExtToggle" ng-click="SPD013Ctrl.btnExtToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+  </div>
+</section>
+
+<!--  결과 섹션    -->
+<section  id="secCalcnRslt"  class="search-wrap">
+  <table class="w-100 createResultListArea">
+  </table>
+</section>
+</section>
+</section>

@@ -1,0 +1,95 @@
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPWF507-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPWF507'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPWF507'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}
+			</h2>
+
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<div class="bw-tool add-bd2-t">
+				<div class="f-l">
+					<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-base-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_add'}}" id="btn-CAPWF507-grid-add"><i class="bw-icon i-30 i-func-add"></i></button>
+					<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-base-search"><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-base-search-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</div>
+			<!--/END BW-TOOL-->
+			<section class="search-wrap CAPWF507-base-table" id="CAPWF507-base-table">
+				<table class="w-100">
+						<tr>
+						   <td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#cmpnt'}}">{{bxMsg 'cbb_items.SCRNITM#cmpnt'}}</label>
+									<select class="bw-input ipt-select w-60 CAPWF507-cmpntCd-wrap" data-form-param="cmpntCd"></select>
+								</div>
+						   </td>
+                           <td class="td-w-33">
+                               <div class="input-wrap add-btn clr">
+                                   <label class="bw-label w-42">{{bxMsg 'cbb_items.AT#srvcCd'}}</label>
+                                   <input type="text" class="bw-input w-58" data-form-param="srvcCd" />
+                                   <button type="button" class="bw-btn fix-r" id="btn-service-search"><i class="bw-icon i-30 i-search"></i></button>
+                               </div>
+                           </td>
+                           <td class="td-w-33">
+                               <div class="input-wrap clr">
+                                   <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#srvcNm'}}</label>
+                                   <input type="text" class="bw-input w-60" data-form-param="srvcNm"/>
+                               </div>
+                           </td>
+                       	</tr>
+					<tr>
+						<td class="td-w-33">
+							<div class="input-wrap clr">
+								<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#aprvlRsnCd'}}">{{bxMsg 'cbb_items.SCRNITM#aprvlRsnCd'}}</label>
+								<select class="bw-input ipt-select w-60 CAPWF507-aprvlRsnCd-wrap" data-form-param="aprvlRsnCd"></select>
+							</div>
+						</td>
+						<!-- <td class="td-w-33">
+							<div class="input-wrap clr">
+								<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#aprvlPtrnDscd'}}">{{bxMsg 'cbb_items.SCRNITM#aprvlPtrnDscd'}}</label>
+								<select class="bw-input ipt-select w-60 CAPWF507-aprvlPtrnDscd-wrap" data-form-param="aprvlPtrnDscd"></select>
+							</div>
+						</td> -->
+						<td class="w-33">
+						<div class="input-wrap add-btn clr">
+							<label class="bw-label w-40">{{bxMsg 'cbb_items.AT#aprvlTmpltId'}}</label>
+							<input type="text" class="bw-input w-60" data-form-param="aprvlTmpltId" />
+							<button type="button" class="bw-btn fix-r" id="btn-aprvlTemplt-search"><i class="bw-icon i-30 i-search"></i></button>
+  							<input type = "text" data-form-param="srvcCd" class="bx-form-item bx-component-small" value="{{srvcCd}}" maxlength="20" readOnly="readonly" style="display: none;"/>
+							<input type = "text" data-form-param="cmpntCd" class="bx-form-item bx-component-small" value="{{cmpntCd}}" maxlength="3" readOnly="readonly" style="display: none;"/>
+						</div>
+						</td>
+						<td class="w-33"></td>
+					</tr>
+				</table>
+			</section>
+
+
+            <section class="grid-wrap">
+				<div class="bw-tool add-bd2-t add-mg-t">
+					<div class="f-l">
+						<h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn" id="btn-CAPWF507-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
+<!-- 								<button type="button" class="bw-btn" id="btn-CAPWF507-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button> -->
+						
+
+
+						<button type="button" class="bw-btn b-ctr" id="btn-up-grid" data-info="CAPCM031-grid1"><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+				</div>
+				<div class="CAPWF507-grid" id="CAPWF507-grid"></div>
+			</section>
+        </section>
+    </section>
+</section>

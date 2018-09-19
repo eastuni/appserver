@@ -1,0 +1,128 @@
+/* component/grid.scss */
+
+.extjs-disabled-row {
+    .x-grid-cell {
+        color: #d3d3d3;
+    }
+}
+
+
+/* Grid Common */
+.bx-grid {
+    width: 100%;
+    td, th {
+        height: 25px;
+        font-size: 11px;
+        padding: $component-unit-v-padding $component-unit-h-padding;
+
+        text-align: center;
+
+        &.left-align {
+            text-align: left;
+        }
+
+        &.right-align {
+            text-align: right;
+        }
+    }
+}
+
+.bx-grid-toolbar {
+    height: 30px;
+
+    border: 1px solid #ccc;
+    border-bottom: none;
+
+    background: #eaeaea;
+
+
+    .filter-item-title {
+        display: inline-block;
+        margin: 0 10px;
+
+
+        line-height: 30px;
+
+        font-size: 11px;
+        font-weight: bold;
+    }
+}
+
+/* Table Grid */
+.bx-table-grid {
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    .bx-grid-header-row {
+        @include gradient(#fff, #eee, #eee);
+
+        border-bottom: 1px solid #ddd;
+
+        & > th {
+            border-left: 1px solid #ddd;
+            font-weight: normal;
+
+            &:first-child {
+                border-left: none;
+            }
+        }
+    }
+
+    .bx-expand-btn {
+        display: inline-block;
+        width: 1.3em;
+        height: 1.3em;
+        vertical-align: top;
+        cursor: pointer;
+        background: url(images/tree-icon/nolines_plus.gif);
+    }
+
+    .bx-grid-row {
+        &:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        &:hover {
+            background: #eee;
+        }
+
+        & > td {
+            border-left: 1px solid #eee;
+            color: #666;
+
+            &:first-child {
+                border-left: none;
+            }
+        }
+
+        &.is-expand {
+            .bx-expand-btn {
+                background: url(images/tree-icon/nolines_minus.gif);
+            }
+        }
+    }
+}
+
+/* Line Grid */
+.bx-line-grid {
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+
+    .bx-grid-header-row {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .bx-grid-row {
+        border-top: 1px solid #eee;
+        color: #666;
+
+        &:hover {
+            background: #eee;
+        }
+
+        &:first-child {
+            border-top: none;
+        }
+    }
+}

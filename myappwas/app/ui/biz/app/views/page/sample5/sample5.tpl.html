@@ -1,0 +1,60 @@
+<div class="bw-modal-wrap fix-h bw-modal-popup-header" id="popup-service-modal">
+    <h2 class="bw-tt a-center bx-popup-header-area">부서 검색</h2>
+
+
+    <div class="bw-tool add-bd2-t">
+        <div class="f-l">
+            <h3 class="bw-desc">검색 조건</h3>
+        </div>
+        <div class="btn-wrap fix-r">
+            <button type="button" class="bw-btn alert-reset" title="초기화" id="btn-search-condition-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+            <button type="button" class="bw-btn" title="검색" id="btn-search-condition-search"><i class="bw-icon i-30 i-func-search"></i></button>
+            <button type="button" class="bw-btn b-ctr" id="btn-search-condition-toggle" ><i class="fa fa-forward fa-rotate-270"></i></button>
+        </div>
+    </div>
+
+
+    <section class="search-wrap" id="search-condition-area">
+        <table class="w-100 popup-service-table">
+            <tr>
+                <td class="td-w-33">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">부서조직관계</label>
+                        <input type="text" class="bw-input w-60" data-form-param="deptOrgnztnRel"/>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">부서명</label>
+                        <input type="text" class="bw-input w-60" data-form-param="deptNm"/>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                </td>
+            </tr>
+        </table>
+    </section>
+
+
+    <section class="grid-wrap">
+        <div class="bw-tool add-bd2-t add-mg-t">
+            <div class="f-l">
+                <h3 class="bw-desc" id="deptTree">부서 트리</h3>
+            </div>
+            <div class="btn-wrap fix-r">
+                <button type="button" class="bw-btn b-ctr" id="btn-dept-tree-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+            </div>
+        </div>
+
+
+        <section class="unit-tree-wrap a-left" id="popup-dept-tree-wrap" style="height:250px; overflow-y:auto;">
+            <div class="popup-dept-tree" id="popup-dept-tree"></div>
+        </section>
+    </section>
+
+
+    <div class="btn-wrap add-mg">
+        <button type="button" class="bw-btn-txt" id="btn-popup-select" ng-click="vm.btnPopupSelectOnclick()">선택</button>
+        <button type="button" class="bw-btn-txt on" id="btn-popup-cancel">취소</button>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<!--
+@Screen number  CAPSV306
+@brief          배포[배포환경]
+@author         신홍균
+@history        2017.06.01      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPSV306-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPSV306'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPSV306'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#all'}}
+			</h2>
+
+			<!--/END BW-TITLE-->
+			
+ 	<!-- Grid area -->
+            <section class="grid-wrap">
+				<!-- tab 없는 그리드 영역 -->
+				<div class="bw-tool add-bd2-t add-mg-t">
+					<div class="f-l">
+	                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#CAPSV303-PARAM-LIST-TITLE'}}</h3>
+	                </div>
+					<div class="btn-wrap fix-r">
+					<!-- 그리드 버튼 영역 -->
+						<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-param-search"><i class="bw-icon i-30 i-func-search"></i></button>
+						<button type="button" class="bw-btn" id="btn-CAPSV306-param-delete" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+						<button type="button" class="bw-btn" id="btn-CAPSV306-param-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
+						<button type="button" class="bw-btn b-ctr" id="btn-param-grid" data-info="CAPSV306-param-grid"><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+				</div>
+				<div class="CAPSV306-param-grid" id="CAPSV306-param-grid"></div>
+			</section>
+			<div id="CAPSV306-param-area">
+				<section class="bw-tool add-bd-t add-mg-t">
+					<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#CAPSV303-PARAM-DETAIL-TITLE'}}</h3>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn" id="btn-target-param-refresh" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}"><i class="bw-icon i-30 i-func-refresh"></i></button>
+						<button type="button" class="bw-btn" id="btn-target-param-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+						<button type="button" class="bw-btn b-ctr" id="btn-target-param-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+				</section>
+				<section class="CAPSV306-param-table" id="CAPSV306-param-table">	
+					<section class="search-wrap">
+						<table class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap  asterisk clr">
+										<label class="bw-label w-40 " title="{{bxMsg 'cbb_items.AT#dstbParmCd'}}">{{bxMsg 'cbb_items.AT#dstbParmCd'}}</label>
+										<select class="bw-input w-60 ipt-select CAPSV306-param-dstbParmCdwrap" data-form-param="dstbParmCd"></select>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap  asterisk clr">
+										<label class="bw-label w-40 " title="{{bxMsg 'cbb_items.AT#dstbParmVal'}}">{{bxMsg 'cbb_items.AT#dstbParmVal'}}</label>
+										<input type="text" class="bw-input w-60" data-form-param="dstbParmVal"/>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</section>
+				</section>
+			</div>
+        </section>
+    </section>
+</section>

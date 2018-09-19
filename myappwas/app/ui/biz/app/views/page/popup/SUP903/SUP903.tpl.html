@@ -1,0 +1,59 @@
+
+
+	<section ng-init="SUP903Ctrl.init()">
+		<div  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SUP903%}">
+			</div>
+			<div  class="modal-body">
+				<div  id="secSrchCnd"  >
+					<div  id="cbb_items.SCRNITM#srchCnd"  class="bw-tool add-bd2-t">
+						<div class="f-l">
+							<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+						</div>
+						<div  class="btn-wrap fix-r">
+							<button type="button" class="bw-btn" id="search_btnSearch" ng-click="SUP903Ctrl.search_btnSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="search_btnToggle" ng-click="SUP903Ctrl.search_btnToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+					</div>
+					<section  id="secSearchArea"  class="search-wrap">
+						<table  class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap  clr"><label class="bw-label w-40" data-i18n="{%=cbb_items.AT#staffNm%}"></label>
+										<input type="text" class="bw-input w-60" data-form-param="staffNm"/>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap  clr"><label class="bw-label w-40" data-i18n="{%=cbb_items.AT#deptNm%}"></label>
+										<input type="text" class="bw-input w-60" data-form-param="deptNm"/>
+									</div>
+								</td>
+								<td>&nbsp;</td>
+							</tr>
+						</table>
+					</section>
+				</div>
+				<section  id="secGrid"  class="grid-wrap">
+					<div  id="cbb_items.SCRNITM#srchRslt"  class="bw-tool add-bd2-t add-mg-t">
+						<div class="f-l">
+							<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+							<h3 class="bw-desc">({{SUP903Ctrl.gridList1Count}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+						</div>
+						<section  class="btn-wrap fix-r">
+							<button type="button" class="bw-btn b-ctr" id="grid_toggle" ng-click="SUP903Ctrl.grid_toggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+						</section>
+					</div>
+					<div  id="secGridArea"  >
+						<div id="gridList1-grid">
+							<section class="bw-grid"></section>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div  class="modal-footer btn-wrap add-mg">
+				<button type="button" class="bw-btn-txt" id="btnSubmit" ng-click="SUP903Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+				<button type="button" class="bw-btn-txt on" id="btnCancel" ng-click="SUP903Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+			</div>
+		</div>
+	</section>

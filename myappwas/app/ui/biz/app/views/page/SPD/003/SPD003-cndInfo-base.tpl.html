@@ -1,0 +1,88 @@
+<section class="pd-cnd-info  add-mg-t-10">
+    <!-- 타이틀바 -->
+    <section class="bw-tool add-bd2-t">
+        <div class="f-1">
+            <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#cndInfo%}"></h3>
+        </div>
+    </section>
+
+    <!-- 내용 -->
+    <section class="condition-wrap search-wrap">
+        <table class="bx-info-table w-100">
+            <tr>
+                <td class="td-w-33"> <!-- 조건코드 -->
+                    <div class="input-wrap fix-label clr">
+                        <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#cndCd%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input cndCd" value={{conditionInfo.cndCd}} readonly="true" />
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-66" colspan="2"> <!-- 조건명 -->
+                    <div class="input-wrap fix-label clr">
+                        <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#cndNm%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input cndNm" value={{conditionInfo.cndNm}} readonly="true"/>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="td-w-100" colspan="3"> <!-- 적용기간 -->
+                    <div class="input-wrap fix-label clr">
+                        <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#aplyTrm%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input aplyTrm" value={{conditionInfo.aplyTrm}} readonly="true"/>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="td-w-33"> <!-- 조건유형 -->
+                    <div class="input-wrap fix-label clr">
+                        <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#cndTp%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input cndTp" value={{conditionInfo.cndTp}} readonly="true"/>
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-33"> <!-- 조건구조 -->
+                    <div class="input-wrap fix-label clr">
+                        <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#cndStrctr%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input cndStrctr" value={{conditionInfo.cndStrctr}} readonly="true"/>
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-33"> <!-- 복합적용방법 -->
+                    <div class="input-wrap fix-label clr">
+                        <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#cmpxAplyMthd%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input tierAplyCalcnWayCdNm" value={{conditionInfo.tierAplyCalcnWayCdNm}} readonly="true"/>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="td-w-33"> <!-- 조건값결정레벨 -->
+                    <div class="input-wrap fix-label clr">
+                        <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#cndValDcsnLvl%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input cndValDcsnLvl" value={{conditionInfo.cndValDcsnLvl}} readonly="true"/>
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-33"> <!-- 필수협상조건 -->
+                    <div class="clr add-mg-l-10">
+                        <!-- 필수협상조건여부 값 -->
+                        <input type="checkbox" class="bw-input ipt-radio f-l mndtNegCndYn"  value={{conditionInfo.mndtNegCndYn}} onclick="return false;">
+                        <!-- 필수협상조건여부 라벨 -->
+                        <label class="bw-label f-l add-font-style" data-i18n="{%=cbb_items.SCRNITM#mndtNegCnd%}"></label>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                </td>
+            </tr>
+        </table>
+    </section>
+</section>

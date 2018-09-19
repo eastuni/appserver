@@ -1,0 +1,206 @@
+
+	<section  id='SUE011' ng-init="SUE011Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SUE011%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SUE011%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseAtrbt%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnBsicReset" ng-click="SUE011Ctrl.btnBsicReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn"  id="btnBsicSearch" ng-click="SUE011Ctrl.btnBsicSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnBsicToggle" ng-click="SUE011Ctrl.btnBsicToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+			<section  id="baseAtrbtScreenGenerationArea"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_baseAtrbtScreenGenerationArea" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#asmId%}" data-i18n-title="{%=cbb_items.AT#asmId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="asmId" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SUE011Ctrl.custId_Onclick()" id="btn-custId-search"><i class="bw-icon i-20 i-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#acptncInfo%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnAcptncReset" ng-click="SUE011Ctrl.btnAcptncReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+				<button type="button" class="bw-btn"  id="btnAcptncSave" ng-click="SUE011Ctrl.btnAcptncSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnAcptncToggle" ng-click="SUE011Ctrl.btnAcptncToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+		<section  id="acptncInfoScreenGenerationArea"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_acptncInfoScreenGenerationArea" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label asterisk clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#lnAplctnDscd%}" data-i18n-title="{%=cbb_items.AT#lnAplctnDscd%}"></label>
+						<select class="bw-input ipt-select"  ng-model="SUE011Ctrl.lnAplctnDscdSelectedValue" ng-change="SUE011Ctrl.lnAplctnDscd_OnChange()" data-form-param="lnAplctnDscd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#rltdAcctNbr%}" data-i18n-title="{%=cbb_items.AT#rltdAcctNbr%}"></label>
+						<input type="text"  maxlength='16' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="rltdAcctNbr" />
+						<button type="button" class="bw-btn fix-r" ng-click="SUE011Ctrl.rltdAcctNbr_Onclick()" id="btn-rltdAcctNbr-search"><i class="bw-icon i-20 i-search"></i></button>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#bfChngCustId%}" data-i18n-title="{%=cbb_items.AT#bfChngCustId%}"></label>
+						<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="bfChngCustId" />
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_acptncInfoScreenGenerationArea" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label asterisk clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#pdTp%}" data-i18n-title="{%=cbb_items.SCRNITM#pdTp%}"></label>
+						<select class="bw-input ipt-select"  ng-model="SUE011Ctrl.pdTpCdSelectedValue" ng-change="SUE011Ctrl.pdTpCd_OnChange()" data-form-param="pdTpCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label asterisk clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#pdTmplt%}" data-i18n-title="{%=cbb_items.SCRNITM#pdTmplt%}"></label>
+						<select class="bw-input ipt-select"  ng-model="SUE011Ctrl.pdTmpltCdSelectedValue" ng-change="SUE011Ctrl.pdTmpltCd_OnChange()" data-form-param="pdTmpltCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#chngBfClntNm%}" data-i18n-title="{%=cbb_items.AT#chngBfClntNm%}"></label>
+						<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="chngBfClntNm" />
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_acptncInfoScreenGenerationArea" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label asterisk clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#pdNm%}" data-i18n-title="{%=cbb_items.AT#pdNm%}"></label>
+						<select class="bw-input ipt-select"  ng-model="SUE011Ctrl.pdNmSelectedValue" ng-change="SUE011Ctrl.pdNm_OnChange()" data-form-param="pdNm"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label asterisk clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#rcvbPrsrvTrgtDscd%}" data-i18n-title="{%=cbb_items.AT#rcvbPrsrvTrgtDscd%}"></label>
+						<select class="bw-input ipt-select"  ng-model="SUE011Ctrl.rcvbPrsrvTrgtDscdSelectedValue" ng-change="SUE011Ctrl.rcvbPrsrvTrgtDscd_OnChange()" data-form-param="rcvbPrsrvTrgtDscd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label asterisk clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#jdgmrgtDscd%}" data-i18n-title="{%=cbb_items.AT#jdgmrgtDscd%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="jdgmrgtDscd"></select>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</section>
+		<section class=" bw-tool add-bd2-t add-mg-t" >
+		<div class="f-l">
+			<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#custInfo%}"></h3>
+		</div>
+		<div class="btn-wrap fix-r">
+			<button type="button" class="bw-btn-form unit add-mg-t-7"  id="btnPrsnlClntInfoChng" ng-click="SUE011Ctrl.btnPrsnlClntInfoChng_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#prsnlClntInfoChng%}"/></button>
+			<button type="button" class="bw-btn"  id="btnCustSearch" ng-click="SUE011Ctrl.btnCustSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+			<button type="button" class="bw-btn b-ctr"  id="btnCustToggle" ng-click="SUE011Ctrl.btnCustToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+		</div>
+		</section>
+	<section  id="custInfoScreenGenerationArea"  class="search-wrap">
+	<table class="w-100" >
+		<tr  name="tr_custInfoScreenGenerationArea" >
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#UnqIdNbrTp%}" data-i18n-title="{%=cbb_items.SCRNITM#UnqIdNbrTp%}"></label>
+					<select class="bw-input ipt-select" disabled data-form-param="actorUnqIdNbrTpCd"></select>
+				</div>
+			</td>
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custUnqIdNbr%}" data-i18n-title="{%=cbb_items.AT#custUnqIdNbr%}"></label>
+					<input type="text"  maxlength='30' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custUnqIdNbr" />
+				</div>
+			</td>
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#naty%}" data-i18n-title="{%=cbb_items.SCRNITM#naty%}"></label>
+					<select class="bw-input ipt-select" disabled data-form-param="natyIsoNatCd"></select>
+				</div>
+			</td>
+		</tr>
+		<tr  name="tr_custInfoScreenGenerationArea" >
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rsdntlLctn%}" data-i18n-title="{%=cbb_items.SCRNITM#rsdntlLctn%}"></label>
+					<select class="bw-input ipt-select" disabled data-form-param="rsdncLctnIsoNatCd"></select>
+				</div>
+			</td>
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label "  data-i18n="{%=cbb_items.AT#gndrCd%}" data-i18n-title="{%=cbb_items.AT#gndrCd%}"></label>
+					<select class="bw-input ipt-select" disabled data-form-param="gndrCd"></select>
+				</div>
+			</td>
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label "  data-i18n="{%=cbb_items.AT#ernrDscd%}" data-i18n-title="{%=cbb_items.AT#ernrDscd%}"></label>
+					<select class="bw-input ipt-select" disabled data-form-param="ernrDscd"></select>
+				</div>
+			</td>
+		</tr>
+		<tr  name="tr_custInfoScreenGenerationArea" >
+			<td class="td-w-33" colspan="3">
+				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#bsicAddr%}" data-i18n-title="{%=cbb_items.SCRNITM#bsicAddr%}"></label>
+					<input type="text"  maxlength='4000' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="bsicAddrCntnt" />
+				</div>
+			</td>
+		</tr>
+		<tr  name="tr_custInfoScreenGenerationArea" >
+			<td class="td-w-33" colspan="3">
+				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#officeAddr%}" data-i18n-title="{%=cbb_items.SCRNITM#officeAddr%}"></label>
+					<input type="text"  maxlength='4000' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="ofcBsicAddrCntnt" />
+				</div>
+			</td>
+		</tr>
+		<tr  name="tr_custInfoScreenGenerationArea" >
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#homeTelNbr%}" data-i18n-title="{%=cbb_items.SCRNITM#homeTelNbr%}"></label>
+					<input type="text"  maxlength='20' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custTelNbr" />
+				</div>
+			</td>
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#officePhoneNbr%}" data-i18n-title="{%=cbb_items.SCRNITM#officePhoneNbr%}"></label>
+					<input type="text"  maxlength='20' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="cmpnyTelNbr" />
+				</div>
+			</td>
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#mobileTelNbr%}" data-i18n-title="{%=cbb_items.AT#mobileTelNbr%}"></label>
+					<input type="text"  maxlength='20' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="mobileTelNbr" />
+				</div>
+			</td>
+		</tr>
+		<tr  name="tr_custInfoScreenGenerationArea" >
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#emailAddr%}" data-i18n-title="{%=cbb_items.AT#emailAddr%}"></label>
+					<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="emailAddr" />
+				</div>
+			</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+</section>
+</section>
+</section>

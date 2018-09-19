@@ -1,0 +1,301 @@
+
+
+<!-- 계산규칙 상세팝업 -->
+<section id="SPD908" ng-init="SPD908Ctrl.init()" SPD908-wrap-directive>
+	<div id="SPD908">
+		<div class="modal-header">
+			<!-- 규칙정보 -->
+			<section class="pd-cnd-info">
+				<section class="bw-tool add-bd2-t">
+					<div class="f-1">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#ruleInfo%}"></h3>
+					</div>
+				</section>
+	
+				<section class="condition-wrap search-wrap" id = "SPD908ConditionInfoWrap">
+					<table class="bx-info-table w-100">
+						<tr>
+							<td class="td-w-33">
+								<!-- 계산규칙내용 -->
+								<div class="input-wrap fix-label clr">
+									<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#calcnRuleCntnt%}"></label>
+	        						<div class="td-desc-wrap clr">
+	                                    <input type="text" class="bw-input calcnRuleCntnt" value={{calcnRuleCntnt}} readonly="true"/>
+	                                </div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+		</div>
+		<div class="modal-body">
+		    <section class="product-sidebar-wrap bw-tree-wrap" style="left:0; width:260px; height: 580px; border:1px solid #eee; overflow:auto; float:left;">
+		        <section>
+		            <!-- 계산규칙 툴바 -->
+		            <section class="bw-tool add-bd2-t" >
+		                <div class="f-l">
+		                    <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#calcnRule%}"></h3>
+		                </div>
+		                <!-- 계산규칙 숨김버튼 -->
+		                <div class="btn-wrap fix-r">
+		                    <button type="button" class="bw-btn"  id="btnSchHide" ng-click="SPD908Ctrl.btnCalcnRuleTreeHide_Onclick($event)" title=""><i class="fa fa-angle-left"></i></button>
+		                </div>
+		            </section>
+		        </section>
+		        <section id="tree-menu-list" class="tree-menu-list" style="text-align: left;"></section>
+		    </section>
+		
+		    <button type="button" class="bw-tree-show-btn" style="display:none;"  id="btnLeftShow" ng-click="SPD908Ctrl.btnLeftShow_Onclick($event)" title=""><i class="fa fa-angle-right"></i></button>
+		
+			<!-- <section class="calculation-info bw-inner-contents" style="height: 300px; float:left; position:absolute; left:300px; right:30px; overflow:auto;"> -->
+			<section class="calculation-info bw-inner-contents" style="height: 570px; left:300px; right:30px; overflow:auto;">
+		        <section id="cr-base-info" class="cr-base-info">
+		            <!-- 계산규칙 기본정보 -->
+		            <section class="bw-tool add-bd2-t">
+		                <div class="f-1">
+		                    <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#calcnRule%} {%=cbb_items.SCRNITM#bsicInfo%}"></h3>
+		                </div>
+		            </section>
+		            <!-- 기본정보 내용 -->
+		            <section class="condition-wrap add-mg-t-10">
+		                <table id="pd-base-info-tbl" class="bx-info-table w-100">
+		                    <tr>
+		                    	<!-- 계산규칙식별자 -->
+		                        <td class="td-w-33">
+		                            <div class="input-wrap fix-label clr">
+		                                <label class="bw-label" title="" data-i18n="{%=cbb_items.SCRNITM#calcnRuleId%}"></label>
+		                                <div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input calcnRuleCmpsElmntId" value={{calcnRuleCmpsElmntId}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                        <!-- 조건코드 -->
+		                        <td class="td-w-33">
+		                            <div class="input-wrap fix-label clr">
+		                                <label class="bw-label" title="" data-i18n="{%=cbb_items.SCRNITM#cndCd%}"></label>
+		                                <div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input cmpsElmntCndCd" value={{cmpsElmntCndCd}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                    </tr>
+		                    <tr>
+								<!-- 적용시작일자 -->
+								<td class="td-w-33">
+									<div class="input-wrap fix-label clr" >
+										<label class="bw-label" title="" data-i18n="{%=cbb_items.SCRNITM#aplyStartDt%}"></label>
+										<div class="td-desc-wrap clr">
+	                                    	<input type="text" class="bw-input aplyStartDt" value={{aplyStartDt}} readonly="true"/>
+	                                	</div>
+									</div>
+								</td>
+		                       	<!-- 적용종료일자 -->
+								<td class="td-w-33">
+									<div class="input-wrap fix-label clr" >
+										<label class="bw-label" title="" data-i18n="{%=cbb_items.SCRNITM#aplyEndDt%}"></label>
+										<div class="td-desc-wrap clr">
+	                                    	<input type="text" class="bw-input aplyEndDt" value={{aplyEndDt}} readonly="true"/>
+	                                	</div>
+									</div>
+								</td>
+		                    </tr>
+		                    <tr>
+		                    	<!-- 계산규칙레벨 -->
+		                        <td class="td-w-33"> 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label"  title=""  data-i18n="{%=cbb_items.SCRNITM#calcnLvlNbr%}"></label>
+		                                <div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input lvlNbr" value={{lvlNbr}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                        <td>
+		                        </td>
+		                    </tr>
+		                    <tr>
+		                    	<!-- 상위구성요소식별자 -->
+		                        <td class="td-w-33"> 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label"  title="" data-i18n="{%=cbb_items.SCRNITM#upCmpsElmntId%}"></label>
+		                                <div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input upCmpsElmntId" value={{upCmpsElmntId}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                    	<!-- 상위요소구분 -->
+		                        <td class="td-w-33"> 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label"  title="" data-i18n="{%=cbb_items.SCRNITM#upCmpsElmntRelTpDscd%}"></label>
+		                                <div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input upCmpsElmntRelTpDscd" value={{upCmpsElmntRelTpDscd}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                    </tr>
+		                    <tr>
+		                    	<!-- 참조객체명 -->
+		                        <td class="td-w-33"> 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label"  title="" data-i18n="{%=cbb_items.SCRNITM#refObjNm%}"></label>
+		                                <div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input refObjNm" value={{refObjNm}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                    	<!-- 참조속성 -->
+		                        <td class="td-w-33"> 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label"  title="" data-i18n="{%=cbb_items.SCRNITM#refAtrbt%}"></label>
+		                                <div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input refAtrbtNm" value={{refAtrbtNm}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                    </tr>
+		                    <tr>
+		                    	<!-- 값산출방법구분 -->
+		                        <td class="td-w-33"> 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label"  title="" data-i18n="{%=cbb_items.SCRNITM#valCmptnMthdDscd%}"></label>
+		                                <div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input valCmptnMthdDscd" value={{valCmptnMthdDscd}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                    	<!-- 참조조건코드 -->
+		                        <td class="td-w-33"> 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label"  title="" data-i18n="{%=cbb_items.SCRNITM#refCnd%}"></label>
+		                                <div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input refCnd" value={{refCnd}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                    </tr>
+		                    <tr id="SPD908_01" class="all-display-none-class" style="display:none;">
+		                    	<!-- 값산출방법구분코드에따라 분기처리 -->
+		                    	<!-- 산식(계산규칙내용) -->
+								<td class="td-w-33"> 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label" title="" data-i18n="{%=cbb_items.SCRNITM#calcnRuleCntnt%}"></label>
+		                                <div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input calcnRuleCntnt" value=calcnRuleCntnt readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+							</tr>
+							<tr id="SPD908_02" class="all-display-none-class"  style="display:none;">
+		                        <!-- 계산클래스명 -->
+								<td class="td-w-33"> 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label"  title="" data-i18n="{%=cbb_items.AT#calcnClassNm%}"></label>
+		                                <div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input calcnClassNm" value={{calcnClassNm}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+							</tr>
+							<tr  id="SPD908_04" class="all-display-none-class"  style="display:none;">
+		                        <!-- 입력정보속성명 -->
+								<td class="td-w-33"> 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label"  title="" data-i18n="{%=cbb_items.AT#inpInfoAtrbtNm%}"></label>
+		                                <div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input inpInfoAtrbtNm" value={{inpInfoAtrbtNm}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                    </tr>
+		                    <tr id="SPD908_05" class="all-display-none-class"  style="display:none;">
+		                        <!-- 금리체계코드 -->
+								<td class="td-w-33"> 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label"  title="" data-i18n="{%=cbb_items.AT#intRtStrctrCd%}"></label>
+		                                <div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input intRtStrctrCd" value={{intRtStrctrCd}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                   </tr>
+		                    <tr class="SPD908_08_RNG all-display-none-class"  style="display:none;">
+		                        <!-- 범위유형코드 -->
+								<td class="td-w-33"> 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label"  title="" data-i18n="{%=cbb_items.AT#rngTpCd%}"></label>
+		                               <div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input rngTpCd" value={{rngTpCd}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                   </tr>
+		                    <tr class="SPD908_08_RNG all-display-none-class"  style="display:none;">
+		                        <!-- 기본값 -->
+								<td class="td-w-33"> 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label"  title="" data-i18n="{%=cbb_items.AT#bsicVal%}"></label>
+                         				<div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input bsicVal" value={{bsicVal}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                    </tr>
+		                    <tr class="SPD908_08_RNG-msurUnitCd-td all-display-none-class"  style="display:none;">
+		                    	<!-- 측정단위코드 -->
+								<td class="td-w-33" > 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label "  title="" data-i18n="{%=cbb_items.AT#msurUnitCd%}"></label>
+       									<div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input msurUnitCd" value={{msurUnitCd}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                    </tr>
+		                    <tr class="SPD908_08_RNG-crncyCd-td all-display-none-class"  style="display:none;">
+		                        <!-- 통화코드 -->
+								<td class="td-w-33" > 
+		                            <div class="input-wrap fix-label clr" >
+		                                <label class="bw-label "  title="" data-i18n="{%=cbb_items.AT#crncyCd%}"></label>
+										<div class="td-desc-wrap clr">
+		                                    <input type="text" class="bw-input crncyCd" value={{crncyCd}} readonly="true"/>
+		                                </div>
+		                            </div>
+		                        </td>
+		                    </tr>
+		                </table>
+		                
+						<section id="SPD908_08_LIST" class="all-display-none-class add-mg-t-10"  style="display:none;">
+							<!-- 계산정보 -->
+							<section class="bw-tool add-bd2-t">
+								<div class="f-1">
+									<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#calcnInfo%}"></h3>
+								</div>
+							</section>
+							
+							<!-- 목록형 조건그리드 -->
+							<section class="SPD908-listGrid" id="SPD908-listGrid" style="display:none;">
+								<section class="bw-grid"></section>
+							</section>
+							
+		                 	<!-- 범위형 복합조건그리드-->
+							<section class="SPD908-range-complex-grid" id="SPD908-range-complex-grid" style="display:none;">
+								<section class="bw-grid"></section>
+							</section>
+		
+							<!-- 목록형 복합조건그리드-->
+		   	                <section class="SPD908-list-complex-grid" id="SPD908-list-complex-grid" style="display:none;">
+		   	                	<section class="bw-grid"></section>
+		                   	</section>
+		                   	
+						</section>
+		            </section>
+				</section>
+		    </section>
+		</div>
+		<div class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt on" id="btnCancel" ng-click="SPD908Ctrl.btnCancel_Onclick()" title="" style="margin-left: -240px;">
+				<span data-i18n="{%=cbb_items.ABRVTN#chk%}" />
+			</button>
+		</div>
+	</div>
+</section>

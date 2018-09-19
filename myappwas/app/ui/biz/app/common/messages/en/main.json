@@ -1,0 +1,11 @@
+{
+    "namespace": "main",
+    "messages": {
+        "select-menu-msg": "Please, select the menu.",
+        "sign-out-msg": "Are you sure you want to log out?",
+
+        "max-page-msg": "maximum available tabs are 5. Close other tabs and try again.",
+        "no-page-msg": "PPage is not yet developed."
+
+    }
+}

@@ -1,0 +1,21 @@
+
+
+	<!-- 목록조건값 상세팝업 -->
+	<section ng-init="SPD900Ctrl.init()" SPD900-wrap-directive>
+		<div  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRNITM#listCndVal%}">
+			</div>
+			<div class="modal-body">
+				<div id="list-cnd-val-popup"  >
+					<section id="list-cnd-val-grid">
+						<section class="bw-grid"></section>
+					</section>
+				</div>
+				</section>
+			</div>
+			<div  class="modal-footer btn-wrap add-mg">
+				<button type="button" class="bw-btn-txt on" id="btnCancel" ng-click="SPD900Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.ABRVTN#chk%}"/></button>
+			</div>
+		</div>
+	</section>

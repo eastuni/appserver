@@ -1,0 +1,136 @@
+<!--
+@Screen number  CAPST005
+@brief          기관파라미터
+@author         오슬아
+@history        2016.08.16      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPST005-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPST005'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPST005'}}</p>
+				<!-- 설정대상기관 -->
+                <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+			</h2>
+
+
+			<section class="bw-tool add-bd2-t">
+				<div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#settlementParam'}}</h3>
+                </div>
+				<div class="btn-wrap fix-r"><!--*2016/04/26추가-->
+					<!-- <button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-instTaxCalcnClassNm-reset"><i class="bw-icon i-30 i-func-reset"></i></button> -->
+					<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-instTaxCalcnClassNm-save"><i class="bw-icon i-30 i-func-save"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-instTaxCalcnClassNm-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+
+
+			<!--정산파라미터-->
+			<section class="CAPST005-settlementParameter-table" id="CAPST005-settlementParameter-table">
+				<section class="search-wrap">
+					<table class="w-100">
+						<tr>
+					 	<td class="td-w-33">
+								<div class="input-wrap add-btn clr">
+									<label class="bw-label w-42" title="{{bxMsg 'cbb_items.AT#instTaxCalcnClassNm'}}">{{bxMsg 'cbb_items.AT#instTaxCalcnClassNm'}}</label>
+									<input type="text" class="bw-input w-58" data-form-param="instTaxCalcnClassNm" />
+									<button type="button" class="bw-btn fix-r" id="btn-instTaxCalcnClassNm-search"><i class="bw-icon i-30 i-search"></i></button>
+								</div>
+							</td> 	
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#acmltdCalcnMthdCd'}}">{{bxMsg 'cbb_items.AT#acmltdCalcnMthdCd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPST005-acmltdCalcnMthdCd-wrap" data-form-param="acmltdCalcnMthdCd"></select>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#leapYrYn'}}">{{bxMsg 'cbb_items.AT#leapYrYn'}}</label>
+									<select class="bw-input w-60 ipt-select CAPST005-leapYrYn-wrap" data-form-param="leapYrYn"></select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap add-btn clr">
+									<label class="bw-label w-42" title="{{bxMsg 'cbb_items.AT#amtTpRpymntSeq'}}">{{bxMsg 'cbb_items.AT#amtTpRpymntSeq'}}</label>
+									<input type="text" class="bw-input w-58" data-form-param="amtTpRpymntSeq" disabled="disabled"/>
+									<button type="button" class="bw-btn fix-r" id="btn-amtTpRpymntSeq-search"><i class="bw-icon i-30 i-search"></i></button>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#rtTrmDscd'}}">{{bxMsg 'cbb_items.AT#rtTrmDscd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPST005-rtTrmDscd-wrap" data-form-param="rtTrmDscd"></select>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#wthldngTaxFreeYn'}}">{{bxMsg 'cbb_items.AT#wthldngTaxFreeYn'}}</label>
+									<select class="bw-input w-60 ipt-select CAPST005-wthldngTaxFreeYn-wrap" data-form-param="wthldngTaxFreeYn"></select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#accrualBasisYn'}}">{{bxMsg 'cbb_items.AT#accrualBasisYn'}}</label>
+									<select class="bw-input w-60 ipt-select CAPST005-accrualBasisYn-wrap" data-form-param="accrualBasisYn"></select>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#pstnAcctMgmtYn'}}">{{bxMsg 'cbb_items.AT#pstnAcctMgmtYn'}}</label>
+									<select class="bw-input w-60 ipt-select CAPST005-pstnAcctMgmtYn-wrap" data-form-param="pstnAcctMgmtYn"></select>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#crncyExProfitDlgAplyFrctnCnt'}}">{{bxMsg 'cbb_items.AT#crncyExProfitDlgAplyFrctnCnt'}}</label>
+									<input type="text" class="bw-input w-60" data-form-param="crncyExProfitDlgAplyFrctnCnt"/>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dpstIntCalcnDtlAplyFrctnCnt'}}">{{bxMsg 'cbb_items.AT#dpstIntCalcnDtlAplyFrctnCnt'}}</label>
+									<input type="text" class="bw-input w-60" data-form-param="dpstIntCalcnDtlAplyFrctnCnt"/>
+								</div>
+							</td>
+						</tr>
+					</table>
+					   <table class="w-100">
+						<tr>
+							<td class="td-w-66">
+								<p class="desc">{{bxMsg 'cbb_items.SCRNITM#leapYrYnDesc'}}</p>
+                            </td>
+						</tr>
+						<tr>
+							<td>
+								<p class="desc">{{bxMsg 'cbb_items.SCRNITM#amtTpRpymntSeqDesc'}}</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p class="desc">{{bxMsg 'cbb_items.SCRNITM#rtTrmDstnctnCdDesc'}}</p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p class="desc">{{bxMsg 'cbb_items.SCRNITM#frgncExchngProfitDlgAplyFrctnDesc'}}</p>
+							</td>
+						</tr>
+                    </table>                
+				</section>
+			</section>
+        </section>
+    </section>
+</section>

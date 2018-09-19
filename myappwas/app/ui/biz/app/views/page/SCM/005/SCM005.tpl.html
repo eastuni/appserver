@@ -1,0 +1,55 @@
+
+	<section  id='SCM005' ng-init="SCM005Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SCM005%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SCM005%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SCM005Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SCM005Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SCM005Ctrl.btnSchToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#baseCrncyCd%}" data-i18n-title="{%=cbb_items.AT#baseCrncyCd%}"></label>
+							<select class="bw-input ipt-select" disabled data-form-param="baseCrncyCd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#rltdCrncyCd%}" data-i18n-title="{%=cbb_items.AT#rltdCrncyCd%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="rltdCrncyCd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#rgstrnDt%}" data-i18n-title="{%=cbb_items.AT#rgstrnDt%}"></label>
+							<div id="rgstrnDt" ></div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+	</section>
+	<div id="tab" class=" add-mg-t">
+		<ul>
+			<li ng-click="SCM005_tab2Ctrl.tabOpen()"><a href="#SCM005_tab2"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#mrktExRt%}" data-i18n-title="{%=cbb_items.SCRNITM#mrktExRt%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SCM005_tab3Ctrl.tabOpen()"><a href="#SCM005_tab3"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#anncExRt%}" data-i18n-title="{%=cbb_items.SCRNITM#anncExRt%}"></label><span class="triangle"></span></a></li>
+		</ul>
+	<div id="SCM005_tab2">
+		<views-scm005-tab2-directive></views-scm005-tab2-directive>
+	</div>
+	<div id="SCM005_tab3">
+		<views-scm005-tab3-directive></views-scm005-tab3-directive>
+	</div>
+	</div>
+</section>

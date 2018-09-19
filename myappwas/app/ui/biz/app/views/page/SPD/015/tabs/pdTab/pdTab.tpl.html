@@ -1,0 +1,140 @@
+<section id="pdTabInfo" class="search-wrap">
+    -보충내용<br>
+            첫회최소기간개월수: 다음납입일자 산출F사용 -->첫상환산출구분코드로 합침<br>
+            만기일이후 구간산출여부: 다음납입일자 산출F사용<br>
+    <table class="w-100">
+        <tr>
+            <td class="td-w-66" colspan=2>
+                <div class="input-wrap fix-label clr" >
+                    <!--상품명-->
+                    <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#pdNm%}"></label>
+                    <div class="td-desc-wrap clr">
+                        <input type="text" class="bw-input"  data-form-param="pdNm"/>
+                    </div>
+                </div>
+            </td>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label clr" >
+                    <label class="bw-label"  data-i18n="{%=cbb_items.AT#prpymntNbrOfDaysAplyYn%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="prpymntNbrOfDaysAplyYn" id=prpymntNbrOfDaysAplyYn></select>
+                </div>
+            </td>         
+        </tr>
+        <tr>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label clr" >
+                    <label class="bw-label"  data-i18n="{%=cbb_items.PDCND#L0063%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="rpymntWayCd"></select>
+                </div>
+            </td>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label clr" >
+                    <label class="bw-label"  data-i18n="{%=cbb_items.PDCND#L0105%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="intClcltPreDsTpCd" id=intClcltPreDsTpCd></select>
+                </div>  
+            </td>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label clr" >
+                    <label class="bw-label"  data-i18n="{%=cbb_items.PDCND#L0102%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="intCalcnBasePrdCd"></select>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label asterisk clr"  style="background-color:#CCCCCC">
+                    <label class="bw-label"  data-i18n="{%=cbb_items.PDCND#L0106%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="intRcptPrdCd" id="intRcptPrdCd"></select>
+                </div>
+            </td>        
+            <td class="td-w-33">
+                <div class="input-wrap fix-label asterisk clr" >
+                    <label class="bw-label"  data-i18n="{%=cbb_items.PDCND#L0101%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="intCalcnBaseSecCd" id="intCalcnBaseSecCd"></select>
+                </div>
+            </td>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label asterisk clr" style="background-color:#CCCCCC">
+                    <label class="bw-label"  data-i18n="{%=cbb_items.PDCND#L0144%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="fstIntPcptCd" id="fstIntPcptCd"></select>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label asterisk  clr"  style="background-color:#CCCCCC">
+                	<label class="bw-label"  data-i18n="연체이자적용구분코드(N)"></label>
+                    <select class="bw-input ipt-select"  data-form-param="ovrduIntAplyCd" id="ovrduIntAplyCd"></select>
+                </div>
+            </td>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label asterisk  clr"  style="background-color:#CCCCCC">
+                	<label class="bw-label"  data-i18n="연체일자산출구분(N)"></label>
+                    <select class="bw-input ipt-select"  data-form-param="ovrduDtCmptnCd" id="ovrduDtCmptnCd"></select>
+                </div>
+            </td>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label asterisk  clr" style="background-color:#CCCCCC">
+                	<label class="bw-label"  data-i18n="첫상환산출구분코드"></label>
+                    <select class="bw-input ipt-select"  data-form-param="frstRpymntDscd" id="frstRpymntDscd"></select>
+                </div>
+            </td>     
+        </tr>
+        <tr>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label asterisk  clr">
+                	<label class="bw-label"  data-i18n="{%=cbb_items.PDCND#L0097%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="instAmtFrctnDvcd" id="instAmtFrctnDvcd"></select>
+                </div>
+            </td>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label asterisk  clr" >
+                	<label class="bw-label"  data-i18n="{%=cbb_items.PDCND#L0232%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="intCalcnFrctnDvcd" id="intCalcnFrctnDvcd"></select>
+                </div>
+            </td>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label asterisk  clr"  style="background-color:#CCCCCC">
+                	<label class="bw-label"  data-i18n="{%=cbb_items.PDCND#L0154%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="instlmntFrctnAplyWayCd" id="instlmntFrctnAplyWayCd"></select>
+                </div>
+            </td>            
+        </tr> 
+        <tr>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label asterisk  clr" style="background-color:#CCCCCC">
+                	<label class="bw-label"  data-i18n="{%=cbb_items.AT#nxtPymntDtWayCd%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="nxtPymntDtWayCd" id="nxtPymntDtWayCd"></select>
+                </div>
+            </td>        
+            <td class="td-w-33">
+                <div class="input-wrap fix-label asterisk  clr"   style="background-color:#CCCCCC">
+                	<label class="bw-label"  data-i18n="{%=cbb_items.PDCND#L0033%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="nxtPymntPricingDvcd" id="nxtPymntPricingDvcd"></select>
+                </div>
+            </td>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label asterisk  clr"  style="background-color:#CCCCCC">
+                	<label class="bw-label"  data-i18n="{%=cbb_items.AT#newDtRpymntIntExmptnYn%})"></label>
+                    <select class="bw-input ipt-select"  data-form-param="newDtRpymntIntExmptnYn" id="newDtRpymntIntExmptnYn"></select>
+                </div> 
+            </td>            
+        </tr>   
+        <tr>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label asterisk  clr" style="background-color:#CCCCCC">
+                	<label class="bw-label"  data-i18n="{%=cbb_items.AT#intCalcnUnitDscd%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="intCalcnUnitDscd" id="intCalcnUnitDscd"></select>
+                </div>
+            </td>        
+            <td>
+                <div class="input-wrap fix-label asterisk  clr" style="background-color:#CCCCCC">
+                	<label class="bw-label"  data-i18n="팩토링여부"></label>
+                    <select class="bw-input ipt-select"  data-form-param="factoringYn" id="factoringYn"></select>
+                </div>
+            </td>
+            <td>&nbsp;</td>            
+        </tr>           
+        
+    </table>
+</section>

@@ -1,0 +1,117 @@
+<!--MODAL-->
+	<div class="bw-modal-wrap fix-h bw-modal-popup-header" id="popup-service-modal"> 
+		<h2 class="bw-tt a-center bx-popup-header-area">{{bxMsg 'cbb_items.SCRNITM#inputFormula'}}</h2>
+
+
+		<!--SEARCH AREA * 검색 영역-->
+		<div class="bw-tool add-bd2-t">
+			<div class="f-l">
+				<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#srchCnd'}}</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-popup-service-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+				<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-search"><i class="bw-icon i-30 i-func-search"></i></button>
+				<button type="button" class="bw-btn b-ctr" id="btn-popup-search-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+		</div>
+		<section class="search-wrap" id="popup-search-area">
+			<table class="w-100 popup-service-table">
+				<tr>
+					<td class="td-w-33">
+						<div class="input-wrap clr">
+							<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#cndCd'}}">{{bxMsg 'cbb_items.SCRNITM#cndCd'}}</label>
+							<input type="text" class="bw-input w-70 cndCd" data-form-param="cndCd"/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap clr">
+							<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#cndNm'}}">{{bxMsg 'cbb_items.SCRNITM#cndNm'}}</label>
+							<input type="text" class="bw-input w-70 cndNm" data-form-param="cndNm"/>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+
+
+		<br>
+
+
+		<section class="search-wrap" id="formula-list-area">
+
+
+			<table class="w-100">
+		   		 <tr>
+		        	<td class="td-w-75">
+		        		<section class="grid-wrap add-mg-r-10">	
+							<div class="bw-tool add-bd2-t">
+								<div class="f-l">
+									<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}} (<span id="rsltCnt">0</span>{{bxMsg 'cbb_items.SCRNITM#cnt'}})</h3>
+								</div>
+							</div>
+
+
+							<div class="formula-grid" id="formula-grid"></div>
+						</section>
+		        	</td>
+		        	<td class="td-w-25">
+		        		<div class="bw-calculator">
+							<ul>
+								<li><button type="button" class="bw-btn btn-cal" id="plus-btn">+</button></li>
+								<li><button type="button" class="bw-btn btn-cal" id="left-brace-btn">(</button></li>
+								<li><button type="button" class="bw-btn btn-cal" id="right-brace-btn">)</button></li>
+								<li><button type="button" class="bw-btn btn-cal" id="sub-btn">-</button></li>
+								<li><button type="button" class="bw-btn btn-cal" id="min-btn">min</button></li>
+								<li><button type="button" class="bw-btn btn-cal" id="max-btn">max</button></li>
+								<li><button type="button" class="bw-btn btn-cal" id="mult-btn">x</button></li>
+								<li><button type="button" class="bw-btn btn-cal" id="case-btn">case</button></li>
+								<li><button type="button" class="bw-btn btn-cal" id="delete-btn">←</button></li>
+								<li><button type="button" class="bw-btn btn-cal" id="divi-btn">÷</button></li>
+								<li><button type="button" class="bw-btn btn-cal" id="comma-btn">,</button></li>
+								<li><button type="button" class="bw-btn btn-cal on" id="equal-btn">=</button></li>
+							</ul>
+						</div>	
+		        	</td>
+		        </tr>
+	    	</table>
+		</section>
+
+
+		<br>
+
+
+		<section class="search-wrap" id="formula-delt-area">
+			<ul class="col-2 clr">
+				<li class="w-100 l-c">
+					<div class="input-wrap w-90 unit clr">
+						<label class="bw-label w-17">{{bxMsg 'cbb_items.SCRNITM#formula'}}</label>
+						<input type="text" class="bw-input w-83" data-form-param="formula" />
+					</div>
+					<button class="bw-btn-form f-r w-8 clr-mg on unit formTest-btn" >{{bxMsg 'cbb_items.ABRVTN#vrfctn'}}</button>
+				</li>
+				<li class="w-100 l-c">
+					<div class="input-wrap w-100 unit clr">
+						<label class="bw-label w-15" >{{bxMsg 'cbb_items.AT#formulaCntnt'}}</label>
+						<input type="text" class="bw-input w-85" data-form-param="formulaCntnt" disabled="disabled"/>
+					</div>
+				</li>
+				<li class="w-100 l-c">
+					<div class="input-wrap add-pd-l10 clr-mg clr">
+						<label class="bw-label w-15" >{{bxMsg 'cbb_items.AT#vldtnRsltMsgCntnt'}}</label>
+						<input type="text" class="bw-input w-85" data-form-param="vldtnRsltMsgCntnt" disabled="disabled"/>
+						<input type = "text" data-form-param="vldtnFinYn" class="bx-form-item bx-component-small" value="vldtnFinYn" maxlength="1000" hidden="true"/>
+					</div>
+				</li>
+			</ul>            	
+        </section>
+
+
+
+
+			<!--/END SEARCH AREA-->
+		<div class="btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt" id="btn-popup-select">{{bxMsg 'cbb_items.SCRNITM#B_select'}}</button>
+			<button type="button" class="bw-btn-txt on" id="btn-popup-cancel">{{bxMsg 'cbb_items.SCRNITM#B_cancel'}}</button>
+		</div>
+	</div>
+<!--END MODAL-->

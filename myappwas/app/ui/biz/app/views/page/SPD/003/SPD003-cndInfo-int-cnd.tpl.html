@@ -1,0 +1,275 @@
+<tr>
+    <td class="td-w-33"> <!-- 조회기준일 -->
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#inqryBaseDt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.qryCrtrDstnctnCd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 우수리적용자리수 -->
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.AT#frctnAplyFgrsCnt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.frctnAplyFgrsCnt}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 우수리적용방법코드 -->
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#frctnAplyWayCd%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.frctnAplyWayCd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+</tr>
+
+<tr>
+    <td class="td-w-33"> <!-- 금리적용방식 -->
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#IntRtAplyWayCd%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.intRtAplyWayCd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 금리데이터유형코드 -->
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.AT#intRtDataTpCd%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.intRtDataTpCd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"></td>
+</tr>
+
+
+<!-- 고정정보 -->
+<tr class="fixed-val" style="display:none">
+    <td class="td-w-33"> <!-- 최초고정금리적용기간수 -->
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.AT#frstFixedIntRtAplyTrmCnt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.frstFixedIntRtAplyTrmCnt}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 최초고정금리적용기간구분코드 -->
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.AT#frstFixedIntRtAplyTrmDscd%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.frstFixedIntRtAplyTrmDscd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"></td>
+</tr>
+
+
+<!-- 금리값 -->
+<tr class="int-val fixed-val" style="display:none">
+    <td class="td-w-33"> <!-- 최소값 -->
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#minVal%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.minIntRt}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 최대값 -->
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#maxVal%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.maxIntRt}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 기본값 -->
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#bsicVal%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.baseIntRt}} readonly="true" />
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+<!--변동정보-->
+<tr class="var-info" style="display:none">
+    <!--변동금리적용방식코드-->
+    <td class="td-w-33">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.AT#varIntRtAplyWayCd%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.varIntRtAplyWayCd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <!--변동주기산정기준-->
+    <td class="td-w-33">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.AT#varIntRtCyclCalcnBaseCd%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.varIntRtCyclBaseDayDscd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <!--변동주기주기수-->
+    <td class="td-w-33">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.AT#varIntRtAplyCyclCnt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.varIntRtAplyCyclCnt}} readonly="true" />
+            </div>
+        </div>
+    </td>
+</tr>
+
+<!-- 기준금리연동 -->
+<tr class="ref-base-int" style="display:none">
+    <!--기준금리종류-->
+    <td class="td-w-33">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#baseIntRtKind%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.baseIntRtKndCd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <!-- 기준금리적용시점코드 -->
+    <td class="td-w-33">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.AT#baseIntRtAplyTmDscd%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.baseIntRtAplyTmDscd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"></td>
+</tr>
+
+
+<!-- 타상품금리연동 -->
+<tr class="ref-pd-int ref-int" style="display:none">
+    <td class="td-w-100" colspan="3">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#refPd%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.refPdCd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+</tr>
+<tr class="ref-pd-int ref-int" style="display:none">
+    <td class="td-w-100" colspan="3">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#refCnd%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.refCndCd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+</tr>
+<tr class="ref-pd-int" style="display:none">
+    <!-- 참조조건 -->
+    <td class="td-w-33">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#refCnd%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.refCndCmpsCndCd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <!-- 참조조건값 -->
+    <td class="td-w-33">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#cndValAsReadableForm%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.refCndVal}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <!-- 참조조건 측정단뒤 -->
+    <td class="td-w-33">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#msurUnit%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.refCndMsurUnitCd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+</tr>
+
+<tr class="ref-pd-int" style="display:none">
+    <!-- 참조조건적용방법코드 -->
+    <td class="td-w-33">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#refCndValAplyDscd%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.refCndValAplyDscd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"></td>
+    <td class="td-w-33"></td>
+</tr>
+
+<!--스프레드-->
+<tr class="sprd" style="display:none">
+    <!--스프레드적용산식-->
+    <td class="td-w-33">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#sprdAplyFormula%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.intRtSprdAplyFormulaCd}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <!--최소스프레드율-->
+    <td class="td-w-33">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#minSprdRt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.minSprdRt}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <!--최대스프레드율-->
+    <td class="td-w-33">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#maxSprdRt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.maxSprdRt}} readonly="true" />
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+<!--적용가능한도-->
+<tr class="aply-limit" style="display:none">
+    <!--최소적용제한금리-->
+    <td class="td-w-33">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#minAplyLimitIntRt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.aplyMinIntRt}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <!--최소적용제한금리-->
+    <td class="td-w-33">
+        <div class="input-wrap fix-label clr">
+            <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#maxAplyLimitIntRt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input cndCd" value={{conditionInfo.aplyMaxIntRt}} readonly="true" />
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"></td>
+</tr>
+
+

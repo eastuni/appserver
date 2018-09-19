@@ -1,0 +1,83 @@
+
+	<section  id='SUE025' ng-init="SUE025Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SUE025%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SUE025%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SUE025Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SUE025Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn"  id="btnSchSave" ng-click="SUE025Ctrl.btnSchSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SUE025Ctrl.btnSchToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#asmId%}" data-i18n-title="{%=cbb_items.AT#asmId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="asmId" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custId" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseAtrbt%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnAttrReset" ng-click="SUE025Ctrl.btnAttrReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+			</div>
+			</section>
+		<section  id="baseAttr"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_baseAttr" >
+				<td class="td-w-33" colspan="3">
+					<div class="h-half input-wrap clr fix-txtarea p-rel asterisk">
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#asmCmntCntnt%}" data-i18n-title="{%=cbb_items.AT#asmCmntCntnt%}"></label>
+						<div class="txt-wrap2 fix-size f-r">
+							<textarea class="bw-textarea"  placeholder="내용을 적어주세요." data-form-param="asmCmntCntnt"></textarea>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_baseAttr" >
+				<td class="td-w-33" colspan="3">
+					<div class="input-wrap clr fix-txtarea p-rel">
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#cltrlGrntrSpecialCntnt%}" data-i18n-title="{%=cbb_items.AT#cltrlGrntrSpecialCntnt%}"></label>
+						<div class="txt-wrap2 fix-size f-r">
+							<textarea class="bw-textarea"  placeholder="내용을 적어주세요." data-form-param="cltrlGrntrSpecialCntnt"></textarea>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_baseAttr" >
+				<td class="td-w-33" colspan="3">
+					<div class="input-wrap clr fix-txtarea p-rel">
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#intRtCmptnCntnt%}" data-i18n-title="{%=cbb_items.AT#intRtCmptnCntnt%}"></label>
+						<div class="txt-wrap2 fix-size f-r">
+							<textarea class="bw-textarea"  placeholder="내용을 적어주세요." data-form-param="intRtCmptnCntnt"></textarea>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</section>
+</section>
+</section>

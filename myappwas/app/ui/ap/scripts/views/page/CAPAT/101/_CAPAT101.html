@@ -1,0 +1,415 @@
+<!--
+@Screen number  CAPAT101
+@brief          스태프 정보를 관리합니다.
+@author         You Jin Jeong
+@history        2016.06.10      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPAT101-wrap">
+			<!--BW-TITLE *컨텐츠 메인 타이틀-->
+			<h2 class="bw-tt">
+				{{bxMsg 'cbb_items.SCRN#CAPAT101'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPAT101'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+			</h2>
+			<!--/END BW-TITLE-->
+			<!--BW-MODULE-->
+			<div class="layout-wrap">
+				<div class="layout col1" id="tree-service-list">
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t add-mg-b-10">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#staffList'}}</h3>					
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn w-15" style="margin-top: 6px;" id="btn-tree-hide"><i class="i-30 fa fa-angle-left"></i></button>
+						</div>
+					</div>
+					<!--/END BW-TOOL-->
+
+
+					<div class="input-wrap add-btn add-mg-l-10 clr">
+						<label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#staffNm'}}</label>
+						<input type="text" class="bw-input w-60" id="searchKey" data-form-param="searchKey" placeholder="{{bxMsg 'cbb_items.SCRNITM#all'}}" />
+						<button type="button" class="bw-btn fix-r" id="btn-tree-search"><i class="bw-icon i-30 i-search"></i></button>
+					</div>
+					<div>
+						<table class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<input type="checkbox" class="bw-input ipt-radio f-l add-mg-l-10 clr" id=incldRetireStaff>
+									<label class="bw-label fix-lh">{{bxMsg 'cbb_items.SCRNITM#incldRetireStaff'}}</label>
+								</td>
+							</tr>
+						</table>
+					</div>
+
+
+					<!--BW-TREE *트리메뉴-->
+					<section class="unit-tree-wrap a-left staffTreeArea" id="popup-service-tree" style="overflow-y:auto;">
+						<ul class="bx-tree-floor bx-tree-root"></ul>
+					</section>
+					<!--/END BW-TREE-->
+					<!-- GRID -->
+		    		<section class="unit-tree-wrap a-left staffGridArea" id="staff-list-grid">
+		    			<div class="bw-grid add-bd" id="CAPAT101Grid"></div>
+		    		</section>
+		    		<!-- END GRID -->				
+				</div>
+
+
+				<button type="button" class="bw-tree-show-btn" id="btn-tree-show" hidden><i class="fa fa-angle-right"></i></button>
+
+
+				<div class="bw-inner-contents layout col2">
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#baseAtrbt'}}</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-base-attribute-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-base-attribute-save"><i class="bw-icon i-30 i-func-save"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="btn-base-attribute-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+					</div>
+					<!--/END BW-TOOL-->
+
+
+					<!--BASE ATTRIBUTE AREA * 기본 속성 영역 -->
+					<section class="search-wrap" id="base-attribute-area">
+						<table class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#staffId'}}</label>
+										<input type="text" class="bw-input w-70" data-form-param="staffId" disabled/>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#staffNm'}}</label>
+										<input type="text" class="bw-input w-70" data-form-param="actorNm"/>
+										<input type="hidden" data-form-param="actorNmTpCd" value="01" />
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#staffSts'}}</label>
+										<select class="bw-input w-70 ipt-select staffStsCd-wrap" data-form-param="staffStsCd"></select>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#staffTp'}}</label>
+										<select class="bw-input w-70 ipt-select staffTpCd-wrap" data-form-param="staffTpCd"></select>
+									</div>
+								</td>			
+								<td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#staffGrp'}}</label>
+										<select class="bw-input w-70 ipt-select userGrpCd-wrap" data-form-param="userGrpCd"></select>									</div>
+								</td>								
+							</tr>													
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#IdntyTp'}}</label>
+										<select class="bw-input w-70 ipt-select actorUnqIdNbrTpCd-wrap" data-form-param="actorUnqIdNbrTpCd"></select>
+									</div>
+								</td>			
+								<td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#IdntyNbr'}}</label>
+										<input type="text" class="bw-input w-70" data-form-param="actorUnqIdNbr"/>
+									</div>
+								</td>
+								<td class="td-w-33">								
+									<input type="checkbox" class="bw-input ipt-radio f-l" data-form-param="vldtnErrOvrrdYn" id="vldtnErrOvrrdYn">
+									<label class="bw-label fix-lh">{{bxMsg 'cbb_items.AT#vldtnErrOvrrdYn'}}</label>								
+								</td>								
+							</tr>
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.AT#loinIdNbr'}}</label>
+										<input type="text" class="bw-input w-70 loinIdNbr" data-form-param="loinIdNbr"/>
+									</div>
+								</td>
+								<td class="td-w-33 td-v-align-b">
+									<button type="button" class="bw-btn-form unit CAPAT101-validateLoinIdNbr-btn">{{bxMsg 'cbb_items.SCRNITM#checkDplctn'}}</button>
+									<button type="button" class="bw-btn-form unit f-r CAPAT101-resetPswd-btn">{{bxMsg 'cbb_items.SCRNITM#resetPswd'}}</button>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.AT#pswd'}}</label>
+										<input type="text" class="bw-input w-70" data-form-param="pswd"/>
+									</div>
+								</td>								
+							</tr>
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#hiredDt'}}</label>
+										<input type="text" class="bw-input ipt-cal w-70" data-form-param="hiredDt"/>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#retireDt'}}</label>
+										<input type="text" class="bw-input ipt-cal w-70" data-form-param="retireDt"/>
+									</div>
+								</td>
+							</tr>							
+						</table>
+					</section>
+					<!--/END SEARCH AREA-->
+
+
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t add-mg-t">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#belongedDeptHist'}}</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-dept-hist-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-dept-hist-save"><i class="bw-icon i-30 i-func-save"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="btn-dept-hist-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+					</div>
+					<!--/END BW-TOOL-->
+
+
+					<!--DEPT ORGNZTN REL AREA * 소속부서이력 영역-->
+					<section class="grid-wrap" id="dept-hist-area">
+						<!--GRID AREA -->
+						<div class="bw-grid add-bd data-grid" id="CAPAT101Grid-dept-hist"></div>
+						<!--/END GRID AREA-->						
+					</section>
+
+
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t add-mg-t">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#belongedDeptInfo'}}</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-dept-info-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-belonged-dept-info-save"><i class="bw-icon i-30 i-func-save"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="btn-dept-info-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+					</div>
+					<!--/END BW-TOOL-->
+					<!-- 소속부서정보 영역 -->
+					<section class="search-wrap" id="dept-info-area">
+						<table class="w-100">
+								<tr>
+									<td class="td-w-33">
+										<div class="input-wrap add-btn asterisk clr">
+											<label class="bw-label w-31-5">{{bxMsg 'cbb_items.SCRNITM#deptNm'}}</label>
+											<input type="text" class="bw-input w-68-5" data-form-param="deptNm" disabled/>
+											<input type="hidden" data-form-param="deptId" />
+											<input type="hidden" data-form-param="belongDtsfRelSeqNbr"/>
+											<button type="button" class="bw-btn fix-r" id="btn-dept-search"><i class="bw-icon i-30 i-search"></i></button>									
+										</div>
+									</td>
+									<td class="td-w-33">
+										<div class="input-wrap asterisk clr">
+											<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#startDt'}}</label>
+											<input type="text" class="bw-input ipt-cal w-70" data-form-param="startDt"/>
+										</div>
+									</td>
+									<td class="td-w-33">
+										<div class="input-wrap asterisk clr">
+											<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#endDt'}}</label>
+											<input type="text" class="bw-input ipt-cal w-70" data-form-param="endDt"/>
+										</div>
+									</td>
+								</tr>	
+							</table>
+						</section>
+						<!-- 소속 부서 정보영역 끝 -->						
+
+
+					<!-- 역할정보영역 -->
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t add-mg-t">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#staffRoleHistory'}}</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-role_hist-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-role-hist-save"><i class="bw-icon i-30 i-func-save"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="btn-role-hist-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+					</div>
+					<!--/END BW-TOOL-->
+
+
+					<section class="grid-wrap" id="role-hist-area">
+						<!--GRID AREA -->
+						<div class="bw-grid add-bd role-data-grid" id="CAPAT101Grid-role-hist"></div>
+						<!--/END GRID AREA-->						
+					</section>
+
+
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t add-mg-t">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#staffRoleInformation'}}</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-role-info-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-role-info-save"><i class="bw-icon i-30 i-func-save"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="btn-role-info-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+					</div>
+					<!--/END BW-TOOL-->
+					<!-- 역할정보 영역 -->
+					<section class="search-wrap" id="role-info-area">
+						<table class="w-100">
+								<tr>
+									<td class="td-w-33">
+										<div class="input-wrap add-btn asterisk clr">
+											<label class="bw-label w-31-5">{{bxMsg 'cbb_items.SCRNITM#deptNm'}}</label>
+											<input type="text" class="bw-input w-68-5" data-form-param="roleDeptNm" disabled/>
+											<input type="hidden" data-form-param="roleDeptId" />
+											<input type="hidden" data-form-param="dtsfRelSeqNbr"/>
+											<input type="hidden" data-form-param="staffRoleSeqNbr"/>
+											<button type="button" class="bw-btn fix-r" id="btn-role-dept-search"><i class="bw-icon i-30 i-search"></i></button>									
+										</div>
+									</td>
+									<td class="td-w-33">
+										<div class="input-wrap asterisk clr">
+											<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#roleCntnt'}}</label>
+											<select class="bw-input w-70 ipt-select roleId-wrap" data-form-param="roleId"></select>											
+										</div>
+									</td>
+									<td class="td-w-33">
+									</td>
+								</tr>
+								<tr>									
+									<td class="td-w-33">
+										<div class="input-wrap asterisk clr">
+											<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#startDt'}}</label>
+											<input type="text" class="bw-input ipt-cal w-70" data-form-param="roleStartDt"/>
+										</div>
+									</td>
+									<td class="td-w-33">
+										<div class="input-wrap asterisk clr">
+											<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#endDt'}}</label>
+											<input type="text" class="bw-input ipt-cal w-70" data-form-param="roleEndDt"/>
+										</div>
+									</td>
+									<td class="td-w-33">
+									</td>
+								</tr>	
+							</table>
+						</section>
+						<!-- 역할 정보영역 끝 -->					
+
+
+
+
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t add-mg-t">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#cntctPntInfo'}}</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-contact-point-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-contact-point-save"><i class="bw-icon i-30 i-func-save"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="btn-contact-point-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+					</div>
+					<!--/END BW-TOOL-->
+
+
+					<!--BASE ATTRIBUTE AREA * 연락처정보 영역 -->
+					<section class="search-wrap" id="cntct-pnt-area">
+						<table class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#mobilePhoneNbr'}}</label>
+										<input type="text" class="bw-input w-70" data-form-param="mobilePhone" cntnt-id="mobilePhone"/>
+
+										<input type="hidden" data-form-param="mobilePhoneCtcptId" value="" />
+									</div>
+								</td>
+								<td class="td-w-33 td-v-align-b">
+									<div class="input-wrap asterisk clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#officePhoneNbr'}}</label>
+										<input type="text" class="bw-input w-70" data-form-param="officePhone" cntnt-id="officePhone"/>
+
+										<input type="hidden" data-form-param="officePhoneCtcptId" value="" />
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.AT#faxNbr'}}</label>
+										<input type="text" class="bw-input w-70" data-form-param="faxNbr" cntnt-id="faxNbr"/>
+										<input type="hidden" data-form-param="faxNbrCtcptId" value="" />
+									</div>
+								</td>
+							</tr>	
+						</table>
+						<table class="w-100">												
+							<tr>
+								<td class="td-w-66">
+									<div class="input-wrap asterisk clr">
+										<label class="bw-label w-14-5">{{bxMsg 'cbb_items.SCRNITM#emailAddr'}}</label>
+										<input type="text" class="bw-input w-85-5" data-form-param="email" cntnt-id="email">
+
+
+										<input type="hidden" data-form-param="emailCtcptId" value="" />
+									</div>
+								</td>							
+							</tr>
+							<tr>
+								<td class="td-w-66">
+									<div class="input-wrap add-btn asterisk clr">
+										<label class="bw-label w-15">{{bxMsg 'cbb_items.SCRNITM#officeAddr'}}</label>
+										<input type="text" class="bw-input w-85" data-form-param="addrCntnt" cntnt-id="officeAddr" disabled/>
+										<button type="button" class="bw-btn fix-r" id="btn-addr-search"><i class="bw-icon i-30 i-search"></i></button>										
+									</div>									
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+										<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#dtlAddr'}}</label>
+										<input type="text" class="bw-input w-70" data-form-param="dtlAddrCntnt"/>
+									</div>
+									<input type="hidden" data-form-param="addrHrarcyCd" value="" />
+									<input type="hidden" data-form-param="addrId" value="" />
+									<input type="hidden" data-form-param="zipCd" value="" />
+									<input type="hidden" data-form-param="addrCtcptId" value="" />
+								</td>
+
+
+							</tr>							
+						</table>
+					</section>
+					<!-- Hidden attributes -->
+						<input type="hidden" data-form-param="isValidLoinId" value="false" />
+						<input type="hidden" data-form-param="unqIdChngRsnCd" value="01" />
+						<input type="hidden" data-form-param="actorTpCd" value="01" /><!--INDIVIDUAL--> 
+						<input type="hidden" data-form-param="infoRgstrnOriginTpCd" value="01" />	
+						<input type="hidden" data-form-param="actorStsCd" value="01" />	<!--NORMAL--> 
+						<input type="hidden" data-form-param="actorStsChngRsnCd" value="01" /><!--CUSTOMER REQUEST-->
+						<input type="hidden" data-form-param="pswdChngRsnCd" value="4" />	
+						<input type="hidden" data-form-param="selfAuthId" value=""/>										
+			</div>
+			<!--/END BW-MODULE-->
+		</section>
+	</section>
+</section>
+<!--/END MAIN CONTENTS-->
+
+
+
+

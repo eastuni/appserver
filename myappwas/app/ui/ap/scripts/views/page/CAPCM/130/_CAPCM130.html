@@ -1,0 +1,217 @@
+<!--
+@Screen number  CAPCM130
+@brief          통화코드
+@discription    통화코드를 관리 합니다. Manage the Currency Code.
+                    STDA 기관이 아니라 다른 기관으로 로그인 했을시 서브셋코드가 아니라 기관별서브셋코드로 처리 한다.
+@author         김미화
+@history        2016.10.05      생성
+-->
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPCM130-wrap">
+
+            <!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+                {{bxMsg 'cbb_items.SCRN#CAPCM130'}}
+                <p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPCM130'}}</p>
+                <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p> 
+            </h2>
+
+
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <section class="bw-tool add-bd2-t">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" id="btn-search-condition-inquire" title="{{bxMsg 'cbb_items.SCRNITM#search'}}"><i class="bw-icon i-30 i-func-search"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-search-condition-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+
+
+            <!--SEARCH CONDITION AREA * 검색 조건 영역-->
+            <section id="search-condition-area">
+                <section class="search-wrap">
+                    <table class="w-100">
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#crncyCd'}}</label>
+                                    <select class="bw-input w-60 ipt-select CAPCM130-crncyCd-wrap" data-form-param="crncyCd"></select>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                            </td>
+                            <td class="td-w-33">
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+                <!--/END SEARCH CONDITION AREA -->
+            </section>
+            <!--/END SEARCH CONDITION AREA-->
+
+
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <section class="bw-tool add-bd2-t add-mg-t">
+                <div class="f-l">
+                    <h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" id="btn-search-result-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-search-result-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+
+
+            <!--SEARCH RESULT AREA * 검색 결과 영역-->
+            <section class="grid-wrap" id="search-result-area">
+                <!--GRID AREA -->
+                <div class="CAPCM130Grid" id="CAPCM130Grid"></div>
+                <!--/END GRID AREA-->
+            </section>
+            <!--/END SEARCH RESULT AREA-->
+
+
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <section class="bw-tool add-bd2-t add-mg-t">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#baseAtrbt'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" id="btn-base-attribute-reset" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn" id="btn-base-attribute-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-base-attribute-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+
+
+            <!--BASE ATTRIBUTE AREA * 기본 속성 영역-->
+            <section id="base-attribute-area">
+                <section class="search-wrap">
+                    <table class="w-100">
+<!--                         첫라인  -->
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#crncyCd'}}</label>
+                                     <input type="text" class="bw-input w-60" data-form-param="crncyCd"/>
+
+
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#crncyCdKorNm'}}</label>
+                                    <input type="text" class="bw-input w-60" data-form-param="crncyCdKorNm"/>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                                 <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#crncyCdEngNm'}}</label>
+                                    <input type="text" class="bw-input w-60" data-form-param="crncyCdEngNm"/>
+                                </div>
+                            </td>
+                      	  </tr>
+
+
+<!--                         두번째라인  -->
+
+
+                          <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#isoNatCd'}}</label>
+                                    <select class="bw-input w-60 ipt-select CAPCM130-isoNatCd-wrap" data-form-param="isoNatCd"></select>
+                                </div>
+                            </td>
+
+
+                            <td class="td-w-33">
+                             <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#crncyNbrCd'}}</label>
+                                    <input type="text"   maxlength="3" class="bw-input w-60" data-form-param="crncyNbrCd"/>
+                                </div>
+                            </td>
+
+
+                            <td class="td-w-33">
+                             <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#ancmntCrncyDscd'}}</label>
+                                    <select class="bw-input w-60 ipt-select CAPCM130-ancmntCrncyDscd-wrap" data-form-param="ancmntCrncyDscd"></select> 
+                                </div>
+                            </td>
+                        </tr>
+
+
+<!--                         세번째라인  -->
+
+
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#exRtAncmntTrgtYn'}}</label>
+                                    <select class="bw-input w-60 ipt-select CAPCM130-exRtAncmntTrgtYn-wrap" data-form-param="exRtAncmntTrgtYn"></select>
+                                </div>
+                            </td>
+
+
+                            <td class="td-w-33">
+                             <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#stdCourierPostalDayCnt'}}</label>
+                                    <input type="number" class="bw-input w-60" min="0"  max="999"  data-form-param="stdCourierPostalDayCnt"/>
+                                </div>
+                            </td>
+
+
+                            <td class="td-w-33">
+                             <div class="input-wrap clr">
+                                   <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#yrDayCnt'}}</label>
+                              		<input type="number" class="bw-input w-60"  min="0"  max="999" data-form-param="yrDayCnt"  />
+                               </div>
+                            </td>
+                        </tr>
+
+
+<!--                         네번째라인  -->
+
+
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#hndrdUnitCrncyYn'}}</label>
+                                    <select class="bw-input w-60 ipt-select CAPCM130-hndrdUnitCrncyYn-wrap" data-form-param="hndrdUnitCrncyYn"></select>
+                                </div>
+                            </td>
+
+
+                            <td class="td-w-33">
+	                             <div class="input-wrap clr">
+	                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#euroCrncyUseYn'}}</label>
+	                                    <select class="bw-input w-60 ipt-select CAPCM130-euroCrncyUseYn-wrap" data-form-param="euroCrncyUseYn"></select>
+	                             </div>
+                            </td>
+
+
+                            <td class="td-w-33">
+                             <div class="input-wrap clr">
+                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#dcmlPntLen'}}</label>
+                                   <input type="number" class="bw-input w-60"  min="0"  max="99999" data-form-param="dcmlPntLen"/> 
+                                </div>
+                            </td>
+                        </tr>
+
+
+
+
+                    </table>
+                </section>
+            </section>
+            <!--/END BASE ATTRIBUTE AREA-->
+        </section>
+    </section>
+</section>

@@ -1,0 +1,63 @@
+
+		<section   >
+			<section class=" bw-tool add-bd2-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#elctrncAddrList%}"></h3>
+				<h3 class="bw-desc">({{SCU142_elctrncAddrTabCtrl.elctrncAddrInfoListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnElctrncAddrGridToggle" ng-click="SCU142_elctrncAddrTabCtrl.btnElctrncAddrGridToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+			<section  id="elctrncAddrSrchRslt"  >
+				<div id="SCU142_elctrncAddrTab_elctrncAddrInfoList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+			<section class=" bw-tool add-bd2-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#elctrncAddrInput%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnElctrncAddrInfoReset" ng-click="SCU142_elctrncAddrTabCtrl.btnElctrncAddrInfoReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+				<button type="button" class="bw-btn"  id="btnElctrncAddrInfoAdd" ng-click="SCU142_elctrncAddrTabCtrl.btnElctrncAddrInfoAdd_Onclick()" title=""><i class="bw-icon i-30 i-func-add"></i></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnElctrncAddrInfoToggle" ng-click="SCU142_elctrncAddrTabCtrl.btnElctrncAddrInfoToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+		<section  id="elctrncAddrInfo"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_elctrncAddrInfo" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#cntctPntTp%}" data-i18n-title="{%=cbb_items.SCRNITM#cntctPntTp%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="ctcptTpCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#cntctMthdTpCd%}" data-i18n-title="{%=cbb_items.AT#cntctMthdTpCd%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="cntctMthdTpCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#rprsntvCtcptYn%}" data-i18n-title="{%=cbb_items.AT#rprsntvCtcptYn%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="rprsntvCtcptYn"></select>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_elctrncAddrInfo" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#elctrncAddr%}" data-i18n-title="{%=cbb_items.AT#elctrncAddr%}"></label>
+						<input type="text"  maxlength='100' dec='0' class="bw-input a-left"   data-form-param="elctrncAddr" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#cntctPntSeqNbr%}" data-i18n-title="{%=cbb_items.AT#cntctPntSeqNbr%}"></label>
+						<input type="text"  dec='0' class="bw-input "   data-form-param="cntctPntSeqNbr"  common-numeric-only-directive ng-model='cntctPntSeqNbrAmt'/>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</section>

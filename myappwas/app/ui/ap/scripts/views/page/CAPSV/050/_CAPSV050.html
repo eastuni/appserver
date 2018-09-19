@@ -1,0 +1,152 @@
+<!--
+@Screen number  CAPSV050
+@brief          화면 화면을 등록/수정할 수 있습니다. 여기서 등록되지 않은 화면은 사용화면에서 조회할 수 없습니다.
+@author         이영주
+@history        2016.05.16      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPSV050-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPSV050'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPSV050'}}</p>
+							 	<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p> 
+			</h2>
+
+
+			<div class="layout-wrap">
+				<div class="bw-tree-wrap layout col1">
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t add-mg-b-10">
+						<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#CAPSV050-TREE-TITLE'}}</h3>
+						<button type="button" class="bw-btn fix-r w-15" id="btn-tree-hide"><i class="fa fa-angle-left"></i></button>
+					</div>
+					<div class="input-wrap add-btn clr">
+						<label class="bw-label w-40">{{bxMsg 'cbb_items.AT#scrnNm'}}</label>
+						<input type="text" class="bw-input w-60" id="searchKey" data-form-param="searchKey" placeholder="{{bxMsg 'cbb_items.ABRVTN#al'}}" />
+						<button type="button" class="bw-btn fix-r" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-tree-search"><i class="bw-icon i-30 i-search"></i></button>
+					</div>
+					<!--/END BW-TOOL-->
+					<!--BW-TREE *트리메뉴-->
+					<section class="unit-tree-wrap">
+<!-- 					add-mg-t -->
+		                <ul class="bw-tree bx-tree-floor bx-tree-root"></ul>
+		            </section>
+
+
+					<!--/END BW-TREE-->
+				</div>
+
+
+				<button type="button" class="bw-tree-show-btn" id="btn-tree-show" style="display: none;"><i class="fa fa-angle-right"></i></button>
+
+
+				<div class="bw-inner-contents layout col2">
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#CAPSV050-BASE-TITLE'}}</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-base-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-base-save"><i class="bw-icon i-30 i-func-save"></i></button>
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_delete'}}" id="btn-base-delete"><i class="bw-icon i-30 i-func-trash"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="btn-base-search-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+					</div>
+					<!--/END BW-TOOL-->
+					<section class="search-wrap CAPSV050-base-table" id="CAPSV050-base-table">
+						<table class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr asterisk">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#cmpnt'}}">{{bxMsg 'cbb_items.SCRNITM#cmpnt'}}</label>
+										<select class="bw-input ipt-select w-60 CAPSV050-cmpntCd-wrap" data-form-param="cmpntCd"></select>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr asterisk">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#scrnId'}}">{{bxMsg 'cbb_items.AT#scrnId'}}</label>
+										<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#scrnId'}}" data-form-param="scrnId"/>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr asterisk">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#scrnNbr'}}">{{bxMsg 'cbb_items.AT#scrnNbr'}}</label>
+										<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#scrnNbr'}}" data-form-param="scrnNbr"/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr asterisk">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#scrnNm'}}">{{bxMsg 'cbb_items.AT#scrnNm'}}</label>
+										<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#scrnNm'}}" data-form-param="scrnNm"/>
+									</div>
+								</td>
+								<td class="td-w-33 td-v-align-b">
+									<button type="button" class="bw-btn-form unit" title="{{bxMsg 'cbb_items.SCRNITM#btnMltLng'}}" id="btn-mltLng">{{bxMsg 'cbb_items.SCRNITM#btnMltLng'}}</button>
+								</td>
+								<td class="td-w-33">
+									<input type="checkbox" class="bw-input ipt-radio f-l" id="dstbTrgtScrnYn" data-form-param="dstbTrgtScrnYn"/>
+									<label class="bw-label fix-lh" for="dstbTrgtScrnYn">{{bxMsg 'cbb_items.AT#dstbTrgtScrnYn'}}</label>
+								</td>
+							</tr>
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#menuTrgtScrnYn'}}">{{bxMsg 'cbb_items.AT#menuTrgtScrnYn'}}</label>
+										<select class="bw-input ipt-select w-60 CAPSV050-menuTrgtScrnYn-wrap" data-form-param="menuTrgtScrnYn"></select>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<input type="checkbox" class="bw-input ipt-radio f-l" id="scrnUseYn" data-form-param="scrnUseYn"/>
+									<label class="bw-label fix-lh" for="scrnUseYn">{{bxMsg 'cbb_items.AT#scrnUseYn'}}</label>
+								</td>
+								<td class="td-w-33">
+									<input type="checkbox" class="bw-input ipt-radio f-l" id="popupScrnYn" data-form-param="popupScrnYn"/>
+									<label class="bw-label fix-lh" for="popupScrnYn">{{bxMsg 'cbb_items.SCRNITM#popupScrnYn'}}</label>
+								</td>
+								<td class="td-w-33">
+								</td>
+							</tr>
+							<tr>
+								<td class="td-w-100" colspan="3">
+									<div class="input-wrap clr asterisk">
+										<label class="bw-label w-12-8" title="{{bxMsg 'cbb_items.AT#scrnUrlAddr'}}">{{bxMsg 'cbb_items.AT#scrnUrlAddr'}}</label>
+										<input type="text" class="bw-input w-87-2" placeholder="{{bxMsg 'cbb_items.AT#scrnUrlAddr'}}" data-form-param="scrnUrlAddr"/>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</section>
+
+
+		            <section class="grid-wrap">
+						<div class="bw-tool add-bd2-t add-mg-t">
+							<div class="f-l">
+								<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#CAPSV050-LIST-TITLE'}}</h3>
+							</div>
+							<div class="btn-wrap fix-r">
+								<button type="button" class="bw-btn" id="btn-CAPSV050-grid-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+<!-- 								<button type="button" class="bw-btn" id="btn-CAPSV050-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button> -->
+								<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_add'}}" id="btn-CAPSV050-grid-add"><i class="bw-icon i-30 i-func-add"></i></button>
+
+
+								<button type="button" class="bw-btn b-ctr" id="btn-up-grid" data-info="CAPCM031-grid1"><i class="fa fa-forward fa-rotate-270"></i></button>
+							</div>
+						</div>
+						<div class="CAPSV050-grid" id="CAPSV050-grid"></div>
+					</section>
+					<br>
+					<br>
+				</div>
+			</div>
+        </section>
+    </section>
+</section>

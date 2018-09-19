@@ -1,0 +1,169 @@
+<!--
+@Screen number  CAPMT085
+@brief          센터컷 오류처리 (기관별)
+@author         Donghyun Cho
+@history        2016.04.18 생성
+                2016.11.25    BXUI3.0 upgrade
+-->
+
+
+<div class="contents-wrap">
+	<div class="contents">
+		<div class="CAPMT085-wrap">
+
+
+			<!--BW-TITLE *컨텐츠 메인 타이틀-->
+			<h2 class="bw-tt">
+				{{bxMsg 'cbb_items.SCRN#CAPMT085'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPMT085'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+			</h2>
+			<!--/END BW-TITLE-->
+
+
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<div class="bw-tool add-bd2-t">
+				<div class="f-l">
+					<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn" id="btn-base-section-reset" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn" id="btn-base-section-inquiry" title="{{bxMsg 'cbb_items.SCRNITM#B_search'}}"><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-base-section-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</div>
+			<!--/END BW-TOOL-->
+
+
+			<!--SEARCH CONDITION SECTION * 검색 조건 영역-->
+			<section class="CAPMT085-base-section search-wrap">
+				<div class="w-100 clr">
+					<span class="w-50 f-l">
+						<div class="input-wrap clr asterisk add-btn"><!--작업식별자//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#jobId'}}">{{bxMsg 'cbb_items.AT#jobId'}}</label>
+							<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#jobId'}}" data-form-param="jobId"/>
+							<button type="button" class="bw-btn fix-r" id="btn-popup-jobId"><i class="bw-icon i-30 i-search"></i></button>
+						</div>
+					</span>
+					<span class="w-50 f-l">
+						<div class="input-wrap clr asterisk"><!--처리일자//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#prcsngDt'}}">{{bxMsg 'cbb_items.AT#prcsngDt'}}</label>
+							<input type="text" class="bw-input w-60 ipt-cal" placeholder="{{bxMsg 'cbb_items.AT#prcsngDt'}}" data-form-param="prcsngDt" />
+						</div>
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-50 f-l">
+						<div class="input-wrap clr "><!--접수번호//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#rcptNbr'}}">{{bxMsg 'cbb_items.AT#rcptNbr'}}</label>
+							<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#rcptNbr'}}" data-form-param="rcptNbr" />
+						</div>
+					</span>
+					<span class="w-50 f-l">
+						<div class="input-wrap clr "><!--시도횟수//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#atmptCnt'}}">{{bxMsg 'cbb_items.AT#atmptCnt'}}</label>
+							<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#atmptCnt'}}" data-form-param="atmptCnt" />
+						</div>
+					</span>
+				</div>
+			</section>
+			<!--/END SEARCH CONDITION SECTION -->
+
+
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<div class="bw-tool add-bd2-t add-mg-t">
+				<div class="f-l">
+					<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#inqRslt'}} (<span id="rsltCnt">0</span>{{bxMsg 'cbb_items.SCRNITM#cnt'}})</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr" id="btn-grid-section-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</div>
+
+
+			<!--GRID SECTION * 그리드영역-->
+			<section class="CAPMT085-grid-section grid-wrap">
+			</section>
+			<!--/END GRID SECTION -->
+
+
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<div class="bw-tool add-bd2-t add-mg-t">
+				<div class="f-l">
+					<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#dtlInfo'}}</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr" id="btn-detail-section-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</div>
+
+
+			<!--DETAIL SECTION * 상세영역-->
+			<section class="CAPMT085-detail-section search-wrap">
+				<div class="w-100 clr">
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--작업식별자//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#jobId'}}">{{bxMsg 'cbb_items.AT#jobId'}}</label>
+							<input type="text" class="bw-input w-60" data-form-param="jobId" readonly="readonly" />
+						</div>
+					</span>
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--처리일자//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#prcsngDt'}}">{{bxMsg 'cbb_items.AT#prcsngDt'}}</label>
+							<input type="text" class="bw-input w-60" data-form-param="prcsngDt" readonly="readonly" />
+						</div>
+					</span>
+					<span class="w-34 f-l">
+						<div class="input-wrap clr"><!--접수번호//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#rcptNbr'}}">{{bxMsg 'cbb_items.AT#rcptNbr'}}</label>
+							<input type="text" class="bw-input w-60" data-form-param="rcptNbr" readonly="readonly" />
+						</div>
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--시도횟수//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#atmptCnt'}}">{{bxMsg 'cbb_items.AT#atmptCnt'}}</label>
+							<input type="text" class="bw-input w-60" data-form-param="atmptCnt" readonly="readonly" />
+						</div>
+					</span>
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--실행번호//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#exctnNbr'}}">{{bxMsg 'cbb_items.AT#exctnNbr'}}</label>
+							<input type="text" class="bw-input w-60" data-form-param="exctnNbr" readonly="readonly" />
+						</div>
+					</span>
+					<span class="w-34 f-l">
+						<div class="input-wrap clr"><!--거래일련번호//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#txSeqNbr'}}">{{bxMsg 'cbb_items.AT#txSeqNbr'}}</label>
+							<input type="text" class="bw-input w-60" data-form-param="txSeqNbr" readonly="readonly" />
+						</div>
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--메시지코드//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#msgCd'}}">{{bxMsg 'cbb_items.AT#msgCd'}}</label>
+							<input type="text" class="bw-input w-60" data-form-param="msgCd" readonly="readonly" />
+						</div>
+					</span>
+					<span class="w-33 f-l">
+					</span>
+					<span class="w-34 f-l">
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-100 f-l">
+						<div class="input-wrap fix-txtarea clr"><!--출력내용//-->
+							<label class="bw-label w-12 f-l" title="{{bxMsg 'cbb_items.AT#outpCntnt'}}">{{bxMsg 'cbb_items.AT#outpCntnt'}}</label>
+							<textarea class="bw-textarea txt-wrap2 w-87-2" data-form-param="outpCntnt" readonly="readonly" />
+						</div>
+					</span>
+				</div>
+			</section>
+			<!--/END DETAIL SECTION -->
+
+
+		</div>
+	</div>
+</div>

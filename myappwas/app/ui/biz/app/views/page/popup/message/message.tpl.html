@@ -1,0 +1,70 @@
+<div ng-init="messageCtrl.popupInit()">
+	<div class="modal-header">
+		<h2 class='modal-title bw-tt a-center' data-i18n='{%=cbb_items.SCRNITM#message-messages%}' style="cursor: pointer;"></h2>
+	</div>
+	<div class="modal-body" id="modal-body">
+		<section class='search-wrap add-bd2-t'>
+			<table class="w-100"  id='detailErrorMessageArea'>
+				<tr>
+					<td class="td-w-50">
+						<div class='input-wrap fix-label clr'>
+							<label class='bw-label w-40' data-i18n='{%=cbb_items.SCRNITM#message-code%}'></label>
+							<input type='text' class='bw-input w-60' value='{{messageCtrl.message.messageCode}}'/>
+						</div>
+					</td>
+					<td class="td-w-50">
+						<div class='input-wrap fix-label clr'>
+							<label class='bw-label w-40' data-i18n='{%=cbb_items.SCRNITM#message-messages%}'></label>
+							<input type='text' class='bw-input w-60' value='{{messageCtrl.message.message}}'/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div class='input-wrap fix-label clr'>
+							<label class='bw-label w-15' data-i18n='{%=cbb_items.SCRNITM#message-detailMessages%}'></label>
+							<input type='text' class='bw-input w-85' value='{{messageCtrl.message.detailMessage}}'/>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+		<div id='detailMessageAcordion' class='bw-accordion add-bd add-mg-t-10'>
+			<h3 class='clr-bd-t' data-i18n='{%=cbb_items.SCRNITM#message-traceMessage%}'></h3>
+			<div class='input-wrap fix-txtarea h-single p-rel clr' style="height: 300px !important; overflow: hidden; margin: 0px !important;">
+				<div class='txt-wrap2 fix-size w-100 f-r'>
+					<textarea class='bw-textarea' style='height: 290px;' id='traceMessage'>{{messageCtrl.message.traceMessage}}</textarea>
+				</div>
+			</div>
+			<h3 data-i18n='{%=cbb_items.SCRNITM#message-messages%}'></h3>
+			<div class='bw-grid add-bd'>
+				<table class='w-100'> 
+					<colgroup>
+						<col class='td-w-33'/>
+						<col class='td-w-33'/>
+						<col class='td-w-33'/>
+					</colgroup>
+					<thead>
+						<tr>
+							<th data-i18n='{%=cbb_items.SCRNITM#message-code%}'></th>
+							<th data-i18n='{%=cbb_items.SCRNITM#message-messages%}'></th>
+							<th data-i18n='{%=cbb_items.SCRNITM#message-detailMessages%}'></th>
+						</tr>
+					</thead>
+					<tbody id='detailMessageTBody'>
+						<tr ng-repeat="item in messageCtrl.errorMessages">
+							<td>{{item.messageCode}}</td>
+							<td>{{item.message}}</td>
+							<td>{{item.detailMessage}}</td>
+						</tr>	
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+		<div class='modal-footer btn-wrap add-mg'>
+			<button type='button' class='bw-btn-txt on' id='cancel-btn' ng-click="messageCtrl.btnPopSampleClose()" data-i18n='{%=cbb_items.SCRNITM#close%}'></button>
+		</div>
+	</div>

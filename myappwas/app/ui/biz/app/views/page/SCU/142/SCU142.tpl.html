@@ -1,0 +1,88 @@
+
+	<section  id='SCU142' ng-init="SCU142Ctrl.init()">
+		<section  id="rgstRprsnttv"   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SCU142%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SCU142%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#CAPCM190-LIST-TITLE%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnAttrReset" ng-click="SCU142Ctrl.btnAttrReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn"  id="btnAttrSave" ng-click="SCU142Ctrl.btnAttrSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnAttrToggle" ng-click="SCU142Ctrl.btnAttrToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+			<section  id="secAttr"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secAttr" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rprsntnBzmanNm%}" data-i18n-title="{%=cbb_items.SCRNITM#rprsntnBzmanNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"   data-form-param="nm" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rprsntvDtlTp%}" data-i18n-title="{%=cbb_items.SCRNITM#rprsntvDtlTp%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="actorDtlTp"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<span data-form-param="label1"   ></span>
+					</td>
+				</tr>
+				<tr  name="tr_secAttr" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rprsnttvUnqID%}" data-i18n-title="{%=cbb_items.SCRNITM#rprsnttvUnqID%}"></label>
+							<input type="text"  maxlength='30' dec='0' class="bw-input a-left"   data-form-param="actorUnqIdNbr" />
+						</div>
+					</td>
+					<td class="td-w-33" colspan="2">
+						<div class="clr add-mg-l-10" >
+							<input type="checkbox"  class="bw-input ipt-radio f-l" id="vldtnErrOvrrdYn" data-form-param="vldtnErrOvrrdYn" />
+							<label class="bw-label f-l add-mg-t-5 add-font-style"  data-i18n="{%=cbb_items.AT#vldtnErrOvrrdYn%}" data-i18n-title="{%=cbb_items.AT#vldtnErrOvrrdYn%}"></label>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_secAttr" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#naty%}" data-i18n-title="{%=cbb_items.SCRNITM#naty%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="natyIsoNatCd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rsdncLctnI%}" data-i18n-title="{%=cbb_items.SCRNITM#rsdncLctnI%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="rsdncLctnIsoNatCd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#lngCd%}" data-i18n-title="{%=cbb_items.SCRNITM#lngCd%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="lngCd"></select>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+		<div id="tab" class=" add-mg-t">
+			<ul>
+				<li ng-click="SCU142_telNbrTabCtrl.tabOpen()"><a href="#SCU142_telNbrTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#telNbr%}" data-i18n-title="{%=cbb_items.SCRNITM#telNbr%}"></label><span class="triangle"></span></a></li>
+				<li ng-click="SCU142_addrTabCtrl.tabOpen()"><a href="#SCU142_addrTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#addr%}" data-i18n-title="{%=cbb_items.SCRNITM#addr%}"></label><span class="triangle"></span></a></li>
+				<li ng-click="SCU142_elctrncAddrTabCtrl.tabOpen()"><a href="#SCU142_elctrncAddrTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#elctrncAddr%}" data-i18n-title="{%=cbb_items.SCRNITM#elctrncAddr%}"></label><span class="triangle"></span></a></li>
+			</ul>
+		<div id="SCU142_telNbrTab">
+			<views-scu142-telnbrtab-directive></views-scu142-telnbrtab-directive>
+		</div>
+		<div id="SCU142_addrTab">
+			<views-scu142-addrtab-directive></views-scu142-addrtab-directive>
+		</div>
+		<div id="SCU142_elctrncAddrTab">
+			<views-scu142-elctrncaddrtab-directive></views-scu142-elctrncaddrtab-directive>
+		</div>
+		</div>
+	</section>
+</section>

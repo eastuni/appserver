@@ -1,0 +1,33 @@
+<header class="header">
+	<section class="header-main">
+		<!-- <h1 class="logo"><a href="#" ng-click="headerCtrl.logoOnclick()">{{logoName}}</a></h1> -->
+		<h1 class="logo"><a href="#" ng-click="headerCtrl.logoOnclick()"><img style="vertical-align:inherit; margin-left:-20px;" src="assets/images/logo_CBP_bankwareglobal.png"></a></h1>
+		<div class="title">{{title}}</div>
+		<section class="header-tool">
+			<ul class="bw-util">
+				<li>
+					<span class="bw-input">{{systemDate}}</span>
+				</li>
+				<li>
+					<i class="bw-icon i-30 i-cal" id="icon-cal" ng-click="headerCtrl.headerCalOnClick()"></i>
+					<div id="headerSystemDate" class="bw-input ipt-select"></div>
+				</li>
+<!-- 				<li> -->
+<!-- 					<i class="bw-icon i-30 i-log"></i> -->
+<!-- 					<span class="bw-input">sysAdmin 관리자</span> -->
+<!-- 				</li> -->
+				<li>
+					<button type="button" class="bw-btn-icon add-bd-blue" title="btn-Logout" id="logout" ng-click="headerCtrl.logout()"><i class="fa fa-power-off"></i><span>{{logoutText}}</span></button>
+				</li>
+			</ul>
+		</section>
+	</section>
+
+	<nav class="header-nav">
+		<ul class="primary-menu">
+			<li class="primary-menu-item" data-id="{{item.menuId}}" ng-repeat="item in menuList" repeat-header-directive>
+				<a href="#">{{item.menuNm}}</a>
+			</li>
+		</ul>
+	</nav>
+</header>

@@ -1,0 +1,127 @@
+
+	<section  id='SLN200' ng-init="SLN200Ctrl.init()">
+		<section   >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SLN200%}">
+			</div>
+			<div   class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#bsicInfo%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn b-ctr"  id="btnBasicToggle" ng-click="SLN200Ctrl.btnBasicToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+					</section>
+				<section  id="bsicInfo"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_bsicInfo" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#pdNm%}" data-i18n-title="{%=cbb_items.AT#pdNm%}"></label>
+								<input type="text"  maxlength='300' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="popupPdNm" />
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+								<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="popupCustNm" />
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#acctNbr%}" data-i18n-title="{%=cbb_items.AT#acctNbr%}"></label>
+								<input type="text"  maxlength='16' dec='0' common-string-number-only-directive class="bw-input a-left"  readonly="readonly" data-form-param="popupAcctNbr" />
+							</div>
+						</td>
+					</tr>
+					<tr  name="tr_bsicInfo" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#rpymntRpymntAcctNbr%}" data-i18n-title="{%=cbb_items.AT#rpymntRpymntAcctNbr%}"></label>
+								<input type="text"  maxlength='20' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="rpymntRpymntAcctNbr" />
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#opnDt%}" data-i18n-title="{%=cbb_items.AT#opnDt%}"></label>
+								<div id="popupOpnDt" ></div>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#arrMtrtyDt%}" data-i18n-title="{%=cbb_items.AT#arrMtrtyDt%}"></label>
+								<div id="popupMtrtyDt" ></div>
+							</div>
+						</td>
+					</tr>
+					<tr  name="tr_bsicInfo" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#lnAgrmntAmt%}" data-i18n-title="{%=cbb_items.AT#lnAgrmntAmt%}"></label>
+								<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="lnAgrmntAmt"  common-numeric-only-directive ng-model='lnAgrmntAmtAmt'/>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#lnIntRt%}" data-i18n-title="{%=cbb_items.AT#lnIntRt%}"></label>
+								<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="lnIntRt"  common-numeric-only-directive ng-model='lnIntRtAmt'/>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#feeAmt%}" data-i18n-title="{%=cbb_items.AT#feeAmt%}"></label>
+								<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="popupFeeAmt"  common-numeric-only-directive ng-model='popupFeeAmtAmt'/>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section   >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#intRtInfo%}"></h3>
+					<h3 class="bw-desc">({{SLN200Ctrl.intRtListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnIntRtToggle" ng-click="SLN200Ctrl.btnIntRtToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+				<section  id="intRtInfo"  >
+					<div id="SLN200_intRtList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+			<section   >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.AT#feeAmt%}"></h3>
+					<h3 class="bw-desc">({{SLN200Ctrl.feeListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnFeeToggle" ng-click="SLN200Ctrl.btnFeeToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+				<section  id="feeAmt"  >
+					<div id="SLN200_feeList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+			<section   >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#lnRpymntSchdlInqry%}"></h3>
+					<h3 class="bw-desc">({{SLN200Ctrl.rpymntPlnListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SLN200Ctrl.btnGridToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+				<section  id="lnRpymntSchdlInqry"  >
+					<div id="SLN200_rpymntPlnList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div   class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt" style="display: none;" readonly="readonly" id="btnSubmit" ng-click="SLN200Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+			<button type="button" class="bw-btn-txt on"  id="btnClose" ng-click="SLN200Ctrl.btnClose_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#close%}"/></button>
+		</div>
+	</section>
+</section>

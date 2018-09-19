@@ -1,0 +1,74 @@
+
+	<section  id='SCU209' ng-init="SCU209Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SCU209%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SCU209%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SCU209Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SCU209Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SCU209Ctrl.btnSchToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#startDt%}" data-i18n-title="{%=cbb_items.SCRNITM#startDt%}"></label>
+							<div id="efctvStartDt" ></div>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#endDt%}" data-i18n-title="{%=cbb_items.SCRNITM#endDt%}"></label>
+							<div id="efctvEndDt" ></div>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#mngngDept%}" data-i18n-title="{%=cbb_items.SCRNITM#mngngDept%}"></label>
+							<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="deptNm" />
+							<button type="button" class="bw-btn fix-r" ng-click="SCU209Ctrl.deptNm_Onclick()" id="btn-deptNm-search"><i class="bw-icon i-20 i-search"></i></button>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#custTp%}" data-i18n-title="{%=cbb_items.SCRNITM#custTp%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="actorTpCd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#deptId%}" data-i18n-title="{%=cbb_items.AT#deptId%}"></label>
+							<input type="text"  maxlength='14' dec='0' class="bw-input a-left"   data-form-param="deptId" />
+						</div>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SCU209Ctrl.eddTrgtListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn-form unit add-mg-t-7"  id="btnDueDlgncMove" ng-click="SCU209Ctrl.btnDueDlgncMove_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#eddMgmt%}"/></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnDueDlgncToggle" ng-click="SCU209Ctrl.btnDueDlgncToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+			<section  id="dueDlgncSrchRslt"  >
+				<div id="SCU209_eddTrgtList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+	</section>
+</section>

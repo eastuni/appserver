@@ -1,0 +1,75 @@
+<!--
+@Screen number  CAPSV012
+@brief          
+@author         
+@history        2017.10.23      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPSV012-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPSV012'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPSV012'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#all'}}</p>
+			</h2>
+
+
+			<div class="layout-wrap">	
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#srchCnd'}}</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-search-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-xtn-search"><i class="bw-icon i-30 i-search"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="btn-search-toggle" data-info="CAPCM031-grid"><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+					</div>
+					<!--/END BW-TOOL-->
+					<section class="search-wrap CAPSV012-base-table" id="CAPSV012-search">
+						<table class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap add-btn clr">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#classTpCd'}}">{{bxMsg 'cbb_items.AT#classTpCd'}}</label>
+										<select class="bw-input w-60 ipt-select CAPSV012-classTpCd-wrap" data-form-param="classTpCd" ></select>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#classNm'}}">{{bxMsg 'cbb_items.AT#classNm'}}</label>
+										<input type="text" class="bw-input w-60" data-form-param="classNm"/>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#rflctnNcsrYn'}}">{{bxMsg 'cbb_items.AT#rflctnNcsrYn'}}</label>
+										<select class="bw-input w-60 ipt-select CAPSV012-rflctnNcsrYn-wrap" data-form-param="rflctnNcsrYn"></select>
+									</div>
+								</td>
+							</tr>							
+						</table>
+					</section>
+					
+					<section class="grid-wrap">
+						<div class="bw-tool add-bd2-t add-mg-t">
+							<div class="f-l">
+								<h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+							</div>
+							<div class="btn-wrap fix-r">
+								<button type="button" class="bw-btn" id="btn-grid-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+								<button type="button" class="bw-btn b-ctr" id="btn-grid-toggle" data-info="CAPCM031-grid"><i class="fa fa-forward fa-rotate-270"></i></button>
+							</div>
+						</div>
+						<div class="CAPSV012-grid" id="CAPSV012-grid"></div>
+					</section>					
+			</div>
+        </section>
+    </section>
+</section>

@@ -1,0 +1,227 @@
+
+
+	<!-- 수수료할인조건 상세팝업 -->
+	<section ng-init="SPD904Ctrl.init()" SPD904-wrap-directive>
+		<div  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRNITM#feeDscnt%}">
+			</div>
+			<div class="modal-body">
+				<div id="fee-discount-popup"  >
+					<div id="tab" class=" add-mg-t">
+						<ul>
+							<li ng-click="SPD904Ctrl.feeDiscountTabOpen()"><a href="#fee-discount-info"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#feeDscnt%}"></label><span class="triangle"></span></a></li>
+							<li ng-click="SPD904Ctrl.provideConditionTabOpen()"><a href="#provide-condition-info"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#provideCnd%}"></label><span class="triangle"></span></a></li>
+							<li ng-click="SPD904Ctrl.limitConditionTabOpen()"><a href="#limit-condition-info"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#lmtCnd%}"></label><span class="triangle"></span></a></li>
+						</ul>
+						<div id="fee-discount-info">
+							<!-- <views-sar001-txbasetab-directive></views-sar001-txbasetab-directive> -->
+							<section id="fee-discount-area">
+								<table class="w-100">
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 할인일련번호 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.AT#feeDscntSeqNbr%}"></label>
+
+
+												 <!--할인일련번호 값 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input feeDscntSeqNbr"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 할인명 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.AT#feeDscntNm%}"></label>
+
+
+												 <!--할인명 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input feeDscntNm"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 적용기간 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#aplyTrm%}"></label>
+
+
+												 <!--적용기간 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input aplyDt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+									</tr>
+
+
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 할인내용 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.AT#feeDscntCntnt%}"></label>
+
+
+												 <!--할인내용 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input feeDscntCntnt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 복합구조여부 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.AT#cmpxStrctrYn%}"></label>
+
+
+												 <!--복합구조여부 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input cmpxStrctrYn"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 할인유형 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.AT#feeDscntTpCd%}"></label>
+
+
+												 <!--할인유형 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input feeTpCdNm"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+									</tr>
+
+
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 할인값 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#feeDscntVal%}"></label>
+
+
+												 <!--할인값 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input feeDscntVal"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td class="td-w-33 simple-type">
+											<div class="input-wrap fix-label clr" >
+												<!-- 최소수수료 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#minFee%}"></label>
+
+
+												 <!--최소수수료 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input dscntMinAmt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+										<td class="td-w-33 simple-type">
+											<div class="input-wrap fix-label clr" >
+												<!-- 최대수수료 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#maxFee%}"></label>
+
+
+												 <!--최대수수료 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input dscntMaxAmt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+
+
+								<!-- 그리드영역 -->
+								<section name="on-display-none" class="grid-area" style="display:none;">
+									<section class=" bw-tool add-bd2-t add-mg-t" >
+										<div class="f-l">
+											<!-- 복합조건 -->
+											<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#cmplxCnd%}"></h3>
+											<h3 class="bw-desc">({{SPD002Ctrl.gridCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+										</div>
+										<div class="btn-wrap fix-r">
+											<!-- <button type="button" class="bw-btn"  id="btnGridExcel" ng-click="SPD002Ctrl.btnGridExcel_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i></button> -->
+											<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SPD002Ctrl.btnGridToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+										</div>
+									</section>
+
+
+									<!-- 복합조건그리드-->
+									<section name="on-display-none" class="complex-grid-section" id="complex-grid-section" style="display:none;">
+										<section class="bw-grid"></section>
+				                   	</section>
+								</section>
+							</section>
+						</div>
+
+
+						<div id="provide-condition-info">
+							<!-- <views-sar001-xtninfotab-directive></views-sar001-xtninfotab-directive> -->
+
+
+							<!-- 제공조건 -->					
+							<section class="provide-condition-info">
+								<section id="prvd-cnd-grid-section" class="prvd-cnd-grid-section">
+									<section class="bw-grid"></section>
+								</section>
+
+
+								<table class="w-100">
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 적용기간 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#aplyTrm%}"></label>
+
+
+												 <!--적용기간 값 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input aplyDt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 적용규칙 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#aplyRuleCntnt%}"></label>
+
+
+												 <!--적용규칙 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input ruleCntnt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</section>
+						</div>
+						<div id="limit-condition-info">
+							<!-- <views-sar001-entrytab-directive></views-sar001-entrytab-directive> -->
+
+
+							<!-- 한도조건  -->
+					        <section class="limit-condition-info">
+								<section id="lmt-cnd-grid-section" class="lmt-cnd-grid-section">
+									<section class="bw-grid"></section>
+								</section>
+			               	</section>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div  class="modal-footer btn-wrap add-mg">
+				<button type="button" class="bw-btn-txt on" id="btnCancel" ng-click="SPD904Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.ABRVTN#chk%}"/></button>
+			</div>
+		</div>
+	</section>

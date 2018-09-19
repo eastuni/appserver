@@ -1,0 +1,70 @@
+
+
+<!-- 범위조건값 상세팝업 -->
+	<section ng-init="SPD901Ctrl.init()" SPD901-wrap-directive>
+		<div  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRNITM#rangCndVal%}">
+			</div>
+			<div class="modal-body">
+				<div id="range-cnd-val-popup"  >
+					<section id="range-cnd-val-area">
+						<table class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap fix-label clr">
+										<!-- 최소값 -->
+										<label class="bw-label" data-i18n="{%=cbb_items.AT#minVal%}"></label>
+										<input type="text" class="bw-input minVal" readonly="readonly"/>
+									</div>
+								</td>
+								<td class="td-w-33">
+										<div class="input-wrap fix-label clr">
+										<!-- 측정단위 -->
+										<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#msurUnit%}"></label>
+										<input type="text" class="bw-input msurUnitCdNm" readonly="readonly"/>
+									</div>
+								</td>
+								<td class="td-w-33">
+										<div class="input-wrap fix-label clr">
+										<!-- 통화코드 -->
+										<label class="bw-label" data-i18n="{%=cbb_items.AT#crncyCd%}"></label>
+										<input type="text" class="bw-input crncyCd" readonly="readonly"/>
+									</div>
+								</td>
+							</tr>
+
+
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap fix-label clr">
+										<!-- 최대값 -->
+										<label class="bw-label" data-i18n="{%=cbb_items.AT#maxVal%}"></label>
+										<input type="text" class="bw-input maxVal" readonly="readonly"/>
+									</div>
+								</td>
+								<td class="td-w-33">
+										<div class="input-wrap fix-label clr">
+										<!-- 기본값 -->
+										<label class="bw-label" data-i18n="{%=cbb_items.AT#bsicVal%}"></label>
+										<input type="text" class="bw-input bsicVal" readonly="readonly"/>
+									</div>
+								</td>
+								<td class="td-w-33">
+										<div class="input-wrap fix-label clr">
+										<!-- 증가값 -->
+										<label class="bw-label" data-i18n="{%=cbb_items.AT#incrsVal%}"></label>
+										<input type="text" class="bw-input incrsVal" readonly="readonly"/>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</section>
+				</div>
+				</section>
+			</div>
+			<div  class="modal-footer btn-wrap add-mg">
+				<button type="button" class="bw-btn-txt on" id="btnCancel" ng-click="SPD901Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.ABRVTN#chk%}"/></button>
+			</div>
+		</div>
+	</section>

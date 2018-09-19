@@ -1,0 +1,127 @@
+
+
+	<section  ng-init="SDP810Ctrl.init()" SDP810-wrap-directive>
+		<section  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SDP810%}">
+			</div>
+			<div   class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#bsicInfo%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn b-ctr"  id="btnBasicToggle" ng-click="SDP810Ctrl.btnBasicToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+					</section>
+				<section  id="bsicInfo"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_bsicInfo" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}"></label>
+								<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="popupCustId" />
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}"></label>
+								<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="popupCustNm" />
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#acctNbr%}"></label>
+								<input type="text"  maxlength='16' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="popupAcctNbr" />
+							</div>
+						</td>
+					</tr>
+					<tr  name="tr_bsicInfo" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#pdNm%}"></label>
+								<input type="text"  maxlength='300' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="popupPdNm" />
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#opnDt%}"></label>
+								<div id="popupOpnDt" ></div>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#mtrtyDt%}"></label>
+								<div id="popupMtrtyDt" ></div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section  >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#relInfo%}"></h3>
+					<h3 class="bw-desc">({{SDP810Ctrl.arr360RelListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnRelToggle" ng-click="SDP810Ctrl.btnRelToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+				<section  id="relInfo"  >
+					<div id="arr360RelList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+			<section  >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#xtnInfo%}"></h3>
+					<h3 class="bw-desc">({{SDP810Ctrl.arr360XtnListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnXtnToggle" ng-click="SDP810Ctrl.btnXtnToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+				<section  id="xtnInfo"  >
+					<div id="arr360XtnList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+			<section  >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#cndInfo%}"></h3>
+					<h3 class="bw-desc">({{SDP810Ctrl.arr360CndListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnCndToggle" ng-click="SDP810Ctrl.btnCndToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+				<section  id="cndInfo"  >
+					<div id="arr360CndList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+			<section  >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#intRtInfo%}"></h3>
+					<h3 class="bw-desc">({{SDP810Ctrl.arr360IntRtListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnIntRtToggle" ng-click="SDP810Ctrl.btnIntRtToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+				<section  id="intRtInfo"  >
+					<div id="arr360IntRtList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div   class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt" style="display: none;" readonly="readonly" id="btnSubmit" ng-click="SDP810Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+			<button type="button" class="bw-btn-txt on"  id="btnClose" ng-click="SDP810Ctrl.btnClose_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#close%}"/></button>
+		</div>
+	</section>
+</section>

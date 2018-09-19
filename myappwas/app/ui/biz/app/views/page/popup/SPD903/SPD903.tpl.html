@@ -1,0 +1,266 @@
+
+
+	<!-- 수수료조건값 상세팝업 -->
+	<section ng-init="SPD903Ctrl.init()" SPD903-wrap-directive>
+		<div  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRNITM#feeCndVal%}">
+			</div>
+			<div class="modal-body">
+				<div id="fee-cnd-val-popup"  >
+					<section id="fee-cnd-val-area">
+						<table class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap fix-label clr" >
+										<!-- 징수통화 라벨 --> 
+										<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#levyCrncy%}"></label>
+
+
+										 <!--징수통화 값 -->
+										<div class="td-desc-wrap clr" >
+											 <input type="text" class="bw-input levyCrncyDscd"   readonly="readonly"/>
+										</div>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap fix-label clr" >
+										<!-- 징수시기 라벨 --> 
+										<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#LevyTm%}"></label>
+
+
+										 <!--징수시기 -->
+										<div class="td-desc-wrap clr" >
+											 <input type="text" class="bw-input levyTmDscd"   readonly="readonly"/>
+										</div>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap fix-label clr" >
+										<!-- 징수주기 라벨 --> 
+										<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#levyCycl%}"></label>
+
+
+										 <!--징수주기 -->
+										<div class="td-desc-wrap clr" >
+											 <input type="text" class="bw-input levyFrqDscdNm"   readonly="readonly"/>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+
+
+						<!-- 단순 수수료 -->
+						<section class="simple-fee">
+							<!-- 화면상단영역 (조회,토글) -->
+							<section class=" bw-tool add-bd2-t" >
+								<div class="f-l">
+									<!-- <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#feeAmt%}"></h3> -->
+									<h3 class="bw-desc" data-i18n="수수료"></h3>
+								</div>
+
+
+								<div class="btn-wrap fix-r">
+									<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SPD903Ctrl.btnToggle_Onclick('simple-fee-area')" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+								</div>
+							</section>
+
+
+							<!-- 수수료금액 -->
+							<section id="simple-fee-area">
+								<table class="w-100 fee-amount">
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 수수료유형 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#feeTpCd%}"></label>
+
+
+												 <!--수수료유형 값 -->
+												<div class="td-desc-wrap clr" >
+													 <!-- <input type="text" class="bw-input feeTpCd"   readonly="readonly" value="{%=cbb_items.SCRNITM#amount%}"/> -->
+													 <input type="text" class="bw-input feeTpCd"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 징수기준 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#levyBase%}"></label>
+
+
+												 <!--징수기준 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input levyBaseDscd"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+									</tr>
+
+
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 최소값 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#min%}"></label>
+
+
+												 <!--최소값 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input minFixFeeAmt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 최대값 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#max%}"></label>
+
+
+												 <!--최대값 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input maxFixFeeAmt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 기본값 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#bsic%}"></label>
+
+
+												 <!--기본값 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input bsicFixFeeAmt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+
+
+								<!-- 수수료 율 -->
+								<table class="w-100 fee-rate">
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 수수료유형 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#feeTpCd%}"></label>
+
+
+												 <!--수수료유형 값 -->
+												<div class="td-desc-wrap clr" >
+													 <!-- <input type="text" class="bw-input feeTpCd"   readonly="readonly" value="{%=cbb_items.SCRNITM#rt%}"/> -->
+													 <input type="text" class="bw-input feeTpCd"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 단위증가 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#unitIncrs%}"></label>
+
+
+												 <!--단위증가 값 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input unitIncrsRt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 최소값 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#min%} (%)"></label>
+
+
+												 <!--최소값 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input minRt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 최대값 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#max%} (%)"></label>
+
+
+												 <!--최대값 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input maxRt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 기본값 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#bsic%} (%)"></label>
+
+
+												 <!--기본값 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input bsicRt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+									</tr>
+
+
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 측정단위 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#levyBase%}"></label>
+
+
+												 <!--측정단위 값 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input rtMsurUnitCd"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 최소금액 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#levyBase%}"></label>
+
+
+												 <!--최소금액 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input feeLevyMinAmt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 최대금액 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#levyBase%}"></label>
+
+
+												 <!--최대금액 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input feeLevyMaxAmt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</section>
+						</section>
+					</section>
+				</div>
+			</div>
+			<div  class="modal-footer btn-wrap add-mg">
+				<button type="button" class="bw-btn-txt on" id="btnCancel" ng-click="SPD903Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.ABRVTN#chk%}"/></button>
+			</div>
+		</div>
+	</section>

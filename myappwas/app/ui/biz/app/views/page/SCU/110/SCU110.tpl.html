@@ -1,0 +1,144 @@
+
+	<section  id='SCU110' ng-init="SCU110Ctrl.init()">
+		<section   class="contents-wrap">
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SCU110%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SCU110%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SCU110Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SCU110Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SCU110Ctrl.btnSchToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd1"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd1" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="custId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SCU110Ctrl.custId_Onclick()" id="btn-custId-search"><i class="bw-icon i-20 i-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#recentTxTrm%}" data-i18n-title="{%=cbb_items.SCRNITM#recentTxTrm%}"></label>
+							<select class="bw-input ipt-select"  ng-model="SCU110_SCU110Ctrl.custQryTrmTpCdSelectedValue" ng-change="SCU110Ctrl.custQryTrmTpCd_OnChange()" data-form-param="custQryTrmTpCd"></select>
+						</div>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseAtrbt%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnCustToggle" ng-click="SCU110Ctrl.btnCustToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+		<section  id="secSrchCnd"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_secSrchCnd" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+						<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#unqIdNbrTp%}" data-i18n-title="{%=cbb_items.SCRNITM#unqIdNbrTp%}"></label>
+						<select class="bw-input ipt-select" disabled data-form-param="actorUnqIdNbrTpCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custUnqIdNbr%}" data-i18n-title="{%=cbb_items.AT#custUnqIdNbr%}"></label>
+						<input type="text"  maxlength='30' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="actorUnqIdNbr" />
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_secSrchCnd" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#custSts%}" data-i18n-title="{%=cbb_items.SCRNITM#custSts%}"></label>
+						<select class="bw-input ipt-select" disabled data-form-param="custStsCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#naty%}" data-i18n-title="{%=cbb_items.SCRNITM#naty%}"></label>
+						<select class="bw-input ipt-select" disabled data-form-param="natyIsoNatCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rsdntlLctn%}" data-i18n-title="{%=cbb_items.SCRNITM#rsdntlLctn%}"></label>
+						<select class="bw-input ipt-select" disabled data-form-param="rsdncLctnIsoNatCd"></select>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_secSrchCnd" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#birthDt%}" data-i18n-title="{%=cbb_items.AT#birthDt%}"></label>
+						<div id="birthDt" ></div>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#gndrDscd%}" data-i18n-title="{%=cbb_items.AT#gndrDscd%}"></label>
+						<select class="bw-input ipt-select" disabled data-form-param="gndrDscd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#frstRgstrnDt%}" data-i18n-title="{%=cbb_items.SCRNITM#frstRgstrnDt%}"></label>
+						<div id="frstRgstrnDt" ></div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<div id="tab" class=" add-mg-t">
+		<ul>
+			<li ng-click="SCU110_custAcctCtrl.tabOpen()"><a href="#SCU110_custAcct"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#acct%}" data-i18n-title="{%=cbb_items.SCRNITM#acct%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SCU110_acctTxCtrl.tabOpen()"><a href="#SCU110_acctTx"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#latestTxList%}" data-i18n-title="{%=cbb_items.SCRNITM#latestTxList%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SCU110_cntctPntCtrl.tabOpen()"><a href="#SCU110_cntctPnt"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#cntct%}" data-i18n-title="{%=cbb_items.SCRNITM#cntct%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SCU110_adtnlAtrbtCtrl.tabOpen()"><a href="#SCU110_adtnlAtrbt"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#adtnlAtrbt%}" data-i18n-title="{%=cbb_items.SCRNITM#adtnlAtrbt%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SCU110_noticeCtrl.tabOpen()"><a href="#SCU110_notice"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#notice%}" data-i18n-title="{%=cbb_items.SCRNITM#notice%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SCU110_custGrpCtrl.tabOpen()"><a href="#SCU110_custGrp"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#grp%}" data-i18n-title="{%=cbb_items.SCRNITM#grp%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SCU110_custGradeCtrl.tabOpen()"><a href="#SCU110_custGrade"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#grade%}" data-i18n-title="{%=cbb_items.SCRNITM#grade%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SCU110_custRelCtrl.tabOpen()"><a href="#SCU110_custRel"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#rel%}" data-i18n-title="{%=cbb_items.SCRNITM#rel%}"></label><span class="triangle"></span></a></li>
+		</ul>
+	<div id="SCU110_custAcct">
+		<views-scu110-custacct-directive></views-scu110-custacct-directive>
+	</div>
+	<div id="SCU110_acctTx">
+		<views-scu110-accttx-directive></views-scu110-accttx-directive>
+	</div>
+	<div id="SCU110_cntctPnt">
+		<views-scu110-cntctpnt-directive></views-scu110-cntctpnt-directive>
+	</div>
+	<div id="SCU110_adtnlAtrbt">
+		<views-scu110-adtnlatrbt-directive></views-scu110-adtnlatrbt-directive>
+	</div>
+	<div id="SCU110_notice">
+		<views-scu110-notice-directive></views-scu110-notice-directive>
+	</div>
+	<div id="SCU110_custGrp">
+		<views-scu110-custgrp-directive></views-scu110-custgrp-directive>
+	</div>
+	<div id="SCU110_custGrade">
+		<views-scu110-custgrade-directive></views-scu110-custgrade-directive>
+	</div>
+	<div id="SCU110_custRel">
+		<views-scu110-custrel-directive></views-scu110-custrel-directive>
+	</div>
+	</div>
+</section>
+</section>

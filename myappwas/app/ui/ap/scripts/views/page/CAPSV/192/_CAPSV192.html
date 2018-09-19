@@ -1,0 +1,207 @@
+<!--
+@Screen number  CAPSV192
+@brief          후행관리상세/추가
+@author         sungwon.kim
+@history        2016.09.21  UI전환
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPSV192-wrap">
+
+
+            <!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+                {{bxMsg 'cbb_items.SCRN#CAPSV192'}}
+                <p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPSV192'}}</p>
+                <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#all'}}</p>
+            </h2>
+
+
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <section class="bw-tool add-bd2-t">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#CAPSV050-BASE-TITLE'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-base-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-base-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_delete'}}" id="btn-base-delete"><i class="bw-icon i-30 i-func-trash"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-base-toggle" ><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+
+
+            <!-- BASE CONTENTS -->
+            <section class="search-wrap CAPSV192-base-table">
+                <div class="w-100 clr">
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr asterisk">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dfrdId'}}">{{bxMsg 'cbb_items.AT#dfrdId'}}</label>
+                            <input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#dfrdId'}}" data-form-param="dfrdId"/>
+                        </div>
+                    </span>
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr asterisk">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dfrdNm'}}">{{bxMsg 'cbb_items.AT#dfrdNm'}}</label>
+                            <input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#dfrdNm'}}" data-form-param="dfrdNm"/>
+                        </div>
+                    </span>
+                </div>
+                <div class="w-100 clr">
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr asterisk">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#aplctnNm'}}">{{bxMsg 'cbb_items.AT#aplctnNm'}}</label>
+                            <input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#aplctnNm'}}" data-form-param="aplctnId"/>
+                        </div>
+                    </span>
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr asterisk">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#srvcNm'}}">{{bxMsg 'cbb_items.AT#srvcNm'}}</label>
+                            <input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#srvcNm'}}" data-form-param="srvcNm"/>
+                        </div>
+                    </span>
+                </div>
+                <div class="w-100 clr">
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr asterisk">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#oprtnNm'}}">{{bxMsg 'cbb_items.AT#oprtnNm'}}</label>
+                            <input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#oprtnNm'}}" data-form-param="oprtnNm"/>
+                        </div>
+                    </span>
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#txCd'}}">{{bxMsg 'cbb_items.AT#txCd'}}</label>
+                            <input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#txCd'}}" data-form-param="txCd"/>
+                        </div>
+                    </span>
+                </div>
+                <div class="w-100 clr">
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#useYn'}}">{{bxMsg 'cbb_items.AT#useYn'}}</label>
+                            <select class="bw-input w-60 ipt-select CAPSV192-useYn-wrap" data-form-param="useYn"></select>
+                        </div>
+                    </span>
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#nodeExctnYn'}}">{{bxMsg 'cbb_items.AT#nodeExctnYn'}}</label>
+                            <select class="bw-input w-60 ipt-select CAPSV192-nodeExctnYn-wrap" data-form-param="nodeExctnYn"></select>
+                        </div>
+                    </span>
+                </div>
+                <div class="w-100 clr">
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#errStopYn'}}">{{bxMsg 'cbb_items.AT#errStopYn'}}</label>
+                            <select class="bw-input w-60 ipt-select CAPSV192-errorStopYn-wrap" data-form-param="errStopYn"></select>
+                        </div>
+                    </span>
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#errSkpYn'}}">{{bxMsg 'cbb_items.AT#errSkpYn'}}</label>
+                            <select class="bw-input w-60 ipt-select CAPSV192-errorSkpYn-wrap" data-form-param="errSkpYn"></select>
+                        </div>
+                    </span>
+                </div>
+                <div class="w-100 clr">
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#startTpCd'}}">{{bxMsg 'cbb_items.AT#startTpCd'}}</label>
+                            <select class="bw-input w-60 ipt-select CAPSV192-startTpCd-wrap" data-form-param="startTpCd"></select>
+                        </div>
+                    </span>
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#srvcPrcsngCd'}}">{{bxMsg 'cbb_items.AT#srvcPrcsngCd'}}</label>
+                            <select class="bw-input w-60 ipt-select CAPSV192-srvcPrcsngCd-wrap" data-form-param="srvcPrcsngCd"></select>
+                        </div>
+                    </span>
+                </div>
+                <div class="w-100 clr">
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dfrdTxCd'}}">{{bxMsg 'cbb_items.AT#dfrdTxCd'}}</label>
+                            <select class="bw-input w-60 ipt-select CAPSV192-dfrdTxCd-wrap" data-form-param="dfrdTxCd"></select>
+                        </div>
+                    </span>
+                </div>
+                <div class="w-100 clr">
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#exctnCyclScnd'}}">{{bxMsg 'cbb_items.AT#exctnCyclScnd'}}</label>
+                            <input type="text" class="bw-input w-60 ipt-time" placeholder="{{bxMsg 'cbb_items.AT#exctnCyclScnd'}}" data-form-param="exctnCyclScnd"/>
+                        </div>
+                    </span>
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dlyCyclScnd'}}">{{bxMsg 'cbb_items.AT#dlyCyclScnd'}}</label>
+                             <input type="text" class="bw-input w-60 ipt-time" placeholder="{{bxMsg 'cbb_items.AT#dlyCyclScnd'}}" data-form-param="dlyCyclScnd"/>
+                        </div>
+                    </span>
+                </div>
+                <div class="w-100 clr">
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#fetchCnt'}}">{{bxMsg 'cbb_items.AT#fetchCnt'}}</label>
+                            <input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#fetchCnt'}}" data-form-param="fetchCnt"/>
+                        </div>
+                    </span>
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#prlExctnCnt'}}">{{bxMsg 'cbb_items.AT#prlExctnCnt'}}</label>
+                             <input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#prlExctnCnt'}}" data-form-param="prlExctnCnt"/>
+                        </div>
+                    </span>
+                </div>
+                <div class="w-100 clr">
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#trgtTblNm'}}">{{bxMsg 'cbb_items.AT#trgtTblNm'}}</label>
+                            <input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#tgtTblNm'}}" data-form-param="trgtTblNm"/>
+                        </div>
+                    </span>
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dailyTblYn'}}">{{bxMsg 'cbb_items.AT#dailyTblYn'}}</label>
+                            <select class="bw-input w-60 ipt-select CAPSV192-dailyTblYn-wrap" data-form-param="dailyTblYn"></select>
+                        </div>
+                    </span>
+                </div>
+                <div class="w-100 clr">
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#trgtColumnNm'}}">{{bxMsg 'cbb_items.AT#trgtColumnNm'}}</label>
+                             <input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#trgtColumnNm'}}" data-form-param="trgtColumnNm"/>
+                        </div>
+                    </span>
+                </div>
+                <div class="w-100 clr">
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#tblReaderBeanNm'}}">{{bxMsg 'cbb_items.AT#tblReaderBeanNm'}}</label>
+                            <input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#tblReaderBeanNm'}}" data-form-param="tblReaderBeanNm"/>
+                        </div>
+                    </span>
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#tblNbrgUseYn'}}">{{bxMsg 'cbb_items.AT#tblNbrgUseYn'}}</label>
+                            <select class="bw-input w-60 ipt-select CAPSV192-tblNbrgUseYn-wrap" data-form-param="tblNbrgUseYn"></select>
+                        </div>
+                    </span>
+                </div>
+                <div class="w-100 clr">
+                    <span class="w-50 f-l">
+                        <div class="input-wrap clr">
+                            <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#tblNbrgBeanNm'}}">{{bxMsg 'cbb_items.AT#tblNbrgBeanNm'}}</label>
+                             <input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#tblNbrgBeanNm'}}" data-form-param="tblNbrgBeanNm"/>
+                        </div>
+                    </span>
+                </div>
+            </section>
+            <!-- /END BASE CONTENTS -->
+        </section>
+    </section>
+</section>

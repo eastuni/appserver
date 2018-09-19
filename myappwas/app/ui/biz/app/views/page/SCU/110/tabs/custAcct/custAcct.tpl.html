@@ -1,0 +1,19 @@
+
+		<section   >
+			<section class=" bw-tool add-bd2-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SCU110_custAcctCtrl.mainArrListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn-form unit add-mg-t-7"  id="btnTab1MoveAcct" ng-click="SCU110_custAcctCtrl.btnTab1MoveAcct_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#acctDtlSrch%}"/></button>
+				<button type="button" class="bw-btn-form unit add-mg-t-7"  id="btnTab1MoveJunal" ng-click="SCU110_custAcctCtrl.btnTab1MoveJunal_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#txHistSrch%}"/></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnTab1Toggle" ng-click="SCU110_custAcctCtrl.btnTab1Toggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+			<section  id="acctSrchRslt"  >
+				<div id="SCU110_custAcct_mainArrList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>

@@ -1,0 +1,127 @@
+<!--
+@Screen number  CAPSV007
+@brief          온라인 서비스 통제를 위한 서비스프로파일을 관리합니다.
+@author         김병구
+@history        2016.05.30      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPSV007-wrap">
+            <!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+                {{bxMsg 'cbb_items.SCRN#CAPSV007'}}
+                <p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPSV007'}}</p>
+       	         <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#all'}}</p>
+            </h2>
+            <!--/END BW-TITLE-->
+            <!--BW-MODULE-->
+            <div class="layout-wrap">
+                <div class="layout col1" id="tree-service-list">
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t add-mg-b-10">
+                        <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#srvcPrflList'}}</h3>
+                        <button type="button" class="bw-btn fix-r w-15" id="btn-tree-hide"><i class="fa fa-angle-left"></i></button>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <div class="input-wrap add-btn add-mg-l-10 clr">
+                        <label class="bw-label w-50">{{bxMsg 'cbb_items.SCRNITM#prflNm'}}</label>
+                        <input type="text" class="bw-input w-50" id="searchKey" data-form-param="searchKey" placeholder="{{bxMsg 'cbb_items.SCRNITM#all'}}" />
+                        <button type="button" class="bw-btn fix-r" id="btn-tree-search"><i class="bw-icon i-30 i-search"></i></button>
+                    </div>
+
+
+                    <!--BW-TREE *트리메뉴-->
+                    <section class="unit-tree-wrap">
+                        <ul class="bx-tree-floor bx-tree-root"></ul>
+                    </section>
+                    <!--/END BW-TREE-->
+                </div>
+
+
+                <button type="button" class="bw-tree-show-btn" id="btn-tree-show" hidden><i class="fa fa-angle-right"></i></button>
+
+
+                <div class="bw-inner-contents layout col2">
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t">
+                        <div class="f-l">
+                            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#srvcPrflAtrbt'}}</h3>
+                        </div>
+                        <div class="btn-wrap fix-r">
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-service-profile-attribute-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-service-profile-attribute-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#del'}}" id="btn-service-profile-attribute-delete"><i class="bw-icon i-25 i-func-trash"></i></button>
+                            <button type="button" class="bw-btn b-ctr" id="btn-service-profile-attribute-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                        </div>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <!--SERVICE PROFILE ATTRIBUTE AREA * 서비스프로파일 속성 영역 -->
+                    <section class="search-wrap" id="service-profile-attribute-area">
+                        <table class="w-100">
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap add-btn clr">
+                                        <label class="bw-label w-42">{{bxMsg 'cbb_items.SCRNITM#atrbt'}}</label>
+                                        <input type="text" class="bw-input w-58" data-form-param="atrbtCd" />
+                                        <button type="button" class="bw-btn fix-r" id="btn-standard-attribute-search"><i class="bw-icon i-30 i-search"></i></button>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#atrbtNm'}}</label>
+                                        <input type="text" class="bw-input w-60" data-form-param="atrbtNm"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#loginLngAtrbtNm'}}</label>
+                                        <input type="text" class="bw-input w-60" data-form-param="loginLngAtrbtNm"/>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#atrbtVldtnWayCd'}}</label>
+                                        <select class="bw-input w-60 ipt-select atrbtVldtnWayCd-wrap" data-form-param="atrbtVldtnWayCd"></select>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap add-btn clr" id="buttonType">
+                                        <label class="bw-label w-42">{{bxMsg 'cbb_items.SCRNITM#atrtbVldtnRule'}}</label>
+                                        <input type="text" class="bw-input w-58" data-form-param="atrbtVldtnRuleCntnt"/>
+                                        <button type="button" class="bw-btn fix-r" id="btn-code-search" disabled="disabled"><i class="bw-icon i-30 i-search"></i></button>
+                                    </div>
+                                    <div class="input-wrap clr" id="selectTyle" style="display: none;">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#atrtbVldtnRule'}}</label>
+                                        <select class="bw-input w-60 ipt-select atrbtVldtnRuleCntnt-wrap" data-form-param="atrbtVldtnRuleCntnt"></select>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="3">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-12-8">{{bxMsg 'cbb_items.AT#atrbtVldtnXtnRuleCntnt'}}</label>
+                                        <input type="text" class="bw-input w-87-2" data-form-param="atrbtVldtnXtnRule"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                    <!--/END SERVICE PROFILE ATTRIBUTE AREA-->
+                </div>
+            </div>
+            <!--/END BW-MODULE-->
+        </section>
+    </section>
+</section>

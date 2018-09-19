@@ -1,0 +1,158 @@
+/* component/tree.scss */
+
+.bx-tree {
+    margin-left: -17px;
+
+    .bx-tree-add-node-btn {
+        margin-left: 18px;
+        padding: 0;
+        width: 150px;
+        height: 19px;
+        line-height: 19px;
+    }
+}
+
+.bx-tree-floor {
+    margin-left: 15px;
+
+    &.bx-tree-root {
+        margin-left: 0;
+    }
+}
+
+.bx-tree-navi-wrap {
+    display: inline-block;
+    margin: 2px 0;
+    width: 1.3em;
+    height: 1.3em;
+    vertical-align: top;
+
+    .bx-tree-navi {
+        display: block;
+        width: 1.3em;
+        height: 1.3em;
+    }
+}
+
+.bx-tree-floor-item {
+    position: relative;
+    line-height: 21px;
+    white-space: nowrap;
+
+    .bx-tree-btn {
+        position: absolute;
+        right: 5px;
+        top: 3px;
+        cursor: pointer;
+    }
+
+    .bx-tree-symbol {
+        display: inline-block;
+        height: 1.3em;
+        min-width: 1.3em;
+        border-radius: 4px;
+        line-height: 1.3em;
+        text-align: center;
+        color: white;
+    }
+
+    &[data-state=collapse] {
+
+        & > .bx-tree-navi-wrap > .bx-tree-navi {
+            background: url(images/tree-icon/nolines_plus.gif);
+            background-position-x: 2px;
+            cursor: pointer;
+        }
+
+        & > .bx-tree-floor {
+            display: none;
+        }
+    }
+
+    &[data-state=expand] {
+
+        & > .bx-tree-navi-wrap > .bx-tree-navi {
+            background: url(images/tree-icon/nolines_minus.gif);
+            background-position-x: 2px;
+            cursor: pointer;
+        }
+
+        & > .bx-tree-floor {
+            display: block;
+        }
+    }
+
+    &[data-state=leaf] {
+
+        & > .bx-tree-navi {
+            cursor: pointer;
+        }
+    }
+
+    &[data-type=folder] > .bx-tree-node {
+        background: url(images/tree-icon/folder.gif) no-repeat;
+    }
+
+    &[data-type=file] > .bx-tree-node {
+        background: url(images/tree-icon/page.gif) no-repeat;
+    }
+
+    &[data-type=class] {
+
+        & > .bx-tree-node {
+            margin-left: 0;
+            background: url(images/tree-icon/class.png) no-repeat;
+        }
+
+        & > .bx-tree-navi {
+            display: none;
+        }
+    }
+
+    &[data-type=package] > .bx-tree-node {
+        background: url(images/tree-icon/package.png) no-repeat;
+    }
+
+    &[data-type=method] > .bx-tree-node {
+        background: url(images/tree-icon/method.png) no-repeat;
+    }
+    
+    &[data-type=groupfolder] > .bx-tree-node {
+        background: url(images/tree-icon/group-folder-16.png) no-repeat;
+    }
+
+    .bx-tree-node {
+        display: inline-block;
+        margin-left: -2px;
+        padding-left: .3em;
+        padding-right: .6em;
+        height: 1.5em;
+
+        line-height: 1.5em;
+        cursor: pointer;
+
+        &:hover {
+            backgorund: #ededed;
+        }
+
+        &.is-marked {
+            background: #b6d5ff !important;
+            color: white;
+        }
+
+        &.is-selected {
+            background-color: #6f89bd !important;
+            color: white;
+        }
+    }
+}
+
+
+
+.bx-tree-node[data-type=class] + .bx-tree-navi {
+    display: none;
+}
+
+.bx-tree-node-conts {
+    display: inline-block;
+}

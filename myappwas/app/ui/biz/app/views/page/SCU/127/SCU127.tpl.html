@@ -1,0 +1,117 @@
+
+	<section  id='SCU127' ng-init="SCU127Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SCU127%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SCU127%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SCU127Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SCU127Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SCU127Ctrl.btnSchToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="custId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SCU127Ctrl.custId_Onclick()" id="btn-custId-search"><i class="bw-icon i-20 i-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+						</div>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SCU127Ctrl.gridListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SCU127Ctrl.btnGridToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+			<section  id="srchRslt"  >
+				<div id="SCU127_gridList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#CAPCM190-LIST-TITLE%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnAttrSave" ng-click="SCU127Ctrl.btnAttrSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnAttrToggle" ng-click="SCU127Ctrl.btnAttrToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+		<section  id="secAttr"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_secAttr" >
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#cndCd%}" data-i18n-title="{%=cbb_items.AT#cndCd%}"></label>
+						<input type="text"  maxlength='5' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="cndCd" />
+					</div>
+				</td>
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#cndNm%}" data-i18n-title="{%=cbb_items.AT#cndNm%}"></label>
+						<input type="text"  maxlength='300' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="cndNm" />
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_secAttr" >
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#bfChngCndVal%}" data-i18n-title="{%=cbb_items.AT#bfChngCndVal%}"></label>
+						<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="bfChngCndVal" />
+					</div>
+				</td>
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#msurUnitCd%}" data-i18n-title="{%=cbb_items.AT#msurUnitCd%}"></label>
+						<select class="bw-input ipt-select" disabled data-form-param="msurUnitCd"></select>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_secAttr" >
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#afChngCndVal%}" data-i18n-title="{%=cbb_items.AT#afChngCndVal%}"></label>
+						<input type="text"  maxlength='100' dec='0' class="bw-input a-left"   data-form-param="afChngCndVal" />
+					</div>
+				</td>
+				<td class="w-50">
+					<span data-form-param="minMax" style="color:red;"  ></span>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<section   >
+		<section class=" bw-tool add-bd2-t add-mg-t" >
+		<div class="f-l">
+			<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#chngHst%}"></h3>
+			<h3 class="bw-desc">({{SCU127Ctrl.hstListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+		</div>
+		<div class="btn-wrap fix-r">
+			<button type="button" class="bw-btn b-ctr"  id="btnHstToggle" ng-click="SCU127Ctrl.btnHstToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+		</div>
+		</section>
+		<section  id="chngHst"  >
+			<div id="SCU127_hstList" >
+				<section class="bw-grid"></section>
+			</div>
+		</section>
+	</section>
+</section>
+</section>

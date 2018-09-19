@@ -1,0 +1,82 @@
+
+	<section class='main-contents add-tree' id='SCU303' ng-init="SCU303Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SCU303%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SCU303%}"></p>
+			</h2>
+			<section   class="layout-wrap">
+				<section  id="secLeftTree"   class="bw-tree-wrap layout col1">
+					<section   >
+						<section class=" bw-tool add-bd2-t" >
+						<div class="f-l">
+							<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#pdList%}"></h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn"  id="btnSchHide" ng-click="SCU303Ctrl.btnSchHide_Onclick()" title=""><i class="fa fa-angle-left"></i></button>
+						</div>
+						</section>
+						<section  id="secDeptCnd"  >
+							<section class="unit-tree-wrap a-left" style="height:250px; overflow-y:auto;">
+								<div class="popup-dept-tree"  id='pdTree'></div>
+							</section>
+						</section>
+					</section>
+				</section>
+				<button type="button" class="bw-tree-show-btn" style="display: none;"  id="btnLeftShow" ng-click="SCU303Ctrl.btnLeftShow_Onclick()" title=""><i class="fa fa-angle-right"></i></button>
+				<section   class="bw-inner-contents layout col2">
+						<section class=" bw-tool add-bd2-t" >
+						<div class="f-l">
+							<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseAtrbt%}"></h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn"  id="btnBasicReset" ng-click="SCU303Ctrl.btnBasicReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+							<button type="button" class="bw-btn"  id="btnBasicSubmit" ng-click="SCU303Ctrl.btnBasicSubmit_Onclick()" title=""><i class="bw-icon i-30 i-func-submit"></i></button>
+							<button type="button" class="bw-btn b-ctr"  id="btnBasicToggle" ng-click="SCU303Ctrl.btnBasicToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+						</section>
+					<section  id="arrOpenScreenGenerationArea"  class="search-wrap">
+					<table class="w-100" >
+						<tr  name="tr_arrOpenScreenGenerationArea" >
+						</tr>
+					</table>
+				</section>
+				<section   class="w-100">
+					<section class=" bw-tool add-bd2-t add-mg-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#adtnlAtrbt%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn b-ctr"  id="btnXtnToggle" ng-click="SCU303Ctrl.btnXtnToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+					</section>
+					<section  id="arrXtnArea"  class="w-100">
+						<section  id="arrXtnBaseArea"   >
+						</section>
+						<div id="SCU303_mobileNbrList" >
+							<section class="bw-grid"></section>
+						</div>
+						<div id="SCU303_acctNbrList" >
+							<section class="bw-grid"></section>
+						</div>
+					</section>
+				</section>
+					<section class=" bw-tool add-bd2-t add-mg-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#adtnlAtrbtInput%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn"  id="btnXtnInputAdd" ng-click="SCU303Ctrl.btnXtnInputAdd_Onclick()" title=""><i class="bw-icon i-30 i-func-add"></i></button>
+						<button type="button" class="bw-btn b-ctr"  id="btnXtnInputToggle" ng-click="SCU303Ctrl.btnXtnInputToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+					</section>
+				<section  id="arrXtnInputArea"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_arrXtnInputArea" >
+					</tr>
+				</table>
+			</section>
+		</section>
+	</section>
+</section>
+</section>

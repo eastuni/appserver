@@ -1,0 +1,126 @@
+<section class="sample1-contents-wrap">
+    <h2 class="bw-tt">
+        시재보유한도관리
+        <p class="desc">부서별 스태프별 시재보유 한도를 관리합니다.</p>
+    </h2>
+
+
+    <section class="bw-tool add-bd2-t add-mg-t">
+        <div class="f-l">
+            <h3 class="bw-desc">검색 조건</h3>
+        </div>
+        <div class="btn-wrap fix-r">
+            <button type="button" class="bw-btn" id="btn-search-condition-reset" title="" ng-click="vm.resetSearchOnclick()"><i class="bw-icon i-30 i-func-reset"></i></button>
+            <button type="button" class="bw-btn" id="btn-search-condition-inquire" title="" ng-click="vm.inquerySearchOnclick()"><i class="bw-icon i-30 i-func-search"></i></button>
+            <button type="button" class="bw-btn b-ctr" id="btn-search-condition-toggle" ng-click="vm.toggleSearchOnclick()"><i class="fa fa-forward fa-rotate-270"></i></button>
+        </div>
+    </section>
+
+
+    <section id="search-condition-area">
+        <section class="search-wrap">
+            <table class="w-100">
+                <tr>
+                    <td class="td-w-33">
+                        <div class="input-wrap add-btn asterisk clr">
+                            <label class="bw-label w-42">부서식별자</label>
+                            <input type="text" class="bw-input w-58" data-form-param="deptId" disabled="disabled"/>
+                            <button type="button" class="bw-btn fix-r" id="btn-deptId-search"><i class="bw-icon i-20 i-search"></i></button>
+                        </div>
+                    </td>
+                    <td class="td-w-33">
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">부서명</label>
+                            <input type="text" class="bw-input w-60" data-form-param="deptNm" readonly="readonly"/>
+                        </div>
+                    </td>
+                    <td class="td-w-33">
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">통화코드</label>
+                            <select class="bw-input w-60 ipt-select Sample3-crncyCd-wrap" data-form-param="schCrncyCd"></select>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </section>
+
+
+    <section class="bw-tool add-bd2-t add-mg-t">
+        <div class="f-l">
+            <h3 class="bw-desc" id="searchResultCount">검색 결과</h3>
+        </div>
+        <div class="btn-wrap fix-r">
+            <button type="button" class="bw-btn" id="btn-search-result-reset" title=""><i class="bw-icon i-30 i-func-save"></i></button>
+            <button type="button" class="bw-btn" id="btn-search-result-inquire" title=""><i class="bw-icon i-30 i-func-xls"></i></button>
+            <button type="button" class="bw-btn b-ctr" id="btn-search-result-toggle"  ng-click="vm.toggleGridOnclick()"><i class="fa fa-forward fa-rotate-270"></i></button>
+        </div>
+    </section>
+
+
+    <section id="grid-area">
+        <div id="cashRtndLmtGrid"></div>
+        <div id="pager"></div>
+    </section>
+
+
+    <section class="bw-tool add-bd2-t add-mg-t">
+        <div class="f-l">
+            <h3 class="bw-desc">시재보유한도 속성</h3>
+        </div>
+        <div class="btn-wrap fix-r">
+            <button type="button" class="bw-btn" id="btn-cash-hold-limit-reset" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+            <button type="button" class="bw-btn" id="btn-cash-hold-limit-inquire" title=""><i class="bw-icon i-30 i-func-save"></i></button>
+            <button type="button" class="bw-btn b-ctr" id="btn-cash-hold-limit-toggle" ng-click="vm.toggleAttrOnclick()"><i class="fa fa-forward fa-rotate-270"></i></button>
+        </div>
+    </section>
+
+
+    <section id="cash-hold-limit-area">
+        <section class="search-wrap">
+            <table class="w-100">
+                <tr>
+                    <td class="td-w-33">
+                        <div class="input-wrap add-btn asterisk clr">
+                            <label class="bw-label w-42">스태프식별자</label>
+                            <input type="text" class="bw-input w-58" data-form-param="staffId"/>
+                            <button type="button" class="bw-btn fix-r" id="btn-staffId-search"><i class="bw-icon i-20 i-search"></i></button>
+                        </div>
+                    </td>
+                    <td class="td-w-33">
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">부서명</label>
+                            <input type="text" class="bw-input w-60" data-form-param="staffNm"/>
+                        </div>
+                    </td>
+                    <td class="td-w-33">
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">통화코드</label>
+                            <select class="bw-input w-60 ipt-select Sample3-crncyCd2-wrap" data-form-param="crncyCd"></select>
+                        </div>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="td-w-33">
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">보유한도</label>
+                            <input type="text" class="bw-input w-60" data-form-param="rtndLmt"/>
+                        </div>
+                    </td>
+                    <td class="td-w-33">
+                        <div class="input-wrap asterisk clr">
+                            <label class="bw-label w-40">금액유형</label>
+                            <select class="bw-input w-60 ipt-select Sample3-amtTpCd-wrap" data-form-param="amtTpCd"></select>
+                        </div>
+                    </td>
+                    <td class="td-w-33">
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </section>
+</section>
+
+

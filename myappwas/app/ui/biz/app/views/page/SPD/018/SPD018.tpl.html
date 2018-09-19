@@ -1,0 +1,119 @@
+<section id="SPD018" ng-init="SPD018Ctrl.init()" SPD018-wrap-directive>
+
+    <h2 class="bw-tt" data-i18n="{%=cbb_items.SCRN#SPD018%}">
+        <p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SPD018%}"></p>
+    </h2>
+
+	<!-- 조회영역 -->
+    <section class="search-condition-area">
+		<section class=" bw-tool add-bd2-t">
+			<!-- 계산통합조회 -->
+			<div class="f-l fix-label">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRN#SPD018%}"></h3>
+			</div>
+                   
+			<div class="btn-wrap fix-r">
+				<!-- 새로고침 -->
+				<button type=button" class="bw-btn"  id="btnResetSearchCnd" ng-click="SPD018Ctrl.btnResetSearchCndt_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+				<!-- 조회 -->
+				<button type="button" class="bw-btn"  id="btnSearch" ng-click="SPD018Ctrl.btnSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+				<!-- 토글 -->
+				<button type="button" class="bw-btn b-ctr"  id="btnSearhCndToggle" ng-click="SPD018Ctrl.btnSearhCndToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+		</section>
+
+		<!-- 검색조건 영역 -->
+           <section class="search-condition-wrap" id="searchConditionWrap">
+               <!-- 기본검색조건 영역 -->
+               <section class="search-wrap">
+                   <table class="bx-info-table w-100">
+                       <tr>
+	                       	<!-- 적용시작일자 -->
+							<td class="td-w-33">
+								<div class="input-wrap fix-label clr" >
+									<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#aplyStartDt%}"></label>
+									<div id="aplyStartDt"></div>
+								</div>
+							</td>
+						
+							<!-- 계산단위구분코드 -->
+                           <td class="td-w-33">
+                               <div class="input-wrap fix-label clr asterisk">
+                                   <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#crUnitDscd%}"></label>
+									<select class="bw-input ipt-select" data-form-param="crUnitDscd" id="crUnitDscd">
+	           						</select>
+                               </div>
+                           </td>
+                           
+							<!-- 서비스유형코드 -->
+							<td class="td-w-33">
+	           					<div id="srvcTpCd-wrap" class="input-wrap fix-label clr asterisk">
+	           						<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#srvcTpCd%}"></label>
+	           						<select class="bw-input ipt-select" data-form-param="srvcTpCd" id="srvcTpCd">
+	           						</select>
+								</div>
+							</td>
+                       </tr>
+                       <tr>
+                       	<td class="td-w-33"> <!-- 업무구분 -->
+                               <div class="input-wrap fix-label clr">
+                                   <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#bizDscd%}"></label>
+                                   <select class="bw-input ipt-select" ng-model="SPD018Ctrl.bizDscdSelectedValue" ng-change="SPD018Ctrl.bizDscd_OnChange()"  data-form-param="bizDscd"></select>
+                               </div>
+                           </td>
+                           <td class="td-w-33"> <!-- 상품유형 -->
+                               <div class="input-wrap fix-label clr">
+                                   <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#pdTp%}"></label>
+                                   <select class="bw-input ipt-select" ng-model="SPD018Ctrl.pdTpCdSelectedValue" ng-change="SPD018Ctrl.pdTpCd_OnChange()" data-form-param="pdTpCd" ></select>
+                               </div>
+                           </td>
+                           <td class="td-w-33"> <!-- 상품템플릿 -->
+                               <div class="input-wrap fix-label clr">
+                                   <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#pdTmplt%}"></label>
+                                   <select class="bw-input ipt-select" ng-model="SPD018Ctrl.pdTmpltSelectedValue" ng-change="SPD018Ctrl.pdTmpltCd_OnChange()" data-form-param="pdTmpltCd"></select>
+                               </div>
+                           </td>
+                       </tr>
+                       <tr>
+                       		<!-- 상품코드 -->
+                           <td class="td-w-33"> 
+                               <div class="input-wrap fix-label clr" >
+                                   <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#pdCd%}"></label>
+                                   <select class="bw-input ipt-select" data-form-param="pdCd"></select>
+                               </div>
+                           </td>
+
+							<td>
+							</td>
+							
+							<td>
+							</td>
+                       </tr>
+                   </table>
+               </section>
+		</section>
+        <!-- 계산단위그리드영역 -->
+        <section class="conts-section cal-unit-list-grid-area add-mg-t">
+            <!-- 계산단위그리드바 -->
+            <section class="bw-tool add-bd2-t">
+                <div class="f-1">
+                    <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn"  id="btnGrdCrUnitListExcel" ng-click="SPD018Ctrl.btnPdGridExcel_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btnGrdCrUnitListToggle" ng-click="SPD018Ctrl.btnGrdCrUnitListToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!-- 상품그리드 -->
+            <section class="cal-unit-list-grid" id="SPD018Ctrl-gridCrUnitList">
+            </section>
+        </section>
+        
+        <!-- 계산통합조회 탭영역 -->
+		<section class = "conts-section pd-detail-area add-mg-t">
+			<section id="secTabArea"></section>
+			<section  id="secContentsArea"></section>
+        </section>
+        
+    </section>
+</section>

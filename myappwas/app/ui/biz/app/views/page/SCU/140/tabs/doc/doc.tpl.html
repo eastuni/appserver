@@ -1,0 +1,49 @@
+
+			<section class=" bw-tool add-bd2-t" >
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnTab2Toggle" ng-click="SCU140_docCtrl.btnTab2Toggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+		<section  id="officePhoneFaxTab"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_officePhoneFaxTab" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#docIssueId%}" data-i18n-title="{%=cbb_items.AT#docIssueId%}"></label>
+						<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="docIssueId" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rcvrTp%}" data-i18n-title="{%=cbb_items.SCRNITM#rcvrTp%}"></label>
+						<select class="bw-input ipt-select" disabled data-form-param="rcvrTpCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<span data-form-param=""   ></span>
+				</td>
+			</tr>
+			<tr  name="tr_officePhoneFaxTab" >
+				<td class="td-w-33" colspan="3">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#message-detailMessages%}" data-i18n-title="{%=cbb_items.SCRNITM#message-detailMessages%}"></label>
+						<input type="text"  maxlength='2000' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="dtlMsgCntnt" />
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_officePhoneFaxTab" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#atchmntDocNm%}" data-i18n-title="{%=cbb_items.SCRNITM#atchmntDocNm%}"></label>
+						<input type="text"  maxlength='4000' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="atchmntFileCntnt" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<button type="button" class="bw-btn-form unit add-mg-t-7"  id="rgstRprsnttv" ng-click="docCtrl.rgstRprsnttv_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#docDtlVw%}"/></button>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" style="display:none;">
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#fileExstncYn%}" data-i18n-title="{%=cbb_items.AT#fileExstncYn%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="fileExstncYn"></select>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</section>

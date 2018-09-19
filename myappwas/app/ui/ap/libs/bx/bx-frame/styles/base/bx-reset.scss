@@ -1,0 +1,42 @@
+/* base/bx-reset.scss */
+
+ul, dd, p {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+label {
+    font-weight: normal;
+}
+
+
+a:hover {
+    text-decoration: none;
+}
+
+body, h1, h2, h3, h4, h5, h6, a {
+    color: #666;
+    font-weight: normal;
+    margin: 0;
+}
+
+body {
+    font-size: 12px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+// ExtJS Style Override
+.x-column-header, .x-grid-cell, .x-panel-header-default {
+    font-size: 12px;
+}

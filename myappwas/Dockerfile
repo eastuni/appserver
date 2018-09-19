@@ -23,6 +23,7 @@ COPY bash_aliases /home/${appuser}/.bash_aliases
 COPY app/product /app/product
 COPY app/cbpprod /app/cbpprod
 COPY app/apprun /app/apprun
+COPY app/ui /app/ui
 
 ARG washome=/app/cbpprod/was_instance
 RUN chown -R ${appuser}:${ciuser} /app && chown ${appuser}:${appuser} /home/${appuser}/.bash_aliases \
@@ -37,6 +38,9 @@ RUN mkdir ${washome}/admin/webapps && cd ${washome}/admin/webapps \
 			&& ln -s ../../../webapps/pf \
 			&& mkdir ${washome}/online/webapps && cd ${washome}/online/webapps \
 			&& ln -s ../../../webapps/onPfDist && ln -s ../../../webapps/onServiceEndpoint 
+RUN cd /app/ui/cp && ln -s ../ap/cbpbook  && ln -s ../ap/favicon.ico  && ln -s ../ap/file \
+			&& ln -s ../ap/images  && ln -s ../ap/index.html  && ln -s ../ap/libs \
+			&& ln -s ../ap/login.html  && ln -s ../ap/main.html  && ln -s ../ap/scripts  && ln -s ../ap/styles
 
 COPY entrypoint.sh /entrypoint.sh
 

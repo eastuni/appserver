@@ -1,0 +1,39 @@
+
+	<section  id='SCM902' ng-init="SCM902Ctrl.init()">
+		<div   id="unmaskPopup"  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SCM902%}">
+			</div>
+			<div   id="serviceBody"  class="modal-body">
+				<div   id="secSrchRslt"  class="add-mg-t">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#custId%}" data-i18n-title="{%=cbb_items.SCRNITM#custId%}"></label>
+						<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="rltdCustId" />
+					</div>
+					<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#unmaskRqstScrn%}" data-i18n-title="{%=cbb_items.SCRNITM#unmaskRqstScrn%}"></label>
+						<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="unmaskRqstScrnId" />
+					</div>
+				</div>
+				<section  id="secSrchCnd"   class="w-100 add-mg-t">
+					<div id="SCM902_unmaskDtlgrid" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+				<section  id="secSrchRsltDtl"   class="add-mg-t">
+					<div class="input-wrap fix-label asterisk clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#unmaskRsnCd%}" data-i18n-title="{%=cbb_items.SCRNITM#unmaskRsnCd%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="unmaskRsnCd"></select>
+					</div>
+					<div class="input-wrap clr fix-txtarea p-rel asterisk">
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#unmaskRsnCntnt%}" data-i18n-title="{%=cbb_items.SCRNITM#unmaskRsnCntnt%}"></label>
+						<div class="txt-wrap2 fix-size f-r">
+							<textarea class="bw-textarea"  placeholder="내용을 적어주세요." data-form-param="unmaskRsnDtlCntnt"></textarea>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div   class="modal-footer btn-wrap add-mg">
+				<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="SCM902Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#unmaskRqst%}"/></button>
+				<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SCM902Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+			</div>
+		</div>
+	</section>

@@ -1,0 +1,19 @@
+<section class="login-container" ng-init="testInit()">
+		<h1 id="titleName">CBP BANK WEB</h1>
+		<form class="login">
+			<ul>
+				<li id="instArea" style="display: none;">
+					<select class="bw-input ipt-select" id="selectInst">
+					</select>
+				</li>
+				<li><input type="text" class="bw-input ipt-login" id="loinIdNbr" placeholder="ID" /></li>
+				<li><input type="password" class="bw-input ipt-login" id="pwd" placeholder="Password" /></li>
+				<li>
+					<select class="bw-input ipt-select" id="selectLng">
+					</select>
+				</li>
+				<li><button type="button" class="bw-btn-txt" id="bx-login-btn" ng-click="loginCtrl.login()">Login</button></li>
+			</ul>
+		</form>
+		<p class="bw-copyright">2016 ⓒ BankwareGlobal</p>
+	</section>

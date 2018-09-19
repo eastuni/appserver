@@ -1,0 +1,14 @@
+<li class="bx-list-item" data-id="{{id}}">
+
+    {{#if multySelectAble}}
+    <input type="checkbox" class="bx-list-selector">
+    {{else}}
+    <input type="radio" name="list-radio-{{viewId}}" class="bx-list-selector">
+    {{/if}}
+
+    <span calss="bx-list-item-value">{{value}}</span>
+
+    {{#if deleteAble}}
+    <i class="bx-icon bx-icon-delete bx-list-delete-btn"></i>
+    {{/if}}
+</li>

@@ -1,0 +1,98 @@
+<!--
+@Screen number  CAPMT015
+@brief          기관별 배치작업실행
+@author         seok yoo
+@history        2015.11.19      생성
+                2016.11.23    수정
+-->
+
+
+<div class="contents-wrap">
+	<div class="contents">
+		<div class="CAPMT015-wrap">
+
+
+			<!--BW-TITLE *컨텐츠 메인 타이틀-->
+			<h2 class="bw-tt">
+				{{bxMsg 'cbb_items.SCRN#CAPMT015'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPMT015'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+			</h2>
+			<!--/END BW-TITLE-->
+
+
+			<!--BW-TOOL SEARCH CONDITION AREA * 아이콘 버튼을 포함하는 툴바-->
+			<div class="bw-tool add-bd2-t">
+				<div class="f-l">
+					<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn" id="btn-base-section-reset" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn" id="btn-base-section-inquiry" title="{{bxMsg 'cbb_items.SCRNITM#B_search'}}"><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-base-section-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</div>
+			<!--/END BW-TOOL-->
+
+
+			<!--SEARCH CONDITION AREA * 검색 조건 영역-->
+			<section class="CAPMT015-base-section search-wrap">
+				<div class="w-100 clr">
+					<span class="w-33 f-l">
+						<div class="input-wrap clr add-btn"><!--배치작업식별자//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#batchJobId'}}">{{bxMsg 'cbb_items.AT#batchJobId'}}</label>
+							<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#batchJobId'}}" data-form-param="batchJobId"/>
+							<button type="button" class="bw-btn fix-r" id="btn-popup-batchJobId"><i class="bw-icon i-30 i-search"></i></button>
+						</div>
+					</span>
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--배치작업명//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#batchJobNm'}}">{{bxMsg 'cbb_items.AT#batchJobNm'}}</label>
+							<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#batchJobNm'}}" data-form-param="batchJobNm" />
+						</div>
+					</span>
+					<span class="w-34 f-l">
+						<div class="input-wrap clr"><!--배치작업인스턴스식별자//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#batchJobInstncId'}}">{{bxMsg 'cbb_items.AT#batchJobInstncId'}}</label>
+							<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#batchJobInstncId'}}" data-form-param="batchJobInstncId" />
+						</div>
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--배치애플리케이션명//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#batchAplctnNm'}}">{{bxMsg 'cbb_items.AT#batchAplctnNm'}}</label>
+							<select class="bw-input w-60 ipt-select CAPMT015-batchAplctnNm-wrap" data-form-param="batchAplctnNm"></select>
+						</div>
+					</span>
+					<span class="w-33 f-l">
+					</span>
+					<span class="w-34 f-l">
+					</span>
+				</div>
+			</section>
+			<!--/END SEARCH CONDITION AREA-->
+
+
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<div class="bw-tool add-bd2-t add-mg-t">
+				<div class="f-l">
+					<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#inqRslt'}} (<span id="rsltCnt">0</span>{{bxMsg 'cbb_items.SCRNITM#cnt'}})</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn" id="btn-grid-section-excel" title="{{bxMsg 'cbb_items.SCRNITM#B_excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-grid-section-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</div>
+			<!--/END BW-TOOL-->
+
+
+			<!--GRID SECTION * 그리드영역-->
+			<section class="CAPMT015-grid-section grid-wrap">
+			</section>
+			<!--/END GRID SECTION -->
+
+
+		</div>
+	</div>
+</div>

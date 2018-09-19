@@ -1,0 +1,39 @@
+{
+    "namespace": "issue-mng",
+    "messages": {
+        "issue-list": "问题和风险目录",
+
+        "no": "NO",
+        "project": "项目",
+        "unit": "单元",
+        "manager": "负责人（主）",
+        "reg-date": "注册日期",
+        "prg-state": "检查状态",
+
+        "title": "题目",
+        "end-plan-date": "最终计划日期",
+        "register": "注册人",
+        "reg-date": "注册日期",
+
+        "issue-detail": "问题和风险详细信息",
+        "issue-new": "新问题和风险",
+
+        "issue-cls": "区分",
+        "issue-gd": "等级区分",
+        "group": "集团区分",
+        "area": "领域区分",
+        "sub-manager": "负责人（副）",
+        "issue-summary": "概要",
+        "crtd-user": "提出问题的人",
+        "crtd-dt": "提出问题日期",
+
+        "select-issue-msg": "请选择问题会风险。",
+        "delete-issue-msg": "您要删除问题会风险吗？",
+        "issue-num": "告示号",
+        "base-info": "基本信息",
+        "review-info": "审查意见",
+        "process-contents": "对应内容",
+        "progress-state": "审查状态"
+
+    }
+}

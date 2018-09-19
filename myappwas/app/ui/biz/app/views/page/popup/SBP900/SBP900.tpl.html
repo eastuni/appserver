@@ -1,0 +1,75 @@
+
+	<section  id='SBP900' ng-init="SBP900Ctrl.init()">
+		<div   id="SUP900"  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SBP900%}">
+			</div>
+			<div   id="partnrSrchBody"  class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SBP900Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+						<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SBP900Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i></button>
+						<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SBP900Ctrl.btnSchToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+					</section>
+				<section  id="secSrchCnd"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_secSrchCnd" >
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#custSrchDs%}" data-i18n-title="{%=cbb_items.SCRNITM#custSrchDs%}"></label>
+								<select class="bw-input ipt-select"  ng-model="SBP900Ctrl.custSrchCrtrCdSelectedValue" ng-change="SBP900Ctrl.custSrchCrtrCd_OnChange()" data-form-param="custSrchCrtrCd"></select>
+							</div>
+						</td>
+						<td class="w-50">
+							<div class="input-wrap single-type clr asterisk clr" >
+								<input type="text" class="bw-input a-left unqIdNbr"  data-form-param="srchBaseCntnt" common-string-number-only-directive/>
+								<input type="text" class="bw-input a-left corpRgstNbr"  data-form-param="srchBaseCntnt" common-string-number-only-directive/>
+								<input type="text" class="bw-input a-left actorNm"  data-form-param="srchBaseCntnt"/>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section   >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+					<h3 class="bw-desc">({{SBP900Ctrl.custListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SBP900Ctrl.btnGridToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+				<section  id="srchRslt"  >
+					<div id="SBP900_custList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+			<section   >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#prtnrList%}"></h3>
+					<h3 class="bw-desc">({{SBP900Ctrl.prtnrInfoListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnPrtnrGridToggle" ng-click="SBP900Ctrl.btnPrtnrGridToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+				<section  id="prtnrInfoRslt"  >
+					<div id="SBP900_prtnrInfoList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div   class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="SBP900Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+			<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SBP900Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+		</div>
+	</div>
+</section>

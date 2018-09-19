@@ -1,0 +1,33 @@
+[{
+  "id" : "root",
+  "text" : "<span style='color:red'>ROOT</span>",
+  "children":[
+    {
+      "id" : "child1",
+      "text" : "child1",
+      "li_attr" : {
+        "id": "child1"
+      },
+      "a_attr" : {
+        "href": "#",
+        "onclick": ""
+      }
+    },
+    {
+      "id" : "child2",
+      "text" : "child2",
+      "children": [
+        {
+          "id" : "child2-1",
+          "text" : "child2-1"
+        },
+        {
+          "id" : "child2-2",
+          "text" : "child2-2"
+        }
+      ]
+    }
+  ],
+  "li_attr" : {},
+  "a_attr" : {}
+}]

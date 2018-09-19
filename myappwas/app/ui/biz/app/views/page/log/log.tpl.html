@@ -1,0 +1,24 @@
+<h2 class="bw-tt">
+    <span>온라인 로그 조회</span>
+    <p class="desc">온라인 거래에서 발생된 이미지,업무,에러,로그내용을 조회</p>
+</h2>
+
+
+<section class="bw-tool add-bd2-t">
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn-txt" style="margin-right: 5px;" title="" ng-click="vm.openConfirm()">Dialog(Confirm)</button>
+        <button type="button" class="bw-btn-txt" style="margin-right: 5px;" title="" ng-click="vm.openAlert()">Dialog(Alert)</button>
+    </div>
+</section>
+
+
+
+
+<bx-ui-angular-tab items=vm.tabsConfig.items height="vm.tabsConfig.height"
+                   on-activate="vm.tabsConfig.onActivate(data)" on-render="vm.tabsConfig.onRender()"
+                   default-route="vm.tabsConfig.defaultRoute"
+>
+</bx-ui-angular-tab>
+
+
+<div class="btn-wrap add-mg"></div>

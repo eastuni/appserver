@@ -1,0 +1,41 @@
+<ul id="main-menu-list" data-status="wide" class="is-extension">
+
+    {{#each menuList}}
+    <li class="main-menu-item">
+        <a class="menu-item-link" href="#" data-handler="{{handler}}" data-arg="{{handlerArg}}" >
+            {{#if children}}
+                <i class="icon icon-12 icon-plus-white"></i>
+            {{/if}}
+
+            {{#if iconName}}
+            <img src="libs/bx/bx-frame/images/menu-icon/{{iconName}}.png"/>
+            {{/if}}
+            {{#unless iconName}}
+            <img/>
+            {{/unless}}
+
+            <span class="main-menu-label">{{name}}</span>
+        </a>
+
+        {{#if children}}
+            <ul class="main-sub-menu">
+                {{#each children}}
+                <li>
+                    <a class="sub-menu-item-link" data-status="leaf" href="#" data-handler="{{handler}}" data-arg="{{handlerArg}}">
+                        {{#if iconName}}
+                        <img src="libs/bx/bx-frame/images/menu-icon/{{iconName}}.png"/>
+                        {{/if}}
+                        {{#unless iconName}}
+                        <img/>
+                        {{/unless}}
+
+                        {{name}}
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        {{/if}}
+    </li>
+    {{/each}}
+
+</ul>

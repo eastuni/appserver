@@ -1,0 +1,156 @@
+<tr>
+    <td class="td-w-33"> <!-- 조회기준일 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#inqryBaseDt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input qryCrtrDstnctnCd" value={{conditionInfo.qryCrtrDstnctnCd}}  readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 징수통화 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#levyCrncy%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input levyCrncyDscd" value={{conditionInfo.levyCrncyDscd}}  readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 징수시기 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#LevyTm%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input levyTmDscd" value={{conditionInfo.levyTmDscd}}  readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td class="td-w-33"> <!-- 수수료유형 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#feeTp%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input feeTpCd"  value={{conditionInfo.feeTpCd}} readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 징수주기 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#levyCycl%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input levyFrqDscd" value={{conditionInfo.levyFrqDscd}}  readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 징수기준 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#levyBase%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input levyBaseDscd"  value={{conditionInfo.levyBaseDscd}} readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+<!-- 수수료유형 = 율 일 때 -->
+<tr class="rate" style="display:none">
+    <td class="td-w-33"> <!-- 최소율 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.AT#minRt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input minRt"  value={{conditionInfo.minRt}}  readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 최대율 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.AT#maxRt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input maxRt"  value={{conditionInfo.maxRt}}  readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 기본율 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#bsicRt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input bsicRt"  value={{conditionInfo.bsicRt}}  readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+</tr>
+
+<tr class="rate" style="display:none">
+    <td class="td-w-33"> <!-- 수수료징수최소금액 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.AT#feeLevyMinAmt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input feeLevyMinAmt"   value={{conditionInfo.feeLevyMinAmt}} readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 수수료징수최대금액 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.AT#feeLevyMaxAmt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input feeLevyMaxAmt"  value={{conditionInfo.feeLevyMaxAmt}}  readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 단위증가율 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.AT#unitIncrsRt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input unitIncrsRt"  value={{conditionInfo.unitIncrsRt}}  readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+</tr>
+
+
+
+<!-- 수수료유형 = 금액 일 때 -->
+<tr class="amt" style="display:none">
+    <td class="td-w-33"> <!-- 최소수수료금액 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.AT#minFeeAmt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input minFixFeeAmt"  value={{conditionInfo.minFixFeeAmt}}  readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 최소수수료금액 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.AT#maxFeeAmt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input maxFixFeeAmt"  value={{conditionInfo.maxFixFeeAmt}}  readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"></td>
+</tr>
+
+
+<tr class="amt" style="display:none">
+    <td class="td-w-33"> <!-- 기본수수료금액 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.AT#bsicFeeAmt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input bsicFixFeeAmt"  value={{conditionInfo.bsicFixFeeAmt}}  readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"> <!-- 증가금액 -->
+        <div class="input-wrap fix-label clr" >
+            <label class="bw-label"  data-i18n="{%=cbb_items.AT#feeIncrsAmt%}"></label>
+            <div class="td-desc-wrap clr">
+                <input type="text" class="bw-input fixFeeIncrsAmt"  value={{conditionInfo.fixFeeIncrsAmt}}  readonly="readonly"/>
+            </div>
+        </div>
+    </td>
+    <td class="td-w-33"></td>
+</tr>
+
+
+
+

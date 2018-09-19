@@ -1,0 +1,187 @@
+
+	<section  id='SCM502' ng-init="SCM502Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SCM502%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SCM502%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#aprvlRqstInfo%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnBaseToggle" ng-click="SCM502Ctrl.btnBaseToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="w-50">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlId%}" data-i18n-title="{%=cbb_items.AT#aprvlId%}"></label>
+							<input type="text"  maxlength='20' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="aprvlId" />
+						</div>
+					</td>
+					<td class="w-50">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlDemandDt%}" data-i18n-title="{%=cbb_items.AT#aprvlDemandDt%}"></label>
+							<div id="aprvlAplctnDt" ></div>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="w-50">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlDemandStaffId%}" data-i18n-title="{%=cbb_items.AT#aprvlDemandStaffId%}"></label>
+							<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="aprvlDemandStaffId" />
+						</div>
+					</td>
+					<td class="w-50">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlDemandStaffNm%}" data-i18n-title="{%=cbb_items.AT#aprvlDemandStaffNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="aprvlDemandStaffNm" />
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="w-50">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlRsnCd%}" data-i18n-title="{%=cbb_items.AT#aprvlRsnCd%}"></label>
+							<select class="bw-input ipt-select" disabled data-form-param="aprvlRsnCd"></select>
+						</div>
+					</td>
+					<td class="w-50">
+						<span data-form-param=""   ></span>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="w-50" colspan="2">
+						<div class="input-wrap clr fix-txtarea p-rel">
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlAplctnCntnt%}" data-i18n-title="{%=cbb_items.AT#aprvlAplctnCntnt%}"></label>
+							<div class="txt-wrap2 fix-size f-r">
+								<textarea class="bw-textarea" readonly="readonly" placeholder="내용을 적어주세요." data-form-param="aprvlAplctnCntnt"></textarea>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="w-50">
+						<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#itmLvlCd%}" data-i18n-title="{%=cbb_items.AT#itmLvlCd%}"></label>
+							<input type="text"  maxlength='1' dec='0' class="bw-input a-left"   data-form-param="itmLvlCd" />
+						</div>
+					</td>
+					<td class="w-50">
+						<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlTmpltId%}" data-i18n-title="{%=cbb_items.AT#aprvlTmpltId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="aprvlTmpltId" />
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#aprvlExctnInfo%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SCM502Ctrl.btnGridToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+			<section  id="secaprvlRqstInfo"  >
+				<div id="SCM502_SCM502Grid" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#aprvlExctnDtl%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnDetailToggle" ng-click="SCM502Ctrl.btnDetailToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+			</section>
+		<section  id="aprvlExecuteGrp"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_aprvlExecuteGrp" >
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlDeptId%}" data-i18n-title="{%=cbb_items.AT#aprvlDeptId%}"></label>
+						<input type="text"  maxlength='14' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="aprvlDeptId" />
+					</div>
+				</td>
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlDeptNm%}" data-i18n-title="{%=cbb_items.AT#aprvlDeptNm%}"></label>
+						<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="aprvlDeptNm" />
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_aprvlExecuteGrp" >
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlRoleId%}" data-i18n-title="{%=cbb_items.AT#aprvlRoleId%}"></label>
+						<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="aprvlRoleId" />
+					</div>
+				</td>
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlRoleNm%}" data-i18n-title="{%=cbb_items.AT#aprvlRoleNm%}"></label>
+						<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="aprvlRoleNm" />
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_aprvlExecuteGrp" >
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#dlgtnAprvlStaffId%}" data-i18n-title="{%=cbb_items.AT#dlgtnAprvlStaffId%}"></label>
+						<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="dlgtnAprvlStaffId" />
+					</div>
+				</td>
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#dlgtnAprvlStaffNm%}" data-i18n-title="{%=cbb_items.AT#dlgtnAprvlStaffNm%}"></label>
+						<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="dlgtnAprvlStaffNm" />
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_aprvlExecuteGrp" >
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlStaffId%}" data-i18n-title="{%=cbb_items.AT#aprvlStaffId%}"></label>
+						<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="aprvlStaffId" />
+					</div>
+				</td>
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlStaffNm%}" data-i18n-title="{%=cbb_items.AT#aprvlStaffNm%}"></label>
+						<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="aprvlStaffNm" />
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_aprvlExecuteGrp" >
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlDtlStsCd%}" data-i18n-title="{%=cbb_items.AT#aprvlDtlStsCd%}"></label>
+						<input type="text"  maxlength='3' dec='0' class="bw-input "  readonly="readonly" data-form-param="aprvlDtlStsCd" />
+					</div>
+				</td>
+				<td class="w-50">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvDt%}" data-i18n-title="{%=cbb_items.AT#aprvDt%}"></label>
+						<div id="aprvDt" ></div>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_aprvlExecuteGrp" >
+				<td class="w-50" colspan="2">
+					<div class="input-wrap clr fix-txtarea p-rel">
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlCntnt%}" data-i18n-title="{%=cbb_items.AT#aprvlCntnt%}"></label>
+						<div class="txt-wrap2 fix-size f-r">
+							<textarea class="bw-textarea"  placeholder="내용을 적어주세요." data-form-param="aprvlCntnt"></textarea>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<table align="center" >
+		<tr >
+			<td class="w-50">
+				<button type="button" class="bw-btn-form unit add-mg-t-7"  id="accept" ng-click="SCM502Ctrl.accept_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#accept%}"/></button>
+			</td>
+			<td class="w-50">
+				<button type="button" class="bw-btn-form unit add-mg-t-7"  id="reject" ng-click="SCM502Ctrl.reject_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#rejected%}"/></button>
+			</td>
+		</tr>
+	</table>
+</section>
+</section>

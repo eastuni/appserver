@@ -1,0 +1,10 @@
+/************************************************************************************************************************************
+ 	CSS Guide -  2016.05.18 김지현  
+ 	LAST UPDATE - 2016.05.18
+ ************************************************************************************************************************************/
+/*SELECT FOR IE*/
+select::-ms-expand {display:none;}
+.bw-input[type="checkbox"],
+.bw-input[type="radio"] {-webkit-appearance:none;-moz-appearance:none;appearance:none;border:0 !important;background:#eeeeee;width:15px !important;margin-right:5px;}
+.bw-input[type="checkbox"] {background:white}
+.bw-input[type="radio"] {background:white;}

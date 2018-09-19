@@ -1,0 +1,31 @@
+<nav id="side_menu" class="side-nav add-shadow" style="width: 250px;">
+    <section id="workflow-menu" class="workflow-menu">
+        <ul class="tab_menu_default">
+        	<li class="first-tab on-tab" id="side_tab_menu"><a href="" ng-click="sideCtrl.setWorkArea('M')">Menu</a></li>
+        	<li class=""                 id="side_tab_workflow"><a href="" ng-click="sideCtrl.setWorkArea('W')">Workflow</a></li>
+        </ul>
+    </section>
+    <section id="main-workflow" class="main-workflow">
+    		<div id="workflowStepList" >
+				<section class="bw-grid"></section>
+			</div>
+    </section>
+    <section id="main-menu" class="main-menu" ng-init="sideCtrl.setWorkArea('M')">
+        <div id="menu-accordion" class="menu-accordion" style="margin-top:1px;"></div>
+        
+        
+        <div id="accordion1"></div>
+		
+		<div id="menu-hide" class="menu-hide" style="margin-top:1px; display: none;">
+			<ul class="fa">
+				<li class="bw-btn bx-primary-menu-item" data-id="{{item.menuId}}" data-index="{{$index}}" ng-repeat="item in iconMenuList" repeat-side-directive>
+					<i class="{{item.icon}}" title="{{item.menuNm}}"></i>
+				</li>
+			</ul>
+		</div>
+    </section>
+    <section id="main-menu-bottom" class="main-menu-bottom">
+        <button type="button" class="bw-btn-fold fix-btm" id="menu_close" ng-click="sideCtrl.menuClose()"><i class="fa i-30 fa-angle-double-left"></i></button>
+        <button type="button" class="bw-btn-fold fix-btm" id="menu_open" ng-click="sideCtrl.menuOpen()" style="display: none;"><i class="fa i-30 fa-angle-double-right"></i></button>
+    </section>
+</nav>

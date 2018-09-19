@@ -1,0 +1,88 @@
+{
+	"ko": {
+		"text1": "계정계 개발",
+		"text2": "sysAdmin 관리자",
+		"accordionMenu1": {
+			"menu": {
+				"menu1": "UI 테스트",
+				"menu2": "목록"
+			},
+			"menuItems": {
+				"menu1": {
+					"item1": "UI 테스트 1",
+					"item2": "UI 테스트 2",
+					"item3": "UI 테스트 3"
+				},
+				"menu2": {
+					"item1": "아이템 1",
+					"item2": "아이템 2",
+					"item3": "아이템 3"
+				}
+			}
+		},
+		"accordionMenu2": {
+			"menu": {
+				"menu1": "UI 테스트",
+				"menu2": "목록"
+			},
+			"menuItems": {
+				"menu1": {
+					"item1": "UI 테스트 4",
+					"item2": "UI 테스트 5",
+					"item3": "UI 테스트 6"
+				},
+				"menu2": {
+					"item1": "아이템 1",
+					"item2": "아이템 2",
+					"item3": "아이템 3"
+				}
+			}
+		},
+		"text3": "온라인 로그 조회",
+		"text4": "온라인 거래에서 발생된 이미지,업무,에러,로그내용을 조회",
+		"text5": "-- 언어 선택 --"
+	},
+	"en": {
+		"text1": "Account-based development",
+		"text2": "SystemAdmin Manager",
+		"accordionMenu1": {
+			"menu": {
+				"menu1": "UI TEST",
+				"menu2": "LIST"
+			},
+			"menuItems": {
+				"menu1": {
+					"item1": "UI TEST 1",
+					"item2": "UI TEST 2",
+					"item3": "UI TEST 3"
+				},
+				"menu2": {
+					"item1": "ITEM 1",
+					"item2": "ITEM 2",
+					"item3": "ITEM 3"
+				}
+			}
+		},
+		"accordionMenu2": {
+			"menu": {
+				"menu1": "UI TEST",
+				"menu2": "LIST"
+			},
+			"menuItems": {
+				"menu1": {
+					"item1": "UI TEST 4",
+					"item2": "UI TEST 5",
+					"item3": "UI TEST 6"
+				},
+				"menu2": {
+					"item1": "ITEM 1",
+					"item2": "ITEM 2",
+					"item3": "ITEM 3"
+				}
+			}
+		},
+		"text3": "Online Log Inquiry",
+		"text4": "Images were generated on-line transaction, business, error, the contents of the Log Display",
+		"text5": "-- select language --"
+	}
+}

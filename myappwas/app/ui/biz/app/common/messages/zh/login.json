@@ -1,0 +1,14 @@
+{
+    "namespace": "login",
+    "messages": {
+        "select-language": "语言选择",
+        "login": "登录,
+        "remember-id": "记住用户名"
+        , "org" : "机构选择"
+        , "InstNm" : "所属机构"
+        , "idPwdNull" : "请输入您的用户名和密码。"
+        , "login-fail" : "登录失败。"
+        , "select": "选择"
+        , "cancel": "取消"
+    }
+}

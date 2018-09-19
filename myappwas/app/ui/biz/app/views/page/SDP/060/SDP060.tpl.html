@@ -1,0 +1,48 @@
+
+	<section  id='SDP060' ng-init="SDP060Ctrl.init()">
+		<section  id="secSrchCnd"   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SDP060%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SDP060%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#CAPCM190-LIST-TITLE%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnAttrReset" ng-click="SDP060Ctrl.btnAttrReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn"  id="btnAttrSave" ng-click="SDP060Ctrl.btnAttrSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnAttrToggle" ng-click="SDP060Ctrl.btnAttrToggle_Onclick()" title=""><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+				</section>
+			<section  id="secAttr"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secAttr" >
+					<td class="w-50">
+						<div class="input-wrap fix-label clr asterisk clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#acctNbr%}" data-i18n-title="{%=cbb_items.AT#acctNbr%}"></label>
+							<input type="text"  dec='0' class="bw-input a-left"   data-form-param="acctNbr" />
+							<button type="button" class="bw-btn fix-r" ng-click="SDP060Ctrl.acctNbr_Onclick()" id="btn-acctNbr-search"><i class="bw-icon i-20 i-search"></i></button>
+						</div>
+					</td>
+					<td class="w-50">
+						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#orgnlPswd%}" data-i18n-title="{%=cbb_items.SCRNITM#orgnlPswd%}"></label>
+							<input type="password" class="bw-input"  data-form-param="bfChngPswd"/>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_secAttr" >
+					<td class="w-50">
+						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#newPswd%}" data-i18n-title="{%=cbb_items.SCRNITM#newPswd%}"></label>
+							<input type="password" class="bw-input"  data-form-param="afChngPswd"/>
+						</div>
+					</td>
+					<td class="w-50">
+						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#cnfrmNewPswd%}" data-i18n-title="{%=cbb_items.SCRNITM#cnfrmNewPswd%}"></label>
+							<input type="password" class="bw-input"  data-form-param="chngAfCnfrmtnPswd"/>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+	</section>
+</section>

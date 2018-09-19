@@ -1,0 +1,14 @@
+{
+    "namespace": "login",
+    "messages": {
+        "select-language": "언어 선택",
+        "login": "로그인",
+        "remember-id": "아이디 기억하기"
+        , "org" : "기관선택"
+        , "InstNm" : "소속기관"
+        , "idPwdNull" : "ID와 비밀번호를 입력해주세요."
+        , "login-fail" : "로그인에 실패 했습니다."
+        , "select": "선택"
+        , "cancel": "취소"
+    }
+}

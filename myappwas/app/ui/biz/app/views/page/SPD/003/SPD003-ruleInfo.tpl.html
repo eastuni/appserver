@@ -1,0 +1,73 @@
+<!-- 타이틀바 -->
+<section class="bw-tool add-bd2-t">
+    <div class="f-1">
+        <h3 class="bw-desc">{{ruleInfo.title}}</h3>
+    </div>
+</section>
+
+<!-- 내용 -->
+<section class="rule-wrap search-wrap">
+    <!-- 그리드영역 -->
+    <section id="grid-section"></section>
+
+    <table class="bx-info-table w-100">
+        <tr>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label clr">
+                    <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#aplyTrm%}"></label>
+                    <div class="td-desc-wrap clr">
+                        <input type="text" class="bw-input cndCd" value={{ruleInfo.aplyDt}} readonly="true" />
+                    </div>
+                </div>
+            </td>
+            <td class="td-w-33"></td>
+            <td class="td-w-33"></td>
+        </tr>
+        <!-- 수수료할인 > 최대할인 -->
+        <tr class="fee-dscnt-info" style="display:none">
+            <td class="td-w-33">
+                <div class="input-wrap fix-label clr">
+                    <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#maxDscnt%}"></label>
+                    <div class="td-desc-wrap clr">
+                        <input type="text" class="bw-input cndCd" value={{ruleInfo.maxDscnt}} readonly="true" />
+                    </div>
+                </div>
+            </td>
+            <td class="td-w-33">
+                <div class="input-wrap fix-label clr">
+                    <label class="bw-label" data-i18n="{%=cbb_items.AT#rtAmtDstnctnCd%}"></label>
+                    <div class="td-desc-wrap clr">
+                        <input type="text" class="bw-input cndCd" value={{ruleInfo.rtAmtDstnctnCd}} readonly="true" />
+                    </div>
+                </div>
+            </td>
+            <td class="td-w-33"></td>
+        </tr>
+
+        <!-- 우대금리 > 최대우대금리 -->
+        <tr class="pirt-info" style="display:none">
+            <td class="td-w-33">
+                <div class="input-wrap fix-label clr">
+                    <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#maxPrfIntRt%}"></label>
+                    <div class="td-desc-wrap clr">
+                        <input type="text" class="bw-input cndCd" value={{ruleInfo.maxPrfIntRt}} readonly="true" />
+                    </div>
+                </div>
+            </td>
+            <td class="td-w-33"></td>
+            <td class="td-w-33"></td>
+        </tr>
+
+        <!-- 적용규칙 -->
+        <tr>
+            <td class="td-w-100">
+                <div class="input-wrap fix-label clr">
+                    <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#aplyRule%}"></label>
+                    <div class="td-desc-wrap clr">
+                        <input type="text" class="bw-input cndCd" value={{ruleInfo.ruleCntnt}} readonly="true" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</section>
