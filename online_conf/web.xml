@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <!--
   Licensed to the Apache Software Foundation (ASF) under one or more
   contributor license agreements.  See the NOTICE file distributed with
@@ -42,8 +42,16 @@
   <!-- parameters (default values are in square brackets):                  -->
   <!--                                                                      -->
   <!--   debug               Debugging detail level for messages logged     -->
-  <!--                       by this servlet. Useful values are 0, 1, and   -->
-  <!--                       11 where higher values mean more detail. [0]   -->
+  <!--                       by this servlet. Useful values range from 0    -->
+  <!--                       to 5 where 0 means no logging and 5 means      -->
+  <!--                       maximum logging. Values of 10 or more mean     -->
+  <!--                       maximum logging plus debug info added to the   -->
+  <!--                       HTTP response. If an error occurs and debug is -->
+  <!--                       10 or more the standard error page mechanism   -->
+  <!--                       will be disabled and a response body with      -->
+  <!--                       debug information will be produced. Note that  -->
+  <!--                       any value of 10 or more has the same effect as -->
+  <!--                       a value of 10. [0]                             -->
   <!--                                                                      -->
   <!--   fileEncoding        Encoding to be used to read static resources   -->
   <!--                       [platform default]                             -->
@@ -163,8 +171,6 @@
   <!--   engineOptionsClass  Allows specifying the Options class used to    -->
   <!--                       configure Jasper. If not present, the default  -->
   <!--                       EmbeddedServletOptions will be used.           -->
-  <!--                       This option is ignored when running under a    -->
-  <!--                       SecurityManager.                               -->
   <!--                                                                      -->
   <!--   errorOnUseBeanInvalidClassAttribute                                -->
   <!--                       Should Jasper issue an error when the value of -->
@@ -226,27 +232,15 @@
   <!--   scratchdir          What scratch directory should we use when      -->
   <!--                       compiling JSP pages?  [default work directory  -->
   <!--                       for the current web application]               -->
-  <!--                       This option is ignored when running under a    -->
-  <!--                       SecurityManager.                               -->
   <!--                                                                      -->
   <!--   suppressSmap        Should the generation of SMAP info for JSR45   -->
   <!--                       debugging be suppressed?  [false]              -->
   <!--                                                                      -->
-  <!--   trimSpaces          Should template text that consists entirely of -->
-  <!--                       whitespace be removed from the output? [false] -->
+  <!--   trimSpaces          Should white spaces in template text between   -->
+  <!--                       actions or directives be trimmed?  [false]     -->
   <!--                                                                      -->
   <!--   xpoweredBy          Determines whether X-Powered-By response       -->
   <!--                       header is added by generated servlet.  [false] -->
-  <!--                                                                      -->
-  <!--   strictQuoteEscaping When scriptlet expressions are used for        -->
-  <!--                       attribute values, should the rules in JSP.1.6  -->
-  <!--                       for the escaping of quote characters be        -->
-  <!--                       strictly applied? [true]                       -->
-  <!--                                                                      -->
-  <!--   quoteAttributeEL    When EL is used in an attribute value on a     -->
-  <!--                       JSP page should the rules for quoting of       -->
-  <!--                       attributes described in JSP.1.6 be applied to  -->
-  <!--                       the expression? [true]                         -->
 
     <servlet>
         <servlet-name>jsp</servlet-name>
@@ -335,31 +329,11 @@
   <!--                        If not set, then webAppRootDir is used.       -->
   <!--                        Recommended value: WEB-INF/cgi                -->
   <!--                                                                      -->
-  <!--   enableCmdLineArguments                                             -->
-  <!--                        Are command line parameters generated from    -->
-  <!--                        the query string as per section 4.4 of 3875   -->
-  <!--                        RFC? [true]                                   -->
+  <!--   debug                Debugging detail level for messages logged    -->
+  <!--                        by this servlet.  [0]                         -->
   <!--                                                                      -->
   <!--   executable           Name of the executable used to run the        -->
   <!--                        script. [perl]                                -->
-  <!--                                                                      -->
-  <!--   envHttpHeaders       A regular expression used to select the HTTP  -->
-  <!--                        headers passed to the CGI process as          -->
-  <!--                        environment variables. Note that headers are  -->
-  <!--                        converted to upper case before matching and   -->
-  <!--                        that the entire header name must match the    -->
-  <!--                        pattern.                                      -->
-  <!--                        [ACCEPT[-0-9A-Z]*|CACHE-CONTROL|COOKIE|HOST|  -->
-  <!--                         IF-[-0-9A-Z]*|REFERER|USER-AGENT]            -->
-  <!--                                                                      -->
-  <!--  environment-variable- An environment to be set for the execution    -->
-  <!--                        environment of the CGI script. The name of    -->
-  <!--                        variable is taken from the parameter name.    -->
-  <!--                        To configure an environment variable named    -->
-  <!--                        FOO, configure a parameter named              -->
-  <!--                        environment-variable-FOO. The parameter value -->
-  <!--                        is used as the environment variable value.    -->
-  <!--                        The default is no environment variables.      -->
   <!--                                                                      -->
   <!--   parameterEncoding    Name of parameter encoding to be used with    -->
   <!--                        CGI servlet.                                  -->
@@ -377,10 +351,14 @@
         <servlet-name>cgi</servlet-name>
         <servlet-class>org.apache.catalina.servlets.CGIServlet</servlet-class>
         <init-param>
+          <param-name>debug</param-name>
+          <param-value>0</param-value>
+        </init-param>
+        <init-param>
           <param-name>cgiPathPrefix</param-name>
           <param-value>WEB-INF/cgi</param-value>
         </init-param>
-        <load-on-startup>5</load-on-startup>
+         <load-on-startup>5</load-on-startup>
     </servlet>
 -->
 
@@ -479,7 +457,6 @@
         <async-supported>true</async-supported>
     </filter>
 -->
-
   <!-- A filter that triggers request parameters parsing and rejects the    -->
   <!-- request if some parameters were skipped because of parsing errors or -->
   <!-- request size limitations.                                            -->
@@ -2889,7 +2866,7 @@
     </mime-mapping>
     <mime-mapping>
         <extension>otf</extension>
-        <mime-type>font/otf</mime-type>
+        <mime-type>application/x-font-otf</mime-type>
     </mime-mapping>
     <mime-mapping>
         <!-- OpenDocument Drawing Template -->
@@ -3928,11 +3905,11 @@
     </mime-mapping>
     <mime-mapping>
         <extension>ttc</extension>
-        <mime-type>font/collection</mime-type>
+        <mime-type>application/x-font-ttf</mime-type>
     </mime-mapping>
     <mime-mapping>
         <extension>ttf</extension>
-        <mime-type>font/ttf</mime-type>
+        <mime-type>application/x-font-ttf</mime-type>
     </mime-mapping>
     <mime-mapping>
         <extension>ttl</extension>
@@ -4321,11 +4298,7 @@
     </mime-mapping>
     <mime-mapping>
         <extension>woff</extension>
-        <mime-type>font/woff</mime-type>
-    </mime-mapping>
-    <mime-mapping>
-        <extension>woff2</extension>
-        <mime-type>font/woff2</mime-type>
+        <mime-type>application/x-font-woff</mime-type>
     </mime-mapping>
     <mime-mapping>
         <extension>wpd</extension>
