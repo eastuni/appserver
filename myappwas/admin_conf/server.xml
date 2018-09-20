@@ -63,7 +63,7 @@
 					auth="Container"
 					type="com.atomikos.jdbc.AtomikosDataSourceBean"
 					factory="com.atomikos.tomcat.EnhancedTomcatAtomikosBeanFactory"
-					uniqueResourceName="APPXA"
+					uniqueResourceName="BXMXA"
 					maxPoolSize="20"
 					xaDataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource"
 					xaProperties.databaseName="bxm"
