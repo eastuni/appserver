@@ -1,9 +1,0 @@
-OMM bankware.corebanking.payment.transaction.batch.dto.ArrMrchntInfoExtrtnTrgtIO
-<description="">
-{
-	String tntInstId<length=8 description="기관코드">;
-	String mrchntNbr<length=20 description="가맹점번호">;
-	String mrchntTpCd<length=2 description="가맹점유형코드">;
-	String mrchntNm<length=200 description="가맹점명">;
-	String mrchntStsCd<length=1 description="가맹점상태코드">;
-}

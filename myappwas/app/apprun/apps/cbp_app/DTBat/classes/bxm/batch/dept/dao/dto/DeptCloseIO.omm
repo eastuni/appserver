@@ -1,7 +1,0 @@
-OMM bxm.batch.dept.dao.dto.DeptCloseIO
-<description="DeptCloseIO">
-{
-	String instCd<length=3>;
-	String deptId<length=100>;
-	String clsrDt<length=8>;
-}

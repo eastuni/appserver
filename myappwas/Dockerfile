@@ -1,4 +1,5 @@
-FROM eastuni/ubuntu-ko:httpd
+FROM eastuni/ubuntu-ko:sww
+#FROM localhost:5000/ubuntu-ko:sww
 
 ARG appuser=apprun
 ARG appgroup=apprun
@@ -29,6 +30,8 @@ COPY httpconf/00-cbp.conf /etc/apache2/sites-available/
 
 ARG washome=/app/cbpprod/was_instance
 
+COPY admin_conf/* ${washome}/admin/conf
+COPY online_conf/* ${washome}/online/conf
 
 RUN chown -R ${appuser}:${ciuser} /app && chown ${appuser}:${appuser} /home/${appuser}/.bash_aliases \
 			&& chmod 755 ${washome}/admin/*.sh && chmod 755 ${washome}/online/*.sh \
@@ -39,10 +42,10 @@ USER ${appuser}
 
 RUN mkdir ${washome}/admin/webapps && cd ${washome}/admin/webapps \
 			&& ln -s ../../../webapps/bxmAdmin && ln -s ../../../webapps/cpPfDist && ln -s ../../../webapps/cpServiceEndpoint \
-			&& ln -s ../../../webapps/pf && cd ${washome}/admin/server/classes && ln -s ../../webapps/cpServiceEndpoint/WEB-INF/classes/log4j.xml \
+			&& ln -s ../../../webapps/pf && cd ${washome}/admin/lib && ln -s ../webapps/cpServiceEndpoint/WEB-INF/classes/log4j.xml \
 			&& mkdir ${washome}/online/webapps && cd ${washome}/online/webapps \
 			&& ln -s ../../../webapps/onPfDist && ln -s ../../../webapps/onServiceEndpoint \
-			&& cd ${washome}/online/server/classes && ln -s ../../webapps/onServiceEndpoint/WEB-INF/classes/log4j.xml \
+			&& cd ${washome}/online/lib && ln -s ../webapps/onServiceEndpoint/WEB-INF/classes/log4j.xml \
 			&& cd /app/ui/cp && ln -s ../ap/cbpbook  && ln -s ../ap/favicon.ico  && ln -s ../ap/file \
 			&& ln -s ../ap/images  && ln -s ../ap/index.html  && ln -s ../ap/libs \
 			&& ln -s ../ap/login.html  && ln -s ../ap/main.html  && ln -s ../ap/scripts  && ln -s ../ap/styles 

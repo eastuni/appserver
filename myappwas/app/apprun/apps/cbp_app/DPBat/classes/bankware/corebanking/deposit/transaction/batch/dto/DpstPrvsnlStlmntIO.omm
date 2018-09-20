@@ -1,7 +1,0 @@
-OMM bankware.corebanking.deposit.transaction.batch.dto.DpstPrvsnlStlmntIO
-<description="">
-{
-	String arrId<length=40 description="계약식별자">;
-	String baseDt<length=8 description="기준일">;
-	String bizDscd<length=2 description="업무구분코드">;
-}

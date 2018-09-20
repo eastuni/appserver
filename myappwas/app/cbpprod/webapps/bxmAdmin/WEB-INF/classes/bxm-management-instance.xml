@@ -58,8 +58,8 @@
         max-resultset="10000" fetch-size="10" min-fetch-size="100"
         limit-exceeded-action="Error" forced-logging="false">
         <jndi-datasource-aliases>
-            <alias name="java:/comp/env/APPNXA" alias="DSNXA"/>
-            <alias name="java:/comp/env/APPXA" alias="DSXA"/>
+            <alias name="java:/comp/env/BXMNXA" alias="DSNXA"/>
+            <alias name="java:/comp/env/BXMXA" alias="DSXA"/>
         </jndi-datasource-aliases>
     </data-access>
 

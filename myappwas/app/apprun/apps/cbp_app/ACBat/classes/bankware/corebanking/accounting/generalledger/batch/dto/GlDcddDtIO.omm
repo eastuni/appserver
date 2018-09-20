@@ -1,8 +1,0 @@
-OMM bankware.corebanking.accounting.generalledger.batch.dto.GlDcddDtIO
-<description="">
-{
-	String dcsnStartDt<length=8 description="확정시작일">;
-	String dcsnEndDt<length=8 description="확정종료일">;
-	String crygFrwrdStartDt<length=8 description="이월시작일">;
-	String crygFrwrdEndDt<length=8 description="이월종료일">;
-}

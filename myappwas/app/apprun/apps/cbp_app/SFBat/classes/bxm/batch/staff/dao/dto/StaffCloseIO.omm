@@ -1,6 +1,0 @@
-OMM bxm.batch.staff.dao.dto.StaffCloseIO
-<description="StaffCloseIO">
-{
-	String instCd<length=3>;
-	String staffId<length=15 description="Staff Identification">;
-}

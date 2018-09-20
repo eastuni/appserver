@@ -1,6 +1,0 @@
-OMM bankware.corebanking.deposit.transaction.batch.dto.DpstAccrualSkipOut
-<description="수신가결산 Skip 항목">
-{
-	String arrId<length=40 description="계약식별자">;
-	String cntnt<length=4000 description="내용">;
-}

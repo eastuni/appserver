@@ -1,5 +1,0 @@
-OMM bankware.cloudbanking.deposit.transaction.batch.dao.dto.ArArrArrIdBatIO
-<description="">
-{
-	String arrId<length=40 description="계약식별자">;
-}
