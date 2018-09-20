@@ -1,0 +1,20 @@
+OMM bankware.corebanking.deposit.simulation.service.dto.IntSmltnSvcOutSub
+<description="">
+{
+	String instCd<length=14 description="기관코드">;
+	String arrId<length=40 description="계약식별자">;
+	String txDt<length=8 description="거래년월일">;
+	Integer txSeqNbr<length=7 description="거래일련번호">;
+	String amtTpCd<length=5 description="금액유형코드">;
+	Integer dtlSeqNbr<length=3 description="상세일련번호">;
+	BigDecimal calcnBaseAmt<length=18 decimal=2 description="계산기준금액">;
+	String calcnStartDt<length=8 description="계산시작년월일">;
+	String calcnEndDt<length=8 description="계산종료년월일">;
+	Integer calcnDayCnt<length=3 description="계산일수">;
+	Integer calcnMnthCnt<length=5 description="계산월수">;
+	String stlmntDtlTpCntnt<length=100 description="정산상세유형">;
+	BigDecimal aplyIntRt<length=8 decimal=4 description="적용이율">;
+	String dpstWhdrwlDscd<length=1 description="입출구분코드">;
+	String prchsRtrnYn<length=1 description="환입환출여부">;
+	BigDecimal stlmntAmt<length=18 decimal=2 description="정산금액">;
+}

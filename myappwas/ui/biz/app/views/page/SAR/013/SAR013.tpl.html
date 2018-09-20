@@ -1,0 +1,206 @@
+
+	<section  id='SAR013' ng-init="SAR013Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SAR013%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SAR013%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SAR013Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SAR013Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SAR013Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#acctNbr%}" data-i18n-title="{%=cbb_items.AT#acctNbr%}"></label>
+							<input type="text"  dec='0' class="bw-input a-left"   data-form-param="acctNbr" />
+							<button type="button" class="bw-btn fix-r" ng-click="SAR013Ctrl.acctNbr_Onclick()" id="btn-acctNbr-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#arrId%}" data-i18n-title="{%=cbb_items.AT#arrId%}"></label>
+							<input type="text"  maxlength='40' dec='0' class="bw-input a-left"   data-form-param="arrId" />
+						</div>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseAtrbt%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnBaseToggle" ng-click="SAR013Ctrl.btnBaseToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+		<section  id="secSrchRslt"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_secSrchRslt" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#sts%}" data-i18n-title="{%=cbb_items.SCRNITM#sts%}"></label>
+						<select class="bw-input ipt-select" disabled data-form-param="arrStsCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#arrStsChngRsnCd%}" data-i18n-title="{%=cbb_items.AT#arrStsChngRsnCd%}"></label>
+						<select class="bw-input ipt-select" disabled data-form-param="arrStsChngRsnCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#stsChngDt%}" data-i18n-title="{%=cbb_items.AT#stsChngDt%}"></label>
+						<div id="arrStsDt" ></div>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_secSrchRslt" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#pdCd%}" data-i18n-title="{%=cbb_items.AT#pdCd%}"></label>
+						<input type="text"  maxlength='20' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="pdCd" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#pdNm%}" data-i18n-title="{%=cbb_items.AT#pdNm%}"></label>
+						<input type="text"  maxlength='300' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="pdNm" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#stsChngHms%}" data-i18n-title="{%=cbb_items.AT#stsChngHms%}"></label>
+						<input type="text"  class="bw-input "  readonly="readonly" data-form-param="arrStsHms" common-time-valid-directive/>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_secSrchRslt" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+						<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custId" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+						<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#crncy%}" data-i18n-title="{%=cbb_items.SCRNITM#crncy%}"></label>
+						<select class="bw-input ipt-select" disabled data-form-param="crncyCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<span data-form-param=""   ></span>
+				</td>
+			</tr>
+			<tr  name="tr_secSrchRslt" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#opnDt%}" data-i18n-title="{%=cbb_items.AT#opnDt%}"></label>
+						<div id="arrOpnDt" ></div>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#opnHms%}" data-i18n-title="{%=cbb_items.SCRNITM#opnHms%}"></label>
+						<input type="text"  class="bw-input "  readonly="readonly" data-form-param="arrOpnHms" common-time-valid-directive/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#mtrtyDt%}" data-i18n-title="{%=cbb_items.AT#mtrtyDt%}"></label>
+						<div id="mtrtyDt" ></div>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_secSrchRslt" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#lastAgrmntDt%}" data-i18n-title="{%=cbb_items.AT#lastAgrmntDt%}"></label>
+						<div id="lastAgrmntDt" ></div>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#arrLastAgrmntHms%}" data-i18n-title="{%=cbb_items.AT#arrLastAgrmntHms%}"></label>
+						<input type="text"  class="bw-input "  readonly="readonly" data-form-param="arrLastAgrmntHms" common-time-valid-directive/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#trmntnDt%}" data-i18n-title="{%=cbb_items.SCRNITM#trmntnDt%}"></label>
+						<div id="arrTrmntnDt" ></div>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_secSrchRslt" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#opnChnl%}" data-i18n-title="{%=cbb_items.SCRNITM#opnChnl%}"></label>
+						<select class="bw-input ipt-select" disabled data-form-param="chnlDscd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#mngngDept%}" data-i18n-title="{%=cbb_items.SCRNITM#mngngDept%}"></label>
+						<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="mgmtDeptNm" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#mthrArrId%}" data-i18n-title="{%=cbb_items.AT#mthrArrId%}"></label>
+						<input type="text"  maxlength='40' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="mthrArrId" />
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_secSrchRslt" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#cycl%}" data-i18n-title="{%=cbb_items.SCRNITM#cycl%}"></label>
+						<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="nthNbr"  common-numeric-only-directive ng-model='nthNbr'/>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</section>
+</section>
+<div id="tab" class=" add-mg-t">
+	<ul>
+		<li ng-click="SAR013_arrCndTabCtrl.tabOpen()"><a href="#SAR013_arrCndTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRN#SAR010-1%}" data-i18n-title="{%=cbb_items.SCRN#SAR010-1%}"></label><span class="triangle"></span></a></li>
+		<li ng-click="SAR013_balTabCtrl.tabOpen()"><a href="#SAR013_balTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRN#SAR010-2%}" data-i18n-title="{%=cbb_items.SCRN#SAR010-2%}"></label><span class="triangle"></span></a></li>
+		<li ng-click="SAR013_xtnInfoTabCtrl.tabOpen()"><a href="#SAR013_xtnInfoTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#SFX201-3%}" data-i18n-title="{%=cbb_items.SCRNITM#SFX201-3%}"></label><span class="triangle"></span></a></li>
+		<li ng-click="SAR013_relAcctTabCtrl.tabOpen()"><a href="#SAR013_relAcctTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRN#SAR010-5%}" data-i18n-title="{%=cbb_items.SCRN#SAR010-5%}"></label><span class="triangle"></span></a></li>
+		<li ng-click="SAR013_intRtTabCtrl.tabOpen()"><a href="#SAR013_intRtTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRN#SAR010-6%}" data-i18n-title="{%=cbb_items.SCRN#SAR010-6%}"></label><span class="triangle"></span></a></li>
+		<li ng-click="SAR013_childAcctTabCtrl.tabOpen()"><a href="#SAR013_childAcctTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRN#SAR010-7%}" data-i18n-title="{%=cbb_items.SCRN#SAR010-7%}"></label><span class="triangle"></span></a></li>
+		<li ng-click="SAR013_relInfoTabCtrl.tabOpen()"><a href="#SAR013_relInfoTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRN#SCU110-9%}" data-i18n-title="{%=cbb_items.SCRN#SCU110-9%}"></label><span class="triangle"></span></a></li>
+		<li ng-click="SAR013_etcSmryInfoTabCtrl.tabOpen()"><a href="#SAR013_etcSmryInfoTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRN#SAR010-8%}" data-i18n-title="{%=cbb_items.SCRN#SAR010-8%}"></label><span class="triangle"></span></a></li>
+	</ul>
+<div id="SAR013_arrCndTab">
+	<views-sar013-arrcndtab-directive></views-sar013-arrcndtab-directive>
+</div>
+<div id="SAR013_balTab">
+	<views-sar013-baltab-directive></views-sar013-baltab-directive>
+</div>
+<div id="SAR013_xtnInfoTab">
+	<views-sar013-xtninfotab-directive></views-sar013-xtninfotab-directive>
+</div>
+<div id="SAR013_relAcctTab">
+	<views-sar013-relaccttab-directive></views-sar013-relaccttab-directive>
+</div>
+<div id="SAR013_intRtTab">
+	<views-sar013-intrttab-directive></views-sar013-intrttab-directive>
+</div>
+<div id="SAR013_childAcctTab">
+	<views-sar013-childaccttab-directive></views-sar013-childaccttab-directive>
+</div>
+<div id="SAR013_relInfoTab">
+	<views-sar013-relinfotab-directive></views-sar013-relinfotab-directive>
+</div>
+<div id="SAR013_etcSmryInfoTab">
+	<views-sar013-etcsmryinfotab-directive></views-sar013-etcsmryinfotab-directive>
+</div>
+</div>
+</section>

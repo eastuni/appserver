@@ -1,0 +1,83 @@
+
+	<section  id='SCL311' ng-init="SCL311Ctrl.init()">
+		<section   >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SCL311%}">
+			</div>
+			<table class="w-100"  id="grpBasic" >
+				<tr  name="tr_grpBasic" >
+					<td class="w-50">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#debtorNm%}" data-i18n-title="{%=cbb_items.AT#debtorNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"   data-form-param="debtorNm" />
+						</div>
+					</td>
+					<td class="w-50">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#actorUnqIdNbr%}" data-i18n-title="{%=cbb_items.AT#actorUnqIdNbr%}"></label>
+							<input type="text"  maxlength='30' dec='0' common-string-number-only-directive class="bw-input a-left"   data-form-param="actorUnqIdNbr" />
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_grpBasic" >
+					<td class="w-50">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#prcsDt%}" data-i18n-title="{%=cbb_items.AT#prcsDt%}"></label>
+							<div id="prcsDt" ></div>
+						</div>
+					</td>
+					<td class="w-50">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aplyExRt%}" data-i18n-title="{%=cbb_items.AT#aplyExRt%}"></label>
+							<input type="text"  dec='5' class="bw-input "   data-form-param="aplyExRt"  common-numeric-only-directive ng-model='aplyExRt'/>
+						</div>
+					</td>
+				</tr>
+			</table>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#lnSmry%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnLnToggle" ng-click="SCL311Ctrl.btnLnToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="grpLn"  >
+				<div id="SCL311_grdLnList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#assetSmry%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnAssetToggle" ng-click="SCL311Ctrl.btnAssetToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="grpAsset"  >
+				<div id="SCL311_grdAssetList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#dstrbtSmry%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnDstrbtToggle" ng-click="SCL311Ctrl.btnDstrbtToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="grpDstrbt"  >
+				<div id="SCL311_grdDstrbtList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+		<div   class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SCL311Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+		</div>
+	</section>
+</section>

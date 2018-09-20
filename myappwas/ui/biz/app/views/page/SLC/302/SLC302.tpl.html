@@ -1,0 +1,83 @@
+
+	<section  id='SLC302' ng-init="SLC302Ctrl.init()">
+		<section  id="acc"   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SLC302%}" />
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SLC302Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SLC302Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SLC302Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="custId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SLC302Ctrl.custId_Onclick()" id="btn-custId-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#prprtySurveyStsCd%}" data-i18n-title="{%=cbb_items.AT#prprtySurveyStsCd%}"></label>
+							<input type="text"  maxlength='3' dec='0' class="bw-input a-left"   data-form-param="prprtySurveyStsCd" />
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#prprtySurveyId%}" data-i18n-title="{%=cbb_items.AT#prprtySurveyId%}"></label>
+							<input type="text"  maxlength='10' dec='0' class="bw-input a-left"   data-form-param="prprtySurveyId" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#inqryStartDt%}" data-i18n-title="{%=cbb_items.AT#inqryStartDt%}"></label>
+							<div id="inqryStartDt" ></div>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#inqryEndDt%}" data-i18n-title="{%=cbb_items.AT#inqryEndDt%}"></label>
+							<div id="inqryEndDt" ></div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnGrpGridToggle" ng-click="SLC302Ctrl.btnGrpGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="custGrpSrchRslt"  >
+				<div id="SLC302_custGrpSrchList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+		<div id="tab1" class=" add-mg-t">
+			<ul>
+				<li ng-click="SLC302_prprtySurveyRqstCtrl.tabOpen()"><a href="#SLC302_prprtySurveyRqst"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#prprtySurveyRqst%}" data-i18n-title="{%=cbb_items.SCRNITM#prprtySurveyRqst%}"></label><span class="triangle"></span></a></li>
+				<li ng-click="SLC302_findPrprtyCtrl.tabOpen()"><a href="#SLC302_findPrprty"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#findPrprty%}" data-i18n-title="{%=cbb_items.SCRNITM#findPrprty%}"></label><span class="triangle"></span></a></li>
+			</ul>
+		<div id="SLC302_prprtySurveyRqst">
+			<views-slc302-prprtysurveyrqst-directive></views-slc302-prprtysurveyrqst-directive>
+		</div>
+		<div id="SLC302_findPrprty">
+			<views-slc302-findprprty-directive></views-slc302-findprprty-directive>
+		</div>
+		</div>
+	</section>
+</section>

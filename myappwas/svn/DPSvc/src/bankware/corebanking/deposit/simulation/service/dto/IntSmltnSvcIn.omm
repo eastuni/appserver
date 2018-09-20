@@ -1,0 +1,9 @@
+OMM bankware.corebanking.deposit.simulation.service.dto.IntSmltnSvcIn
+<description="">
+{
+	String intTxTpCd<length=2 description="이자거래유형코드">;
+	String acctNbr<length=15 description="계좌번호">;
+	String baseDt<length=8 description="기준일">;
+	String arrTrmntnDscd<length=2 description="계약해지구분">;
+	BigDecimal prtlWhdrwlAmt<length=15 description="일부출금금액">;
+}

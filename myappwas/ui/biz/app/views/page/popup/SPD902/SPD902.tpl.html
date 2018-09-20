@@ -1,0 +1,429 @@
+
+
+	<!-- 금리조건값 상세팝업 -->
+	<section ng-init="SPD902Ctrl.init()" SPD902-wrap-directive>
+		<div  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRNITM#intCndVal%}">
+			</div>
+			<div class="modal-body">
+				<div id="int-cnd-val-popup"  >
+					<section id="int-cnd-val-area">
+						<table class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap fix-label clr">
+										<!-- 우수리적용자리수 -->
+										<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#frctnAplyCnt%}"></label>
+										<input type="text" class="bw-input frctnAplyFgrsCnt" readonly="readonly"/>
+									</div>
+								</td>
+								<td class="td-w-33">
+										<div class="input-wrap fix-label clr">
+										<!-- 우수리적용방법코드 -->
+										<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#frctnAplyWayCd%}"></label>
+										<input type="text" class="bw-input frctnAplyWayCd" readonly="readonly"/>
+									</div>
+								</td>
+							</tr>
+
+
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap fix-label clr">
+										<!-- 금리적용방식코드 -->
+										<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#IntRtAplyWayCd%}"></label>
+										<input type="text" class="bw-input intRtAplyWayCd" readonly="readonly"/>
+									</div>
+								</td>
+
+
+								<td class="td-w-33">
+									<div class="input-wrap fix-label clr">
+										<!-- 금리데이터유형코드 -->
+										<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#intRtDataTpCd%}"></label>
+										<input type="text" class="bw-input intRtDataTpCd" readonly="readonly"/>
+									</div>
+								</td>
+							</tr>
+						</table>
+
+
+						<!-- 금리조건 단순 값 -->
+						<section  id="intrstRt"  class="cnd-base-interest-simple-value-wrap intrstRt">
+
+
+							<!-- 화면상단영역 (조회,토글) -->
+							<section class=" bw-tool add-bd2-t" >
+								<div class="f-l">
+									<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#intRt%}"></h3>
+								</div>
+
+
+								<div class="btn-wrap fix-r">
+									<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SPD902Ctrl.btnToggle_Onclick('intrstRt-area')" title=""><i class="fas fa-angle-double-up"></i></button>
+								</div>
+							</section>
+
+
+							<section id="intrstRt-area">
+								<table class="w-100">
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 최소값 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#min%} (%)"></label>
+
+
+												 <!--최소값 값 -->
+												 <div class="td-desc-wrap clr">
+													 <input type="text" class="bw-input minIntRt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 최대값 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#max%} (%)"></label>
+
+
+												 <!--최대값 값 -->
+												 <div class="td-desc-wrap clr">
+													 <input type="text" class="bw-input maxIntRt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 기본값 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#bsic%} (%)"></label>
+
+
+												 <!--기본값 값 -->
+												 <div class="td-desc-wrap clr">
+													 <input type="text" class="bw-input baseIntRt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</section>
+						</section>
+
+
+						<!--고정정보-->
+						<section class = 'fixedInfo'>
+							<!-- 화면상단영역 (조회,토글) -->
+							<section class=" bw-tool add-bd2-t" >
+								<div class="f-l">
+									<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#fixedInfo%}"></h3>
+								</div>
+
+
+								<div class="btn-wrap fix-r">
+									<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SPD902Ctrl.btnToggle_Onclick('fixedInfo-area')" title=""><i class="fas fa-angle-double-up"></i></button>
+								</div>
+							</section>
+
+
+							<section id="fixedInfo-area">
+								<table class="w-100">
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr">
+												<!-- 최초고정금리적용기간수 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#initFixedIntAplyPeriod%}"></label>
+
+
+												 <!--최초고정금리적용기간수 값 -->
+												 <div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input frstFixedIntRtAplyTrmCnt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr">
+												<!-- 최초고정금리적용기간구분 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#frstFixedIntRtAplyTrmDscd%}"></label>
+
+
+												 <!--최초고정금리적용기간구분 값 -->
+												 <div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input frstFixedIntRtAplyTrmDscd"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td>
+										</td>
+									</tr>
+								</table>
+							</section>
+						</section>
+
+
+						<!-- 변동정보 -->
+						<section class = 'varInfo'>
+							<!-- 화면상단영역 (조회,토글) -->
+							<section class=" bw-tool add-bd2-t" >
+								<div class="f-l">
+									<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#varInfo%}"></h3>
+								</div>
+
+
+								<div class="btn-wrap fix-r">
+									<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SPD002Ctrl.btnToggle_Onclick('varInfo-area')" title=""><i class="fas fa-angle-double-up"></i></button>
+								</div>
+							</section>
+
+
+							<section id="varInfo-area">
+								<table class="w-100">
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 변동정보 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#varInfo%}"></label>
+
+
+												 <!--변동정보 값 -->
+												 <div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input varIntRtAplyWayCd"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 변동정보참조조건 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#refCnd%}"></label>
+
+
+												 <!--변동정보참조조건 값 -->
+												 <div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input varCyclRefCndCd"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td>
+										</td>
+
+
+									</tr>
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 변동주기산정기준 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#varCycleEstmtBase%}"></label>
+
+
+												 <!--변동주기산정기준 값 -->
+												 <div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input varIntRtCyclBaseDayDscd"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 주기 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#cycle%}"></label>
+
+
+												 <!--주기 값 -->
+												 <div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input varIntRtAplyCyclCnt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td>
+										</td>
+									</tr>
+								</table>
+							</section>
+						</section>
+
+
+						<!-- 기준금리 -->
+						<section class = 'int-baseIntRt'>
+							<!-- 화면상단영역 (조회,토글) -->
+							<section class=" bw-tool add-bd2-t" >
+								<div class="f-l">
+									<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseIntRt%}"></h3>
+								</div>
+
+
+								<div class="btn-wrap fix-r">
+									<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SPD902Ctrl.btnToggle_Onclick('int-baseIntRt-area')" title=""><i class="fas fa-angle-double-up"></i></button>
+								</div>
+							</section>
+
+
+							<section id="int-baseIntRt-area">
+								<table class="w-100">
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 기준금리종류 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#baseIntRtKind%}"></label>
+
+
+												 <!--기준금리종류 값 -->
+												 <div class="td-desc-wrap clr">
+													 <input type="text" class="bw-input baseIntRtKndCd"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+
+
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 적용시점 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#aplyTm%}"></label>
+
+
+												 <!--적용시점 값 -->
+												 <div class="td-desc-wrap clr">
+													 <input type="text" class="bw-input baseIntRtAplyTmDscd"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td>
+										</td>
+									</tr>
+								</table>
+							</section>
+						</section>
+
+
+						<!-- 스프레드정보 -->
+						<section class = 'sprdInfo'>
+							<!-- 화면상단영역 (조회,토글) -->
+							<section class=" bw-tool add-bd2-t" >
+								<div class="f-l">
+									<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#sprdInfo%}"></h3>
+								</div>
+
+
+								<div class="btn-wrap fix-r">
+									<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SPD902Ctrl.btnToggle_Onclick('sprdInfo-area')" title=""><i class="fas fa-angle-double-up"></i></button>
+								</div>
+							</section>
+
+
+							<section id="sprdInfo-area">
+								<table class="w-100">
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 스프레드적용산식 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#sprdAplyFormula%}"></label>
+
+
+												 <!--스프레드적용산식 값 -->
+												 <div class="td-desc-wrap clr">
+													 <input type="text" class="bw-input intRtSprdAplyFormulaCd"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+
+
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 적용시점 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#sprdRt%} {%=cbb_items.SCRNITM#min%} {%=cbb_items.SCRNITM#max%}"></label>
+
+
+												 <!--적용시점 값 -->
+												 <div class="td-desc-wrap clr">
+													 <input type="text" class="bw-input SprdRt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td>
+										</td>
+									</tr>
+								</table>
+							</section>
+						</section>
+
+
+						<!-- 적용가능한도 -->
+						<section class='aplcableLimit'>
+							<!-- 화면상단영역 (조회,토글) -->
+							<section class=" bw-tool add-bd2-t" >
+								<div class="f-l">
+									<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#aplcableLimit%}"></h3>
+								</div>
+
+
+								<div class="btn-wrap fix-r">
+									<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SPD902Ctrl.btnToggle_Onclick('aplcableLimit-area')" title=""><i class="fas fa-angle-double-up"></i></button>
+								</div>
+							</section>
+
+
+							<section id="aplcableLimit-area">
+								<table class="w-100">
+									<tr>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 적용제한금리 최소값 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#aplyLimitIntRt%} {%=cbb_items.SCRNITM#min%} (%)"></label>
+
+
+												 <!--적용제한금리 최소값 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input aplyMinIntRt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+										<td class="td-w-33">
+											<div class="input-wrap fix-label clr" >
+												<!-- 적용제한금리 최대값 라벨 --> 
+												<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#aplyLimitIntRt%} {%=cbb_items.SCRNITM#max%} (%)"></label>
+
+
+												 <!--적용제한금리 최대값 -->
+												<div class="td-desc-wrap clr" >
+													 <input type="text" class="bw-input aplyMaxIntRt"   readonly="readonly"/>
+												</div>
+											</div>
+										</td>
+
+
+										<td>
+										</td>
+									</tr>
+								</table>
+							</section>
+						</section>
+					</section>
+				</div>
+			</div>
+			<div  class="modal-footer btn-wrap add-mg">
+				<button type="button" class="bw-btn-txt on" id="btnCancel" ng-click="SPD902Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.ABRVTN#chk%}"/></button>
+			</div>
+		</div>
+	</section>

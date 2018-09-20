@@ -1,0 +1,55 @@
+
+	<section  id='SDT800' ng-init="SDT800Ctrl.init()">
+		<div   id="SDP800"  SUP903>
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SDT800%}">
+			</div>
+			<div   class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SDT800Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+						<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SDT800Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+					</div>
+					</section>
+				<section  id="secSrchCnd"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_secSrchCnd" >
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#dtogRelCd%}" data-i18n-title="{%=cbb_items.AT#dtogRelCd%}"></label>
+								<select class="bw-input ipt-select"  data-form-param="dtogRelCd"></select>
+							</div>
+						</td>
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#deptNm%}" data-i18n-title="{%=cbb_items.AT#deptNm%}"></label>
+								<input type="text"  maxlength='100' dec='0' class="bw-input a-left"   data-form-param="deptNm" />
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section   >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SDT800Ctrl.btnGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+				<section  id="srchRslt"  >
+					<section class="unit-tree-wrap a-left" style="height:250px; overflow-y:auto;">
+						<div class="popup-dept-tree"  id='deptTree'></div>
+					</section>
+				</section>
+			</section>
+		</div>
+		<div   class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="SDT800Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+			<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SDT800Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+		</div>
+	</div>
+</section>

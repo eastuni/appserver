@@ -1,0 +1,80 @@
+
+	<section  id='SCL141' ng-init="SCL141Ctrl.init()">
+		<div   id="insrncTitle"  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SCL141%}">
+			</div>
+			<div   class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SCL141Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+						<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SCL141Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+						<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SCL141Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+					</div>
+					</section>
+				<section  id="secSrchCnd"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_secSrchCnd" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#debtorCustId%}" data-i18n-title="{%=cbb_items.AT#debtorCustId%}"></label>
+								<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="debtorCustId" />
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#debtorCustNm%}" data-i18n-title="{%=cbb_items.AT#debtorCustNm%}"></label>
+								<input type="text"  maxlength='50' dec='0' class="bw-input a-left"   data-form-param="debtorCustNm" />
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprslRqstDeptId%}" data-i18n-title="{%=cbb_items.AT#aprslRqstDeptId%}"></label>
+								<input type="text"  maxlength='14' dec='0' class="bw-input a-left"   data-form-param="aprslRqstDeptId" />
+							</div>
+						</td>
+					</tr>
+					<tr  name="tr_secSrchCnd" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label asterisk clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#inqryStartDt%}" data-i18n-title="{%=cbb_items.AT#inqryStartDt%}"></label>
+								<div id="inqryStartDt" ></div>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label asterisk clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#inqryEndDt%}" data-i18n-title="{%=cbb_items.AT#inqryEndDt%}"></label>
+								<div id="inqryEndDt" ></div>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#aprslRqstStsCd%}" data-i18n-title="{%=cbb_items.AT#aprslRqstStsCd%}"></label>
+								<select class="bw-input ipt-select"  data-form-param="aprslRqstStsCd"></select>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section   >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SCL141Ctrl.btnGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+				<section  id="srchRslt"  >
+					<div id="SCL141_grdInsrnc" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div   class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="SCL141Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+			<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SCL141Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+		</div>
+	</div>
+</section>

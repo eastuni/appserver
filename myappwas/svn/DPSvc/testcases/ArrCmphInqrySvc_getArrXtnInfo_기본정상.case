@@ -1,0 +1,13 @@
+#TestCaseName=기본정상
+#EndpointUrl=http://cbp.bankware/serviceEndpoint/serialized
+#InputHeader=
+<header default="true">
+<application>DPSvc</application>
+<service>ArrCmphInqrySvc</service>
+<operation>getArrXtnInfo</operation>
+</header>
+#InputOmmFileNm=bankware.corebanking.deposit.service.dto.ArrCmphInqrySvc01In
+#InputOmm=
+<ArrCmphInqrySvc01In>
+    <acctNbr>100000000000216</acctNbr>
+</ArrCmphInqrySvc01In>

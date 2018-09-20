@@ -1,0 +1,58 @@
+
+	<section  id='SCU902' ng-init="SCU902Ctrl.init()">
+		<div   id="serviceTitle"  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SCU902%}">
+			</div>
+			<section   class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#authNbr%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SCU902Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+					</div>
+					</section>
+				<section  id="secAuthNbr"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_secAuthNbr" >
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#authNbr%}" data-i18n-title="{%=cbb_items.SCRNITM#authNbr%}"></label>
+								<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="realNmAuthId" />
+							</div>
+						</td>
+						<td class="w-50">
+							<button type="button" class="bw-btn-form unit add-mg-t-7"  id="authNbr" ng-click="SCU902Ctrl.authNbr_Onclick()" title=""><span data-i18n="{%=cbb_items.ABRVTN#auth%}"/></button>
+						</td>
+					</tr>
+					<tr  name="tr_secAuthNbr" >
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" style="display:none;">
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#authYn%}" data-i18n-title="{%=cbb_items.AT#authYn%}"></label>
+								<select class="bw-input ipt-select" disabled data-form-param="authYn"></select>
+							</div>
+						</td>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+			</section>
+		</section>
+		<div   class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="SCU902Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#confirm%}"/></button>
+			<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SCU902Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+			<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#selfAuthId%}" data-i18n-title="{%=cbb_items.AT#selfAuthId%}"></label>
+				<input type="text"  maxlength='20' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="selfAuthId" />
+			</div>
+			<div class="input-wrap fix-label clr" style="display:none;">
+				<label class="bw-label "  data-i18n="{%=cbb_items.AT#authCd%}" data-i18n-title="{%=cbb_items.AT#authCd%}"></label>
+				<select class="bw-input ipt-select"  data-form-param="authCd"></select>
+			</div>
+			<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#authTrgtTpCd%}" data-i18n-title="{%=cbb_items.AT#authTrgtTpCd%}"></label>
+				<input type="text"  maxlength='2' dec='0' class="bw-input "   data-form-param="authTrgtTpCd" />
+			</div>
+			<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#authTrgtId%}" data-i18n-title="{%=cbb_items.AT#authTrgtId%}"></label>
+				<input type="text"  maxlength='100' dec='0' class="bw-input a-left"   data-form-param="authTrgtId" />
+			</div>
+		</div>
+	</div>
+</section>

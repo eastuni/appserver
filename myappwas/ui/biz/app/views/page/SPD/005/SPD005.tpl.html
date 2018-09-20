@@ -1,0 +1,229 @@
+
+<section class="main-contents add-tree ng-scope"
+	ng-init="SPD005Ctrl.init()" SPD005-wrap-directive>
+
+	<h2 class="bw-tt" data-i18n="{%=cbb_items.SCRN#SPD005%}">
+		<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SPD005%}"></p>
+	</h2>
+
+
+	<section class="layout-wrap">
+		<section class="bw-tree-wrap layout SPD005col1 col1">
+			<section>
+				<section class=" bw-tool add-bd2-t">
+					<!-- 서비스그룹 목록 -->
+					<div class="f-l fix-label">
+						<h3 class="bw-desc"
+							data-i18n="{%=cbb_items.SCRNITM#SPD005TITLE%}"></h3>
+					</div>
+					<!-- 목록 숨김버튼 -->
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn" id="btnSchHide"
+							ng-click="SPD005Ctrl.btnSchHide_Onclick()" title="">
+							<i class="fa fa-angle-left"></i>
+						</button>
+					</div>
+				</section>
+
+				<!-- 조회영역 -->
+				<section id="cndList">
+					<!-- 상품그룹명 -->
+					<div
+						class="input-wrap add-btn add-mg-l-10 add-mg-t-10 clr fix-label">
+						<label class="bw-label w-40"
+							data-i18n="{%=cbb_items.SCRNITM#grpNm%}"></label> <input
+							type="text" class="bw-input w-60" placeholder="전체"
+							data-form-param="SPD005searchKey" />
+						<button type="button" class="bw-btn fix-r"
+							ng-click="SPD005Ctrl.treeSvcGroup_Onclick()"
+							id="btn-treeCndNm-search">
+							<i class="fas fa-search"></i>
+						</button>
+					</div>
+				</section>
+
+				<!-- 상품그룹트리영역 -->
+				<section class="unit-tree-wrap a-left" style="overflow-y: auto;">
+					<div class="popup-cnd-tree" id='SPD005clTree'></div>
+				</section>
+			</section>
+		</section>
+		<!-- 목록 보이기 버튼 -->
+		<button type="button" class="bw-tree-show-btn" style="display: none;"
+			id="SPD005btnLeftShow" ng-click="SPD005Ctrl.btnLeftShow_Onclick()"
+			title="">
+			<i class="fa fa-angle-right"></i>
+		</button>
+
+		<section class="SPD005bw-inner-contents layout SPD005col2 col2">
+			<!-- 조건기본 속성 영역 -->
+			<section name="on-display-none" id="cl-base"
+				class="cnd-base-wrap conts-section SPD005baseinfo-section"
+				style="display: none;">
+
+				<!-- 화면상단영역 (조회,토글) -->
+				<section class=" bw-tool add-bd2-t">
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseAtrbt%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn b-ctr" id="btnSchToggle"
+							ng-click="SPD005Ctrl.btnToggle_Onclick('base-area')" title="">
+							<i class="fas fa-angle-double-up"></i>
+						</button>
+					</div>
+				</section>
+
+				<section id="base-area">
+					<table class="w-100">
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap fix-label clr">
+									<!--서비스그룹기본코드-->
+									<label class="bw-label"
+										data-i18n="{%=cbb_items.SCRNITM#pdSvcGroupBaseCd%}"></label>
+									<div class="td-desc-wrap clr">
+										<input type="text" class="bw-input pdClStrctrDscd"
+											readonly="readonly" />
+									</div>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap fix-label clr">
+									<!--서비스그룹기본명-->
+									<label class="bw-label"
+										data-i18n="{%=cbb_items.SCRNITM#pdSvcGroupBaseNm%}"></label>
+									<div class="td-desc-wrap clr">
+										<input type="text" class="bw-input clStrctrNm"
+											readonly="readonly" />
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap fix-label clr">
+									<!--하위분류-->
+									<label class="bw-label"
+										data-i18n="{%=cbb_items.SCRNITM#lowrCl%}"></label>
+									<div class="td-desc-wrap clr">
+										<input type="text" class="bw-input path" readonly="readonly" />
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</section>
+
+				<!-- 검색결과 -->
+				<section>
+					<section class=" bw-tool add-bd2-t add-mg-t">
+						<div class="f-l">
+							<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+							<h3 class="bw-desc">
+								({{SPD005Ctrl.gridPDGCount}} <span
+									data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)
+							</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<!-- <button type="button" class="bw-btn" id="btnGridExcel"
+								ng-click="SPD005Ctrl.btnGridExcel_Onclick()" title="">
+								<i class="bw-icon i-30 i-func-xls"></i><span class="btn_txt">엑셀 다운로드</span>
+							</button>  -->
+							<button type="button" class="bw-btn b-ctr" id="btnGridToggle"
+								ng-click="SPD005Ctrl.btnToggle_Onclick('srchRslt')" title="">
+								<i class="fas fa-angle-double-up"></i>
+							</button>
+						</div>
+					</section>
+					<section id="srchRslt">
+						<div id="SPD005pdg-grid">
+							<section class="bw-grid"></section>
+						</div>
+					</section>
+				</section>
+
+				<!-- 조건정보 -->
+				<section class="SPD005cnd-info">
+					<section class=" bw-tool add-bd2-t">
+						<div class="f-l">
+							<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#cndInfo%}"></h3>
+							<h3 class="bw-desc">
+								({{SPD005Ctrl.gridPDGCndCount}} <span
+									data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)
+							</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn b-ctr" id="btnSchToggle"
+								ng-click="SPD005Ctrl.btnToggle_Onclick('srchPDGCndRslt')"
+								title="">
+								<i class="fas fa-angle-double-up"></i>
+							</button>
+						</div>
+					</section>
+
+					<!-- 조건결과  -->
+					<section id="srchPDGCndRslt">
+						<div id="SPD005pdg-cnd-grid">
+							<section class="bw-grid"></section>
+						</div>
+					</section>
+				</section>
+			</section>
+
+			<!-- 상품그룹에서 상품읻 등록되지 않았을 때 기본그룹정보만 표시  -->
+			<section name="on-display-none2" id="SPD005Detail"
+				class="cnd-base-wrap conts-section" style="display: none;">
+
+
+				<!-- 화면상단영역 (조회,토글) -->
+				<section class=" bw-tool add-bd2-t">
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#dtlInfo%}"></h3>
+					</div>
+				</section>
+
+				<section id="base-area">
+					<table class="w-100">
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap fix-label clr">
+									<!--서비스그룹기본코드-->
+									<label class="bw-label"
+										data-i18n="{%=cbb_items.SCRNITM#pdSvcGroupBaseCd%}"></label>
+									<div class="td-desc-wrap clr">
+										<input type="text" class="bw-input SPD005pdClStrctrDscd"
+											readonly="readonly" />
+									</div>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap fix-label clr">
+									<!--서비스그룹기본명-->
+									<label class="bw-label"
+										data-i18n="{%=cbb_items.SCRNITM#pdSvcGroupBaseNm%}"></label>
+									<div class="td-desc-wrap clr">
+										<input type="text" class="bw-input SPD005pdClHrarcyNm"
+											readonly="readonly" />
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>							
+							<td class="td-w-33">
+								<div class="input-wrap fix-label clr">
+									<!--활동여부-->
+									<label class="bw-label"
+										data-i18n="{%=cbb_items.SCRNITM#actvYn%}"></label>
+									<div class="td-desc-wrap clr">
+										<input type="text" class="bw-input SPD005actvYn" readonly="readonly" />
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+		</section>
+	</section>
+</section>

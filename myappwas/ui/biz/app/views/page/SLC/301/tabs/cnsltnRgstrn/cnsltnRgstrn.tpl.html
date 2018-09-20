@@ -1,0 +1,91 @@
+
+			<section class=" bw-tool add-bd2-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" ></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnAddrInfoReset" ng-click="SLC301_cnsltnRgstrnCtrl.btnAddrInfoReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+				<button type="button" class="bw-btn"  id="btnInsert" ng-click="SLC301_cnsltnRgstrnCtrl.btnInsert_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i><span class="btn_txt">저장</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnAddrInfoToggle" ng-click="SLC301_cnsltnRgstrnCtrl.btnAddrInfoToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+		<section  id="addrInfo"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_addrInfo" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#cnsltnTpCd%}" data-i18n-title="{%=cbb_items.AT#cnsltnTpCd%}"></label>
+						<input type="text"  maxlength='2' dec='0' class="bw-input a-left"   data-form-param="cnsltnTpCd" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#cnsltnTrgtNm%}" data-i18n-title="{%=cbb_items.AT#cnsltnTrgtNm%}"></label>
+						<input type="text"  maxlength='200' dec='0' class="bw-input a-left"   data-form-param="cnsltnTrgtNm" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#debtorCustRelCd%}" data-i18n-title="{%=cbb_items.AT#debtorCustRelCd%}"></label>
+						<input type="text"  maxlength='2' dec='0' class="bw-input a-left"   data-form-param="debtorCustRelCd" />
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_addrInfo" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#noticeDscd%}" data-i18n-title="{%=cbb_items.AT#noticeDscd%}"></label>
+						<input type="text"  maxlength='1' dec='0' class="bw-input a-left"   data-form-param="noticeDscd" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#cntctTelNbr%}" data-i18n-title="{%=cbb_items.AT#cntctTelNbr%}"></label>
+						<input type="text"  maxlength='20' dec='0' class="bw-input a-left"   data-form-param="cntctTelNbr" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#demandTelNbr%}" data-i18n-title="{%=cbb_items.AT#demandTelNbr%}"></label>
+						<input type="text"  maxlength='20' dec='0' class="bw-input a-left"   data-form-param="demandTelNbr" />
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_addrInfo" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#arrAgrmntDt%}" data-i18n-title="{%=cbb_items.AT#arrAgrmntDt%}"></label>
+						<div id="arrAgrmntDt" ></div>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#dpstBnkCd%}" data-i18n-title="{%=cbb_items.AT#dpstBnkCd%}"></label>
+						<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="dpstBnkCd" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#cnsltnStsCd%}" data-i18n-title="{%=cbb_items.AT#cnsltnStsCd%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="cnsltnStsCd"></select>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_addrInfo" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#agrmntAmt%}" data-i18n-title="{%=cbb_items.AT#agrmntAmt%}"></label>
+						<input type="text"  dec='2' class="bw-input "   data-form-param="agrmntAmt"  common-numeric-only-directive ng-model='agrmntAmt'/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<span data-form-param=""   ></span>
+				</td>
+				<td class="td-w-33">
+					<span data-form-param=""   ></span>
+				</td>
+			</tr>
+			<tr  name="tr_addrInfo" >
+				<td class="td-w-33" colspan="3">
+					<div class="input-wrap clr fix-txtarea p-rel">
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#cnsltnCntnt%}" data-i18n-title="{%=cbb_items.AT#cnsltnCntnt%}"></label>
+						<div class="txt-wrap2 fix-size f-r">
+							<textarea class="bw-textarea"  placeholder="내용을 적어주세요." data-form-param="cnsltnCntnt"></textarea>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</section>

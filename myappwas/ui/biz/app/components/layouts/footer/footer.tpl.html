@@ -1,0 +1,40 @@
+<footer class="footer" id="footer">
+<div class="bn_slide_area" id="bn_slide_area" style="display:none;">
+	<div class="bn_slide">
+		<button type="button" class="bw-btn bn_slide_close" ng-click="footerCtrl.closePushMessageBox()"><i class="bw-icon i-30 i-func-del"></i></button>
+		<a href="#" ng-click="footerCtrl.clickPushMessageBox()">
+			<ul class="bn_slide_notice">
+				<li><span class="bn_slide_notice_sq"></span><span class="notice_theme">발신자</span> : {{footer.sndUserNm}}<br/></li>
+				<li><span class="bn_slide_notice_sq"></span><span class="notice_theme">발신시간</span> : {{footer.sndDtm}}<br/></li>
+				<!--  <li><span class="bn_slide_notice_sq"></span><span class="notice_theme">제목</span> : {{footer.pushMsgNm}}<br/></li>  -->
+				<li>{{footer.pushMsgCntnt}}<br/></li>
+			</ul>
+		</a>
+	</div>
+</div>
+    <section class="header-tool">
+    	<section class="footer-timer">{{footer.timer}}</section>
+    	<section class="log-console">{{footer.logConsole}}</section>
+    	<section class="footer-push" id="footer-push" style="display:none;">
+			<a href="#" ng-click="footerCtrl.resetBadge()">
+				<span class="bell i-30"></span>
+				<em>{{footer.pushCnt}}</em>
+			</a>
+    	</section>
+    	<section class="bw-util f-r">
+			<i class="far fa-user-circle"></i>
+			<span class="bw-input">{{footer.userName}} ( {{footer.deptId}} / {{footer.deptNm}} )</span>
+    	</section>
+<!--         <button type="button" class="bx-btn bw-btn-icon add-bd cbb-toggle-log-btn"><i class="fa fa-caret-square-o-up"></i><span>Toggle Log</span></button> -->
+<!--         <button type="button" class="bx-btn bw-btn-icon add-bd cbb-clear-log-btn"><i class="fa fa-garbage-o"></i><span>Clear log</span></button> -->
+<!--         <button type="button" class="bx-btn bw-btn-icon add-bd cbb-refresh-btn"><i class="fa fa-refresh"></i><span>refresh</span></button> -->
+<!--         <p class="cbb-service-status"></p> -->
+    </section>
+<!--     <section class="cbb-log-message-area"></section> -->
+<!--     <section class="log-console"> -->
+<!--     	<section class="bw-util f-r"> -->
+<!-- 			<i class="bw-icon i-30 i-log on"></i> -->
+<!-- 			<span class="bw-input">{{footer.userName}} ( {{footer.deptId}} / {{footer.deptNm}} )</span> -->
+<!--     	</section> -->
+<!--     </section> -->
+</footer>

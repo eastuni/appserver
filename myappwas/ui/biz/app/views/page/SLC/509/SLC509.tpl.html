@@ -1,0 +1,95 @@
+
+	<section  id='SLC509' ng-init="SLC509Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SLC509%}" />
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SLC509Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SLC509Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SLC509Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SLC509Ctrl.custId_Onclick()" id="btn-custId-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-center"  readonly="readonly" data-form-param="custNm" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<span data-form-param=""   ></span>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#inqryStartDt%}" data-i18n-title="{%=cbb_items.AT#inqryStartDt%}"></label>
+							<div id="inqryStartDt" ></div>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#inqryEndDt%}" data-i18n-title="{%=cbb_items.AT#inqryEndDt%}"></label>
+							<div id="inqryEndDt" ></div>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#arrFinYn%}" data-i18n-title="{%=cbb_items.AT#arrFinYn%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="arrFinYn"></select>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#dpstRprting%}"></h3>
+				<h3 class="bw-desc">({{SLC509_SLC509Ctrl.gridListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn-form unit add-mg-t-7"  id="btnGtAmt" ng-click="SLC509Ctrl.btnGtAmt_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#dpstAmtOcr%}"/></button>
+				<button type="button" class="bw-btn"  id="btnGridExcel1" ng-click="SLC509Ctrl.btnGridExcel1_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i><span class="btn_txt">엑셀 다운로드</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnSchToggle1" ng-click="SLC509Ctrl.btnSchToggle1_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="dpstRprting"  >
+				<div id="SLC509_gridList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.AT#memoCntnt%}"></h3>
+				<h3 class="bw-desc">({{SLC509_SLC509Ctrl.gridList1Count}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnSchReset2" ng-click="SLC509Ctrl.btnSchReset2_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+				<button type="button" class="bw-btn"  id="btnExtPlus2" ng-click="SLC509Ctrl.btnExtPlus2_Onclick()" title=""><i class="bw-icon i-30 i-func-add"></i><span class="btn_txt">추가</span></button>
+				<button type="button" class="bw-btn"  id="btnBasicSave2" ng-click="SLC509Ctrl.btnBasicSave2_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i><span class="btn_txt">저장</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnSchToggle2" ng-click="SLC509Ctrl.btnSchToggle2_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="memoCntnt"  >
+				<div id="SLC509_gridList1" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+	</section>
+</section>

@@ -1,0 +1,100 @@
+
+	<section  id='SAR050' ng-init="SAR050Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SAR050%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SAR050%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SAR050Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SAR050Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SAR050Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#acctNbr%}" data-i18n-title="{%=cbb_items.AT#acctNbr%}"></label>
+							<input type="text"  dec='0' class="bw-input a-left"   data-form-param="acctNbr" />
+							<button type="button" class="bw-btn fix-r" ng-click="SAR050Ctrl.acctNbr_Onclick()" id="btn-acctNbr-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#arrId%}" data-i18n-title="{%=cbb_items.AT#arrId%}"></label>
+							<input type="text"  maxlength='40' dec='0' class="bw-input a-left"   data-form-param="arrId" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<span data-form-param=""   ></span>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#startDt%}" data-i18n-title="{%=cbb_items.SCRNITM#startDt%}"></label>
+							<div id="inqryStartDt" ></div>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#endDt%}" data-i18n-title="{%=cbb_items.SCRNITM#endDt%}"></label>
+							<div id="inqryEndDt" ></div>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="clr add-mg-l-10" >
+							<input type="checkbox"  class="bw-input ipt-radio f-l" id="fnclTxYn" data-form-param="fnclTxYn" />
+							<label class="bw-label f-l add-mg-t-5 add-font-style"  data-i18n="{%=cbb_items.AT#fnclTxYn%}" data-i18n-title="{%=cbb_items.AT#fnclTxYn%}"></label>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SAR050Ctrl.txHstGridCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnGridExcel" ng-click="SAR050Ctrl.btnGridExcel_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i><span class="btn_txt">엑셀 다운로드</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SAR050Ctrl.btnGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="srchRslt"  >
+				<div id="SAR050_txHstGrid" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+	</section>
+	<div id="tab" class=" add-mg-t">
+		<ul>
+			<li ng-click="SAR050_txBaseTabCtrl.tabOpen()"><a href="#SAR050_txBaseTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#txBase%}" data-i18n-title="{%=cbb_items.SCRNITM#txBase%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SAR050_xtnInfoTabCtrl.tabOpen()"><a href="#SAR050_xtnInfoTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#adtnlAtrbt%}" data-i18n-title="{%=cbb_items.SCRNITM#adtnlAtrbt%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SAR050_entryTabCtrl.tabOpen()"><a href="#SAR050_entryTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRN#SAR050-2%}" data-i18n-title="{%=cbb_items.SCRN#SAR050-2%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SAR050_stHstTabCtrl.tabOpen()"><a href="#SAR050_stHstTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRN#SAR050-4%}" data-i18n-title="{%=cbb_items.SCRN#SAR050-4%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SAR050_cupldTxHstTabCtrl.tabOpen()"><a href="#SAR050_cupldTxHstTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#linkTxList%}" data-i18n-title="{%=cbb_items.SCRNITM#linkTxList%}"></label><span class="triangle"></span></a></li>
+		</ul>
+	<div id="SAR050_txBaseTab">
+		<views-sar050-txbasetab-directive></views-sar050-txbasetab-directive>
+	</div>
+	<div id="SAR050_xtnInfoTab">
+		<views-sar050-xtninfotab-directive></views-sar050-xtninfotab-directive>
+	</div>
+	<div id="SAR050_entryTab">
+		<views-sar050-entrytab-directive></views-sar050-entrytab-directive>
+	</div>
+	<div id="SAR050_stHstTab">
+		<views-sar050-sthsttab-directive></views-sar050-sthsttab-directive>
+	</div>
+	<div id="SAR050_cupldTxHstTab">
+		<views-sar050-cupldtxhsttab-directive></views-sar050-cupldtxhsttab-directive>
+	</div>
+	</div>
+</section>

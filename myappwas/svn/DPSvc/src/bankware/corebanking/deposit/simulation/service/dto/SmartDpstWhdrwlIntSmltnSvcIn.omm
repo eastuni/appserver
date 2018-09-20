@@ -1,0 +1,8 @@
+OMM bankware.corebanking.deposit.simulation.service.dto.SmartDpstWhdrwlIntSmltnSvcIn
+<description="">
+{
+	String arrId<length=40 description="Smart Deposit Arrangement Identification">;
+	String baseDt<length=8 description="Base Date">;
+	Integer oprtnTrmCnt<length=2 description="Operation Term">;
+	BigDecimal txAmt<length=18 decimal=2 description="Transaction Amount">;
+}

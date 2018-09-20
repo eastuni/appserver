@@ -1,0 +1,65 @@
+
+		<section   >
+			<section class=" bw-tool add-bd2-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#telNbrList%}"></h3>
+				<h3 class="bw-desc">({{SLC301_telNbrTabCtrl.telNbrInfoListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnTelNbrGridToggle" ng-click="SLC301_telNbrTabCtrl.btnTelNbrGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="telNbrSrchRslt"  >
+				<div id="SLC301_telNbrTab_telNbrInfoList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+			<section class=" bw-tool add-bd2-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#telInput%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnTelNbrInfoReset" ng-click="SLC301_telNbrTabCtrl.btnTelNbrInfoReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+				<button type="button" class="bw-btn"  id="btnTelNbrInfoAdd" ng-click="SLC301_telNbrTabCtrl.btnTelNbrInfoAdd_Onclick()" title=""><i class="bw-icon i-30 i-func-add"></i><span class="btn_txt">추가</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnTelNbrInfoToggle" ng-click="SLC301_telNbrTabCtrl.btnTelNbrInfoToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+		<section  id="telNbrInfo"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_telNbrInfo" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#cntctPntTp%}" data-i18n-title="{%=cbb_items.SCRNITM#cntctPntTp%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="ctcptTpCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#cntctMthdTpCd%}" data-i18n-title="{%=cbb_items.AT#cntctMthdTpCd%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="cntctMthdTpCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#rprsntvCtcptYn%}" data-i18n-title="{%=cbb_items.AT#rprsntvCtcptYn%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="rprsntvCtcptYn"></select>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_telNbrInfo" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#telNbr%}" data-i18n-title="{%=cbb_items.AT#telNbr%}"></label>
+						<input type="text"  maxlength='20' dec='0' class="bw-input a-left"   data-form-param="intrntnlNbr;idTelNbr;telExNbr;serialTelNbr" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rcvPrmsnDstnctn%}" data-i18n-title="{%=cbb_items.SCRNITM#rcvPrmsnDstnctn%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="cntctPrhbtnTpCd"></select>
+					</div>
+				</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+	</section>

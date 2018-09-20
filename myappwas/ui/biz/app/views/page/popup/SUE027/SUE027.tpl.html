@@ -1,0 +1,60 @@
+
+	<section  id='SUE027' ng-init="SUE027Ctrl.init()">
+		<div   id="ipctTitle"  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SUE027%}">
+			</div>
+			<div   class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#trgtInfo%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn b-ctr"  id="btnTrgtInfoToggle" ng-click="SUE027Ctrl.btnTrgtInfoToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+					</div>
+					</section>
+				<section  id="trgtInfo"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_trgtInfo" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#asmId%}" data-i18n-title="{%=cbb_items.AT#asmId%}"></label>
+								<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="asmId" />
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#jdgmrgtDscd%}" data-i18n-title="{%=cbb_items.AT#jdgmrgtDscd%}"></label>
+								<select class="bw-input ipt-select"  data-form-param="jdgmrgtDscd"></select>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlDeptDscd%}" data-i18n-title="{%=cbb_items.AT#aprvlDeptDscd%}"></label>
+								<select class="bw-input ipt-select"  data-form-param="aprvlDeptDscd"></select>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section   class="w-100">
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#aprvlPathInfo%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnAprvlPathInfoToggle" ng-click="SUE027Ctrl.btnAprvlPathInfoToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+				<section  id="aprvlPathInfo"  class="w-100">
+					<div id="SUE027_gridList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div   class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="SUE027Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#confirm%}"/></button>
+			<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SUE027Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#close%}"/></button>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,54 @@
+
+	<section  id='SDT903' ng-init="SDT903Ctrl.init()">
+		<div   >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SDT903%}">
+			</div>
+			<div   class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SDT903Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+						<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SDT903Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+					</div>
+					</section>
+				<section  id="secSrchCnd"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_secSrchCnd" >
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#deptId%}" data-i18n-title="{%=cbb_items.AT#deptId%}"></label>
+								<input type="text"  maxlength='14' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="deptId" />
+							</div>
+						</td>
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#deptNm%}" data-i18n-title="{%=cbb_items.AT#deptNm%}"></label>
+								<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="deptNm" />
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section   >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+					<h3 class="bw-desc">({{SDT903Ctrl.deptRoleTmpltListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SDT903Ctrl.btnGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+				<section  id="srchRslt"  >
+					<div id="SDT903_deptRoleTmpltList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div   class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt on"  id="ICON_CANCEL" ng-click="SDT903Ctrl.ICON_CANCEL_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#close%}"/></button>
+		</div>
+	</div>
+</section>

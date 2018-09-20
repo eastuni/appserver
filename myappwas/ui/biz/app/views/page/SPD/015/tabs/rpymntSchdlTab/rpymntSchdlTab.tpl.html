@@ -1,0 +1,17 @@
+<section id="rpymntSchdlTabInfo" ng-init="rpymntSchdlTabCtrl.init()">
+	<section class=" bw-tool add-bd2-t" >
+		<div class="f-l">
+        	<label class="bw-label"  data-i18n="원금이자참조구분(N)"></label>
+            <select class="bw-input ipt-select"  data-form-param="prncplIntRefDscd" id="prncplIntRefDscd"></select>
+        </div>
+		<div class="btn-wrap fix-r">
+			<button type="button" class="bw-btn"  id="btnAdd" ng-click="rpymntSchdlTabCtrl.btnAdd_Onclick()" title=""><i class="bw-icon i-30 i-func-add"></i><span class="btn_txt">추가</span></button>
+			<button type="button" class="bw-btn"  id="btnGridExcel" ng-click="rpymntSchdlTabCtrl.btnGridExcel_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i><span class="btn_txt">엑셀 다운로드</span></button>
+		</div>
+	</section>
+	<section  id="srchRslt"  >
+		<div id="hstList" >
+			<section class="bw-grid"></section>
+		</div>
+	</section>
+</section>

@@ -1,0 +1,50 @@
+
+	<section  id='SLC006' ng-init="SLC006Ctrl.init()">
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SLC006%}" />
+			</h2>
+		<section  id="secSrchCnd"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_secSrchCnd" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr asterisk clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+						<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="custId" />
+						<button type="button" class="bw-btn fix-r" ng-click="SLC006Ctrl.custId_Onclick()" id="btn-custId-search"><i class="fas fa-search"></i></button>
+					</div>
+				</td>
+				<td class="td-w-33" colspan="2">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+						<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+					</div>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<section   >
+		<h2 class="bw-tt">
+			<span data-i18n="{%=cbb_items.SCRN#SLC006%}" />
+			<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SLC006%}"></p>
+		</h2>
+		<div id="SLC006_gridCustDetailList" >
+			<section class="bw-grid"></section>
+		</div>
+	</section>
+	<section   >
+		<h2 class="bw-tt">
+			<span data-i18n="{%=cbb_items.SCRN#SLC006%}" />
+			<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SLC006%}"></p>
+		</h2>
+		<div id="SLC006_gridCustHistList" >
+			<section class="bw-grid"></section>
+		</div>
+	</section>
+	<section   >
+		<h2 class="bw-tt">
+			<span data-i18n="{%=cbb_items.SCRN#SLC006%}" />
+			<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SLC006%}"></p>
+		</h2>
+		<div id="SLC006_gridArrHistList" >
+			<section class="bw-grid"></section>
+		</div>
+	</section>
+</section>

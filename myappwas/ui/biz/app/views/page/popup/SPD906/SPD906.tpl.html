@@ -1,0 +1,86 @@
+
+
+	<!-- 수수료할인조건 상세팝업 -->
+	<section class="search-cust-popup" ng-init="SPD906Ctrl.init()" SPD906-wrap-directive>
+		<div>
+			<!-- header -->
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRNITM#srchCust%}"/>
+			</div>
+
+			<!-- body -->
+			<div class="modal-body">
+				<section id="cnd-popup-search-cnd-area">
+					<!-- 검색조건 바 -->
+					<section class="bw-tool add-bd2-t">
+						<div class="f-1">
+							<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#searchCnd%}"></h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn"  id="btnResetSearchCnd" ng-click="SPD906Ctrl.btnResetSearchCndt_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+							<button type="button" class="bw-btn"  id="btnSearch" ng-click="SPD906Ctrl.btnSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+							<button type="button" class="bw-btn b-ctr"  id="btnSearhCndToggle" ng-click="SPD906Ctrl.btnSearhCndToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+						</div>
+					</section>
+				</section>
+				<!-- 검색조건 영역 -->
+				<section class="search-cust-wrap search-wrap" id="searchCustWrap">
+					<table class="bx-info-table w-100">
+						<tr>
+							<td class="td-w-50">
+								<div class="input-wrap fix-label clr asterisk" >
+									<!-- 카드번호 -->
+									<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#cardNbr%}"></label>
+									<input type="text" class="bw-input cartNbr" data-form-param="cardNbr" maxlength="50" />
+								</div>
+							</td>
+							<td class="td-w-50">
+								<div class="input-wrap fix-label clr" >
+									<!-- 고객번호 -->
+									<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#custNbr%}"></label>
+									<div class="td-desc-wrap clr">
+										<input type="text" class="bw-input custNbr" data-form-param="custNbr" maxlength="50" />
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="td-w-50">
+							</td>
+							<td class="td-w-50">
+								<div class="input-wrap fix-label clr" >
+									<!-- 고객이름 -->
+									<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#custNm%}"></label>
+									<div class="td-desc-wrap clr">
+										<input type="text" class="bw-input custNm" data-form-param="custNm" maxlength="50" />
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</section>
+				<section class="conts-section cust-list-grid-area">
+					<!-- 조건목록그리드바 -->
+					<section class="bw-tool add-bd2-t add-mg-t">
+						<div class="f-1">
+							<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+							<h3 class="bw-desc">({{SPD906Ctrl.grdCustListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn b-ctr" id="btnGrdCustListToggle" ng-click="SPD906Ctrl.btnGrdCustListToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+						</div>
+					</section>
+					<!-- 조건목록그리드 -->
+					<section id="SPD906-custGrid"></section>
+				</section>
+			</div>
+
+			<!-- footer -->
+			<div  class="modal-footer btn-wrap add-mg">
+				<!-- 선택 -->
+				<button type="button" class="bw-btn-txt on" id="btnConfirm" ng-click="SPD906Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.ABRVTN#chk%}"/></button>
+				<!-- 취소 -->
+				<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SPD906Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+			</div>
+		</div>
+	</section>

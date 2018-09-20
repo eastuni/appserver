@@ -1,0 +1,132 @@
+
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" ></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnAttrReset" ng-click="SLC302_prprtySurveyRqstCtrl.btnAttrReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+				<button type="button" class="bw-btn"  id="btnAttrSave" ng-click="SLC302_prprtySurveyRqstCtrl.btnAttrSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i><span class="btn_txt">저장</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnAttrToggle" ng-click="SLC302_prprtySurveyRqstCtrl.btnAttrToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+		<section  class="search-wrap">
+		<table class="w-100" >
+			<tr >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+						<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+						<button type="button" class="bw-btn fix-r" ng-click="SLC302_prprtySurveyRqstCtrl.custNm_Onclick()" id="btn-custNm-search"><i class="fas fa-search"></i></button>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#prtnrNbr%}" data-i18n-title="{%=cbb_items.AT#prtnrNbr%}"></label>
+						<input type="text"  maxlength='20' dec='0' class="bw-input a-left"   data-form-param="prtnrNbr" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<span data-form-param=""   ></span>
+				</td>
+			</tr>
+			<tr >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#rqstDt%}" data-i18n-title="{%=cbb_items.AT#rqstDt%}"></label>
+						<input type="text"  maxlength='8' dec='0' class="bw-input a-left"   data-form-param="rqstDt" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#acptncDt%}" data-i18n-title="{%=cbb_items.AT#acptncDt%}"></label>
+						<div id="acptncDt" ></div>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<span data-form-param=""   ></span>
+				</td>
+			</tr>
+			<tr >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#arrCustRltdPersonRelCd%}" data-i18n-title="{%=cbb_items.AT#arrCustRltdPersonRelCd%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="arrCustRltdPersonRelCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#prprtySurveyStsCd%}" data-i18n-title="{%=cbb_items.AT#prprtySurveyStsCd%}"></label>
+						<input type="text"  maxlength='3' dec='0' class="bw-input a-left"   data-form-param="prprtySurveyStsCd" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#prprtySurveyRsnCd%}" data-i18n-title="{%=cbb_items.AT#prprtySurveyRsnCd%}"></label>
+						<input type="text"  maxlength='2' dec='0' class="bw-input a-left"   data-form-param="prprtySurveyRsnCd" />
+					</div>
+				</td>
+			</tr>
+			<tr >
+				<td class="td-w-33" colspan="3">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#etcCntnt%}" data-i18n-title="{%=cbb_items.AT#etcCntnt%}"></label>
+						<input type="text"  maxlength='2' dec='0' class="bw-input a-left"   data-form-param="etcCntnt" />
+					</div>
+				</td>
+			</tr>
+			<tr >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#hshldrNm%}" data-i18n-title="{%=cbb_items.AT#hshldrNm%}"></label>
+						<input type="text"  maxlength='100' dec='0' class="bw-input a-left"   data-form-param="hshldrNm" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#hshldrCustRltdCd%}" data-i18n-title="{%=cbb_items.AT#hshldrCustRltdCd%}"></label>
+						<input type="text"  maxlength='2' dec='0' class="bw-input a-left"   data-form-param="hshldrCustRltdCd" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<span data-form-param=""   ></span>
+				</td>
+			</tr>
+			<tr >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#moveLnDt%}" data-i18n-title="{%=cbb_items.AT#moveLnDt%}"></label>
+						<div id="moveLnDt" ></div>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#xtrctIssueDt%}" data-i18n-title="{%=cbb_items.AT#xtrctIssueDt%}"></label>
+						<div id="xtrctIssueDt" ></div>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#findPrprtyYn%}" data-i18n-title="{%=cbb_items.AT#findPrprtyYn%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="findPrprtyYn"></select>
+					</div>
+				</td>
+			</tr>
+			<tr >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#rpymntExpctdAmt%}" data-i18n-title="{%=cbb_items.AT#rpymntExpctdAmt%}"></label>
+						<input type="text"  dec='2' class="bw-input "   data-form-param="rpymntExpctdAmt"  common-numeric-only-directive ng-model='rpymntExpctdAmt'/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#prprtySurveyFinDt%}" data-i18n-title="{%=cbb_items.AT#prprtySurveyFinDt%}"></label>
+						<div id="prprtySurveyFinDt" ></div>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#calcnFeeAmt%}" data-i18n-title="{%=cbb_items.AT#calcnFeeAmt%}"></label>
+						<input type="text"  dec='2' class="bw-input "   data-form-param="calcnFeeAmt"  common-numeric-only-directive ng-model='calcnFeeAmt'/>
+					</div>
+				</td>
+			</tr>
+			<tr >
+				<td class="td-w-33" colspan="3">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#surveyOpnnCntnt%}" data-i18n-title="{%=cbb_items.AT#surveyOpnnCntnt%}"></label>
+						<input type="text"  maxlength='4000' dec='0' class="bw-input a-left"   data-form-param="surveyOpnnCntnt" />
+					</div>
+				</td>
+			</tr>
+		</table>
+	</section>

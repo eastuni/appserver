@@ -1,0 +1,57 @@
+
+	<section  id='SCL340' ng-init="SCL340Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SCL340%}" />
+			</h2>
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SCL340Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SCL340Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SCL340Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="grpSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_grpSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#grntNonGrntDscd%}" data-i18n-title="{%=cbb_items.AT#grntNonGrntDscd%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="grntNonGrntDscd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="custId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SCL340Ctrl.custId_Onclick()" id="btn-custId-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SCL340Ctrl.grdListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnRsltToggle" ng-click="SCL340Ctrl.btnRsltToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="grpSchResult"  >
+				<div id="SCL340_grdList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+	</section>
+</section>

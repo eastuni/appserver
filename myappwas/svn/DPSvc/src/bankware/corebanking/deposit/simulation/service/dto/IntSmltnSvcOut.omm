@@ -1,0 +1,21 @@
+OMM bankware.corebanking.deposit.simulation.service.dto.IntSmltnSvcOut
+<description="">
+{
+	String arrOpnDt<length=8 description="계약개설일">;
+	String arrMtrtyDt<length=8 description="계약만기일">;
+	String intCalcnStartDt<length=20 description="이자계산시작년월일">;
+	String intCalcnEndDt<length=20 description="이자계산종료년월일">;
+	BigDecimal acctBal<length=17 decimal=2 description="계좌잔액">;
+	BigDecimal intAmt<length=17 decimal=2 description="이자금액">;
+	BigDecimal tax<length=17 decimal=2 description="세금금액">;
+	BigDecimal rvrsdIntAmt<length=17 decimal=2 description="환출이자금액">;
+	BigDecimal rvrsdTax<length=17 decimal=2 description="환입세금금액">;
+	bankware.corebanking.deposit.simulation.service.dto.IntSmltnSvcOutSub stlmntList<length=0 arrayReference="500" description="정산내역">;
+	String custId<length=20 description="고객식별자">;
+	String custNm<length=20 description="고객명">;
+	String crncyCd<length=20 description="통화코드">;
+	String pdNm<length=20 description="상품명">;
+	String arrStsCd<length=20 description="계약상태코드">;
+	String mgmtDeptId<length=20 description="관리부서식별자">;
+	String mgmtDeptNm<length=20 description="관리부서명">;
+}

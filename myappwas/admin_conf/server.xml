@@ -56,8 +56,6 @@
 					url="jdbc:mysql://${host.ds}:${port.ds}/bxm?relaxAutoCommit=true"
 					username="bxm"
 					password="cbb"
-					validationQuery="select 1 from dual"
-					testWhileIdle="true"
 					timeBetweenEvictionRunsMillis="1800000"
 					/>
 		<Resource
@@ -74,8 +72,6 @@
 					xaProperties.user="bxm"
 					xaProperties.password="cbb"
 					xaProperties.URL="jdbc:mysql://${host.ds}:${port.ds}/bxm"
-					testQuery="select 1"
-					maintenanceInterval="60"
 					/>
 		<Resource type="javax.sql.DataSource"
 					name="APPNXA"
@@ -88,8 +84,6 @@
 					url="jdbc:mysql://${host.ds}:${port.ds}/cbb_mca?relaxAutoCommit=true"
 					username="cbb_mca"
 					password="cbb_mca"
-					validationQuery="select 1 from dual"
-					testWhileIdle="true"
 					timeBetweenEvictionRunsMillis="1800000"
 					/>
 		<Resource
@@ -102,7 +96,7 @@
 					xaDataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource"
 					xaProperties.databaseName="cbb_mca"
 					xaProperties.serverName="${host.ds}"
-					xaProperties.port="${port.ds}"
+					xaProperties.portNumber="${port.ds}"
 					xaProperties.user="cbb_mca"
 					xaProperties.password="cbb_mca"
 					xaProperties.url="jdbc:mysql://${host.ds}:${port.ds}/cbb_mca?autoReconnect=true"
@@ -121,7 +115,6 @@
           username="pfactory"
           password="pfactory"
           url="jdbc:mysql://${host.ds}:${port.ds}/pfactory?autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull" />
-
 
 	</GlobalNamingResources>
 

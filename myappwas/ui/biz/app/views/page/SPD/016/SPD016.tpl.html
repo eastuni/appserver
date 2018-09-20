@@ -1,0 +1,169 @@
+<section class="main-contents add-tree ng-scope" ng-init="SPD016Ctrl.init()" SPD016-wrap-directive>
+
+    <h2 class="bw-tt" data-i18n="{%=cbb_items.SCRN#SPD016%}">
+        <p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SPD016%}"></p>
+    </h2>
+
+
+    <section class="layout-wrap">
+        <section class="bw-tree-wrap layout SPD016col1 col1">
+            <section>
+                <section class=" bw-tool add-bd2-t">
+                    <!-- 가맹점그룹 목록 -->
+                    <div class="f-l fix-label">
+                        <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRN#SPD016%}"></h3>
+                    </div>
+                    <!-- 목록 숨김버튼 -->
+                    <div class="btn-wrap fix-r">
+                        <button type="button" class="bw-btn" id="btnSchHide" ng-click="SPD016Ctrl.btnSchHide_Onclick()" title="">
+							<i class="fa fa-angle-left"></i>
+						</button>
+                    </div>
+                </section>
+
+                <!-- 조회영역 -->
+                <section id="merchantList">
+                    <!-- 가맹점그룹명 -->
+                    <div class="input-wrap add-btn add-mg-l-10 add-mg-t-10 clr fix-label">
+                        <label class="bw-label w-40" data-i18n="{%=cbb_items.SCRNITM#grpNm%}"></label> <input type="text" class="bw-input w-60" placeholder="전체" data-form-param="SPD016searchKey" />
+                        <button type="button" class="bw-btn fix-r" ng-click="SPD016Ctrl.treeMrchnt_Onclick()" id="btn-pdg-search">
+							<i class="fas fa-search"></i>
+						</button>
+                    </div>
+                </section>
+
+                <!-- 가맹점그룹트리영역 -->
+                <section class="unit-tree-wrap a-left" style="overflow-y: auto;">
+                    <div class="popup-cnd-tree" id='SPD016merchantTree'></div>
+                </section>
+            </section>
+        </section>
+        <!-- 목록 보이기 버튼 -->
+        <button type="button" class="bw-tree-show-btn" style="display: none;" id="SPD016btnLeftShow" ng-click="SPD016Ctrl.btnLeftShow_Onclick()" title="">
+			<i class="fa fa-angle-right"></i>
+		</button>
+
+        <section class="SPD016bw-inner-contents layout SPD016col2 col2">
+            <!-- 가맹점그룹 기본 속성 영역 -->
+            <section name="on-display-none" id="cl-base" class="cnd-base-wrap conts-section SPD016baseinfo-section" style="display: none;">
+
+                <!-- 화면상단영역 (조회,토글) -->
+                <section class=" bw-tool add-bd2-t">
+                    <div class="f-l">
+                        <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseAtrbt%}"></h3>
+                    </div>
+                    <div class="btn-wrap fix-r">
+                        <button type="button" class="bw-btn b-ctr" id="btnSchToggle" ng-click="SPD016Ctrl.btnToggle_Onclick('base-area')" title="">
+							<i class="fas fa-angle-double-up"></i>
+						</button>
+                    </div>
+                </section>
+
+                <section id="base-area">
+                    <table class="w-100">
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap fix-label clr">
+                                    <!--가맹점그룹코드-->
+                                    <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#mrchntGrpCd%}"></label>
+                                    <div class="td-desc-wrap clr">
+                                        <input type="text" class="bw-input SPD016mrchntGrpCd" readonly="readonly" />
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                                <div class="input-wrap fix-label clr">
+                                    <!--가맹점그룹명-->
+                                    <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#mrchntGrpNm%}"></label>
+                                    <div class="td-desc-wrap clr">
+                                        <input type="text" class="bw-input SPD016mrchntGrpNm" readonly="readonly" />
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+
+                <!-- 검색결과 -->
+                <section>
+                    <section class=" bw-tool add-bd2-t add-mg-t">
+                        <div class="f-l">
+                            <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+                            <h3 class="bw-desc">
+                                ({{SPD016Ctrl.gridPDGCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)
+                            </h3>
+                        </div>
+                        <div class="btn-wrap fix-r">
+                            <button type="button" class="bw-btn b-ctr" id="btnGridToggle" ng-click="SPD016Ctrl.btnGridToggle_Onclick()" title=""> 
+								
+								<i class="fas fa-angle-double-up"></i>
+							</button>
+                        </div>
+                    </section>
+                    <section id="srchRslt">
+                        <div id="SPD016mrchnt-grid">
+                            <section class="bw-grid"></section>
+                        </div>
+                    </section>
+                </section>
+            </section>
+
+
+            <!-- 가맹점그룹에서 가맹점이 등록되지 않았을 때 기본그룹정보만 표시  -->
+            <section name="on-display-none2" id="SPD016Detail" class="cnd-base-wrap conts-section" style="display: none;">
+
+                <!-- 화면상단영역 (조회,토글) -->
+                <section class=" bw-tool add-bd2-t">
+                    <div class="f-l">
+                        <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#dtlInfo%}"></h3>
+                    </div>
+                </section>
+
+                <section id="base-area">
+                    <table class="w-100">
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap fix-label clr">
+                                    <!--상품그룹코드-->
+                                    <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#mrchntGrpCd%}"></label>
+                                    <div class="td-desc-wrap clr">
+                                        <input type="text" class="bw-input SPD016mrchntGrpCd" readonly="readonly" />
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                                <div class="input-wrap fix-label clr">
+                                    <!--상품그룹기본명-->
+                                    <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#mrchntGrpNm%}"></label>
+                                    <div class="td-desc-wrap clr">
+                                        <input type="text" class="bw-input SPD016mrchntGrpNm" readonly="readonly" />
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap fix-label clr">
+                                    <!--가맹점 유형-->
+                                    <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#tpCd%}"></label>
+                                    <div class="td-desc-wrap clr">
+                                        <input type="text" class="bw-input SPD016mrchntGrpTpCd" readonly="readonly" />
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                                <div class="input-wrap fix-label clr">
+                                    <!--활동여부-->
+                                    <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#actvYn%}"></label>
+                                    <div class="td-desc-wrap clr">
+                                        <input type="text" class="bw-input SPD016actvYn" readonly="readonly" />
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+        </section>
+    </section>
+</section>

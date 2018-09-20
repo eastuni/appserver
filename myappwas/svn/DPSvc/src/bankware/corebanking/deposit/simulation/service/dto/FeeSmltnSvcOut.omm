@@ -1,0 +1,5 @@
+OMM bankware.corebanking.deposit.simulation.service.dto.FeeSmltnSvcOut
+<description="">
+{
+	bankware.corebanking.deposit.simulation.service.dto.FeeSmltnSvcOutSub feeList<length=0 arrayReference="500" description="수수료내역">;
+}

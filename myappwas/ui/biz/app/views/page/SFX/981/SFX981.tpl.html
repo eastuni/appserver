@@ -1,0 +1,97 @@
+
+	<section  id='SFX981' ng-init="SFX981Ctrl.init()">
+		<section  id="rgstRprsnttv"   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SFX981%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SFX981%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SFX981Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SFX981Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SFX981Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#bicCd%}" data-i18n-title="{%=cbb_items.SCRNITM#bicCd%}"></label>
+							<input type="text"  maxlength='11' dec='0' class="bw-input a-left"   data-form-param="bic" />
+							<button type="button" class="bw-btn fix-r" ng-click="SFX981Ctrl.bic_Onclick()" id="btn-bic-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#CAPCM190-LIST-TITLE%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnAttrReset" ng-click="SFX981Ctrl.btnAttrReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+				<button type="button" class="bw-btn"  id="btnAttrSave" ng-click="SFX981Ctrl.btnAttrSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i><span class="btn_txt">저장</span></button>
+				<button type="button" class="bw-btn-form unit add-mg-t-7"  id="btnAttrRelease" ng-click="SFX981Ctrl.btnAttrRelease_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#B_clear%}"/></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnAttrToggle" ng-click="SFX981Ctrl.btnAttrToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+		<section  id="secAttr"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_secAttr" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#swiftBnkNm%}" data-i18n-title="{%=cbb_items.SCRNITM#swiftBnkNm%}"></label>
+						<input type="text"  maxlength='50' dec='0' class="bw-input a-left"   data-form-param="bicNm" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#swiftBrnchNm%}" data-i18n-title="{%=cbb_items.SCRNITM#swiftBrnchNm%}"></label>
+						<input type="text"  maxlength='1000' dec='0' class="bw-input a-left"   data-form-param="brnchOfcNm" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label asterisk clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#naty%}" data-i18n-title="{%=cbb_items.SCRNITM#naty%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="natyIsoNatCd"></select>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_secAttr" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label asterisk clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rsdncLctnI%}" data-i18n-title="{%=cbb_items.SCRNITM#rsdncLctnI%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="rsdncLctnIsoNatCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label asterisk clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#lngCd%}" data-i18n-title="{%=cbb_items.SCRNITM#lngCd%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="lngCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#actorId%}" data-i18n-title="{%=cbb_items.AT#actorId%}"></label>
+						<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="actorId" />
+					</div>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<div id="tab" class=" add-mg-t">
+		<ul>
+			<li ng-click="SFX981_tab1Ctrl.tabOpen()"><a href="#SFX981_tab1"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#bankAddr%}" data-i18n-title="{%=cbb_items.SCRNITM#bankAddr%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SFX981_tab2Ctrl.tabOpen()"><a href="#SFX981_tab2"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#adtnlAtrbt%}" data-i18n-title="{%=cbb_items.SCRNITM#adtnlAtrbt%}"></label><span class="triangle"></span></a></li>
+		</ul>
+	<div id="SFX981_tab1">
+		<views-sfx981-tab1-directive></views-sfx981-tab1-directive>
+	</div>
+	<div id="SFX981_tab2">
+		<views-sfx981-tab2-directive></views-sfx981-tab2-directive>
+	</div>
+	</div>
+</section>
+</section>

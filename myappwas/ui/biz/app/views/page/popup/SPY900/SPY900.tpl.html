@@ -1,0 +1,30 @@
+
+	<section  id='SPY900' ng-init="SPY900Ctrl.init()">
+		<div   id="serviceTitle"  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SPY900%}">
+			</div>
+			<div   class="modal-body">
+				<section   >
+					<section class=" bw-tool add-bd2-t add-mg-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+						<h3 class="bw-desc">({{SPY900Ctrl.gridAcctListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SPY900Ctrl.btnGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+					</div>
+					</section>
+					<section  id="srchRslt"  >
+						<div id="SPY900_gridAcctList" >
+							<section class="bw-grid"></section>
+						</div>
+					</section>
+				</section>
+			</div>
+			<div   class="modal-footer btn-wrap add-mg">
+				<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="SPY900Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+				<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SPY900Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+			</div>
+		</div>
+	</section>

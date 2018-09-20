@@ -1,0 +1,13 @@
+#TestCaseName=
+#EndpointUrl=http://cbp.bankware/serviceEndpoint/serialized
+#InputHeader=
+<header default="true">
+<application>DPSvc</application>
+<service>DpstTxRstrctnSvc</service>
+<operation>txRstrctnQry</operation>
+</header>
+#InputOmmFileNm=bankware.corebanking.deposit.service.dto.DDpstTxRstrctnSvc03In
+#InputOmm=
+<DDpstTxRstrctnSvc03In>
+    <acctNbr>100000000000589</acctNbr>
+</DDpstTxRstrctnSvc03In>

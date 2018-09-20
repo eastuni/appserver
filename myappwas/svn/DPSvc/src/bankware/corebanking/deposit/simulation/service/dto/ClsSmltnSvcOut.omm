@@ -1,0 +1,31 @@
+OMM bankware.corebanking.deposit.simulation.service.dto.ClsSmltnSvcOut extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	BigDecimal prncpl<length=17 decimal=2 description="원금">;
+	BigDecimal txAmt<length=17 decimal=2 description="거래금액">;
+	BigDecimal intAmt<length=17 decimal=2 description="이자금액">;
+	BigDecimal tax<length=17 decimal=2 description="세금금액">;
+	BigDecimal rvrsdIntAmt<length=17 decimal=2 description="환입이자금액">;
+	BigDecimal rvrsdTax<length=17 decimal=2 description="환출세금금액">;
+	String txDt<length=8 description="거래년월일">;
+	String txHms<length=8 description="거래시분초">;
+	Integer txSeqNbr<length=7 description="거래일련번호">;
+	String arrId<length=40 description="계약식별자">;
+	Integer nthNbr<length=7 description="회차번호">;
+	String arrStsCd<length=1 description="계약상태코드">;
+	String pdNm<length=300 description="상품명">;
+	String custNm<length=50 description="고객명">;
+	String custId<length=100 description="고객식별자">;
+	String arrOpnDt<length=8 description="계약개설년월일">;
+	String arrTrmntnDt<length=8 description="계약해지년월일">;
+	String arrMtrtyDt<length=8 description="계약만기년월일">;
+	BigDecimal aplyIntRt<length=10 decimal=4 description="적용이율">;
+	String crncyCd<length=3 description="통화코드">;
+	BigDecimal lastBal<length=18 decimal=2 description="최종잔액">;
+	String oprtnAcctNbr<length=15 description="오퍼레이션계좌번호">;
+	bankware.corebanking.deposit.simulation.service.dto.ClsSmltnSvcOutSub stlmntList<length=0 arrayReference="20" description="정산내역">;
+	String mgmtDeptId<length=20 description="관리부서식별자">;
+	String mgmtDeptNm<length=20 description="관리부서명">;
+	String rdpstAmtDscd<length=2 description="재예치금액구분">;
+	BigDecimal rdpstAmt<length=22 decimal=2 description="재예치금액">;
+}

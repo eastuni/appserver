@@ -1,7 +1,12 @@
 #!/bin/bash
 
-echo "export DB_PORT=${DB_PORT}" >> /home/apprun/.bash_aliases 
-echo "export DB_HOST=${DB_HOST}" >> /home/apprun/.bash_aliases
+if [ -f /initfile ];then
+  echo "already initapp"
+else
+	echo "exec /initapp.sh"
+	bash /initapp.sh
+	echo "init app" > /initfile
+fi
 
 echo "clean applogs"
 rm -rf /applogs/*

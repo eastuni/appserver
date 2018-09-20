@@ -1,0 +1,51 @@
+
+	<section  id='SCM302' ng-init="SCM302Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SCM302%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SCM302%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SCM302Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SCM302Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#wflowNm%}" data-i18n-title="{%=cbb_items.AT#wflowNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="wflowNm" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#stepNm%}" data-i18n-title="{%=cbb_items.AT#stepNm%}"></label>
+							<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="stepNm" />
+						</div>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SCM302_SCM302Ctrl.gridListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SCM302Ctrl.btnGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="historyRslt"  >
+				<div id="gridList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+	</section>
+</section>

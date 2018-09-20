@@ -1,0 +1,177 @@
+
+	<section  id='SCL142' ng-init="SCL142Ctrl.init()">
+		<div   id="ScreenId"  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SCL142%}">
+			</div>
+			<div   class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SCL142Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+						<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SCL142Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+					</div>
+					</section>
+				<section  id="secSrchCnd"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_secSrchCnd" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#thingKndCd%}" data-i18n-title="{%=cbb_items.AT#thingKndCd%}"></label>
+								<select class="bw-input ipt-select"  ng-model="SCL142_SCL142Ctrl.thingKndCdSelectedValue" ng-change="SCL142Ctrl.thingKndCd_OnChange()" data-form-param="thingKndCd"></select>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#rgstrnAplctnNbr%}" data-i18n-title="{%=cbb_items.AT#rgstrnAplctnNbr%}"></label>
+								<input type="text"  maxlength='20' dec='0' class="bw-input a-left"   data-form-param="rgstrnAplctnNbr" />
+							</div>
+						</td>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+			</section>
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseAtrbt%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnCndToggle" ng-click="SCL142Ctrl.btnCndToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="baseAtrbt"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_baseAtrbt" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#qntyAreaVal%}" data-i18n-title="{%=cbb_items.AT#qntyAreaVal%}"></label>
+							<input type="text"  dec='6' class="bw-input "   data-form-param="qntyAreaVal"  common-numeric-only-directive ng-model='qntyAreaValAmt'/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#unitAmt%}" data-i18n-title="{%=cbb_items.AT#unitAmt%}"></label>
+							<input type="text"  dec='2' class="bw-input "   data-form-param="unitAmt"  common-numeric-only-directive ng-model='unitAmtAmt'/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#crncyCd%}" data-i18n-title="{%=cbb_items.AT#crncyCd%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="crncyCd"></select>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_baseAtrbt" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#calcnAmt%}" data-i18n-title="{%=cbb_items.AT#calcnAmt%}"></label>
+							<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="calcnAmt"  common-numeric-only-directive ng-model='calcnAmtAmt'/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprslAmt%}" data-i18n-title="{%=cbb_items.AT#aprslAmt%}"></label>
+							<input type="text"  dec='2' class="bw-input "   data-form-param="aprslAmt"  common-numeric-only-directive ng-model='aprslAmtAmt'/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#assetRcgntnRt%}" data-i18n-title="{%=cbb_items.AT#assetRcgntnRt%}"></label>
+							<input type="text"  dec='2' class="bw-input "   data-form-param="assetRcgntnRt"  common-numeric-only-directive ng-model='assetRcgntnRtAmt'/>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_baseAtrbt" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#assetRcgntnRatioExcptnCd%}" data-i18n-title="{%=cbb_items.AT#assetRcgntnRatioExcptnCd%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="assetRcgntnRatioExcptnCd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aplyAssetRcgntnRt%}" data-i18n-title="{%=cbb_items.AT#aplyAssetRcgntnRt%}"></label>
+							<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="aplyAssetRcgntnRt"  common-numeric-only-directive ng-model='aplyAssetRcgntnRtAmt'/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#exmntnAmt%}" data-i18n-title="{%=cbb_items.AT#exmntnAmt%}"></label>
+							<input type="text"  dec='2' class="bw-input "   data-form-param="exmntnAmt"  common-numeric-only-directive ng-model='exmntnAmtAmt'/>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_baseAtrbt" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#bldgCmpltnDt%}" data-i18n-title="{%=cbb_items.AT#bldgCmpltnDt%}"></label>
+							<div id="bldgCmpltnDt" ></div>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#srvcTrmntnYrCnt%}" data-i18n-title="{%=cbb_items.AT#srvcTrmntnYrCnt%}"></label>
+							<input type="text"  dec='0' class="bw-input "   data-form-param="srvcTrmntnYrCnt"  common-numeric-only-directive ng-model='srvcTrmntnYrCntAmt'/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#elpsdYrCnt%}" data-i18n-title="{%=cbb_items.AT#elpsdYrCnt%}"></label>
+							<input type="text"  dec='0' class="bw-input "   data-form-param="elpsdYrCnt"  common-numeric-only-directive ng-model='elpsdYrCntAmt'/>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_baseAtrbt" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#rmndYrCnt%}" data-i18n-title="{%=cbb_items.AT#rmndYrCnt%}"></label>
+							<input type="text"  dec='0' class="bw-input "   data-form-param="rmndYrCnt"  common-numeric-only-directive ng-model='rmndYrCntAmt'/>
+						</div>
+					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#adtnlAtrbt%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnAttrToggle" ng-click="SCL142Ctrl.btnAttrToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+		<section  id="secAttr"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_secAttr" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#usageRegionDscd%}" data-i18n-title="{%=cbb_items.AT#usageRegionDscd%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="usageRegionDscd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#landPurposeDscd%}" data-i18n-title="{%=cbb_items.AT#landPurposeDscd%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="landPurposeDscd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<span data-form-param=""   ></span>
+				</td>
+			</tr>
+			<tr  name="tr_secAttr" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#bldgUseDscd%}" data-i18n-title="{%=cbb_items.AT#bldgUseDscd%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="bldgUseDscd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#bldgUseUsageDscd%}" data-i18n-title="{%=cbb_items.AT#bldgUseUsageDscd%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="bldgUseUsageDscd"></select>
+					</div>
+				</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+	</section>
+</div>
+<div   class="modal-footer btn-wrap add-mg">
+	<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="SCL142Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+	<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SCL142Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+</div>
+</div>
+</section>

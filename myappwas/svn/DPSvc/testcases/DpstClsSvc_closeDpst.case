@@ -1,0 +1,20 @@
+#TestCaseName=
+#EndpointUrl=http://cbp.bankware/serviceEndpoint/serialized
+#InputHeader=
+<header default="true">
+<application>DPSvc</application>
+<service>DpstClsSvc</service>
+<operation>closeDpst</operation>
+</header>
+#InputOmmFileNm=bankware.corebanking.deposit.service.dto.DpstClsSvcIn
+#InputOmm=
+<DpstClsSvcIn>
+    <acctNbr>1110000001017092</acctNbr>
+    <arrCncltnDscd></arrCncltnDscd>
+    <cashTrnsfrDscd>2</cashTrnsfrDscd>
+    <crncyCd>CNY</crncyCd>
+    <cashTrnsfrAmt>0.0</cashTrnsfrAmt>
+    <pswd>111111</pswd>
+    <dpstAcctNbr>100000000000589</dpstAcctNbr>
+    <txRmk>해지후 입금</txRmk>
+</DpstClsSvcIn>

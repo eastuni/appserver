@@ -1,0 +1,65 @@
+
+	<section  id='SCL210' ng-init="SCL210Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SCL210%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SCL210%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SCL210Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SCL210Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SCL210Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="grpSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_grpSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#assetCustRelCd%}" data-i18n-title="{%=cbb_items.AT#assetCustRelCd%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="assetCustRelCd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNbr%}" data-i18n-title="{%=cbb_items.AT#custNbr%}"></label>
+							<input type="text"  maxlength='20' dec='0' common-string-number-only-directive class="bw-input a-left"   data-form-param="custNbr" />
+						</div>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#acctList%}"></h3>
+				<h3 class="bw-desc">({{SCL210Ctrl.acctNbrInfoGridCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnacctNbrInfoGridToggle" ng-click="SCL210Ctrl.btnacctNbrInfoGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="acctNbrInfoGridSec"  >
+				<div id="SCL210_acctNbrInfoGrid" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+		<button type="button" class="bw-btn-form unit add-mg-t-7"  id="testBtn172" ng-click="SCL210Ctrl.testBtn172_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#testBtn172%}"/></button>
+		<button type="button" class="bw-btn-form unit add-mg-t-7"  id="testBtn930" ng-click="SCL210Ctrl.testBtn930_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#testBtn930%}"/></button>
+		<button type="button" class="bw-btn-form unit add-mg-t-7"  id="testBtn142" ng-click="SCL210Ctrl.testBtn142_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#testBtn142%}"/></button>
+		<button type="button" class="bw-btn-form unit add-mg-t-7"  id="testBtn940" ng-click="SCL210Ctrl.testBtn940_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#testBtn940%}"/></button>
+		<button type="button" class="bw-btn-form unit add-mg-t-7"  id="testBtn015" ng-click="SCL210Ctrl.testBtn015_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#testBtn015%}"/></button>
+		<button type="button" class="bw-btn-form unit add-mg-t-7"  id="testBtn017" ng-click="SCL210Ctrl.testBtn017_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#testBtn017%}"/></button>
+		<button type="button" class="bw-btn-form unit add-mg-t-7"  id="testBtn016" ng-click="SCL210Ctrl.testBtn016_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#testBtn016%}"/></button>
+		<button type="button" class="bw-btn-form unit add-mg-t-7"  id="testBtn019" ng-click="SCL210Ctrl.testBtn019_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#testBtn019%}"/></button>
+		<button type="button" class="bw-btn-form unit add-mg-t-7"  id="testBtn026" ng-click="SCL210Ctrl.testBtn026_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#testBtn026%}"/></button>
+		<button type="button" class="bw-btn-form unit add-mg-t-7"  id="testBtn029" ng-click="SCL210Ctrl.testBtn029_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#testBtn029%}"/></button>
+		<button type="button" class="bw-btn-form unit add-mg-t-7"  id="testBtn013" ng-click="SCL210Ctrl.testBtn013_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#testBtn013%}"/></button>
+		<button type="button" class="bw-btn-form unit add-mg-t-7"  id="testBtn030" ng-click="SCL210Ctrl.testBtn030_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#testBtn030%}"/></button>
+	</section>
+</section>

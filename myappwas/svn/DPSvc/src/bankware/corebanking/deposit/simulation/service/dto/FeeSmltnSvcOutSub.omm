@@ -1,0 +1,9 @@
+OMM bankware.corebanking.deposit.simulation.service.dto.FeeSmltnSvcOutSub
+<description="">
+{
+	String feeCndCd<length=10 description="수수료조건코드">;
+	String feeCndNm<length=30 description="수수료조건명">;
+	BigDecimal levyFeeAmt<length=17 decimal=2 description="징수수수료금액">;
+	BigDecimal bsicFeeAmt<length=17 decimal=2 description="기본수수료금액">;
+	BigDecimal dscntFeeAmt<length=17 decimal=2 description="할인수수료금액">;
+}

@@ -1,0 +1,224 @@
+
+<section  id='SPD011' ng-init="SPD011Ctrl.init()" SPD011-wrap-directive>
+
+    <!-- 상품서비스적용 -->
+	<h2 class="bw-tt" data-i18n="{%=cbb_items.SCRN#SPD011%}">
+        <!-- 상품서비스적용 시뮬레이션 -->
+		<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SPD011%}"></p>
+	</h2>
+    <section class=" bw-tool add-bd2-t">
+        <div class="f-l">
+            <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseAtrbt%}"></h3>
+        </div>
+        <div class="btn-wrap fix-r">
+            <button type="button" class="bw-btn"  id="btnReset" ng-click="SPD011Ctrl.btnReset_Onclick()" title="초기화"><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+            <button type="button" class="bw-btn"  id="btnSearch" ng-click="SPD011Ctrl.btnSearch_Onclick()" title="조회"><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+            <button type="button" class="bw-btn"  id="btnCreateApprovalInfo" ng-click="SPD011Ctrl.btnCreateApprovalInfo_Onclick()" title="승인정보 생성"><i class="bw-icon i-30 i-func-submit2"></i></button>
+            <button type="button" class="bw-btn"  id="btnSimulation" ng-click="SPD011Ctrl.btnSimulation_Onclick()" title="서비스적용 시뮬레이션"><i class="bw-icon i-30 i-cc-start"></i></button>
+            <button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SPD011Ctrl.btnToggle_Onclick('base-area')" title=""><i class="fas fa-angle-double-up"></i></button>
+        </div>
+    </section>
+
+    <section id="base-area">
+        <table class="w-100">
+            <tr>
+                <td class="td-w-33">
+                    <div class="input-wrap fix-label clr asterisk" >
+                        <!--카드번호-->
+                        <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#cardNbr%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input cardNbr"/>
+                            <button type="button" class="bw-btn fix-r" ng-click="SPD011Ctrl.btnCustId_Onclick()" id="btn-custId-search">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                </td>
+                <td class="td-w-33">
+                </td>
+            </tr>
+            <tr>
+                <td class="td-w-33">
+                    <div class="input-wrap fix-label clr asterisk" >
+                        <!--가맹점 번호-->
+                        <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#mrchntNbr%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input mrchntNbr"/>
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                    <div class="input-wrap fix-label clr" >
+                        <!--가맹점명-->
+                        <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#mrchntNm%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input mrchntNm" readonly="readonly"/>
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                </td>
+            </tr>
+            <tr>
+                <td class="td-w-33">
+                    <div class="input-wrap fix-label clr asterisk" >
+                        <!--매출일자-->
+                        <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#salesDt%}"></label>
+                        <div id="salesDt">
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                    <div class="input-wrap fix-label clr asterisk" >
+                        <!--매출금액-->
+                        <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#salesAmt%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input salesAmt"/>
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                </td>
+            </tr>
+            <tr>
+                <td class="td-w-33">
+                    <div class="input-wrap fix-label clr" >
+                        <!---->
+                        <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#instlmntMnthCnt%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input instlmntMnthCnt"/>
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                    <div class="input-wrap fix-label clr" >
+                        <!---->
+                        <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#usePntVal%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input usePntVal"/>
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                </td>
+            </tr>
+            <tr>
+                <td class="td-w-33">
+                    <div class="input-wrap fix-label clr" >
+                        <!---->
+                        <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#bnftCd%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input bnftCd"/>
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                    <div class="input-wrap fix-label clr" >
+                        <!---->
+                        <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#bnftNm%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input bnftNm" readonly="readonly"/>
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                </td>
+            </tr>
+            <tr>
+                <td class="td-w-33">
+                    <div class="input-wrap fix-label clr" >
+                        <!---->
+                        <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#aprvlTxDscd%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input aprvlTxDscd"/>
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                    <div class="input-wrap fix-label clr" >
+                        <!---->
+                        <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#aprvlNbr%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input aprvlNbr"/>
+                        </div>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                    <div class="input-wrap fix-label clr" >
+                        <!---->
+                        <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#aprvlHms%}"></label>
+                        <div class="td-desc-wrap clr">
+                            <input type="text" class="bw-input aprvlHms"/>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Tab Area -->
+    <section>
+    <div id="tab" class="add-mg-t resultTab">
+        <ul>
+            <li><a href="#cust-page"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#custInfo%}"></label><span class="triangle"></span></a></li>
+            <li><a href="#pd-page"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#pdInfo%}"></label><span class="triangle"></span></a></li>
+            <li><a href="#mrchnt-page"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#mrchntInfo%}"></label><span class="triangle"></span></a></li>
+        </ul>
+		<section class=" bw-tool">
+		    <div class="btn-wrap fix-r">
+		        <button type="button" class="bw-btn b-ctr"  id="btnPdSchToggle" ng-click="SPD011Ctrl.btnToggle_Onclick('tab-area')" title=""><i class="fas fa-angle-double-up"></i></button>
+		    </div>
+		</section>
+		<section id="tab-area">
+        <div id="cust-page">
+            <views-spd011-cust-tab-directive></views-spd011-cust-tab-directive>
+        </div>
+        <div id="pd-page">
+            <views-spd011-pd-tab-directive></views-spd011-pd-tab-directive>
+        </div>
+        <div id="mrchnt-page">
+            <views-spd011-mrchnt-tab-directive></views-spd011-mrchnt-tab-directive>
+        </div>
+        </section>
+    </div>
+    </section>
+
+    <!-- Grid Area -->
+    <section id="cndd-svc-list">
+        <section class=" bw-tool add-bd2-t add-mg-t" >
+        <div class="f-l">
+            <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#aplyTgtBnft%}"></h3>
+            <h3 class="bw-desc">({{SPD011Ctrl.stSingleGridCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+        </div>
+        <div class="btn-wrap fix-r">
+            <button type="button" class="bw-btn"  id="btnGrid1Excel" ng-click="SPD011Ctrl.btnAplyGrid1Excel_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i><span class="btn_txt">엑셀 다운로드</span></button>
+            <button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SPD011Ctrl.btnToggle_Onclick('aplyBnftList1')" title=""><i class="fas fa-angle-double-up"></i></button>
+        </div>
+        </section>
+        <section  id="aplyBnftList1"  >
+            <div id="SPD011-aplyBnftList1-grid" >
+                <section class="bw-grid"></section>
+            </div>
+        </section>
+    </section>
+
+    <section id="aply-svc-list">
+        <section class=" bw-tool add-bd2-t add-mg-t" >
+        <div class="f-l">
+            <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#aplyRslt%}"></h3>
+            <h3 class="bw-desc">({{SPD011Ctrl.stSingleGrid2Count}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+        </div>
+        <div class="btn-wrap fix-r">
+            <button type="button" class="bw-btn"  id="btnGrid2Excel" ng-click="SPD011Ctrl.btnAplyGrid2Excel_Onclick" title=""><i class="bw-icon i-30 i-func-xls"></i><span class="btn_txt">엑셀 다운로드</span></button>
+            <button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SPD011Ctrl.btnToggle_Onclick('aplyBnftList2')" title=""><i class="fas fa-angle-double-up"></i></button>
+        </div>
+        </section>
+        <section  id="aplyBnftList2"  >
+            <div id="SPD011-aplyBnftList2-grid" >
+                <section class="bw-grid"></section>
+            </div>
+        </section>
+    </section>
+</section>

@@ -1,0 +1,80 @@
+
+		<section   >
+			<section class=" bw-tool add-bd2-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#telNbrList%}"></h3>
+				<h3 class="bw-desc">({{SCU171_telNbrTabCtrl.telNbrInfoListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnTelNbrGridSave" ng-click="SCU171_telNbrTabCtrl.btnTelNbrGridSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i><span class="btn_txt">저장</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnTelNbrGridToggle" ng-click="SCU171_telNbrTabCtrl.btnTelNbrGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="telNbrSrchRslt"  >
+				<div id="SCU171_telNbrTab_telNbrInfoList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+			<section class=" bw-tool add-bd2-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#telInput%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnTelNbrInfoReset" ng-click="SCU171_telNbrTabCtrl.btnTelNbrInfoReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+				<button type="button" class="bw-btn"  id="btnTelNbrInfoSave" ng-click="SCU171_telNbrTabCtrl.btnTelNbrInfoSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i><span class="btn_txt">저장</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnTelNbrInfoToggle" ng-click="SCU171_telNbrTabCtrl.btnTelNbrInfoToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+		<section  id="telNbrInfo"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_telNbrInfo" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#cntctPntTp%}" data-i18n-title="{%=cbb_items.SCRNITM#cntctPntTp%}"></label>
+						<select class="bw-input ipt-select" disabled data-form-param="ctcptTpCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#cntctMthdTpCd%}" data-i18n-title="{%=cbb_items.AT#cntctMthdTpCd%}"></label>
+						<select class="bw-input ipt-select" disabled data-form-param="cntctMthdTpCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#rprsntvCtcptYn%}" data-i18n-title="{%=cbb_items.AT#rprsntvCtcptYn%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="rprsntvCtcptYn"></select>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_telNbrInfo" >
+				<td class="td-w-33">
+					<div class="input-wrap unit clr fix-tel" >
+						<label class="bw-label unit w-30"  data-i18n="{%=cbb_items.AT#telNbr%}" data-i18n-title="{%=cbb_items.AT#telNbr%}"></label>
+						<select class="bw-input unit w-25 ipt-select" ng-model="SCU171_telNbrTabCtrl.intrntnlNbrSelectedValue" data-form-param="intrntnlNbr"></select><input type="text" class="bw-input unit w-13 clear ipt-tel" data-form-param="idTelNbr"><input type="text" class="bw-input unit w-13 clear ipt-tel" data-form-param="telExNbr"><input type="text" class="bw-input unit w-13 clear" data-form-param="serialTelNbr">
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rcvPrmsnDstnctn%}" data-i18n-title="{%=cbb_items.SCRNITM#rcvPrmsnDstnctn%}"></label>
+						<select class="bw-input ipt-select"  data-form-param="cntctPrhbtnTpCd"></select>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#cntctPntSeqNbr%}" data-i18n-title="{%=cbb_items.AT#cntctPntSeqNbr%}"></label>
+						<input type="text"  dec='0' class="bw-input "   data-form-param="cntctPntSeqNbr"  common-numeric-only-directive ng-model='cntctPntSeqNbrAmt'/>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_telNbrInfo" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#actorCtcptId%}" data-i18n-title="{%=cbb_items.AT#actorCtcptId%}"></label>
+						<input type="text"  maxlength='10' dec='0' common-string-number-only-directive class="bw-input a-left"   data-form-param="actorCtcptId" />
+					</div>
+				</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+	</section>

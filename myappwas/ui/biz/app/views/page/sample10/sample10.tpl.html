@@ -1,0 +1,76 @@
+<section id="sample10" ng-init="sample10Ctrl.init()">
+    <section>
+    	<h2 class="bw-tt">
+	        그리드 index paging sample
+	        <p class="desc"></p>
+	    </h2>
+	    <section>
+	    	<section id="secSearchCnd" class="bw-tool add-bd2-t add-mg-t">
+		        <div class="f-l">
+		            <h3 class="bw-desc">기본 속성</h3>
+		        </div>
+		        <div class="btn-wrap fix-r">
+		            <button type="button" class="bw-btn" id="btn-service-search" title="" ng-click="sample10Ctrl.searchOnclick()"><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+		            <button type="button" class="bw-btn b-ctr" id="btn-base-attribute-toggle" ng-click="sample10Ctrl.toggleOnclick()"><i class="fas fa-angle-double-up"></i></button>
+		        </div>
+		    </section>
+
+
+		    <section id="secSearch">
+		        <section class="search-wrap">
+		            <table class="w-100">
+		                <tr>
+		                    <td class="td-w-33">
+		                        <div class="input-wrap asterisk clr">
+		                            <label class="bw-label w-40">컴포넌트</label>
+		                            <select class="bw-input ipt-select w-60 service-cmpntCd-wrap" data-form-param="cmpntCd">
+		                            	<option value="ARS">계약 서비스</option>
+		                            	<option value="ACS">회계서비스</option>
+		                            </select>
+		                        </div>
+		                    </td>
+		                    <td class="td-w-33">
+		                        <div class="input-wrap asterisk clr">
+		                            <label class="bw-label w-40">서비스코드</label>
+		                            <input type="text" class="bw-input w-60" data-form-param="srvcCd" id="srvcCd"/>
+		                        </div>
+		                    </td>
+		                    <td class="td-w-33 l-c"> 
+		                        <div class="input-wrap asterisk clr">
+		                            <label class="bw-label w-40">서비스명</label>
+		                            <input type="text" class="bw-input w-60" data-form-param="srvcNm" id="srvcNm"/>
+		                        </div>
+		                    </td>
+		                </tr>
+		            </table>
+		        </section> 
+			</section>
+		</section>
+
+
+		<section  id="secGrid"  class="grid-wrap">
+			<section  id="secSrchRslt"  class="bw-tool add-bd2-t add-mg-t">
+			</section>
+			<div>
+				<div id="serviceGrid">
+					<section class="bw-grid"></section>
+				</div>
+				<section class="paging-area" id="paging-area"></section>
+			</div>
+	    </section>
+
+
+		<section  id="secGrid"  class="grid-wrap">
+			<section  id="secSrchRslt"  class="bw-tool add-bd2-t add-mg-t">
+			</section>
+			<div>
+				<div id="serviceGrid2">
+					<section class="bw-grid"></section>
+				</div>
+				<section class="paging-area2" id="paging-area2"></section>
+			</div>
+	    </section>
+    </section>
+
+
+</section>

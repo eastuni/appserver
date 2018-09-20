@@ -1,0 +1,283 @@
+<section id="arrCndTabInfo">
+	<section>
+		<table class="w-100" >	
+			<tr name="tr_baseAtrbt" >
+				<!-- 신규년월일 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#opnDt%}" data-i18n-title="{%=cbb_items.SCRNITM#opnDt%}"></label>
+						<div id="opnDt" ></div> 
+					</div>
+				</td>
+				<!-- 만기년월일 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#mtrtyDt%}" data-i18n-title="{%=cbb_items.AT#mtrtyDt%}"></label>
+						<div id="mtrtyDt" ></div>
+					</div>
+				</td>
+				<!-- 분할지급상태구분코드 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.AT#prtlDsbrsmntStsDscd%}" data-i18n-title="{%=cbb_items.AT#prtlDsbrsmntStsDscd%}"></label>
+						<select class="bw-input ipt-select" data-form-param="prtlDsbrsmntStsDscd" id="prtlDsbrsmntStsDscd"></select>
+					</div>
+				</td>
+				<!-- 일부상환후상환방법구분코드 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#prtlRpymntAfRpymntDscd%}" data-i18n-title="{%=cbb_items.SCRNITM#prtlRpymntAfRpymntDscd%}"></label>
+						<select class="bw-input ipt-select" data-form-param="prtlRpymntAfRpymntDscd" id="prtlRpymntAfRpymntDscd"></select>
+					</div>
+				</td>
+				
+			</tr>
+			<tr name="tr_baseAtrbt" >
+				<!-- 최종이수년월일(최종이자계산일자) -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#lastIntCalcnDt%}" data-i18n-title="{%=cbb_items.SCRNITM#lastIntCalcnDt%}"></label>
+						<div id="lastIntCalcnDt"></div>
+					</div>
+				</td>
+				<!-- 기한이익상실년월일 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#exprtnDtProfitLossStartDt%}" data-i18n-title="{%=cbb_items.SCRNITM#exprtnDtProfitLossStartDt%}"></label>
+						<div id="dlnprftlossDt" ></div>
+					</div>
+				</td>
+
+				<!-- 분할지급일 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.AT#prtlDsbrsmntDt%}" data-i18n-title="{%=cbb_items.AT#prtlDsbrsmntDt%}"></label>
+						<div id="prtlDsbrsmntDt" ></div>
+					</div>
+				</td>
+				<!-- 일부상환거래일 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.AT#prtlRpymntTxDt%}" data-i18n-title="{%=cbb_items.AT#prtlRpymntTxDt%}"></label>
+						<div id="prtlRpymntTxDt" ></div>
+					</div>
+				</td>
+				
+			</tr>
+				
+			<tr name="tr_baseAtrbt" >
+				<!-- 다음납입년월일 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="다음납입년월일" data-i18n-title="다음납입년월일"></label>
+						<div id="nxtPymntDt" ></div>
+					</div>
+				</td>
+				<!-- 전다음납입년월일 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.AT#prvsNxtPymntDt%}" data-i18n-title="{%=cbb_items.AT#prvsNxtPymntDt%}"></label>
+						<div id="prvsNxtPymntDt" ></div>
+					</div>
+				</td>
+				<!-- 분할지급금액 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.AT#prtlDsbrsmntAmt%}" data-i18n-title="{%=cbb_items.AT#prtlDsbrsmntAmt%}"></label>
+						<input type="text" dec='2' class="bw-input" data-form-param="prtlDsbrsmntAmt" ng-model="prtlDsbrsmntAmt" common-numeric-only-directive/>
+					</div>
+				</td>
+				<!-- 일부상환원금합계 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.AT#prtlRpymntSumPrncplAmt%}" data-i18n-title="{%=cbb_items.AT#prtlRpymntSumPrncplAmt%}"></label>
+						<input type="text" dec='2' class="bw-input" data-form-param="prtlRpymntSumPrncplAmt" ng-model='prtlRpymntSumPrncplAmt' common-numeric-only-directive/>
+					</div>
+				</td>
+
+			</tr>
+			<tr name="tr_baseAtrbt" >
+				<!-- 연체기준년월일 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="연체기준년월일" data-i18n-title="연체기준년월일"></label>
+						<div id="ovrduBaseDt"></div>
+					</div>
+				</td>
+				<!-- 잔액연체기준년월일 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="잔액연체기준년월일" data-i18n-title="잔액연체기준년월일"></label>
+						<div id="balOvrduBaseDt"></div>
+					</div>
+				</td>
+				<!-- 선납일수 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#prpymntDayCnt%}" data-i18n-title="{%=cbb_items.AT#prpymntDayCnt%}"></label>
+						<input type="text" class="bw-input " maxlnegth=2 data-form-param="prpymntDayCnt" ng-model='prpymntDayCnt' common-numeric-only-directive/>
+					</div>
+				</td>
+
+				<!-- 일부상환미정리금액 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.AT#prtlRpymntNotClrncAmt%}" data-i18n-title="{%=cbb_items.AT#prtlRpymntNotClrncAmt%}"></label>
+						<input type="text" dec='2' class="bw-input" data-form-param="prtlRpymntNotClrncAmt" ng-model="prtlRpymntNotClrncAmt" common-numeric-only-directive/>
+					</div>
+				</td>
+			</tr>
+			<tr name="tr_baseAtrbt" >
+				<!-- 약정납입일[상환특정일자] -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.PDCND#D0036%}" data-i18n-title="{%=cbb_items.PDCND#D0036%}"></label>
+						<input type="text" class="bw-input " maxlnegth=2 data-form-param="dsgntnPymntDay" ng-model='dsgntnPymntDay' common-numeric-only-directive/>						
+					</div>
+				</td>
+				<!-- 이자선후취구분코드 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.PDCND#L0105%}" data-i18n-title="{%=cbb_items.PDCND#L0105%}"></label>
+						<select class="bw-input ipt-select" data-form-param="prePostAcqstnDscd" id="prePostAcqstnDscd"></select>						
+					</div>
+				</td>
+				<!-- 미징수이자구분코드 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.AT#notLevyIntDscd%}" data-i18n-title="{%=cbb_items.AT#notLevyIntDscd%}"></label>
+						<select class="bw-input ipt-select" data-form-param="notLevyIntDscd" id="notLevyIntDscd"></select>
+					</div>
+				</td>
+				<!-- 계좌상태코드 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#acctSts%}" data-i18n-title="{%=cbb_items.SCRNITM#acctSts%}"></label>
+						<select class="bw-input ipt-select" data-form-param="arrStsCd"></select>
+					</div>
+				</td>
+			</tr>
+			
+			<tr name="tr_baseAtrbt" >
+				<!-- 이자납입주기구분코드 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label"  data-i18n="{%=cbb_items.PDCND#L0104%}" data-i18n-title="{%=cbb_items.PDCND#L0104%}"></label>
+						<select class="bw-input ipt-select" data-form-param="intPymntCyclDscd" id="intPymntCyclCnt"></select>
+					</div>
+				</td>
+				<!-- 원금납입주기구분코드 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.PDCND#L0169%}" data-i18n-title="{%=cbb_items.PDCND#L0169%}"></label>
+						<select class="bw-input ipt-select" data-form-param="prncplAmtPymntCyclDscd" id="prncplAmtPymntCyclDscd"></select>				
+					</div>
+				</td>
+				<!-- 미징수이자계산년월일 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.AT#notLevyIntCalcnDt%}" data-i18n-title="{%=cbb_items.AT#notLevyIntCalcnDt%}"></label>
+						<div id="notLevyIntCalcnDt" ></div>
+					</div>
+				</td>
+				<td></td>
+			</tr>
+			<tr name="tr_baseAtrbt" >
+				<!-- 상환방법구분코드 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#rpymntWayCd%}" data-i18n-title="{%=cbb_items.SCRNITM#rpymntWayCd%}"></label>
+						<select class="bw-input ipt-select" data-form-param="rpymntWayDscd" id="rpymntWayDscd"></select>	
+					</div>
+				</td>
+				<!-- 할부잔액 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="할부잔액" data-i18n-title="할부잔액"></label>
+						<input type="text" dec='2' class="bw-input" data-form-param="instlmntBal" ng-model='instlmntBal' common-numeric-only-directive/>
+					</div>
+				</td>
+				<!-- 미회수원금 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.AT#notLevyIntPrncplAmt%}" data-i18n-title="{%=cbb_items.AT#notLevyIntPrncplAmt%}"></label>
+						<input type="text" dec='2' class="bw-input" data-form-param="notLevyIntPrncplAmt" ng-model='notLevyIntPrncplAmt' common-numeric-only-directive/>
+					</div>
+				</td>
+				<td></td>
+			</tr>
+			<tr name="tr_baseAtrbt" >
+				<!-- 최종납입회차 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="최종납입회차" data-i18n-title="최종납입회차"></label>
+						<input type="text" class="bw-input" data-form-param="lastPymntNth" ng-model='lastPymntNth' common-numeric-only-directive/>
+					</div>
+				</td>
+
+				<!-- 대출잔액 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#totLoanAmt%}" data-i18n-title="{%=cbb_items.SCRNITM#totLoanAmt%}"></label>
+						<input type="text"  dec='2' class="bw-input "   data-form-param="lonBal" ng-model='lonBal' common-numeric-only-directive/>
+					</div>
+				</td>
+				<!-- 미회수약정이자 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.AT#notLevyAgrmntIntAmt%}" data-i18n-title="{%=cbb_items.AT#notLevyAgrmntIntAmt%}"></label>
+						<input type="text" dec='2' class="bw-input" data-form-param="notLevyAgrmntIntAmt" ng-model='notLevyAgrmntIntAmt' common-numeric-only-directive/>
+					</div>
+				</td>
+				<td></td>
+			</tr>
+			
+			<tr name="tr_baseAtrbt" >
+				<!-- 할부금 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="할부금" data-i18n-title="할부금"></label>
+						<input type="text" dec='2' class="bw-input" data-form-param="allotAmt" ng-model='allotAmt' common-numeric-only-directive/>
+					</div>
+				</td>
+				<!-- 거치기간수 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="거치기간수" data-i18n-title="거치기간수"></label>
+						<input type="text" class="bw-input" data-form-param="dfrmntTrmCnt" ng-model='dfrmntTrmCnt' common-numeric-only-directive/>
+					</div>
+				</td>
+				<!-- 미회수연체이자 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.AT#notLevyOvrduIntAmt%}" data-i18n-title="{%=cbb_items.AT#notLevyOvrduIntAmt%}"></label>
+						<input type="text" dec='2' class="bw-input" data-form-param="notLevyOvrduIntAmt" ng-model='notLevyOvrduIntAmt' common-numeric-only-directive/>
+					</div>
+				</td>
+
+				<td></td>
+			</tr>
+			
+			<tr name="tr_baseAtrbt" >
+	
+				<!-- 만기일시상환금액 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" ><label class="bw-label" data-i18n="만기일시상환금액" data-i18n-title="만기일시상환금액"></label>
+						<input type="text" dec='2' class="bw-input" data-form-param="matureRpymntAmt" ng-model='matureRpymntAmt' common-numeric-only-directive/>
+					</div>
+				</td>
+				<!-- 자동이체일 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.PDCND#D0055%}" data-i18n-title="{%=cbb_items.PDCND#D0055%}"></label>
+						<input type="text" class="bw-input " maxlnegth=2 data-form-param="stndngOrderDay" ng-model='stndngOrderDay' common-numeric-only-directive/>						
+					</div>
+				</td>
+				<!-- 미회수잔액연체이자 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.AT#notLevyBalOvrduIntAmt%}" data-i18n-title="{%=cbb_items.AT#notLevyBalOvrduIntAmt%}"></label>
+						<input type="text" dec='2' class="bw-input" data-form-param="notLevyBalOvrduIntAmt" ng-model='notLevyBalOvrduIntAmt' common-numeric-only-directive/>
+					</div>
+				</td>
+
+				<td></td>
+			</tr>
+		</table>
+	</section>
+</section>

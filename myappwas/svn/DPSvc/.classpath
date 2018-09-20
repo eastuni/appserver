@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="bxm.builder.core.container"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="src-gen"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-ac-intrfc.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-ac.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-ar-model.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-ar.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-at-model.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-at.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-cm-model.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-cm.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-core-intrfc.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-cr-model.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-cr.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-dc-intrfc.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-dc.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-lnsvc.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-pd-intrfc.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-pd.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-pysvc.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-st-model.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-st.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-sv-model.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-sv.jar"/>
+	<classpathentry kind="lib" path="/ReferenceProject/lib/cbb-wasvc.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

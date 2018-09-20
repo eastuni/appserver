@@ -1,0 +1,30 @@
+#TestCaseName=
+#EndpointUrl=http://cbp.bankware/serviceEndpoint/serialized
+#InputHeader=
+<header default="true">
+<application>DPSvc</application>
+<service>InstlmntDpstOpnSvc</service>
+<operation>opnInstlmntDpst</operation>
+<userId></userId>
+</header>
+#InputOmmFileNm=bankware.corebanking.deposit.service.dto.InstlmntDpstOpnSvcIn
+#InputOmm=
+<InstlmntDpstOpnSvcIn>
+    <pdCd>011300100001</pdCd>
+    <custId></custId>
+    <pswd>111111</pswd>
+    <custDsgntnAcctNbr></custDsgntnAcctNbr>
+    <acctNckNm></acctNckNm>
+    <crncyCd>CNY</crncyCd>
+    <rcptAmt1>0.0</rcptAmt1>
+    <rcptAmt2>0.0</rcptAmt2>
+    <rcptAmt3>0.0</rcptAmt3>
+    <txAmt>0.0</txAmt>
+    <rckngDt></rckngDt>
+    <whdrwlAcctNbr>100000000000589</whdrwlAcctNbr>
+    <whdrwlAcctPswd>111111</whdrwlAcctPswd>
+    <pymntDay>10</pymntDay>
+    <mnthlyPymntAmt>10000</mnthlyPymntAmt>
+    <arrTrmMnthCnt>3</arrTrmMnthCnt>
+    <cmpxPdLnkdAcctNbr></cmpxPdLnkdAcctNbr>
+</InstlmntDpstOpnSvcIn>

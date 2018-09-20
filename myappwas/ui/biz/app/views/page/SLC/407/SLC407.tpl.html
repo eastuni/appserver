@@ -1,0 +1,44 @@
+
+	<section  id='SLC407' ng-init="SLC407Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SLC407%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SLC407%}"></p>
+			</h2>
+			<section   >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#trgtList%}"></h3>
+					<h3 class="bw-desc">({{SLC407_SLC407Ctrl.grdListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn-form unit add-mg-t-7"  id="btnExcelUp" ng-click="SLC407Ctrl.btnExcelUp_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#excelUpload%}"/></button>
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SLC407Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SLC407Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnRsltToggle" ng-click="SLC407Ctrl.btnRsltToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+				<section  id="trgtList"  >
+					<div id="SLC407_grdList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+			<div id="tab" class=" add-mg-t">
+				<ul>
+					<li ng-click="SLC407_bondDscdCtrl.tabOpen()"><a href="#SLC407_bondDscd"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#bondDscd%}" data-i18n-title="{%=cbb_items.SCRNITM#bondDscd%}"></label><span class="triangle"></span></a></li>
+					<li ng-click="SLC407_collateralInfoCtrl.tabOpen()"><a href="#SLC407_collateralInfo"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#collateralInfo%}" data-i18n-title="{%=cbb_items.SCRNITM#collateralInfo%}"></label><span class="triangle"></span></a></li>
+					<li ng-click="SLC407_opnnCntntCtrl.tabOpen()"><a href="#SLC407_opnnCntnt"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#opnnCntnt%}" data-i18n-title="{%=cbb_items.SCRNITM#opnnCntnt%}"></label><span class="triangle"></span></a></li>
+				</ul>
+			<div id="SLC407_bondDscd">
+				<views-slc407-bonddscd-directive></views-slc407-bonddscd-directive>
+			</div>
+			<div id="SLC407_collateralInfo">
+				<views-slc407-collateralinfo-directive></views-slc407-collateralinfo-directive>
+			</div>
+			<div id="SLC407_opnnCntnt">
+				<views-slc407-opnncntnt-directive></views-slc407-opnncntnt-directive>
+			</div>
+			</div>
+		</section>
+	</section>

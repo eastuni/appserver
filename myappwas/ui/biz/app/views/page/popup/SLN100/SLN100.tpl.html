@@ -1,0 +1,70 @@
+
+	<section  id='SLN100' ng-init="SLN100Ctrl.init()">
+		<section   >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SLN100%}">
+			</div>
+			<div   class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SLN100Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+						<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SLN100Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+					</div>
+					</section>
+				<section  id="secSrchCnd"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_secSrchCnd" >
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#inqryStartDt%}" data-i18n-title="{%=cbb_items.SCRNITM#inqryStartDt%}"></label>
+								<div id="afAplctnDt" ></div>
+							</div>
+						</td>
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#inqryEndDt%}" data-i18n-title="{%=cbb_items.SCRNITM#inqryEndDt%}"></label>
+								<div id="bfAplctnDt" ></div>
+							</div>
+						</td>
+					</tr>
+					<tr  name="tr_secSrchCnd" >
+						<td class="w-50">
+							<div class="input-wrap fix-label asterisk clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#aplctnSts%}" data-i18n-title="{%=cbb_items.SCRNITM#aplctnSts%}"></label>
+								<select class="bw-input ipt-select" disabled data-form-param="lnAplctnPrcsDscd"></select>
+							</div>
+						</td>
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#arrId%}" data-i18n-title="{%=cbb_items.AT#arrId%}"></label>
+								<input type="text"  maxlength='40' dec='0' class="bw-input a-left"   data-form-param="arrId" />
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section   >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+					<h3 class="bw-desc">({{SLN100Ctrl.gridListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btncustInfoGridToggle" ng-click="SLN100Ctrl.btncustInfoGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+				<section  id="srchRslt"  >
+					<div id="SLN100_gridList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div   class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="SLN100Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+			<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SLN100Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+		</div>
+	</section>
+</section>

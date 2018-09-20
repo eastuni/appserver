@@ -1,0 +1,76 @@
+
+	<section  id='SLC303' ng-init="SLC303Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SLC303%}" />
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SLC303Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SLC303Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SLC303Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#inqryDscd%}" data-i18n-title="{%=cbb_items.AT#inqryDscd%}"></label>
+							<input type="text"  maxlength='1' dec='0' class="bw-input a-left"   data-form-param="inqryDscd" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SLC303Ctrl.custId_Onclick()" id="btn-custId-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#minOvrduNbrOfMnthCnt%}" data-i18n-title="{%=cbb_items.AT#minOvrduNbrOfMnthCnt%}"></label>
+							<input type="text"  dec='0' class="bw-input "   data-form-param="minOvrduNbrOfMnthCnt"  common-numeric-only-directive ng-model='minOvrduNbrOfMnthCnt'/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#maxOvrduMnthCnt%}" data-i18n-title="{%=cbb_items.AT#maxOvrduMnthCnt%}"></label>
+							<input type="text"  dec='0' class="bw-input "   data-form-param="maxOvrduMnthCnt"  common-numeric-only-directive ng-model='maxOvrduMnthCnt'/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#dlgtnDscd%}" data-i18n-title="{%=cbb_items.AT#dlgtnDscd%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="dlgtnDscd"></select>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SLC303_SLC303Ctrl.grdListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn-form unit add-mg-t-7"  id="btnClctnRqst" ng-click="SLC303Ctrl.btnClctnRqst_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#clctnRqst%}"/></button>
+				<button type="button" class="bw-btn"  id="btnGridExcel" ng-click="SLC303Ctrl.btnGridExcel_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i><span class="btn_txt">엑셀 다운로드</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnRsltToggle" ng-click="SLC303Ctrl.btnRsltToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="grpSchResult"  >
+				<div id="SLC303_grdList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+	</section>
+</section>

@@ -1,0 +1,58 @@
+
+	<section  id='SLC408' ng-init="SLC408Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SLC408%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SLC408%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn-form unit add-mg-t-7"  id="btnExcelUp" ng-click="SLC408Ctrl.btnExcelUp_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#excelUpload%}"/></button>
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SLC408Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnAttrSave" ng-click="SLC408Ctrl.btnAttrSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i><span class="btn_txt">저장</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SLC408Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="grpSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_grpSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#bondRstrctrDscd%}" data-i18n-title="{%=cbb_items.AT#bondRstrctrDscd%}"></label>
+							<input type="text"  maxlength='1' dec='0' class="bw-input a-left"   data-form-param="bondRstrctrDscd" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#bondRstrctrStsCd%}" data-i18n-title="{%=cbb_items.AT#bondRstrctrStsCd%}"></label>
+							<input type="text"  dec='0' class="bw-input a-left"   data-form-param="bondRstrctrStsCd" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#rgstrnDt%}" data-i18n-title="{%=cbb_items.AT#rgstrnDt%}"></label>
+							<div id="rgstrnDt" ></div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SLC408_SLC408Ctrl.grdListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnRsltToggle" ng-click="SLC408Ctrl.btnRsltToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="grpSchResult"  >
+				<div id="SLC408_grdList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+	</section>
+</section>

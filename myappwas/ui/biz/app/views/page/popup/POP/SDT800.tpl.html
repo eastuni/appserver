@@ -1,0 +1,53 @@
+
+
+	<div  class="bw-modal-wrap fix-h bw-modal-popup-header">
+		<h2 class="bw-tt a-center bx-popup-header-area">
+		부서검색
+			<p class="desc">부서를 검색합니다.</p>
+		</h2>
+		<div class="bw-tool add-bd2-t">
+			<div class="f-l">
+				<h3 class="bw-desc">검색조건</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn" id="search_btnReset" ng-click="SDT800Ctrl.search_btnReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+				<button type="button" class="bw-btn" id="search_btnSearch" ng-click="SDT800Ctrl.search_btnSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+				<button type="button" class="bw-btn b-ctr" id="search_btnToggle" ng-click="SDT800Ctrl.search_btnToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+		</div>
+		<section class="search-wrap">
+			<table class="w-100 popup-service-table">
+				<tr>
+					<td class="td-w-33">
+						<div class="input-wrap clr">
+							<label class="bw-label w-40"  data-i18n="{%=cbb_items.AT#deptOrgnztnRelCd%}"></label>
+							<select class="bw-input w-60 ipt-select" data-form-param="deptOrgnztnRelCd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap  clr"><label class="bw-label w-40"  data-i18n="{%=cbb_items.AT#deptNm%}"></label>
+							<input type="text" class="bw-input w-60" data-form-param="deptNm"/>
+						</div>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+		<section class="grid-wrap">
+			<div class="bw-tool add-bd2-t add-mg-t">
+				<div class="f-l">
+					<h3 class="bw-desc">부서트리</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr" id="tree_btnToggle" ng-click="SDT800Ctrl.tree_btnToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+			</div>
+			<section class="unit-tree-wrap a-left" style="height:250px; overflow-y:auto;">
+				<div class="popup-dept-tree"  id='deptTree'></div>
+			</section>
+		</section>
+		<div class="btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt" id="btnSelect" ng-click="SDT800Ctrl.btnSelect_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+			<button type="button" class="bw-btn-txt on" id="btnCancel" ng-click="SDT800Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+		</div>
+	</div>

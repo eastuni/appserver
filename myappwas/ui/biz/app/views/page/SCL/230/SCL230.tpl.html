@@ -1,0 +1,61 @@
+
+	<section  id='SCL230' ng-init="SCL230Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SCL230%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SCL230%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SCL230Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SCL230Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SCL230Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#assetClCd%}" data-i18n-title="{%=cbb_items.AT#assetClCd%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="assetClCd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#assetScrtyIntRelStsCd%}" data-i18n-title="{%=cbb_items.AT#assetScrtyIntRelStsCd%}"></label>
+							<select class="bw-input ipt-select"  ng-model="SCL230Ctrl.assetScrtyIntRelStsCdSelectedValue" ng-change="SCL230Ctrl.assetScrtyIntRelStsCd_OnChange()" data-form-param="assetScrtyIntRelStsCd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#debtorCustId%}" data-i18n-title="{%=cbb_items.AT#debtorCustId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="debtorCustId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SCL230Ctrl.debtorCustId_Onclick()" id="btn-debtorCustId-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SCL230Ctrl.gridListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn-form unit add-mg-t-7"  id="btnCnfrmtn" ng-click="SCL230Ctrl.btnCnfrmtn_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cnfrmtn%}"/></button>
+				<button type="button" class="bw-btn-form unit add-mg-t-7"  id="btnCnclCnfrmtn" ng-click="SCL230Ctrl.btnCnclCnfrmtn_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cnclCnfrmtn%}"/></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SCL230Ctrl.btnGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="secSrchRslt"  >
+				<div id="SCL230_gridList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+	</section>
+</section>

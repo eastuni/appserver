@@ -56,9 +56,6 @@
 					url="jdbc:mysql://${host.ds}:${port.ds}/bxm?relaxAutoCommit=true"
 					username="bxm"
 					password="cbb"
-					validationQuery="select 1 from dual"
-					testWhileIdle="true"
-					timeBetweenEvictionRunsMillis="1800000"
 					/>
 		<Resource type="javax.sql.DataSource"
 					name="APPNXA"
@@ -71,9 +68,6 @@
 					url="jdbc:mysql://${host.ds}:${port.ds}/cbb?relaxAutoCommit=true"
 					username="cbb"
 					password="cbb"
-					validationQuery="select 1 from dual"
-					testWhileIdle="true"
-					timeBetweenEvictionRunsMillis="1800000"
 					/>
 		<Resource
 					name="APPXA"
@@ -85,7 +79,7 @@
 					xaDataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource"
 					xaProperties.databaseName="cbb"
 					xaProperties.serverName="${host.ds}"
-					xaProperties.port="${port.ds}"
+					xaProperties.portNumber="${port.ds}"
 					xaProperties.user="cbb"
 					xaProperties.password="cbb"
 					xaProperties.url="jdbc:mysql://${host.ds}:${port.ds}/cbb?autoReconnect=true"

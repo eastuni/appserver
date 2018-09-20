@@ -1,0 +1,9 @@
+OMM bankware.corebanking.deposit.simulation.service.dto.ClsSmltnSvcIn extends bankware.corebanking.dto.CbbIOmmObject
+<description="">
+{
+	String acctNbr<length=20 description="계좌번호">;
+	String pswd<length=6 description="비밀번호">;
+	String arrTrmntnDscd<length=2 description="계약해지구분코드">;
+	String rckngDt<length=8 description="기산년월일">;
+	String trmntnBaseDt<length=8 description="해지기준일">;
+}

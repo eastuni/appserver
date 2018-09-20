@@ -1,0 +1,143 @@
+
+	<section  id='SXP002' ng-init="SXP002Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SXP002%}" />
+			</h2>
+			<div   id="t1"  class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SXP002Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+						<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SXP002Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+						<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SXP002Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+					</div>
+					</section>
+				<section  id="srchCnd"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_srchCnd" >
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#txDt%}" data-i18n-title="{%=cbb_items.AT#txDt%}"></label>
+								<div id="txDt" ></div>
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#guid%}" data-i18n-title="{%=cbb_items.AT#guid%}"></label>
+								<input type="text"  maxlength='40' dec='0' class="bw-input a-left"   data-form-param="guid" />
+							</div>
+						</td>
+						<td class="td-w-33">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#rqstRspnsDscd%}" data-i18n-title="{%=cbb_items.AT#rqstRspnsDscd%}"></label>
+								<input type="text"  maxlength='1' dec='0' class="bw-input a-left"   data-form-param="rqstRspnsDscd" />
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section   class="w-100">
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+					<h3 class="bw-desc">({{SXP002Ctrl.gridListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnSysIntrfcIntrmdryGridToggle" ng-click="SXP002Ctrl.btnSysIntrfcIntrmdryGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+				<section  id="srchRslt"  class="w-100">
+					<div id="SXP002_gridList" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#dtlList%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnSysIntrfcIntrmdryDetailToggle" ng-click="SXP002Ctrl.btnSysIntrfcIntrmdryDetailToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="extrnlDtl"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_extrnlDtl" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#instCd%}" data-i18n-title="{%=cbb_items.AT#instCd%}"></label>
+							<input type="text"  maxlength='3' dec='0' class="bw-input a-left"   data-form-param="instCd" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#txDt%}" data-i18n-title="{%=cbb_items.AT#txDt%}"></label>
+							<div id="txDtDtl" ></div>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#guid%}" data-i18n-title="{%=cbb_items.AT#guid%}"></label>
+							<input type="text"  maxlength='40' dec='0' class="bw-input a-left"   data-form-param="guidDtl" />
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_extrnlDtl" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#rqstRspnsDscd%}" data-i18n-title="{%=cbb_items.AT#rqstRspnsDscd%}"></label>
+							<input type="text"  maxlength='1' dec='0' class="bw-input a-left"   data-form-param="rqstRspnsDscdDtl" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#txHms%}" data-i18n-title="{%=cbb_items.AT#txHms%}"></label>
+							<input type="text"  class="bw-input "   data-form-param="txHms" common-time-valid-directive/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#sysIntrfcId%}" data-i18n-title="{%=cbb_items.AT#sysIntrfcId%}"></label>
+							<input type="text"  maxlength='40' dec='0' class="bw-input a-left"   data-form-param="sysIntrfcId" />
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_extrnlDtl" >
+					<td class="td-w-33" colspan="3">
+						<div class="input-wrap clr fix-txtarea p-rel">
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#inpCntnt%}" data-i18n-title="{%=cbb_items.AT#inpCntnt%}"></label>
+							<div class="txt-wrap2 fix-size f-r">
+								<textarea class="bw-textarea"  data-form-param="inpCntnt"></textarea>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_extrnlDtl" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#sysIntrfcBizKeyCntnt%}" data-i18n-title="{%=cbb_items.AT#sysIntrfcBizKeyCntnt%}"></label>
+							<input type="text"  maxlength='200' dec='0' class="bw-input a-left"   data-form-param="sysIntrfcBizKeyCntnt" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#orgnlTxDt%}" data-i18n-title="{%=cbb_items.AT#orgnlTxDt%}"></label>
+							<div id="orgnlTxDt" ></div>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#orgnlTxGuidId%}" data-i18n-title="{%=cbb_items.AT#orgnlTxGuidId%}"></label>
+							<input type="text"  maxlength='40' dec='0' class="bw-input a-left"   data-form-param="orgnlTxGuidId" />
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_extrnlDtl" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#timeoutYn%}" data-i18n-title="{%=cbb_items.AT#timeoutYn%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="timeoutYn"></select>
+						</div>
+					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+	</div>
+</section>
+</section>

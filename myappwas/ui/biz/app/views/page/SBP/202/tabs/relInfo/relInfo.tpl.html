@@ -1,0 +1,38 @@
+
+			<section class=" bw-tool add-bd2-t" >
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnRelInfoToggle" ng-click="SBP202_relInfoCtrl.btnRelInfoToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+		<section  id="relInfoTab"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_relInfoTab" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#mngngDept%}" data-i18n-title="{%=cbb_items.AT#mgmtDeptNm%}"></label>
+						<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="mgmtDeptNm" />
+						<button type="button" class="bw-btn fix-r" ng-click="SBP202_relInfoCtrl.mgmtDeptNm_Onclick()" id="btn-mgmtDeptNm-search"><i class="fas fa-search"></i></button>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#mgmtUser%}" data-i18n-title="{%=cbb_items.AT#mgmtStaffNm%}"></label>
+						<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="mgmtStaffNm" />
+						<button type="button" class="bw-btn fix-r" ng-click="SBP202_relInfoCtrl.mgmtStaffNm_Onclick()" id="btn-mgmtStaffNm-search"><i class="fas fa-search"></i></button>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#mgmtDeptId%}" data-i18n-title="{%=cbb_items.AT#mgmtDeptId%}"></label>
+						<input type="text"  maxlength='14' dec='0' class="bw-input a-left"   data-form-param="mgmtDeptId" />
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_relInfoTab" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#rltdActorId%}" data-i18n-title="{%=cbb_items.AT#rltdActorId%}"></label>
+						<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="rltdActorId" />
+					</div>
+				</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+	</section>

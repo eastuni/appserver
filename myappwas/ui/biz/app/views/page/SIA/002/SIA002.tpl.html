@@ -1,0 +1,129 @@
+
+	<section  id='SIA002' ng-init="SIA002Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SIA002%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SIA002%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SIA002Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SIA002Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SIA002Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#pdTmplt%}" data-i18n-title="{%=cbb_items.SCRNITM#pdTmplt%}"></label>
+							<select class="bw-input ipt-select"  ng-model="SIA002Ctrl.pdTmpltCdSelectedValue" ng-change="SIA002Ctrl.pdTmpltCd_OnChange()" data-form-param="pdTmpltCd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#pd%}" data-i18n-title="{%=cbb_items.SCRNITM#pd%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="pdCd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#acctSts%}" data-i18n-title="{%=cbb_items.SCRNITM#acctSts%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="arrStsCd"></select>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#mgmtDeptId%}" data-i18n-title="{%=cbb_items.AT#mgmtDeptId%}"></label>
+							<input type="text"  maxlength='14' dec='0' class="bw-input a-left" ng-model="SIA002Ctrl.mgmtDeptIdSelectedValue" ng-change="SIA002Ctrl.mgmtDeptId_OnChange()"  data-form-param="mgmtDeptId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SIA002Ctrl.mgmtDeptId_Onclick()" id="btn-mgmtDeptId-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#mgmtDeptNm%}" data-i18n-title="{%=cbb_items.AT#mgmtDeptNm%}"></label>
+							<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="mgmtDeptNm" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<span data-form-param=""   ></span>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#inqryStartDt%}" data-i18n-title="{%=cbb_items.SCRNITM#inqryStartDt%}"></label>
+							<div id="inqryStartDt" ></div>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#inqryEndDt%}" data-i18n-title="{%=cbb_items.SCRNITM#inqryEndDt%}"></label>
+							<div id="inqryEndDt" ></div>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<span data-form-param=""   ></span>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left" ng-model="SIA002Ctrl.rltdCustIdSelectedValue" ng-change="SIA002Ctrl.rltdCustId_OnChange()"  data-form-param="rltdCustId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SIA002Ctrl.rltdCustId_Onclick()" id="btn-rltdCustId-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#rltdAcctNbr%}" data-i18n-title="{%=cbb_items.AT#rltdAcctNbr%}"></label>
+							<input type="text"  maxlength='16' dec='0' class="bw-input a-left"   data-form-param="rltdAcctNbr" />
+							<button type="button" class="bw-btn fix-r" ng-click="SIA002Ctrl.rltdAcctNbr_Onclick()" id="btn-rltdAcctNbr-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SIA002_SIA002Ctrl.gridListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnGridExcel" ng-click="SIA002Ctrl.btnGridExcel_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i><span class="btn_txt">엑셀 다운로드</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SIA002Ctrl.btnGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="srchRslt"  >
+				<div id="SIA002_gridList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#txDtl%}"></h3>
+				<h3 class="bw-desc">({{SIA002_SIA002Ctrl.gridList2Count}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnGridExcel2" ng-click="SIA002Ctrl.btnGridExcel2_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i><span class="btn_txt">엑셀 다운로드</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnGridToggle2" ng-click="SIA002Ctrl.btnGridToggle2_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="srchRslt2"  >
+				<div id="SIA002_gridList2" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+	</section>
+</section>

@@ -1,0 +1,51 @@
+sample2 tab3
+<section class="bw-tool">
+    <div class="f-l">
+        <h3 class="bw-desc"></h3>
+    </div>
+    <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn" id="btn-base-attribute-tab2-reset" title="" ng-click="tab2.resetOnclick()"><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+        <button type="button" class="bw-btn b-ctr" id="btn-base-attribute-tab2-toggle" ng-click="tab2.toggleOnclick()"><i class="fas fa-angle-double-up"></i></button>
+    </div>
+</section>
+
+
+<section id="base-attribute-area-tab2">
+    <section class="search-wrap">
+        <table class="w-100">
+            <tr>
+                <td class="td-w-33" colspan="2">
+                    <div class="input-wrap add-btn clr">
+                        <label class="bw-label w-20">자택주소</label>
+                        <input type="text" class="bw-input w-80" data-form-param="homeAddr" />
+                        <button type="button" class="bw-btn fix-r" id="btn-homeAddr-search" ng-click="vm.openZipCodeSearchPopup()"><i class="fas fa-search"></i></button>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">상세주소</label>
+                        <input type="text" class="bw-input w-60" data-form-param="dtlAddr" />
+                    </div>
+                </td>
+
+
+            </tr>
+
+
+            <tr>
+                <td class="td-w-33">
+                    <div class="input-wrap clr">
+                        <label class="bw-label w-40">수신허용구분</label>
+                        <select class="bw-input w-60 ipt-select Sample2-rcvPrmsnDscd-wrap" data-form-param="rcvPrmsnDscd"></select>
+                    </div>
+                </td>
+                <td class="td-w-33">
+                </td>
+                <td class="td-w-33">
+                </td>
+            </tr>
+        </table>
+    </section>
+</section>
+
+

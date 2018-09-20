@@ -1,0 +1,28 @@
+
+			<section class=" bw-tool add-bd2-t" >
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnAssignInfoToggle" ng-click="SBP202_assignInfoCtrl.btnAssignInfoToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+		<section  id="assignInfoTab"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_assignInfoTab" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr asterisk clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#prtnrDept%}" data-i18n-title="{%=cbb_items.SCRNITM#prtnrDept%}"></label>
+						<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="deptNm" />
+						<button type="button" class="bw-btn fix-r" ng-click="SBP202_assignInfoCtrl.deptNm_Onclick()" id="btn-deptNm-search"><i class="fas fa-search"></i></button>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#roleCntnt%}" data-i18n-title="{%=cbb_items.SCRNITM#roleCntnt%}"></label>
+						<input type="text"  maxlength='100' dec='0' class="bw-input a-left"   data-form-param="roleNm" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#deptId%}" data-i18n-title="{%=cbb_items.AT#deptId%}"></label>
+						<input type="text"  maxlength='14' dec='0' class="bw-input a-left"   data-form-param="deptId" />
+					</div>
+				</td>
+			</tr>
+		</table>
+	</section>

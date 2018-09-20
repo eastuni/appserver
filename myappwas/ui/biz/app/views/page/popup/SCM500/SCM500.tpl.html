@@ -1,0 +1,91 @@
+
+	<section  id='SCM500' ng-init="SCM500Ctrl.init()">
+		<div   id="demandAprvlTitle"   >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SCM500%}">
+			</div>
+			<div   class="modal-body" >
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.AT#aprvlAplctnCntnt%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn b-ctr"  id="btnSchToggle1" ng-click="SCM500Ctrl.btnSchToggle1_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+					</div>
+					</section>
+				<section  id="aprvlDemandCntntWrap"  class="search-wrap" >
+				<table class="w-100" >
+					<tr  name="tr_aprvlDemandCntntWrap" >
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlId%}" data-i18n-title="{%=cbb_items.AT#aprvlId%}"></label>
+								<input type="text"  maxlength='20' dec='0' class="bw-input a-left"   data-form-param="aprvlId"  tabIndex="1"/>
+							</div>
+						</td>
+						<td class="w-50">
+							<div class="input-wrap fix-label clr >
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlRsnCd%}" data-i18n-title="{%=cbb_items.AT#aprvlRsnCd%}"></label>
+								<select class="bw-input ipt-select"  data-form-param="aprvlRsnCd" tabIndex="2"></select>
+							</div>
+						</td>
+					</tr>
+					<tr  name="tr_aprvlDemandCntntWrap" >
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#demandScrnId%}" data-i18n-title="{%=cbb_items.AT#demandScrnId%}"></label>
+								<input type="text"  maxlength='6' dec='0' class="bw-input a-left"   data-form-param="demandScrnId"  tabIndex="3"/>
+							</div>
+						</td>
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#demandScrnNm%}" data-i18n-title="{%=cbb_items.AT#demandScrnNm%}"></label>
+								<input type="text"  maxlength='100' dec='0' class="bw-input a-left"   data-form-param="demandScrnNm"  tabIndex="4"/>
+							</div>
+						</td>
+					</tr>
+					<tr  name="tr_aprvlDemandCntntWrap" >
+						<td class="w-50" colspan="2">
+							<div class="input-wrap clr fix-txtarea p-rel">
+								<label class="bw-label "  data-i18n="{%=cbb_items.AT#aprvlAplctnCntnt%}" data-i18n-title="{%=cbb_items.AT#aprvlAplctnCntnt%}"></label>
+								<div class="txt-wrap2 fix-size f-r">
+									<textarea class="bw-textarea"  placeholder="내용을 적어주세요." data-form-param="aprvlAplctnCntnt"></textarea>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section   >
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle3" ng-click="SCM500Ctrl.btnSchToggle3_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+				<section  id="SCM500GridWrap1"   >
+					<div id="SCM500_SCM500Grid1" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+			<section   >
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn-txt"  id="selectStaffBtn" ng-click="SCM500Ctrl.selectStaffBtn_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+				</div>
+				</section>
+				<section  id="SCM500GridWrap2"   >
+					<div id="SCM500_SCM500Grid2" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div   class="modal-footer btn-wrap add-mg" >
+			<button type="button" class="bw-btn-txt"  id="btnAprvlDemand" ng-click="SCM500Ctrl.btnAprvlDemand_Onclick()" title=""><span data-i18n="{%=cbb_items.ABRVTN#demand%}"/></button>
+			<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SCM500Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+		</div>
+	</div>
+</section>

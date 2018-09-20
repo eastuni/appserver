@@ -1,0 +1,108 @@
+
+	<section  id='SLN002' ng-init="SLN002Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SLN002%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SLN002%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseAtrbt%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnPdReset" ng-click="SLN002Ctrl.btnPdReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnPdSearch" ng-click="SLN002Ctrl.btnPdSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn"  id="btnPdSubmit" ng-click="SLN002Ctrl.btnPdSubmit_Onclick()" title=""><i class="bw-icon i-30 i-func-submit"></i><span class="btn_txt">제출</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnPdToggle" ng-click="SLN002Ctrl.btnPdToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="pdArea"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_pdArea" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#aplctnTp%}" data-i18n-title="{%=cbb_items.SCRNITM#aplctnTp%}"></label>
+							<select class="bw-input ipt-select"  ng-model="SLN002_SLN002Ctrl.aplctnDscdSelectedValue" ng-change="SLN002Ctrl.aplctnDscd_OnChange()" data-form-param="aplctnDscd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#aplctnNbr%}" data-i18n-title="{%=cbb_items.SCRNITM#aplctnNbr%}"></label>
+							<input type="text"  maxlength='40' dec='0' common-string-number-only-directive class="bw-input a-left"  readonly="readonly" data-form-param="arrIdNbr" />
+							<button type="button" class="bw-btn fix-r" ng-click="SLN002Ctrl.arrIdNbr_Onclick()" id="btn-arrIdNbr-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<span data-form-param=""   ></span>
+					</td>
+				</tr>
+				<tr  name="tr_pdArea" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SLN002Ctrl.custId_Onclick()" id="btn-custId-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#baseDt%}" data-i18n-title="{%=cbb_items.AT#baseDt%}"></label>
+							<div id="baseDt" ></div>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_pdArea" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#pdTp%}" data-i18n-title="{%=cbb_items.SCRNITM#pdTp%}"></label>
+							<select class="bw-input ipt-select"  ng-model="SLN002_SLN002Ctrl.pdTpCdSelectedValue" ng-change="SLN002Ctrl.pdTpCd_OnChange()" data-form-param="pdTpCd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#pdTmplt%}" data-i18n-title="{%=cbb_items.SCRNITM#pdTmplt%}"></label>
+							<select class="bw-input ipt-select"  ng-model="SLN002_SLN002Ctrl.pdTmpltCdSelectedValue" ng-change="SLN002Ctrl.pdTmpltCd_OnChange()" data-form-param="pdTmpltCd"></select>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#pdNm%}" data-i18n-title="{%=cbb_items.AT#pdNm%}"></label>
+							<select class="bw-input ipt-select"  ng-model="SLN002_SLN002Ctrl.pdNmSelectedValue" ng-change="SLN002Ctrl.pdNm_OnChange()" data-form-param="pdNm"></select>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_pdArea" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#pdCd%}" data-i18n-title="{%=cbb_items.AT#pdCd%}"></label>
+							<input type="text"  maxlength='20' dec='0' class="bw-input a-left"   data-form-param="pdCd" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  data-i18n="{%=cbb_items.AT#custIdVal%}" data-i18n-title="{%=cbb_items.AT#custIdVal%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="custIdVal" />
+						</div>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#adtnlAtrbt%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnResetToggle" ng-click="SLN002Ctrl.btnResetToggle_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnBasicToggle" ng-click="SLN002Ctrl.btnBasicToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+		<section  id="lnAplctnScreenGenerationArea"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_lnAplctnScreenGenerationArea" >
+			</tr>
+		</table>
+	</section>
+</section>
+</section>

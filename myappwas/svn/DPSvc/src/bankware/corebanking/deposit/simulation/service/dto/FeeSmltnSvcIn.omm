@@ -1,0 +1,10 @@
+OMM bankware.corebanking.deposit.simulation.service.dto.FeeSmltnSvcIn
+<description="">
+{
+	String custId<length=15 description="고객식별자">;
+	String acctNbr<length=15 description="계좌번호">;
+	String pdCd<length=20 description="상품코드">;
+	String arrSrvcTpCd<length=20 description="계약서비스유형코드">;
+	BigDecimal txAmt<length=17 decimal=2 description="거래금액">;
+	String baseDt<length=8 description="기준년월일">;
+}

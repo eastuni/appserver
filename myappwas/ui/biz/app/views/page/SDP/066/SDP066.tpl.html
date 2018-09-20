@@ -1,0 +1,92 @@
+
+	<section  id='SDP066' ng-init="SDP066Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SDP066%}" />
+			</h2>
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnReset" ng-click="SDP066Ctrl.btnReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnSearch" ng-click="SDP066Ctrl.btnSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnToggle" ng-click="SDP066Ctrl.btnToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#moveInDeptId%}" data-i18n-title="{%=cbb_items.AT#moveInDeptId%}"></label>
+							<input type="text"  maxlength='14' dec='0' class="bw-input a-left"   data-form-param="moveInDeptId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SDP066Ctrl.moveInDeptId_Onclick()" id="btn-moveInDeptId-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#moveOutDeptId%}" data-i18n-title="{%=cbb_items.AT#moveOutDeptId%}"></label>
+							<input type="text"  maxlength='14' dec='0' class="bw-input a-left"   data-form-param="moveOutDeptId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SDP066Ctrl.moveOutDeptId_Onclick()" id="btn-moveOutDeptId-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#moveOutStsCd%}" data-i18n-title="{%=cbb_items.AT#moveOutStsCd%}"></label>
+							<select class="bw-input ipt-select"  data-form-param="moveOutStsCd"></select>
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#inqryStartDt%}" data-i18n-title="{%=cbb_items.AT#inqryStartDt%}"></label>
+							<div id="inqryStartDt" ></div>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label asterisk clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#inqryEndDt%}" data-i18n-title="{%=cbb_items.AT#inqryEndDt%}"></label>
+							<div id="inqryEndDt" ></div>
+						</div>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SDP066Ctrl.moveOutListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnRsltUndo" ng-click="SDP066Ctrl.btnRsltUndo_Onclick()" title=""><i class="bw-icon i-30 i-func-undo"></i></button>
+				<button type="button" class="bw-btn"  id="btnRsltSubmit" ng-click="SDP066Ctrl.btnRsltSubmit_Onclick()" title=""><i class="bw-icon i-30 i-func-submit"></i><span class="btn_txt">제출</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnRsltToggle" ng-click="SDP066Ctrl.btnRsltToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="secSrchRslt"  >
+				<div id="SDP066_moveOutList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#acctList%}"></h3>
+				<h3 class="bw-desc">({{SDP066Ctrl.acctListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnAcctExcel" ng-click="SDP066Ctrl.btnAcctExcel_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i><span class="btn_txt">엑셀 다운로드</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnAcctToggle" ng-click="SDP066Ctrl.btnAcctToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="secAcctList"  >
+				<div id="SDP066_acctList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+	</section>
+</section>

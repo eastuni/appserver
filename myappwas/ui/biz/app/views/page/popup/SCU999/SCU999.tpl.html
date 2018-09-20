@@ -1,0 +1,30 @@
+
+	<section  id='SCU999' ng-init="SCU999Ctrl.init()">
+		<div   id="searchStaff"  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SCU999%}">
+			</div>
+			<div   class="modal-body">
+				<section   >
+					<section class=" bw-tool add-bd2-t add-mg-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+						<h3 class="bw-desc">({{SCU999Ctrl.infoChngListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SCU999Ctrl.btnGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+					</div>
+					</section>
+					<section  id="srchRslt"  >
+						<div id="SCU999_infoChngList" >
+							<section class="bw-grid"></section>
+						</div>
+					</section>
+				</section>
+			</div>
+			<div   class="modal-footer btn-wrap add-mg">
+				<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="SCU999Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#confirm%}"/></button>
+				<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SCU999Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+			</div>
+		</div>
+	</section>

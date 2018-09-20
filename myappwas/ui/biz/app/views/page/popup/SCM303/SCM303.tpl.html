@@ -1,0 +1,67 @@
+
+	<section  id='SCM303' ng-init="SCM303Ctrl.init()">
+		<div   id="serviceTitle"  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#SCM303%}">
+			</div>
+			<div   class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#workflow%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn"  id="wflowSearch" ng-click="SCM303Ctrl.wflowSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					</div>
+					</section>
+				<section  id="workflowArea"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_workflowArea" >
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#wflowNm%}" data-i18n-title="{%=cbb_items.AT#wflowNm%}"></label>
+								<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="wflowNm" />
+							</div>
+						</td>
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#stepNm%}" data-i18n-title="{%=cbb_items.AT#stepNm%}"></label>
+								<input type="text"  maxlength='100' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="stepNm" />
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+			<section   >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#variable%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="varToggle" ng-click="SCM303Ctrl.varToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+				<section  id="varList"  >
+					<div id="varGrid" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+			<section   >
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#varHistory%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr"  id="varHisToggle" ng-click="SCM303Ctrl.varHisToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+				<section  id="varHisList"  >
+					<div id="varHisGrid" >
+						<section class="bw-grid"></section>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div   class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SCM303Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+		</div>
+	</div>
+</section>

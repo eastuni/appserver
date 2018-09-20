@@ -1,0 +1,8 @@
+OMM bankware.corebanking.deposit.simulation.service.dto.SmartDpstWhdrwlIntSmltnSvcOutSub
+<description="">
+{
+	String baseDt<length=8 description="Base Date">;
+	BigDecimal intAmt<length=17 decimal=2 description="Interest Amount">;
+	BigDecimal dfrncAmt<length=17 decimal=2 description="Difference In Interest Amount">;
+	bankware.corebanking.deposit.simulation.service.dto.SmartDpstWhdrwlIntSvcList intSmltnSubList<length=0 arrayReference="20" description="Interest Simulation Sub List">;
+}

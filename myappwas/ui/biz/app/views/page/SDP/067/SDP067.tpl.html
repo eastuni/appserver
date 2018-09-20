@@ -1,0 +1,41 @@
+
+	<section  id='SDP067' ng-init="SDP067Ctrl.init()">
+		<section  id="secSrchCnd"   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SDP067%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SDP067%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#CAPCM190-LIST-TITLE%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnAttrReset" ng-click="SDP067Ctrl.btnAttrReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnAttrSave" ng-click="SDP067Ctrl.btnAttrSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i><span class="btn_txt">저장</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnAttrToggle" ng-click="SDP067Ctrl.btnAttrToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="secAttr"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secAttr" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#acctNbr%}" data-i18n-title="{%=cbb_items.AT#acctNbr%}"></label>
+							<input type="text"  dec='0' class="bw-input a-left"   data-form-param="acctNbr" />
+							<button type="button" class="bw-btn fix-r" ng-click="SDP067Ctrl.acctNbr_Onclick()" id="btn-acctNbr-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#newPswd%}" data-i18n-title="{%=cbb_items.SCRNITM#newPswd%}"></label>
+							<input type="password" class="bw-input"  data-form-param="afChngPswd"/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#cnfrmNewPswd%}" data-i18n-title="{%=cbb_items.SCRNITM#cnfrmNewPswd%}"></label>
+							<input type="password" class="bw-input"  data-form-param="chngAfCnfrmtnPswd"/>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+	</section>
+</section>

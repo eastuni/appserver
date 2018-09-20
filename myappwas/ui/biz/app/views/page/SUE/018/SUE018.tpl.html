@@ -1,0 +1,165 @@
+
+	<section  id='SUE018' ng-init="SUE018Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SUE018%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SUE018%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnBsicReset" ng-click="SUE018Ctrl.btnBsicReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnBsicSearch" ng-click="SUE018Ctrl.btnBsicSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i><span class="btn_txt">저장</span></button>
+				</div>
+				</section>
+			<section  id="baseAtrbtScreenGenerationArea"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_baseAtrbtScreenGenerationArea" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#asmId%}" data-i18n-title="{%=cbb_items.AT#asmId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="asmId" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SUE018Ctrl.custId_Onclick()" id="btn-custId-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+						</div>
+					</td>
+				</tr>
+				<tr  name="tr_baseAtrbtScreenGenerationArea" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" >
+							<label class="bw-label "  data-i18n="{%=cbb_items.AT#asmStsCd%}" data-i18n-title="{%=cbb_items.AT#asmStsCd%}"></label>
+							<select class="bw-input ipt-select" disabled data-form-param="asmStsCd"></select>
+						</div>
+					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#creditLimitInfo%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnJobInfoReset" ng-click="SUE018Ctrl.btnJobInfoReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnJobInfoToggle" ng-click="SUE018Ctrl.btnJobInfoToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+		<section  id="creditLimitInfo"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_creditLimitInfo" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#singleBrwrTotLmtAmt%}" data-i18n-title="{%=cbb_items.AT#singleBrwrTotLmtAmt%}"></label>
+						<input type="text"  dec='6' class="bw-input "  readonly="readonly" data-form-param="singleBrwrTotLmtAmt"  common-numeric-only-directive ng-model='singleBrwrTotLmtAmt'/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#singleBrwrTotLnAmt%}" data-i18n-title="{%=cbb_items.AT#singleBrwrTotLnAmt%}"></label>
+						<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="singleBrwrTotLnAmt"  common-numeric-only-directive ng-model='singleBrwrTotLnAmt'/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<span data-form-param=""   ></span>
+				</td>
+			</tr>
+			<tr  name="tr_creditLimitInfo" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#singleBrwrCrdtLmtAmt%}" data-i18n-title="{%=cbb_items.AT#singleBrwrCrdtLmtAmt%}"></label>
+						<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="singleBrwrCrdtLmtAmt"  common-numeric-only-directive ng-model='singleBrwrCrdtLmtAmt'/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#singleBrwrCrdtLnAmt%}" data-i18n-title="{%=cbb_items.AT#singleBrwrCrdtLnAmt%}"></label>
+						<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="singleBrwrCrdtLnAmt"  common-numeric-only-directive ng-model='singleBrwrCrdtLnAmt'/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<span data-form-param=""   ></span>
+				</td>
+			</tr>
+			<tr  name="tr_creditLimitInfo" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#singleBrwrGrntLmtAmt%}" data-i18n-title="{%=cbb_items.AT#singleBrwrGrntLmtAmt%}"></label>
+						<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="singleBrwrGrntLmtAmt"  common-numeric-only-directive ng-model='singleBrwrGrntLmtAmt'/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#singleBrwrGrntAmt%}" data-i18n-title="{%=cbb_items.AT#singleBrwrGrntAmt%}"></label>
+						<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="singleBrwrGrntAmt"  common-numeric-only-directive ng-model='singleBrwrGrntAmt'/>
+					</div>
+				</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+	</section>
+		<section class=" bw-tool add-bd2-t add-mg-t" >
+		<div class="f-l">
+			<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#spareLimitInfo%}"></h3>
+		</div>
+		<div class="btn-wrap fix-r">
+			<button type="button" class="bw-btn"  id="btnIndvBizReset" ng-click="SUE018Ctrl.btnIndvBizReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+			<button type="button" class="bw-btn b-ctr"  id="btnIndvBizToggle" ng-click="SUE018Ctrl.btnIndvBizToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+		</div>
+		</section>
+	<section  id="spareLimitInfo"  class="search-wrap">
+	<table class="w-100" >
+		<tr  name="tr_spareLimitInfo" >
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#singleBrwrTotLmtSpareAmt%}" data-i18n-title="{%=cbb_items.AT#singleBrwrTotLmtSpareAmt%}"></label>
+					<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="singleBrwrTotLmtSpareAmt"  common-numeric-only-directive ng-model='singleBrwrTotLmtSpareAmt'/>
+				</div>
+			</td>
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label "  data-i18n="{%=cbb_items.AT#totLnLmtChkRsltCd%}" data-i18n-title="{%=cbb_items.AT#totLnLmtChkRsltCd%}"></label>
+					<select class="bw-input ipt-select" disabled data-form-param="totLnLmtChkRsltCd"></select>
+				</div>
+			</td>
+			<td class="td-w-33">
+				<span data-form-param=""   ></span>
+			</td>
+		</tr>
+		<tr  name="tr_spareLimitInfo" >
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#singleBrwrCrdtLmtSpareAmt%}" data-i18n-title="{%=cbb_items.AT#singleBrwrCrdtLmtSpareAmt%}"></label>
+					<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="singleBrwrCrdtLmtSpareAmt"  common-numeric-only-directive ng-model='singleBrwrCrdtLmtSpareAmt'/>
+				</div>
+			</td>
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label "  data-i18n="{%=cbb_items.AT#crdtLnLmtChkRsltCd%}" data-i18n-title="{%=cbb_items.AT#crdtLnLmtChkRsltCd%}"></label>
+					<select class="bw-input ipt-select" disabled data-form-param="crdtLnLmtChkRsltCd"></select>
+				</div>
+			</td>
+			<td class="td-w-33">
+				<span data-form-param=""   ></span>
+			</td>
+		</tr>
+		<tr  name="tr_spareLimitInfo" >
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#singleBrwrGrntLmtSpareAmt%}" data-i18n-title="{%=cbb_items.AT#singleBrwrGrntLmtSpareAmt%}"></label>
+					<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="singleBrwrGrntLmtSpareAmt"  common-numeric-only-directive ng-model='singleBrwrGrntLmtSpareAmt'/>
+				</div>
+			</td>
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label "  data-i18n="{%=cbb_items.AT#grntLmtChkRsltCd%}" data-i18n-title="{%=cbb_items.AT#grntLmtChkRsltCd%}"></label>
+					<select class="bw-input ipt-select" disabled data-form-param="grntLmtChkRsltCd"></select>
+				</div>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+</section>
+</section>
+</section>

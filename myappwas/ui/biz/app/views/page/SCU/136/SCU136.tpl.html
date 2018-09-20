@@ -1,0 +1,102 @@
+
+	<section  id='SCU136' ng-init="SCU136Ctrl.init()">
+		<section  id="rgstIndvlBiz"   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SCU136%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SCU136%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SCU136Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SCU136Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SCU136Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="secSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_secSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr asterisk clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custId%}" data-i18n-title="{%=cbb_items.AT#custId%}"></label>
+							<input type="text"  maxlength='15' dec='0' class="bw-input a-left"   data-form-param="custId" />
+							<button type="button" class="bw-btn fix-r" ng-click="SCU136Ctrl.custId_Onclick()" id="btn-custId-search"><i class="fas fa-search"></i></button>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custNm%}" data-i18n-title="{%=cbb_items.AT#custNm%}"></label>
+							<input type="text"  maxlength='50' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custNm" />
+						</div>
+					</td>
+					<td>&nbsp;</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SCU136Ctrl.custRprsnListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnGridExcel" ng-click="SCU136Ctrl.btnGridExcel_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i><span class="btn_txt">엑셀 다운로드</span></button>
+				<button type="button" class="bw-btn"  id="btnGridSave" ng-click="SCU136Ctrl.btnGridSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i><span class="btn_txt">저장</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SCU136Ctrl.btnGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="srchRslt"  >
+				<div id="SCU136_custRprsnList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseAtrbt%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="btnAttrReset" ng-click="SCU136Ctrl.btnAttrReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+				<button type="button" class="bw-btn"  id="btnAttrSave" ng-click="SCU136Ctrl.btnAttrSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i><span class="btn_txt">저장</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnAttrToggle" ng-click="SCU136Ctrl.btnAttrToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+		<section  id="baseAttr"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_baseAttr" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr asterisk clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custRprsnNm%}" data-i18n-title="{%=cbb_items.AT#custRprsnNm%}"></label>
+						<input type="text"  maxlength='100' dec='0' class="bw-input a-left"   data-form-param="custRprsnNm" />
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#custRprsnId%}" data-i18n-title="{%=cbb_items.AT#custRprsnId%}"></label>
+						<input type="text"  maxlength='15' dec='0' class="bw-input a-left"  readonly="readonly" data-form-param="custRprsnId" />
+					</div>
+				</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+	</section>
+	<div id="tab" class=" add-mg-t">
+		<ul>
+			<li ng-click="SCU136_telNbrTabCtrl.tabOpen()"><a href="#SCU136_telNbrTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#telNbr%}" data-i18n-title="{%=cbb_items.SCRNITM#telNbr%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SCU136_addrTabCtrl.tabOpen()"><a href="#SCU136_addrTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#addr%}" data-i18n-title="{%=cbb_items.SCRNITM#addr%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SCU136_elctrncAddrTabCtrl.tabOpen()"><a href="#SCU136_elctrncAddrTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#elctrncAddr%}" data-i18n-title="{%=cbb_items.SCRNITM#elctrncAddr%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="SCU136_roleTabCtrl.tabOpen()"><a href="#SCU136_roleTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#role%}" data-i18n-title="{%=cbb_items.SCRNITM#role%}"></label><span class="triangle"></span></a></li>
+		</ul>
+	<div id="SCU136_telNbrTab">
+		<views-scu136-telnbrtab-directive></views-scu136-telnbrtab-directive>
+	</div>
+	<div id="SCU136_addrTab">
+		<views-scu136-addrtab-directive></views-scu136-addrtab-directive>
+	</div>
+	<div id="SCU136_elctrncAddrTab">
+		<views-scu136-elctrncaddrtab-directive></views-scu136-elctrncaddrtab-directive>
+	</div>
+	<div id="SCU136_roleTab">
+		<views-scu136-roletab-directive></views-scu136-roletab-directive>
+	</div>
+	</div>
+</section>
+</section>

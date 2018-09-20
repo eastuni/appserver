@@ -1,0 +1,79 @@
+	<!-- 상품목록조회 팝업 -->
+	<section ng-init="SPD909Ctrl.init()" SPD909-wrap-directive>
+		<div id="SPD909">
+			<div class="modal-header">
+				<!-- 상품검색 -->
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRNITM#pdSrch%}">
+			</div>
+			<div class="modal-body">
+				<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SPD909Ctrl.btnResetSearchCndt_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+						<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="SPD909Ctrl.btnSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+						<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SPD909Ctrl.btnSearhCndToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+					</div>
+				</section>
+					
+				<!-- 검색조건 영역 -->
+	            <section class="search-condition-wrap" id="searchConditionWrap">
+	                <!-- 기본검색조건 영역 -->
+	                <section class="search-wrap">
+	                    <table class="bx-info-table w-100">
+	                        <tr>
+	                            <td class="td-w-33"> <!-- 업무구분 -->
+	                                <div class="input-wrap fix-label clr asterisk">
+	                                    <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#bizDscd%}"></label>
+	                                    <select class="bw-input ipt-select" ng-model="SPD909Ctrl.bizDscdSelectedValue" ng-change="SPD909Ctrl.bizDscd_OnChange()"  data-form-param="bizDscd"></select>
+	                                </div>
+	                            </td>
+	                            <td class="td-w-33"> <!-- 상품유형 -->
+	                                <div class="input-wrap fix-label clr">
+	                                    <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#pdTp%}"></label>
+	                                    <select class="bw-input ipt-select"  ng-model="SPD909Ctrl.pdTpCdSelectedValue" ng-change="SPD909Ctrl.pdTpCd_OnChange()" data-form-param="pdTpCd" ></select>
+	                                </div>
+	                            </td>
+	                            <td class="td-w-33"> <!-- 상품템플릿 -->
+	                                <div class="input-wrap fix-label clr">
+	                                    <label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#pdTmplt%}"></label>
+	                                    <select class="bw-input ipt-select" data-form-param="pdTmpltCd"></select>
+	                                </div>
+	                            </td>
+	                        </tr>
+	                        <tr>
+	                            <td class="td-w-33"> <!-- 상품 -->
+	                                <div class="input-wrap fix-label clr" >
+	                                    <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#pdNm%}"></label>
+	                                    <div class="td-desc-wrap clr">
+	                                        <input type="text" class="bw-input pdNm" data-form-param="pdNm" />
+	                                    </div>
+	                                </div>
+	                            </td>
+	                        </tr>
+	                    </table>
+	                </section>
+				</section>
+				
+				<!-- 상품그리드영역 -->
+		        <section class="conts-section pd-list-grid-area add-mg-t">
+		            <!-- 상품그리드바 -->
+		            <section class="bw-tool add-bd2-t">
+		                <div class="f-1">
+		                    <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+		                </div>
+		                <div class="btn-wrap fix-r">
+		                    <button type="button" class="bw-btn b-ctr" id="btnGrdPdListToggle" ng-click="SPD909Ctrl.btnGrdPdListToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+		                </div>
+		            </section>
+		            <!-- 상품그리드 -->
+		            <section class="pd-list-grid" id="grdPdList"></section>
+		        </section>
+			</div>
+		<div   class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="SPD909Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+			<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="SPD909Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+		</div>
+		</div>
+	</section>

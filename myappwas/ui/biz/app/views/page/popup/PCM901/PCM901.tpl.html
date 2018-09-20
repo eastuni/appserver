@@ -1,0 +1,61 @@
+
+
+	<section  ng-init="PCM901Ctrl.init()" PCM901-wrap-directive>
+		<div   id="popTitle"  >
+			<div class="modal-header">
+				<h2 class="modal-title bw-tt a-center bx-popup-header-area" data-i18n="{%=cbb_items.SCRN#PCM901%}">
+			</div>
+			<div   class="modal-body">
+					<section class=" bw-tool add-bd2-t" >
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn"  id="btnSchReset" ng-click="PCM901Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+						<button type="button" class="bw-btn"  id="btnSchSearch" ng-click="PCM901Ctrl.btnSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+						<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="PCM901Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+					</div>
+					</section>
+				<section  id="secSrchCnd"  class="search-wrap">
+				<table class="w-100" >
+					<tr  name="tr_secSrchCnd" >
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" >
+								<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#clHrarcy%}" data-i18n-title="{%=cbb_items.SCRNITM#clHrarcy%}"></label>
+								<select class="bw-input ipt-select"  data-form-param="clHrarcyCd"></select>
+							</div>
+						</td>
+						<td class="w-50">
+							<div class="input-wrap fix-label clr" style="display:none;"><label class="bw-label "  ></label>
+								<input type="text"  maxlength='10' dec='0' class="bw-input a-left"   data-form-param="" />
+							</div>
+						</td>
+					</tr>
+				</table>
+			</section>
+
+
+			    <section class="grid-wrap">
+		        <div class="bw-tool add-bd2-t add-mg-t">
+		            <div class="f-l">
+		                <h3 class="bw-desc" id="clTree" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+		            </div>
+		            <div class="btn-wrap fix-r">
+		                <button type="button" class="bw-btn b-ctr" id="btn-dept-tree-toggle"><i class="fas fa-angle-double-up"></i></button>
+		            </div>
+		        </div>
+
+
+		<div id="target_grid">
+						<section class="bw-grid"></section>
+						</div>
+
+
+		    </section>
+		</div>
+		<div   class="modal-footer btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt"  id="btnSubmit" ng-click="PCM901Ctrl.btnSubmit_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#select%}"/></button>
+			<button type="button" class="bw-btn-txt on"  id="btnCancel" ng-click="PCM901Ctrl.btnCancel_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#cancel%}"/></button>
+		</div>
+	</div>
+</section>

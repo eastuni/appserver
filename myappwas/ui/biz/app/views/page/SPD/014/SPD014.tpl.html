@@ -1,0 +1,171 @@
+<section id="SPD014" ng-init="SPD014Ctrl.init()" SPD014-wrap-directive>
+	<section>
+		<h2 class="bw-tt" data-i18n="{%=cbb_items.SCRN#SPD014%}">
+			<p class="desc" data-i18n="{%=cbb_items.SCRN_NAME#SPD014%}"></p>
+		</h2>
+
+		<!-- 조회영역 -->
+		<section class="search-condition-area">
+			<!-- 검색조건 바 -->
+			<section class="bw-tool add-bd2-t">
+				<div class="f-1">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#searchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn" id="btnResetSearchCnd"
+						ng-click="SPD014Ctrl.btnResetSearchCndt_Onclick()" title="">
+						<i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span>
+					</button>
+					<button type="button" class="bw-btn" id="btnSearch"
+						ng-click="SPD014Ctrl.btnSearch_Onclick()" title="">
+						<i class="bw-icon i-30 i-func-search"></i>
+					</button>
+					<button type="button" class="bw-btn b-ctr" id="btnSearhCndToggle"
+						ng-click="SPD014Ctrl.btnSearhCndToggle_Onclick()" title="">
+						<i class="fas fa-angle-double-up"></i>
+					</button>
+				</div>
+			</section>
+			<!-- 검색조건 영역 -->
+			<section class="search-condition-wrap" id="SPD014searchConditionWrap">
+				<!-- 기본검색조건 영역 -->
+				<section class="search-wrap">
+					<table class="bx-info-table w-100">
+						<tr>
+							<td class="td-w-33">
+								<!-- 업무구분 -->
+								<div class="input-wrap fix-label clr asterisk">
+									<label class="bw-label"
+										data-i18n="{%=cbb_items.SCRNITM#bizDscd%}"></label> <select
+										class="bw-input ipt-select"
+										ng-model="SPD014Ctrl.bizDscdSelectedValue"
+										ng-change="SPD014Ctrl.bizDscd_OnChange()"
+										data-form-param="SPD014bizDscd"></select>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<!-- 상품유형 -->
+								<div class="input-wrap fix-label clr asterisk">
+									<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#pdTp%}"></label>
+									<select class="bw-input ipt-select"
+										ng-model="SPD014Ctrl.pdTpCdSelectedValue"
+										ng-change="SPD014Ctrl.pdTpCd_OnChange()"
+										data-form-param="SPD014pdTpCd"></select>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<!-- 상품템플릿 -->
+								<div class="input-wrap fix-label clr asterisk">
+									<label class="bw-label"
+										data-i18n="{%=cbb_items.SCRNITM#pdTmplt%}"></label> <select
+										class="bw-input ipt-select"
+										ng-model="SPD014Ctrl.pdTmpltSelectedValue"
+										ng-change="SPD014Ctrl.pdTmplt_OnChange()"
+										data-form-param="SPD014pdTmpltCd"></select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="td-w-33">
+								<!-- 상품 -->
+								<div class="input-wrap fix-label clr asterisk">
+									<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#pdNm%}"></label>
+									<select class="bw-input ipt-select"
+										data-form-param="SPD014pdNm"></select>
+								</div>
+							</td>
+							<td class="td-w-33">
+							</td>
+							<td class="td-w-33">
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+
+			<!-- 상품 한도 속성 영역  -->
+			<section name="on-display-none" id="SPD014PDLimitAttr"
+				style="display: inline;">
+
+				<!-- 화면상단영역 (조회,토글) -->
+				<section class=" bw-tool add-bd2-t">
+					<div class="f-l">
+						<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#pdLmtAttr%}"></h3>
+					</div>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn b-ctr" id="btnSchToggle"
+							ng-click="SPD014Ctrl.btnToggle_Onclick('SPD014base-area')"
+							title="">
+							<i class="fas fa-angle-double-up"></i>
+						</button>
+					</div>
+				</section>
+
+				<section id="SPD014base-area">
+					<table class="w-100">
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap fix-label clr">
+									<!--총판매한도금액-->
+									<label class="bw-label"
+										data-i18n="{%=cbb_items.SCRNITM#totLmtSale%}"></label>
+									<div class="td-desc-wrap clr">
+										<input type="text" class="bw-input totSalesLmtAmt"
+											readonly="readonly" />
+									</div>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap fix-label clr">
+									<!--소진액-->
+									<label class="bw-label"
+										data-i18n="{%=cbb_items.SCRNITM#usedAmt%}"></label>
+									<div class="td-desc-wrap clr">
+										<input type="text" class="bw-input usedAmt"
+											readonly="readonly" />
+									</div>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap fix-label clr">
+									<!--판매가능잔액-->
+									<label class="bw-label"
+										data-i18n="{%=cbb_items.SCRNITM#saleableAmt%}"></label>
+									<div class="td-desc-wrap clr">
+										<input type="text" class="bw-input salableAmt"
+											readonly="readonly" />
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+
+			<!-- 상품그룹 한도 속성  -->
+			<section name="on-display-none" id="SPD014PDGLimitAttr"
+				style="display: none;">
+				<!-- 검색결과 -->
+				<section>
+					<section class=" bw-tool add-bd2-t add-mg-t">
+						<div class="f-l">
+							<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#pdgLmtAttr%}"></h3>							
+						</div>
+						<div class="btn-wrap fix-r">							
+							<button type="button" class="bw-btn b-ctr" id="SPD014btnGridToggle"
+								ng-click="SPD014Ctrl.btnToggle_Onclick('SPD014pdgRslt')" title="">
+								<i class="fas fa-angle-double-up"></i>
+							</button>
+						</div>
+					</section>
+					<section id="SPD014pdgRslt">
+						<div id="SPD014pdg-grid">
+							<section class="bw-grid"></section>
+						</div>
+					</section>
+				</section>			
+					
+			</section>
+		</section>
+	</section>
+</section>

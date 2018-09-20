@@ -1,0 +1,71 @@
+
+	<section  id='SLC409' ng-init="SLC409Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SLC409%}" />
+				<p class="desc" data-i18n="{%=cbb_items.SCRN_DESC#SLC409%}"></p>
+			</h2>
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCnd%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn-form unit add-mg-t-7"  id="btnExcelUp" ng-click="SLC409Ctrl.btnExcelUp_Onclick()" title=""><span data-i18n="{%=cbb_items.SCRNITM#excelUpload%}"/></button>
+					<button type="button" class="bw-btn"  id="btnSchReset" ng-click="SLC409Ctrl.btnSchReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnAttrSave" ng-click="SLC409Ctrl.btnAttrSave_Onclick()" title=""><i class="bw-icon i-30 i-func-save"></i><span class="btn_txt">저장</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnSchToggle" ng-click="SLC409Ctrl.btnSchToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="grpSrchCnd"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_grpSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#bondRstrctrDscd%}" data-i18n-title="{%=cbb_items.AT#bondRstrctrDscd%}"></label>
+							<input type="text"  maxlength='1' dec='0' class="bw-input a-left"   data-form-param="bondRstrctrDscd" />
+						</div>
+					</td>
+					<td class="td-w-33">
+						<span data-form-param=""   ></span>
+					</td>
+					<td class="td-w-33">
+						<span data-form-param=""   ></span>
+					</td>
+				</tr>
+				<tr  name="tr_grpSrchCnd" >
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#feeSumAmt%}" data-i18n-title="{%=cbb_items.AT#feeSumAmt%}"></label>
+							<input type="text"  dec='5' class="bw-input "   data-form-param="feeSumAmt"  common-numeric-only-directive ng-model='feeSumAmt'/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#feeRt%}" data-i18n-title="{%=cbb_items.AT#feeRt%}"></label>
+							<input type="text"  dec='0' class="bw-input "   data-form-param="feeRt"  common-numeric-only-directive ng-model='feeRt'/>
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#acctPswd%}" data-i18n-title="{%=cbb_items.AT#acctPswd%}"></label>
+							<input type="text"  maxlength='100' dec='0' class="bw-input a-left"   data-form-param="acctPswd" />
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+		<section   >
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchRslt%}"></h3>
+				<h3 class="bw-desc">({{SLC409_SLC409Ctrl.grdListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn"  id="srchRsltExcelDown" ng-click="SLC409Ctrl.srchRsltExcelDown_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i><span class="btn_txt">엑셀 다운로드</span></button>
+				<button type="button" class="bw-btn b-ctr"  id="btnRsltToggle" ng-click="SLC409Ctrl.btnRsltToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+			<section  id="grpSchResult"  >
+				<div id="SLC409_grdList" >
+					<section class="bw-grid"></section>
+				</div>
+			</section>
+		</section>
+	</section>
+</section>

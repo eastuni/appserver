@@ -1,0 +1,153 @@
+<section id="pdTabInfo" class="search-wrap">
+    <table class="w-100">
+        <tr>
+        	<!-- 연체이자적용방법구분코드 -->
+        	<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#ovrduIntAplyMthdDscd%}" data-i18n-title="{%=cbb_items.SCRNITM#ovrduIntAplyMthdDscd%}"></label>
+					<select class="bw-input ipt-select"  data-form-param="ovrduIntAplyMthdDscd" id="ovrduIntAplyMthdDscd"></select>
+				</div>
+			</td>
+        	<!-- 연체유예년월일구분코드 -->
+        	<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label "  data-i18n="연체유예년월일구분코드" data-i18n-title="연체유예년월일구분코드"></label>
+					<select class="bw-input ipt-select"  data-form-param="ovrduGrcDayDscd" id="ovrduGrcDayDscd"></select>
+				</div>
+			</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+        	<!-- 연체유예주기 -->
+        	<td class="td-w-33">
+				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#ovrduGrcCyclCnt%}" data-i18n-title="{%=cbb_items.SCRNITM#ovrduGrcCyclCnt%}"></label>
+					<input type="text"  class="bw-input"   data-form-param="ovrduGrcCyclCnt" ng-model='ovrduGrcCyclCnt' common-numeric-only-directive/>
+				</div>
+			</td>
+        	<!-- 연체유예주기 측정단위 -->
+        	<!-- 
+        	<td class="td-w-33">
+				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#ovrduGrcCyclCnt%}{%=cbb_items.SCRNITM#msurUnitCd%}" data-i18n-title="{%=cbb_items.SCRNITM#ovrduGrcCyclCnt%}{%=cbb_items.SCRNITM#msurUnitCd%}"></label>
+					<div id="ovrduGrcCyclMsurUnitCd"'></div>
+				</div>
+			</td>
+			 -->
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<!-- 유예회차수 -->
+        	<td class="td-w-33">
+				<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="유예회차수" data-i18n-title="유예회차수"></label>
+					<input type="text" class="bw-input" data-form-param="ovrduGrcNth" ng-model='ovrduGrcNth' common-numeric-only-directive/>
+				</div>
+			</td>
+        	<!-- 다음납입일산정방식코드 -->
+        	<td class="td-w-33">
+                <div class="input-wrap fix-label clr">
+                	<label class="bw-label"  data-i18n="{%=cbb_items.PDCND#L0450%}" data-i18n-title="{%=cbb_items.PDCND#L0450%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="nxtPymntDtWayCd" id="nxtPymntDtWayCd"></select>
+                </div>
+            </td>
+			<td></td>
+			<td></td>
+		</tr>
+        <tr>
+
+        	<!-- 다음납입일휴일시적용구분코드 -->
+        	<td class="td-w-33">
+                <div class="input-wrap fix-label clr">
+                	<label class="bw-label"  data-i18n="다음납입일휴일시적용구분코드" data-i18n-title="다음납입일휴일시적용구분코드"></label>
+                    <select class="bw-input ipt-select"  data-form-param="nxtPymntDtHldyAplyDscd" id="nxtPymntDtHldyAplyDscd"></select>
+                </div>
+            </td>
+            <!-- 연체기준일휴일시적용구분코드 -->
+        	<td class="td-w-33">
+                <div class="input-wrap fix-label clr">
+                	<label class="bw-label"  data-i18n="{%=cbb_items.AT#ovrduBaseDtHldyAplyDscd%}" data-i18n-title="{%=cbb_items.AT#ovrduBaseDtHldyAplyDscd%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="ovrduBaseDtHldyAplyDscd" id="ovrduBaseDtHldyAplyDscd"></select>
+                </div>
+            </td>
+        	<!-- 약정납입일구분코드 -->
+        	<!-- 
+        	<td class="td-w-33">
+                <div class="input-wrap fix-label clr">
+                	<label class="bw-label"  data-i18n="{%=cbb_items.PDCND#L0082%}" data-i18n-title="{%=cbb_items.PDCND#L0082%}"></label>
+                    <select class="bw-input ipt-select"  data-form-param="agrmntPymntDayDscd" id="agrmntPymntDayDscd"></select>
+                </div>
+            </td>
+             -->
+			<td></td>
+			<td></td>
+        </tr>
+        <tr>
+			<!-- 이자계산구간구분코드 -->
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label" data-i18n="이자계산구간구분코드" data-i18n-title="이자계산구간구분코드" data-i18n-title="이자계산구간구분코드"></label>
+					<select class="bw-input ipt-select"  data-form-param="intCalcnSctnDscd" id="intCalcnSctnDscd"></select>
+				</div>
+			</td>
+			<!-- 이자계산기준일수구분코드 -->
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label" data-i18n="이자계산기준일수구분코드" data-i18n-title="이자계산기준일수구분코드" data-i18n-title="이자계산기준일수구분코드"></label>
+					<select class="bw-input ipt-select"  data-form-param="intCalcnBaseDayCntDscd" id="intCalcnBaseDayCntDscd"></select>
+				</div>
+			</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<!-- 12월확정약정납입일 -->
+			<td class="td-w-25">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label "  data-i18n="{%=cbb_items.PDCND#D0001%}" data-i18n-title="{%=cbb_items.PDCND#D0001%}"></label>
+					<input type="text" class="bw-input " maxlnegth=2 data-form-param="dcmbrSpcfcPymntDay" ng-model='dcmbrSpcfcPymntDay' common-numeric-only-directive/>						
+				</div>
+			</td>
+			<!-- 이자계산단위구분코드 -->
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label" data-i18n="이자계산단위구분코드" data-i18n-title="이자계산단위구분코드" data-i18n-title="이자계산단위구분코드"></label>
+					<select class="bw-input ipt-select"  data-form-param="intCalcnUnitDscd" id="intCalcnUnitDscd"></select>
+				</div>
+			</td>
+			<td></td>
+			<td></td>
+        </tr>
+        
+        <tr>
+			<!-- 이자계산단수구분코드 -->
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label" data-i18n="이자계산단수구분코드" data-i18n-title="이자계산단수구분코드"></label>
+					<select class="bw-input ipt-select"  data-form-param="intCalcnFrctnTpCd" id="intCalcnFrctnTpCd"></select>
+				</div>
+			</td>
+			<!-- 원금계산단수구분코드 -->
+			<td class="td-w-33">
+				<div class="input-wrap fix-label clr" >
+					<label class="bw-label" data-i18n="원금계산단수구분코드" data-i18n-title="원금계산단수구분코드"></label>
+					<select class="bw-input ipt-select"  data-form-param="prncplCalcnFrctnDscd" id="prncplCalcnFrctnDscd"></select>
+				</div>
+			</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<!-- 선납일수적용방법구분코드 -->
+        	<td class="td-w-33">
+                <div class="input-wrap fix-label clr">
+                	<label class="bw-label"  data-i18n="선납일수적용방법구분코드" data-i18n-title="선납일수적용방법구분코드"></label>
+                    <select class="bw-input ipt-select"  data-form-param="prpymntDayAplyWayDscd" id="prpymntDayAplyWayDscd"></select>
+                </div>
+            </td>
+			<td></td>
+			<td></td>
+			<td></td>
+        </tr>
+    </table>
+</section>

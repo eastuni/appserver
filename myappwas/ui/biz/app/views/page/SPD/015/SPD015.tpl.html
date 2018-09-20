@@ -1,0 +1,244 @@
+<section  id='SPD015' ng-init="SPD015Ctrl.init()">
+  <section>
+    <h2 class="bw-tt">
+      <span data-i18n="{%=cbb_items.SCRN#SPD015%}" />
+    </h2>
+
+    <section class="bw-tool add-bd2-t add-mg-t" >
+      <div class="f-l">
+        <h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#srchCrtr%}"></h3>
+      </div>
+      <div class="btn-wrap fix-r">
+        <button type="button" class="bw-btn"  id="btnCrReset" ng-click="SPD015Ctrl.btnCrReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+        <button type="button" class="bw-btn"  id="btnInfoSchSearch" ng-click="SPD015Ctrl.btnInfoSchSearch_Onclick()" title=""><i class="bw-icon i-30 i-func-search"></i><span class="btn_txt">조회</span></button>
+        <!-- <button type="button" class="bw-btn"  id="btnExecuteIntCalSimulation" ng-click="SPD015Ctrl.btnExecuteIntCalSimulation()" title="실행"><i class="bw-icon i-30 i-func-submit"></i><span class="btn_txt">제출</span></button> -->
+        <button type="button" class="bw-btn"  id="btnExecuteIntCalSimulation" ng-click="SPD015Ctrl.btnCrSubmit_Onclick()" title="실행"><i class="bw-icon i-30 i-func-submit"></i><span class="btn_txt">제출</span></button>
+        <button type="button" class="bw-btn b-ctr"  id="btnCrToggle" ng-click="SPD015Ctrl.btnToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+      </div>
+    </section>
+     
+	<section  id="secSrchCnd"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_secSrchCnd" >
+				<!-- 계좌번호 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#acctNbr%}" data-i18n-title="{%=cbb_items.AT#acctNbr%}"></label>
+						<input type="text"  maxlength='16' dec='0' common-string-number-only-directive class="bw-input a-left"   data-form-param="acctNbr" />
+						<button type="button" class="bw-btn fix-r" ng-click="SPD015Ctrl.acctNbr_Onclick()" id="btn-acctNbr-search"><i class="fas fa-search"></i></button>
+					</div>
+				</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td class="td-w-25"> <!-- 업무구분 -->
+                	<div class="input-wrap fix-label clr">
+                    	<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#bizDscd%}"></label>
+                        	<select class="bw-input ipt-select" ng-model="SPD015Ctrl.bizDscdSelectedValue" ng-change="SPD015Ctrl.bizDscd_OnChange()"  data-form-param="bizDscd"></select>
+					</div>
+				</td>
+				<td class="td-w-25"> <!-- 상품유형 -->
+					<div class="input-wrap fix-label clr">
+						<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#pdTp%}"></label>
+							<select class="bw-input ipt-select" ng-model="SPD015Ctrl.pdTpCdSelectedValue" ng-change="SPD015Ctrl.pdTpCd_OnChange()" data-form-param="pdTpCd" ></select>
+					</div>
+				</td>
+				<td class="td-w-25"> <!-- 상품템플릿 -->
+					<div class="input-wrap fix-label clr">
+						<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#pdTmplt%}"></label>
+							<select class="bw-input ipt-select" ng-model="SPD015Ctrl.pdTmpltSelectedValue" ng-change="SPD015Ctrl.pdTmpltCd_OnChange()" data-form-param="pdTmpltCd"></select>
+					</div>
+				</td>
+				<!-- 상품코드 -->
+                <td class="td-w-25"> 
+                    <div class="input-wrap fix-label clr" >
+                        <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#pdCd%}"></label>
+                        <select class="bw-input ipt-select" data-form-param="pdCd"></select>
+                    </div>
+                </td>
+			</tr>
+<!-- 				상품코드
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr clr add-btn" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#pdCd%}" data-i18n-title="{%=cbb_items.AT#pdCd%}"></label>
+						<input type="text"  maxlength='16' dec='0' common-string-number-only-directive class="bw-input a-left"   data-form-param="pdCd" />
+						<button type="button" class="bw-btn fix-r" ng-click="SPD015Ctrl.pdCd_Search_Onclick()" id="btn-pdCd-search"><i class="fas fa-search"></i></button>
+					</div>
+				</td>
+				<td>&nbsp;</td>
+				상품명
+				<td class="td-w-33">
+	                <div class="input-wrap fix-label clr" >
+	                    <label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#pdNm%}"></label>
+	                    <div class="td-desc-wrap clr">
+	                        <input type="text" class="bw-input"  data-form-param="pdNm" readonly="true" />
+	                    </div>
+	                </div>
+            	</td> 
+-->
+		</table>
+	</section>
+	
+	<!--  기본정보 입력  -->
+	<section class=" bw-tool add-bd2-t add-mg-t" >
+		<div class="f-l">
+			<!-- 기본정보 -->
+			<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseArea%}"></h3>
+		</div>
+		<div class="btn-wrap fix-r">
+			<button type="button" class="bw-btn b-ctr"  id="btnLnBaseInfoAreaToggle" ng-click="SPD015Ctrl.btnLnBaseInfoAreaToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+		</div>
+	</section>	
+	
+	<section  id="lnRpymntBaseInfo">
+		<table class="w-100" >
+			<tr name="tr_lnRpymnt_base" >
+				<!-- 거래유형구분코드 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#txTpCd%}" data-i18n-title="{%=cbb_items.SCRNITM#txTpCd%}"></label>
+						<select class="bw-input ipt-select" data-form-param="txTpDscd" id="txTpDscd"></select>
+					</div>
+				</td>
+				<!-- 기산일자 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label"  data-i18n="{%=cbb_items.SCRNITM#rckngDt%}" data-i18n-title="{%=cbb_items.SCRNITM#rckngDt%}"></label>
+						<div id="rckngDt"></div>
+					</div>
+				</td>
+				<!-- 희망납입회차 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#desiredPymntNth%}" data-i18n-title="{%=cbb_items.SCRNITM#desiredPymntNth%}"></label>
+						<input type="text" class="bw-input" data-form-param="desiredPymntNth" ng-model='desiredPymntNth' common-numeric-only-directive/>
+					</div>
+				</td>
+				<!-- 희망이수년월일 -->
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#desiredPymntDt%}" data-i18n-title="{%=cbb_items.SCRNITM#desiredPymntDt%}"></label>
+						<div id="desiredPymntDt"></div>
+					</div>
+				</td>
+			</tr>
+			<tr name="tr_lnRpymnt_base" >
+				<td class="td-w-25">
+					<div class="input-wrap fix-label clr" >
+						<!-- 상환예정금액 -->
+						<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#rpymntSchdldAmt%}" data-i18n-title="{%=cbb_items.SCRNITM#rpymntSchdldAmt%}"></label>
+						<input type="text" dec='2' class="bw-input" data-form-param="rpymntSchdldAmt" ng-model="rpymntSchdldAmt" common-numeric-only-directive/>
+					</div>
+				</td>
+				<td>
+					<div class="input-wrap fix-label clr" >
+						<!-- 시뮬레이션여부 -->
+						<label class="bw-label" data-i18n="{%=cbb_items.AT#smltnYn%}" data-i18n-title="{%=cbb_items.AT#smltnYn%}"></label>
+						<select class="bw-input ipt-select" data-form-param="smltnYn" id="smltnYn" ng-model="smltnYn" ng-change="SPD015Ctrl.smltnYn_OnChange()" ></select>
+					</div>
+				</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</section>
+	
+	<!-- 탭내용 -->
+	<section>
+    <div id="tab" class=" add-mg-t"> 
+		<ul>
+			<li ng-click="arrCndTabCtrl.tabOpen()"><a href="#arrCndTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRN#SAR010-1%}" data-i18n-title="{%=cbb_items.SCRN#SAR010-1%}"></label><span class="triangle"></span></a></li>
+			<!-- <li ng-click="rpymntSchdlTabCtrl.tabOpen()"><a href="#rpymntSchdlTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#rpymntSchdl%}"></label><span class="triangle"></span></a></li> -->
+			<li ng-click="intRtTabCtrl.tabOpen()"><a href="#intRtTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.PDCND#I0022%}" data-i18n-title="{%=cbb_items.PDCND#I0022%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="ovrduRtTabCtrl.tabOpen()"><a href="#ovrduRtTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.PDCND#I0062%}" data-i18n-title="{%=cbb_items.PDCND#I0062%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="pdTabCtrl.tabOpen()"><a href="#pdTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.AT#pdCndCd%}" data-i18n-title="{%=cbb_items.AT#pdCndCd%}"></label><span class="triangle"></span></a></li>
+		</ul>
+		<!-- 계약조건 탭 -->
+		<div id="arrCndTab">
+			<views-spd015-arrcndtab-directive></views-spd015-arrcndtab-directive>
+		</div>
+		<!-- 
+		<div id="rpymntSchdlTab">
+			<views-spd015-rpymntschdltab-directive></views-spd015-rpymntschdltab-directive>
+		</div>
+		 -->			
+		 <!-- 약정이율 탭 -->
+		<div id="intRtTab">
+			<views-spd015-intrttab-directive></views-spd015-intrttab-directive>
+		</div>
+		<!-- 연체이율 탭 -->
+		<div id="ovrduRtTab">
+			<views-spd015-ovrdurttab-directive></views-spd015-ovrdurttab-directive> 
+		</div>
+		<!-- 상품조건 탭 -->
+		<div id="pdTab">
+			<views-spd015-pdtab-directive></views-pdtab-directive>
+		</div>
+	</div>	
+	</section>
+	
+	<!--  거래정보 입력  -->
+	<!-- <section class=" bw-tool add-bd2-t add-mg-t" >
+	<div class="f-l">
+		추가정보 20180712 뭘 넣어야될까?
+		<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#addedInfo%}"></h3>
+	</div>
+	<div class="btn-wrap fix-r">
+		<button type="button" class="bw-btn b-ctr"  id="btnLnRpymntToggle" ng-click="SPD015Ctrl.btnLnRpymntToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+	</div>
+	</section>	
+	<section  id="lnRpymnt"  class="search-wrap">
+		<table class="w-100" >
+			
+			<tr name="tr_lnRpymnt" >
+			
+				일부상환후상환방법구분코드
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#prtlRpymntAfRpymntDscd%}" data-i18n-title="{%=cbb_items.SCRNITM#prtlRpymntAfRpymntDscd%}"></label>
+						<select class="bw-input ipt-select" data-form-param="prtlRpymntAfRpymntDscd" id="prtlRpymntAfRpymntDscd"></select>
+					</div>
+				</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</section> -->
+
+	<!--  속성정보  -->
+	<section>
+    <div id="tabout" class=" add-mg-t"> 
+		<ul>
+			<li ng-click="intCalcnRsltTabCtrl.tabOpen()"><a href="#intCalcnRsltTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRN#SDP102-1%}" data-i18n-title="{%=cbb_items.SCRN#SDP102-1%}"></label><span class="triangle"></span></a></li>
+			<!-- <li ng-click="amtInfoTabCtrl.tabOpen()"><a href="#amtInfoTab"><label class="bw-label w-40"  data-i18n="{%=cbb_items.SCRNITM#amountInfoArea%}"></label><span class="triangle"></span></a></li>
+			<li ng-click="rpymntSchdlRsltTabCtrl.tabOpen()"><a href="#rpymntSchdlRsltTab"><label class="bw-label w-40"  data-i18n="상환스케쥴처리결과"></label><span class="triangle"></span></a></li> -->
+		</ul>
+		<div id="intCalcnRsltTab">
+			<views-spd015-intcalcnrslttab-directive></views-spd015-intcalcnrslttab-directive>
+		</div>
+<!-- 		<div id="amtInfoTab">
+			<views-spd015-amtinfotab-directive></views-spd015-amtinfotab-directive>
+		</div>
+		<div id="rpymntSchdlRsltTab">
+			<views-spd015-rpymntschdlrslttab-directive></views-spd015-rpymntschdlrslttab-directive>
+		</div> -->		
+	</div>	
+	</section>
+	
+	<!--  계산구간별 상세정보 섹션    -->
+	<section class=" bw-tool add-bd2-t add-mg-t" >
+	<div class="f-l">
+		<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRN#SLN041-1%}"></h3>
+		<h3 class="bw-desc">({{SPD015Ctrl.gridListCount}} <span data-i18n="{%=cbb_items.SCRNITM#cnt%}" data-i18n-title="{%=cbb_items.SCRNITM#cnt%}"></span>)</h3>
+	</div>
+	<div class="btn-wrap fix-r">
+		<button type="button" class="bw-btn"  id="btnGridExcel" ng-click="SPD015Ctrl.btnGridExcel_Onclick()" title=""><i class="bw-icon i-30 i-func-xls"></i><span class="btn_txt">엑셀 다운로드</span></button>
+		<button type="button" class="bw-btn b-ctr"  id="btnGridToggle" ng-click="SPD015Ctrl.btnGridToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+	</div>
+	</section>
+	<section  id="sdp015"  >
+		<div id="SPD015gridList" >
+			<section class="bw-grid"></section>
+		</div>
+	</section>
+</section>
+</section>

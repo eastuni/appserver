@@ -1,0 +1,10 @@
+OMM bankware.corebanking.deposit.simulation.service.dto.SmartDpstWhdrwlIntSvcList
+<description="">
+{
+	String calcnStartDt<length=8 description="계산시작년월일">;
+	String calcnEndDt<length=8 description="계산시작종료일">;
+	BigDecimal aplyIntRt<length=18 decimal=2 description="적용금리">;
+	BigDecimal calcnBaseAmt<length=18 decimal=2 description="계산기준금액">;
+	BigDecimal intAmt<length=18 decimal=2 description="이자금액">;
+	BigDecimal nxtLvlAdventAmt<length=18 decimal=2 description="다음단계도래금액">;
+}

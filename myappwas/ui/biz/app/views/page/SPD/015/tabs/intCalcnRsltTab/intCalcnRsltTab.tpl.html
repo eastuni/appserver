@@ -1,0 +1,144 @@
+<section id="intCalcnRsltTabInfo">
+	<section>
+		<table class="w-100" >
+			<tr  name="tr_rpymntSchdldAmt" >
+				<!-- 휴일이연연체기준년월일 -->
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label "  data-i18n="{%=cbb_items.AT#hldyDfrdOvrduBaseDt%}" data-i18n-title="{%=cbb_items.AT#hldyDfrdOvrduBaseDt%}"></label>
+						<div id="hldyDfrdOvrduBaseDt"></div>
+					</div>
+				</td>
+				<!-- 연체시작년월일 -->
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#ovrduStartDt%}" data-i18n-title="{%=cbb_items.SCRNITM#ovrduStartDt%}"></label>
+						<div id="ovrduStartDt" ></div>
+					</div>
+				</td>
+				<td></td>
+			</tr>
+			<tr  name="tr_rpymntSchdldAmt" >
+				<!-- 휴일이연잔액연체기준년월일 -->
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+					<label class="bw-label "  data-i18n="{%=cbb_items.AT#hldyDfrdBalOvrduBaseDt%}" data-i18n-title="{%=cbb_items.AT#hldyDfrdBalOvrduBaseDt%}"></label>
+						<div id="hldyDfrdBalOvrduBaseDt" ></div>
+					</div>
+				</td>
+				<!-- 잔액연체시작년월일 -->
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" >
+						<label class="bw-label" data-i18n="{%=cbb_items.SCRNITM#balOvrduStartDt%}" data-i18n-title="{%=cbb_items.SCRNITM#balOvrduStartDt%}"></label>
+						<div id="balOvrduStartDt"></div>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_rpymntSchdldAmt" >
+				<!-- 수납대상총계 -->
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="수납대상총계" data-i18n-title="수납대상총계"></label>
+						<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="totRpymntAmt" ng-model='totRpymntAmtAmt' common-numeric-only-directive/>
+					</div>
+				</td>
+				<!-- 상환원금합계 -->
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="상환원금합계" data-i18n-title="상환원금합계"></label>
+						<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="rpymntPrncpl" ng-model='totRpymntPrncplAmt' common-numeric-only-directive/>
+					</div>
+				</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr  name="tr_rpymntSchdldAmt" >
+				<!-- 약정이자합계 -->
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="약정이자합계" data-i18n-title="약정이자합계"></label>
+						<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="nrmlIntAmt" ng-model='nrmlIntAmtAmt' common-numeric-only-directive/>
+					</div>
+				</td>
+				<!-- 지연이자합계 -->
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="지연이자합계" data-i18n-title="지연이자합계"></label>
+						<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="ovrduIntAmt" ng-model='ovrduIntAmtAmt' common-numeric-only-directive/>
+					</div>
+				</td>
+				<!-- 잔액연체이자합계 -->
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="잔액연체이자합계" data-i18n-title="잔액연체이자합계"></label>
+						<input type="text"  dec='2' class="bw-input "  readonly="readonly" data-form-param="rtrnIntAmt" ng-model='rtrnIntAmtAmt' common-numeric-only-directive/>
+					</div>
+				</td>
+				
+				<!-- <td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#erlyTrmntnFeeAmt%}"></label>
+						<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="erlyTrmntnFeeAmt" ng-model='erlyTrmntnFeeAmtAmt' common-numeric-only-directive/>
+					</div>
+				</td> -->
+			</tr>
+			<!-- <tr  name="tr_rpymntSchdldAmt" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.PD#balAfRpymnt%}"></label>
+						<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="rpymntAfPrncplBal" ng-model='rpymntAfPrncplBalAmt' common-numeric-only-directive/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#aplyRt%}"></label>
+						<input type="text"  dec='4' class="bw-input "  readonly="readonly" data-form-param="aplyIntRt" ng-model='aplyIntRtAmt' common-numeric-only-directive/>
+					</div>
+				</td>				
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.PDCND#I0062%}"></label>
+						<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="ovrduRt" ng-model='ovrduRt' common-numeric-only-directive/>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_rpymntSchdldAmt" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#lastIntCalcnDt%}"></label>
+						<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="lastIntCalcnDt" ng-model='lastIntCalcnDt'/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#nxtIntPymntSchdldDt%}"></label>
+						<input type="text"  dec='4' class="bw-input "  readonly="readonly" data-form-param="nxtIntPymntSchdldDt" ng-model='nxtIntPymntSchdldDt' />
+					</div>
+				</td>				
+				<td>&nbsp;</td>
+			</tr>
+			<tr  name="tr_rpymntSchdldAmt" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#lastRpymntDt%}"></label>
+						<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="lastRpymntDt" ng-model='lastRpymntDt'/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#nxtPrncplRpymntSchdldDt%}"></label>
+						<input type="text"  dec='4' class="bw-input "  readonly="readonly" data-form-param="nxtPrncplRpymntSchdldDt" ng-model='nxtPrncplRpymntSchdldDt' />
+					</div>
+				</td>				
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="선납사용일수"></label>
+						<input type="text"  dec='4' class="bw-input "  readonly="readonly" data-form-param="prpymntUseDay" ng-model='prpymntAccrualDay' common-numeric-only-directive/>
+					</div>
+				</td>
+			</tr>
+			<tr  name="tr_rpymntSchdldAmt" >
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.SCRNITM#ovrduStartDt%}"></label>
+						<input type="text"  dec='0' class="bw-input "  readonly="readonly" data-form-param="ovrduStartDt" ng-model='ovrduStartDt'/>
+					</div>
+				</td>
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="{%=cbb_items.AT#balOvrduStartDt%}"></label>
+						<input type="text"  dec='4' class="bw-input "  readonly="readonly" data-form-param="balOvrduStartDt" ng-model='balOvrduStartDt' />
+					</div>
+				</td>				
+				<td class="td-w-33">
+					<div class="input-wrap fix-label clr" ><label class="bw-label "  data-i18n="선납발생일수"></label>
+						<input type="text"  dec='4' class="bw-input "  readonly="readonly" data-form-param="prpymntAccrualDay" ng-model='prpymntAccrualDay' common-numeric-only-directive/>
+					</div>
+				</td>	
+			</tr>	 -->								
+		</table>
+	</section>
+</section>	

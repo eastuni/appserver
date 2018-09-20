@@ -1,0 +1,50 @@
+
+	<section  id='SDP900' ng-init="SDP900Ctrl.init()">
+		<section   >
+			<h2 class="bw-tt">
+				<span data-i18n="{%=cbb_items.SCRN#SDP900%}" />
+			</h2>
+				<section class=" bw-tool add-bd2-t add-mg-t" >
+				<div class="f-l">
+					<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#pdAtrbt%}"></h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"  id="btnPdReset" ng-click="SDP900Ctrl.btnPdReset_Onclick()" title=""><i class="bw-icon i-30 i-func-reset"></i><span class="btn_txt">초기화</span></button>
+					<button type="button" class="bw-btn"  id="btnPdSubmit" ng-click="SDP900Ctrl.btnPdSubmit_Onclick()" title=""><i class="bw-icon i-30 i-func-submit"></i><span class="btn_txt">제출</span></button>
+					<button type="button" class="bw-btn b-ctr"  id="btnPdToggle" ng-click="SDP900Ctrl.btnPdToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+				</div>
+				</section>
+			<section  id="pdArea"  class="search-wrap">
+			<table class="w-100" >
+				<tr  name="tr_pdArea" >
+					<td class="td-w-33">
+						<div   id="pdTpCd-wrap"  >
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div   id="pdTmpltCd-wrap"  >
+						</div>
+					</td>
+					<td class="td-w-33">
+						<div   id="pdCd-wrap"  >
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+			<section class=" bw-tool add-bd2-t add-mg-t" >
+			<div class="f-l">
+				<h3 class="bw-desc" data-i18n="{%=cbb_items.SCRNITM#baseAtrbt%}"></h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn b-ctr"  id="btnBasicToggle" ng-click="SDP900Ctrl.btnBasicToggle_Onclick()" title=""><i class="fas fa-angle-double-up"></i></button>
+			</div>
+			</section>
+		<section  id="arrOpenScreenGenerationArea"  class="search-wrap">
+		<table class="w-100" >
+			<tr  name="tr_arrOpenScreenGenerationArea" >
+			</tr>
+		</table>
+	</section>
+</section>
+</section>
