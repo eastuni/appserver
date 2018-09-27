@@ -1,0 +1,48 @@
+<div class="cnd-value-type2">
+    <table class="bx-info-table cnd-value-type2-table">
+        <tr class="isSingleValue-hide">
+            <th>{{bxMsg 'DPS0121_1String1'}}</th>
+            <td>
+                {{minValue}}
+            </td>
+            <th class="detail-except-type01-hide">{{bxMsg 'currencyCode'}}</th>
+            <td class="detail-except-type01-hide">
+                {{currencyValue}}
+            </td>
+            <th class="detail-type01-hide">{{bxMsg 'DPS0121_1String5'}}</th>
+            <td class="detail-type01-hide">
+                {{productMeasurementUnitNm}}
+            </td>
+        </tr>
+        <tr class="isSingleValue-hide">
+            <th>{{bxMsg 'DPS0121_1String2'}}</th>
+            <td colspan="3">
+                {{maxValue}}
+                <!--
+                    <label class="isSystemMaxValue"><input type="checkbox" disabled>{{bxMsg 'systemMax'}}</label>
+					-->
+            </td>
+        </tr>
+
+        <tr>
+            <th>{{bxMsg 'DPS0121_1String3'}}</th>
+            <td>
+                {{defalueValue}}
+            </td>
+            <th class="detail-except-type01-hide isNotSingleValue-hide">{{bxMsg 'currencyCode'}}</th>
+            <td class="detail-except-type01-hide isNotSingleValue-hide">
+                {{currencyValue}}
+            </td>
+            <th class="detail-type01-hide isNotSingleValue-hide">{{bxMsg 'DPS0121_1String5'}}</th>
+            <td class="detail-type01-hide isNotSingleValue-hide">
+                {{productMeasurementUnitNm}}
+            </td>
+        </tr>
+        <tr class="isSingleValue-hide">
+            <th>{{bxMsg 'DPS0121_1String4'}}</th>
+            <td colspan="3">
+                {{increaseValue}}
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Common Condition</title>
+    <link href="/libs/pfui/dpl.css" rel="stylesheet">
+    <link href="/libs/pfui/pfui.css" rel="stylesheet">
+
+    <link href="/libs/extjs/ext-theme-gray-all.css" rel="stylesheet">
+    <link href="/libs/date-picker/jquery.datetimepicker.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/pf_common/style/css/style.css" type="text/css" />
+    <script src="/libs/jquery/jquery-1.10.2.min.js"></script>
+
+
+    <script src="/libs/pfui/sea.js"></script>
+    <script src="/libs/pfui/config.js" data="true"></script>
+    <script src="/libs/extjs/ext-all.js"></script>
+    <script src="/libs/handlebars/handlebars-1.1.2.js"></script>
+    <script src="/libs/xDate/xdate.js"></script>
+    <script src="/libs/underscore/underscore.js"></script>
+    <script src="/libs/date-picker/jquery.datetimepicker.full.min.js"></script>
+
+    <script src="/pf_common/config/commonConfig.js"></script>
+    <script src="/pf_common/js/pf-common.js"></script>
+    <script src="/pf_common/js/pf-msg.js"></script>
+    <script src="/pf_common/js/pf-component.js"></script>
+    <script src="/pf_common/js/pf-validation.js"></script>
+
+    <script src="/pf_common/js/pf-default.js"></script>
+    <script src="/pf_common/js/pf-popup.js"></script>
+
+    <!-- import for common code -->
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="js/common.js"></script>
+</head>
+<body class="theme-pf">
+
+<div id="loading-dim" class="loading-dim"> <i class="loading-dim-icon"></i></div>
+<section class="help-area"></section> <!-- 2017.05.17 추가 도움말 영역 -->
+
+<div class="modal fade in" id="loadingModal" tabindex="-1" role="dialog" aria-hidden="false" style="display: none;">
+    <div class="loading-dim-1"></div>
+    <div id="loading" class="loading">Loading pages...</div>
+</div>
+
+<section class="tooltip"><p class="tooltip-message"></p></section>
+
+<div class="pf-page-layout pf-page-layout-side-nav pf-cc most-significant-box">
+
+    <div class="pf-cc-left-tree-box">
+
+    </div>
+
+    <div class="pf-page-conts pf-container pf-conts">
+        <div class="pf-cc-info-wrap pf-detail-wrap">
+            <div class="pf-cc-condition-list-wrap"> </div>
+
+            <div class="pf-cc-condition-info-wrap">
+
+                <div class="pf-cc-condition-info">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 
+<script id="pf-cf-pf-new-addition-info-popup" type="text/x-handlebars-template">
+    <div class="pf-cf-pf-new-addition-info-popup">
+        <table class="bx-info-table common-addition-info-form">
+            <tr>
+                <th>{{bxMsg 'DPP0116String1'}}</th>
+                <td>
+                    <select class="bx-form-item bx-compoenent-small addi-info-combo" data-form-param="additionalInformationType" disabled>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'DPS0121String4'}}</th>
+                <td>
+                    <input name="start" class="bx-form-item bx-compoenent-small calendar start-date" type="text" data-form-param="applyStart" value="{{applyStart}}" disabled>
+                    -
+                    <input name="end" class="bx-form-item bx-compoenent-small calendar end-date" type="text" data-form-param="applyEnd" value="{{applyEnd}}" disabled>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">{{bxMsg 'DPM10002Sring8'}}</th>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <textarea data-form-param="additionalInformationContent" clas>{{additionalInformationContent}}</textarea>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</script>
+ -->
+<script id="pf-cp-base-rel-product-add-popup" type="text/x-handlebars-template"></script>   <!-- 상품검색 팝업 -->
+<script id="pf-cp-base-rel-product-group-add-popup" type="text/x-handlebars-template"></script>   <!-- 상품그룹검색 팝업 -->
+<script id="prov-cnd-add-info-popup" type="text/x-handlebars-template"></script>   <!-- 제공조건 부가정보 팝업 -->
+<script id="apply-rule-history-popup" type="text/x-handlebars-template"></script>	<!-- 적용규칙 history -->
+
+
+<iframe class="file-download-iframe" width="00" height="00" style="display: none"></iframe>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="/configurator/product/js/product-benefit.js"></script>
+<script type="text/javascript" src="/pf_common/js/pf-event.js"></script>
+
+<!-- popup -->
+<script src="js/complex-condition-popup.js"></script>
+<script src="js/condition-history-popup.js"></script>
+<script src="js/condition-popup.js"></script>
+<script src="js/condition-value1-popup.js"></script>
+<script src="js/condition-value2-popup.js"></script>
+<script src="js/condition-value3-popup.js"></script>
+<script src="js/condition-value4-popup.js"></script>
+<script src="js/upload-popup.js"></script>
+<script src="/configurator/product/js/fee-discount-popup.js"></script>
+<script src="/configurator/product/js/limit-condition-popup.js"></script>
+<script src="/configurator/product/js/provide-condition-popup.js"></script>
+<script src="/pf_common/popup/apply_rule/js/popup.js"></script>
+<script src="/pf_common/popup/condition_template/js/popup.js"></script>
+<script src="/pf_common/popup/product/js/popup.js"></script>
+
+</body>
+</html>

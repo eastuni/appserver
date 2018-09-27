@@ -1,0 +1,36 @@
+<div class="pf-cp-base-rel-department-add-popup">
+    <div class="bx-info-table-wrap">
+        <table class="bx-info-table">
+            <tr>
+                <th>{{bxMsg 'DPP0109String1'}} <span class="red-notice">*</span></th>
+                <td>
+                    <select data-form-param="cmntUseYn" class="bx-form-item bx-compoenent-small" value="{{cmntUseYn}}">
+                        </select>
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'DPS0121String4'}} <span class="red-notice">*</span></th>
+                <!-- 적용기간 -->
+                <td>
+                    <input name="start" class="bx-form-item bx-compoenent-small calendar start-date" type="text"> -
+                    <input name="end" class="bx-form-item bx-compoenent-small calendar end-date" type="text">
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'DPM10002Sring4'}} <span class="red-notice">*</span></th>
+                <td>
+                    <header class="grid-extra-header gray-extra-header">
+                        {{bxMsg 'DPS0106String3'}}: <input type="text" class="bx-form-item bx-compoenent-small" />
+
+                        <button type="button" class="bw-btn search-btn" icon-tooltip="{{bxMsg 'ButtonBottomString4'}}">
+                                <i class="bw-icon i-25 i-search"></i>
+                            </button>
+                    </header>
+                    <div class="department-grid">
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for Condition group template
+ * 조건그룹템플릿 CSS 
+ */
+.pf-dcg .pf-dcg-panel { width: 925px; }
+.pf-dcg .pf-dcg-info-form th { width: 180px; }
+.pf-dcg .pf-dcg-info-form input { width: 300px; }
+.pf-dcg .pf-dcg-cnd-grid { height: 360px; }
+.pf-dcg .pf-dcg-cnd-rel-grid-wrap { display: none;margin: 10px 0; }
+.pf-dcg .pf-dcg-cnd-rel-grid-wrap.sub-grid-active { display: block; }
+.pf-dcg .pf-dcg-cnd-rel-grid-wrap .pf-dcg-cnd-rel-grid { height: 100px; }
+.pf-dcg .pf-dcg-base-val-grid-wrap { display: none;margin: 10px 0; }
+.pf-dcg .pf-dcg-base-val-grid-wrap.sub-grid-active { display: block; }
+.pf-dcg .pf-dcg-base-val-grid-wrap .pf-dcg-base-val-grid { height: 47px; }
+.pf-dcg .pf-dcg-base-list-val-grid-wrap { display: none;margin: 10px 0; }
+.pf-dcg .pf-dcg-base-list-val-grid-wrap.sub-grid-active { display: block; }
+.pf-dcg .pf-dcg-base-list-val-grid-wrap .pf-dcg-base-list-val-grid { height: 150px; }
+/*조건상세 팝업 CSS*/
+.condition-detail-info-popup .bx-info-table th { width: 120px; }
+.condition-detail-info-popup .bx-info-table input.date { width: 100px; }
+.condition-detail-info-popup .bx-info-table input.code { width: 100px; }
+.condition-detail-info-popup .bx-info-table input.name { width: 540px; }
+.condition-detail-info-popup .condition-sub-info-conts-tab .condition-sub-info-grid { height: 150px; }
+/*조건상세정보 팝업*/
+.condition-info-popup .pf-dc-info-form th { width: 100px; }
+.condition-info-popup .pf-dc-info-form td input { width: 370px; }
+.condition-info-popup .pf-dc-info-form td input.single-value-checkbox { width: inherit; }
+.condition-info-popup .condition-list-grid { height: 200px; }
+.add-detail-type-popup input,
+.change-name-popup input,
+.new-condition-group-tpl-popup input,
+.copy-condition-group-tpl-popup input,
+.change-condition-group-Tpl-name-popup input,
+.change-product-type-Tpl-name-popup input,
+.new-product-type-Tpl-name-popup input,
+.condition-name-change-input,
+.product-name-input,
+.change-product-Tpl-name-popup input {
+    width: 100% !important;
+    margin-top: 15px;
+}
+.cnd-grp-tmplt-srch-type-select { width: 70px !important; }

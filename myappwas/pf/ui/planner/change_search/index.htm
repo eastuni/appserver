@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Change Search</title>
+    <link href="/libs/pfui/dpl.css" rel="stylesheet">
+    <link href="/libs/pfui/pfui.css" rel="stylesheet">
+    <link href="/libs/extjs/ext-theme-gray-all.css" rel="stylesheet">
+    <link href="/libs/date-picker/jquery.datetimepicker.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/pf_common/style/css/style.css" type="text/css" />
+    <script src="/libs/jquery/jquery-1.10.2.min.js"></script>
+
+    <script src="/libs/pfui/sea.js"></script>
+    <script src="/libs/pfui/config.js" data="true"></script>
+    <script src="/libs/extjs/ext-all.js"></script>
+    <script src="/libs/handlebars/handlebars-1.1.2.js"></script>
+    <script src="/libs/xDate/xdate.js"></script>
+    <script src="/libs/underscore/underscore.js"></script>
+    <script src="/libs/date-picker/jquery.datetimepicker.full.min.js"></script>
+
+    <script src="/pf_common/config/commonConfig.js"></script>
+    <script src="/pf_common/js/pf-common.js"></script>
+    <script src="/pf_common/js/pf-msg.js"></script>
+    <script src="/pf_common/js/pf-component.js"></script>
+    <script src="/pf_common/js/pf-validation.js"></script>
+
+    <script src="/pf_common/js/pf-default.js"></script>
+    <script src="/pf_common/js/pf-popup.js"></script>
+
+    <!-- import for change search -->
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="js/common.js"></script>
+</head>
+<body class="theme-pf">
+
+<div id="loading-dim" class="loading-dim"> <i class="loading-dim-icon"></i></div>
+<section class="tooltip"><p class="tooltip-message"></p></section>
+
+<div class="pf-panel pf-page-layout pf-pc">
+    <div class="pf-pcge-conts pf-container pf-conts">
+    </div>
+</div>
+
+<script id="pd-info-change-detail-popup" type="text/x-handlebars-template"></script> <!-- 변경내역상세 팝업 -->
+<script id="cnd-tpl-popup" type="text/x-handlebars-template"></script>	<!-- 조건템플릿코드 선택 팝업 -->
+<script id="cnd-grp-tpl-popup" type="text/x-handlebars-template"></script>	<!-- 조건군템플릿코드 선택 팝업 -->
+<script id="pf-cp-base-rel-product-add-popup" type="text/x-handlebars-template"></script> <!-- 상품검색 팝업 -->
+<script id="search-product-template-popup" type="text/x-handlebars-template"></script>
+</body>
+
+<!-- import for change search -->
+<script src="js/main.js"></script>
+<script type="text/javascript" src="/pf_common/js/pf-event.js"></script>
+
+<!-- popup -->
+<script src="/pf_common/popup/product/js/popup.js"></script>
+<script src="/pf_common/popup/product_template/js/popup.js"></script>
+<script src="/pf_common/popup/condition_group_template/js/popup.js"></script>
+<script src="/pf_common/popup/condition_template/js/popup.js"></script>
+<script src="/pf_common/popup/calculation_unit_template/js/popup.js"></script>
+<link rel="stylesheet" href="/pf_common/popup/calculation_unit_template/css/style.css" />
+<script src="/pf_common/popup/calculation_unit/js/popup.js"></script>
+<link rel="stylesheet" href="/pf_common/popup/calculation_unit/css/style.css" />
+<script src="/pf_common/popup/formula/js/popup.js"></script>
+<link rel="stylesheet" href="/pf_common/popup/formula/css/style.css" />
+<script src="/pf_common/popup/calculation_compose_template/js/popup.js"></script>
+<link rel="stylesheet" href="/pf_common/popup/calculation_compose_template/css/style.css" />
+<script src="/pf_common/popup/calculation_rule/js/popup.js"></script>
+<link rel="stylesheet" href="/pf_common/popup/calculation_rule/css/style.css" />
+</html>

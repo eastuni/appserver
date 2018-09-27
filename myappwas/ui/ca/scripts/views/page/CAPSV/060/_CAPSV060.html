@@ -1,0 +1,157 @@
+<!--
+@Screen number  CAPSV060
+@brief          화면사용권한
+@author         이영주
+@history        2016.08.17      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPSV060-wrap">
+
+
+            <!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+                {{bxMsg 'cbb_items.SCRN#CAPSV060'}}
+                <p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPSV060'}}</p>
+                <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+            </h2>
+
+
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <section class="bw-tool add-bd2-t">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" id="btn-search-condition-reset" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn" id="btn-search-condition-inquire" title="{{bxMsg 'cbb_items.SCRNITM#search'}}"><i class="bw-icon i-30 i-func-search"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-search-condition-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+
+
+            <!--SEARCH CONDITION AREA * 검색 조건 영역-->
+            <section id="search-condition-area">
+                <section class="search-wrap">
+                    <table class="w-100">
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#cmpnt'}}">{{bxMsg 'cbb_items.SCRNITM#cmpnt'}}</label>
+                                    <select class="bw-input w-60 ipt-select CAPSV060-cmpnt-wrap" data-form-param="cmpntCd"></select>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#scrnId'}}">{{bxMsg 'cbb_items.AT#scrnId'}}</label>
+                                    <input type="text" class="bw-input w-60" data-form-param="scrnId" />
+                                </div>
+                            </td>
+                            <td class="td-w-33 l-c">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#scrnNm'}}">{{bxMsg 'cbb_items.AT#scrnNm'}}</label>
+                                    <input type="text" class="bw-input w-60" data-form-param="scrnNm" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+                <!--/END SEARCH CONDITION AREA -->
+            </section>
+            <!--/END SEARCH CONDITION AREA-->
+
+
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <section class="bw-tool add-bd2-t add-mg-t">
+                <div class="f-l">
+                    <h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" id="btn-search-result-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
+                    <button type="button" class="bw-btn" id="btn-search-result-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-search-result-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+
+
+            <!--SEARCH RESULT AREA * 검색 결과 영역-->
+            <section class="grid-wrap" id="search-result-area">
+                <!--GRID AREA -->
+                <div class="CAPSV060Grid" id="CAPSV060Grid"></div>
+                <!--/END GRID AREA-->
+            </section>
+            <!--/END SEARCH RESULT AREA-->
+
+
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <section class="bw-tool add-bd2-t add-mg-t">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#CAPCM190-LIST-TITLE'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" id="btn-base-reset" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn" id="btn-base-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-base-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+
+
+            <!--BASE ATTRIBUTE AREA * 기본 속성 영역-->
+            <section id="base-area">
+                <section class="search-wrap">
+                    <table class="w-100">
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#cmpnt'}}">{{bxMsg 'cbb_items.SCRNITM#cmpnt'}}</label>
+                                    <select class="bw-input w-60 ipt-select CAPSV060-cmpnt2-wrap" data-form-param="cmpntCd"></select>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                                <div class="input-wrap add-btn clr">
+                                    <label class="bw-label w-42" title="{{bxMsg 'cbb_items.AT#scrnId'}}">{{bxMsg 'cbb_items.AT#scrnId'}}</label>
+                                    <input type="text" class="bw-input w-58" data-form-param="scrnId" />
+                                    <button type="button" class="bw-btn fix-r" id="btn-scrn-search"><i class="bw-icon i-30 i-search"></i></button>
+                                </div>
+                            </td>
+                            <td class="td-w-33 l-c">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#scrnNm'}}">{{bxMsg 'cbb_items.AT#scrnNm'}}</label>
+                                    <input type="text" class="bw-input w-60" data-form-param="scrnNm" disabled="disabled"/>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#guest'}}">{{bxMsg 'cbb_items.SCRNITM#guest'}}</label>
+                                    <select class="bw-input w-60 ipt-select CAPSV060-guestUserYn-wrap" data-form-param="guestUserYn"></select>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#notActvUser'}}">{{bxMsg 'cbb_items.SCRNITM#notActvUser'}}</label>
+                                    <select class="bw-input w-60 ipt-select CAPSV060-inctvUserYn-wrap" data-form-param="inctvUserYn"></select>
+                                </div>
+                            </td>
+                            <td class="td-w-33 l-c">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#actvUser'}}">{{bxMsg 'cbb_items.SCRNITM#actvUser'}}</label>
+                                    <select class="bw-input w-60 ipt-select CAPSV060-actvUserYn-wrap" data-form-param="actvUserYn"></select>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+            <!--/END BASE ATTRIBUTE AREA-->
+        </section>
+    </section>
+</section>

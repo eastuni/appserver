@@ -1,0 +1,131 @@
+<div class="pf-panel pf-cp-product-condition-panel">
+    <div class="pf-panel-header">
+        <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+        <h2 class="pf-panel-title">{{bxMsg 'productConditionInfoMgmt'}}</h2>
+        <!-- 조건정보관리 -->
+
+        <div class="header-btn-group">
+            <!--<button class="bx-btn bx-btn-small pf-cp-condition-view-history-btn">{{bxMsg 'ButtonGrayString3'}}</button>-->
+            <button type="button" class="bw-btn pf-cp-condition-view-history-btn" icon-tooltip="{{bxMsg 'ButtonGrayString3'}}">
+                    <i class="bw-icon i-25 i-func-history"></i>
+                </button>
+        </div>
+    </div>
+
+    <div class="pf-panel-body">
+        <div class="bx-info-table-wrap">
+            <table class="bx-info-table condition-type4-table-wrap condition-table-wrap">
+                <tr>
+                    <th>{{bxMsg 'DPP0127String1'}}</th>
+                    <!-- 조건코드/상태 -->
+                    <td>
+                        <input type="text" data-form-param="id" class="bx-form-item bx-compoenent-small" value="{{id}}" disabled/>
+                        <input type="text" data-form-param="status" class="bx-form-item bx-compoenent-small" value="{{statusNm}}" disabled/>
+                        <input type="hidden" data-form-param="conditionGroupTemplateCode" value="{{conditionGroupTemplateCode}}" />
+                        <input type="hidden" data-form-param="status" value="{{status}}" />
+                        <input type="hidden" data-form-param="conditionGroupCode" value="{{conditionGroupCode}}" class="conditionGroupCode" />
+                        <input type="hidden" data-form-param="conditionTypeCode" value="{{conditionTypeCode}}" disabled/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{{bxMsg 'DPP0127String2'}}</th>
+                    <!-- 조건명 -->
+                    <td>
+                        <input type="text" data-form-param="text" class="bx-form-item bx-compoenent-small input-285px" value="{{text}}" disabled/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{{bxMsg 'DPS0121String4'}} <span class="red-notice">*</span></th>
+                    <!-- 적용기간 -->
+                    <td>
+                        <input name="start" data-form-param="applyStart" class="bx-form-item bx-compoenent-small calendar start-date" value="{{applyStart}}" type="text"> -
+                        <input name="end" data-form-param="applyEnd" class="bx-form-item bx-compoenent-small calendar end-date" value="{{applyEnd}}" type="text" disabled>
+                    </td>
+                </tr>
+                <tr class="cndAtrb-01">
+                    <th>{{bxMsg 'DPS0121String7'}}</th>
+                    <!-- 조건값결정레벨 -->
+                    <td>
+                        <select data-form-param="conditionAgreeLevel" class="bx-form-item bx-compoenent-small ProductConditionAgreeLevelCode" value="{{conditionAgreeLevel}}" disabled>
+                            </select>
+                        <label><input type="checkbox" class="isValueNull bx-form-item"> {{bxMsg 'DPS0121String10'}}</label>
+                        <label><input type="checkbox" class="isMandatory bx-form-item"> {{bxMsg 'DPS0121String8'}}</label>
+                        <label><input type="checkbox" class="returnFeeYn bx-form-item" disabled> {{bxMsg 'ReturnFeeYn'}}</label>
+                    </td>
+                </tr>
+                <tr class="cndAtrb-06">
+                    <th>{{bxMsg 'DPS0121String5'}} <span class="red-notice">*</span></th>
+                    <!-- 조건유형/구조 -->
+                    <td>
+                        <input type="text" class="bx-form-item bx-compoenent-small input-140px" value="{{conditionTypeCodeNm}}" disabled/> /
+                        <select data-form-param="conditionClassifyCode" class="bx-form-item bx-compoenent-small ProductConditionClassifyCode isEnableComplexCondition-disabled" value="{{conditionClassifyCode}}">
+                            </select>
+                    </td>
+                </tr>
+                <tr class="isValueNull-hidden">
+                    <th>{{bxMsg 'DPS0121String14'}}/{{bxMsg 'DPJ0125_String1-2'}} <span class="red-notice">*</span></th>
+                    <!-- 조건값적용방법코드 / 징수통화 -->
+                    <td>
+                        <select data-form-param="conditionValueAplyWayCode" class="bx-form-item bx-compoenent-small ConditionValueApplyWayCodeCode" value="{{conditionValueAplyWayCode}}">
+                            </select> /
+                        <select data-form-param="currencyValue" class="bx-form-item bx-compoenent-small CurrencyCode" value="{{currencyValue}}">
+                            </select>
+                    </td>
+                </tr>
+                <tr class="isValueNull-hidden cndAtrb-08">
+                    <th class="TierAplyCalcnWayCodeCode-th">{{bxMsg 'DPS0121String9'}} <span class="red-notice"></span></th>
+                    <td>
+                        <select data-form-param="layerCalcType" class="bx-form-item bx-compoenent-small TierAplyCalcnWayCodeCode conditionClassifyCode01-disabled conditionClassifyCode01-conditionValueAplyWayCode03-disabled" value="{{layerCalcType}}">
+                            </select>
+                    </td>
+                </tr>
+                <tr class="isValueNull-hidden">
+                    <th>{{bxMsg 'DPJ0125_String1-3'}} <span class="red-notice">*</span></th>
+                    <!-- 징수시기 -->
+                    <td>
+                        <select data-form-param="settleType" class="bx-form-item bx-compoenent-small FeeSettleTypeCode" value="{{settleType}}">
+                            </select> /
+                        <select data-form-param="levyFrqDscd" class="bx-form-item bx-compoenent-small LevyFrqDscd" value="{{levyFrqDscd}}">
+                            </select>
+                    </td>
+                </tr>
+                <tr class="cndAtrb-04">
+                    <th>{{bxMsg 'searchBaseDate'}}</th>
+                    <td>
+                        <select data-form-param="intRtAplyBaseDayCd" class="bx-form-item bx-compoenent-small intRtAplyBaseDayCd"></select>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="condition-value-wrap active">
+                <div class="complex-grid-wrap">
+                    <header class="grid-extra-header">
+
+                        <button type="button" class="bw-btn complex-condition-value-add-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                                <i class="bw-icon i-25 i-func-add"></i>
+                            </button>
+                        <button type="button" class="bw-btn column-setting-btn write-btn" icon-tooltip="{{bxMsg 'columnSetting'}}">
+                                <i class="bw-icon i-25 i-setting"></i>
+                            </button>
+                    </header>
+                    <div class="complex-grid">
+                    </div>
+                </div>
+
+                <div class="condition-value">
+                </div>
+            </div>
+
+            <footer class="pf-panel-footer">
+
+                <button type="button" class="bw-btn pf-cp-product-condition-delete-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString2'}}">
+                        <i class="bw-icon i-30 i-func-trash"></i>
+                    </button>
+
+                <button type="button" class="bw-btn pf-cp-product-condition-save-btn write-btn" data-status="{{status}}" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+                        <i class="bw-icon i-30 i-func-save"></i>
+                    </button>
+            </footer>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for multi language
+ * 다국어 CSS 
+ */
+.pf-crm .pf-page-conts {
+    margin: 10px auto; }
+.pf-crm th {
+    width: 110px;
+    text-align: left; }
+.pf-crm .role-menu-query-table td {
+    line-height: 29px; }
+.pf-crm .role-menu-query-table td input, .pf-crm .role-menu-query-table td select {
+    width: 180px; }
+.pf-crm .role-menu-query-table td .calendar {
+    width: 105.5px; }
+.pf-crm .role-menu-query-table tr {
+    margin-bottom: 10px;
+    height: 35px; }
+.pf-crm .role-menu-query-table .padding-th {
+    padding-left: 10px; }
+.pf-crm .dev-task-role-menu-grid {
+    height: 200px; }
+.pf-crm .multi-language-grid {
+    height: 450px; }

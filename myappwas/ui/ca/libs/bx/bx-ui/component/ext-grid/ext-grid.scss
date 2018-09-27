@@ -1,0 +1,18 @@
+/*  */
+
+.cbb {
+    .x-grid-row-before-focused .x-grid-td {
+        border-bottom-style: solid;
+        border-color: #ededed #c6c6c6 #ededed #c6c6c6;
+    }
+
+    .x-grid-row-focused .x-grid-td {
+        border-style: dotted;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+        border-color: #bfb8b8;
+    }
+
+
+}
+

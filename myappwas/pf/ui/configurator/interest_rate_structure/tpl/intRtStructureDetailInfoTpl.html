@@ -1,0 +1,93 @@
+<div class="pf-panel pf-dp-panel">
+    <div class="pf-panel-header">
+        <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+        <h2 class="pf-panel-title">{{bxMsg 'detailInfo'}}</h2>
+    </div>
+    <div class="pf-panel-body pf-irs-int-rt-strctr-detail">
+        <div class="int-rt-strctr-detail-table-wrap">
+            <table class="bx-info-table int-rt-strctr-detail-table">
+                <tr>
+                    <th style="width:145px;">{{bxMsg 'intRtStrctrCode'}}/{{bxMsg 'name'}} <span class="red-notice">*</span></th>
+                    <!--업무구분/산식구분-->
+                    <td style="width:330px;">
+                        <input type="hidden" class="tntInstId" value="{{tntInstId}}" data-form-param="tntInstId" />
+                        <input type="hidden" class="pdInfoDscd" value="{{pdInfoDscd}}" data-form-param="pdInfoDscd" />
+                        <input type="hidden" class="bizDscd" value="{{bizDscd}}" data-form-param="bizDscd" />
+                        <input type="hidden" class="intRtStructureTypeCode" value="{{intRtStructureTypeCode}}" data-form-param="intRtStructureTypeCode" />
+                        <input type="hidden" class="intRtStructureClassificationCode" value="{{intRtStructureClassificationCode}}" data-form-param="intRtStructureClassificationCode" />
+                        <input type="text" data-form-param="intRtStructureCode" style="width:60px" class="bx-form-item bx-compoenent-small intRtStructureCode" value="{{intRtStructureCode}}" disabled>
+                        <input type="text" data-form-param="intRtStructureName" style="width:250px" class="bx-form-item bx-compoenent-small intRtStructureName" value="{{intRtStructureName}}">
+                    </td>
+                    <th style="width:145px;">{{bxMsg 'intRtStrctrStsCd'}}</th>
+                    <!-- 상태 -->
+                    <td>
+                        <select data-form-param="intRtStructureStatusCode" value="{{intRtStructureStatusCode}}" style="width:100px;" class="bx-form-item bx-compoenent-small int-rt-strctr-sts-select" disabled>
+                            </select>
+                    </td>
+                    <td style="width:27px;float: right;">
+                        <button type="button" class="bw-btn int-rt-strctr-history-btn" icon-tooltip="{{bxMsg 'ButtonGrayString3'}}">
+                                <i class="bw-icon i-25 i-func-history"></i>
+                            </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width:145px;">{{bxMsg 'ApplyDate'}} <span class="red-notice">*</span></th>
+                    <td>
+                        <input name="start" data-form-param="applyStartDate" value="{{applyStartDate}}" style="width:145px;" class="bx-form-item bx-compoenent-small calendar start-date apply-start-date" type="text"> ~
+                        <input name="end" data-form-param="applyEndDate" value="{{applyEndDate}}" style="width:145px;" class="bx-form-item bx-compoenent-small calendar end-date apply-end-date" type="text">
+                    </td>
+                    <th>{{bxMsg 'DPS0121_31String1'}}</th>
+                    <td colspan="3">
+                        <select data-form-param="fractionApplyWayCode" style="width:100px;" class="bx-form-item bx-compoenent-small frctn-aply-way-cd" value="{{fractionApplyWayCode}}">
+                            </select>
+                        <input type="text" data-form-param="fractionApplyCount" style="text-align: right;width:60px" class="bx-form-item bx-compoenent-small removeComma float0 frctn-aply-cnt" value="{{fractionApplyCount}}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>{{bxMsg 'formulaCntnt'}} <span class="red-notice">*</span></th>
+                    <td colspan="4">
+                        <input type="text" data-form-param="intRtStructureContent" value="{{intRtStructureContent}}" class="bx-form-item bx-compoenent-small int-rt-strctr-content" style="width:718px">
+                        <button type="button" class="bw-btn formula-validation-btn" style="positioin:relative; right:0px" icon-tooltip="{{bxMsg 'validation'}}">
+                                <i class="bw-icon i-25 i-func-submit2"></i>
+                            </button>
+                        <button type="button" class="bw-btn int-rt-strctr-edit-btn" style="positioin:relative; right:0px" icon-tooltip="{{bxMsg 'input'}}">
+                                <i class="bw-icon i-25 i-func-edit"></i>
+                            </button>
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td colspan="4">
+                        <textarea type="text" data-form-param="conversionContent" value="{{conversionContent}}" class="bx-form-item conversion-content" style="height:50px" disabled/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <footer class="pf-panel-footer">
+
+            <button type="button" class="bw-btn master-delete-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString2'}}">
+                    <i class="bw-icon i-30 i-func-trash"></i>
+                </button>
+
+            <button type="button" class="bw-btn master-save-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+                    <i class="bw-icon i-30 i-func-save"></i>
+                </button>
+        </footer>
+    </div>
+
+    <div class="pf-panel-body pf-irs-product-relation" style="margin-top:10px">
+        <div class="product-relation-wrap">
+            <div class="btn-box" style="margin-top:0px;">
+                <button type="button" class="bw-btn add-rel-product-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                        <i class="bw-icon i-25 i-func-add"></i>
+                    </button>
+            </div>
+            <div class="pf-irs-rel-pd-list-grid middle-grid" style="height:300px;"></div>
+        </div>
+        <footer class="pf-panel-footer">
+            <button type="button" class="bw-btn rel-save-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+                    <i class="bw-icon i-30 i-func-save"></i>
+                </button>
+        </footer>
+    </div>
+</div>

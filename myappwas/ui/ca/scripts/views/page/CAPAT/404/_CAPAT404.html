@@ -1,0 +1,94 @@
+<!--
+@Screen number  CAPAT404
+@brief          멤버쉽 정보를 관리합니다.
+@author         You Jin Jeong
+@history        2018.04.09      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPAT404-wrap">
+
+
+            <!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+                {{bxMsg 'cbb_items.SCRN#CAPAT404'}}
+                <p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPAT404'}}</p>
+                <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+            </h2>
+<!-- 멤버쉽 규칙 그리드 영역 -->
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <section class="bw-tool add-bd2-t">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#custMbrshpRule'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+ 					<button type="button" class="bw-btn CAPAT404-mbrshp-list-reset-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn CAPAT404-mbrshp-list-save-btn" id="" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-mbrshp-list-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+            <section class="grid-wrap" id="mbrshp-list-area">	
+				<div class="bw-grid add-bd" id="CAPAT404-mbrshp-list-grid"></div>
+			</section>
+<!-- 멤버쉽 규칙 그리드 영역 끝 -->
+
+
+<!-- 멤버쉽 규칙 속성 영역 -->
+            <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+            <section class="bw-tool add-bd2-t add-mg-t">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#custMbrshpRuleAtrbt'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+ 					<button type="button" class="bw-btn CAPAT404-mbrshp-atrbt-reset-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn CAPAT404-mbrshp-atrbt-save-btn" id="" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-mbrshp-atrbt-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+            <section id="mbrshp-atrbt-area">
+                <section class="search-wrap">
+                    <table class="w-100">
+                        <tr>
+                            <td class="td-w-33">
+								<div class="input-wrap clr asterisk">
+									<label class="bw-label w-30">{{bxMsg 'cbb_items.AT#atrlCd'}}</label>
+									<select class="bw-input w-70 ipt-select CAPAT404-dtl-atrlCd-wrap" data-form-param="atrlCd"></select>
+								</div>
+                            </td>
+                            <td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-30">{{bxMsg 'cbb_items.AT#atrlParmSeqNbr'}}</label>
+									<input type="text" class="bw-input w-70" data-form-param="atrlParmSeqNbr" disabled />
+								</div>
+                            </td>
+                            <td class="td-w-33">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-w-33">
+								<div class="input-wrap add-btn clr asterisk">
+									<label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#pdCd'}}</label>
+									<input type="text" class="bw-input w-70" data-form-param="pdCd"/>
+								</div>
+                            </td>
+                            <td class="td-w-33">
+								<div class="input-wrap add-btn clr asterisk">
+									<label class="bw-label w-34">{{bxMsg 'cbb_items.AT#callClassNm'}}</label>
+									<input type="text" class="bw-input w-66" data-form-param="callClassNm" />
+									<button type="button" class="bw-btn fix-r" id="btn-class-search"><i class="bw-icon i-30 i-search"></i></button>
+								</div>
+                            </td>
+                            <td class="td-w-33">
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+<!-- 멤버쉽 규칙 속성 영역 끝 -->
+        </section>
+    </section>
+</section>            

@@ -1,0 +1,135 @@
+/* common/icon.scss */
+
+.icon {
+    display: inline-block;
+}
+
+.icon-20 {
+    width: 20px;
+    height: 20px;
+
+    &.co-logo {
+        background: url(../../bx-ui/images/icon/user-20.png) no-repeat;
+    }
+    
+    &.icon-user {
+        background: url(../../bx-ui/images/icon/user-20.png) no-repeat;
+    }
+
+    &.icon-gear {
+        background: url(../../bx-ui/images/icon/theme-20.png) no-repeat;
+    }
+
+    &.icon-message {
+        background: url(../images/icon/message-20.png) no-repeat;
+    }
+
+    &.icon-logout {
+        background: url(../../bx-ui/images/icon/logout-20.png) no-repeat;
+    }
+
+    &.icon-clockin {
+        background: url(../../bx-ui/images/icon/clock-in-20.png) no-repeat;
+    }
+
+    &.icon-clockout {
+        background: url(../../bx-ui/images/icon/clock-out-20.png) no-repeat;
+    }
+
+    &.icon-dashboard-white {
+        background: url(../images/icon/dashboard-white-20.png) no-repeat;
+    }
+ 
+    &.icon-list-white {
+        background: url(../images/icon/list-white-20.png) no-repeat;
+
+    }
+
+    &.icon-users-white {
+        background: url(../images/icon/users-white-20.png) no-repeat;
+    }
+
+    &.icon-chart-white {
+        background: url(../images/icon/chart-white-20.png) no-repeat;
+    }
+
+    &.icon-box-white {
+        background: url(../../bx-ui/images/icon/box-white-20.png) no-repeat;
+    }
+}
+
+.icon-16 {
+    width: 16px;
+    height: 16px;
+
+    &.icon-edit-white {
+        background: url(../images/icon/edit-white-16.png) no-repeat;
+    }
+
+    &.icon-usergroup-white {
+        background: url(../images/icon/usergroup-white-16.png) no-repeat;
+    }
+
+    &.icon-delete-white {
+        background: url(../images/icon/delete-white-16.png) no-repeat;
+    }
+
+    &.icon-addlist-white {
+        background: url(../images/icon/addlist-white-16.png) no-repeat;
+    }
+
+    &.icon-right-arrow {
+        background: url(../images/icon/arrow-right-16.png) no-repeat;
+    }
+
+    &.icon-x-delete {
+        background: url(../images/icon/x-delete-16.png) no-repeat;
+    }
+
+    &.icon-edit {
+        background: url(../images/icon/pencel-16.png) no-repeat;
+    }
+
+    &.icon-arrow-up {
+        background: url(../images/icon/arrow-up-16.png) no-repeat;
+    }
+
+    &.icon-arrow-down {
+        background: url(../images/icon/arrow-down-16.png) no-repeat;
+    }
+}
+
+.icon-12 {
+    width: 12px;
+    height: 12px;
+
+    &.icon-x-blue {
+        background: url(../images/icon/x-blue-12.png) no-repeat;
+    }
+
+    &.icon-x-gray {
+        background: url(../images/icon/x-gray-12.png) no-repeat;
+    }
+
+    &.icon-plus-white {
+        background: url(../../bx-ui/images/icon/plus-white-12.png) no-repeat;
+    }
+
+    &.icon-minus-white {
+        background: url(../../bx-ui/images/icon/minus-white-12.png) no-repeat;
+    }
+
+    &.icon-refresh-btn {
+        background: url(../images/icon/refresh-12.png) no-repeat;
+    }
+}
+
+.icon-14 {
+    width: 14px;
+    height: 14px;
+
+    &.icon-refresh-btn {
+        background: url(../../bx-ui/images/icon/refresh-14.png) no-repeat;
+    }
+
+}

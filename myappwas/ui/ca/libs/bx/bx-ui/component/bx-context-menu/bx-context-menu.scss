@@ -1,0 +1,18 @@
+/* component/bx-context-menu.scss */
+
+.bx-popup.bx-context-menu {
+    width: 100px;
+    padding: 5px;
+    z-index: 21;
+    top: 0;
+    left: 0;
+
+    .bx-context-menu-item {
+        cursor: pointer;
+    }
+
+    .bx-context-menu-item:hover {
+        background-color: #6f89bd !important;
+        color: white;
+    }
+}

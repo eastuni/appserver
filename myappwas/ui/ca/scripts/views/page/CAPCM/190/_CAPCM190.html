@@ -1,0 +1,164 @@
+<!--
+@Screen number  CAPCM190
+@brief          다국어 관리
+@discription  코드명, 화면명, 메뉴명 등 각종 단어들의 다국어를 지정합니다. 메시지에 대한 다국어는 메시지 화면에서 처리하세요.
+@author         이영주
+@history        2016.05.16      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPCM190-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPCM190'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPCM190'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#all'}}</p> 
+			</h2>
+
+
+			<!--/END BW-TITLE-->
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<section class="bw-tool add-bd2-t">
+				<div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+                </div>
+				<div class="btn-wrap fix-r"><!--*2016/04/26추가-->
+					<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-base-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-base-search"><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-base-search-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+
+
+			<!--SEARCH AREA * 검색 영역-->
+			<section class="CAPCM190-base-table" id="CAPCM190-base-table">
+				<section class="search-wrap">
+					<table class="w-100">
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr asterisk">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#trnsfrTrgtKnd'}}">{{bxMsg 'cbb_items.SCRNITM#trnsfrTrgtKnd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPCM190-base-trnsfrKnd-wrap" data-form-param="trnsfrKnd"></select>
+
+
+                                </div>
+							</td>
+							<td class="td-w-33">
+								<div class="td-desc-wrap clr">
+									<div class="bw-td-desc td-unit" id="trnsfrKndNm"></div>
+								</div>
+							</td>
+							<td class="td-w-33">
+							</td>
+						</tr>
+
+
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#trnsfrOriginKeyVal'}}">{{bxMsg 'cbb_items.SCRNITM#trnsfrOriginKeyVal'}}</label>
+									<input type="text" class="bw-input w-60" id="searchKey" placeholder="{{bxMsg 'cbb_items.SCRNITM#trnsfrOriginKeyVal'}}" data-form-param="trnsfrOriginKeyVal" />
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#trnsfrRsltVal'}}">{{bxMsg 'cbb_items.SCRNITM#trnsfrRsltVal'}}</label>
+									<input type="text" class="bw-input w-60" id="searchKey" placeholder="{{bxMsg 'cbb_items.SCRNITM#trnsfrRsltVal'}}" data-form-param="trnsfrRsltVal" />
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#noWrdQryDscd'}}">{{bxMsg 'cbb_items.SCRNITM#noWrdQryDscd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPCM190-base-lngCd-wrap" data-form-param="lngCd"></select>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<!--INPUT TYPE3 * 균등 3분할 -->
+					<!--/END INPUT TYPE3-->
+				</section>
+			</section>
+
+
+            <!-- Grid area -->
+            <section class="grid-wrap">
+				<!-- tab 없는 그리드 영역 -->
+				<div class="bw-tool add-bd2-t add-mg-t">
+					<div class="f-l">
+	                    <h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+	                </div>
+					<div class="btn-wrap fix-r">
+					<!-- 그리드 버튼 영역 -->
+						<button type="button" class="bw-btn" id="btn-CAPCM190-grid-delete" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+						<button type="button" class="bw-btn" id="btn-CAPCM190-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
+						<button type="button" class="bw-btn b-ctr" id="btn-up-grid" data-info="CAPCM031-grid1"><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+				</div>
+
+
+				<div class="CAPCM190-grid" id="CAPCM190-grid"></div>
+			</section>
+
+
+
+
+			<section class="bw-tool add-bd2-t add-mg-t">
+				<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#CAPCM190-LIST-TITLE'}}</h3>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn" id="btn-detail-refresh" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}"><i class="bw-icon i-30 i-func-refresh"></i></button>
+							<button type="button" class="bw-btn" id="btn-detail-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-detail-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+			<section class="CAPCM190-detail-table" id="CAPCM190-detail-table">	
+				<section class="search-wrap">
+					<table class="w-100">
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#trnsfrTrgtKnd'}}">{{bxMsg 'cbb_items.SCRNITM#trnsfrTrgtKnd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPCM190-detail-trnsfrKnd-wrap" data-form-param="trnsfrKnd"></select>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="td-desc-wrap clr">
+									<div class="bw-td-desc td-unit" id="trnsfrKndNm"></div>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#trnsfrOriginKeyVal'}}">{{bxMsg 'cbb_items.SCRNITM#trnsfrOriginKeyVal'}}</label>
+									<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.SCRNITM#trnsfrOriginKeyVal'}}" data-form-param="trnsfrOriginKeyVal" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label unit w-40 asterisk" id="label_trnsfrRsltVal1">{{bxMsg 'cbb_items.AT#engNm'}}</label>
+									<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#engNm'}}" data-form-param="trnsfrRsltVal1" />
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" id="label_trnsfrRsltVal2">{{bxMsg 'cbb_items.AT#koreanNm'}}</label>
+									<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#koreanNm'}}" data-form-param="trnsfrRsltVal2"/>
+								</div>
+							</td>
+							<td class="td-w-33" class="l-c">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" id="label_trnsfrRsltVal3">{{bxMsg 'cbb_items.AT#chineseNm'}}</label>
+									<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#chineseNm'}}" data-form-param="trnsfrRsltVal3" />
+								</div>
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+        </section>
+    </section>
+</section>

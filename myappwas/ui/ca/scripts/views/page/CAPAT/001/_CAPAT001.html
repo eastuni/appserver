@@ -1,0 +1,140 @@
+<!--
+@Screen number  CAPAT001
+@brief          SMS, E-Mail 등 고객에게 통지할 메세지를 관리합니다.
+@author         정은희
+@history        2016.06.01      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPAT001-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPAT001'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPAT001'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+			</h2>
+
+
+			<!--/END BW-TITLE-->
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<section class="bw-tool add-bd2-t">
+				<div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+                </div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-base-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-base-search"><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-base-search-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+
+
+			<!--SEARCH AREA * 검색 영역-->
+			<section class="CAPAT001-base-table" id="search-area">
+				<section class="search-wrap">
+					<table class="w-100">
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#noticeMsgCd'}}">{{bxMsg 'cbb_items.AT#noticeMsgCd'}}</label>
+									<input type="text" class="bw-input w-70" placeholder="{{bxMsg 'cbb_items.AT#noticeMsgCd'}}" data-form-param="noticeMsgCd" />
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#noticeMsgNm'}}">{{bxMsg 'cbb_items.AT#noticeMsgNm'}}</label>
+									<input type="text" class="bw-input w-70" placeholder="{{bxMsg 'cbb_items.AT#noticeMsgNm'}}" data-form-param="noticeMsgNm" />
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#docId'}}">{{bxMsg 'cbb_items.AT#docId'}}</label>
+									<select class="bw-input w-70 ipt-select CAPAT001-base-docId-wrap" data-form-param="docId"></select>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+
+
+            <!-- Grid area -->
+            <section class="grid-wrap">
+				<!-- tab 없는 그리드 영역 -->
+				<div class="bw-tool add-bd2-t add-mg-t">
+					<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}} (<span id="rsltCnt">0</span>{{bxMsg 'cbb_items.SCRNITM#cnt'}})</h3>
+					<div class="btn-wrap fix-r">
+					<!-- 그리드 버튼 영역 -->
+						<button type="button" class="bw-btn" id="btn-CAPAT001-grid-delete" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" disabled><i class="bw-icon i-30 i-func-save"></i></button>
+						<button type="button" class="bw-btn" id="btn-CAPAT001-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
+						<button type="button" class="bw-btn b-ctr" id="btn-up-grid" data-info="CAPCM031-grid1"><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+				</div>
+
+
+				<div class="CAPAT001-grid" id="CAPAT001-grid"></div>
+			</section>
+
+
+			<section class="bw-tool add-bd2-t add-mg-t">
+				<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#baseAtrbt'}}</h3>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn" id="btn-detail-refresh" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}"><i class="bw-icon i-30 i-func-refresh"></i></button>
+					<button type="button" class="bw-btn" id="btn-detail-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-detail-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+
+
+			<section class="CAPAT001-detail-table" id="CAPAT001-detail-table">	  
+				<section class="search-wrap">
+					<table class="w-100">
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr asterisk">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#noticeMsgCd'}}">{{bxMsg 'cbb_items.AT#noticeMsgCd'}}</label>
+									<input type="text" class="bw-input w-70" placeholder="{{bxMsg 'cbb_items.AT#noticeMsgCd'}}" data-form-param="noticeMsgCd" disabled/>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr asterisk">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#noticeMsgNm'}}">{{bxMsg 'cbb_items.AT#noticeMsgNm'}}</label>
+									<input type="text" class="bw-input w-70" placeholder="{{bxMsg 'cbb_items.AT#noticeMsgNm'}}" data-form-param="noticeMsgNm" disabled/>
+								</div>
+							</td>							
+							<td class="td-w-33 td-v-align-b">
+								<button type="button" class="bw-btn-form unit" title="{{bxMsg 'cbb_items.SCRNITM#btnMltLng'}}" id="btn-CAPAT001-mltLngBtn" style="display:none">{{bxMsg 'cbb_items.SCRNITM#btnMltLng'}}</button>
+							</td>
+						</tr>					
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr asterisk">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#noticeWayTp'}}">{{bxMsg 'cbb_items.SCRNITM#noticeWayTp'}}</label>
+									<select class="bw-input w-70 ipt-select CAPAT001-dtl-noticeWayTp-wrap disabled" data-form-param="noticeWayTpCd" disabled></select>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr asterisk">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#noticeGoalTp'}}">{{bxMsg 'cbb_items.SCRNITM#noticeGoalTp'}}</label>
+									<select class="bw-input w-70 ipt-select CAPAT001-dtl-noticeGoalTp-wrap disabled" data-form-param="noticeGoalTpCd" disabled></select>
+								</div>
+							</td>
+							<td class="td-w-33" class="l-c">
+								<div class="input-wrap clr">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#docId'}}">{{bxMsg 'cbb_items.AT#docId'}}</label>
+									<select class="bw-input w-70 ipt-select CAPAT001-dtl-docId-wrap" data-form-param="docId"></select>
+								</div>
+							</td>
+						</tr>										
+					</table>
+				</section>
+			</section>
+
+
+        </section>
+    </section>
+</section>

@@ -1,0 +1,29 @@
+<div class="pf-cp-product-relation-detail-popup">
+    <div class="bx-info-table-wrap">
+        <table class="bx-info-table">
+            <tr>
+                <th>{{bxMsg 'pdInfoDscd'}}</th>
+                <!-- 상품정보구분코드 -->
+                <td>
+                    <select class="bx-compoenent-small bx-form-item bx pd-info-dscd " value="{{pdInfoDscd}}" disabled></select>
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'relationType'}}</th>
+                <!-- 관계유형 -->
+                <td>
+                    <input type="text" style="width:60px;" class="bx-form-item bx-compoenent-small" value="{{relTpCd}}" disabled/>
+                    <input type="text" style="width:200px;" class="bx-form-item bx-compoenent-small" value="{{relTpNm}}" disabled/>
+                </td>
+            </tr>
+        </table>
+
+        <header class="grid-extra-header">
+            <button type="button" class="bw-btn field-add-btn" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                    <i class="bw-icon i-25 i-func-add"></i>
+                </button>
+        </header>
+    </div>
+    <div class="popup-product-relation-detail-grid" style="height:190px;">
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<!--한도조건 이력 팝업-->
+<div class="pf-cp-prov-condition-history-popup">
+    <table class="bx-info-table">
+        <tr>
+            <!-- ConditionTemplateCode / Status -->
+            <th>{{bxMsg 'DPP0127String1'}}</th>
+            <td>
+                <input type="hidden" data-form-param="providedConditionSequenceNumber" class="bx-form-item bx-compoenent-small input-285px" value="{{providedConditionSequenceNumber}}" disabled/>
+                <input type="text" data-form-param="providedConditionCode" class="bx-form-item bx-compoenent-small input-285px" value="{{providedConditionCode}}" disabled/>
+                <input type="text" class="bx-form-item bx-compoenent-small input-140px history-prov-cnd-status-name" disabled/>
+            </td>
+        </tr>
+        <tr>
+            <!-- providedConditionName -->
+            <th>{{bxMsg 'DPP0127String2'}}</th>
+            <td>
+                <input type="text" class="bx-form-item bx-compoenent-small input-285px prov-cnd-popup" value="{{providedConditionName}}" disabled/>
+            </td>
+        </tr>
+    </table>
+    <div class="pf-cp-prov-condition-history-grid-title"></div>
+    <header class="popup-cnd-tpl-grid-header grid-extra-header">
+        <div class="header-group">
+            <span class="">※ {{bxMsg 'DPP0127String5'}}</span>
+        </div>
+    </header>
+    <div class="pf-cp-prov-condition-history-grid">
+    </div>
+    <div class="history-condition-value-wrap">
+        <header class="popup-cnd-tpl-grid-header grid-extra-header">
+            <div class="header-group">
+                <span class="">{{bxMsg 'providedConditionVal'}}</span>
+            </div>
+        </header>
+        <div class="history-prov-condition-list-value">
+            <div class="history-prov-cnd-list-code-grid"></div>
+        </div>
+        <div class="history-prov-condition-range-value">
+            <div class='bx-info-table-wrap'>
+                <table class='bx-info-table'>
+                    <tr class="history-prov-cnd-currency-code">
+                        <th>
+                            <!-- 통화 -->
+                            {{bxMsg 'currencyCode'}}
+                        </th>
+                        <td>
+                            <select data-form-param="currencyCode" class="bx-form-item bx-compoenent-small history-prov-cnd-currency-code-combo" value="{{currencyCode}}">
+                                </select>
+                        </td>
+                    </tr>
+                    <tr class="history-prov-cnd-mesure-code">
+                        <th>
+                            <!-- 측정단위 -->
+                            {{bxMsg 'DPS0121_1String5'}}
+                        </th>
+                        <td>
+                            <select data-form-param="mesurementUnitCode" class="bx-form-item bx-compoenent-small history-prov-cnd-mesurement-unit-code-combo" value="{{mesurementUnitCode}}">
+                                </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <!-- 최소값 -->
+                            {{bxMsg 'minVal'}}
+                        </th>
+                        <td>
+                            <input type="text" data-form-param="minValue" class="bx-form-item bx-compoenent-small input-140px minValue" value="{{minValue}}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <!-- 최대값-->
+                            {{bxMsg 'maxVal'}}
+                        </th>
+                        <td>
+                            <input type="text" data-form-param="maxValue" class="bx-form-item bx-compoenent-small input-140px maxValue" value="{{maxValue}}" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

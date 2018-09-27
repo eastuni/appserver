@@ -1,0 +1,117 @@
+<!--
+@Screen number  CAPSV009
+@brief          
+@author         
+@history        2017.10.23      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPSV009-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPSV009'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPSV009'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#all'}}</p>
+			</h2>
+
+
+			<div class="layout-wrap">	
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#srchCnd'}}</h3>
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-search-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-xtn-search"><i class="bw-icon i-30 i-search"></i></button>
+							<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-service-save"><i class="bw-icon i-30 i-func-save"></i></button>
+							<button type="button" class="bw-btn b-ctr" id="btn-search-toggle" data-info="CAPSV009-grid"><i class="fa fa-forward fa-rotate-270"></i></button>
+						</div>
+					</div>
+					<!--/END BW-TOOL-->
+					<section class="search-wrap CAPSV009-search-table" id="CAPSV009-search">
+						<table class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap asterisk add-btn clr">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#srvcCd'}}">{{bxMsg 'cbb_items.SCRNITM#srvcCd'}}</label>
+										<input type="text" class="bw-input w-60 CAPSV009-srvcCd-wrap" data-form-param="srvcCd" />
+									</div>
+								</td>
+								<td class="td-w-33"></td>
+								<td class="td-w-33"></td>
+							</tr>							
+						</table>
+					</section>
+					
+					<!-- SERVICE INFO -->
+					<section class="grid-wrap">
+						<div class="bw-tool add-bd2-t add-mg-t">
+							<div class="f-l">
+								<h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#srvcInfo'}}</h3>
+							</div>
+							<div class="btn-wrap fix-r">
+								<button type="button" class="bw-btn b-ctr" id="btn-grid-toggle" data-info="CAPSV009-grid1"><i class="fa fa-forward fa-rotate-270"></i></button>
+							</div>
+						</div>
+						<div class="CAPSV009Grid-service-info" id="CAPSV009Grid-service-info"></div>
+					</section>	
+					<!-- END OF SERVICE INFO -->
+					
+					
+					<!--TAB MENU-->
+					<section class="tab-title add-mg-t" id="tab-title">
+						<ul>
+							<li class="tab first-tab on-tab" id="tab-srvcInpItm">
+								<a href="#">{{bxMsg 'cbb_items.SCRNITM#srvcInpItm'}}
+									<span class="tab-bg"></span>
+									<span class="tab-bg-before"></span>
+								</a>
+							</li>
+							<li class="tab last-tab" id="tab-srvcOutpItm">
+								<a href="#">{{bxMsg 'cbb_items.SCRNITM#srvcOutpItm'}}
+									<span class="tab-bg"></span>
+									<span class="tab-bg-before"></span>
+								</a>
+							</li>							
+						</ul>
+					</section>                    
+                    <!--/END TAB-MENU-->		
+                    
+                    
+                    
+                    
+                    <section class="grid-wrap" id="input-grid-area">
+						<div class="bw-tool add-bd2-t" id="toolbar-srvcInpItm" >
+							<div class="f-l">
+								<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+							</div>
+							<div class="btn-wrap fix-r">								
+								<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPSV009-srvcInpItm-upClass" >{{bxMsg 'cbb_items.SCRNITM#upClass'}}</button>
+								<button type="button" class="bw-btn b-ctr" id="btn-service-input-toggle" data-info="CAPSV009-grid2"><i class="fa fa-forward fa-rotate-270"></i></button>
+							</div>
+						</div>
+						<div class="CAPSV009Grid-service-input" id="CAPSV009Grid-service-input"></div>						
+					</section>
+					
+					<section class="grid-wrap" id="output-grid-area">
+						<div class="bw-tool add-bd2-t" id="toolbar-srvcOutpItm" >
+							<div class="f-l">
+								<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+							</div> 
+							<div class="btn-wrap fix-r">								
+								<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPSV009-srvcOutpItm-upClass" >{{bxMsg 'cbb_items.SCRNITM#upClass'}}</button>
+								<button type="button" class="bw-btn b-ctr" id="btn-service-output-toggle" data-info="CAPSV009-grid2"><i class="fa fa-forward fa-rotate-270"></i></button>
+							</div>
+						</div>
+						<div class="CAPSV009Grid-service-output" id="CAPSV009Grid-service-output"></div>						
+					</section>
+							
+			</div>
+        </section>
+    </section>
+</section>

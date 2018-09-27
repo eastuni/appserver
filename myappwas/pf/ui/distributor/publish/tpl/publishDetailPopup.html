@@ -1,0 +1,129 @@
+<!-- 배포상세 팝업 -->
+<div class="pf-publish-detail-popup">
+
+    <div class="pf-publish-sub-tab">
+    </div>
+
+    <div id="pf-publish-sub-tab-conts" class="publish-sub-conts">
+
+        <!-- 배포상세정보 탭 -->
+        <div class="pf-publish-information">
+            <div class="pf-publish-detail-tpl">
+                <div class="pf-panelbody bx-info-table-wrap">
+                    <div class="pf-publish-detail-form">
+                        <table class="bx-info-table pf-publish-detail-table">
+                            <tr>
+                                <!-- 배포ID -->
+                                <th>{{bxMsg 'DAS0101String3'}}</th>
+                                <td>
+                                    <input type="text" class="bx-form-item bx-compoenent-small publish-id" disabled value="{{publishId}}" data-form-param="publishId">
+                                </td>
+                                <!--배포상태구분-->
+                                <th>{{bxMsg 'DAS0101String5'}}</th>
+                                <td>
+                                    <select disabled data-form-param="status" class="bx-form-item bx-compoenent-small publish-status-code-list">
+                                        </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!--대상환경-->
+                                <th>{{bxMsg 'targetEnvironment'}}</th>
+                                <td>
+                                    <select data-form-param="systemEvironmentDscd" class="bx-form-item bx-compoenent-small target-environment" value="{{systemEvironmentDscd}}">
+                                        </select>
+                                </td>
+                                <!--등록사원-->
+                                <th>{{bxMsg 'DAS0101String7'}}</th>
+                                <td>
+                                    <input type="text" class="bx-form-item bx-compoenent-small" disabled value="{{registerUserName}}" data-form-param="registerUserName">
+                                    <input type="hidden" value="{{registerUserId}}" data-form-param="registerUserId">
+                                    <input type="hidden" class="bx-form-item bx-compoenent-small" disabled value="{{lastModifier}}" data-form-param="lastModifier">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="pf-publish-info">
+                        <div class="pf-approval-info">
+                            <header class="grid-extra-header">
+                                <th><span style="text-align:left;">{{bxMsg 'DAS0101String10'}}</span></th>
+                                <!-- 배포승인정보 -->
+                                <input type="hidden" class="bx-form-item bx-compoenent-small approval-id" disabled value="{{approvalId}}" data-form-param="approvalId">
+                                <button type="button" class="bw-btn add-approval-info-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                                        <i class="bw-icon i-25 i-func-add"></i>
+                                    </button>
+                            </header>
+                            <div class="pf-approval-info-grid"></div>
+                            <div class="btn-box">
+                                <!--
+                                    <button class="bx-btn approval-request write-btn">{{bxMsg 'approvalRequest'}}</button> &lt;!&ndash; 승인요청 &ndash;&gt;
+                                    <button class="bx-btn approval-accept write-btn">{{bxMsg 'ButtonBottomString11'}}</button> &lt;!&ndash; 승인 &ndash;&gt;
+                                    <button class="bx-btn approval-reject write-btn">{{bxMsg 'approvalRejection'}}</button>    &lt;!&ndash; 승인거절 &ndash;&gt;
+                                    -->
+
+                                <button type="button" class="bw-btn approval-request write-btn" icon-tooltip="{{bxMsg 'approvalRequest'}}">
+                                        <i class="bw-icon i-25 i-approval-request"></i>
+                                    </button>
+                                <button type="button" class="bw-btn approval-accept write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString11'}}">
+                                        <i class="bw-icon i-25 i-approval"></i>
+                                    </button>
+                                <button type="button" class="bw-btn approval-reject write-btn" icon-tooltip="{{bxMsg 'approvalRejection'}}">
+                                        <i class="bw-icon i-25 i-reject"></i>
+                                    </button>
+                            </div>
+                        </div>
+                        <div class="pf-publish-target-info">
+                            <header class="grid-extra-header">
+                                <th><span style="text-align:left;">{{bxMsg 'PAM0500String1'}}</span></th>
+                                <!-- 배포대상시스템 -->
+
+                                <button type="button" class="bw-btn add-target-sys-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                                        <i class="bw-icon i-25 i-func-add"></i>
+                                    </button>
+                            </header>
+                            <div class="pf-publish-target-sys-grid"></div>
+
+
+                        </div>
+                    </div>
+                    <div>
+                        <header class="pf-publish-detail-header">
+                            <table class="bx-info-table">
+                                <tr>
+                                    <th>{{bxMsg 'DAS0101String20'}}
+                                        <!-- 배포대상정보 -->
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th class="td-width">{{bxMsg 'DAS0101String21'}}
+                                        <!-- 배포대상유형 -->
+                                    </th>
+                                    <td>
+                                        <select disabled data-form-param="" class="bx-form-item bx-compoenent-small publish-target-type">
+                                            </select>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="bw-btn add-publish-projectId-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString13'}}">
+                                                <i class="bw-icon i-25 i-func-add-table"></i>
+                                            </button>
+
+                                        <button type="button" class="bw-btn search-pd-info-chng-btn" icon-tooltip="{{bxMsg 'DAS0101String20'}}">
+                                                <i class="bw-icon i-25 i-search" style="width:27px;height:27px;"></i>
+                                            </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </header>
+                        <div class="pf-publish-detail-grid"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 배포결과 탭 -->
+        <div class="pf-publish-result">
+
+        </div>
+    </div>
+</div>

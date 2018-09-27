@@ -1,0 +1,72 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for service template
+ * 서비스템플릿 CSS 
+ */
+.pf-dp .pf-dp-tree-search {
+    position: relative;
+    margin-bottom: 10px; }
+.pf-dp .pf-dp-tree-search .product-template-search-list-wrap {
+    display: none;
+    position: absolute;
+    width: 156px;
+    height: 180px;
+    border: 1px solid #888d95;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    background: white;
+    padding: 5px 0;
+    overflow: auto;
+    left: 1px;
+    top: 26px; }
+.pf-dp .pf-dp-tree-search .product-template-search-list-wrap.active {
+    display: block; }
+.pf-dp .pf-dp-panel {
+    width: 925px; }
+.pf-dp .pf-dp-panel .pf-panel-footer .bw-btn {
+    float: right;
+    margin-left: 10px; }
+.pf-dp .pf-dp-info-form th {
+    width: 160px; }
+.pf-dp .pf-dp-info-form input {
+    width: 300px; }
+.pf-dp .pf-dp-condition-template-grid {
+    height: 360px; }
+.pf-dp .grid-extra-header .bw-btn {
+    float: right; }
+
+.add-cnd-tpl-popup .header-group {
+    float: right; }
+.add-cnd-tpl-popup .popup-cnd-tpl-grid {
+    height: 230px; }
+.add-cnd-tpl-popup button {
+    margin-left: 5px; }
+
+.add-detail-type-popup, .change-name-popup, .new-product-tpl-popup, .new-detail-type-popup,
+.copy-product-tpl-popup, .change-product-Tpl-name-popup, .change-detail-type-Tpl-name-popup {
+    margin: 5px; }
+.add-detail-type-popup input, .change-name-popup input, .new-product-tpl-popup input, .new-detail-type-popup input,
+.copy-product-tpl-popup input, .change-product-Tpl-name-popup input, .change-detail-type-Tpl-name-popup input {
+    width: 100% !important;
+    margin-top: 15px; }
+
+.condition-group-detail-info-popup .pf-dcg-info-form th {
+    width: 180px; }
+.condition-group-detail-info-popup .pf-dcg-info-form input {
+    width: 300px; }
+.condition-group-detail-info-popup .pf-dcg-cnd-grid {
+    height: 300px; }
+
+.add-detail-type-popup input,
+.change-name-popup input,
+.new-condition-group-tpl-popup input,
+.copy-condition-group-tpl-popup input,
+.change-condition-group-Tpl-name-popup input,
+.change-product-type-Tpl-name-popup input,
+.new-product-type-Tpl-name-popup input,
+.condition-name-change-input,
+.product-name-input,
+.change-product-Tpl-name-popup input {
+    width: 100% !important;
+    margin-top: 15px;
+}

@@ -1,0 +1,105 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for eav model
+ * 부가정보 CSS 
+ */
+.pf-eav-model .pf-left-nav {
+    width: 350px; }
+
+/*조회버튼 클릭시 input박스 움직임처리(스크롤이생기면)*/
+.pf-eav-model .pf-dp-tree-search .bx-info-table {
+    width:inherit;
+}
+.pf-eav-model .pf-dp-tree-search .bx-info-table th {
+    padding-right:4px;
+}
+.pf-eav-model .pf-left-nav .pf-panel-header .refresh-icon {
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer; }
+.pf-eav-model .pf-page-conts {
+    left: 350px; }
+
+.pf-eav-model .pf-cd-panel {
+    width: 925px; }
+.pf-eav-model .pf-cd-panel .pf-panel-footer .bw-btn {
+    float: right;
+    margin-left: 10px; }
+.pf-eav-model .pf-cd-rel-form th {
+    width: 150px; }
+.pf-eav-model .pf-cd-rel-form input {
+    width: 300px; }
+.pf-eav-model .pf-cd-grid {
+    height: 360px; }
+.cd-align-right {
+    text-align: right; }
+.eav-object-detail-management-tpl .detail-grid {
+    height: 400px; }
+.eav-object-detail-management-tpl .eav-screen-grid {
+	height: 400px;
+	/* margin-top: 37px;  */
+}
+.pf-dp-tree-search input {
+    width: 188px; }
+
+.eav-object-management-popup .bx-info-table th {
+    width: 150px; }
+.eav-object-management-popup .bx-info-table input, .eav-object-management-popup .bx-info-table select {
+    width: 100%; }
+    
+.eav-attribute-management-popup .bx-info-table th {
+    width: 150px; }
+.eav-attribute-management-popup .bx-info-table input, .eav-attribute-management-popup .bx-info-table select {
+    width: 100%; }  
+
+.add-cnd-tpl-popup .header-group {
+    float: right; }
+.add-cnd-tpl-popup .popup-cnd-tpl-grid {
+    height: 230px; }
+    
+.eav-attribute-grid {
+    height: 285px; }
+
+.pfui-tree-item-selected, .pfui-tree-item-hover {
+    width: 285px;
+}
+/* OHS 2017.03.20 로딩바 추가 */
+.loading-dim {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.4);
+	display: none;
+	z-index: 10;
+}
+.loading-dim-icon {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -40px;
+	margin-top: -40px;
+	color: white;
+	font-size: 80px;
+}
+/*탭간격조절*/
+.nav-tabs .pfui-tab-item-text {
+    margin-right:-1px;
+    width:120px;
+    cursor:pointer;
+    text-align: center;
+}
+
+/**탭 avcite css 추가*/
+.nav-tabs .pfui-tab-item.active .pfui-tab-item-text {
+    background-color: #fff;
+    position: relative;
+    border-bottom: -1px;
+    z-index: 10;
+}

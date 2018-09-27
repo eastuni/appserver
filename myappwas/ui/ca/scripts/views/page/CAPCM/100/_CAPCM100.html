@@ -1,0 +1,142 @@
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPCM100-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPCM100'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPCM100'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#all'}}
+			</h2>
+
+
+			<!--/END BW-TITLE-->
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<section class="bw-tool add-bd2-t">
+				<div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+                </div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-base-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-base-search"><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-base-search-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+
+	
+			<!--SEARCH CONDITION AREA * 검색 조건 영역-->
+            <section class="CAPCM100-base-table" id="search-area">
+                <section class="search-wrap">
+                    <table class="w-100">
+                        <tr>
+							<td class="td-w-33">
+								<div class="input-wrap asterisk clr">
+									<label class="bw-label w-40">{{bxMsg 'cbb_items.AT#baseDt'}}</label>
+									<input type="text" class="bw-input w-60 ipt-cal" data-form-param="baseDt" />
+								</div>
+							</td>
+                            <td class="td-w-33">
+                            </td>
+                            <td class="td-w-33">
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+                <!--/END SEARCH CONDITION AREA -->
+            </section>
+            <!--/END SEARCH CONDITION AREA-->
+
+
+            <!-- Grid area -->
+            <section class="grid-wrap">
+				<!-- tab 없는 그리드 영역 -->
+				<div class="bw-tool add-bd2-t add-mg-t">
+					<h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+					<div class="btn-wrap fix-r">
+					<!-- 그리드 버튼 영역 -->
+						<button type="button" class="bw-btn" id="btn-CAPCM100-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
+						<button type="button" class="bw-btn b-ctr" id="btn-up-grid" data-info="CAPCM031-grid1"><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+				</div>
+
+
+				<div class="CAPCM100-grid" id="CAPCM100-grid"></div>
+			</section>
+
+
+			<section class="bw-tool add-bd2-t add-mg-t">
+				<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#CAPCM190-LIST-TITLE'}}</h3>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn" id="btn-detail-refresh" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}"><i class="bw-icon i-30 i-func-refresh"></i></button>
+					<button type="button" class="bw-btn" id="btn-detail-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+				<!-- 	<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_add'}}" id="btn-CAPCM100-grid-add"><i class="bw-icon i-30 i-func-add"></i></button> -->
+					<button type="button" class="bw-btn b-ctr" id="btn-detail-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+
+
+			<section class="CAPCM100-detail-table" id="CAPCM100-detail-table">	
+				<section class="search-wrap">
+					<table class="w-100">
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40">{{bxMsg 'cbb_items.AT#baseDt'}}</label>
+										<input type="text" class="bw-input w-60 ipt-cal" data-form-param="baseDt" />
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40">{{bxMsg 'cbb_items.AT#bfBfBizDt'}}</label>
+										<input type="text" class="bw-input w-60 ipt-cal" data-form-param="bfBfBizDt" />
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40">{{bxMsg 'cbb_items.AT#bfBizDt'}}</label>
+										<input type="text" class="bw-input w-60 ipt-cal" data-form-param="bfBizDt" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40">{{bxMsg 'cbb_items.AT#bizDt'}}</label>
+										<input type="text" class="bw-input w-60 ipt-cal" data-form-param="bizDt" />
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40">{{bxMsg 'cbb_items.AT#nxtBizDt'}}</label>
+										<input type="text" class="bw-input w-60 ipt-cal" data-form-param="nxtBizDt" />
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40">{{bxMsg 'cbb_items.AT#nxtNxtBizDt'}}</label>
+										<input type="text" class="bw-input w-60 ipt-cal" data-form-param="nxtNxtBizDt" />
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#dtWeekDscd'}}">{{bxMsg 'cbb_items.SCRNITM#dtWeekDscd'}}</label>
+										<select class="bw-input w-60 ipt-select CAPCM100-detail-dtWeekDscd-wrap" data-form-param="dtWeekDscd"></select>
+									</div>
+								</td>
+
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#hldyYn'}}">{{bxMsg 'cbb_items.AT#hldyYn'}}</label>
+										<select class="bw-input w-60 ipt-select CAPCM100-detail-hldyYn-wrap" data-form-param="hldyYn"></select>
+									</div>
+								</td>
+							</tr>
+					</table>
+				</section>
+			</section>
+        </section>
+    </section>
+</section>

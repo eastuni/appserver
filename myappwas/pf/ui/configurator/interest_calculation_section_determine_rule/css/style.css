@@ -1,0 +1,102 @@
+/* 가운데 정렬 */
+.pf-int-cal-tp {
+    margin: 10px auto;
+    width: 1220px;
+    height: 700px;
+}
+
+.wrapper {
+    display: inline-block;
+    width: 1200px;
+    height: 600px;
+}
+
+.canvas-wrapper {
+    float: left;
+    width: 75%;
+    height: 100%;
+}
+
+#canvas {
+    float: left;
+    width: 900px;
+    height: 600px;
+    border: 1px solid black;
+}
+
+.grid-area {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width: 25%;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+.node-grid-area {
+    height: 30%;
+    padding-bottom: 10px;
+}
+
+.node-grid-area .calendar-container {
+    position: relative;
+    float: right;
+    width: 140px;
+}
+
+.node-grid-area input.base-date {
+    position: absolute;
+    width: 125px;
+    height: 16px;
+    z-index: 1;
+}
+
+.node-grid-area input.bx-compoenent-small.bx-form-item.calendar.base-date {
+    background: none;
+    padding-left: 8px;
+    border-right: none;
+}
+
+.node-grid-area select.history {
+    position: absolute;
+    width: 140px;
+    height: 20px;
+    z-index: 0;
+}
+
+.condition-grid-area {
+    height: 30%;
+    padding-bottom: 10px;
+}
+
+/* .condition-grid-area .condition-search {
+    width: 220px;
+} */
+
+.section-grid-area {
+    height: 40%;
+}
+
+.section-grid-area .interest-type {
+    width: 80px;
+}
+
+.grid-header {
+    height: 25px;
+}
+
+.grid-header .grid-title {
+    width: 30%;
+}
+
+.grid-header select, .grid-header input, .grid-header {
+    float: right;
+}
+
+.node-grid, .condition-grid, .section-grid {
+    flex: 1;
+}
+
+.condition-grid .x-grid-cell-inner {
+    white-space: pre-line;
+}

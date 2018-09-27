@@ -1,0 +1,17 @@
+<div class="create-product-tpl-popup context-popup">
+    <div class="tips tips-small tips-info">
+        <span class="x-icon x-icon-small x-icon-info"><i class="icon icon-white icon-info"></i></span>
+        <div class="tips-content">{{bxMsg 'DPE00003_New_Contents'}}</div>
+        <!-- 생성할 포인트 이름을 입력해 주세요 -->
+    </div>
+    <table class="bx-info-table new-product-form-table">
+        <tr>
+            <th>{{bxMsg 'PointCode'}} : </th>
+            <td><input type="text" class="bx-form-item bx-compoenent-small product-code-input" data-form-param="code" placeholder="{{bxMsg 'DPP160_Error4'}}"></td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'PointName'}} : </th>
+            <td><input type="text" name="{{bxMsg 'DPP160_String3'}}" class="bx-form-item bx-compoenent-small product-name-input mandatory special" data-form-param="name" placeholder="{{bxMsg 'Explorer_Input_String1'}}" /></td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,65 @@
+<!--MODAL-->
+<div class="bw-modal-wrap fix-h bw-modal-popup-header" id="popup-service-modal">
+    <h2 class="bw-tt a-center bx-popup-header-area">{{bxMsg 'cbb_items.SCRN#PSV802'}}</h2>
+
+
+    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+    <div class="bw-tool add-bd2-t">
+        <div class="f-l">
+            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+        </div>
+        <div class="btn-wrap fix-r">
+            <button type="button" class="bw-btn" id="btn-search-condition-reset" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+            <button type="button" class="bw-btn" id="btn-search-condition-inquiry" title="{{bxMsg 'cbb_items.SCRNITM#search'}}"><i class="bw-icon i-30 i-func-search"></i></button>
+            <button type="button" class="bw-btn b-ctr" id="btn-base-section-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+        </div>
+    </div>
+    <!--/END BW-TOOL-->
+
+
+    <!--SEARCH CONDITION SECTION * 검색 조건 영역-->
+    <section class="popup-base-section search-wrap">
+        <div class="w-100 clr">
+            <span class="w-50 f-l">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-55" title="{{bxMsg 'cbb_items.CD#A0218'}}">{{bxMsg 'cbb_items.CD#A0218'}}</label>
+                    <select class="bw-input w-45 ipt-select popup-batchJobSrchCrtrCd-wrap" data-form-param="batchJobSrchCrtrCd"></select>
+                </div>
+            </span>
+            <span class="w-50 f-l">
+                <div class="input-wrap clr">
+                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.CDVAL#A021802'}}">{{bxMsg 'cbb_items.CDVAL#A021802'}}</label>
+                    <input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#jobId'}}" data-form-param="srchItm"/>
+                </div>
+            </span>
+        </div>
+    </section>
+    <!--/END SEARCH CONDITION SECTION -->
+
+
+    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+    <div class="bw-tool add-bd2-t add-mg-t">
+        <div class="f-l">
+            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#dtlInfo'}} (<span id="rsltCnt">0</span>{{bxMsg 'cbb_items.SCRNITM#cnt'}})</h3>
+        </div>
+        <div class="btn-wrap fix-r">
+            <button type="button" class="bw-btn b-ctr" id="btn-grid-section-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+        </div>
+    </div>
+    <!--/END BW-TOOL-->
+
+
+    <!--DETAIL SECTION * 상세영역-->
+    <section class="popup-grid-section grid-wrap">
+    </section>
+    <!--/END DETAIL SECTION-->
+
+
+    <!--BOTTOM BUTTON * 하단버튼-->
+    <div class="btn-wrap add-mg">
+        <button type="button" class="bw-btn-txt" id="btn-popup-select">{{bxMsg 'cbb_items.SCRNITM#B_select'}}</button>
+        <button type="button" class="bw-btn-txt on" id="btn-popup-cancel">{{bxMsg 'cbb_items.ABRVTN#cncl'}}</button>
+    </div>
+    <!--/END BOTTOM BUTTON-->
+</div>
+<!--/END MODAL-->

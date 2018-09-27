@@ -1,0 +1,68 @@
+<div class="pf-panel">
+
+    <!--Detail Header-->
+    <div class="tab-title add-bd2-b">
+        <li class="first-tab on-tab">
+            <a href="javascript:void();">{{bxMsg 'baseInfo'}}
+                    <span class="tab-bg"></span>
+                </a>
+        </li>
+    </div>
+    <div class="pf-panel-body bx-info-table-wrap">
+        <table class="bx-info-table pf-dc-info-form">
+            <tr>
+                <th>{{bxMsg 'DPP0128String2'}}</th>
+                <td><input type="text" value="{{code}}" data-form-param="code" class="bx-form-item bx-compoenent-small" disabled></td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'MTM0100String4'}}</th>
+                <td>
+                    <input type="text" class="bx-form-item bx-compoenent-small condition-active-status-name" disabled>
+                    <input type="hidden" value="{{isActive}}" data-form-param="isActive" class="condition-active-status-code">
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'MTM0300String3'}}</th>
+                <td colspan="3">
+                    <input type="text" data-form-param="name" class="bx-form-item bx-compoenent-small condition-name-valid special mandatory" value="{{name}}" />
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'MTM0300String4'}}</th>
+                <td colspan="3">
+                    <input type="text" data-form-param="content" class="bx-form-item bx-compoenent-small condition-content-valid" value="{{content}}" />
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'MTM0300String5'}}</th>
+                <td>
+                    <input type="text" class="bx-form-item bx-compoenent-small condition-type-name" disabled>
+                    <input type="hidden" value="{{type}}" class="condition-type-code" data-form-param="type">
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'MTM0300String6'}}</th>
+                <td>
+                    <input type="text" class="bx-form-item bx-compoenent-small condition-detail-type-name" disabled>
+                    <input type="hidden" value="{{currentCatalogId}}" data-form-param="currentCatalogId" class="condition-detail-type-code">
+                </td>
+            </tr>
+            <!--<tr class="player-type-item-tr">-->
+
+            <!--</tr>-->
+            <!--<tr class="charge-type-item-tr">-->
+
+            <!--</tr>-->
+        </table>
+    </div>
+</div>
+<div class="type-content"></div>
+<div class="btn-box">
+    <button type="button" class="bw-btn save-btn write-btn" data-status="{{status}}" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+            <i class="bw-icon i-30 i-func-save"></i>
+        </button>
+
+    <button type="button" class="bw-btn delete-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString2'}}">
+            <i class="bw-icon i-30 i-func-trash"></i>
+        </button>
+</div>

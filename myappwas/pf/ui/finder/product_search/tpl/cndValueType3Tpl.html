@@ -1,0 +1,142 @@
+<div class="cnd-value-type3">
+    <table class="bx-info-table default-condition-info">
+        <tr>
+            <th>{{bxMsg 'frctnAplyCnt'}}</th>
+            <td>
+                {{frctnAplyCnt}}
+            </td>
+            <th>{{bxMsg 'frctnAplyWayCd'}}</th>
+            <td>
+                {{frctnAplyWayCdNm}}
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'rateApplyWayCode'}}</th>
+            <td>
+                {{rateApplyWayCodeNm}}
+            </td>
+            <th>{{bxMsg 'InterestDataTypeCode'}}</th>
+            <td>
+                {{typeNm}}
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="cnd-value-type3">
+    <div class="additional-info-wrap detail-condition condition-interest-apply-type-wrap">
+        <table class="bx-info-table cnd-value-type3-table condition-interest-apply-type">
+            <div class="additional-title-wrap">
+                <span class="cnd-value-title">{{bxMsg 'DPS0121_3BString2'}}</span>
+            </div>
+            <tr>
+                <th class="ProductConditionInterestApplyTypeCode02-th">{{bxMsg 'DPS0121_32String1'}} </th>
+                <td>
+                    {{rateSegmentType}}
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'frstFixIrtAplyTrmCnt'}}/{{bxMsg 'frstFixIrtAplyTrmDscd'}}</th>
+                <td>
+                    {{frstFixIrtAplyTrmCnt}} / {{frstFixIrtAplyTrmDscd}}
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'DPS0121_32String2'}}</th>
+                <td>
+                    {{varIntRtCyclCalcnBaseCd}} / {{varIntRtAplyCyclCnt}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="interest-value-wrap">
+        <table class="bx-info-table">
+            <tr>
+                <th class="InterestTypeCode01-th">{{bxMsg 'DPS0121_31String4'}} (%) </th>
+                <td class="min-max-check-wrap">
+                    {{minInterestRate}} / {{maxInterestRate}} / {{rate}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="additional-info-wrap detail-condition base-interest-type-wrap base-interest-tpl">
+        <table class="bx-info-table cnd-value-type3-table">
+            <div class="additional-title-wrap">
+                <span class="cnd-value-title">{{bxMsg 'baseInterest'}}</span>
+            </div>
+            <tr>
+                <th class="InterestTypeCode02-th">{{bxMsg 'DPS0121_33String1'}} </th>
+                <td>
+                    {{baseRateCode}}
+                </td>
+            </tr>
+            <tr>
+                <th class="InterestTypeCode02-th">{{bxMsg 'DPS0121_33String2'}} </th>
+                <td>
+                    {{baseIntRtAplyTmCd}}
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <div class="additional-info-wrap detail-condition interest-link-info-wrap interest-link-tpl">
+        <table class="bx-info-table cnd-value-type3-table">
+            <div class="additional-title-wrap">
+                <span class="cnd-value-title">{{bxMsg 'DPS0121_3BString4'}}</span>
+            </div>
+
+            <tr>
+                <th>{{bxMsg 'DPP0107String1'}}</th>
+                <td>{{refPdCd}}</td>
+                <td><input type="checkbox" class="bx-compoenent-small bx-form-item same-product-yn" disabled><label>{{bxMsg 'sameProductYesOrNo'}}</label></td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'DTP0203String3'}}</th>
+                <td>{{refCndCd}}</td>
+            </tr>
+            <tr>
+                <th class="InterestTypeCode03-th">{{bxMsg 'DPS0121_34String2'}}/{{bxMsg 'DPS0129String4'}}/{{bxMsg 'DPS0121_1String5'}} </th>
+                <td class="ref-condition-column">
+                    {{refRefCndCd}}
+                </td>
+            </tr>
+
+            <tr>
+                <th class="InterestTypeCode03-th">{{bxMsg 'refTrmAplyDscd'}} </th>
+                <td>
+                    {{refTrmAplyDscd}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="additional-info-wrap detail-condition spread-info-wrap base-interest-tpl interest-link-tpl">
+        <table class="bx-info-table cnd-value-type3-table">
+            <div class="additional-title-wrap">
+                <span class="cnd-value-title">{{bxMsg 'spreadInfo'}}</span>
+            </div>
+            <tr>
+                <th class="InterestTypeCode02-th">{{bxMsg 'DPS0121_33String4'}} </th>
+                <td>{{sprdAplyFormulaCd}}
+                </td>
+            </tr>
+            <tr>
+                <th class="InterestTypeCode02-th">{{bxMsg 'DPS0121_33String5'}} (%) </th>
+                <td>
+                    {{minSprdRt}} / {{maxSprdRt}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="additional-info-wrap detail-condition apply-limit-wrap base-interest-tpl interest-link-tpl">
+        <table class="bx-info-table cnd-value-type3-table">
+            <div class="additional-title-wrap">
+                <span class="cnd-value-title">{{bxMsg 'applyPossibleLimit'}}</span>
+            </div>
+            <tr>
+                <th>{{bxMsg 'DPS0121_31String5'}} (%)</th>
+                <td>
+                    {{applyMinInterestRate}} ~ {{applyMaxInterestRate}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

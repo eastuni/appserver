@@ -1,0 +1,115 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for eav_sub
+ * 부가정보 sub CSS 
+ */
+.pf-eav-management .pf-conts {
+    margin: 10px auto; }
+.pf-eav-management .pd-eav-management-query-table th {
+    width: 80px;
+}
+.pf-eav-management .pd-eav-management-query-table td {
+    line-height: 29px; }
+.pf-eav-management .pd-eav-management-query-table td input, .pf-eav-management .pd-eav-management-query-table td select {
+    width: 170px; }
+.pf-eav-management .pd-eav-management-query-table td .calendar {
+    width: 105.5px; }
+.pf-eav-management .pd-eav-management-query-table tr {
+    margin-bottom: 10px;
+    height: 35px; }
+.pf-eav-management .pd-eav-management-query-table .padding-th {
+    padding-left: 10px; }
+.pf-eav-management .dev-task-pd-eav-management-grid {
+    height: 200px; }
+.pf-eav-management .pf-eav-management-pd-eav-management-list-grid {
+    padding-top: 10px; }
+.pf-eav-management .middle-grid {
+    height: 350px; }
+
+.pf-eav-management .pf-eav-management-pd-eav-management-list-form td .calendar {
+    width: 105px; }
+
+.pf-eav-management .pf-eav-management-pd-eav-management-grid-form td .calendar {
+    width: 145px; }
+
+.pf-eav-management-base-product-add-popup .bx-info-table-wrap {
+    width: 430px;
+    margin-left: 55px;
+    padding-top: 0; }
+.pf-eav-management-base-product-add-popup .bx-info-table-wrap td {
+    width: 120px; }
+.pf-eav-management-base-product-add-popup .bx-info-table-wrap td select {
+    width: 115px; }
+.pf-eav-management-base-product-add-popup .bx-info-table-wrap td input {
+    width: 235px; }
+.pf-eav-management-base-product-add-popup .product-grid {
+    height: 250px; }
+
+/* 구성조건설정 팝업 */
+.condition-value-column-setting-popup {
+    position: relative; }
+.condition-value-column-setting-popup .header-group {
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    width: 250px; }
+.condition-value-column-setting-popup .header-group .bx-info-table {
+    width: 250px; }
+.condition-value-column-setting-popup .header-group .bx-info-table th {
+    width: 60px; }
+.condition-value-column-setting-popup .header-group .bx-info-table select {
+    width: 190px; }
+.condition-value-column-setting-popup .header-group .bx-info-table input[type=text] {
+    width: 158px; }
+.condition-value-column-setting-popup .condition-list-grid {
+    position: absolute;
+    top: 70px;
+    left: 15px;
+    width: 250px;
+    height: 210px; }
+.condition-value-column-setting-popup .column-list-grid {
+    position: absolute;
+    top: 0px;
+    left: 300px;
+    width: 500px;
+    height: 280px; }
+.condition-value-column-setting-popup .divier-grid {
+    position: absolute;
+    cursor: default;
+    top: 160px;
+    left: 275px; }
+.condition-value-column-setting-popup .checkbox-wrap{
+    position: absolute;
+    top: 290px;
+    right: 15px;
+}
+.condition-value-column-setting-popup .checkbox-wrap input[type=checkbox]{
+    vertical-align: middle;
+}
+
+/*탭간격조절*/
+.nav-tabs .pfui-tab-item-text {
+    margin-right:-1px;
+    width:120px;
+    cursor:pointer;
+    text-align: center;
+}
+
+.pf-eav-management-pd-eav-management-popup .product-list-grid{
+    height : 280px;
+}
+
+.pf-eav-management-pd-eav-management-popup .bx-info-table {
+	border:1px solid #ddd;
+}
+
+.pf-eav-management-pd-eav-management-popup .bx-info-table th{
+	width:160px;
+	border:1px solid #ddd;
+	padding:3px;
+}
+
+.pf-eav-management-pd-eav-management-popup .bx-info-table td{
+	border:1px solid #ddd;
+	padding:3px;
+}

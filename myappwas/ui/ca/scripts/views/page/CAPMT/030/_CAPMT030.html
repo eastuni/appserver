@@ -1,0 +1,247 @@
+<!--
+@Screen number  CAPMT030
+@brief          센터컷 작업 관리
+@author         Donghyun Cho
+@history        2016.01.12      생성
+                2016.10.17    UI move from PSV080 to PSM030
+                2016.11.23    BXUI3.0 upgrade
+-->
+
+
+<div class="contents-wrap">
+	<div class="contents">
+		<div class="CAPMT030-wrap">
+
+
+			<!--BW-TITLE *컨텐츠 메인 타이틀-->
+			<h2 class="bw-tt">
+				{{bxMsg 'cbb_items.SCRN#CAPMT030'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPMT030'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#all'}}</p>
+			</h2>
+			<!--/END BW-TITLE-->
+
+
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<div class="bw-tool add-bd2-t">
+				<div class="f-l">
+					<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn" id="btn-base-section-reset" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn" id="btn-base-section-inquiry" title="{{bxMsg 'cbb_items.SCRNITM#B_search'}}"><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn" id="btn-base-section-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+					<button type="button" class="bw-btn" id="btn-base-section-del" title="{{bxMsg 'cbb_items.SCRNITM#B_delete'}}"><i class="bw-icon i-30 i-func-trash"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-base-section-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</div>
+			<!--/END BW-TOOL-->
+
+
+			<!--SEARCH CONDITION SECTION * 검색 조건 영역-->
+			<section class="CAPMT030-base-section search-wrap">
+				<div class="w-66 clr">
+					<div class="input-wrap add-btn clr asterisk">
+						<label class="bw-label w-20" title="{{bxMsg 'cbb_items.AT#jobId'}}">{{bxMsg 'cbb_items.AT#jobId'}}</label>
+						<input type="text" class="bw-input w-80" placeholder="{{bxMsg 'cbb_items.AT#jobId'}}" data-form-param="jobId"/>
+						<button type="button" class="bw-btn fix-r" id="btn-popup-jobId"><i class="bw-icon i-30 i-search"></i></button>
+					</div>
+				</div>
+			</section>
+			<!--/END SEARCH CONDITION SECTION -->
+
+
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<div class="bw-tool add-bd2-t add-mg-t">
+				<div class="f-l">
+					<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#dtlInfo'}}</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr" id="btn-detail-section-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</div>
+			<!--/END BW-TOOL-->
+
+
+			<!--DETAIL SECTION * 상세영역-->
+			<section class="CAPMT030-detail-section search-wrap">
+				<div class="w-100 clr">
+					<span class="w-66 f-l">
+						<div class="input-wrap clr"><!--작업명//-->
+							<label class="bw-label w-20" title="{{bxMsg 'cbb_items.AT#jobNm'}}">{{bxMsg 'cbb_items.AT#jobNm'}}</label>
+							<input type="text" class="bw-input w-80" placeholder="{{bxMsg 'cbb_items.AT#jobNm'}}" data-form-param="jobNm"/>
+						</div>
+					</span>
+					<span class="w-34 f-l">
+						<div class="input-wrap clr"><!--사용여부//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#useYn'}}">{{bxMsg 'cbb_items.AT#useYn'}}</label>
+							<select class="bw-input w-60 ipt-select CAPMT030-useYn-wrap" data-form-param="useYn"></select>
+						</div>
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-66 f-l">
+						<div class="input-wrap clr"><!--작업설명//-->
+							<label class="bw-label w-20" title="{{bxMsg 'cbb_items.AT#jobDescCntnt'}}">{{bxMsg 'cbb_items.AT#jobDescCntnt'}}</label>
+							<input type="text" class="bw-input w-80" placeholder="{{bxMsg 'cbb_items.AT#jobDescCntnt'}}" data-form-param="jobDescCntnt"/>
+						</div>
+					</span>
+					<span class="w-34 f-l">
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-33 f-l">
+						<div class="input-wrap add-btn clr"><!--대상서비스코드//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#trgtSrvcCd'}}">{{bxMsg 'cbb_items.AT#trgtSrvcCd'}}</label>
+							<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#trgtSrvcCd'}}" data-form-param="trgtSrvcCd" readonly="readonly" />
+							<button type="button" class="bw-btn fix-r" id="btn-popup-service"><i class="bw-icon i-search"></i></button>
+						</div>
+					</span>
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--컴포넌트코드//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#cmpntCd'}}">{{bxMsg 'cbb_items.AT#cmpntCd'}}</label>
+							<select class="bw-input w-60 ipt-select CAPMT030-cmpntCd-wrap" data-form-param="cmpntCd"></select>
+						</div>
+					</span>
+					<span class="w-34 f-l">
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-66 f-l">
+						<div class="input-wrap add-btn clr"><!--대상서비스입력DTO//-->
+							<label class="bw-label w-20" title="{{bxMsg 'cbb_items.AT#trgtSrvcInpDtoNm'}}">{{bxMsg 'cbb_items.AT#trgtSrvcInpDtoNm'}}</label>
+							<input type="text" class="bw-input w-80" placeholder="{{bxMsg 'cbb_items.AT#trgtSrvcInpDtoNm'}}" data-form-param="trgtSrvcInpDtoNm" readonly="readonly" />
+							<button type="button" class="bw-btn fix-r" id="btn-popup-class-search"><i class="bw-icon i-search"></i></button>
+						</div>
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--입력데이터유형코드//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#inpDataTpCd'}}">{{bxMsg 'cbb_items.AT#inpDataTpCd'}}</label>
+							<select class="bw-input w-60 ipt-select CAPMT030-inpDataTpCd-wrap" data-form-param="inpDataTpCd"></select>
+						</div>
+					</span>
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--병렬처리개수//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#prlPrcsngCnt'}}">{{bxMsg 'cbb_items.AT#prlPrcsngCnt'}}</label>
+							<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#prlPrcsngCnt'}}" data-form-param="prlPrcsngCnt" />
+						</div>
+					</span>
+					<span class="w-34 f-l">
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--스케줄유형코드//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#schdlTpCd'}}">{{bxMsg 'cbb_items.AT#schdlTpCd'}}</label>
+							<select class="bw-input w-60 ipt-select CAPMT030-schdlTpCd-wrap" data-form-param="schdlTpCd"></select>
+						</div>
+					</span>
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--스케줄건수//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#schdlCnt'}}">{{bxMsg 'cbb_items.AT#schdlCnt'}}</label>
+							<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#schdlCnt'}}" data-form-param="schdlCnt" />
+						</div>
+					</span>
+					<span class="w-34 f-l">
+						<div class="input-wrap clr"><!--로그레벨코드//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#logLvlCd'}}">{{bxMsg 'cbb_items.AT#logLvlCd'}}</label>
+							<select class="bw-input w-60 ipt-select CAPMT030-logLvlCd-wrap" data-form-param="logLvlCd"></select>
+						</div>
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--자동실행구분코드//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#atmtcExctnDscd'}}">{{bxMsg 'cbb_items.AT#atmtcExctnDscd'}}</label>
+							<select class="bw-input w-60 ipt-select CAPMT030-atmtcExctnDscd-wrap" data-form-param="atmtcExctnDscd"></select>
+						</div>
+					</span>
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--자동실행시간//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#atmtcExctnTm'}}">{{bxMsg 'cbb_items.SCRNITM#atmtcExctnTm'}}</label>
+							<input type="text" class="bw-input w-25 ipt-time" data-form-param="atmtcExctnStartHms" placeholder="--:--">
+							<span class="bw-input w-10 a-center">~</span>
+							<input type="text" class="bw-input w-25 ipt-time" data-form-param="atmtcExctnEndHms" placeholder="--:--">
+						</div>
+					</span>
+					<span class="w-34 f-l">
+						<div class="input-wrap clr"><!--우선순위코드//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#prityCd'}}">{{bxMsg 'cbb_items.AT#prityCd'}}</label>
+							<select class="bw-input w-60 ipt-select CAPMT030-prityCd-wrap" data-form-param="prityCd"></select>
+						</div>
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--일자전환수행여부//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dtCnvrsnExctnYn'}}">{{bxMsg 'cbb_items.AT#dtCnvrsnExctnYn'}}</label>
+							<select class="bw-input w-60 ipt-select CAPMT030-dtCnvrsnExctnYn-wrap" data-form-param="dtCnvrsnExctnYn"></select>
+						</div>
+					</span>
+					<span class="w-33 f-l">
+					</span>
+					<span class="w-34 f-l">
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--오류처리방	법코드//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#errPrcsngMthdCd'}}">{{bxMsg 'cbb_items.AT#errPrcsngMthdCd'}}</label>
+							<select class="bw-input w-60 ipt-select CAPMT030-errorPrcsngMthdCd-wrap" data-form-param="errPrcsngMthdCd"></select>
+						</div>
+					</span>
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--재처리대기시간//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#rprcsngWaitingHms'}}">{{bxMsg 'cbb_items.AT#rprcsngWaitingHms'}}</label>
+							<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#rprcsngWaitingHms'}}" data-form-param="rprcsngWaitingHms" />
+						</div>
+					</span>
+					<span class="w-34 f-l">
+						<div class="input-wrap clr"><!--최대시도횟수//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#maxAtmptCnt'}}">{{bxMsg 'cbb_items.AT#maxAtmptCnt'}}</label>
+							<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#maxAtmptCnt'}}" data-form-param="maxAtmptCnt" />
+						</div>
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--에러중지여부//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#errStopYn'}}">{{bxMsg 'cbb_items.AT#errStopYn'}}</label>
+							<select class="bw-input w-60 ipt-select CAPMT030-errorStopYn-wrap" data-form-param="errStopYn"></select>
+						</div>
+					</span>
+					<span class="w-33 f-l">
+						<div class="input-wrap add-btn clr"><!--오류중지조건//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#errStopCndCd'}}">{{bxMsg 'cbb_items.AT#errStopCndCd'}}</label>
+							<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#errStopCndCd'}}" data-form-param="errStopCndCd" />
+							<span class="bw-btn bw-desc fix-r">%</span>
+						</div>
+					</span>
+					<span class="w-34 f-l">
+						<div class="input-wrap clr"><!--순차처리키중지여부//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#stopSqntlPrcsngKeyYn'}}">{{bxMsg 'cbb_items.AT#stopSqntlPrcsngKeyYn'}}</label>
+							<select class="bw-input w-60 ipt-select CAPMT030-stopSqntlPrcsngKeyYn-wrap" data-form-param="stopSqntlPrcsngKeyYn"></select>
+						</div>
+					</span>
+				</div>
+				<div class="w-100 clr">
+					<span class="w-33 f-l">
+						<div class="input-wrap clr"><!--인스턴스지정방식코드//-->
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#instncAssignMthdCd'}}">{{bxMsg 'cbb_items.AT#instncAssignMthdCd'}}</label>
+							<select class="bw-input w-60 ipt-select CAPMT030-instncAssignMthdCd-wrap" data-form-param="instncAssignMthdCd"></select>
+						</div>
+					</span>
+					<span class="w-66 f-l">
+						<div class="input-wrap clr"><!--대상인스턴스목록//-->
+							<label class="bw-label w-20" title="{{bxMsg 'cbb_items.AT#trgtInstncList'}}">{{bxMsg 'cbb_items.AT#trgtInstncList'}}</label>
+							<input type="text" class="bw-input w-80" placeholder="{{bxMsg 'cbb_items.AT#trgtInstncList'}}" data-form-param="trgtInstncList" />
+						</div>
+					</span>
+				</div>
+			</section>
+			<!--/END DETAIL SECTION -->
+		</div>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+<!-- 가맹점그룹 관리 팝업 -->
+<div class="merchant-group-management-popup">
+    <table class="bx-info-table pf-merchant-group-form">
+        <tr>
+            <th>{{bxMsg 'merchantGroupCd'}}</th>
+            <!-- 가맹점그룹코드 -->
+            <td>
+                <input type="text" disabled class="bx-form-item bx-compoenent-small merchant-group-code" value="{{id}}" data-form-param="merchantGroupCode" />
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'merchantGroupName'}}</th>
+            <!-- 가맹점그룹명 -->
+            <td>
+                <input type="text" class="bx-form-item bx-compoenent-small length-check-input mandatory merchant-group-name" value="{{text}}" data-form-param="merchantGroupName" />
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'merchantGroupTypeCd'}}</th>
+            <!-- 가맹점그룹타입코드 -->
+            <td>
+                <select class="bx-form-item bx-compoenent-small select-item merchant-group-type-code" data-form-param="merchantGroupTypeCode"></select>
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'MTM0300String2'}}</th>
+            <!-- 활동여부 -->
+            <td>
+                <select class="bx-form-item bx-compoenent-small select-item active-yn" data-form-param="activeYn" disabled></select>
+            </td>
+        </tr>
+    </table>
+</div>

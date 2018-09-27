@@ -1,0 +1,211 @@
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPWF501-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPWF501'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPWF501'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}
+			</h2>
+
+
+			<!--/END BW-TITLE-->
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<section class="bw-tool add-bd2-t">
+				<div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+                </div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-base-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-base-search"><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn" id="btn-base-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+					<button type="button" class="bw-btn" id="btn-base-delete" title="{{bxMsg 'cbb_items.SCRNITM#B_delete'}}"><i class="bw-icon i-30 i-func-trash"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-base-search-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+
+
+			<!--SEARCH AREA * 검색 영역-->
+			<section class="CAPWF501-base-table" id="search-area">
+				<section class="search-wrap">
+					<table class="w-100">
+						<tr>
+								<td class="td-w-33">
+									<div class="input-wrap add-btn clr">
+										<label class="bw-label w-42" title="{{bxMsg 'cbb_items.AT#aprvlTmpltId'}}">{{bxMsg 'cbb_items.AT#aprvlTmpltId'}}</label>
+										<input type="text" class="bw-input w-58"  data-form-param="aprvlTmpltId" disabled="disabled"/>
+										<button type="button" class="bw-btn fix-r searchAprvlTmplt-btn"  id="base"><i class="bw-icon i-30 i-search"></i></button>
+									</div>
+								</td>
+								
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#aprvlTmpltNm'}}">{{bxMsg 'cbb_items.AT#aprvlTmpltNm'}}</label>
+										<input type="text" class="bw-input w-60" id="searchKey" data-form-param="aprvlTmpltNm" />
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40">{{bxMsg 'cbb_items.AT#aprvlTmpltDscd'}}</label>									
+										<select class="bw-input w-60 ipt-select CAPWF501-aprvlTmpltDscd-wrap" data-form-param="aprvlTmpltDscd"></select>
+									</div>
+								</td>							
+<!-- 								<td class="td-w-33">
+									<div class="input-wrap add-btn clr">
+										<label class="bw-label w-42" title="{{bxMsg 'cbb_items.AT#deptId'}}">{{bxMsg 'cbb_items.AT#deptId'}}</label>
+										<input type="text" data-form-param="aprvlDeptId" class="bw-input w-58" id="baseAprvlDeptId"/>
+	                                    <button type="button" class="bw-btn fix-r searchDept-btn"  id="base"><i class="bw-icon i-30 i-search"></i></button>
+									</div>
+								</td> -->
+							</tr>
+							<tr>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40">{{bxMsg 'cbb_items.AT#aprvlCndUseYn'}}</label>									
+										<select class="bw-input w-60 ipt-select CAPWF501-aprvlCndUseYn-wrap" data-form-param="aprvlCndUseYn"></select>
+									</div>
+								</td>								
+								<!-- <td class="td-w-33">
+									<div class="input-wrap add-btn clr">
+										<label class="bw-label w-42" title="{{bxMsg 'cbb_items.AT#roleId'}}">{{bxMsg 'cbb_items.AT#roleId'}}</label>
+										<input type="text" class="bw-input w-58" data-form-param="aprvlRoleId" />
+	                                    <button type="button" class="bw-btn fix-r searchRole-btn" id="base" ><i class="bw-icon i-30 i-search"></i></button>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#roleNm'}}">{{bxMsg 'cbb_items.AT#roleNm'}}</label>
+										<input type="text" class="bw-input w-60"  id="searchKey" data-form-param="roleNm" disabled="disabled"/>
+									</div>
+								</td>
+								<td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#deptNm'}}">{{bxMsg 'cbb_items.AT#deptNm'}}</label>
+										<input type="text" class="bw-input w-60"  id="searchKey" data-form-param="deptNm"/>
+									</div>
+								</td> -->
+							</tr>
+						
+					</table>
+				</section>
+			</section>
+
+
+            <!-- Grid area -->
+            <section class="grid-wrap">
+				<!-- tab 없는 그리드 영역 -->
+				<div class="bw-tool add-bd2-t add-mg-t">
+					<h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#aprvlTmpltBase'}}</h3>
+					<div class="btn-wrap fix-r">
+					<!-- 그리드 버튼 영역 -->
+						<button type="button" class="bw-btn" id="btn-CAPWF501-base-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
+						<button type="button" class="bw-btn b-ctr" id="btn-up-grid-base" data-info="CAPWF501-base-grid"><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+				</div>
+
+
+				<div class="CAPWF501-base-grid" id="CAPWF501-base-grid"></div>
+			</section>
+			
+			            <!-- Grid area -->
+            <section class="grid-wrap">
+				<!-- tab 없는 그리드 영역 -->
+				<div class="bw-tool add-bd2-t add-mg-t">
+					<h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#aprvlTmpltRoleInfo'}}</h3>
+					<div class="btn-wrap fix-r">
+					<!-- 그리드 버튼 영역 -->
+					<button type="button" class="bw-btn b-ctr" id="btn-up-grid-detail" data-info="CAPWF501-detail-grid"><i class="fa fa-forward fa-rotate-270"></i></button>
+					
+					</div>
+				</div>
+
+
+				<div class="CAPWF501-detail-grid" id="CAPWF501-detail-grid"></div>
+			</section>
+
+
+			<section class="bw-tool add-bd2-t add-mg-t">
+				<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#aprvlTmpltRoleInfoDetail'}}</h3>
+				<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn" id="btn-CAPWF501-detail-refresh" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}"><i class="bw-icon i-30 i-func-refresh"></i></button>
+					<button type="button" class="bw-btn" id="btn-CAPWF501-detail-grid-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+					<button type="button" class="bw-btn" id="btn-CAPWF501-detail-grid-delete" title="{{bxMsg 'cbb_items.SCRNITM#B_delete'}}"><i class="bw-icon i-30 i-func-trash"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-CAPWF501-detail-grid-toggle" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+			
+			<section class="CAPWF501-detail-table" id="CAPWF501-detail-table">	
+				<section class="search-wrap">
+					<table class="w-100">
+						<tr style="display:none;">
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<!-- <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#aprvlLvlNbr'}}">{{bxMsg 'cbb_items.AT#aprvlLvlNbr'}}</label>
+									<input type="text" class="bw-input w-60"  data-form-param="aprvlLvlNbr" /> -->					                <input type = "hidden" data-form-param="mostLowrLvlYn" class="bx-form-item bx-component-small" id="mostLowrLvlYn" value="{{mostLowrLvlYn}}"/>
+					                <input type = "hidden" data-form-param="instCd" class="bx-form-item bx-component-small" id="instCd" value="{{instCd}}"/>
+					                <input type = "hidden" data-form-param="seqNbr" class="bx-form-item bx-component-small" id="seqNbr" value="{{seqNbr}}"/>
+					                <input type = "hidden" data-form-param="children" class="bx-form-item bx-component-small" id="children" value="{{children}}"/>
+								</div>
+							</td>					
+						</tr>
+						<tr>
+						<td class="td-w-33">
+								<div class="input-wrap add-btn clr">
+									<label class="bw-label w-42" title="{{bxMsg 'cbb_items.AT#aprvlLvlNbr'}}">{{bxMsg 'cbb_items.AT#aprvlLvlNbr'}}</label>
+									<input type="text" class="bw-input w-58" data-form-param="aprvlLvlNbr"/>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap add-btn clr">
+									<label class="bw-label w-42" title="{{bxMsg 'cbb_items.AT#roleId'}}">{{bxMsg 'cbb_items.AT#roleId'}}</label>
+									<input type="text" class="bw-input w-58" data-form-param="aprvlRoleId" disabled="disabled"/>
+                                    <button type="button" class="bw-btn fix-r searchRole-btn" id="detail" ><i class="bw-icon i-30 i-search"></i></button>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#roleNm'}}">{{bxMsg 'cbb_items.AT#roleNm'}}</label>
+									<input type="text" class="bw-input w-60" id="searchKey"  data-form-param="roleNm" disabled="disabled" />
+								</div>
+							</td>
+						</tr>
+												<tr>
+<!-- 							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#aprvlTmpltNm'}}">{{bxMsg 'cbb_items.AT#aprvlTmpltNm'}}</label>
+									<input type="text" class="bw-input w-60" id="searchKey" data-form-param="aprvlTmpltNm" />
+								</div>
+							</td>			-->		
+							<td class="td-w-33" style="display:none;">									
+								<div class="input-wrap add-btn clr">
+									<input type = "hidden" data-form-param="upAprvlLvlNbr" class="bx-form-item bx-component-small" id="upAprvlLvlNbr" value="{{upAprvlLvlNbr}}" disabled="disabled"/>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap add-btn clr">
+									<label class="bw-label w-42" title="{{bxMsg 'cbb_items.AT#deptId'}}">{{bxMsg 'cbb_items.AT#deptId'}}</label>
+									<input type="text" class="bw-input w-58" data-form-param="aprvlDeptId" id= "detailAprvlDeptId" disabled="disabled"/>
+                                    <button type="button" class="bw-btn fix-r searchDept-btn"  id="detail"><i class="bw-icon i-30 i-search"></i></button>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#deptNm'}}">{{bxMsg 'cbb_items.AT#deptNm'}}</label>
+									<input type="text" class="bw-input w-60" id="searchKey" data-form-param="deptNm" disabled="disabled"/>
+								</div>
+							</td>						
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40">{{bxMsg 'cbb_items.AT#othrDeptAprvlYn'}}</label>									
+									<select class="bw-input w-60 ipt-select CAPWF501-othrDeptAprvlYn-wrap" data-form-param="othrDeptAprvlYn"></select>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+        </section>
+    </section>
+</section>

@@ -1,0 +1,13 @@
+{
+    "namespace": "main",
+    "messages": {
+        "select-menu-msg": "메뉴를 선택해주세요.",
+        "sign-out-msg": "로그아웃 하시겠습니까?",
+
+        "max-page-msg": "최대 유지가능한 탭은 5개입니다. 다른 탭을 닫고 다시 시도해주세요.",
+        "no-page-msg": "Page 가 아직 개발 되지 않았습니다.",
+
+        "clock-in-msg": "출근을 등록 하시겠습니까?",
+        "clock-out-msg": "퇴근을 등록 하시겠습니까?"
+    }
+}

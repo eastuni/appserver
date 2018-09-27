@@ -1,0 +1,24 @@
+<!-- 화면목록조회 팝업 -->
+<div class="pf-screen-list-query-popup">
+    <table class="bx-info-table pf-screen-list-popup-table">
+        <tr>
+            <!-- 화면ID -->
+            <th>{{bxMsg 'ScrnId'}}</th>
+            <td>
+                <input type="text" class="bx-form-item bx-compoenent-small scrn-id" data-form-param="scrnId">
+            </td>
+        </tr>
+        <tr>
+            <!-- 화면명 -->
+            <th>{{bxMsg 'ScrnNm'}}</th>
+            <td>
+                <input type="text" class="bx-form-item bx-compoenent-small scrn-name" data-form-param="scrnName">
+                <button type="button" class="bw-btn cnd-tpl-search" icon-tooltip="{{bxMsg 'ButtonBottomString4'}}" style="float:right;">
+						<i class="bw-icon i-25 i-search" style="width:25px;height:25px;"></i>
+					</button>
+            </td>
+        </tr>
+    </table>
+    <div class="pf-screen-list-popup-grid">
+    </div>
+</div>

@@ -1,0 +1,342 @@
+<!--
+@Screen number  CAPAC002
+@brief          계정과목 및 계정처리 가능점을 관리합니다.
+@author         김병구
+@history        2016.07.28      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPAC002-wrap">
+            <!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+                {{bxMsg 'cbb_items.SCRN#CAPAC002'}}
+                <p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPAC002'}}</p>
+                <!-- 설정대상기관 -->
+               	<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+            </h2>
+            <!--/END BW-TITLE-->
+            <!--BW-MODULE-->
+            <div class="layout-wrap">
+                <div class="layout col1" id="tree-numbering-list">
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t add-mg-b-10">
+                        <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#acctgItmList'}}</h3>
+                        <div class="btn-wrap fix-r">
+                            <button type="button" class="bw-btn" id="btn-acctgItm-add"><i class="bw-icon i-30 i-func-add"></i></button>
+<!--                             <button type="button" class="bw-btn" id="btn-tree-search"><i class="bw-icon i-30 i-search"></i></button> -->
+<!--                             <button type="button" class="bw-btn" id="btn-tree-next-search"><i class="bw-icon i-30 i-search"></i></button> -->
+                            <button type="button" class="bw-btn" id="btn-tree-hide"><i class="fa fa-angle-left"></i></button>
+                        </div>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <div class="bw-search">
+                        <div class="input-wrap add-mg-l-10 clr">
+                            <label class="bw-label w-45" title="{{bxMsg 'cbb_items.SCRNITM#acctgDstnctn'}}">{{bxMsg 'cbb_items.SCRNITM#acctgDstnctn'}}</label>
+                            <select class="bw-input w-55 ipt-select CAPAC002-acctgDstnctn-wrap"></select>
+                        </div>
+
+
+                        <div class="input-wrap add-mg-l-10 clr">
+                            <label class="bw-label w-45" title="{{bxMsg 'cbb_items.SCRNITM#bsisDstnctn'}}">{{bxMsg 'cbb_items.SCRNITM#bsisDstnctn'}}</label>
+                            <select class="bw-input w-55 ipt-select CAPAC002-bsisDstnctn-wrap"></select>
+                        </div>
+
+
+                        <div class="input-wrap add-btn add-mg-l-10 clr">
+                            <label class="bw-label w-50" title="{{bxMsg 'cbb_items.AT#acctgItmNm'}}">{{bxMsg 'cbb_items.AT#acctgItmNm'}}</label>
+                            <input type="text" class="bw-input w-50" id="searchKey" data-form-param="searchKey" placeholder="{{bxMsg 'cbb_items.SCRNITM#all'}}" />
+                            <button type="button" class="bw-btn fix-r" id="btn-acctgItmCd-search"><i class="bw-icon i-30 i-search"></i></button>
+                        </div>
+
+
+                        <div class="input-wrap add-mg-l-10 clr">
+                           <label class="bw-label w-45" title="{{bxMsg 'cbb_items.AT#acctgItmCd'}}">{{bxMsg 'cbb_items.AT#acctgItmCd'}}</label>
+                           <input type="text" class="bw-input w-55" id="acctgItmCd" data-form-param="acctgItmCd" placeholder="{{bxMsg 'cbb_items.SCRNITM#all'}}" />
+                        </div>
+
+
+                        <input type="checkbox" class="bw-input ipt-radio" id="abltnAcctgItm" data-form-param="abltnAcctgItm" />
+                        <label class="bw-label fix-lh" for="abltnAcctgItm" title="{{bxMsg 'cbb_items.SCRNITM#abltnAcctgItm'}}">{{bxMsg 'cbb_items.SCRNITM#abltnAcctgItm'}}</label>
+                    </div>
+
+
+                    <!--BW-TREE *트리메뉴-->
+                    <section class="unit-tree-wrap">
+                        <ul class="bx-tree-floor bx-tree-root"></ul>
+                    </section>
+                    <!--/END BW-TREE-->
+                </div>
+
+
+                <button type="button" class="bw-tree-show-btn" id="btn-tree-show" hidden><i class="fa fa-angle-right"></i></button>
+
+
+                <div class="bw-inner-contents layout col2">
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t">
+                        <div class="f-l">
+                            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#baseAtrbt'}}</h3>
+                        </div>
+                        <div class="btn-wrap fix-r">
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-base-attribute-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-base-attribute-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                            <button type="button" class="bw-btn b-ctr" id="btn-base-attribute-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                        </div>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <!--BASE ATTRIBUTE AREA * 기본 속성 영역 -->
+                    <section class="search-wrap" id="base-attribute-area">
+                        <table class="w-100">
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#acctgItmCd'}}">{{bxMsg 'cbb_items.AT#acctgItmCd'}}</label>
+                                        <input type="text" class="bw-input w-60" data-form-param="acctgItmCd" disabled/>
+                                    </div>
+                                </td>
+                                <td colspan="2">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-19-5" title="{{bxMsg 'cbb_items.AT#acctgItmNm'}}">{{bxMsg 'cbb_items.AT#acctgItmNm'}}</label>
+                                        <input type="text" class="bw-input w-80-5" data-form-param="acctgItmNm"/>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#acctgItmAbrvtnNm'}}">{{bxMsg 'cbb_items.SCRNITM#acctgItmAbrvtnNm'}}</label>
+                                        <input type="text" class="bw-input w-60" data-form-param="acctgItmAbrvtnNm"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="input-wrap asterisk add-btn clr">
+                                        <label class="bw-label w-42" title="{{bxMsg 'cbb_items.AT#upAcctgItmCd'}}">{{bxMsg 'cbb_items.AT#upAcctgItmCd'}}</label>
+                                        <input type="text" class="bw-input w-58" data-form-param="upAcctgItmCd" disabled/>
+                                        <button type="button" class="bw-btn fix-r" id="btn-upAcctgItmCd-search"><i class="bw-icon i-30 i-search"></i></button>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#upAcctgItmNm'}}">{{bxMsg 'cbb_items.AT#upAcctgItmNm'}}</label>
+                                        <input type="text" class="bw-input w-60" data-form-param="upAcctgItmNm" disabled/>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#acctgDstnctn'}}">{{bxMsg 'cbb_items.SCRNITM#acctgDstnctn'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPAC002-acctgDstnctn2-wrap" data-form-param="acctgDstnctn" disabled></select>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#bsisDstnctn'}}">{{bxMsg 'cbb_items.SCRNITM#bsisDstnctn'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPAC002-bsisDstnctn2-wrap" data-form-param="bsisDstnctn"></select>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#dbCdtDstnctn'}}">{{bxMsg 'cbb_items.SCRNITM#dbCdtDstnctn'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPAC002-dbCdtDstnctn-wrap" data-form-param="dbCdtDstnctn"></select>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#titlAcctgCl'}}">{{bxMsg 'cbb_items.SCRNITM#titlAcctgCl'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPAC002-titlAcctgCl-wrap" data-form-param="titlAcctgCl"></select>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#outpSeqNbr'}}">{{bxMsg 'cbb_items.SCRNITM#outpSeqNbr'}}</label>
+                                        <input type="text" class="bw-input w-60" data-form-param="outpSeqNbr"/>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#outpLvl'}}">{{bxMsg 'cbb_items.SCRNITM#outpLvl'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPAC002-outpLvl-wrap" data-form-param="outpLvl"></select>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="td-w-33">
+                                    <input type="checkbox" class="bw-input ipt-radio f-l" id="btsdAcct" data-form-param="btsdAcct" />
+                                    <label class="bw-label fix-lh" title="{{bxMsg 'cbb_items.SCRNITM#btsdAcct'}}">{{bxMsg 'cbb_items.SCRNITM#btsdAcct'}}</label>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk add-btn clr">
+                                        <label class="bw-label w-42" title="{{bxMsg 'cbb_items.AT#rltdAcctgItmCd'}}">{{bxMsg 'cbb_items.AT#rltdAcctgItmCd'}}</label>
+                                        <input type="text" class="bw-input w-58" data-form-param="rltvAcctgItmCd" disabled/>
+                                        <button type="button" class="bw-btn fix-r" id="btn-rltvAcctgItmCd-search"><i class="bw-icon i-30 i-search"></i></button>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#rltdAcctgItmNm'}}">{{bxMsg 'cbb_items.AT#rltdAcctgItmNm'}}</label>
+                                        <input type="text" class="bw-input w-60" data-form-param="rltvAcctgItmNm" disabled/>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="td-w-33">
+                                    <input type="checkbox" class="bw-input ipt-radio f-l" id="realTitlAcctg" />
+                                    <label class="bw-label fix-lh" title="{{bxMsg 'cbb_items.SCRNITM#realTitlAcctg'}}">{{bxMsg 'cbb_items.SCRNITM#realTitlAcctg'}}</label>
+                                </td>
+                                <td class="td-w-33">
+                                    <input type="checkbox" class="bw-input ipt-radio f-l" id="minusBalAllwnc" />
+                                    <label class="bw-label fix-lh" title="{{bxMsg 'cbb_items.SCRNITM#minusBalAllwnc'}}">{{bxMsg 'cbb_items.SCRNITM#minusBalAllwnc'}}</label>
+                                </td>
+                                <td class="td-w-33">
+                                    <input type="checkbox" class="bw-input ipt-radio f-l" id="hqAcct" />
+                                    <label class="bw-label fix-lh" title="{{bxMsg 'cbb_items.SCRNITM#hqAcct'}}">{{bxMsg 'cbb_items.SCRNITM#hqAcct'}}</label>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="td-w-33">
+                                    <input type="checkbox" class="bw-input ipt-radio f-l" id="prcsAblBrnchRgstrn" />
+                                    <label class="bw-label fix-lh" title="{{bxMsg 'cbb_items.SCRNITM#prcsAblBrnchRgstrn'}}">{{bxMsg 'cbb_items.SCRNITM#prcsAblBrnchRgstrn'}}</label>
+                                </td>
+                                <td class="td-w-33">
+                                    <input type="checkbox" class="bw-input ipt-radio f-l" id="frgncTxAmtOcr" />
+                                    <label class="bw-label fix-lh" title="{{bxMsg 'cbb_items.SCRNITM#frgncTxAmtOcr'}}">{{bxMsg 'cbb_items.SCRNITM#frgncTxAmtOcr'}}</label>
+                                </td>
+                                <td class="td-w-33">
+                                    <input type="checkbox" class="bw-input ipt-radio f-l" id="manualEntryPrmsn" />
+                                    <label class="bw-label fix-lh" title="{{bxMsg 'cbb_items.SCRNITM#manualEntryPrmsn'}}">{{bxMsg 'cbb_items.SCRNITM#manualEntryPrmsn'}}</label>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#aplyStartDt'}}">{{bxMsg 'cbb_items.AT#aplyStartDt'}}</label>
+                                        <input type="text" class="bw-input w-60 ipt-cal" data-form-param="aplyStartDt" />
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#aplyEndDt'}}">{{bxMsg 'cbb_items.AT#aplyEndDt'}}</label>
+                                        <input type="text" class="bw-input w-60 ipt-cal" data-form-param="aplyEndDt" />
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#acctgDstnctnNm'}}">{{bxMsg 'cbb_items.SCRNITM#acctgDstnctnNm'}}</label>
+                                        <input type="text" class="bw-input w-60" data-form-param="acctgDstnctnNm"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                    <!--/END SEARCH AREA-->
+
+
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t add-mg-t">
+                        <div class="f-l">
+                            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#jnlzgDptmnt'}}</h3>
+                        </div>
+                        <div class="btn-wrap fix-r">
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-journalizing-department-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                            <button type="button" class="bw-btn b-ctr" id="btn-journalizing-department-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                        </div>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <!--JOURNALIZING DEPARTMENT AREA * 계정처리 가능점 영역-->
+                    <section class="grid-wrap" id="journalizing-department-area">
+                        <!--GRID AREA -->
+                        <section class="CAPAC002Grid" id="CAPAC002Grid"></section>
+                        <!--/END GRID AREA-->
+                    </section>
+                    <!--/END SEARCH AREA-->
+
+
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t add-mg-t">
+                        <div class="f-l">
+                            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#jnlzgDptmntAtrbt'}}</h3>
+                        </div>
+                        <div class="btn-wrap fix-r">
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-journalizing-department-attribute-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-journalizing-department-attribute-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                            <button type="button" class="bw-btn b-ctr" id="btn-journalizing-department-attribute-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                        </div>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <!--JOURNALIZING DEPARTMENT ATTRIBUTE AREA * 계정처리 가능점 속성 영역 -->
+                    <section class="search-wrap" id="journalizing-department-attribute-area">
+                        <table class="w-100">
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap add-btn clr">
+                                        <label class="bw-label w-42" title="{{bxMsg 'cbb_items.SCRNITM#deptId'}}">{{bxMsg 'cbb_items.SCRNITM#deptId'}}</label>
+                                        <input type="text" class="bw-input w-58" data-form-param="deptId" disabled/>
+                                        <button type="button" class="bw-btn fix-r" id="btn-deptId-search"><i class="bw-icon i-30 i-search"></i></button>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#deptNm'}}">{{bxMsg 'cbb_items.SCRNITM#deptNm'}}</label>
+                                        <input type="text" class="bw-input w-60" data-form-param="deptNm"/>
+                                        <input type="hidden" data-form-param="acctgDscd"/>
+                                        <input type="hidden" data-form-param="acctgItmCd"/>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#aplyStartDt'}}">{{bxMsg 'cbb_items.AT#aplyStartDt'}}</label>
+                                        <input type="text" class="bw-input w-60 ipt-cal" data-form-param="aplyStartDt" />
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#aplyEndDt'}}">{{bxMsg 'cbb_items.AT#aplyEndDt'}}</label>
+                                        <input type="text" class="bw-input w-60 ipt-cal" data-form-param="aplyEndDt" />
+                                    </div>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                    <!--/END SEARCH AREA-->
+                </div>
+            </div>
+            <!--/END BW-MODULE-->
+        </section>
+    </section>
+</section>
+<!--/END MAIN CONTENTS-->

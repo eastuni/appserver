@@ -1,0 +1,48 @@
+{{#unless hidden}}
+{{#if hasChildren}}
+<li class="bx-tree-floor-item" data-id="{{id}}" data-state="collapse" data-type="{{type}}">
+{{/if}}
+{{#unless hasChildren}}
+<li class="bx-tree-floor-item" data-id="{{id}}" data-state="expand" data-type="{{type}}">
+{{/unless}}
+
+    <div class="bx-tree-navi-wrap">
+
+        <i class="bx-tree-navi"></i>
+
+    </div>
+
+    {{#if checkAble}}
+    <input type="checkbox" class="bx-tree-checkbox">
+    {{/if}}
+
+    {{#if symbolName}}
+    <div class="bx-tree-symbol" style="background-color: {{symbolColor}}">{{symbolName}}</div>
+    {{/if}}
+
+	{{#if disabled}}
+	    <div class="bx-tree-node">
+	        <div class="bx-tree-node-conts">{{value}}</div>
+	    </div>
+    {{/if}}
+    {{#unless disabled}}
+	    <div class="bx-tree-node"  style="background-color: #666;">
+	        <div class="bx-tree-node-conts">{{value}}</div>
+	    </div>
+    {{/unless}}
+    
+<!-- 	<div class="bx-tree-node"> -->
+<!--         <div class="bx-tree-node-conts">{{value}}</div> -->
+<!--     </div> -->
+    
+    {{#if configAble}}
+        {{#unless hasChildren}}
+            <i class="bx-icon bx-icon-config bx-tree-config-btn bx-tree-btn"></i>
+        {{/unless}}
+    {{/if}}
+
+    <ul class="bx-tree-floor">
+
+    </ul>
+</li>
+{{/unless}}

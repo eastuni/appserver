@@ -7,13 +7,39 @@ ciuser=jenkins
 echo "init app"
 mkdir -p /app/apprun
 
-echo "copy app"
+washome=/app/cbpprod/was_instance
+webapps=/app/cbpprod/webapps
+
+echo "copy cbp app"
 cp -r /app_init/product /app
 cp -r /app_init/cbpprod /app
 cp -r /app_init/apps    /app/apprun
 cp -r /app_init/ui      /app
+mv /app/ui/ca/*					/app/ui/ap
 cp -r /app_init/admin_conf/* ${washome}/admin/conf
 cp -r /app_init/online_conf/* ${washome}/online/conf
+
+echo "copy pf app"
+
+pfDir=/app_init/pf
+pfconf=/app_init/pf_conf
+pfdistconf=/app_init/pfdist_conf
+pfhome=$webapps/pf
+pflibDir=$pfhome/WEB-INF/lib
+# UI
+mkdir -p $pflibDir
+cp -r $pfDir/ui/* $pfhome
+
+# lib
+cp $pfDir/lib/pf/*.jar $pflibDir/
+cp $pfDir/lib/deps/*.jar $pflibDir/
+cp -r $pfconf/* $pfhome/WEB-INF
+
+echo "copy pfdist app"
+cp -r $pfDir/pfdist $webapps/cpPfDist
+cp -r $pfdistconf/* $webapps/cpPfDist/WEB-INF
+cp -r $pfDir/pfdist $webapps/onPfDist
+cp -r $pfdistconf/* $webapps/onPfDist/WEB-INF
 
 echo "chown,chmod"
 chown -R ${appuser}:${ciuser} /app 
@@ -25,18 +51,18 @@ cd /var/www/html
 ln -s /app/ui/ap && ln -s /app/ui/biz && ln -s /app/ui/cp
 
 echo "webapps"
-mkdir ${washome}/admin/webapps 
-cd ${washome}/admin/webapps 
-ln -s ../../../webapps/bxmAdmin && ln -s ../../../webapps/cpPfDist && ln -s ../../../webapps/cpServiceEndpoint \
-&& ln -s ../../../webapps/pf 
+r_path=../../../webapps
 
+mkdir ${washome}/admin/webapps 
+cd ${washome}/admin/webapps
+ln -s $r_path/bxmAdmin && ln -s $r_path/cpPfDist && ln -s $r_path/cpServiceEndpoint \
+&& ln -s $r_path/pf 
 cd ${washome}/admin/lib 
 ln -s ../webapps/cpServiceEndpoint/WEB-INF/classes/log4j.xml 
       
 mkdir ${washome}/online/webapps 
 cd ${washome}/online/webapps 
-      
-ln -s ../../../webapps/onPfDist && ln -s ../../../webapps/onServiceEndpoint 
+ln -s $r_path/onPfDist && ln -s $r_path/onServiceEndpoint 
 cd ${washome}/online/lib 
 ln -s ../webapps/onServiceEndpoint/WEB-INF/classes/log4j.xml 
 

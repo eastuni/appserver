@@ -1,0 +1,174 @@
+<!--
+@Screen number  CAPAS020
+@brief          담보지역을 관리합니다.
+@author         minhan zhao
+@history        2017.09.04      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPAS020-wrap">
+
+			<!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+                {{bxMsg 'cbb_items.SCRN#CAPAS020'}}
+                <p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPAS020'}}</p>
+                <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+            </h2>
+            <!--/END BW-TITLE-->
+
+            <!--BW-TOOL SEARCH CONDITION AREA * 아이콘 버튼을 포함하는 툴바-->
+            <section class="bw-tool add-bd2-t">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" id="btn-search-condition-reset" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn" id="btn-search-condition-inquire" title="{{bxMsg 'cbb_items.SCRNITM#search'}}"><i class="bw-icon i-30 i-func-search"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-search-condition-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+            
+            
+            <!--SEARCH CONDITION AREA * 검색 조건 영역-->
+            <section id="search-condition-area">
+                <section class="search-wrap">
+                    <table class="w-100">
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap asterisk clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#assetAddrRegionClCrtrCd'}}">{{bxMsg 'cbb_items.AT#assetAddrRegionClCrtrCd'}}</label>
+                                    <select class="bw-input w-60 ipt-select search-condition-area CAPAS020-assetAddrRegionClCrtrCd-wrap" data-form-param="assetAddrRegionClCrtrCd"></select>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                                <div class="input-wrap asterisk clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#baseDt'}}">{{bxMsg 'cbb_items.AT#baseDt'}}</label>
+									<input type="text" class="bw-input ipt-cal w-60" placeholder="{{bxMsg 'cbb_items.AT#baseDt'}}" data-form-param="baseDt"/>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#cityPrvncCd'}}">{{bxMsg 'cbb_items.AT#cityPrvncCd'}}</label>
+                                    <select class="bw-input w-60 ipt-select search-condition-area CAPAS020-cityPrvncCd-wrap" data-form-param="cityPrvncCd"></select>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#cityGunGuCd'}}">{{bxMsg 'cbb_items.AT#cityGunGuCd'}}</label>
+									<select class="bw-input w-60 ipt-select search-condition-area CAPAS020-cityGunGuCd-wrap" data-form-param="cityGunGuCd"></select>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                            	<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#emdongCd'}}">{{bxMsg 'cbb_items.AT#emdongCd'}}</label>
+									<select class="bw-input w-60 ipt-select search-condition-area CAPAS020-emdongCd-wrap" data-form-param="emdongCd"></select>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+            <!--/END SEARCH CONDITION AREA -->            
+            
+
+            <!--BW-TOOL Search Results Area * 아이콘 버튼을 포함하는 툴바-->
+            <div class="bw-tool add-bd2-t add-mg-t">
+                <div class="f-l">
+                    <h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-search-result-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-search-result-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-search-result-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </div>
+            <!--/END BW-TOOL-->
+
+
+            <!--Search Results Area * 검색결과 영역 (지역분류기준)-->
+            <section class="grid-wrap" id="search-result-area">
+                <!--GRID AREA -->
+                <div class="CAPAS020Grid" id="CAPAS020Grid"></div>
+                <!--/END GRID AREA-->
+            </section>
+            
+
+
+			<!-- 지역분류기준 속성 영역 -->
+			
+            <!--BW-TOOL Detail Information AREA * 아이콘 버튼을 포함하는 툴바-->
+            <div class="bw-tool add-bd2-t add-mg-t">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#baseAtrbt'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-detail-information-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-detail-information-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-detail-information-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </div>
+            <!--/END BW-TOOL-->
+            
+            
+            <section id="detail-information-area">
+                <section class="search-wrap">
+                    <table class="w-100">
+                        <tr>
+                            <td class="td-w-33">
+								<div class="input-wrap asterisk clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#assetAddrRegionClCrtrCd'}}">{{bxMsg 'cbb_items.AT#assetAddrRegionClCrtrCd'}}</label>
+                                    <select class="bw-input w-60 ipt-select detail-information-area CAPAS020-assetAddrRegionClCrtrCd-wrap" data-form-param="assetAddrRegionClCrtrCd"></select>
+								</div>
+                            </td>
+                            
+                            <td class="td-w-33">
+								<div class="input-wrap asterisk clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#aplyStartDt'}}">{{bxMsg 'cbb_items.AT#aplyStartDt'}}</label>
+									<input type="text" class="bw-input ipt-cal w-60" placeholder="{{bxMsg 'cbb_items.AT#aplyStartDt'}}" data-form-param="aplyStartDt"/>
+								</div>
+                            </td>
+                            
+                            <td class="td-w-33">
+								<div class="input-wrap asterisk clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#aplyEndDt'}}">{{bxMsg 'cbb_items.AT#aplyEndDt'}}</label>
+									<input type="text" class="bw-input ipt-cal w-60" placeholder="{{bxMsg 'cbb_items.AT#aplyEndDt'}}" data-form-param="aplyEndDt"/>
+								</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-w-33">
+								<div class="input-wrap add-btn asterisk clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#stutDongCd'}}">{{bxMsg 'cbb_items.AT#stutDongCd'}}</label>
+									<input type="text" class="bw-input w-60 detail-information-area" data-form-param="stutDongCd" />
+									<button type="button" class="bw-btn fix-r" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-stutDongCd-search"><i class="bw-icon i-20 i-search"></i></button>
+								</div>
+                            </td>
+                            <td class="td-w-33">
+                           		 <div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#stutDongAddrCntnt'}}">{{bxMsg 'cbb_items.AT#stutDongAddrCntnt'}}</label>
+									<input type="text" class="bw-input w-60 detail-information-area" data-form-param="stutDongAddrCntnt" />									
+								</div>
+                            </td>
+                            <td class="td-w-33">
+								<div class="input-wrap asterisk clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#assetAddrRegionClCd'}}">{{bxMsg 'cbb_items.AT#leaseRegionClCd'}}</label>
+									<select class="bw-input w-60 ipt-select detail-information-area CAPAS020-assetAddrRegionClCd-wrap" data-form-param="assetAddrRegionClCd"></select>
+								</div>
+                            </td>
+                        </tr>
+                     
+                    </table>                   
+                </section>
+            </section>
+
+        </section>
+    </section>
+</section>            

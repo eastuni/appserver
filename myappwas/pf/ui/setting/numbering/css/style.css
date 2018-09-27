@@ -1,0 +1,42 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for numbering
+ * 채번 CSS 
+ */
+.pf-nbrg .pf-page-conts {
+    margin: 10px auto; }
+.pf-nbrg th {
+    width: 110px;
+    text-align: left; }
+.pf-nbrg .numbering-query-table td {
+    line-height: 29px; }
+.pf-nbrg .numbering-query-table td input, .pf-crm .numbering-query-table td select {
+    width: 180px; }
+.pf-nbrg .numbering-query-table td .calendar {
+    width: 105.5px; }
+.pf-nbrg .numbering-query-table tr {
+    margin-bottom: 10px;
+    height: 35px; }
+.pf-nbrg .numbering-query-table .padding-th {
+    padding-left: 10px; }
+.pf-nbrg .btn-box {
+    margin-top: 10px;
+    text-align: right; }
+.pf-nbrg .numbering-grid {
+    height: 450px; }
+.pf-nbrg-tot-digit-cnt-add-popup .nbrg-tot-digit-cnt-grid {
+    height: 300px;
+}
+.pf-nbrg-ref-key-setting-popup .numbering-ref-key-grid-01 {
+	height:250px;
+}
+.pf-nbrg-ref-key-setting-popup .numbering-ref-key-grid-02 {
+	height:250px;
+}
+.pf-nbrg-ref-key-setting-popup .numbering-ref-key-grid-03 {
+	height:250px;
+}
+/* PFUI Grid CSS 수정그리드헤더 disabled처리 */
+.nbrg-tot-digit-cnt-grid .x-mask {
+	background:none;
+}

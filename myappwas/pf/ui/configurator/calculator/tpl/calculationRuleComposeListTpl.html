@@ -1,0 +1,13 @@
+<div class="calculation-rule-compose-list focus">
+	<div class="btn-right"></div>
+	<div class="btn-left"></div>
+	<input type="hidden" class="column-depth" />
+	<ul>
+		{{#each list}}
+		<li class="calculation-rule-compose-list-item ellipsis" value="{{this.calculationRuleComposeElementId}}"
+			icon-tooltip="[{{this.composeElementConditionCode}}] {{this.text}}">
+			<strong>[{{this.composeElementConditionCode}}]</strong><br />{{this.text}}
+			{{#if this.children}}<span class="child-arrow-right"></span>{{/if}}
+		</li> {{/each}}
+	</ul>
+</div>

@@ -1,0 +1,119 @@
+<!-- 기본 > 기본정보 관리 -->
+<div class="pf-panel">
+    <div class="pf-panel-header">
+        <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+        <h2 class="pf-panel-title">{{bxMsg 'DPM100HeaderSring1'}}</h2>
+
+        <div class="header-btn-group">
+            <!--<button class="bx-btn bx-btn-small pf-cp-view-history-btn ">{{bxMsg 'ButtonGrayString3'}}</button>-->
+            <button type="button" class="bw-btn pf-cp-view-history-btn" icon-tooltip="{{bxMsg 'ButtonGrayString3'}}">
+                    <i class="bw-icon i-25 i-func-history"></i>
+                </button>
+        </div>
+
+    </div>
+    <div class="pf-panel-body bx-info-table-wrap">
+        <table class="bx-info-table pf-cp-product-info-base-form">
+            <tr>
+                <th>{{bxMsg 'DPS0101String1'}}</th>
+                <td>
+                    <div class="product-base-info-firstCatalogId"></div>
+                    <input type="hidden" class="product-base-info-firstCatalogId-value" type="hidden" data-form-param="firstCatalogId" value="{{firstCatalogId}}">
+                </td>
+                <th>{{bxMsg 'DPS0101String2'}}</th>
+                <td>
+                    <div class="product-base-info-secondCatalogId">[{{secondCatalogId}}] {{secondCatalogName}}</div>
+                    <input type="hidden" class="product-base-info-secondCatalogId-value" data-form-param="secondCatalogId" value="{{secondCatalogId}}">
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'DPS0101String3'}}</th>
+                <td>
+                    <div class="product-base-info-pf-tpl-cd">[{{productTemplateCode}}] {{productTemplateName}}</div>
+                    <input type="hidden" class="product-base-info-pf-tpl-cd-value" data-form-param="productTemplateCode" value="{{productTemplateCode}}">
+                </td>
+                <th>{{bxMsg 'DPS0101String4'}}</th>
+                <td>
+                    <div data-form-param="code" data-value="{{code}}" class="product-base-info-code">{{code}}</div>
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'DPS0101String6'}}</th>
+                <td>
+                    <div class="product-base-info-mgmt-status"></div>
+                    <!--OHS 2017.04.04 수정 - 값매핑을위해 value수정 <input type="hidden" value="{{status}}" data-form-param="status">-->
+                    <input type="hidden" value="{{productStatus}}" data-form-param="productStatus">
+                </td>
+                <th>{{bxMsg 'DPS0101String5'}} <span class="red-notice">*</span></th>
+                <td>
+                    <input type="text" data-form-param="name" class="bx-form-item bx-compoenent-small length-check-input special mandatory product-name" value="{{name}}" />
+                    <!--
+						<button type="button" class="bw-btn product-tag-btn write-btn" icon-tooltip="상품태그">
+                        	<i class="bw-icon i-25 i-func-edit"></i>
+                    	</button>
+						-->
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'DPS0101String7'}}</th>
+                <td>
+                    <input name="start" data-form-param="saleStart" value="{{saleStart}}" class="bx-form-item bx-compoenent-small calendar start-date" type="text">
+                </td>
+                <th>{{bxMsg 'DPS0101String8'}}</th>
+                <td>
+                    <input name="end" data-form-param="saleEnd" value="{{saleEnd}}" class="bx-form-item bx-compoenent-small calendar end-date" type="text">
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'DPS0101String9'}}</th>
+                <td class="packageYn-check-td">
+                    <input type="checkbox" class="bx-form-item packageYn-check">
+                    <input type="hidden" class="packageYn-check-value" data-form-param="isCompositeProduct" value="{{isCompositeProduct}}">
+                    <input type="hidden" value="{{tntInstId}}" class="tntInstId">
+                </td>
+                <th>
+                    <!-- {{bxMsg 'productTypeDistinctionCode'}} -->
+                </th>
+                <td>
+                    <select hidden class="bx-compoenent-small bx-form-item product-type-distinction-code" data-form-param="productTypeDistinctionCode">
+                        </select>
+                </td>
+            </tr>
+        </table>
+
+        <div class="pf-base-package-grid-wrap">
+            <header class="grid-extra-header">
+                <button type="button" class="bw-btn add-rel-product-btn" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                        <i class="bw-icon i-25 i-func-add"></i>
+                    </button>
+            </header>
+            <div class="pf-base-package-grid">
+
+            </div>
+        </div>
+
+        <footer class="pf-panel-footer">
+            <button type="button" class="bw-btn pf-cp-product-info-delete-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString2'}}">
+                    <i class="bw-icon i-30 i-func-trash"></i>
+                </button>
+
+            <button type="button" class="bw-btn pf-cp-product-info-save-btn write-btn" data-status="{{status}}" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+                    <i class="bw-icon i-30 i-func-save"></i>
+                </button>
+        </footer>
+    </div>
+
+    <div class="pf-panel-body bx-info-table-wrap" style="margin-top: 10px; padding: 0 10px;">
+        <table class="bx-info-table pf-cp-product-hashtag-form">
+            <tr>
+                <th style="width: 120px;">{{bxMsg 'hashtag'}}</th>
+                <td colspan="3" style="position:relative;">
+                    <div class='hashtag'></div>
+                    <button type="button" class="bw-btn pf-cp-product-hashtag-save-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}" style="position: absolute; top: 0; right: 0;">
+							<i class="bw-icon i-30 i-func-save"></i>
+						</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

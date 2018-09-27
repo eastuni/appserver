@@ -1,0 +1,95 @@
+<div class="pf-cal-formula-editor-popup pf-panel">
+	<div class="pf-panel-body formula-editor-table-wrap">
+		<table class="bx-info-table formula-editor-table">
+			<tr>
+				<th class="formula-content-header">{{bxMsg 'formulaContent'}}</th>
+				<td><input type="text" data-form-param="formulaContent"
+					value="{{formulaContent}}"
+					class="bx-form-item bx-compoenent-small removeComma formula-content"
+					disabled>
+					<button type="button" class="bw-btn formula-validation-btn"
+						icon-tooltip="{{bxMsg 'validation'}}">
+						<i class="bw-icon i-25 i-func-submit2"></i>
+					</button></td>
+			</tr>
+			<tr>
+				<th>{{bxMsg 'conversionFormula'}}</th>
+				<td><textarea data-form-param="conversionContent"
+						class="bx-form-item conversion-content" disabled></textarea></td>
+			</tr>
+		</table>
+	</div>
+	<div class="pf-panel-body formula-editor-btn-wrap">
+		<table class="bx-info-table">
+			<tr>
+				<td>
+					<button type="button"
+						class="bw-btn formula-cal-btn large-btn text-input-btn"
+						value="case">case</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn large-btn text-input-btn"
+						value="min">min</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn large-btn text-input-btn"
+						value="max">max</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="(">(</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value=")">)</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="+">+</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="-">-</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="*">x</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="/">÷</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value=",">,</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn back-space-btn">←</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="0">0</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="1">1</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="2">2</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="3">3</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="4">4</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="5">5</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="6">6</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="7">7</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="8">8</button>
+					<button type="button"
+						class="bw-btn formula-cal-btn small-btn text-input-btn" value="9">9</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="pf-panel-body formula-editor-grid-wrap">
+		<table class="bx-info-table formula-editor-grid-table">
+			<tr>
+				<th class="cnd-type-header">{{bxMsg 'distinction'}}</th>
+				<td class="cnd-type-content"><select
+					class="bx-form-item bx-compoenent-small select-item cnd-type-select"
+					data-form-param="type"></select></td>
+				<th class="cnd-name-header">{{bxMsg 'cndNm'}}</th>
+				<td><input type="text"
+					class="bx-form-item bx-compoenent-small cnd-name-search"
+					data-form-param="name" placeholder="{{bxMsg 'fillInCondition'}}" /></td>
+			</tr>
+		</table>
+		<div class="formula-editor-grid"></div>
+	</div>
+</div>

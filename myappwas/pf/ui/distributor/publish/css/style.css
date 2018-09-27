@@ -1,0 +1,204 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for project type
+ * 개발과제유형 CSS 
+ */
+/*배포상태 멀티콤보*/
+.pf-publish .ms-options-wrap button {
+    width: 351px;
+    font-size:12px;
+    font-weight:normal;
+    padding-top: 1px;
+}
+.pf-publish .ms-options-wrap .ms-options {
+    width: 351px; }
+.pf-publish .pf-page-conts {
+    margin: 10px auto; }
+.pf-publish .pf-publish-grid {
+	height: 450px; }
+.new-execution-popup-test .bx-info-table-wrap {
+    padding-top: 0px; }
+.new-execution-popup-test .task-grid {
+    height: 100px;
+    margin-bottom: 10px; }
+.new-execution-popup-test .approval-grid {
+    height: 150px; }
+.new-execution-popup-test .bx-category-header {
+    margin-bottom: 10px; }
+.pf-publish-detail-tpl .pf-publish-detail-form {
+    margin-bottom: 10px; }
+.pf-publish-detail-tpl .pf-publish-detail-table {
+    margin-bottom: 5px; }
+.pf-publish-detail-tpl .button-footer {
+    text-align: right; }
+.pf-publish-detail-tpl .pf-publish-detail-grid {
+    height: 50px;
+    margin-bottom: 5px; }
+.pf-publish-detail-tpl .pf-publish-info {
+    height: 180px;
+    margin-bottom: 10px; }
+.pf-publish-detail-tpl .pf-publish-info .pf-approval-info {
+    width: 465px;
+    float: left; }
+.pf-publish-detail-tpl .pf-publish-info .pf-approval-info .pf-approval-info-grid {
+    height: 120px;
+    margin-bottom: 5px; }
+.pf-publish-detail-tpl .pf-publish-info .pf-publish-target-info {
+    width: 465px;
+    float: right; }
+.pf-publish-detail-tpl .pf-publish-info .pf-publish-target-info .pf-publish-target-sys-grid {
+    height: 120px;
+    margin-bottom: 5px; }
+
+.pf-publish-detail-tpl .pf-publish-detail-table input {
+    width:166px;
+}
+
+.pf-publish-result-list-wrap {
+    border-right: 1px solid #aaa;
+    width: 600px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    float: left; }
+.pf-publish-result-list-wrap .pf-publish-result-grid {
+    height: 400px; }
+
+.pf-publish-result-info-wrap {
+    float: left;
+    width: 326px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px; }
+.pf-publish-result-info-wrap .publish-info-detail {
+    height: 375px; 
+}
+.pf-publish-result-info-wrap .republish-btn {
+    float: right;
+    margin-right: -51px;
+}
+.pf-publish-detail-header {
+    height: 63px; }
+.pf-publish-detail-header .td-width {
+    width: 106px; }
+.pf-publish-detail-header button {
+    float:right;
+}
+.add-project-popup .popup-project-grid {
+    height: 200px; }
+.add-approval-popup .add-approval-popup-grid {
+    height: 230px; }
+.add-target-sys-popup .add-target-sys-popup-grid {
+    height: 230px; }
+.pd-info-change-grid-wrap .pd-info-change-grid {
+    height: 420px; }
+.pd-info-change-detail-wrap {
+    height: 520px;
+    overflow: auto; }
+/*th width*/
+.pf-publish th {
+    width:100px;
+}
+/*input box width 조절, type=text만 적용함. 멀티콤보css처리이상*/
+.pf-publish .pf-publish-form td input[type=text] {
+    width: 351px; }
+
+/*일자 width*/
+.pf-publish .pf-publish-form td .calendar {
+    width: 168px !important;
+}
+
+/*Select options 커스토마이징*/
+.ms-options-wrap > button:focus, .ms-options-wrap > button {
+    height:20px;
+}
+/*화살표*/
+.ms-options-wrap > button:after {
+    top:5px;
+    padding-bottom:10px;
+    padding-left:20px;
+    margin-top:-4px;
+    border:2px solid rgba(0, 0, 0, 0);
+    background: white url(/images/bx-ui/arrow-btm-pf.png) no-repeat;
+    background-size: 20px;
+}
+
+/*탭간격조절*/
+.nav-tabs .pfui-tab-item-text {
+    margin-right:-1px;
+    width:120px;
+}
+
+/*배포승인정보, 배포대상시스템 아이콘*/
+.pf-approval-info .grid-extra-header .grid-extra-header .bw-btn, .pf-publish-target-info .grid-extra-header .bw-btn {
+    margin-top : -2px;
+    margin-right: -3px;
+}
+/*배포결과*/
+.pf-publish-result .pf-publish-result-list-wrap .grid-extra-header,
+.pf-publish-result-info-wrap  .grid-extra-header {
+    font-size: 13px;
+    font-weight: 600;
+    color: #515151;
+}
+
+/*  */
+.pd-info-change-grid .x-tree-node-text {
+    margin-top: 24%;
+}
+.pd-info-change-grid .x-tree-icon-parent {
+	width:0px;
+	background-image: none;
+}
+.pd-info-change-grid .x-tree-panel .x-grid-row .x-grid-cell-inner img {
+    float: left;
+    /* margin-top:13px; */
+    margin-top:8px;
+}
+
+/* .pd-info-change-grid .x-tree-elbow-end-plus,  */
+.pd-info-change-grid .x-tree-elbow-plus {
+    cursor: pointer !important;
+    height: 18px !important;
+  		width: 16px !important;
+  		margin-top: 10px;
+}
+  .pd-info-change-grid .x-tree-expander {
+	margin-left:0px;
+	/* background-image: url(images/tree/arrows.gif) !important; */
+}
+.pd-info-change-grid .x-tree-elbow-line, .pd-info-change-grid .x-tree-elbow-empty {
+	margin-left:17px;
+}
+
+.pd-info-change-grid .x-grid-td {
+    border-bottom-width: 1px !important;
+}
+.pd-info-change-grid .x-tree-icon-leaf {
+	background-image : none;
+}
+
+.pd-info-change-grid .x-grid-cell-inner {
+	padding:3px 6px 4px 6px !important;
+}
+
+.pd-info-change-grid .x-tree-icon, .x-tree-elbow-img, .x-tree-checkbox {
+	margin-top: 0px;
+  		margin-bottom: -10px;
+}
+
+.x-grid-row-alt .x-grid-td {
+    background-color: #fafafa;
+}
+.pd-info-change-grid .x-tree-icon-leaf {
+	display:none;
+}
+
+.pd-info-change-grid .x-grid-row-before-focused .x-grid-td {
+    border-bottom-style: dotted;
+    border-bottom-color: #464646;
+    border-bottom-width: 1px;
+}
+.pd-info-change-grid .x-grid-with-row-lines .x-grid-td {
+    border-bottom-width: 1px;
+}

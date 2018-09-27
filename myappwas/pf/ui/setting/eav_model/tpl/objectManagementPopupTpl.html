@@ -1,0 +1,38 @@
+<!-- 오브젝트관리 신규 팝업 -->
+<div class="eav-object-management-popup">
+    <table class="bx-info-table pf-eav-object-manage-form">
+        <tr>
+            <th>{{bxMsg 'ObjectId'}}</th>
+            <!-- 오브젝트ID -->
+            <td>
+                <input type="text" class="bx-form-item bx-compoenent-small objectId" value="{{objectId}}" maxlength="50" data-form-param="objectId" />
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'ObjectName'}}</th>
+            <!-- 오브젝트명(필수) -->
+            <td>
+                <input type="text" class="bx-form-item bx-compoenent-small length-check-input mandatory objectName only-english" maxlength="100" value="{{objectName}}" data-form-param="objectName" />
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'EVAObjectDescription'}}</th>
+            <!-- 오브젝트설명 -->
+            <td>
+                <!-- <input type="text"
+                           class="bx-form-item bx-compoenent-small length-check-input objectDescription"
+                           value="{{objectDescription}}" data-form-param="objectDescription"/> -->
+
+                <textarea class="bx-form-item bx-compoenent-small length-check-input objectDescription" data-form-param="objectDescription" maxlength="500" style="resize:none;">{{objectDescription}}</textarea>
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'ObjectTypeDscd'}}</th>
+            <!-- 오브젝트유형구분코드(필수) -->
+            <td>
+                <select class="bx-form-item bx-compoenent-small select-item mandatory cls-str-obj-tp-dscd-select" data-form-param="objectTypeDscd">
+                    </select>
+            </td>
+        </tr>
+    </table>
+</div>

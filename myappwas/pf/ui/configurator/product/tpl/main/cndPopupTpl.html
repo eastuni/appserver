@@ -1,0 +1,22 @@
+<div class="add-cnd-popup">
+    <div class="search-box">
+        <header class="popup-cnd-tpl-grid-header grid-extra-header">
+            <div class="header-group">
+                <span class="ref-condition-item">{{bxMsg 'DPP0127String3'}}: </span>
+                <select class="bx-form-item bx-compoenent-small select-item cnd-type-select ref-condition-item">
+                    </select> {{bxMsg 'DTP0203String2'}}: <input type="text" class="bx-form-item bx-compoenent-small cnd-name-search" />
+
+                <button type="button" class="bw-btn cnd-tpl-search" icon-tooltip="{{bxMsg 'ButtonBottomString4'}}">
+                        <i class="bw-icon i-25 i-search"></i>
+                    </button>
+            </div>
+        </header>
+        <header class="preference-interest-search">
+            <div class="header-group">
+                <span>{{bxMsg 'searchBaseDate'}} </span><input type="text" name="start" data-form-param="applyStart" class="bx-form-item bx-compoenent-small preference-interest-search-base calendar-all start-date" value="{{applyStart}}" />
+                <!--<button class="bx-btn bx-btn-small preference-interest-search-btn">{{bxMsg 'ButtonBottomString5'}}</button>-->
+            </div>
+        </header>
+        <div class="popup-cnd-grid"></div>
+    </div>
+</div>

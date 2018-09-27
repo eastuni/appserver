@@ -1,0 +1,14 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for Base Interest Management
+ * 기준금리관리 CSS 
+ */
+.pf-ci .pf-page-conts { margin: 10px auto; }
+.pf-ci th { width: 110px;text-align: left; }
+.pf-ci .base-int-query-table td { line-height: 29px; }
+.pf-ci .base-int-query-table td input, .pf-ci .base-int-query-table td select { width: 230px; }
+.pf-ci .base-int-query-table td .calendar { width: 105.5px; }
+.pf-ci .base-int-query-table tr { margin-bottom: 10px;height: 35px; }
+.pf-ci .base-int-query-table .padding-th { padding-left: 10px; }
+.pf-ci .dev-task-base-int-grid { height: 200px; }
+.pf-ci .middle-grid { height: 350px; }

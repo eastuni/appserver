@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CONFIGURATION PORTAL</title>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+<link rel="stylesheet" href="common/css/sweetalert.css" type="text/css">
+<link rel="stylesheet" href="common/css/style.css" type="text/css" />
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="common/scripts/sweetalert-dev.js"></script>
+<script src="common/scripts/default.js" type="text/javascript"></script>
+</head>
+<!-- **********스타일 가이드 사용방법 *************
+기본 프레임은 (header,Content-wrap 등) 그대로 두시고,
+기본프레임 안쪽에 있는 주석들만 사용해 주세요.
+
+	<!-MODULE(DASHBOARD STYE) ->
+		........
+	<!- /END MODULE(DASHBOARD STYLE) ->
+
+위와 같이 주석으로 감싸여 있는 덩어리만
+그대로 가지고 가시면 됩니다.
+
+사용하시다 어려우신 점이 있으시다면 
+아래의 연락처로 연락주세요 
+- 010-2677-6768 (AM9:00~PM6:00 토,일,공휴일 제외)
+
+최종 업데이트일  2016-05-22 PM 5:15 JH KIM 
+뱅크웨어글로벌 Web UI/UX팀 김지현
+************************************************-->
+<body>
+<!--HEADER-->
+<header class="header hd1">
+	<section class="header-tool">
+		<ul class="bw-util">
+			<li>
+				<select class="bw-input ipt-select">
+					<option value="1">AA은행</option>
+					<option value="2">AA은행</option>
+				</select>
+			</li>
+			<li>
+				<i class="bw-icon i-30 i-cal"></i>
+				<span class="bw-input">2016-03-29</span>
+			</li>
+			<li>
+				<i class="bw-icon i-30 i-dept"></i>
+				<span class="bw-input">계정계 개발</span>
+			</li>
+			<li>
+				<i class="bw-icon i-30 i-log"></i>
+				<span class="bw-input">sysAdmin 관리자</span>
+			</li>
+			<li>
+				<button type="button" class="bw-btn" title="로그아웃"><i class="bw-icon i-30 i-exit"></i></button>
+			</li>
+		</ul>
+	</section>
+	<section class="header-main">
+		<h1 class="logo"><a href="#">Configuration portal</a></h1>
+		<section class="header-menu">
+			<ul class="bw-menu">
+				<li class="on"><a href="#">시스템 운영</a></li>
+				<li><a href="#">사용자 인터페이스</a></li>
+				<li><a href="#">업무규칙</a></li>
+				<li><a href="#">사용자</a></li>
+				<li><a href="#">사전/메시지</a></li>
+				<li><a href="#">시스템 환경설정</a></li>
+				<li><a href="#">워크플로우</a></li>
+			</ul>
+		</section>
+	</section>
+</header>
+<!--/END HEADER-->
+<!--MAIN WRAP-->
+<section class="main-wrap">
+	<!--LEFT AREA-->
+	<aside class="aside">
+		<ul class="fav">
+			<li onclick="doLayerPopup();" class="bw-btn" title="화면">
+				<i class="bw-icon i-30 i-mng-screen"></i>
+			</li>
+			<li onclick="doLayerPopup();" class="bw-btn" title="온라인 서비스">
+				<i class="bw-icon i-30 i-mng-online"></i>
+			</li>
+			<li onclick="doLayerPopup();" class="bw-btn" title="배치">
+				<i class="bw-icon i-30 i-mng-layout"></i>
+			</li>
+			<li onclick="doLayerPopup();" class="bw-btn on" title="센터컷">
+				<i class="bw-icon i-30 i-mng-centercut"></i>
+			</li>
+			<li onclick="doLayerPopup();" class="bw-btn" title="인터페이스" >
+				<i class="bw-icon i-30 i-mng-interface"></i>
+			</li>
+			<li onclick="doLayerPopup();" class="bw-btn" title="로그">
+				<i class="bw-icon i-30 i-mng-log"></i>
+			</li>
+		</ul>
+		<button type="button" class="bw-btn-fold fix-btm" id="menu_open" ><i class="fa i-30 fa-angle-double-right"></i></button>
+	</aside>
+	<!--LNB-->
+	<nav id="side_menu" class="side-nav add-shadow">
+		<section id="main-menu" class="main-menu">
+			<!--ACCORDION MENU-->
+			<div id="accordion" class="bw-accordion">
+				<h3 class="clr-bd-t"><i class="bw-icon i-30 i-mng-screen"></i>화면</h3>
+				<div>
+					<ul class="bw-sub">
+						<li>화면</li>
+					</ul>
+				</div>
+				<h3><i class="bw-icon i-30 i-mng-online"></i>온라인 서비스</h3>
+				<div>
+					<ul class="bw-sub">
+						<li>서비스</li>
+						<li>사용서비스</li>
+						<li>서비스입력검증</li>
+						<li>서비스프로파일속성</li>
+						<li>서비스프로파일</li>
+						<li>서비스제어</li>
+						<li>서비스제한</li>
+					</ul>
+				</div>
+				<h3><i class="bw-icon i-30 i-mng-layout"></i>배치</h3>
+				<div>
+					<ul class="bw-sub">
+						<li>배치 작업 모니터링</li>
+						<li>배치 데몬 모니터링</li>
+						<li>배치 작업 관리</li>
+						<li>배치 작업 그룹 관리</li>
+						<li>배치 데몬 관리</li>
+						<li>대쉬보드</li>
+					</ul>
+				</div>
+				<h3><i class="bw-icon i-30 i-mng-centercut"></i>센터컷</h3>
+				<div>
+					<ul class="bw-sub">
+						<li>영업일자 관리(팝업)</li>
+						<li>테스트 파라미터 관리</li>
+						<li>전체 거래 제어 관리</li>
+						<li>거래 메시지 관리</li>
+						<li>DW 대상 테이블 관리</li>
+					</ul>
+				</div>
+				<h3><i class="bw-icon i-30 i-mng-interface"></i>인터페이스</h3>
+				<div>
+					<ul class="bw-sub">
+						<li>어플리케이션 배포 관리</li>
+						<li>배포 이력</li>
+					</ul>
+				</div>
+				<h3><i class="bw-icon i-30 i-mng-log"></i>로그</h3>
+				<div>
+					<ul class="bw-sub">
+						<li>Admin설정</li>
+						<li>OnDemand 배치 URL 관리</li>
+						<li>Studio 설정 관리</li>
+						<li>공통 코드 관리</li>
+						<li>역할 관리</li>
+						<li>메뉴 관리</li>
+						<li>권한 관리</li>
+						<li>사용자 관리</li>
+					</ul>
+				</div>
+			</div>
+			<!--/END ACCORDIAN MENU-->
+			<button type="button" class="bw-btn-fold fix-btm" id="menu_close"><i class="fa i-30 fa-angle-double-left"></i></button>
+		</section>
+	</nav>
+	<!--/END LNB-->
+	<!--/END LEFTAREA-->
+	<!--MAIN(RIGHTAREA)-->
+	<section class="main">
+		<!--MAIN TAB AREA-->
+		<section class="main-tab">
+			<ul class="tab-list">
+				<li class="on">
+					<p>온라인 로그 조회</p>
+					<button type="button" class="bw-btn"><i class="bw-icon i-25 i-close"></i></button>
+					<span class="after"></span>
+					<span class="before"></span>
+				</li>
+				<li>
+					<p>온라인 로그 조회</p>
+					<button type="button" class="bw-btn"><i class="bw-icon i-25 i-close"></i></button>
+					<span class="after"></span>
+					<span class="before"></span>
+				</li>
+				<li>
+					<p>온라인 로그 조회</p>
+					<button type="button" class="bw-btn"><i class="bw-icon i-25 i-close"></i></button>
+					<span class="after"></span>
+					<span class="before"></span>
+				</li>
+				<li>
+					<p>온라인 로그 조회</p>
+					<button type="button" class="bw-btn"><i class="bw-icon i-25 i-close"></i></button>
+					<span class="after"></span>
+					<span class="before"></span>
+				</li>
+				<li>
+					<p>온라인 로그 조회</p>
+					<button type="button" class="bw-btn"><i class="bw-icon i-25 i-close"></i></button>
+					<span class="after"></span>
+					<span class="before"></span>
+				</li>
+			</ul>
+			<div class="btn-util">
+				<button type="button" class="bw-btn" disabled><i class="fa fa-angle-left"></i></button>
+				<button type="button" class="bw-btn on"><i class="fa fa-angle-right"></i></button>
+			</div>
+		</section>
+		<!--/END MAIN TAB AREA-->
+		<!--MAIN CONTENTS AREA-->
+		<section class="main-contents">
+			<!--BW-TITLE *컨텐츠 메인 타이틀-->
+			<h2 class="bw-tt">
+				화면
+				<p class="desc">화면을 등록/수정할 수 있습니다. 여기서 등록되지 않은 화면은 사용화면에서 조회할 수 없습니다.</p>
+			</h2>
+			<!--/END BW-TITLE-->
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<section class="bw-tool add-bd2-t">
+				<div class="btn-wrap fix-r"><!--*2016/04/26추가-->
+					<button type="button" class="bw-btn alert-reset" title="검색조건 초기화"><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn" title="검색" onclick="doLayerPopup();"><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr" onclick="doLayerPopup1();"><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+			<!--/END BW-TOOL-->
+			<!--SEARCH AREA * 검색 영역-->
+			<section class="search-wrap" id="bw-modal1">
+				<!--INPUT TYPE3 * 균등 3분할 -->
+				<ul class="col-3 clr">
+					<li>
+						<div class="input-wrap clr">
+							<label class="bw-label w-30">컴포넌트</label>
+							<select class="bw-input w-70 ipt-select">
+								<option value="1">전체</option>
+								<option value="2">거래코드</option>
+								<option value="3">거래코드</option>
+							</select>
+						</div>
+					</li>
+					<li>
+						<div class="input-wrap clr">
+							<label class="bw-label w-30">화면식별자</label>
+							<input type="text" class="bw-input w-70" value="전체" />
+						</div>
+					</li>
+					<li class="l-c">
+						<div class="input-wrap clr">
+							<label class="bw-label w-30">화면명</label>
+							<input type="text" class="bw-input w-70" value="전체"/>
+						</div>
+					</li>
+				</ul>
+				<section class="sub-section clr-mg-b">
+					<h4>추가 검색 조건</h4>
+					<ul class="col-3 clr">
+						<li>
+							<div class="input-wrap clr">
+								<label class="bw-label w-40">화면영문명</label>
+								<input type="text" class="bw-input w-60" value="전체" />
+							</div>
+						</li>
+						<li>
+							<div class="input-wrap clr">
+								<label class="bw-label w-55">메뉴대상화면여부</label>
+								<select class="bw-input w-45 ipt-select">
+									<option value="1">전체</option>
+									<option value="2">거래코드</option>
+									<option value="3">거래코드</option>
+								</select>
+							</div>
+						</li>
+					</ul>
+				</section>
+				<!--/END INPUT TYPE3-->
+			</section>
+			<!--/END SEARCH AREA-->
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<section class="bw-tool sub-tool">
+				<div class="f-l">
+					<h3 class="bw-desc">추가 검색 조건</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"><i class="bw-icon i-30 i-func-open"></i></button>
+				</div>
+			</section>
+			<!--/END BW-TOOL-->
+			<!--SEARCH AREA * 검색 영역-->
+			<section class="search-wrap add-bg" id="bw-modal1">
+				<!--INPUT TYPE3 * 균등 3분할 -->
+				<ul class="col-3 clr">
+					<li class="l-line">
+						<div class="input-wrap clr">
+							<label class="bw-label w-40">화면영문명</label>
+							<input type="text" class="bw-input w-60" value="전체" />
+						</div>
+					</li>
+					<li class="l-line">
+						<div class="input-wrap clr">
+							<label class="bw-label w-55">메뉴대상화면여부</label>
+							<select class="bw-input w-45 ipt-select">
+								<option value="1">전체</option>
+								<option value="2">거래코드</option>
+								<option value="3">거래코드</option>
+							</select>
+						</div>
+					</li>
+				</ul>
+				<!--/END INPUT TYPE3-->
+			</section>
+			<!--/END SEARCH AREA-->
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<div class="bw-tool add-bd2-t add-mg-t">
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn"><i class="bw-icon i-30 i-func-save"></i></button>
+					<button type="button" class="bw-btn"><i class="bw-icon i-30 i-func-xls"></i></button>
+					<button type="button" class="bw-btn b-ctr" onclick="doLayerPopup2();"><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</div>
+			<!--/END BW-TOOL-->
+			<!--BW-GRID * 그리드 영역-->
+			<div class="bw-grid add-bd add-scroll" id="bw-modal2">
+				<table>
+					<colgroup>
+						<col width="50px;"/>
+						<col width=""/>
+						<col width=""/>
+						<col width=""/>
+						<col width=""/>
+						<col width=""/>
+						<col width=""/>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>No.</th>
+							<th>컴포넌트</th>
+							<th>화면식별자</th>
+							<th>화면번호</th>
+							<th>화면명</th>
+							<th>메뉴대상화면여부</th>
+							<th>삭제</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>고객서비스</td>
+							<td>MCU125</td>
+							<td>MCU125</td>
+							<td>회원가입</td>
+							<td><i class="fa fa-check-circle chr-c-blue"></i></td>
+							<td>
+								<button type="button" class="bw-btn"><i class="bw-icon i-25 i-func-trash"></i></button>
+							</td>
+						</tr>
+						<tr class="selected">
+							<td>2</td>
+							<td>고객서비스</td>
+							<td>MCU125</td>
+							<td>MCU125</td>
+							<td>회원가입</td>
+							<td><i class="fa fa-check-circle chr-c-blue"></i></td>
+							<td>
+								<button type="button" class="bw-btn"><i class="bw-icon i-25 i-func-trash"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>고객서비스</td>
+							<td>MCU125</td>
+							<td>MCU125</td>
+							<td>회원가입</td>
+							<td><i class="fa fa-check-circle chr-c-blue"></i></td>
+							<td>
+								<button type="button" class="bw-btn"><i class="bw-icon i-25 i-func-trash"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>고객서비스</td>
+							<td>MCU125</td>
+							<td>MCU125</td>
+							<td>회원가입</td>
+							<td><i class="fa fa-check-circle chr-c-blue"></i></td>
+							<td>
+								<button type="button" class="bw-btn"><i class="bw-icon i-25 i-func-trash"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>고객서비스</td>
+							<td>MCU125</td>
+							<td>MCU125</td>
+							<td>회원가입</td>
+							<td><i class="fa fa-check-circle chr-c-blue"></i></td>
+							<td>
+								<button type="button" class="bw-btn"><i class="bw-icon i-25 i-func-trash"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>고객서비스</td>
+							<td>MCU125</td>
+							<td>MCU125</td>
+							<td>회원가입</td>
+							<td><i class="fa fa-check-circle chr-c-blue"></i></td>
+							<td>
+								<button type="button" class="bw-btn"><i class="bw-icon i-25 i-func-trash"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>고객서비스</td>
+							<td>MCU125</td>
+							<td>MCU125</td>
+							<td>회원가입</td>
+							<td><i class="fa fa-check-circle chr-c-blue"></i></td>
+							<td>
+								<button type="button" class="bw-btn"><i class="bw-icon i-25 i-func-trash"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>고객서비스</td>
+							<td>MCU125</td>
+							<td>MCU125</td>
+							<td>회원가입</td>
+							<td><i class="fa fa-check-circle chr-c-blue"></i></td>
+							<td>
+								<button type="button" class="bw-btn"><i class="bw-icon i-25 i-func-trash"></i></button>
+							</td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td>고객서비스</td>
+							<td>MCU125</td>
+							<td>MCU125</td>
+							<td>회원가입</td>
+							<td><i class="fa fa-check-circle chr-c-blue"></i></td>
+							<td>
+								<button type="button" class="bw-btn"><i class="bw-icon i-25 i-func-trash"></i></button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!--/END BW-GRID-->
+			<!--ACCORDION MENU * 컨텐츠용 아코디언 메뉴-->
+			<div id="accordion2" class="bw-accordion add-bd add-mg-t">
+				<h3>화면상세
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn"><i class="bw-icon i-30 i-func-refresh"></i></button>
+						<button type="button" class="bw-btn"><i class="bw-icon i-30 i-func-save"></i></button>
+					</div>
+				</h3>
+				<div>
+					<ul class="bw-form fix-center col-3">
+						<li>
+							<label class="bw-label ipt-s">컴포넌트<i class="fa fa-question-circle chr-c-yellow2" title="상세설명"></i></label>
+							<select class="bw-input ipt-select w-60">
+								<option value="1">Default</option>
+								<option value="2">1</option>
+							</select>
+						</li>
+						<li>
+							<label class="bw-label unit w-40">화면식별자<i class="fa fa-question-circle chr-c-yellow2" title="상세설명"></i></label>
+							<input type="text" class="bw-input w-55" placeholder="none" />
+						</li>
+						<li>
+							<label class="bw-label unit w-50">화면번호<i class="fa fa-question-circle chr-c-yellow2" title="상세설명"></i></label>
+							<input type="text" class="bw-input w-45" placeholder="MCU127" />
+						</li>
+						<li>
+							<label class="bw-label ipt-s">화면명<i class="fa fa-question-circle chr-c-yellow2" title="상세설명"></i></label>
+							<input type="text" class="bw-input w-60" placeholder="고객정보 입력" />
+						</li>
+						<li>
+							<label class="bw-label unit w-40">화면영문명<i class="fa fa-question-circle chr-c-yellow2" title="상세설명"></i></label>
+							<input type="text" class="bw-input w-55" placeholder="Customer Information" />
+						</li>
+						<li>
+							<label class="bw-label unit w-50">메뉴대상화면여부<i class="fa fa-question-circle chr-c-yellow2" title="상세설명"></i></label>
+							<select class="bw-input ipt-select w-45">
+								<option value="1">Y</option>
+								<option value="2">1</option>
+							</select>
+						</li>
+						<li class="w-100 clr-fix">
+							<label class="bw-label ipt-s">화면URL주소</label>
+							<input type="text" class="bw-input w-70" value="/mobile/page/MCU/127/MCU127" disabled/> 
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--/END ACCORDIAN MENU-->
+		</section>
+		<!--/END MAIN CONTENTS-->
+	</section>
+	<!--/END MAIN(RIGHTAREA)-->
+</section>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<div class="pf-cal-determine-condition-popup-tpl">
+	<div class='pf-panel'>
+		<div class='bx-info-table-wrap'>
+			<table class='bx-info-table'>
+				<tr>
+					<th>
+						<!-- 일련번호 --> {{bxMsg 'DAS0101String11'}}
+					</th>
+					<td colspan="3"><input type="text"
+						data-form-param="judgementConditionSequenceNumber"
+						class="bx-form-item bx-compoenent-small input-140px judgementConditionSequenceNumber"
+						value="{{judgementConditionSequenceNumber}}" disabled /></td>
+					<td>
+						<button type="button" class="bw-btn determine-condition-history-btn"
+							icon-tooltip="{{bxMsg 'ButtonGrayString3'}}">
+							<i class="bw-icon i-25 i-func-history"></i>
+						</button>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<!-- 조건코드/상태--> {{bxMsg 'DPP0127String1'}}
+					</th>
+					<td colspan="3"><input type="text"
+						data-form-param="conditionCode"
+						class="bx-form-item bx-compoenent-small input-140px"
+						value="{{conditionCode}}" disabled /> <input type="hidden"
+						data-form-param="conditionTypeCode"
+						class="bx-form-item bx-compoenent-small determine-condition-type input-140px"
+						value="{{conditionTypeCode}}" disabled /> <input type="hidden"
+						data-form-param="conditionStatusCode"
+						class="bx-form-item bx-compoenent-small determine-condition-status input-140px"
+						value="{{conditionStatusCode}}" disabled /> <input type="text"
+						class="bx-form-item bx-compoenent-small input-140px determine-condition-status-name"
+						disabled /></td>
+				</tr>
+				<tr>
+					<th>
+						<!-- 조건명 --> {{bxMsg 'DPP160_String3'}}
+					</th>
+					<td colspan="3"><input type="text"
+						data-form-param="conditionName"
+						class="bx-form-item bx-compoenent-small input-140px determine-condition-nm"
+						value="{{conditionName}}" disabled /></td>
+				</tr>
+				<tr>
+					<th>{{bxMsg 'applyPeriod'}}</th>
+					<!-- 적용시작일자 -->
+					<td colspan="3"><input name="start"
+						class="bx-form-item bx-compoenent-small calendar start-date small-input"
+						type="text" data-form-param="applyStartDate"
+						value="{{applyStartDate}}"> ~ <input name="end"
+						class="bx-form-item bx-compoenent-small calendar end-date small-input"
+						type="text" data-form-param="applyEndDate"
+						value="{{applyEndDate}}"></td>
+				</tr>
+				<tr>
+					<th>{{bxMsg 'valueComputationMethod'}}</th>
+					<td><select
+						data-form-param="valueComputationMethodDistinctionCode"
+						class="bx-form-item bx-compoenent-small value-computation-method-distinction-code"></select></td>
+				</tr>
+				<tr class="val-method-selective-input val-method-02">
+					<th>{{bxMsg 'className'}}</th>
+					<td colspan="3"><input type="text"
+						class="bx-form-item bx-compoenent-small class-name"
+						data-form-param="className" value="{{className}}" /></td>
+				</tr>
+				<tr class="val-method-selective-input val-method-04">
+					<th>{{bxMsg 'referenceConditionCode'}}/{{bxMsg 'name'}}</th>
+					<td class="ellipsis" colspan="3"><input type="text"
+						class="bx-form-item bx-compoenent-small reference-condition-code small-input"
+						data-form-param="referenceConditionCode"
+						value="{{referenceConditionCode}}" /> / <span
+						class="reference-condition-name">{{referenceConditionName}}</span></td>
+				</tr>
+				<tr class="val-method-selective-input val-method-06">
+					<th>{{bxMsg 'referenceObjectName'}}</th>
+					<td><select
+						class="bx-form-item bx-compoenent-small reference-object-name"
+						data-form-param="referenceObjectName">
+					</select></td>
+					<th>{{bxMsg 'referenceAttributeName'}}</th>
+					<td><select
+						class="bx-form-item bx-compoenent-small reference-attribute-name"
+						data-form-param="referenceAttributeName">
+					</select></td>
+				</tr>
+			</table>
+			<div class="val-method-selective-input val-method-04">
+				<!-- 목록조건 목록코드 -->
+				<div class="determine-condition-type1-wrap">
+					<header class="grid-extra-header">
+						<span>{{bxMsg 'determineConditionVal'}}</span>
+					</header>
+					<div class="determine-condition-list-code-grid"></div>
+				</div>
+				<!-- 범위조건 범위값-->
+				<div class="determine-condition-type2-wrap">
+					<header class="grid-extra-header">
+						<span>{{bxMsg 'determineConditionVal'}}</span>
+					</header>
+					<div class="bx-info-table-wrap">
+						<table class="bx-info-table">
+							<tr>
+								<th>
+									<!-- 최소값 --> {{bxMsg 'minVal'}}
+								</th>
+								<td><input type="text" data-form-param="minValue"
+									class="bx-form-item bx-compoenent-small input-140px input-align-right range-input"
+									value="{{minValue}}" /></td>
+							</tr>
+							<tr>
+								<th>
+									<!-- 최대값--> {{bxMsg 'maxVal'}}
+								</th>
+								<td><input type="text" data-form-param="maxValue"
+									class="bx-form-item bx-compoenent-small input-140px input-align-right range-input"
+									value="{{maxValue}}" /></td>
+							</tr>
+							<tr class="determine-condition-currency-code">
+								<th>
+									<!-- 통화 --> {{bxMsg 'currencyCode'}}
+								</th>
+								<td><select data-form-param="currencyCode"
+									class="bx-form-item bx-compoenent-small determine-condition-currency-code-combo"
+									value="{{currencyCode}}">
+								</select></td>
+							</tr>
+							<tr class="determine-condition-measure-code">
+								<th>
+									<!-- 측정단위 --> {{bxMsg 'DPS0121_1String5'}}
+								</th>
+								<td><select data-form-param="measureUnitCode"
+									class="bx-form-item bx-compoenent-small determine-condition-measurement-unit-code-combo"
+									value="{{measureUnitCode}}">
+								</select></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

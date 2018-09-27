@@ -1,0 +1,77 @@
+/* component/filter-display.scss */
+
+.set-filter-display-wrap {
+    position: relative;
+    margin-top: 10px;
+    padding-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    .filter-display-title {
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        background: white;
+        padding: 0 5px;
+        font-size: 13px;
+    }
+
+    .filter-conts {
+        padding: 5px;
+    }
+
+    .filter-operators {
+        padding: 5px;
+        border-top: 1px solid #ddd;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+
+        background: #eee;
+        text-align: right;
+
+
+        .bx-btn {
+            width: 100px;
+
+            &:first-child {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .filter-item {
+        position: relative;
+        display: inline-block;
+        margin: 3px 5px;
+        padding: 6px 19px 6px 6px;
+        height: 2em;
+
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        text-align: center;
+
+        line-height: 1em;
+        background: #f3f6fa;
+
+        .item-delete-btn {
+            position: absolute;
+            top: 6px;
+            right: 3px;
+            height: 12px;
+            width: 12px;
+        }
+
+        .filter-label {
+            margin-right: 10px;
+
+            &:after {
+                content: ':';
+            }
+        }
+
+        .filter-value:last-child {
+            border-right: 1px solid #ccc;
+            padding-right: 5px;
+        }
+    }
+}

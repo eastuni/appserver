@@ -1,0 +1,66 @@
+<!-- 역할별사용자관리 -->
+<div class="pf-panel">
+    <div class="pf-panel-header">
+        <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+        <h2 class="pf-panel-title">{{bxMsg 'RoleUserMgmt'}}</h2>
+        <!-- 역할별사용자관리 -->
+    </div>
+    <div class="pf-panel-body bx-info-table-wrap">
+        <div class="pf-cru-role-user-list-form">
+            <table class="role-user-query-table bx-info-table">
+                <tr>
+                    <th>{{bxMsg 'Role'}}</th>
+                    <!-- 역할 -->
+                    <td>
+                        <select class="bx-compoenent-small bx-form-item bx role-select" data-form-param="roleId"></select>
+                    </td>
+                    <th class="padding-th">{{bxMsg 'User'}}</th>
+                    <!-- 사용자 -->
+                    <td>
+                        <input type="text" class="bx-form-item bx-compoenent-small user-id" data-form-param="staffId" readonly>
+                        <input type="text" class="bx-form-item bx-compoenent-small user-name" disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{{bxMsg 'ApplyDate'}}</th>
+                    <!-- 적용일자 -->
+                    <td>
+                        <input name="start" type="text" class="bx-form-item bx-compoenent-small calendar start-date" data-form-param="fromDate">
+                        <label>&nbsp;&nbsp;-&nbsp;</label>
+                        <input name="end" type="text" class="bx-form-item bx-compoenent-small calendar end-date" data-form-param="toDate">
+                    </td>
+                    <th></th>
+                    <td></td>
+                </tr>
+            </table>
+            <div class="grid-extra-header">
+
+                <button type="button" class="bw-btn role-user-list-inquiry-btn" icon-tooltip="{{bxMsg 'ButtonBottomString5'}}">
+                            <i class="bw-icon i-25 i-search"></i>
+                        </button>
+
+                <button type="button" class="bw-btn role-user-add-btn write" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                            <i class="bw-icon i-25 i-func-add"></i>
+                        </button>
+
+                <button type="button" class="bw-btn role-management-btn" icon-tooltip="{{bxMsg 'Role'}}">
+                            <i class="bw-icon i-25 i-func-role"></i>
+                        </button>
+            </div>
+        </div>
+        <div class="pf-cru-role-user-list-grid"></div>
+
+        <footer class="pf-panel-footer">
+            <button type="button" class="bw-btn role-user-save-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+                        <i class="bw-icon i-30 i-func-save"></i>
+                    </button>
+        </footer>
+    </div>
+</div>
+<!--
+        <div class="btn-box">
+            <button type="button" class="bw-btn role-user-save-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+                <i class="bw-icon i-30 i-func-save"></i>
+            </button>
+        </div>
+        -->

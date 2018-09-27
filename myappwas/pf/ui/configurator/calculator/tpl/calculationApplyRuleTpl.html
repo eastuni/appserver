@@ -1,0 +1,136 @@
+<div class="pf-cal-apply-rule-tpl">
+	<div class="pf-cal-apply-rule-title-wrap">
+		<span class="cnd-value-title">{{bxMsg 'ApplyRule'}}</span>
+		<!-- 적용규칙 -->
+	</div>
+	<table class="bx-info-table">
+		<tr>
+			<!-- 적용시작일자 -->
+			<th>{{bxMsg 'PAS0202String19'}}</th>
+			<td><input type="text"
+				class="bx-form-item bx-compoenent-small calendar start-date"
+				data-form-param="applyStartDate" value="{{applyStartDate}}">
+			</td>
+			<!-- 적용종료일자 -->
+			<th>{{bxMsg 'PAS0202String20'}}</th>
+			<td><input type="text"
+				class="bx-form-item bx-compoenent-small calendar end-date"
+				data-form-param="applyEndDate" value="{{applyEndDate}}"></td>
+			<td><span style="float: right;">
+					<button type="button" class="bw-btn pf-cal-apply-rule-history-btn"
+						icon-tooltip="{{bxMsg 'ButtonGrayString3'}}">
+						<i class="bw-icon i-25 i-func-history"></i>
+					</button>
+			</span></td>
+		</tr>
+		<tr>
+			<!-- 상태 -->
+			<th>{{bxMsg 'DPS0101String6'}}</th>
+			<td><select data-form-param="ruleStatusCode"
+				class="bx-form-item bx-compoenent-small status" disabled>
+			</select></td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				<button type="button"
+					class="bw-btn formula-cal-btn large-btn text-input-btn min arithmetic-btn"
+					value="MIN">MIN</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn large-btn text-input-btn max arithmetic-btn"
+					value="MAX">MAX</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn large-btn text-input-btn sum arithmetic-btn"
+					value="SUM">SUM</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn large-btn text-input-btn avg arithmetic-btn"
+					value="AVG">AVG</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn large-btn text-input-btn and boolean-btn"
+					value="AND">AND</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn large-btn text-input-btn or boolean-btn"
+					value="OR">OR</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn large-btn text-input-btn not boolean-btn"
+					value="NOT">NOT</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn x-large-btn text-input-btn match boolean-btn"
+					value="MATCH">MATCH</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn x-large-btn text-input-btn match boolean-btn"
+					value="LESS">LESS</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn x-large-btn text-input-btn match boolean-btn"
+					value="MORE">MORE</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn x-large-btn text-input-btn match boolean-btn"
+					value="EQUAL">EQUAL</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn xx-large-btn text-input-btn match boolean-btn"
+					value="NOT_EQUAL">NOT_EQUAL</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn xx-large-btn text-input-btn match boolean-btn"
+					value="LESS_EQUAL">LESS_EQUAL</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn xx-large-btn text-input-btn match boolean-btn"
+					value="MORE_EQUAL">MORE_EQUAL</button>
+				<!-- <button type="button"
+					class="bw-btn formula-cal-btn text-input-btn priority"
+					value="PRIORITY" style="width: 80px">PRIORITY</button> -->
+				<button type="button"
+					class="bw-btn formula-cal-btn small-btn text-input-btn" value="(">(</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn small-btn text-input-btn" value=")">)</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn small-btn text-input-btn" value=",">,</button>
+				<button type="button"
+					class="bw-btn formula-cal-btn small-btn back-space-btn">←</button>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5">
+				<button type="button" class="bw-btn pf-cal-apply-rule-help-btn"
+					icon-tooltip="{{bxMsg 'helpBtn'}}"
+					style="float: right; margin-top: -10px;">
+					<i class="bw-icon i-25 i-help" style="width: 20px; height: 20px"></i>
+				</button>
+				<button type="button" class="bw-btn pf-cal-apply-rule-verify-btn"
+					icon-tooltip="{{bxMsg 'validation'}}"
+					style="float: right; margin-top: -10px;">
+					<i class="bw-icon i-25 i-func-submit2"
+						style="width: 20px; height: 20px"></i>
+				</button> <!-- 적용규칙 --> <textarea data-form-param="ruleContent"
+					class="bx-form-item bx-compoenent-small apply-rule">{{ruleContent}}</textarea>
+				<textarea data-form-param="conversionContent"
+					class="bx-form-item bx-compoenent-small apply-rule-conversion-content"
+					disabled>{{conversionContent}}</textarea>
+				<!-- 숨김 : applyRuleId --> <input type="hidden"
+				class="bx-form-item bx-compoenent-small apply-rule-id"
+				data-form-param="applyRuleId" value="{{applyRuleId}}"> <input
+				type="hidden"
+				class="bx-form-item bx-compoenent-small rule-apply-target-distinction-code"
+				data-form-param="ruleApplyTargetDistinctionCode"
+				value="{{ruleApplyTargetDistinctionCode}}"> <input
+				type="hidden"
+				class="bx-form-item bx-compoenent-small transaction-id"
+				data-form-param="transactionId" value="{{transactionId}}"> <input
+				type="hidden"
+				class="bx-form-item bx-compoenent-small calculationUnitId"
+				data-form-param="calculationUnitId" value="{{calculationUnitId}}">
+			</td>
+		</tr>
+	</table>
+	<footer class="pf-panel-footer">
+
+		<!--<button type="button" class="bw-btn pf-cal-tx-apply-rule-delete-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString2'}}">
+                <i class="bw-icon i-30 i-func-trash"></i>
+            </button>-->
+
+		<button type="button"
+			class="bw-btn pf-cal-apply-rule-save-btn write-btn"
+			icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+			<i class="bw-icon i-30 i-func-save"></i>
+		</button>
+
+	</footer>
+</div>

@@ -1,0 +1,58 @@
+<div class="modal-wrap fix-h">
+		<h2 class="bw-tt a-center">{{bxMsg 'cbb_items.SCRNITM#message-messages'}}</h2>
+			<section class="search-wrap add-bd2-t">
+				<ul class="col-2 clr" id="detailErrorMessageArea">
+					<li>
+						<div class="input-wrap clr">
+							<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#message-code'}}">{{bxMsg 'cbb_items.SCRNITM#message-code'}}</label>
+							<input type="text" class="bw-input w-70" value="{{messageCode}}"/>
+						</div>
+					</li>
+					<li>
+						<div class="input-wrap clr">
+							<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#message-messages'}}">{{bxMsg 'cbb_items.SCRNITM#message-messages'}}</label>
+							<input type="text" class="bw-input w-70" value="{{message}}"/>
+						</div>
+					</li>
+					<li class="w-100 l-c">
+						<div class="input-wrap clr">
+							<label class="bw-label w-14-5" title="{{bxMsg 'cbb_items.SCRNITM#message-detailMessages'}}">{{bxMsg 'cbb_items.SCRNITM#message-detailMessages'}}</label>
+							<input type="text" class="bw-input w-85-5" value="{{detailMessage}}"/>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<!--/END SEARCH AREA-->
+			<!--ACCORDION MENU * 컨텐츠용 아코디언 메뉴-->
+			<div id="detailMessageAcordion" class="bw-accordion add-bd">
+				<h3 class="clr-bd-t" title="{{bxMsg 'cbb_items.SCRNITM#message-traceMessage'}}">{{bxMsg 'cbb_items.SCRNITM#message-traceMessage'}}</h3>
+				<div class="input-wrap fix-txtarea h-single p-rel clr">
+					<div class="txt-wrap2 fix-size w-100 f-r">
+						<textarea class="bw-textarea" placeholder="" style="height: 250px;">{{traceMessage}}</textarea>
+					</div>
+				</div>
+				<h3 title="{{bxMsg 'cbb_items.SCRNITM#message-messages'}}">{{bxMsg 'cbb_items.SCRNITM#message-messages'}}</h3>
+				<div class="bw-grid add-bd">
+					<table class="w-100"> 
+						<colgroup>
+							<col class="td-w-33"/>
+							<col class="td-w-33"/>
+							<col class="td-w-33"/>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>{{bxMsg 'cbb_items.SCRNITM#message-code'}}</th>
+								<th>{{bxMsg 'cbb_items.SCRNITM#message-messages'}}</th>
+								<th>{{bxMsg 'cbb_items.SCRNITM#message-detailMessages'}}</th>
+							</tr>
+						</thead>
+						<tbody id="detailMessageTBody">
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!--/END ACCORDIAN MENU-->
+		<div class="btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt on" id="cancel-btn" onclick="javascript:fn_pageLayerCtrl('#error-modal');">{{bxMsg 'cbb_items.SCRNITM#close'}}</button>
+		</div>
+	</div>

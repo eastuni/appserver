@@ -1,0 +1,174 @@
+<!--
+@Screen number  CAPCM191
+@brief          역할을 관리하고 역할별 한도를 부여합니다.
+@author         김병구
+@history        2016.08.08      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPCM191-wrap">
+            <!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+                {{bxMsg 'cbb_items.SCRN#CAPCM191'}}
+                <p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPCM191'}}</p>
+                <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+            </h2>
+            <!--/END BW-TITLE-->
+            <!--BW-MODULE-->
+            <div class="layout-wrap">
+                <div class="layout col1" id="tree-role-list">
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t add-mg-b-10">
+                        <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#roleList'}}</h3>
+                        <button type="button" class="bw-btn fix-r w-15" id="btn-tree-hide"><i class="fa fa-angle-left"></i></button>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <div class="input-wrap add-btn add-mg-l-10 clr">
+                        <label class="bw-label w-50">{{bxMsg 'cbb_items.AT#roleNm'}}</label>
+                        <input type="text" class="bw-input w-50" id="searchKey" data-form-param="searchKey" placeholder="{{bxMsg 'cbb_items.SCRNITM#all'}}" />
+                        <button type="button" class="bw-btn fix-r" id="btn-tree-search"><i class="bw-icon i-30 i-search"></i></button>
+                    </div>
+
+
+                    <!--BW-TREE *트리메뉴-->
+                    <section class="unit-tree-wrap">
+                        <ul class="bx-tree-floor bx-tree-root"></ul>
+                    </section>
+                    <!--/END BW-TREE-->
+                </div>
+
+
+                <button type="button" class="bw-tree-show-btn" id="btn-tree-show" hidden><i class="fa fa-angle-right"></i></button>
+
+
+                <div class="bw-inner-contents layout col2">
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t">
+                        <div class="f-l">
+                            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#baseAtrbt'}}</h3>
+                        </div>
+                        <div class="btn-wrap fix-r">
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-base-attribute-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-base-attribute-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#del'}}" id="btn-base-attribute-delete"><i class="bw-icon i-25 i-func-trash"></i></button>
+                            <button type="button" class="bw-btn b-ctr" id="btn-base-attribute-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                        </div>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <!--BASE ATTRIBUTE AREA * 기본 속성 영역 -->
+                    <section class="search-wrap" id="base-attribute-area">
+                        <table class="w-100">
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#roleId'}}</label>
+                                        <input type="text" class="bw-input w-60" data-form-param="roleId"/>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#roleNm'}}</label>
+                                        <input type="text" class="bw-input w-60" data-form-param="roleNm"/>
+                                    </div>
+                                </td>
+                          	</tr>
+                          	<tr>
+                          		 <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#roleTp'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPCM191-roleTpCd-wrap" data-form-param="roleTpCd"></select>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#roleSts'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPCM191-roleStsCd-wrap" data-form-param="roleStsCd"></select>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#athrtyAplyRngTp'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPCM191-athrtyAplyRngTpCd-wrap" data-form-param="athrtyAplyRngTpCd"></select>
+                                    </div>
+                                </td>
+                           	</tr>
+                        </table>
+                    </section>
+                    <!--/END SEARCH AREA-->
+
+
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t add-mg-t">
+                        <div class="f-l">
+                            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#lmtHst'}}</h3>
+                        </div>
+                        <div class="btn-wrap fix-r">
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-limit-history-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                            <button type="button" class="bw-btn b-ctr" id="btn-limit-history-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                        </div>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <!--LIMIT HISTORY AREA * 한도 내역 영역-->
+                    <section class="grid-wrap" id="limit-history-area">
+                        <!--GRID AREA -->
+                        <section class="CAPCM191Grid" id="CAPCM191Grid"></section>
+                        <!--/END GRID AREA-->
+                    </section>
+                    <!--/END SEARCH AREA-->
+
+
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t add-mg-t">
+                        <div class="f-l">
+                            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#lmtSetting'}}</h3>
+                        </div>
+                        <div class="btn-wrap fix-r">
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-limit-setting-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-limit-setting-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                            <button type="button" class="bw-btn b-ctr" id="btn-limit-setting-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                        </div>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <!--LIMIT SETTING AREA * 한도 설정 영역 -->
+                    <section class="search-wrap" id="limit-setting-area">
+                        <table class="w-100">
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#lmtDstnctn'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPCM191-lmtDscd-wrap" data-form-param="lmtDscd"></select>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#crncyCd'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPCM191-crncyCd-wrap" data-form-param="crncyCd"></select>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#lmtAmt'}}</label>
+                                        <input type="text" class="bw-input w-60" data-form-param="maxAmt"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                    <!--/END SEARCH AREA-->
+                </div>
+            </div>
+            <!--/END BW-MODULE-->
+        </section>
+    </section>
+</section>
+<!--/END MAIN CONTENTS-->

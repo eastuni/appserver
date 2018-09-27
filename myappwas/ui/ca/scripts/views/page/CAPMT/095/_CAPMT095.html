@@ -1,0 +1,291 @@
+<!--
+@Screen number  CAPMT095
+@brief          workflow rule compare manage
+@author         jisub.lee
+@history        2017.04.20      initial
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPMT095-wrap">
+            <!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+				{{bxMsg 'cbb_items.SCRN#CAPMT095'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPMT095'}}</p>
+				<!-- 설정대상기관 -->
+                        <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+			</h2>
+            <!--/END BW-TITLE-->
+
+<!--BW-TOOL SEARCH CONDITION AREA * 아이콘 버튼을 포함하는 툴바-->
+		            <section class="bw-tool add-bd2-t">
+		                <div class="f-l">
+		                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+		                </div>
+		                <div class="btn-wrap fix-r">
+		                    <button type="button" class="bw-btn b-ctr" id="btn-search-condition-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+		                </div>
+		            </section>
+		            <!--/END BW-TOOL-->
+
+
+		            <!--SEARCH CONDITION AREA * 검색 조건 영역-->
+		            <section id="search-condition-area">
+		                <section class="search-wrap">
+		                    <table class="w-100">
+                        <tr>
+                        		<td class="td-w-33" style="display:none">
+	                                <div class="input-wrap clr">
+	                                    <label class="bw-label w-30">{{bxMsg 'cbb_items.AT#ruleId'}}</label>
+	                                    <input type="text" class="bw-input w-70 search-condition-area" data-form-param="ruleId" disabled />
+	                                </div>
+	                            </td>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-30">{{bxMsg 'cbb_items.AT#ruleNm'}}</label>
+                                    <input type="text" class="bw-input w-70 search-condition-area" data-form-param="ruleNm" disabled />
+                                </div>
+                             </td>
+					         <td class="td-w-33">
+                                  <div class="input-wrap clr">
+                                    <label class="bw-label w-30">{{bxMsg 'cbb_items.AT#ruleDescCntnt'}}</label>
+                                    <input type="text" class="bw-input w-70 search-condition-area" data-form-param="ruleDescCntnt" disabled />
+                                </div>
+                            </td>
+
+                        </tr>
+
+                    </table>
+		                </section>
+		            </section>
+		            <!--/END SEARCH CONDITION AREA -->
+
+
+
+            <!--BW-TOOL Search Results Area * 아이콘 버튼을 포함하는 툴바-->
+            <div class="bw-tool add-bd2-t add-mg-t">
+                <div class="f-l">
+                    <h3 class="bw-desc searchResultCount">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                	                    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-search-result-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-search-result-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-search-result-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>                
+                  </div>
+            </div>
+            <!--/END BW-TOOL-->
+
+
+            <!--workfow step area * Search Results Area-->
+            <section class="grid-wrap" id="search-result-area">
+                <!--GRID AREA -->
+                <div class="CAPMT095Grid" id="CAPMT095Grid"></div>
+                <!--/END GRID AREA-->
+            </section>
+
+
+
+            <!--BW-TOOL baseAtrbt AREA * 아이콘 버튼을 포함하는 툴바-->
+            <section class="bw-tool add-bd2-t">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#baseAtrbt'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" id="btn-baseAtrbt-reset" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-baseAtrbt-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-baseAtrbt-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+
+
+            <!--baseAtrbt AREA * 기본속성 영역-->
+            <section id="baseAtrbt-area">
+                <section class="search-wrap">
+                	
+                    <table class="w-100">
+                    		<tr style="display:none">
+                    			<td class="td-w-33">
+	                                <div class="input-wrap clr">
+	                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#itmCmprsnId'}}</label>
+	                                    <input type="text" class="bw-input w-58 baseAtrbt-area" data-form-param="itmCmprsnId" disabled />
+	                                </div>
+	                            </td>
+                    		</tr>
+                             <tr>
+                             	
+								<td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+	                               		 <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#cmprsnLvl'}}</label>
+	                               		<select class="bw-input w-58 ipt-select baseAtrbt-area" data-form-param="cmprsnLvl">
+	                               			<option value="1" selected>1</option>
+	                                    	<option value="2">2</option>
+	                                    	<option value="3">3</option>
+	                                    	<option value="4">4</option>
+	                                    	<option value="5">5</option>
+	                               		</select>
+	                                </div>
+								</td>
+	                            <td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+	                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#prcsngRsltDscd'}}</label>
+	                               		<select class="bw-input w-58 ipt-select step-baseAtrbt-area" data-form-param="cmprsnOprtrCd">
+	                               			<option value=""></option>
+	                                    	<option value="&&">AND</option>
+	                                    	<option value="||">OR</option>
+	                               		</select>
+	                                </div>
+	                            </td>
+								<td class="td-w-33" id="td-itmOprtrCd">
+		      						<div class="input-wrap asterisk clr">
+	                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#cmprsnOprtr'}}</label>
+	                               		<select class="bw-input w-58 ipt-select step-baseAtrbt-area" data-form-param="itmOprtrCd">
+	                               			<option value="==" selected>==</option>
+	                                    	<option value="!=">!=</option>
+	                                    	<option value="<=">&lt;=</option>
+	                                    	<option value=">=">&gt;=</option>
+	                                    	<option value="<">&lt;</option>
+	                                    	<option value=">">&gt;</option>
+	                                    	<option value="IN">IN</option>
+	                                    	<option value="NI">NI</option>
+	                               		</select>
+	                                </div>
+	                             </td>
+                            </tr>
+                            <tr>
+
+                        	</tr>
+                        	
+                        	<tr>
+	                        		<td class="td-w-33">
+										<div class="input-wrap asterisk clr">
+		                               		 <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#ruleType'}}</label>
+		                               		<select class="bw-input w-58 ipt-select baseAtrbt-area constantVarialbleDistinction" data-form-param="constantVarialbleDistinction" >
+		                               			
+		                                    	<option value="C" selected>상수</option>
+		                               			<option value="V">변수</option>
+		                               			<option value="U">사용자클래스</option>
+		                               			<option value="R">호출규칙</option>
+		                               			
+		                               		</select>
+		                                </div>
+									</td>
+                        	</tr>
+                        	
+                        	<tr class="sourceVariable">
+                        		<td class="td-w-33" >
+	                                <div class="input-wrap asterisk add-btn clr">
+	                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#baseVariable'}}</label>
+	                                    <input type="text" class="bw-input w-58 baseAtrbt-area" data-form-param="itmId" disabled />
+	                                    <button type="button" class="bw-btn fix-r baseAtrbt-area" id="CAPMT095-btn-itmId-search"><i class="bw-icon i-30 i-search"></i></button>
+	                                </div>
+	                            </td>
+	                            <td class="td-w-33">
+	                                <div class="input-wrap  clr">
+	                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#baseVariableName'}}</label>
+	                                    <input type="text" class="bw-input w-58 baseAtrbt-area" data-form-param="itmNm" disabled />
+	                                </div>
+	                            </td>
+                        		<td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+	                               		 <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#baseVariableRange'}}</label>
+	                               		<select class="bw-input w-58 ipt-select baseAtrbt-area" data-form-param="itmLvlCd">
+	                               			
+	                               			<option value="W">워크플로우</option>
+	                                    	<option value="S">스텝</option>
+	                               		</select>
+	                                </div>
+								</td>
+                        	</tr>
+                        	
+
+                        	
+							<tr class="targetVariable" style="display:none">
+								<td class="td-w-33">
+	                                <div class="input-wrap asterisk add-btn clr">
+	                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#targetVariable'}}</label>
+	                                    <input type="text" class="bw-input w-58 baseAtrbt-area" data-form-param="varId" disabled />
+	                                    <button type="button" class="bw-btn fix-r baseAtrbt-area" id="CAPMT095-btn-var-search"><i class="bw-icon i-30 i-search"></i></button>
+	                                </div>
+	                            </td>
+	                             <td class="td-w-33">
+	                                <div class="input-wrap  clr">
+	                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#targetVariableName'}}</label>
+	                                    <input type="text" class="bw-input w-58 baseAtrbt-area" data-form-param="varNm" disabled />
+	                                </div>
+	                            </td>
+	                            <td class="td-w-33">
+									<div class="input-wrap asterisk clr">
+	                               		 <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#targetVariable'}}{{bxMsg 'cbb_items.SCRNITM#rng'}}</label>
+	                               		<select class="bw-input w-58 ipt-select baseAtrbt-area" data-form-param="varLvlCd">
+	                               			
+	                               			<option value="W">워크플로우</option>
+	                                    	<option value="S">스텝</option>
+	                               		</select>
+	                                </div>
+								</td>
+
+							</tr>
+							<tr class="targetValue" >
+								<td class="td-w-33">
+	                                  <div class="input-wrap asterisk clr">
+	                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#targetValue'}}</label>
+	                                    <input type="text" class="bw-input w-58 baseAtrbt-area" data-form-param="cmprsnVal" />
+	                                </div>
+	                            </td>
+							</tr>
+							<tr class="userClassNm" style="display:none">
+								<td class="td-w-33">
+	                                  <div class="input-wrap add-btn asterisk clr">
+	                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#userClassNm'}}</label>
+	                                    <input type="text" class="bw-input w-58 baseAtrbt-area" data-form-param="userClassNm" />
+	                                    <button type="button" class="bw-btn fix-r next-step-baseAtrbt-area" id="CAPMT095-btn-class-search"><i class="bw-icon i-30 i-search"></i></button>
+	                                </div>
+	                            </td>
+							</tr>
+							<tr class="callRuleId" style="display:none">
+								<td class="td-w-33">
+	                                  <div class="input-wrap add-btn asterisk clr">
+	                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#rule'}}</label>
+	                                    <input type="text" class="bw-input w-58 baseAtrbt-area" data-form-param="callRuleId" />
+	                                	<button type="button" class="bw-btn fix-r next-step-baseAtrbt-area" id="CAPMT095-btn-rule-search"><i class="bw-icon i-30 i-search"></i></button>
+	                                </div>
+	                            </td>
+	                            <td class="td-w-33">
+	                                <div class="input-wrap  clr">
+	                                    <label class="bw-label w-40">{{bxMsg 'cbb_items.AT#ruleNm'}}</label>
+	                                    <input type="text" class="bw-input w-58 baseAtrbt-area" data-form-param="callRuleNm" disabled />
+	                                </div>
+	                            </td>
+							</tr>
+                    </table>
+					<input type="hidden" class="bw-input w-60 ipt-select baseAtrbt-area" data-form-param="varTpCd" /> 
+					<input type="hidden" class="bw-input w-60 ipt-select baseAtrbt-area" data-form-param="itmTpCd" /> 
+                </section>
+            </section>
+            <!--/END baseAtrbt AREA -->
+
+
+            <!--BW-TOOL Search Results Area * 아이콘 버튼을 포함하는 툴바-->
+            <div class="bw-tool add-bd2-t add-mg-t" id="call-rule-toolbar" style="display:none">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#rule'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                  </div>
+            </div>
+            <!--/END BW-TOOL-->
+            <!--workfow step area * Search Results Area-->
+            <section class="grid-wrap" id="call-rule-area" style="display:none">
+                <!--GRID AREA -->
+                <div class="CAPMT095Grid2" id="CAPMT095Grid2"></div>
+                <!--/END GRID AREA-->
+            </section>
+
+
+
+        </section>
+    </section>
+</section>
+<!--/END MAIN CONTENTS-->

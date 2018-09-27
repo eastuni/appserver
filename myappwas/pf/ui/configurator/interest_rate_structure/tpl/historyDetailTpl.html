@@ -1,0 +1,47 @@
+<div class="pf-irs-history-detail-tpl">
+    <table class="bx-info-table int-rt-strctr-detail-table">
+        <tr>
+            <th style="width:125px;">{{bxMsg 'intRtStrctrCode'}}/{{bxMsg 'name'}}</th>
+            <!--업무구분/산식구분-->
+            <td style="width:445px;">
+                <input type="text" data-form-param="intRtStructureCode" style="width:60px" class="bx-form-item bx-compoenent-small intRtStructureCode" value="{{intRtStructureCode}}" disabled>
+                <input type="text" data-form-param="intRtStructureName" style="width:120px" class="bx-form-item bx-compoenent-small intRtStructureName" value="{{intRtStructureName}}">
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'intRtStrctrStsCd'}}</th>
+            <!-- 상태 -->
+            <td>
+                <select data-form-param="intRtStructureStatusCode" value="{{intRtStructureStatusCode}}" style="width:100px;" class="bx-form-item bx-compoenent-small int-rt-strctr-sts-select">
+                        </select>
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'ApplyDate'}} <span class="red-notice">*</span></th>
+            <td>
+                <input name="start" data-form-param="applyStartDate" value="{{applyStartDate}}" style="width:145px;" class="bx-form-item bx-compoenent-small calendar start-date apply-start-date" type="text"> ~
+                <input name="end" data-form-param="applyEndDate" value="{{applyEndDate}}" style="width:145px;" class="bx-form-item bx-compoenent-small calendar end-date apply-end-date" type="text" disabled>
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'DPS0121_31String1'}}</th>
+            <td>
+                <select data-form-param="fractionApplyWayCode" style="width:100px;" class="bx-form-item bx-compoenent-small frctn-aply-way-cd" value="{{fractionApplyWayCode}}">
+                        </select>
+                <input type="text" data-form-param="fractionApplyCount" style="text-align: right;width:60px" class="bx-form-item bx-compoenent-small removeComma float0 frctn-aply-cnt" value="{{fractionApplyCount}}">
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'formulaCntnt'}} <span class="red-notice">*</span></th>
+            <td>
+                <input type="text" data-form-param="intRtStructureContent" value="{{intRtStructureContent}}" class="bx-form-item bx-compoenent-small removeComma int-rt-strctr-content" style="width:445px">
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'conversionFormula'}}</th>
+            <td>
+                <textarea type="text" data-form-param="conversionContent" value="{{conversionContent}}" class="bx-form-item conversion-content" style="height:50px" disabled/>
+            </td>
+        </tr>
+    </table>
+</div>

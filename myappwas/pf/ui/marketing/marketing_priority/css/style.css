@@ -1,0 +1,112 @@
+/**
+ * Created by PF Team on 18. 1. 4..
+ * Cascading Style Sheets for marketing priority
+ * 상품추천규칙 CSS 
+ */
+.pf-pmp .pf-page-conts {
+    margin: 10px auto; }
+.pf-pmp .pd-marketing-priority-query-table th {
+    width: 80px;
+}
+.pf-pmp .pd-marketing-priority-query-table td {
+    line-height: 29px; }
+.pf-pmp .pd-marketing-priority-query-table td input, .pf-pmp .pd-marketing-priority-query-table td select {
+    width: 170px; }
+.pf-pmp .pd-marketing-priority-query-table td .calendar {
+    width: 105.5px; }
+.pf-pmp .pd-marketing-priority-query-table tr {
+    margin-bottom: 10px;
+    height: 35px; }
+.pf-pmp .pd-marketing-priority-query-table .padding-th {
+    padding-left: 10px; }
+.pf-pmp .dev-task-pd-marketing-priority-grid {
+    height: 200px; }
+.pf-pmp .pf-pmp-pd-marketing-priority-list-grid {
+    padding-top: 10px; }
+.pf-pmp .middle-grid {
+    height: 350px; }
+.pf-pmp .pf-pd-marketing-priority-list-form td .calendar {
+    width: 105px; }
+.pf-pmp .pf-pd-marketing-priority-grid-form td .calendar {
+    width: 145px; }
+.pf-pmp-base-product-add-popup .bx-info-table-wrap {
+    width: 430px;
+    margin-left: 55px;
+    padding-top: 0; }
+.pf-pmp-base-product-add-popup .bx-info-table-wrap td {
+    width: 120px; }
+.pf-pmp-base-product-add-popup .bx-info-table-wrap td select {
+    width: 115px; }
+.pf-pmp-base-product-add-popup .bx-info-table-wrap td input {
+    width: 235px; }
+.pf-pmp-base-product-add-popup .product-grid {
+    height: 250px; }
+
+/* 구성조건설정 팝업 */
+.condition-value-column-setting-popup {
+    position: relative; }
+.condition-value-column-setting-popup .header-group {
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    width: 250px; }
+.condition-value-column-setting-popup .header-group .bx-info-table {
+    width: 250px; }
+.condition-value-column-setting-popup .header-group .bx-info-table th {
+    width: 60px; }
+.condition-value-column-setting-popup .header-group .bx-info-table select {
+    width: 190px; }
+.condition-value-column-setting-popup .header-group .bx-info-table input[type=text] {
+    width: 158px; }
+.condition-value-column-setting-popup .condition-list-grid {
+    position: absolute;
+    top: 70px;
+    left: 15px;
+    width: 250px;
+    height: 210px; }
+.condition-value-column-setting-popup .column-list-grid {
+    position: absolute;
+    top: 0px;
+    left: 300px;
+    width: 500px;
+    height: 280px; }
+.condition-value-column-setting-popup .divier-grid {
+    position: absolute;
+    cursor: default;
+    top: 160px;
+    left: 275px; }
+.condition-value-column-setting-popup .checkbox-wrap{
+    position: absolute;
+    top: 290px;
+    right: 15px;
+}
+.condition-value-column-setting-popup .checkbox-wrap input[type=checkbox]{
+    vertical-align: middle;
+}
+
+/*탭간격조절*/
+.nav-tabs .pfui-tab-item-text {
+    margin-right:-1px;
+    width:120px;
+    cursor:pointer;
+    text-align: center;
+}
+
+.pf-pmp-pd-marketing-priority-popup .product-list-grid{
+    height : 280px;
+}
+
+.pf-pmp-pd-marketing-priority-popup .bx-info-table {
+	border:1px solid #ddd;
+}
+
+.pf-pmp-pd-marketing-priority-popup .bx-info-table th{
+	width:160px;
+	border:1px solid #ddd;
+	padding:3px;
+}
+
+.pf-pmp-pd-marketing-priority-popup .bx-info-table td{
+	border:1px solid #ddd;
+	padding:3px;
+}

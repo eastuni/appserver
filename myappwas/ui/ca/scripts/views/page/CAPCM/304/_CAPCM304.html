@@ -1,0 +1,126 @@
+<!--
+@Screen number  CAPCM304
+@brief          로고 및 아이콘 등 이미지 파일들을 관리합니다.
+@author         김병구
+@history        2016.06.21      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPCM304-wrap">
+            <!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+                {{bxMsg 'cbb_items.SCRN#CAPCM304'}}
+                <p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPCM304'}}</p>
+                <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p> 
+            </h2>
+            <!--/END BW-TITLE-->
+            <!--BW-MODULE-->
+            <div class="layout-wrap">
+                <div class="layout col1" id="tree-service-list">
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t add-mg-b-10">
+                        <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#imgList'}}</h3>
+                        <button type="button" class="bw-btn fix-r w-15" id="btn-tree-hide"><i class="fa fa-angle-left"></i></button>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <div class="input-wrap add-btn add-mg-l-10 clr">
+                        <label class="bw-label w-50">{{bxMsg 'cbb_items.SCRNITM#fileNm'}}</label>
+                        <input type="text" class="bw-input w-50" id="searchKey" data-form-param="searchKey" placeholder="{{bxMsg 'cbb_items.SCRNITM#all'}}" />
+                        <button type="button" class="bw-btn fix-r" id="btn-tree-search"><i class="bw-icon i-30 i-search"></i></button>
+                    </div>
+
+
+                    <!--BW-TREE *트리메뉴-->
+                    <section class="unit-tree-wrap">
+                        <ul class="bx-tree-floor bx-tree-root"></ul>
+                    </section>
+                    <!--/END BW-TREE-->
+                </div>
+
+
+                <button type="button" class="bw-tree-show-btn" id="btn-tree-show" hidden><i class="fa fa-angle-right"></i></button>
+
+
+                <div class="bw-inner-contents layout col2">
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t">
+                        <div class="f-l">
+                            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#baseAtrbt'}}</h3>
+                        </div>
+                        <div class="btn-wrap fix-r">
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-base-attribute-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-base-attribute-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#del'}}" id="btn-base-attribute-delete"><i class="bw-icon i-25 i-func-trash"></i></button>
+                            <button type="button" class="bw-btn b-ctr" id="btn-base-attribute-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                        </div>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <!--BASE ATTRIBUTE AREA * 기본 속성 영역 -->
+                    <section class="search-wrap" id="base-attribute-area">
+                        <table class="w-100">
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#fileCtgry'}}</label>
+                                        <select class="bw-input w-70 ipt-select CAPCM304-fileCtgry-wrap" data-form-param="fileCtgry"></select>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap asterisk add-btn clr">
+                                        <label class="bw-label w-31-5">{{bxMsg 'cbb_items.SCRNITM#fileNm'}}</label>
+                                        <input type="text" class="bw-input w-68-5" data-form-param="fileNm"/>
+                                        <button type="button" class="bw-btn fix-r" id="btn-image-search"><i class="bw-icon i-30 i-search"></i></button>
+                                    </div>
+                                </td>
+                                <td class="td-w-33 td-v-align-b">
+                                    <input type="file" id="input-upload" style="display:none;"/>
+                                    <button class="bw-btn-form unit" id="btn-upload">{{bxMsg 'cbb_items.ABRVTN#upload'}}</button>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#fileDescCntnt'}}</label>
+                                        <input type="text" class="bw-input w-70" data-form-param="fileDesc"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                    <!--/END BASE ATTRIBUTE AREA-->
+
+
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t add-mg-t">
+                        <div class="f-l">
+                            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#preview'}}</h3>
+                        </div>
+                        <div class="btn-wrap fix-r">
+                            <div class="input-wrap clr">
+                                <label class="bw-label w-30">{{bxMsg 'cbb_items.SCRNITM#color'}}</label>
+                                <input type="text" class="preview-color">
+                            </div>
+                            <button type="button" class="bw-btn b-ctr" id="btn-preview-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                        </div>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <!--PREVIEW AREA-->
+                    <section class="search-wrap a-center" id="preview-area">
+                        <img class="preview-img">
+                    </section>
+                </div>
+            </div>
+            <!--/END BW-MODULE-->
+        </section>
+    </section>
+</section>

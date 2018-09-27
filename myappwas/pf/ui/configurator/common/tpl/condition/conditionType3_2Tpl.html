@@ -1,0 +1,29 @@
+<!-- 우대금리 제공조건 -->
+<div class="pf-cp-condition-type3-2tpl">
+    <div class="pf-panel pf-cp-product-condition-panel">
+
+        <!-- 우대금리제공조건관리 -->
+        <div class="pf-panel-header">
+            <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+            <h2 class="pf-panel-title">{{bxMsg 'preferentialIntProvideCndMgmt'}}</h2>
+        </div>
+
+        <div class="pf-panel-body">
+            <!-- 추가버튼 -->
+            <header class="condition-type3-2grid-header grid-extra-header">
+                <div class="common-header-group">
+                    <span>{{bxMsg 'searchBaseDate'}} </span><input type="text" name="start" data-form-param="applyStartDate" class="bx-form-item bx-compoenent-small bnft-prov-cnd-search calendar-all start-date" value="{{applyStartDate}}" />
+                    <button type="button" class="bw-btn add-cnd3-prvdCnd-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                            <i class="bw-icon i-25 i-func-add"></i>
+                        </button>
+                </div>
+            </header>
+
+            <!-- 제공조건 그리드 -->
+            <div class="condition-type3-2grid-wrap"></div>
+
+            <!-- 적용규칙 -->
+            <div class="apply-rule-info-wrap"></div>
+        </div>
+    </div>
+</div>

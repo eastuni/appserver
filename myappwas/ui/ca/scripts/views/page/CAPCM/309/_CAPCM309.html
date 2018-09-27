@@ -1,0 +1,256 @@
+<!--
+@Screen number  CAPCM309
+@brief          버튼 스타일을 관리하고 특정 버튼 스타일을 버튼 템플릿에 연결하여 앱에 반영합니다.
+@author         김병구
+@history        2016.06.21      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPCM309-wrap">
+            <!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+                {{bxMsg 'cbb_items.SCRN#CAPCM309'}}
+                <p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPCM309'}}</p>
+                <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p> 
+            </h2>
+            <!--/END BW-TITLE-->
+            <!--BW-MODULE-->
+            <div class="layout-wrap">
+                <div class="layout col1" id="tree-service-list">
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t add-mg-b-10">
+                        <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#btnStyle'}}</h3>
+                        <button type="button" class="bw-btn fix-r w-15" id="btn-tree-hide"><i class="fa fa-angle-left"></i></button>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <div class="input-wrap add-btn add-mg-l-10 clr">
+                        <label class="bw-label w-50">{{bxMsg 'cbb_items.SCRNITM#styleNm'}}</label>
+                        <input type="text" class="bw-input w-50" id="searchKey" data-form-param="searchKey" placeholder="{{bxMsg 'cbb_items.SCRNITM#all'}}" />
+                        <button type="button" class="bw-btn fix-r" id="btn-tree-search"><i class="bw-icon i-30 i-search"></i></button>
+                    </div>
+
+
+                    <!--BW-TREE *트리메뉴-->
+                    <section class="unit-tree-wrap">
+                        <ul class="bx-tree-floor bx-tree-root"></ul>
+                    </section>
+                    <!--/END BW-TREE-->
+                </div>
+
+
+                <button type="button" class="bw-tree-show-btn" id="btn-tree-show" hidden><i class="fa fa-angle-right"></i></button>
+
+
+                <div class="bw-inner-contents layout col2">
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t">
+                        <div class="f-l">
+                            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#baseAtrbt'}}</h3>
+                        </div>
+                        <div class="btn-wrap fix-r">
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.ABRVTN#undo'}}" id="btn-base-attribute-undo"><i class="bw-icon i-30 i-func-undo"></i></button>
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-base-attribute-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-base-attribute-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                            <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#del'}}" id="btn-base-attribute-delete"><i class="bw-icon i-25 i-func-trash"></i></button>
+                            <button type="button" class="bw-btn b-ctr" id="btn-base-attribute-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                        </div>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <!--BASE ATTRIBUTE AREA * 기본 속성 영역 -->
+                    <section class="search-wrap" id="base-attribute-area">
+                        <table class="w-100">
+                            <tr>
+                                <td>
+                                    <div class="input-wrap asterisk clr">
+                                        <label class="bw-label w-13">{{bxMsg 'cbb_items.SCRNITM#style'}}</label>
+                                        <input type="text" class="bw-input w-87" data-form-param="style"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                    <!--/END BASE ATTRIBUTE AREA-->
+
+
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t add-mg-t">
+                        <div class="f-l">
+                            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#styleSettingActive'}}</h3>
+                        </div>
+                        <div class="btn-wrap fix-r">
+                            <button type="button" class="bw-btn b-ctr" id="btn-style-setting-active-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                        </div>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <!--STYLE SETTING ACTIVE AREA * 스타일 설정 액티브 영역 -->
+                    <section class="search-wrap" id="style-setting-active-area">
+                        <table class="w-100">
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#fillColor'}}</label>
+                                        <input type="text" class="fill-color"/>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#lnColor'}}</label>
+                                        <input type="text" class="line-color"/>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#lnWidth'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPCM309-lnWidth-wrap" data-form-param="lnWidth">
+                                            <option value="1px">1</option>
+                                            <option value="2px">2</option>
+                                            <option value="3px">3</option>
+                                            <option value="4px">4</option>
+                                            <option value="5px">5</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#shadow'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPCM309-shadow-wrap" data-form-param="shadow">
+                                            <option value="0 0">None</option>
+                                            <option value="2px 0">Right</option>
+                                            <option value="0 2px">Bottom</option>
+                                            <option value="-2px 0">Left</option>
+                                            <option value="0 -2px">Top</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#shadowColor'}}</label>
+                                        <input type="text" class="shadow-color"/>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#txtStyle2'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPCM309-active-txtStyle-wrap" data-form-param="txtStyle"></select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                    <!--/END STYLE SETTING ACTIVE AREA-->
+
+
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t add-mg-t">
+                        <div class="f-l">
+                            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#styleSettingInactive'}}</h3>
+                        </div>
+                        <div class="btn-wrap fix-r">
+                            <button type="button" class="bw-btn b-ctr" id="btn-style-setting-inactive-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                        </div>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <!--STYLE SETTING INACTIVE AREA * 스타일 설정 인액티브 영역 -->
+                    <section class="search-wrap" id="style-setting-inactive-area">
+                        <table class="w-100">
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#fillColor'}}</label>
+                                        <input type="text" class="fill-color"/>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#lnColor'}}</label>
+                                        <input type="text" class="line-color"/>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#lnWidth'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPCM309-lnWidth-wrap" data-form-param="lnWidth">
+                                            <option value="1px">1</option>
+                                            <option value="2px">2</option>
+                                            <option value="3px">3</option>
+                                            <option value="4px">4</option>
+                                            <option value="5px">5</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#shadow'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPCM309-shadow-wrap" data-form-param="shadow">
+                                            <option value="0 0">None</option>
+                                            <option value="2px 0">Right</option>
+                                            <option value="0 2px">Bottom</option>
+                                            <option value="-2px 0">Left</option>
+                                            <option value="0 -2px">Top</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#shadowColor'}}</label>
+                                        <input type="text" class="shadow-color"/>
+                                    </div>
+                                </td>
+                                <td class="td-w-33">
+                                    <div class="input-wrap clr">
+                                        <label class="bw-label w-40">{{bxMsg 'cbb_items.SCRNITM#txtStyle2'}}</label>
+                                        <select class="bw-input w-60 ipt-select CAPCM309-inactive-txtStyle-wrap" data-form-param="txtStyle"></select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </section>
+                    <!--/END STYLE SETTING INACTIVE AREA-->
+
+
+                    <!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+                    <div class="bw-tool add-bd2-t add-mg-t">
+                        <div class="f-l">
+                            <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#preview'}}</h3>
+                        </div>
+                        <div class="btn-wrap fix-r">
+                            <button type="button" class="bw-btn b-ctr" id="btn-preview-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                        </div>
+                    </div>
+                    <!--/END BW-TOOL-->
+
+
+                    <!--PREVIEW AREA-->
+                    <section class="search-wrap" id="preview-area">
+                        <section class="preview-wrap a-center" id="preview-wrap">
+                            <button class="bw-btn-txt add-mg-r active" id="activeBtn">{{bxMsg 'cbb_items.SCRNITM#active'}}</button>
+                            <button class="bw-btn-txt on inactive" id="inactiveBtn">{{bxMsg 'cbb_items.CDVAL#1210303'}}</button>
+                            <button class="dummy active"></button>
+                            <button class="dummy inactive"></button>
+                        </section>
+                    </section>
+                    <!--/END PREVIEW AREA-->
+                </div>
+            </div>
+            <!--/END BW-MODULE-->
+        </section>
+    </section>
+</section>

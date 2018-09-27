@@ -1,0 +1,219 @@
+<!--
+@Screen number  CAPSV003
+@brief          서비스거래제한
+@discription  채널, 서비스 별 거래 제한
+@author         공통
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPSV003-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPSV003'}}
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+			<!-- 	<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPSV003'}}</p> -->
+			</h2>
+
+
+			<!--/END BW-TITLE-->
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<section class="bw-tool add-bd2-t">
+				<div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+                </div>
+				<div class="btn-wrap fix-r"><!--*2016/04/26추가-->
+					<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-base-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn" id="btn-search-condition-inquire" title="{{bxMsg 'cbb_items.SCRNITM#search'}}"><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-base-search-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+
+
+			<!--SEARCH AREA * 검색 영역-->
+			<section class="CAPSV003-base-table" id="CAPSV003-base-table">
+				<section class="search-wrap">
+					<table class="w-100">						
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#srvcRstrctnCd'}}">{{bxMsg 'cbb_items.SCRNITM#srvcRstrctnCd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV003-base-srvcRstrctnCd-wrap" data-form-param="srvcRstrctnCd"></select>
+								</div>
+							</td>
+							<td class="td-w-33">
+							<div class="input-wrap add-btn clr">
+								<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#srvcCd'}}">{{bxMsg 'cbb_items.SCRNITM#srvcCd'}}</label>
+								<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.SCRNITM#srvcCd'}}" data-form-param="srvcCd" />
+								<button type="button" class="bw-btn fix-r" id="btn-srvcCd-search2"><i class="bw-icon i-30 i-search"></i></button>
+							</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#chnlCd'}}">{{bxMsg 'cbb_items.SCRNITM#chnlCd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV003-base-chnlCd-wrap" data-form-param="chnlCd"></select>
+								</div>
+							</td>
+						</tr>
+									
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#bizDscd'}}">{{bxMsg 'cbb_items.SCRNITM#bizDscd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV003-base-bizDscd-wrap" data-form-param="bizDscd"></select>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#pdTpCd'}}">{{bxMsg 'cbb_items.SCRNITM#pdTpCd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV003-base-pdTpCd-wrap" data-form-param="pdTpCd"></select>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#pdTmpltCd'}}">{{bxMsg 'cbb_items.SCRNITM#pdTmpltCd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV003-base-pdTmpltCd-wrap" data-form-param="pdTmpltCd"></select>
+								</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#pdCd'}}">{{bxMsg 'cbb_items.SCRNITM#pdCd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV003-base-pdCd-wrap" data-form-param="pdCd"></select>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#srvcRstrctnDtm'}}">{{bxMsg 'cbb_items.AT#srvcRstrctnDtm'}}</label>
+									<input type="text" class="bw-input w-25 ipt-cal"  data-form-param="srvcRstrctnDtm" />
+									<input type="text" class="bw-input w-20 ipt-time" data-form-param="srvcRstrctnTime" placeholder="--:--:--" />
+								</div>
+							</td>
+							<td class="td-w-33">
+								<input type="checkbox" class="bw-input ipt-radio f-l" id="hstQryYn" data-form-param="hstQryYn" />
+								<label class="bw-label fix-lh">{{bxMsg 'cbb_items.AT#hstQryYn'}}</label>
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+
+
+            <!-- Grid area -->
+            <section class="grid-wrap">
+				<div class="CAPSV003-grid" id="CAPSV003-grid"></div>
+			</section>
+
+
+
+
+			<section class="bw-tool add-bd2-t add-mg-t">
+				<!-- <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#CAPSV003-LIST-TITLE'}}</h3> -->
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn" id="btn-detail-refresh" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}"><i class="bw-icon i-30 i-func-refresh"></i></button>
+					<button type="button" class="bw-btn" id="btn-detail-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+					<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#del'}}" id="btn-detail-delete"><i class="bw-icon i-25 i-func-trash"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-detail-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+			<section class="CAPSV003-detail-table" id="CAPSV003-detail-table">	
+				<section class="search-wrap">
+					<table class="w-100">
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#srvcRstrctnCd'}}">{{bxMsg 'cbb_items.SCRNITM#srvcRstrctnCd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV003-detail-srvcRstrctnCd-wrap" data-form-param="srvcRstrctnCd"></select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="td-w-33">
+							<!-- 서비스제한시작일시 -->
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#srvcRstrctnStartDtm'}}">{{bxMsg 'cbb_items.AT#srvcRstrctnStartDtm'}}</label>
+									<input type="text" class="bw-input w-20 ipt-cal" data-form-param="srvcRstrctnStartDtm" />
+									<input type="text" class="bw-input w-15 ipt-time" data-form-param="srvcRstrctnStartTime" placeholder="--:--:--" />
+								</div>
+							</td>
+							<!-- 서비스제한종료일시 -->
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#srvcRstrctnEndDtm'}}">{{bxMsg 'cbb_items.AT#srvcRstrctnEndDtm'}}</label>
+
+
+									<input type="text" class="bw-input w-20 ipt-cal" data-form-param="srvcRstrctnEndDtm" />
+									<input type="text" class="bw-input w-15 ipt-time" data-form-param="srvcRstrctnEndTime" placeholder="--:--:--" />
+
+
+								</div>
+							</td>
+						</tr>
+
+
+						<tr>
+							<td class="td-w-33">
+							<!-- 서비스코드 -->
+							<div class="input-wrap add-btn clr">
+								<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#srvcCd'}}">{{bxMsg 'cbb_items.SCRNITM#srvcCd'}}</label>
+								<input type="text" class="bw-input w-20" placeholder="{{bxMsg 'cbb_items.SCRNITM#srvcCd'}}" data-form-param="srvcCd" />
+								<button type="button" class="bw-btn fix-r" id="btn-srvcCd-search"><i class="bw-icon i-30 i-search"></i></button>
+							</div>
+							</td>
+							<!-- 채널코드 -->
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#chnlCd'}}">{{bxMsg 'cbb_items.SCRNITM#chnlCd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV003-detail-chnlCd-wrap" data-form-param="chnlCd"></select>
+								</div>
+							</td>
+						</tr>
+
+
+						<tr>
+							<!-- 업무구분코드 -->
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#bizDscd'}}">{{bxMsg 'cbb_items.SCRNITM#bizDscd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV003-detail-bizDscd-wrap" data-form-param="bizDscd"></select>
+								</div>
+							</td>
+							<!-- 상품유형코드 -->
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#pdTpCd'}}">{{bxMsg 'cbb_items.SCRNITM#pdTpCd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV003-detail-pdTpCd-wrap" data-form-param="pdTpCd"></select>
+								</div>
+							</td>
+						</tr>
+
+
+						<tr>
+							<td class="td-w-33">
+							<!-- 상품템플릿코드 -->
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#pdTmpltCd'}}">{{bxMsg 'cbb_items.SCRNITM#pdTmpltCd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV003-detail-pdTmpltCd-wrap" data-form-param="pdTmpltCd"></select>
+								</div>
+							</td>
+							<!-- 상품유형코드 -->
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#pdCd'}}">{{bxMsg 'cbb_items.SCRNITM#pdCd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV003-detail-pdCd-wrap" data-form-param="pdCd"></select>
+
+
+								</div>
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+        </section>
+    </section>
+</section>

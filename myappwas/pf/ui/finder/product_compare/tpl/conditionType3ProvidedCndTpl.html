@@ -1,0 +1,30 @@
+<div class="pf-panel-body bx-info-table-wrap">
+    <!--<div class="pf-panel-header">-->
+    <!--<h2 class="pf-panel-title" style="margin-left:-5px;">{{bxMsg 'providedCondition'}}</h2> &lt;!&ndash;제공조건&ndash;&gt;-->
+    <!--</div>-->
+
+    <div class="provided-cnd-grid"></div>
+    <table class="bx-info-table provided-cnd-table-wrap">
+        <tr>
+            <!-- 적용기간 -->
+            <th>{{bxMsg 'DPS0121String4'}}</th>
+            <td>
+                {{applyStartDate}} - {{applyEndDate}}
+            </td>
+        </tr>
+        <tr>
+            <!-- 상태 -->
+            <th>{{bxMsg 'DPS0101String6'}}</th>
+            <td>
+                {{ruleStatusCode}}
+            </td>
+        </tr>
+        <tr>
+            <!-- 적용규칙 -->
+            <th>{{bxMsg 'ApplyRule'}}</th>
+            <td>
+                {{ruleContent}}
+            </td>
+        </tr>
+    </table>
+</div>

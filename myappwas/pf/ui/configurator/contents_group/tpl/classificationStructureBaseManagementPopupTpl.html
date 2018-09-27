@@ -1,0 +1,53 @@
+<!-- 상품그룹기본 관리 팝업 -->
+<div class="classification-structure-base-management-popup">
+    <table class="bx-info-table pf-info-cntnts-str-base-form">
+        <tr>
+            <th>{{bxMsg 'contentsGroupBaseCd'}}</th>
+            <!-- 콘텐츠그룹기본코드 -->
+            <td>
+                <input type="text" disabled class="bx-form-item bx-compoenent-small classificationStructureDistinctionCode" value="{{classificationStructureDistinctionCode}}" data-form-param="classificationStructureDistinctionCode" />
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'contentsGroupBaseNm'}}</th>
+            <!-- 콘텐츠그룹기본명 -->
+            <td>
+                <input type="text" class="bx-form-item bx-compoenent-small length-check-input mandatory classification-structure-name" value="{{classificationStructureName}}" data-form-param="classificationStructureName" />
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'contentsGroupDescription'}}</th>
+            <!--콘텐츠그룹설명-->
+            <td>
+                <textarea class="bx-form-item cls-str-cnt  task-valid-300" data-form-param="classificationStructureContent">{{classificationStructureContent}}</textarea>
+
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'DPS0126String9'}}</th>
+            <!-- 적용기간 -->
+            <td>
+                <input name="start" type="text" class="bx-form-item bx-compoenent-small calendar start-date" value="{{applyStartDate}}" data-form-param="applyStartDate" disabled /> ~
+                <input name="end" type="text" class="bx-form-item bx-compoenent-small calendar end-date" value="{{applyEndDate}}" data-form-param="applyEndDate" />
+            </td>
+        </tr>
+        <!-- 상품그룹 유형 - 2017.11.28. yujin. 콘텐츠 관리에 필요 없음.
+            <tr>
+                <th>{{bxMsg 'ProductGroupType'}}</th>
+                <td>
+                    <select class="bx-form-item bx-compoenent-small select-item cls-prod-group-type-select"
+                            data-form-param="classificationStructureUsageDistinctionCode">
+                    </select>
+                </td>
+            </tr>
+			-->
+        <tr>
+            <th>{{bxMsg 'MTM0300String2'}}</th>
+            <!-- 활동여부 -->
+            <td>
+                <select class="bx-form-item bx-compoenent-small select-item cls-str-active-yn-select" data-form-param="activeYn" disabled>
+                    </select>
+            </td>
+        </tr>
+    </table>
+</div>

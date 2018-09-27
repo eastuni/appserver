@@ -1,0 +1,20 @@
+{{#unless hidden}}
+<li class="bx-accordion-floor-item" data-id="{{id}}" data-tooltip="{{value}}">
+
+    <div class="bx-accordion-navi-wrap">
+
+        {{#if hasChildren}}
+        <i class="bx-accordion-navi"></i>
+        {{/if}}
+
+    </div>
+
+    <div class="bx-accordion-node">
+    	<div class="bx-accordion-node-conts"  title="{{value}}">{{viewValue}}</div>
+    </div>
+    
+    <ul class="bw-sub bx-accordion-floor">
+
+    </ul>
+</li>
+{{/unless}}

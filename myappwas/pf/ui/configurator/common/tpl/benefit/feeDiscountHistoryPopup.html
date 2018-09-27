@@ -1,0 +1,21 @@
+<!-- 수수료할인 이력조회 (팝업) -->
+<div class="pf-cp-fee-discount-history-popup">
+    <table class="bx-info-table">
+        <tr>
+            <th>{{bxMsg 'discountNo'}}</th>
+            <td>
+                <!-- 할인일련번호 -->
+                <input type="text" class="bx-form-item bx-compoenent-small feeDiscountSequenceNumber" data-form-param="feeDiscountSequenceNumber" value="{{feeDiscountSequenceNumber}}" disabled>
+            </td>
+            <th>{{bxMsg 'discountStatus'}}</th>
+            <!-- 할인상태구분 -->
+            <td>
+                <select disabled data-form-param="feeDiscountStatusCode" class="bx-compoenent-small bx-form-item feeDiscountStatusCode"></select>
+            </td>
+        </tr>
+    </table>
+    <div class="pf-cp-fee-discount-history-grid-title">※ {{bxMsg 'DPP0127String5'}}</div>
+    <div class="pf-cp-fee-discount-history-grid" style="height:150px; width:100%;"></div>
+
+    <div class="fee-discount-history-wrap" style="margin-top:10px;"></div>
+</div>

@@ -1,0 +1,168 @@
+<!--
+@Screen number  CAPAT301
+@brief          부서 역할 템플릿 정보를 관리합니다.
+@author         You Jin Jeong
+@history        2016.06.27      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPAT301-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPAT301'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPAT301'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+			</h2>
+
+
+			<!--/END BW-TITLE-->
+
+
+			<!--BW-MODULE-->
+			<div class="layout-wrap">
+				<div class="layout col1" id="tree-deptRoleTmplt-list">
+					<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+					<div class="bw-tool add-bd2-t add-mg-b-10">
+						<div class="f-l">
+							<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#staffList'}}</h3>					
+						</div>
+						<div class="btn-wrap fix-r">
+							<button type="button" class="bw-btn w-15" style="margin-top: 6px;" id="btn-tree-hide"><i class="i-30 fa fa-angle-left"></i></button>
+						</div>
+					</div>
+					<!--/END BW-TOOL-->
+
+
+					<div class="input-wrap add-btn add-mg-l-10 clr">
+						<label class="bw-label w-50">{{bxMsg 'cbb_items.AT#roleTmpltNm'}}</label>
+						<input type="text" class="bw-input w-50" id="searchKey" data-form-param="searchKey" placeholder="{{bxMsg 'cbb_items.SCRNITM#all'}}" />
+						<button type="button" class="bw-btn fix-r" id="btn-tree-search"><i class="bw-icon i-30 i-search"></i></button>
+					</div>
+
+
+					<!--BW-TREE *트리메뉴-->
+					<section class="unit-tree-wrap a-left roleTmpltTreeArea" id="popup-roleTmplt-tree" style="overflow-y:auto;">
+						<ul class="bx-tree-floor bx-tree-root"></ul>
+					</section>
+					<!--/END BW-TREE-->
+					<!-- GRID -->
+		    		<section class="unit-tree-wrap a-left roleTmpltGridArea" id="roleTmplt-list-grid">
+		    			<div class="bw-grid add-bd" id="CAPAT301Grid"></div>
+		    		</section>
+		    		<!-- END GRID -->				
+				</div>
+
+
+				<button type="button" class="bw-tree-show-btn" id="btn-tree-show" hidden><i class="fa fa-angle-right"></i></button>
+
+
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+		<div class="bw-inner-contents layout col2">
+
+
+
+
+			<section class="bw-tool add-bd2-t">
+				<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#baseAtrbt'}}</h3>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn PAT004-reset-btn" id="btn-detail-refresh" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn PAT004-tmplt-save-btn" id="btn-detail-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+					<button type="button" class="bw-btn PAT004-delete-btn" title="{{bxMsg 'cbb_items.SCRNITM#del'}}" id="btn-base-attribute-delete"><i class="bw-icon i-25 i-func-trash"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-detail-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+
+
+			<section class="deptRoletmpltTbl-wrap" id="CAPAT301-detail-table">	  
+				<section class="search-wrap">
+					<table class="w-100">
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr asterisk">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#roleTmpltId'}}">{{bxMsg 'cbb_items.AT#roleTmpltId'}}</label>
+									<input type="text" class="bw-input w-70" placeholder="{{bxMsg 'cbb_items.AT#roleTmpltId'}}" data-form-param="roleTmpltId" value=""/>
+					        		<input type="hidden"  data-form-param="newSaveYn" value="Y" />  
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr asterisk">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#roleTmpltNm'}}">{{bxMsg 'cbb_items.AT#roleTmpltNm'}}</label>
+									<input type="text" class="bw-input w-70" placeholder="{{bxMsg 'cbb_items.AT#roleTmpltNm'}}" data-form-param="roleTmpltNm"/>
+								</div>
+							</td>							
+							<td class="td-w-33">
+								<div class="input-wrap clr asterisk">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#roleTmpltSts'}}">{{bxMsg 'cbb_items.SCRNITM#roleTmpltSts'}}</label>
+									<select class="bw-input w-70 ipt-select roleTmpltStsCd-wrap" data-form-param="roleTmpltStsCd"></select>
+								</div>
+							</td>
+						</tr>											
+					</table>
+				</section>
+			</section>
+
+
+			<!-- Grid area -->
+			<div class="bw-tool add-bd2-t add-mg-t">
+				<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#deptRoleList'}}</h3>
+				<div class="btn-wrap fix-r">
+				<!-- 그리드 버튼 영역 -->
+					<button type="button" class="bw-btn b-ctr" id="btn-role-select-modal" data-info="CAPCM031-grid1"><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</div>
+            <section class="grid-wrap" id="role-select-area">		
+				<div class="bw-grid add-bd" id="PAT004-roleList-grid"></div>
+			</section>
+
+
+			<section class="bw-tool add-bd2-t add-mg-t">
+				<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#roleSetting'}}</h3>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn PAT004-role-save-btn" id="btn-role-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-setting-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+
+
+			<section class="role-setting-wrap" id="CAPAT301-role-setting-table">	  
+				<section class="search-wrap">
+					<table class="w-100">
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr asterisk">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#roleId'}}">{{bxMsg 'cbb_items.AT#roleId'}}</label>
+									<input type="text" class="bw-input w-70" placeholder="{{bxMsg 'cbb_items.AT#roleId'}}" data-form-param="roleId" value="" disabled/>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.AT#roleNm'}}">{{bxMsg 'cbb_items.AT#roleNm'}}</label>
+									<input type="text" class="bw-input w-70" placeholder="{{bxMsg 'cbb_items.AT#roleNm'}}" data-form-param="roleNm" disabled/>
+								</div>
+							</td>							
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+									<label class="bw-label w-30" title="{{bxMsg 'cbb_items.SCRNITM#authGrantYn'}}">{{bxMsg 'cbb_items.SCRNITM#authGrantYn'}}</label>
+									<select class="bw-input w-70 ipt-select authGrantYn-wrap" data-form-param="authGrantYn">
+										<option value="Y">Y</option>
+										<option value="N">N</option>
+									</select>
+								</div>
+							</td>
+						</tr>											
+					</table>
+				</section>
+			</section>
+
+
+        </section>
+    </section>
+</section>
+
+
+
+

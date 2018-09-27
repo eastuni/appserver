@@ -1,0 +1,130 @@
+<!-- 목록형 조건 -->
+<div class="pf-cc-condition-type1-tpl">
+    <div class="pf-panel pf-cc-common-condition-panel">
+        <div class="pf-panel-header">
+            <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+            <h2 class="pf-panel-title">{{bxMsg 'productConditionInfoMgmt'}}</h2>
+
+            <div class="header-btn-group">
+                <!--<button class="bx-btn bx-btn-small pf-cc-condition-view-history-btn">{{bxMsg 'ButtonGrayString3'}}</button>-->
+                <button type="button" class="bw-btn pf-cc-condition-view-history-btn" icon-tooltip="{{bxMsg 'ButtonGrayString3'}}">
+                        <i class="bw-icon i-25 i-func-history"></i>
+                    </button>
+
+            </div>
+        </div>
+        <div class="pf-panel-body">
+            <div class="bx-info-table-wrap">
+                <table class="bx-info-table condition-table-wrap">
+                    <tr>
+                        <th>{{bxMsg 'DPP0127String1'}}</th>
+                        <td>
+                            <input type="text" data-form-param="id" class="bx-form-item bx-compoenent-small input-140px" value="{{id}}" disabled/> /
+                            <input type="text" data-form-param="status" class="bx-form-item bx-compoenent-small input-140px" value="{{statusNm}}" disabled/>
+                            <input type="hidden" data-form-param="status" value="{{status}}" />
+                            <input type="hidden" data-form-param="conditionGroupTemplateCode" value="{{conditionGroupTemplateCode}}" />
+                            <input type="hidden" data-form-param="conditionGroupCode" value="{{conditionGroupCode}}" />
+                            <input type="hidden" data-form-param="conditionTypeCode" value="{{conditionTypeCode}}" disabled/>
+                            <input type="hidden" data-form-param="conditionDetailTypeCode" value="{{conditionDetailTypeCode}}" disabled/>
+                            <input type="hidden" data-form-param="layerCalcType" value="{{layerCalcType}}" disabled/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>{{bxMsg 'DPP0127String2'}}</th>
+                        <td>
+                            <input type="text" data-form-param="text" class="bx-form-item bx-compoenent-small input-285px" value="{{text}}" disabled/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>{{bxMsg 'DPS0121String4'}} <span class="red-notice">*</span></th>
+                        <td>
+                            <input name="start" data-form-param="applyStart" class="bx-form-item bx-compoenent-small calendar start-date" value="{{applyStart}}" type="text"> -
+                            <input name="end" data-form-param="applyEnd" class="bx-form-item bx-compoenent-small calendar end-date" value="{{applyEnd}}" type="text" disabled>
+                        </td>
+                    </tr>
+                    <tr class="cndAtrb-01">
+                        <th>{{bxMsg 'DPS0121String7'}}</th>
+                        <td>
+                            <select data-form-param="conditionAgreeLevel" class="bx-form-item bx-compoenent-small ProductConditionAgreeLevelCode" value="{{conditionAgreeLevel}}" disabled>
+                                </select>
+                            <label><input type="checkbox" class="isValueNull bx-form-item"> {{bxMsg 'DPS0121String10'}}</label>
+                            <label><input type="checkbox" class="isMandatory bx-form-item"> {{bxMsg 'DPS0121String8'}}</label>
+                        </td>
+                    </tr>
+                    <tr class="cndAtrb-06">
+                        <th>{{bxMsg 'DPS0121String5'}} <span class="red-notice">*</span></th>
+                        <td>
+                            <input type="text" class="bx-form-item bx-compoenent-small input-140px" value="{{conditionTypeCodeNm}}" disabled/> /
+                            <select data-form-param="conditionClassifyCode" class="bx-form-item bx-compoenent-small select-140px ProductConditionClassifyCode isEnableComplexCondition-disabled" value="{{conditionClassifyCode}}">
+                                </select>
+                        </td>
+                    </tr>
+                    <!-- 자상품사용가능여부
+                        <tr class="isValueNull-hidden">
+                            <th>{{bxMsg 'isChildPdUsable'}}</th>
+                            <td>
+                                <input type="checkbox" class="bx-form-item childYn-check">
+                                <input type="hidden" class="childYn-check-value" data-form-param="isChildPdUsable" value="{{isChildPdUsable}}">
+                            </td>
+                        </tr> -->
+                    <tr class="cndAtrb-04">
+                        <th>{{bxMsg 'searchBaseDate'}}</th>
+                        <td>
+                            <select data-form-param="intRtAplyBaseDayCd" class="bx-form-item bx-compoenent-small intRtAplyBaseDayCd"></select>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="condition-value-wrap active">
+
+                    <div class="complex-grid-wrap">
+                        <header class="grid-extra-header">
+                            <!-- OHS 2016.07.22 주석처리
+                                <button class="bx-btn bx-btn-small excel-down-btn">{{bxMsg 'excelFileDownload'}}</button>
+                                -->
+
+                            <button type="button" class="bw-btn excel-down-btn" icon-tooltip="{{bxMsg 'excelFileDownload'}}">
+                                    <i class="bw-icon i-25 i-func-xls"></i>
+                                </button>
+                            <button type="button" class="bw-btn excel-upload-btn" icon-tooltip="{{bxMsg 'excelFileUpload'}}">
+                                    <i class="bw-icon i-25 i-func-xls-up"></i>
+                                </button>
+                            <button type="button" class="bw-btn excel-down-for-upload-btn" icon-tooltip="{{bxMsg 'excelFileDownloadForUpload'}}">
+                                    <i class="bw-icon i-25 i-func-xls-null"></i>
+                                </button>
+
+
+                            <button type="button" class="bw-btn complex-condition-value-add-btn cndAtrb-07" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                                    <i class="bw-icon i-25 i-func-add"></i>
+                                </button>
+                            <button type="button" class="bw-btn column-setting-btn  cndAtrb-07" icon-tooltip="{{bxMsg 'columnSetting'}}">
+                                    <i class="bw-icon i-25 i-setting"></i>
+                                </button>
+                            <button type="button" class="bw-btn verify-btn" icon-tooltip="{{bxMsg 'validation'}}">
+                                    <i class="bw-icon i-25 i-func-submit2"></i>
+                                </button>
+                        </header>
+                        <div class="complex-grid">
+                        </div>
+                    </div>
+
+                    <div class="condition-value">
+                        <div class="cnd-val-type1-grid">
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="pf-panel-footer">
+                    <button type="button" class="bw-btn pf-cc-common-condition-delete-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString2'}}">
+                            <i class="bw-icon i-30 i-func-trash"></i>
+                        </button>
+
+                    <button type="button" class="bw-btn pf-cc-common-condition-save-btn write-btn" data-status="{{status}}" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+                            <i class="bw-icon i-30 i-func-save"></i>
+                        </button>
+
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>

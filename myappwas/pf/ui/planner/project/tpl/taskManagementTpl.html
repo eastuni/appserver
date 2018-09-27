@@ -1,0 +1,58 @@
+<div class="pf-panel-header">
+    <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+    <h2 class="pf-panel-title">{{bxMsg 'PAS0201Title'}}</h2>
+</div>
+<div class="pf-panel-body bx-info-table-wrap">
+    <div class="pf-pt-task-mgmt-form">
+        <table class="task-query-table bx-info-table">
+            <tr>
+                <!-- 최종변경일자 -->
+                <th>{{bxMsg 'lastModifiedDate'}}</th>
+                <td>
+                    <input name="start" class="bx-form-item bx-compoenent-small calendar start-date" type="text" data-form-param="startDate">
+                    <label>-</label>
+                    <input name="end" class="bx-form-item bx-compoenent-small calendar end-date" type="text" data-form-param="endDate">
+                </td>
+                <th class="padding-th">{{bxMsg 'relatedTargetDesignation'}}</th>
+                <td>
+                    <select class="bx-form-item bx-compoenent-small select-item target-obj-code-list" data-form-param="targetObjectTypeCode">
+                        </select>
+                </td>
+                <th class="padding-th">{{bxMsg 'relatedTargetDesignationName'}}</th>
+                <td>
+                    <input type="text" class="bx-form-item bx-compoenent-small select-list" data-form-param="targetObjectName">
+                </td>
+            </tr>
+            <tr>
+                <th>{{bxMsg 'PAS0202String7'}}</th>
+                <td class="end-td" colspan="3">
+                    <input type="text" class="bx-form-item bx-compoenent-small project-name" data-form-param="projectName">
+                </td>
+                <th class="padding-th">{{bxMsg 'PAS0201String5'}}</th>
+                <td>
+                    <select multiple="multiple" class="bx-form-item bx-compoenent-small select-item prgrs-sts-dscd" data-form-param="prgrsStsDscd">
+                        </select>
+                </td>
+            </tr>
+            <!--OHS 2016.10.24 태그 추가-->
+            <tr>
+                <th>{{bxMsg 'PAS0101String7'}}</th>
+                <td colspan="3">
+                    <input type="text" class="bx-form-item bx-compoenent-small dvlp-task-tag" data-form-param="dvlpTaskTag">
+                </td>
+            </tr>
+        </table>
+        <div class="grid-extra-header">
+            <button type="button" class="bw-btn pf-reset-form-btn" icon-tooltip="{{bxMsg 'ButtonBottomString6'}}">
+                    <i class="bw-icon i-25 i-func-reset"></i>
+                </button>
+            <button type="button" class="bw-btn task-list-inquiry-btn" icon-tooltip="{{bxMsg 'ButtonBottomString5'}}">
+                    <i class="bw-icon i-25 i-search"></i>
+                </button>
+            <button type="button" class="bw-btn task-new-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString7'}}">
+                    <i class="bw-icon i-25 i-func-add"></i>
+                </button>
+        </div>
+    </div>
+    <div class="pf-pt-task-mgmt-grid middle-grid"></div>
+</div>

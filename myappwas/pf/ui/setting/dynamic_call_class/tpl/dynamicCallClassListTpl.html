@@ -1,0 +1,65 @@
+<div class="pf-panel">
+    <div class="pf-panel-header">
+        <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+        <!--<h2 class="pf-panel-title">{{bxMsg 'MENU06007'}}</h2>-->
+        <!--  -->
+        <h2 class="pf-panel-title">{{bxMsg 'SCRN040'}}</h2>
+    </div>
+    <div class="pf-panel-body bx-info-table-wrap">
+        <div class="pf-dynamic-call-class-list-form">
+            <table class="dynamic-call-class-query-table bx-info-table">
+                <tr>
+                    <th style="width:10%;">{{bxMsg 'useDistinction'}}</th>
+                    <!-- 용도구분 -->
+                    <td style="width:40%;">
+                        <select class="bx-compoenent-small bx-form-item bx class-usage-dscd" data-form-param="classUsageDscd"></select>
+                    </td>
+                    <th style="width:10%;">{{bxMsg 'searchBaseDate'}}</th>
+                    <!-- 조회기준일 -->
+                    <td style="width:40%;">
+                        <input name="start" type="text" class="bx-form-item bx-compoenent-small calendar base-date" data-form-param="applyStartDate">
+                    </td>
+                </tr>
+                <tr>
+                    <th style="width:10%;">{{bxMsg 'beanName'}}</th>
+                    <!-- bean명 -->
+                    <td colspan="3" style="width:90%;">
+                        <input type="text" style="width:600px;" class="bx-form-item bx-compoenent-small input-285px" data-form-param="beanNm" />
+                    </td>
+                </tr>
+            </table>
+            <div class="grid-extra-header">
+
+                <button type="button" class="bw-btn grid-reset-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString6'}}">
+                        <i class="bw-icon i-25 i-func-reset"></i>
+                    </button>
+
+                <button type="button" class="bw-btn dynamic-call-class-list-inquiry-btn" icon-tooltip="{{bxMsg 'ButtonBottomString5'}}">
+                        <i class="bw-icon i-25 i-search"></i>
+                    </button>
+
+                <button type="button" class="bw-btn dynamic-call-class-add-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                        <i class="bw-icon i-25 i-func-add"></i>
+                    </button>
+
+                <button type="button" class="bw-btn copy-row-btn write-btn" icon-tooltip="{{bxMsg 'copyRow'}}">
+                        <i class="bw-icon i-25 i-func-add-row"></i>
+                    </button>
+            </div>
+        </div>
+        <div class="dynamic-call-class-grid"></div>
+
+        <footer class="pf-panel-footer">
+            <button type="button" class="bw-btn dynamic-call-class-save-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+                    <i class="bw-icon i-30 i-func-save"></i>
+                </button>
+        </footer>
+    </div>
+</div>
+<!--
+    <div class="btn-box">
+        <button type="button" class="bw-btn dynamic-call-class-save-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString1'}}">
+            <i class="bw-icon i-30 i-func-save"></i>
+        </button>
+    </div>
+    -->

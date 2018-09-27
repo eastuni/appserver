@@ -1,0 +1,34 @@
+<div class="contents-edit-popup">
+    <table class="bx-info-table contents-edit-popup-form">
+        <tr class="pf-multi-entity-yn">
+            <th>{{bxMsg 'chnlDscd'}}</th>
+            <td>
+                <select class="bx-compoenent-small bx-form-item bx contents-channel-dscd">
+                        <option></option>
+                    </select>
+            </td>
+            <th>{{bxMsg 'contentsType'}}</th>
+            <td>
+                <select class="bx-compoenent-small bx-form-item bx contents-type">
+                        <option></option>
+                    </select>
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'contentsTitle'}}</th>
+            <td colspan="3">
+                <input type="text" class="bx-form-item bx-compoenent-small cntntTitle" value="{{cntntTitle}}" data-form-param="cntntTitle" />
+            </td>
+        </tr>
+        <tr>
+            <th>{{bxMsg 'DPS0126String9'}}</th>
+            <!-- 적용기간 -->
+            <td colspan="3">
+                <input name="start" type="text" class="bx-form-item bx-compoenent-small calendar start-date" value="{{applyStartDate}}" data-form-param="applyStartDate" disabled /> ~
+                <input name="end" type="text" class="bx-form-item bx-compoenent-small calendar end-date" value="{{applyEndDate}}" data-form-param="applyEndDate" disabled />
+            </td>
+        </tr>
+    </table>
+    <iframe class="contents-editor" src="editor"></iframe>
+    <!-- <div class="contents-editor" id="summernote"></div> -->
+</div>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bxm-instance xmlns="http://www.es-code.com/schema/instance"
+	xmlns:cn="http://www.es-code.com/schema/common" name="bxm-instance">
+    <description>BXM Sample Configuration</description>
+    <environment>
+        <system-mode>D</system-mode>
+        <datasource>
+            <jndi-datasource jndi-name="java:/comp/env/BXMNXA">
+            </jndi-datasource>
+        </datasource>
+        <loader mode="hot" autodeploy="true" interval-millis="8000" lazy-init="true" registry="off" deferred-init="true" deferred-init-interval="1000" useonly-predef-beanprocs="true" sessionfactory-lazyinit="false" application-instrumentable-metadata-cachesize="25" application-classtransformer-metadata-cachesize="16" use-lastmodified-cache="false">
+            <application-home>/pfprod/apps/online</application-home>
+        </loader>
+    </environment>
+
+    <management>
+        <connector serviceurl="service:jmx:rmi:///jndi/bxm-instance">
+            <environment>
+            </environment>
+        </connector>
+        <objectname domain="JRF">
+            <properties>
+                Name=bxm-management
+            </properties>
+        </objectname>
+    </management>
+
+    <context forced-timeout="180000">
+<!--
+        <preprocessor classname="bxm.service.processor.BxmSystemPreProcessor" order="1"/>
+        <postprocessor classname="bxm.service.processor.BxmSystemPostProcessor" order="1"/>
+-->
+        <control-parameter classname="bxm.instance.context.control.SimpleControlParameters"/>
+        <transaction-rollbackfors>
+            bxm.app.ApplicationException
+            pf.bxm.exception.PfApplicationException
+        </transaction-rollbackfors>
+        <request header-classname="pf.bxm.request.PfSystemHeader" imagelogging="false"
+                request-resolver-classname="pf.bxm.request.PfRequestResolver"
+                response-resolver-classname="pf.bxm.request.PfResponseResolver"
+                request-trace-classname="bxm.request.DefaultRequestTrace"/>
+    </context>
+
+    <data-access trace-inject="default" monitor-inject="default" identify-inject="default"
+        identifier-prefix="map_id(" identifier-suffix=")"
+        oracle-setmodule="false" oracle-clearmodule="false" max-resultset="5000" fetch-size="100" min-fetch-size="100"
+        limit-exceeded-action="Error" forced-logging="true">
+        <query-injector classname="bxm.das.spi.mybatis.QueryInjector"/>
+        <!--jndi-datasource-aliases>
+            <alias name="java:/comp/env/BXMNXA" alias="DSNXA"/>
+            <alias name="java:/comp/env/BXMXA" alias="DSXA"/>
+        </jndi-datasource-aliases-->
+    </data-access>
+
+    <message message-source-classname="bxm.instance.message.DataBaseMessageSource"/>
+
+</bxm-instance>

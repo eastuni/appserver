@@ -1,0 +1,31 @@
+<!-- 수수료 할인 조건 -->
+<div class="pf-cp-condition-type4-2tpl">
+    <div class="pf-panel pf-cp-product-condition-panel">
+
+        <!-- 수수료할인정보관리 -->
+        <div class="pf-panel-header">
+            <i class="bx-icon bx-icon-info pf-panel-header-icon bx-icon-infomation"></i>
+            <h2 class="pf-panel-title">{{bxMsg 'FeeDiscountInfoMgmt'}}</h2>
+        </div>
+
+        <div class="pf-panel-body">
+
+            <!-- 추가버튼 -->
+            <header class="condition-type4-2grid-header grid-extra-header">
+                <div class="header-group">
+                    <span>{{bxMsg 'searchBaseDate'}} </span>
+                    <input type="text" name="start" class="bx-form-item bx-compoenent-small fee-dc-search-base-dt calendar-all start-date" style="width:140px;" />
+                    <button type="button" class="bw-btn add-cnd4-fee-btn write-btn" icon-tooltip="{{bxMsg 'ButtonBottomString8'}}">
+                            <i class="bw-icon i-25 i-func-add"></i>
+                        </button>
+                </div>
+            </header>
+
+            <!-- 수수료할인조건 그리드 -->
+            <div class="condition-type4-2grid-wrap"></div>
+
+            <!-- 적용규칙 -->
+            <div class="apply-rule-info-wrap"></div>
+        </div>
+    </div>
+</div>

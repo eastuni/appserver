@@ -1,0 +1,163 @@
+<!--
+@Screen number  CAPAM020
+@brief          신용평가등급을 관리합니다.
+@author         Jae Man Yoo
+@history        2017.08.28      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPAM020-wrap">
+
+
+            <!--BW-TITLE *컨텐츠 메인 타이틀-->
+            <h2 class="bw-tt">
+                {{bxMsg 'cbb_items.SCRN#CAPAM020'}}
+                <p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPAM020'}}</p>
+                <p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#settingTrgtInstNm'}}</p>
+            </h2>
+            <!--/END BW-TITLE-->
+
+            <!--BW-TOOL SEARCH CONDITION AREA * 아이콘 버튼을 포함하는 툴바-->
+            <section class="bw-tool add-bd2-t">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" id="btn-search-condition-reset" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn" id="btn-search-condition-inquire" title="{{bxMsg 'cbb_items.SCRNITM#search'}}"><i class="bw-icon i-30 i-func-search"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-search-condition-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </section>
+            <!--/END BW-TOOL-->
+            
+            
+            <!--SEARCH CONDITION AREA * 검색 조건 영역-->
+            <section id="search-condition-area">
+                <section class="search-wrap">
+                    <table class="w-100">
+                        <tr>
+                            <td class="td-w-33">
+                                <div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#crdtrtgMdlDscd'}}">{{bxMsg 'cbb_items.SCRNITM#crdtrtgMdlDscd'}}</label>
+                                    <select class="bw-input w-60 ipt-select search-condition-area CAPAM020-crdtrtgMdlDscd-wrap" data-form-param="crdtrtgMdlDscd"></select>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                                <div class="input-wrap asterisk clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#baseDt'}}">{{bxMsg 'cbb_items.AT#baseDt'}}</label>
+									<input type="text" class="bw-input ipt-cal w-60" placeholder="{{bxMsg 'cbb_items.AT#baseDt'}}" data-form-param="baseDt"/>
+                                </div>
+                            </td>
+                            <td class="td-w-33">
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+            <!--/END SEARCH CONDITION AREA -->            
+            
+
+            <!--BW-TOOL Search Results Area * 아이콘 버튼을 포함하는 툴바-->
+            <div class="bw-tool add-bd2-t add-mg-t">
+                <div class="f-l">
+                    <h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-search-result-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-search-result-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-search-result-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </div>
+            <!--/END BW-TOOL-->
+
+
+            <!--Search Results Area * 검색결과 영역 (신용평가등급목록)-->
+            <section class="grid-wrap" id="search-result-area">
+                <!--GRID AREA -->
+                <div class="CAPAM020Grid" id="CAPAM020Grid"></div>
+                <!--/END GRID AREA-->
+            </section>
+            
+
+
+			<!-- 신용평가등급 속성 영역 -->
+			
+            <!--BW-TOOL Detail Information AREA * 아이콘 버튼을 포함하는 툴바-->
+            <div class="bw-tool add-bd2-t add-mg-t">
+                <div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#baseAtrbt'}}</h3>
+                </div>
+                <div class="btn-wrap fix-r">
+                    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_initialize'}}" id="btn-detail-information-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+                    <button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}" id="btn-detail-information-save"><i class="bw-icon i-30 i-func-save"></i></button>
+                    <button type="button" class="bw-btn b-ctr" id="btn-detail-information-toggle"><i class="fa fa-forward fa-rotate-270"></i></button>
+                </div>
+            </div>
+            <!--/END BW-TOOL-->
+            
+            
+            <section id="detail-information-area">
+                <section class="search-wrap">
+                    <table class="w-100">
+                        <tr>
+                            <td class="td-w-33">
+								<div class="input-wrap asterisk clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#crdtrtgMdlDscd'}}">{{bxMsg 'cbb_items.SCRNITM#crdtrtgMdlDscd'}}</label>
+                                    <select class="bw-input w-60 ipt-select detail-information-area CAPAM020-crdtrtgMdlDscd-wrap" data-form-param="crdtrtgMdlDscd"></select>
+								</div>
+                            </td>
+                            <td class="td-w-33">
+								<div class="input-wrap asterisk clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#crdtrtgGradeCd'}}">{{bxMsg 'cbb_items.SCRNITM#crdtrtgGradeCd'}}</label>
+                                    <input type="text" class="bw-input w-60 detail-information-area" data-form-param="crdtrtgGradeCd" />
+								</div>
+                            </td>
+                            <td class="td-w-33">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-w-33">
+								<div class="input-wrap asterisk clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#aplyStartDt'}}">{{bxMsg 'cbb_items.AT#aplyStartDt'}}</label>
+									<input type="text" class="bw-input ipt-cal w-60" placeholder="{{bxMsg 'cbb_items.AT#aplyStartDt'}}" data-form-param="aplyStartDt"/>
+								</div>
+                            </td>
+                            
+                            <td class="td-w-33">
+								<div class="input-wrap asterisk clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#aplyEndDt'}}">{{bxMsg 'cbb_items.AT#aplyEndDt'}}</label>
+									<input type="text" class="bw-input ipt-cal w-60" placeholder="{{bxMsg 'cbb_items.AT#aplyEndDt'}}" data-form-param="aplyEndDt"/>
+								</div>
+                            </td>
+                            <td class="td-w-33">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-w-33">
+								<div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#startScore'}}">{{bxMsg 'cbb_items.SCRNITM#startScore'}}</label>
+                                    <input type="text" class="bw-input w-60 detail-information-area" data-form-param="startScore" />
+								</div>
+                            </td>
+                            <td class="td-w-33">
+								<div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#endScore'}}">{{bxMsg 'cbb_items.SCRNITM#endScore'}}</label>
+                                    <input type="text" class="bw-input w-60 detail-information-area" data-form-param="endScore" />
+								</div>
+                            </td>
+                            <td class="td-w-33">
+								<div class="input-wrap clr">     
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.SCRNITM#sysExmntnRsltCd'}}">{{bxMsg 'cbb_items.SCRNITM#sysExmntnRsltCd'}}</label>
+                                    <select class="bw-input w-60 ipt-select detail-information-area CAPAM020-sysExmntnRsltCd-wrap" data-form-param="sysExmntnRsltCd"></select>
+								</div>
+                            </td>
+                        </tr>                        
+                    </table>                   
+                </section>
+            </section>
+
+        </section>
+    </section>
+</section>            

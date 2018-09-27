@@ -1,0 +1,58 @@
+<!--MODAL-->
+	<div class="bw-modal-wrap fix-h bw-modal-popup-header" id="popup-rule-modal"> 
+		<h2 class="bw-tt a-center bx-popup-header-area">{{bxMsg 'cbb_items.SCRNITM#popup-rule'}}</h2>
+
+
+		<!--SEARCH AREA * 검색 영역-->
+		<div class="bw-tool add-bd2-t">
+			<div class="f-l">
+				<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#srchCnd'}}</h3>
+			</div>
+			<div class="btn-wrap fix-r">
+				<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-popup-rule-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+				<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-popup-rule-search"><i class="bw-icon i-30 i-func-search"></i></button>
+				<button type="button" class="bw-btn b-ctr" id="btn-popup-search-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+			</div>
+		</div>
+		<section class="search-wrap" id="popup-search-area">
+			<table class="w-100 popup-rule-table">
+				<tr>
+					<td class="td-w-50">
+						<div class="input-wrap clr">
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#ruleId'}}">{{bxMsg 'cbb_items.AT#ruleId'}}</label>
+							<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#ruleId'}}" data-form-param="ruleId"/>
+						</div>
+					</td>
+					<td>
+						<div class="input-wrap clr">
+							<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#ruleNm'}}">{{bxMsg 'cbb_items.AT#ruleNm'}}</label>
+							<input type="text" class="bw-input w-60" placeholder="{{bxMsg 'cbb_items.AT#ruleNm'}}" data-form-param="ruleNm"/>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</section>
+
+
+        <section class="grid-wrap">
+			<div class="bw-tool add-bd2-t add-mg-t">
+				<div class="f-l">
+					<h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+				</div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn b-ctr" id="btn-popup-grid-modal"><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</div>
+			<div class="popup-rule-grid" id="popup-rule-grid"></div>
+			<section class="paging-area" id="paging-area"></section>
+		</section>
+
+
+			<!--/END SEARCH AREA-->
+		<div class="btn-wrap add-mg">
+			<button type="button" class="bw-btn-txt" id="btn-popup-select">{{bxMsg 'cbb_items.SCRNITM#B_select'}}</button>
+<!-- 			<button type="button" class="bw-btn-txt on" id="btn-popup-rule-cancel">{{bxMsg 'cbb_items.ABRVTN#cncl'}}</button> -->
+			<button type="button" class="bw-btn-txt on" id="btn-popup-cancel">{{bxMsg 'cbb_items.ABRVTN#cncl'}}</button>
+		</div>
+	</div>
+<!--END MODAL-->

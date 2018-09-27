@@ -1,0 +1,254 @@
+<!--
+@Screen number  CAPSV301
+@brief          배포[배포과제관리]
+@author         신홍균
+@history        2017.06.01      생성
+-->
+
+
+<section class="contents-wrap">
+    <section class="contents">
+        <section class="CAPSV301-wrap">
+
+
+			<h2 class="bw-tt">
+			<!-- 제목영역 -->
+				{{bxMsg 'cbb_items.SCRN#CAPSV301'}}
+				<p class="desc">{{bxMsg 'cbb_items.SCRN_DESC#CAPSV301'}}</p>
+				<p class="efctvScope">{{bxMsg 'cbb_items.SCRNITM#efctvScope'}} : {{bxMsg 'cbb_items.SCRNITM#all'}}
+			</h2>
+
+
+			<!--/END BW-TITLE-->
+			<!--BW-TOOL * 아이콘 버튼을 포함하는 툴바-->
+			<section class="bw-tool add-bd2-t">
+				<div class="f-l">
+                    <h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#searchCnd'}}</h3>
+                </div>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn alert-reset" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}" id="btn-base-reset"><i class="bw-icon i-30 i-func-reset"></i></button>
+					<button type="button" class="bw-btn" title="{{bxMsg 'cbb_items.SCRNITM#search'}}" id="btn-base-search"><i class="bw-icon i-30 i-func-search"></i></button>
+					<button type="button" class="bw-btn b-ctr" id="btn-base-search-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+
+
+			<!--SEARCH AREA * 검색 영역-->
+			<section class="CAPSV301-base-table" id="CAPSV301-base-table">
+				<section class="search-wrap">
+					<table class="w-100">
+						<tr>
+							<td class="td-w-33">
+                                <div class="input-wrap add-btn clr">
+									<label class="bw-label w-31-5">{{bxMsg 'cbb_items.SCRNITM#prsnChrg'}}</label>
+									<input type="text" class="bw-input w-68-5" data-form-param="dstbStaffIdNm" readonly="readonly"/>
+									<input type="hidden" data-form-param="dstbStaffId"/>
+									<input type="hidden" data-form-param="dstbStaffNm"/>
+			                        <button type="button" class="bw-btn fix-r" id="btn-staff-search-cond"><i class="bw-icon i-30 i-search"></i></button>
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dstbTaskId'}}">{{bxMsg 'cbb_items.AT#dstbTaskId'}}</label>
+                                    <input type="text" class="bw-input w-60"  id="searchKey" data-form-param="dstbTaskId" />
+                                </div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dstbTaskNm'}}">{{bxMsg 'cbb_items.AT#dstbTaskNm'}}</label>
+									<input type="text" class="bw-input w-60"  id="searchKey" data-form-param="dstbTaskNm" />
+                                </div>
+							</td>
+						</tr>
+						
+	                      <tr>
+	                          <td class="td-w-33"> <!-- 조건코드 -->
+	                              <div class="input-wrap clr">
+	                                  <label class="bw-label w-31-5" title="{{bxMsg 'cbb_items.AT#dstbTaskStsCd'}}">{{bxMsg 'cbb_items.AT#dstbTaskStsCd'}}</label>
+									  <select class="bw-input w-68-5 ipt-select CAPSV301-base-dstbTaskStsCd-wrap" data-form-param="dstbTaskStsCd"></select>
+	                              </div>
+	                          </td>
+	                          <td class="td-w-33">
+									<div class="input-wrap clr">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#inqryStartDt'}}">{{bxMsg 'cbb_items.AT#srchStartDtm'}}</label>
+										<input type="text" class="bw-input w-60 ipt-cal" data-form-param="srchStartDtm" />
+									</div>
+								</td>
+								<td class="td-w-33">
+			                              <div class="input-wrap clr">
+										<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#inqryEndDt'}}">{{bxMsg 'cbb_items.AT#srchEndDtm'}}</label>
+										<input type="text" class="bw-input w-60 ipt-cal" data-form-param="srchEndDtm" />
+									</div>
+								</td>
+	                      </tr>
+						
+					</table>
+				</section>
+			</section>
+
+            <!-- Grid area -->
+            <section class="grid-wrap">
+				<!-- tab 없는 그리드 영역 -->
+				<div class="bw-tool add-bd2-t add-mg-t">
+					<div class="f-l">
+	                    <h3 class="bw-desc" id="searchResultCount">{{bxMsg 'cbb_items.SCRNITM#srchRslt'}}</h3>
+	                </div>
+					<div class="btn-wrap fix-r">
+					<!-- 그리드 버튼 영역 -->
+						<button type="button" class="bw-btn" id="btn-CAPSV301-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
+						<button type="button" class="bw-btn b-ctr" id="btn-up-grid" data-info="CAPSV031-grid1"><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+				</div>
+				<div class="CAPSV301-grid" id="CAPSV301-grid"></div>
+			</section>
+
+			<section class="bw-tool add-bd2-t add-mg-t">
+				<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#CAPSV301-LIST-TITLE'}}</h3>
+				<div class="btn-wrap fix-r">
+					<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPSV301-task-cancel">{{bxMsg 'cbb_items.SCRNITM#dstbTaskCncl'}}</button>
+					<button type="button" class="bw-btn-form unit  add-mg-t-5" id="btn-CAPSV301-request-grid-run">{{bxMsg 'cbb_items.SCRNITM#dstbRun'}}</button>
+					<button type="button" class="bw-btn" id="btn-detail-refresh" title="{{bxMsg 'cbb_items.SCRNITM#reset2'}}"><i class="bw-icon i-30 i-func-refresh"></i></button>
+					
+					<button type="button" class="bw-btn" id="btn-detail-save" title="{{bxMsg 'cbb_items.SCRNITM#B_save'}}"><i class="bw-icon i-30 i-func-save"></i></button>
+					
+					<button type="button" class="bw-btn b-ctr" id="btn-detail-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+				</div>
+			</section>
+			<section class="CAPSV301-detail-table" id="CAPSV301-detail-table">	
+				<section class="search-wrap">
+					<table class="w-100">
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dstbTaskId'}}">{{bxMsg 'cbb_items.AT#dstbTaskId'}}</label>
+									<input type="text" class="bw-input w-60" data-form-param="dstbTaskId" readonly="readonly"/>
+                                </div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap asterisk clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dstbTaskNm'}}">{{bxMsg 'cbb_items.AT#dstbTaskNm'}}</label>
+									<input type="text" class="bw-input w-60" data-form-param="dstbTaskNm"/>
+                                </div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap  asterisk clr">
+                                    <label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#dstbTaskStsCd'}}">{{bxMsg 'cbb_items.AT#dstbTaskStsCd'}}</label>
+									<select class="bw-input w-60 ipt-select CAPSV301-detail-dstbTaskStsCd-wrap" data-form-param="dstbTaskStsCd" ></select>
+                                </div>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="td-w-33">
+								<div class="input-wrap asterisk clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#efctvStartDt'}}">{{bxMsg 'cbb_items.AT#efctvStartDt'}}</label>
+									<input type="text" class="bw-input w-60 ipt-cal" data-form-param="efctvStartDt" />
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap asterisk clr">
+									<label class="bw-label w-40" title="{{bxMsg 'cbb_items.AT#efctvEndDt'}}">{{bxMsg 'cbb_items.AT#efctvEndDt'}}</label>
+									<input type="text" class="bw-input w-60 ipt-cal" data-form-param="efctvEndDt" />
+								</div>
+							</td>
+							<td class="td-w-33">
+								<div class="input-wrap add-btn asterisk clr">
+									<label class="bw-label w-42">{{bxMsg 'cbb_items.SCRNITM#prsnChrg'}}</label>
+									<input type="text" class="bw-input w-58" data-form-param="dstbStaffIdNm" readonly="readonly"/>
+									<input type="hidden" data-form-param="dstbStaffId"/>
+									<input type="hidden" data-form-param="dstbStaffNm"/>
+			                        <button type="button" class="bw-btn fix-r" id="btn-staff-search"><i class="bw-icon i-30 i-search"></i></button>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td class="td-w-100" colspan="3">
+								<div class="input-wrap fix-txtarea p-rel clr" style="height:100%" >
+                        			<label class="bw-label" style="width:12%;height:120px;line-height:120px;" title="{{bxMsg 'cbb_items.AT#dstbTaskDtlCntnt'}}">{{bxMsg 'cbb_items.AT#dstbTaskDtlCntnt'}}</label>
+									<div class="txt-wrap2 fix-size f-r" style="width:88%">
+										<textarea class="bw-textarea" style="height:100px" data-form-param="dstbTaskDtlCntnt" ></textarea>
+									</div>	
+								</div>
+							</td>
+						</tr>
+					</table>
+				</section>
+			</section>
+
+
+           <!-- Grid area -->
+            <section class="grid-wrap">
+				<div class="bw-tool add-bd2-t add-mg-t">
+					<div class="f-l">
+	                    <h3 class="bw-desc" id="searchDetailResultCount">{{bxMsg 'cbb_items.SCRNITM#chngHst'}}</h3>
+	                </div>
+					<div class="btn-wrap fix-r">
+					<!-- 그리드 버튼 영역 -->
+						<button type="button" class="bw-btn" id="btn-CAPSV301-detail-grid-excel" title="{{bxMsg 'cbb_items.ABRVTN#excel'}} {{bxMsg 'cbb_items.ABRVTN#dwnld'}}"><i class="bw-icon i-30 i-func-xls"></i></button>
+						<button type="button" class="bw-btn b-ctr" id="btn-detail-up-grid"><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+				</div>
+
+				<div id="CAPSV301-task-detail-grid-area">
+					<div class="CAPSV301-task-detail-grid" id="CAPSV301-task-detail-grid"></div>
+				</div>
+			</section>
+
+			<div id="CAPSV301-task-detail-table-area">
+				<section class="bw-tool add-bd2-t add-mg-t">
+					<h3 class="bw-desc">{{bxMsg 'cbb_items.SCRNITM#chngHst'}} {{bxMsg 'cbb_items.SCRNITM#atrbt'}}</h3>
+					<div class="btn-wrap fix-r">
+						<button type="button" class="bw-btn b-ctr" id="btn-task-detail-modal" ><i class="fa fa-forward fa-rotate-270"></i></button>
+					</div>
+				</section>
+				<section class="CAPSV301-task-detail-table" id="CAPSV301-task-detail-table">	
+					<section class="search-wrap">
+						<table class="w-100">
+							<tr>
+								<td class="td-w-100" colspan="3">
+									<div class="input-wrap fix-txtarea p-rel clr" style="height:100%" >
+	                        			<label class="bw-label" style="width:12%;height:100px;line-height:120px;" title="{{bxMsg 'cbb_items.AT#dstbPkValCntnt'}}">{{bxMsg 'cbb_items.AT#dstbPkValCntnt'}}</label>
+										<div class="txt-wrap2 fix-size f-r" style="width:88%">
+											<textarea class="bw-textarea" style="height:80px" data-form-param="dstbPkValCntnt" ></textarea>
+										</div>	
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="td-w-100" colspan="3">
+									<div class="input-wrap fix-txtarea p-rel clr" style="height:100%" >
+	                        			<label class="bw-label" style="width:12%;height:100px;line-height:120px;" title="{{bxMsg 'cbb_items.AT#dplctnKeyValCntnt'}}">{{bxMsg 'cbb_items.AT#dplctnKeyValCntnt'}}</label>
+										<div class="txt-wrap2 fix-size f-r" style="width:88%">
+											<textarea class="bw-textarea" style="height:80px" data-form-param="dplctnKeyValCntnt" ></textarea>
+										</div>	
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="td-w-100" colspan="3">
+									<div class="input-wrap fix-txtarea p-rel clr" style="height:100%" >
+	                        			<label class="bw-label" style="width:12%;height:120px;line-height:120px;" title="{{bxMsg 'cbb_items.AT#dstbBfChngCntnt'}}">{{bxMsg 'cbb_items.AT#dstbBfChngCntnt'}}</label>
+										<div class="txt-wrap2 fix-size f-r" style="width:88%">
+											<textarea class="bw-textarea" style="height:100px" data-form-param="dstbBfChngCntnt" ></textarea>
+										</div>	
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="td-w-100" colspan="3">
+									<div class="input-wrap fix-txtarea p-rel clr" style="height:100%" >
+	                        			<label class="bw-label" style="width:12%;height:120px;line-height:120px;" title="{{bxMsg 'cbb_items.AT#dstbAfChngCntnt'}}">{{bxMsg 'cbb_items.AT#dstbAfChngCntnt'}}</label>
+										<div class="txt-wrap2 fix-size f-r" style="width:88%">
+											<textarea class="bw-textarea" style="height:100px" data-form-param="dstbAfChngCntnt" ></textarea>
+										</div>	
+									</div>
+								</td>
+							</tr>
+							
+						</table>
+					</section>
+				</section>
+			</div>
+        </section>
+    </section>
+</section>
