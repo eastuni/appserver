@@ -1,7 +1,0 @@
-OMM bxm.ccmainmng.online.pc.dto.SCC100501Out
-<description="  ">
-{
-	Integer rowCnt<length=6>;
-	bxm.ccmainmng.online.pc.dto.SCC1005OutSub1 listSCC1005Out<length=20 arrayReference="rowCnt">;
-	Integer totalPage<length=9 description="전체페이지갯수">;
-}

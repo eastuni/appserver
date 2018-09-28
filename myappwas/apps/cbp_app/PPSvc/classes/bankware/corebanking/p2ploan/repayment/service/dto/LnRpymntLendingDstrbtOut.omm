@@ -1,5 +1,0 @@
-OMM bankware.corebanking.p2ploan.repayment.service.dto.LnRpymntLendingDstrbtOut extends bankware.corebanking.dto.CbbIOmmObject
-<description="Loan Repayment And Lending Distribute Output">
-{
-
-}

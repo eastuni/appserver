@@ -1,9 +1,0 @@
-OMM bxm.web.admin.addition.before.image.domain.BeforeImageStatsOMM
-<description="">
-{
-	Integer statsForTableSize<length=9>;
-	bxm.web.admin.addition.before.image.domain.StatisticsForTableOMM statsForTable<length=0 arrayReference="statsForTableSize" description="테이블별 통계">;
-	bxm.web.admin.addition.before.image.domain.StatisticsForRevertCdOMM statsForRevertCd<length=0 description="보정결과 통계">;
-	Integer statsForTotalSize<length=9>;
-	bxm.web.admin.addition.before.image.domain.StatisticsForTotalOMM statsForTotal<length=0 arrayReference="statsForTotalSize" description="테이블&보정결과 통계">;
-}

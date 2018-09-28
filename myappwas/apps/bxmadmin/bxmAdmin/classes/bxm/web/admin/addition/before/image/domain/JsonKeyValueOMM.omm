@@ -1,6 +1,0 @@
-OMM bxm.web.admin.addition.before.image.domain.JsonKeyValueOMM
-<description="">
-{
-	String key<length=20>;
-	String value<length=20>;
-}

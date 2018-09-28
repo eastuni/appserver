@@ -1,5 +1,0 @@
-OMM bxm.web.admin.dni.operation.domain.SqlQueryOMM
-<description="">
-{
-	String sqlQuery<length=50000>;
-}

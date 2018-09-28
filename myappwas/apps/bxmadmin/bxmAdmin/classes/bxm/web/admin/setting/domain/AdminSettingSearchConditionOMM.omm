@@ -1,8 +1,0 @@
-OMM bxm.web.admin.setting.domain.AdminSettingSearchConditionOMM
-<description="">
-{
-	String cfgKey<length=128 description="설정키">;
-	String regUserId<length=32 description="등록 사용자 ID">;
-	Integer pageNum<length=9>;
-	Integer pageCount<length=9>;
-}

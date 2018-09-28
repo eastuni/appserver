@@ -1,7 +1,0 @@
-OMM bxm.web.admin.dni.operation.domain.ReportDbSearchConditionOMM
-<description="">
-{
-	String classNm<length=512 description="클래스 명">;
-	String methodNm<length=512 description="메소드 명">;
-	String pkgNm<length=512 description="패키지 명">;
-}

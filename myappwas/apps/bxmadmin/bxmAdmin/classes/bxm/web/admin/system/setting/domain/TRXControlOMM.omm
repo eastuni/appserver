@@ -1,9 +1,0 @@
-OMM bxm.web.admin.system.setting.domain.TRXControlOMM
-<description="">
-{
-	String allTrxCtrlYn<length=1 description="전체거래제어여부">;
-	String dtchgTrxCtrlYn<length=1 description="일자변경거래제어여부">;
-	String imgLogYn<length=1 description="이미지로그여부">;
-	String dwLogYn<length=1 description="DW로그여부">;
-	String domainId<length=14 description="도메인 ID">;
-}

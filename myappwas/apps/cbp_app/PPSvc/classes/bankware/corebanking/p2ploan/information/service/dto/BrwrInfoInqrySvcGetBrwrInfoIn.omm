@@ -1,6 +1,0 @@
-OMM bankware.corebanking.p2ploan.information.service.dto.BrwrInfoInqrySvcGetBrwrInfoIn extends bankware.corebanking.dto.CbbIOmmObject
-<description="">
-{
-	String arrId<length=20 description="Arrangement Identification">;
-	String custId<length=15 description="Customer Identification">;
-}

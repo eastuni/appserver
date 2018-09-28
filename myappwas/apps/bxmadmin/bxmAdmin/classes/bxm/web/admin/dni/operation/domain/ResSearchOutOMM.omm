@@ -1,8 +1,0 @@
-OMM bxm.web.admin.dni.operation.domain.ResSearchOutOMM
-<description="">
-{
-	String packageNm<length=512>;
-	String classNm<length=512>;
-	Integer childrenSize<length=9>;
-	bxm.web.admin.dni.operation.domain.ResSearchOutOMM children<length=20 arrayReference="childrenSize">;
-}

@@ -1,6 +1,0 @@
-OMM bxm.web.admin.online.domain.TrxGroupDetailOMM
-<description="">
-{
-	bxm.web.admin.online.domain.TrxGroupOMM trxGroupInfo<length=0>;
-	bxm.web.admin.online.domain.TrxGroupMemberOMM trxGroupMembers<length=0 arrayReference="1">;
-}

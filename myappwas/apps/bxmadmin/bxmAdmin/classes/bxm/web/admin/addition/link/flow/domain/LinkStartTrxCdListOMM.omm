@@ -1,7 +1,0 @@
-OMM bxm.web.admin.addition.link.flow.domain.LinkStartTrxCdListOMM
-<description="">
-{
-	Integer totalPage<length=9>;
-	Integer size<length=9>;
-	bxm.web.admin.addition.link.flow.domain.LinkStartTrxCdOMM trxCdList<length=0 arrayReference="size">;
-}

@@ -1,9 +1,0 @@
-OMM bxm.web.admin.setting.domain.CommonCodeSCOMM
-<description="">
-{
-	String cdId<length=9 description="코드ID">;
-	String cdNm<length=32 description="코드명">;
-	String langCd<length=2 description="언어코드">;
-	Integer pageNum<length=9>;
-	Integer pageCount<length=9>;
-}

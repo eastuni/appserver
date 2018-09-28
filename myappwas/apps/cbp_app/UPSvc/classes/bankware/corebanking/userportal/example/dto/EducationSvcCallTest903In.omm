@@ -1,7 +1,0 @@
-OMM bankware.corebanking.userportal.example.dto.EducationSvcCallTest903In
-<description=" ">
-{
-	String instCd<length=3 description="기관코드">;
-	String userNm<length=50 description="사용자명">;
-	String testCaseNbr<length=10 description="테스트케이스번호">;
-}

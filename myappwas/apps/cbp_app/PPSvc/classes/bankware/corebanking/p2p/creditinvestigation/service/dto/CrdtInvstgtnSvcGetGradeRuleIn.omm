@@ -1,5 +1,0 @@
-OMM bankware.corebanking.p2p.creditinvestigation.service.dto.CrdtInvstgtnSvcGetGradeRuleIn extends bankware.corebanking.dto.CbbIOmmObject
-<description="">
-{
-	String crdtInvstgtnTpCd<length=20 description="Credit Investigation Type">;
-}

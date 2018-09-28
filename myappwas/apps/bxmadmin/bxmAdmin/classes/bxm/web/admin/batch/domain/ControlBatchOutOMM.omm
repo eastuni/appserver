@@ -1,7 +1,0 @@
-OMM bxm.web.admin.batch.domain.ControlBatchOutOMM
-<description="">
-{
-	Integer successCount<length=9>;
-	Integer failCount<length=9>;
-	Integer skipCount<length=9>;
-}

@@ -1,6 +1,0 @@
-OMM bxm.web.admin.setting.domain.BuilderConfigNSOMM
-<description="BuilderConfigNSOMM">
-{
-	String name<length=50 description="이름">;
-	String description<length=200 description="설명">;
-}

@@ -1,5 +1,5 @@
 var baseUrl = "http://"+window.location.hostname;
-var sUrl = baseUrl+"/cpServiceEndpoint/json";
+var sUrl = baseUrl+"/cp/serviceEndpoint/json";
 var bwgPageSize = 20; //paging size
 var CgridHeight = '350px';
 var cbpMode = 'D'; 

@@ -1,7 +1,0 @@
-OMM bankware.corebanking.p2p.creditinvestigation.service.dto.CrdtInvstgtnSvcGetInfoIn extends bankware.corebanking.dto.CbbIOmmObject
-<description="">
-{
-	String custId<length=15 description="Customer Identification">;
-	String extrnlCrdtRatingCd<length=30 description="External Credit Rating">;
-	String arrearCnt<length=3 description="Arrear Count">;
-}

@@ -1,8 +1,0 @@
-OMM bxm.web.admin.addition.link.flow.domain.MapperFieldOMM
-<description="">
-{
-	String source<length=20>;
-	String inout<length=20>;
-	String type<length=20>;
-	String map<length=20>;
-}

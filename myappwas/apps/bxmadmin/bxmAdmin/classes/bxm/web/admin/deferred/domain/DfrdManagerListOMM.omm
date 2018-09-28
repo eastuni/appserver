@@ -1,6 +1,0 @@
-OMM bxm.web.admin.deferred.domain.DfrdManagerListOMM
-<description="">
-{
-	bxm.web.admin.deferred.domain.DfrdManagerOMM userList<length=0 arrayReference="1">;
-	Integer totalPage<length=9>;
-}

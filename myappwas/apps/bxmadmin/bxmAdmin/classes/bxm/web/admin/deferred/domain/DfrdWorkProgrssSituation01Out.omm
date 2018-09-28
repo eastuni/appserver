@@ -1,7 +1,0 @@
-OMM bxm.web.admin.deferred.domain.DfrdWorkProgrssSituation01Out
-<description="후행작업진행상황 출력">
-{
-	Integer listSize<length=9>;
-	bxm.web.admin.deferred.domain.DfrdWorkProgrssSituation01Sub dfrdWorkProgress<length=0 arrayReference="listSize" description="후행작업진행상황출력">;
-	Integer totalPage<length=9>;
-}

@@ -1,6 +1,0 @@
-OMM bxm.web.admin.setting.domain.AdminSettingPwdOMM
-<description="AdminSettingPwdOMM">
-{
-	String password<length=64 description="비밀번호">;
-	String cfgKey<length=128 description="설정키">;
-}

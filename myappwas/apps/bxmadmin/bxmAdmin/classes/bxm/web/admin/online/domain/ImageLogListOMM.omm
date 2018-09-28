@@ -1,8 +1,0 @@
-OMM bxm.web.admin.online.domain.ImageLogListOMM
-<description="">
-{
-	Integer size<length=9>;
-	bxm.web.admin.online.domain.ImageLogSimpleOMM imageLogList<length=0 arrayReference="size">;
-	Integer totalPage<length=9>;
-	Integer totalRow<length=9>;
-}

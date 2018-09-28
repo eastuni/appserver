@@ -1,7 +1,0 @@
-OMM bxm.web.admin.dni.operation.domain.DBTableTreeInfoOMM
-<description="">
-{
-	String tableNm<length=100 description="테이블 명">;
-	Integer columnListSize<length=9>;
-	String columnList<length=9 arrayReference="columnListSize" description="컬럼 목록">;
-}

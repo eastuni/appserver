@@ -1,9 +1,0 @@
-OMM bxm.web.admin.setting.domain.BuilderConfigPwdOMM
-<description="BuilderConfigPwdOMM">
-{
-	String namespace<length=50 description="Namespace">;
-	String property<length=100 description="설정 Key값">;
-	String value<length=500 description="설정 Value값">;
-	String password<length=64 description="비밀번호">;
-	String domainId<length=14 description="도메인 ID">;
-}

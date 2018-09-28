@@ -1,7 +1,0 @@
-OMM bankware.corebanking.p2plending.reserveagreement.service.dto.LendingAgrmntSvcRelIn extends bankware.corebanking.dto.CbbIOmmObject
-<description="">
-{
-	String arrRelKndCd<length=2 description="계약관계종류코드">;
-	String arrRelCd<length=3 description="계약관계코드">;
-	String rltdBizObjId<length=30 description="관련업무오브젝트식별자">;
-}

@@ -1,9 +1,0 @@
-OMM bankware.corebanking.p2plending.listreport.service.dto.LendingDtlInqrySvcInvstrBiddingRsltIn
-<description="Lending Detail Inquiry Input">
-{
-	String mthrArrId<length=15 description="모계약식별번호">;
-	String arrId<length=20 description="계약식별자">;
-	String custId<length=100 description="고객식별자">;
-	String inqryStartDt<length=8 description="조회시작년월일">;
-	String inqryEndDt<length=8 description="조회종료년월일">;
-}

@@ -1,6 +1,0 @@
-OMM bxm.web.admin.error.mgmt.domain.TopTrxCdOMM
-<description="">
-{
-	String trxCd<length=12 description="거래코드">;
-	Integer errOccurCnt<length=4 description="에러발생건수">;
-}

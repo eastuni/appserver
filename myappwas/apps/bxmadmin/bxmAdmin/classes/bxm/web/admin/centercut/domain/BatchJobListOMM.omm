@@ -1,7 +1,0 @@
-OMM bxm.web.admin.centercut.domain.BatchJobListOMM
-<description="">
-{
-	Integer size<length=9>;
-	bxm.web.admin.centercut.domain.BatchJobOMM batchJobList<length=20 arrayReference="size">;
-	Integer totalPage<length=9>;
-}

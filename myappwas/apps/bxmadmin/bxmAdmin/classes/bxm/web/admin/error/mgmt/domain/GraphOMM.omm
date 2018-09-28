@@ -1,7 +1,0 @@
-OMM bxm.web.admin.error.mgmt.domain.GraphOMM
-<description="">
-{
-	String logOccurDttm<length=13 description="발생일시">;
-	Integer errOccurCnt<length=4 description="에러발생건수">;
-	Boolean errEventOccurYn<length=20 description="에러이벤트발생여부">;
-}

@@ -1,5 +1,0 @@
-OMM bxm.web.admin.authority.domain.DomainListOMM
-<description="">
-{
-	bxm.web.admin.authority.domain.DomainOMM domainIdList<length=0 arrayReference="1">;
-}

@@ -1,5 +1,0 @@
-OMM bankware.corebanking.p2plending.listreport.service.dto.LendingDtlInqrySvcIn
-<description="Lending Detail Inquiry Input">
-{
-	String arrId<length=20 description="계약식별자">;
-}

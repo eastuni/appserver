@@ -1,9 +1,0 @@
-OMM bxm.web.admin.dni.operation.domain.ResTreeListInOMM
-<description="">
-{
-	String bxmAppId<length=40 description="BXM 어플리케이션 명">;
-	String pkgNm<length=512 description="패키지 명">;
-	String classNm<length=512 description="클래스 명">;
-	Boolean onlyDbio<length=20>;
-	String execTypeCd<length=1 description="실행 타입 코드">;
-}

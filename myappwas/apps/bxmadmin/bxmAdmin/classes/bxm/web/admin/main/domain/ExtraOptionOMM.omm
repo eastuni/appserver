@@ -1,6 +1,0 @@
-OMM bxm.web.admin.main.domain.ExtraOptionOMM
-<description="">
-{
-	String key<length=20 description="설정키">;
-	String value<length=20 description="설정값">;
-}

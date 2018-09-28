@@ -1,7 +1,0 @@
-OMM bxm.web.admin.system.setting.domain.TestParamListOMM
-<description="TestParamListOMM">
-{
-	Integer size<length=9>;
-	bxm.web.admin.system.setting.domain.TestParamOMM testParamList<length=0 arrayReference="size">;
-	Integer totalPage<length=9>;
-}

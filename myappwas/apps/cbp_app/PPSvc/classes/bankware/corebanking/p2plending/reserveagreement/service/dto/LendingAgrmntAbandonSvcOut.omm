@@ -1,5 +1,0 @@
-OMM bankware.corebanking.p2plending.reserveagreement.service.dto.LendingAgrmntAbandonSvcOut extends bankware.corebanking.dto.CbbIOmmObject
-<description="">
-{
-
-}

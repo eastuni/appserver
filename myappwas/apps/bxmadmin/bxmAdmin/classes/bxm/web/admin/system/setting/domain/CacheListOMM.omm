@@ -1,6 +1,0 @@
-OMM bxm.web.admin.system.setting.domain.CacheListOMM
-<description="">
-{
-	bxm.web.admin.system.setting.domain.CacheOMM cacheList<length=0 arrayReference="1">;
-	Integer totalPage<length=9>;
-}

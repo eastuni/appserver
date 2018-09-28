@@ -1,5 +1,0 @@
-OMM bxm.web.admin.deploy.domain.CommandOMM
-<description="">
-{
-	String command<length=20>;
-}

@@ -1,5 +1,0 @@
-OMM bxm.web.admin.online.domain.OnlineUrlListOMM
-<description="">
-{
-	bxm.web.admin.online.domain.OnlineUrlOMM urlList<length=0 arrayReference="1" description="url목록">;
-}

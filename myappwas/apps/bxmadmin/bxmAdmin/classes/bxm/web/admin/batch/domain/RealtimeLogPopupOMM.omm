@@ -1,9 +1,0 @@
-OMM bxm.web.admin.batch.domain.RealtimeLogPopupOMM
-<description="">
-{
-	Boolean fileReadYn<length=20>;
-	Long lastFilePoint<length=18>;
-	String logContent<length=20>;
-	String jobId<length=20>;
-	String jobName<length=20>;
-}

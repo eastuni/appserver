@@ -1,7 +1,0 @@
-OMM bxm.web.admin.setting.domain.CommonCodeListOMM
-<description="CommonCodeListOMM">
-{
-	Integer size<length=9>;
-	bxm.web.admin.setting.domain.CommonCodeOMM commonCodeList<length=0 arrayReference="size">;
-	Integer totalPage<length=9>;
-}

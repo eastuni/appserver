@@ -1,6 +1,0 @@
-OMM bxm.web.admin.dni.operation.domain.ReportResourceGridOMM
-<description="">
-{
-	Integer size<length=9>;
-	bxm.web.admin.dni.operation.domain.ReportResourceInfoOMM reportResList<length=0 arrayReference="size">;
-}

@@ -1,6 +1,0 @@
-OMM bxm.web.admin.dni.operation.domain.ResMethodListOMM
-<description="">
-{
-	Integer methodListSize<length=9>;
-	bxm.web.admin.dni.operation.domain.ResMethodOMM methodList<length=9 arrayReference="methodListSize">;
-}

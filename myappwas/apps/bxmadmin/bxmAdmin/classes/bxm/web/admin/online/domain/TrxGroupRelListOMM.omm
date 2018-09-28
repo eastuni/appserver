@@ -1,6 +1,0 @@
-OMM bxm.web.admin.online.domain.TrxGroupRelListOMM
-<description="">
-{
-	bxm.web.admin.online.domain.TrxGroupRelOMM trxList<length=0 arrayReference="1">;
-	Integer totalPage<length=9>;
-}

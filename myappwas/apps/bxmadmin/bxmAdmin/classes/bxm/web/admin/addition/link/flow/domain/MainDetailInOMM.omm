@@ -1,7 +1,0 @@
-OMM bxm.web.admin.addition.link.flow.domain.MainDetailInOMM
-<description="">
-{
-	bxm.web.admin.addition.link.flow.domain.LinkFlowMainOMM mainInfo<length=0>;
-	Integer detailListSize<length=9>;
-	bxm.web.admin.addition.link.flow.domain.LinkFlowDetailOMM detailList<length=0 arrayReference="detailListSize">;
-}

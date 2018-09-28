@@ -1,9 +1,0 @@
-OMM bxm.web.admin.dni.analyze.domain.BxmDniMethodParam
-<description="">
-{
-	String methodId<length=40 description="메소드 ID">;
-	String paramFqn<length=1024 description="파라미터 FQN">;
-	Integer paramSeq<length=9 description="파라미터 일련번호">;
-	String paramTypeCd<length=1 description="파라미터 타입 코드">;
-	String modifyDttm<length=14 description="변경 일시">;
-}

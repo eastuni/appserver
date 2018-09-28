@@ -1,7 +1,0 @@
-OMM bxm.web.admin.batch.domain.BatchJobMonInfoOutOMM
-<description="">
-{
-	bxm.web.admin.batch.domain.BatchJobMonOMM batchJobMonInfo<length=0 description="배치 작업 모니터링 상세">;
-	Integer stepListSize<length=9>;
-	bxm.web.admin.batch.domain.BatchStepOMM stepList<length=0 arrayReference="stepListSize" description="배치 작업 STEP 목록">;
-}

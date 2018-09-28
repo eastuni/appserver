@@ -1,6 +1,0 @@
-OMM bxm.web.admin.dni.operation.domain.ReportDbDataListOMM
-<description="">
-{
-	Integer tableListSize<length=9>;
-	bxm.web.admin.dni.operation.domain.ReportDbTableOMM tableList<length=0 arrayReference="tableListSize">;
-}

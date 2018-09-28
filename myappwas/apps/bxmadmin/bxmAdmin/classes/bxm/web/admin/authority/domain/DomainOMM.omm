@@ -1,7 +1,0 @@
-OMM bxm.web.admin.authority.domain.DomainOMM
-<description="">
-{
-	String domainId<length=14 description="도메인ID">;
-	String domainNm<length=32 description="도메인명">;
-	String domainDesc<length=512 description="도메인설명">;
-}

@@ -1,6 +1,0 @@
-OMM bxm.web.admin.dni.operation.domain.ResAppListOMM
-<description="">
-{
-	Integer appListSize<length=9>;
-	String appList<length=20 arrayReference="appListSize">;
-}

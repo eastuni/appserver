@@ -1,7 +1,0 @@
-OMM bxm.web.admin.setting.domain.UserPermissionListOMM
-<description="UserPermissionListOMM">
-{
-	Integer size<length=9>;
-	bxm.web.admin.setting.domain.UserPermissionOMM userPermissionList<length=0 arrayReference="size">;
-	Integer totalPage<length=9>;
-}

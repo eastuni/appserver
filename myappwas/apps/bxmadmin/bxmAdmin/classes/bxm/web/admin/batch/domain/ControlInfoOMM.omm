@@ -1,6 +1,0 @@
-OMM bxm.web.admin.batch.domain.ControlInfoOMM
-<description="">
-{
-	Integer jobInstanceId<length=9>;
-	String frmInstanceId<length=20>;
-}

@@ -1,7 +1,0 @@
-OMM bxm.web.admin.online.domain.ExecuteTranOutOMM
-<description="">
-{
-	Integer responseCode<length=9 description="응답코드">;
-	String newGuid<length=20>;
-	Integer trxResponseCode<length=9>;
-}

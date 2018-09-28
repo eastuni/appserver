@@ -1,7 +1,0 @@
-OMM bxm.web.admin.setting.domain.UserPermissionPwdOMM
-<description="UserPermissionPwdOMM">
-{
-	String password<length=64 description="비밀번호">;
-	String authId<length=40 description="권한ID">;
-	String domainId<length=14 description="도메인ID">;
-}

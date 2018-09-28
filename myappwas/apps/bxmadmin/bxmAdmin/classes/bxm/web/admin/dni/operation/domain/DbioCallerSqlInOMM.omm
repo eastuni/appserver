@@ -1,7 +1,0 @@
-OMM bxm.web.admin.dni.operation.domain.DbioCallerSqlInOMM
-<description="">
-{
-	String classNm<length=512>;
-	String columnNm<length=100>;
-	String tableNm<length=100>;
-}

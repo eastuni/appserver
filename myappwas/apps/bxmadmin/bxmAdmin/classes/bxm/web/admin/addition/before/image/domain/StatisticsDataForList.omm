@@ -1,7 +1,0 @@
-OMM bxm.web.admin.addition.before.image.domain.StatisticsDataForList
-<description="">
-{
-	String tableNm<length=100 description="테이블 명">;
-	String revertResultCd<length=1 description="반영결과코드">;
-	Integer count<length=9 description="개수">;
-}

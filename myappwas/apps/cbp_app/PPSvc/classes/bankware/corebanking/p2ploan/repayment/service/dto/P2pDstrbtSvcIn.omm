@@ -1,5 +1,0 @@
-OMM bankware.corebanking.p2ploan.repayment.service.dto.P2pDstrbtSvcIn extends bankware.corebanking.dto.CbbIOmmObject
-<description="">
-{
-	String arrId<length=20 description="계약식별자">;
-}

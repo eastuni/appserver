@@ -1,7 +1,0 @@
-OMM bxm.web.admin.setting.domain.UserRoleInfoOutOMM
-<description="UserRoleInfoOutOMM">
-{
-	bxm.web.admin.setting.domain.UserRoleOMM userRole<length=0 description="Role 상세조회">;
-	bxm.web.admin.setting.domain.RoleMenuOMM userRoleMenu<length=0 description="Role과 매칭되는 Menu 정보">;
-	bxm.web.admin.setting.domain.RolePermissionOMM userRolePermission<length=0 description="Role과 매칭되는 Permission 정보">;
-}

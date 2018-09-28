@@ -1,7 +1,0 @@
-OMM bankware.corebanking.p2plending.reserveagreement.service.dto.LendingProfitSmltnSvcIn
-<description="Lending Profit Simulation Service In">
-{
-	bankware.corebanking.p2p.simulation.service.dto.CshflwSmltnSvcGetCshflwSmltnIn cshflwSmltnIn<length=0>;
-	bankware.corebanking.p2plending.reserveagreement.service.dto.LendingAgrmntSvcLendingAgrmntIn loanAgrmntIn<length=0>;
-	bankware.corebanking.p2plending.reserveagreement.service.dto.LendingAgrmntSvcLendingAgrmntIn lendingAgrmntIn<length=0>;
-}

@@ -1,7 +1,0 @@
-OMM bankware.corebanking.p2ploan.repayment.service.dto.LnRpymntPlnListIn extends bankware.corebanking.dto.CbbIOmmObject
-<description="Loan Repayment Plan List Input">
-{
-	bankware.corebanking.p2ploan.information.service.dto.LnListOut arrIdList<length=0 arrayReference="100" description="계약식별자목록">;
-	String inqryStartDt<length=20 description="조회시작일자">;
-	String inqryEndDt<length=20 description="조회종료일자">;
-}

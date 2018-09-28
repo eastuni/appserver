@@ -25,15 +25,12 @@ VOLUME /app
 COPY httpconf/00-cbp.conf /etc/apache2/sites-available/
 COPY product	/app_init/product
 COPY cbpprod	/app_init/cbpprod
-COPY apps			/app_init/apps
-COPY ui				/app_init/ui
-COPY bash_aliases /home/${appuser}/.bash_aliases
+COPY ui	/app_init/ui
 COPY admin_conf		/app_init/admin_conf
 COPY online_conf	/app_init/online_conf
-COPY svn			/app_init/svn
-COPY pf				/app_init/pf
 COPY pf_conf	/app_init/pf_conf
 COPY pfdist_conf	/app_init/pfdist_conf
+COPY bash_aliases /home/${appuser}/.bash_aliases
 
 RUN chown ${appuser}:${appuser} /home/${appuser}/.bash_aliases \
 		&& a2ensite 00-cbp  

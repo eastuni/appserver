@@ -1,6 +1,0 @@
-OMM bxm.ccmainmng.online.pc.dto.SCC100102Out
-<description="  ">
-{
-	Integer rowCnt<length=6>;
-	bxm.ccmainmng.online.pc.dto.SCC1001OutSub1 listSCC1001Out<length=0 arrayReference="rowCnt">;
-}

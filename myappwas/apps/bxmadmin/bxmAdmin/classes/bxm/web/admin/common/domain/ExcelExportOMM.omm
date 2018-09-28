@@ -1,6 +1,0 @@
-OMM bxm.web.admin.common.domain.ExcelExportOMM
-<description="">
-{
-	Boolean exportResult<length=20>;
-	String filePath<length=20>;
-}

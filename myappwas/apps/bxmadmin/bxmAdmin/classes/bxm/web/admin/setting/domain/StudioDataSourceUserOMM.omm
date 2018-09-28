@@ -1,6 +1,0 @@
-OMM bxm.web.admin.setting.domain.StudioDataSourceUserOMM
-<description="">
-{
-	String userId<length=32 description="사용자ID">;
-	String userNm<length=50 description="사용자명">;
-}

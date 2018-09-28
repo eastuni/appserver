@@ -1,7 +1,0 @@
-OMM bxm.ccmainmng.online.dto.BxmCCMain01IO
-<description=" ">
-{
-	Integer rowCnt<length=9>;
-	bxm.ccmainmng.online.pc.dto.SCC100101Out out<length=0 arrayReference="rowCnt">;
-	Integer totalPage<length=9>;
-}

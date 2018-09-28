@@ -1,6 +1,0 @@
-OMM bxm.web.admin.common.domain.ExcelImportOMM
-<description="">
-{
-	String fileName<length=20>;
-	String filePath<length=20>;
-}

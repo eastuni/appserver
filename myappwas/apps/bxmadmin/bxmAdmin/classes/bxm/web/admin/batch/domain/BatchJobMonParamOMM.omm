@@ -1,6 +1,0 @@
-OMM bxm.web.admin.batch.domain.BatchJobMonParamOMM
-<description="BatchJobMonParamOMM">
-{
-	String keyName<length=100 description="실행파라미터 KEY">;
-	String stringVal<length=4000 description="실행파라미터 String 값">;
-}

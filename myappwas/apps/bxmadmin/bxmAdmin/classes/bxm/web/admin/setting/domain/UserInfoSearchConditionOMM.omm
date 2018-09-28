@@ -1,9 +1,0 @@
-OMM bxm.web.admin.setting.domain.UserInfoSearchConditionOMM
-<description="">
-{
-	Integer pageNum<length=9>;
-	Integer pageCount<length=9>;
-	String userNm<length=50 description="사용자명">;
-	String roleId<length=40 description="역할ID">;
-	String domainId<length=14 description="도메인 ID">;
-}

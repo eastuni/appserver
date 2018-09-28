@@ -1,8 +1,0 @@
-OMM bankware.corebanking.p2ploan.open.service.dto.LnAgrmntCashFlwSchdlIn extends bankware.corebanking.dto.CbbIOmmObject
-<description="">
-{
-	String arrId<length=20 description="계약식별자">;
-	String inqryStartDt<length=20 description="조회시작일자">;
-	String inqryEndDt<length=20 description="조회종료일자">;
-	String custId<length=20 description="고객식별자">;
-}

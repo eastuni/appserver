@@ -1,6 +1,0 @@
-OMM bxm.ccmainmng.online.dao.dto.SelectBxmCCInputBatch01EOut
-<description=" ">
-{
-	BigDecimal ttObjCnt<length=10 description="총대상건수">;
-	BigDecimal ttObjAmt<length=19 decimal=2 description="총대상금액">;
-}

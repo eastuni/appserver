@@ -1,8 +1,0 @@
-OMM bankware.corebanking.p2plending.reserveagreement.service.dto.LendingProfitSmltnSvcLendingAgrmntAplctnIn extends bankware.corebanking.dto.CbbIOmmObject
-<description="">
-{
-	String pdCd<length=20 description="상품코드">;
-	bankware.corebanking.p2plending.reserveagreement.service.dto.LendingProfitSmltnSvcLendingAgrmntPdCndIn cndCdList<length=0 arrayReference="50">;
-	bankware.corebanking.p2plending.reserveagreement.service.dto.LendingProfitSmltnSvcLendingAgrmntPDXtnIn xtnList<length=0 arrayReference="20">;
-	bankware.corebanking.p2plending.reserveagreement.service.dto.LendingProfitSmltnSvcLendingAgrmntPdRelIn relList<length=0 arrayReference="10">;
-}

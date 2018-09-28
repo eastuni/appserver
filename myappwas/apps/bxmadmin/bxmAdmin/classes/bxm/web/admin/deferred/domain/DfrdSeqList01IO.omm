@@ -1,7 +1,0 @@
-OMM bxm.web.admin.deferred.domain.DfrdSeqList01IO
-<description="">
-{
-	Integer listSize<length=9>;
-	bxm.web.admin.deferred.domain.DfrdSeq01IO dfrdNumering<length=0 arrayReference="listSize">;
-	Integer totalPage<length=9>;
-}

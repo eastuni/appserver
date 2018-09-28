@@ -1,8 +1,0 @@
-OMM bankware.corebanking.systemcommon.batch.interfaces.dto.BatchJobAttrIO
-<description="배치작업속성입출력">
-{
-	String batchJobId<length=200 description="배치작업식별자">;
-	String parmAtrbtNm<length=30 description="파라미터속성명">;
-	String parmDesc<length=1000 description="파라미터설명">;
-	String parmVal<length=1000 description="파라미터값">;
-}

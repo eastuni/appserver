@@ -1,7 +1,0 @@
-OMM bankware.corebanking.p2plending.bidding.service.dto.BiddingStsQuerySvcIn extends bankware.corebanking.dto.CbbIOmmObject
-<description="">
-{
-	String aplctnNbr<length=20 description="Application Number">;
-	String custId<length=15 description="Customer Identification">;
-	String arrId<length=15 description="Arrangement Identification">;
-}

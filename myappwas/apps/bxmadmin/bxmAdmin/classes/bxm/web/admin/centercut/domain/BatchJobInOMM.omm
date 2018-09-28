@@ -1,8 +1,0 @@
-OMM bxm.web.admin.centercut.domain.BatchJobInOMM
-<description="">
-{
-	String jobId<length=20 description="작업ID">;
-	String jobNm<length=20 description="작업명">;
-	Integer pageNum<length=9>;
-	Integer pageCount<length=9>;
-}

@@ -1,8 +1,0 @@
-OMM bxm.web.admin.dni.operation.domain.ResTreeListOMM
-<description="">
-{
-	Integer treeListSize<length=9>;
-	String treeList<length=9 arrayReference="treeListSize">;
-	Integer classListSize<length=9>;
-	String classList<length=9 arrayReference="classListSize">;
-}

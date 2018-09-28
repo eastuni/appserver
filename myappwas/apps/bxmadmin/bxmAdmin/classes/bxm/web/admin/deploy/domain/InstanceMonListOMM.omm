@@ -1,6 +1,0 @@
-OMM bxm.web.admin.deploy.domain.InstanceMonListOMM
-<description="">
-{
-	Integer size<length=9>;
-	bxm.web.admin.deploy.domain.InstanceMonOMM instanceMonList<length=0 arrayReference="size">;
-}

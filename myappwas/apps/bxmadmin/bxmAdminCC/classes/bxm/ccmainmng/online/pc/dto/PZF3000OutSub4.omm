@@ -1,9 +1,0 @@
-OMM bxm.ccmainmng.online.pc.dto.PZF3000OutSub4
-<description="  ">
-{
-	String ccId<length=9 description="CCID">;
-	Integer acptNo<length=3 description="접수번호">;
-	Integer tnNo<length=2 description="회차번호">;
-	String srvrId<length=4 description="서버ID">;
-	Integer pcsnPrcsCnt<length=3 description="처리프로세스수">;
-}

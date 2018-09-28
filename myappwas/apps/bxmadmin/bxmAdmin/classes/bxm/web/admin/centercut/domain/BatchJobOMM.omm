@@ -1,7 +1,0 @@
-OMM bxm.web.admin.centercut.domain.BatchJobOMM
-<description="">
-{
-	String jobId<length=20>;
-	String jobNm<length=20>;
-	String bxmAppId<length=20>;
-}

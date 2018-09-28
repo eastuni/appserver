@@ -1,5 +1,0 @@
-OMM bankware.corebanking.p2ploan.information.service.dto.LnDtlInqrySvcResidualBiddingTmOut extends bankware.corebanking.dto.CbbIOmmObject
-<description="">
-{
-	String residualBiddingHms<length=10 description="잔여입찰시간">;
-}

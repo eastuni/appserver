@@ -1,8 +1,0 @@
-OMM bxm.web.admin.main.domain.ComCdGroupOMM
-<description="">
-{
-	String cdId<length=20 description="코드ID">;
-	String cdNm<length=20 description="코드명">;
-	Integer cdSize<length=9 description="코드 사이즈">;
-	bxm.web.admin.main.domain.ComCdOMM cdList<length=0 arrayReference="cdSize" description="코드 리스트">;
-}

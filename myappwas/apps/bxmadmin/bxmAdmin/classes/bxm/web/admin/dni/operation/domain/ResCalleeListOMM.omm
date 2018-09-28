@@ -1,6 +1,0 @@
-OMM bxm.web.admin.dni.operation.domain.ResCalleeListOMM
-<description="">
-{
-	Integer size<length=9>;
-	bxm.web.admin.dni.operation.domain.ResCalleeOutOMM calleeList<length=9 arrayReference="size">;
-}

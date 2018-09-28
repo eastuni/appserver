@@ -1,7 +1,0 @@
-OMM bxm.web.admin.dni.operation.domain.ResSvcCallerInOMM
-<description="">
-{
-	String calleeBxmAppId<length=40 description="Callee 어플리케이션 명">;
-	String calleeSvcNm<length=512 description="Callee 서비스 명">;
-	String calleeOpNm<length=512 description="Callee 오퍼레이션 명">;
-}

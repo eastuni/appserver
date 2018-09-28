@@ -1,9 +1,0 @@
-OMM bxm.web.admin.main.domain.MenuOMM
-<description="">
-{
-	String menuId<length=40 description="메뉴ID">;
-	String menuNm<length=128 description="메뉴명">;
-	BigDecimal menuSeq<length=22 description="메뉴Seq">;
-	Integer childListSize<length=9>;
-	bxm.web.admin.main.domain.MenuOMM childMenuList<length=0 arrayReference="childListSize">;
-}
