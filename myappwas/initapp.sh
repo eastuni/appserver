@@ -5,6 +5,7 @@ appuser=apprun
 ciuser=jenkins
 
 echo "init app"
+rm -rf /app/*
 mkdir -p /app/apprun
 
 washome=/app/cbpprod/was_instance
@@ -28,7 +29,9 @@ pfhome=$webapps/pf
 pflibDir=$pfhome/WEB-INF/lib
 # UI
 mkdir -p $pflibDir
-cp -r $pfDir/ui/* $pfhome
+#cp -r $pfDir/ui/* $pfhome
+mkdir -p /app/ui/pf
+cp -r $pfDir/ui/* /app/ui/pf
 
 # lib
 cp $pfDir/lib/pf/*.jar $pflibDir/
